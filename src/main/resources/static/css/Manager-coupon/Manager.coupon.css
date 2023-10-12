@@ -517,6 +517,7 @@ audio, canvas, embed, iframe, img, object, svg, video {
     margin-left: 60px;
 }
 .coupon-list {
+    margin-top: 50px;
     gap: 24px;
     justify-content: center;
     align-items: center;

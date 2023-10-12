@@ -257,12 +257,12 @@ menu, ol, ul {
     display: flex;
 }
 .categories-post {
-     width: 24px;
-     height: 24px;
-     margin-right: 10px;
-     color: black;
-     fill: black;
- }
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    color: black;
+    fill: black;
+}
 .categories-say {
     width: 24px;
     height: 24px;
@@ -492,8 +492,8 @@ i.bx {
 
 .select-Menu .options {
     font-size: 14px;
-    margin-top: 140px;
-    margin-left: 5px;
+    margin-top: 155px;
+    margin-left: -20px;
     display: none;
     background-color: #fff;
     border: 1px solid #f1f1f1;
