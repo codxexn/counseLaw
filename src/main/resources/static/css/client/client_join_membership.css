@@ -1,0 +1,1061 @@
+body,html{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    -webkit-font-smoothing: antialiasing;
+    background-color: #f1f4f6;
+}
+
+div, input, label, button, span, ul, li, a{
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+}
+
+label{
+
+    display: inline-block;
+
+    max-width: 100%;
+}
+
+a, div, input, label, html, i, ul, li{
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+div, button{
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+#root_view{
+    height: 100%;
+}
+
+.CourseLaw_auth{
+    margin: 0 auto;
+    max-width: 480px;
+    width: 100%;
+}
+
+
+.law_sign_up_container{
+display: block;
+    width: 100%;
+}
+
+.auth_box_header{
+    background-color: #fff;
+    margin: 0 8px 8px;
+    padding: 28px 20px 20px;
+    position: relative;
+}
+
+.auth_body{
+    padding: 0 8px;
+}
+
+.auth_box_header_title{
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 125%;
+    color: #2b2d2f;
+    margin-top: 16px;
+}
+
+img{
+    width: 112px;
+    height: 40px;
+}
+
+.law_auth_nav_button{
+    background-color: #1ec800;
+    border: 1px solid #18bd00;
+    border-radius: 0;
+    color: #fff;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    height: 44px;
+    line-height: 44px;
+    margin: 12px 0;
+    padding: 0;
+    text-align: left;
+    width: 100%;
+}
+
+.law_auth_kao_button{
+    background-color: #ffeb00;
+    border: 1px solid #f7e317;
+    border-radius: 0;
+    color: #3c1e1e;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    height: 44px;
+    line-height: 44px;
+    margin: 4px 0 12px;
+    padding: 0;
+    text-align: left;
+    width: 100%;
+}
+
+.law_auth_card{
+    margin-bottom: 0;
+    background: none #fff;
+    width: 100%;
+}
+
+.nav_icon{
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: 19px 17.5px;
+    float: left;
+    height: 100%;
+    margin: 0 12px;
+    width: 19px;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAjCAYAAAD48HgdAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MTM1N0NCQzI1QUVFMTFFNUJBQkFBRkI4NEI0RERBOUYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MTM1N0NCQzM1QUVFMTFFNUJBQkFBRkI4NEI0RERBOUYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoxMzU3Q0JDMDVBRUUxMUU1QkFCQUFGQjg0QjREREE5RiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoxMzU3Q0JDMTVBRUUxMUU1QkFCQUFGQjg0QjREREE5RiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Po5F/GUAAAFrSURBVHjazJgxS8NgGIS/FCHQQlenDoJDB8UOdlBEEDv7F5ycHKSbjq51EvwB/gZnRRDRoQ4ROzgIDk6uhQoFqd4L90JG8zWRO7i+HZrk6V2bfEn4idNBKKCYAyT2EoprAq8mSfL+V7CiB4gFM93BO4CbVQFWC/Haho9CRZonMdMU7iC1V6UqXUN4E3DfKlW6uvCxWpUuS6uL1DKlKl0jeB1wU5UqXSvwqVqVLjunbSG1R6UqXW/wGuC+VKp0LcMDtSrz6iG1G6UqXR/2hwDcWKVKVws+V6zStQdf/RfYJ7xYwWfnBotKoXIw/KBtu0u83VcEa/L62JIC4/lpF+NaDoxwFxiHimB1jGdeinTACLeBcV/mCbuUHXGZcyaXGFNLMZ64YNQBI1yHd00LElXmgLOyltelJsbULK0H3tbpgBGujWHppRJV5sDtkcGJXGJMzb70LR++6IARbgnjBW4oLa0DH+z1Y7b9FWAAo0lGhE5QFi8AAAAASUVORK5CYII=");
+}
+
+.law_auth_nav_button > span.vertical_line{
+    border-right: 1px solid #18bd00;
+    display: inline-block;
+    float: left;
+    height: 100%;
+}
+
+span.text{
+    display: inline-block;
+    float: left;
+    margin: 0 12px;
+}
+
+.kao_icon{
+    background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: 24px;
+        float: left;
+        height: 100%;
+        margin: 0 7px;
+        width: 30px;
+        background-image: url('https://d2nyk3ltml4doc.cloudfront.net/lawtalk/latest/images/f68fbcaa58e2893c0642.png');
+}
+
+.law_auth_kao_button > span.vertical_line{
+    border-right: 1px solid #f7e317;
+    display: inline-block;
+    float: left;
+    height: 100%;
+}
+
+.law_auth_card_header{
+    background-color: #f9f6f4;
+    box-sizing: border-box;
+    color: #333;
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    height: 32px;
+    line-height: 32px;
+    margin-top: 8px;
+    padding: 0 16px!important;
+}
+
+
+.law_auth_card_body{
+padding: 10px 16px 30px;
+}
+
+
+
+
+.form_group{
+margin-bottom: 15px;
+margin-top: 50px;
+     overflow: visible;
+     position: relative;
+     margin-bottom: 15px;
+         font-size: 14px!important;
+         font-weight: 400!important;
+         line-height: 28px!important;
+         top: 10px;
+}
+
+
+
+.label_color{
+font-size: 14px!important;
+    font-weight: 400!important;
+    line-height: 28px!important;
+    top: 10px;
+    color: #757575!important;
+}
+
+.form_group > label{
+font-size: 14px!important;
+    font-weight: 400!important;
+    line-height: 28px!important;
+    top: 10px;
+        color: #757575!important;
+        transform: translateY(-140%);
+        background-color: #fff;
+            left: 0;
+            margin: 0;
+                pointer-events: none;
+                position: absolute;
+                transition: all .3s ease-out;
+                    width: 100%;
+
+}
+
+
+form,h3{
+border: 0;
+    font: inherit;
+    font-size: 100%;
+    margin: 0;
+    vertical-align: baseline;
+
+}
+
+
+input:not([type="range"]):not([type="color"]):not([type="button"]):not([type="reset"]):not([type="submit"]):not([type="file"]) {
+    writing-mode: horizontal-tb !important;
+}
+
+
+*, :after, :before {
+box-sizing: border-box;
+}
+
+.form_group{
+    margin-bottom: 15px;
+}
+
+input.material_form_control{
+    border-bottom: 1px solid #ddd;
+    border-radius: 0!important;
+    box-shadow: none!important;
+    color: #757575;
+    font-size: 14px;
+    height: 44px;
+    padding: 10px 0;
+     display: block;
+     line-height: 1.42857143;
+     outline: 0 none!important;
+     transition: all .3s ease-out;
+      width: 100%;
+}
+
+input, select{
+font-family: inherit;
+font-size: inherit;
+    line-height: inherit;
+}
+
+.inline-button{
+
+}
+
+.inline-button{
+    color: #0091b3;
+    font-size: 14px;
+    position: absolute;
+    right: 0;
+    top: 15px;
+    z-index: 2;
+     background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+a{
+    background-color: transparent;
+}
+
+button{
+border-radius:0;}
+
+button.inline-button:disabled{
+color: #757575;
+}
+
+
+
+.without-vertical-padding{
+padding: 0 16px;
+border-top: 1px solid #f9f6f4;
+padding: 0 16px!important;
+}
+
+
+.pull-left{
+font-size: 13px;
+float: left!important;
+}
+
+.pull-right{
+float: right!important;
+}
+
+.law-switch{
+    display: inline-block;
+}
+
+.law-auth-card-body-item{
+border-bottom: 0;
+    line-height: 60px;
+}
+
+.law-auth-card-body-item::before{
+clear: both;
+    content: "";
+    display: table;
+    float: none;
+}
+
+.form-group-checkbox{
+vertical-align: middle;
+margin-bottom: 0!important;
+    position: relative;
+    transition: all .3s ease;
+}
+
+.law-auth-card-body-item::after{
+    clear: both;
+        content: "";
+        display: table;
+        float: none;
+
+}
+
+.form-group-checkbox::before{
+clear: both;
+    content: "";
+    display: table;
+    float: none;
+}
+
+.form-group-checkbox::after{
+clear: both;
+    content: "";
+    display: table;
+    float: none;
+}
+
+input[type=checkbox]{
+    line-height: normal;
+    margin: 4px 0 0;
+    box-sizing: border-box;
+        padding: 0;
+}
+
+
+input[type=checkbox]{
+    left: -9999px;
+        position: absolute;
+}
+
+.law-switch input[type=checkbox]:checked+label{
+background-color: #37b0c9;
+}
+
+.law-switch input[type=checkbox] + label{
+border-radius: 20px;
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    margin-right: 2px;
+    outline: 0;
+    position: relative;
+        transition: background-color .3s ease;
+        vertical-align: middle;
+        width: 35px;
+}
+
+.law-switch input[type=checkbox]:checked + label::after{
+left: 20px;
+}
+
+
+
+.law-switch input[type=checkbox]+label::after{
+background-color: #fff;
+    border-radius: 10px;
+    content: "";
+    height: 10px;
+        position: absolute;
+        transition: all .3s ease;
+            width: 10px;
+                top: 5px;
+}
+
+input{
+color: inherit;
+    font: inherit;
+}
+
+
+
+
+.material-dropdown-menu{
+    position: static;
+    display: block;
+        width: 100%;
+}
+
+
+.material-form-control{
+   border-radius: 0!important;
+       box-shadow: none!important;
+       font-size: 14px;
+           height: 44px;
+           box-shadow: none!important;
+           padding: 10px 0;
+
+}
+
+.material-form-control{
+       border: 0;
+       line-height: 1.42857143;
+           outline: 0 none!important;
+           transition: all .3s ease-out;
+               width: 100%;
+               background: none transparent;
+                   cursor: pointer;
+                   text-align: left;
+                   z-index: 5;
+}
+
+.material-dropdown-menu button{
+    color: #333!important;
+}
+
+.waves-effect{
+-webkit-tap-highlight-color: transparent;
+                           overflow: hidden;
+                               position: relative;
+                               user-select: none;
+}
+
+
+
+
+
+.material-dropdown-menu-content{
+            background-color: #fff;
+            box-shadow: 0 1px 4px 0 rgba(0,0,0,.37);
+            box-sizing: border-box;
+            display: block;
+            left: 0;
+            max-height: 0;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            transition: width .3s ease-out,max-height .3s ease-out;
+                visibility: hidden;
+                width: 0;
+                z-index: 10;
+}
+
+.material-dropdown-menu-content > ul{
+display: block;
+    list-style: none;
+    margin: 0;
+    padding: 8px;
+    width: 100%;
+}
+
+.material-dropdown-menu-content > ul >li{
+box-sizing: border-box;
+    display: block;
+    width: 100%;
+}
+
+.material-dropdown-menu-content>ul>li a{
+color: #333;
+    cursor: pointer;
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    width: 100%
+}
+
+.material-dropdown-original select{
+   visibility: hidden;
+}
+
+
+
+select, button, input{
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+
+select{
+    text-transform: none;
+}
+
+.material-dropdown-menu select+label{
+    opacity: 0;
+}
+
+.material-dropdown-menu label{
+background-color: #fff;
+    font-size: 16px;
+        font-weight: 300;
+        left: 0;
+        line-height: 1.42857143;
+        margin: 0;
+        pointer-events: none;
+        position: absolute;
+        top: 6px;
+            transition: all .3s ease-out;
+            width: 100%;
+}
+
+label{
+    display: inline-block;
+    max-width: 100%;
+}
+
+select:not(:-internal-list-box) {
+    overflow: visible !important;
+}
+
+select{
+writing-mode: horizontal-tb !important;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-indent: 0px;
+    text-shadow: none;
+        display: inline-block;
+        text-align: start;
+        appearance: auto;
+        white-space-collapse: preserve;
+        text-wrap: nowrap;
+            -webkit-rtl-ordering: logical;
+            background-color: field;
+            cursor: default;
+            border-width: 1px;
+                border-style: solid;
+                border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+                border-image: initial;
+                border-radius: 0px;
+}
+
+option{
+font-weight: normal;
+    display: block;
+    white-space-collapse: collapse;
+    text-wrap: nowrap;
+    min-height: 1.2em;
+    padding: 0px 2px 1px;
+}
+
+
+.material-dropdown-original select{
+left: -9999px;
+    position: absolute;
+}
+
+.contract-consensus-container{
+background: #fff;
+    padding: 31px 16px 46px;
+    width: 100%;
+}
+
+.contract-consensus-all-wrap{
+    margin-bottom: 14px;
+}
+
+.contract-consensus-line{
+    background: #e0e0e0;
+    height: 1px;
+    margin-top: 24px;
+    width: 100%;
+}
+
+.contract-consensus-check-box-container{
+    margin-top: 17px;
+}
+
+.contract-consensus-checkbox-wrap{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 26px;
+}
+
+.contract-consent-all-text{
+    color: #757575;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    margin-left: 34px;
+    margin-top: 8px;
+}
+
+
+.contract-consensus-checkbox{
+display:none;}
+
+.contract-consensus-checkbox-label{
+align-items: center;
+    cursor: pointer;
+    display: flex;
+    position: relative;
+}
+
+.contract-consensus-checkbox-label::before{
+    border: 1px solid #e0e0e0;
+    content: "";
+    height: 24px;
+    position: absolute;
+    width: 24px;
+}
+
+.contract-consensus-checkbox-label::after{
+        border-bottom: 2.25px solid #f1f1f1;
+        border-left: 2.25px solid #f1f1f1;
+        content: "";
+        height: 7px;
+        left: 7px;
+        position: absolute;
+        top: 3px;
+        transform: rotate(-45deg);
+        width: 11px;
+}
+
+.contract-consensus-checkbox-sub-text, .contract-consensus-checkbox-text{
+font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+        color: #555;
+        line-height: 16px;
+        margin-left: 34px;
+}
+
+.contract-consensus-checkbox-sub-text{
+color: #999;
+    margin-left: 4px;
+}
+
+
+.contract-consensus-link{
+color: #757575;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+a{
+cursor: pointer;
+    text-decoration: none;
+}
+
+.contract-consensus-marketing-accept-text{
+color: #757575;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    margin-left: 34px;
+    margin-top: 8px;
+    word-break: break-all;
+}
+
+.marketing-checkbox{
+display: none;
+}
+
+.contract-consensus-marketing-accept-checkbox-label{
+cursor: pointer;
+    display: inline;
+
+        margin-right: 5px;
+        position: relative;
+
+
+}
+
+.contract-consensus-marketing-accept-checkbox-text{
+    color: #cfcfcf;
+    margin-left: 24px;
+}
+
+.contract-consensus-marketing-accept-checkbox-label::after{
+border-bottom: 2.25px solid #f1f1f1;
+    border-left: 2.25px solid #f1f1f1;
+    content: "";
+    height: 7px;
+    left: 7px;
+    position: absolute;
+    top: 1px;
+    transform: rotate(-45deg);
+    width: 11px;
+}
+
+
+.it-mobile{
+display: none!important;}
+
+
+.description{
+font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 17px;
+    color: #555;
+        margin-bottom: -3px;
+        padding-top: 9px;
+}
+
+.user-age-check-item{
+margin-top: 22px;
+}
+
+.description a{
+color: #1393ff;
+}
+
+.user-age-check-wrap{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.user-age-check-checkbox{
+display: none;
+}
+
+.user-age-check-checkbox:checked+label::before{
+border-color: #f50;
+}
+
+.user-age-check-checkbox:checked+label::after{
+border-color: #f50;
+}
+
+.user-age-check-label{
+align-items: center;
+    cursor: pointer;
+    display: flex;
+    position: relative;
+}
+
+
+.user-age-check-label::before{
+border: 1px solid #cfcfcf;
+    content: "";
+    height: 22px;
+    position: absolute;
+    width: 22px;
+}
+
+.user-age-check-label::after{
+    border-bottom: 2px solid #cfcfcf;
+    border-left: 2px solid #cfcfcf;
+    content: "";
+    height: 8px;
+    left: 5px;
+    position: absolute;
+    top: 4px;
+    transform: rotate(-45deg);
+    width: 13px;
+}
+
+.user-age-check-text{
+color: #333;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 22px;
+    margin-left: 34px;
+}
+
+.law-auth-card-footer{
+    background-color: #fff;
+    padding: 16px;
+    text-align: center;
+}
+
+.law-auth-card-footer-button{
+    background-color: #cfcfcf;
+    border: none;
+    color: #fff;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    height: 48px;
+    width: 100%;
+}
+
+#sign-up-refer-validator-message .control-label{
+top: 40px;
+}
+
+.law_auth_card_body .material-dropdown-menu{
+margin-top: -35px;
+}
+
+
+.control-label{
+    display: block;
+    height: 25px;
+    color: #cb3725!important;
+    border-bottom-color: #cb3725;
+}
+
+.contract-consensus-checkbox:checked+label::before{
+background: #f50;
+    border-color: #f50;
+}
+
+.contract-consensus-marketing-accept-checkbox-text:checked+label>i{
+color: #f50;
+}
+
+label.control-label{
+    color: #cb3725;
+    display: block;
+    font-size: 13px;
+    height: 25px;
+    line-height: 25px;
+}
+
+#sign-up-passwordConfirm-validator-message{
+display: none;
+}
+
+
+.law-switch input[type=checkbox]:focus + label{
+border: 2px solid #aa999d;
+    height: 24px;
+    margin-right: 0;
+    width: 39px;
+}
+
+.law-switch input[type=checkbox] + label{
+background-color: #c0b3b6;
+    border-radius: 20px;
+    display: inline-block;
+        line-height: 20px;
+        outline: 0;
+            position: relative;
+            transition: background-color .3s ease;
+                vertical-align: middle;
+}
+
+.law-switch input[type=checkbox]+label::after{
+background-color: #fff;
+    border-radius: 10px;
+    content: "";
+    height: 10px;
+    left: 5px;
+    position: absolute;
+    top: 5px;
+        transition: all .3s ease;
+        width: 10px;
+}
+
+.marketing-checkbox:checked +label > i{
+color: #f50;
+}
+
+.marketing-checkbox:checked+label:after{
+border-color: #f50;
+}
+
+.material-dropdown-menu.active .material-dropdown-menu-content{
+    max-height: 360px;
+    overflow: auto;
+    visibility: visible;
+    width: 100%;
+}
+
+
+
+
+ button:disabled {
+  cursor: not-allowed;
+}
+
+/* 세모(화살표) 아이콘 */
+.material-form-control::before {
+  content: "\25BC"; /* 화살표 아이콘 (유니코드) */
+  font-size: 10px;
+  position: absolute;
+  right: 10px;
+  top: 13px;
+  color:#333;
+  line-height: 18px;
+}
+
+.material-form-control::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px; /* 밑줄과 텍스트 사이의 간격을 조절합니다. */
+  width: 100%;
+  height: 3px; /* 밑줄의 높이를 조절합니다. */
+  background-color: #ddd; /* 회색 밑줄의 색상을 지정합니다. */
+
+}
+
+
+
+
+.dialog{
+    -webkit-overflow-scrolling: touch;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10000;
+    box-sizing: border-box;
+}
+
+
+
+.dialog-overlay{
+animation: ngdialog-fadein .5s;
+    -webkit-backface-visibility: hidden;
+    background: rgba(0,0,0,.4);
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+.dialog-content{
+background-color: transparent;
+    height: 100%;
+    -webkit-font-smoothing: antialiased;
+        background: transparent;
+        animation: ngdialog-fadein .5s;
+            -webkit-backface-visibility: hidden;
+                pointer-events: all;
+}
+
+
+.dialog *{
+    box-sizing: inherit;
+}
+
+.simple-message{
+height: 200px;
+    left: 50%;
+    margin-left: -150px;
+    margin-top: -100px;
+    padding-top: 0;
+    position: fixed;
+    top: 50%;
+    width: 300px;
+}
+
+.title{
+background-color: #ff4e00;
+    color: #fff;
+    padding: 16px 12px;
+    text-align: center;
+}
+
+
+
+
+
+.lc{
+    color: #fff;
+    text-rendering: auto;
+    display: inline-block;
+        font-family: LawCompanyGlyphs;
+        font-size: inherit;
+        font-stretch: normal;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 400;
+        line-height: inherit;
+        transform: translate(0);
+        vertical-align: top;
+}
+
+.lc::before{
+   content: "×";
+       position: absolute;
+       width: 100%;
+       height: 1px;
+       background-color: #000;
+       top: 50%;
+           left: 86px;
+
+}
+
+
+
+.body p{
+    color: #000;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 10px;
+    text-align: center;
+}
+
+.footer a{
+color: #555;
+display: inline-block;
+    float: left;
+    font-size: 12px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+}
+
+
+.footer a{
+color: #555;
+display: inline-block;
+    float: left;
+    font-size: 12px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+}
+
+
+
+
+.body{
+    background-color: #fff;
+    padding: 16px 12px;
+}
+
+.footer {
+    *zoom: 1;
+    background-color: #e6e6e6;
+    overflow: hidden;
+}
+
+* {font-family: Pretendard,'Noto Sans KR', sans-serif;}

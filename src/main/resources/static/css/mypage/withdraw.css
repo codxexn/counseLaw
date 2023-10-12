@@ -1,0 +1,297 @@
+/* 전체 css */
+* {font-family: Pretendard,'Noto Sans KR', sans-serif;}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    line-height: 1;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f1f4f6;
+}
+
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+body {
+    background-color: #fff;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.42857143;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f1f4f6;
+}
+
+body {
+    margin: 0;
+}
+
+*, :after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    display: block;
+    /*margin: 8px;*/
+}
+
+a {
+    cursor: pointer;
+    background-color: transparent;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
+
+div {
+    display: block;
+}
+
+a:active, a:hover {
+    outline: 0;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+
+button, input[type=button], input[type=file]::-webkit-file-upload-button, input[type=reset], input[type=submit] {
+    border-radius: 0;
+}
+
+a, body, button, dd, div, dl, dt, h1, h2, h3, h4, h5, h6, html, label, li, p, span, table, td, tr, ul {
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+}
+
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+button, html input[type=button], input[type=reset], input[type=submit] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+button, select {
+    text-transform: none;
+}
+
+button {
+    overflow: visible;
+}
+
+button, input, optgroup, select, textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+
+/* 회원 탈퇴 css */
+
+@font-face {
+    font-family: "Amplitude-Medium";
+    src: url("https://db.onlinewebfonts.com/t/cfacbd01431cbe68ac87ba5af5c3b444.eot");
+    src: url("https://db.onlinewebfonts.com/t/cfacbd01431cbe68ac87ba5af5c3b444.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/cfacbd01431cbe68ac87ba5af5c3b444.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/cfacbd01431cbe68ac87ba5af5c3b444.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/cfacbd01431cbe68ac87ba5af5c3b444.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/cfacbd01431cbe68ac87ba5af5c3b444.svg#Amplitude-Medium")format("svg");
+}
+
+.Withdraw-Wrapper {
+    display: block;
+    width: 100%;
+}
+
+.Withdraw-Page {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 480px;
+}
+
+.Withdraw-Header {
+    margin-left: 8px;
+    margin-right: 8px;
+    background-color: #222;
+    height: 140px;
+    margin-bottom: 8px;
+    padding: 24px 20px 20px;
+    position: relative;
+}
+
+.Withdraw-Header-Logo-Image-Wrapper {
+    display: inline;
+    box-sizing: border-box;
+}
+
+.Withdraw-Header-Logo-Image-Wrapper img {
+    width: 125px;
+    height: 31px;
+}
+
+.Withdraw-Header-English {
+    color: #fff;
+    font-family: Amplitude-Medium, sans-serif;
+    font-size: 24px;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.Withdraw-Header-Title {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 15px;
+    margin-left: 2px;
+}
+
+.Withdraw-Body {
+    padding: 8px 8px 0;
+}
+
+.Withdraw-Body-Card {
+    margin-bottom: 0;
+    background: none #fff;
+    width: 100%;
+}
+
+.Withdraw-Body-Card-Header {
+    background-color: #f9f6f4;
+    box-sizing: border-box;
+    color: #333;
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 16px!important;
+}
+
+.Withdraw-Body-Card-Body {
+    padding: 0 16px!important;
+}
+
+.Withdraw-Body-Card-Body-Item {
+    border-bottom: 0;
+    line-height: 60px;
+}
+
+.Withdraw-Body-Card-Body-Item:before {
+    clear: both;
+    content: "";
+    display: table;
+    float: none;
+}
+
+.Withdraw-Body-Card-Body-Item-List {
+    color: #333;
+    display: table;
+    font-size: 14px;
+    line-height: 23px;
+    padding: 28px 0;
+    list-style: none;
+}
+
+.Withdraw-Body-Card-Body-Item-List li:before {
+    text-align: left;
+    width: 16px;
+    display: table-cell;
+}
+
+.Withdraw-Body-Card-Body-Item-List li p {
+    color: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    padding-bottom: 23px;
+    width: auto;
+    display: table-cell;
+}
+
+.Withdraw-Body-Card-Body-Item:after {
+    clear: both;
+    content: "";
+    display: table;
+    float: none;
+}
+
+.Withdraw-Body-Card-Footer {
+    background-color: #f9f6f4;
+    padding: 20px;
+    text-align: center;
+}
+
+.Withdraw-Body-Card-Footer-Description {
+    color: #545352;
+    font-size: 12px;
+    line-height: 17px;
+    margin-bottom: 20px;
+}
+
+.Withdraw-Button {
+    color: #c50000;
+    font-size: 18px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+.Withdraw-Footer {
+    padding: 20px 24px;
+    text-align: center;
+}
+
+.Withdraw-Footer-Row {
+    padding: 10px 0;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.Withdraw-Footer-Row:before {
+    content: "";
+    display: table;
+}
+
+.Withdraw-Footer-Row a {
+    color: #545352;
+    font-size: 12px;
+    text-decoration: none!important;
+}
+
+.Withdraw-Footer-Row:after {
+    clear: both;
+    content: " ";
+    display: table;
+}
+
+.Withdraw-Footer-Copyright {
+    color: #a9a7a6 !important;
+    font-family: Amplitude-Medium,sans-serif;
+    font-size: 11px;
+    text-decoration: none!important;
+}

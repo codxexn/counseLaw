@@ -1,0 +1,1480 @@
+.main-container {
+    background-color: #ffffff;
+    width: 100%;
+}
+.main-top__background {
+    background: #f7f7fa;
+}
+
+.main-top__upper-wrap, .main-top__wrap {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
+
+.main-top__carousel-section--desktop {
+    width: 724px;
+}
+
+.MainCarousel-module_carousel__xLt7b {
+    overflow: hidden;
+    position: relative;
+}
+
+
+.MainCarousel-module_inner__5BdUh {
+    white-space: nowrap;
+    transition: transform .3s;
+}
+
+.MainCarousel-module_carouselItem__Wr8f0 {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.MainCarousel-module_carouselItemImage__zDalH, .MainCarousel-module_mobileImage__-uJys {
+    object-fit: cover;
+}
+
+.MainCarousel-module_carouselItemImage__zDalH {
+    cursor: pointer;
+}
+
+.MainCarousel-module_indicatorDesktop__LutQN {
+    right: 18px;
+    bottom: 20px;
+    width: 128px;
+    padding: 4px 0;
+}
+
+.MainCarousel-module_indicators__AgCUF {
+    position: absolute;
+    justify-content: center;
+    background: rgba(43, 45, 47, .6);
+    display: flex;
+    border-radius: 100px;
+    align-items: center;
+    color: #fff;
+}
+
+.MainCarousel-module_indicatorDesktop__LutQN .MainCarousel-module_leftIndicator__Mclgp, .MainCarousel-module_indicatorDesktop__LutQN .MainCarousel-module_playIndicator__tPSTT, .MainCarousel-module_indicatorDesktop__LutQN .MainCarousel-module_pauseIndicator__mi49f, .MainCarousel-module_indicatorDesktop__LutQN .MainCarousel-module_rightIndicator__1TxEg {
+    cursor: pointer;
+}
+
+.MainCarousel-module_indicatorDesktop__LutQN .MainCarousel-module_leftIndicator__Mclgp path, .MainCarousel-module_indicatorDesktop__LutQN .MainCarousel-module_playIndicator__tPSTT path, .MainCarousel-module_indicatorDesktop__LutQN .MainCarousel-module_pauseIndicator__mi49f path, .MainCarousel-module_indicatorDesktop__LutQN .MainCarousel-module_rightIndicator__1TxEg path {
+    fill: #fff;
+}
+
+.main-top__shortcut-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.main-top__shortcut--big {
+    display: flex;
+    gap: 12px;
+}
+
+.main-top__shortcut--big>main-shortcut {
+    flex: 1;
+}
+
+.MainShortcutButton-module_shortcutBigButton__d5eSQ {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(130,135,174,.12);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: row;
+    padding: 20px 12px 12px 20px;
+    justify-content: space-between;
+    cursor: pointer;
+    height: 92px;
+    transition: box-shadow .2s ease-in-out;
+}
+
+.MainShortcutButton-module_shortcutBigButton__d5eSQ > p {
+    margin: 0;
+}
+
+.Typography-module_lt-text--inherit__uNmPK {
+    cursor: inherit;
+}
+
+.Typography-module_lt-text--height-125__MBy8t {
+    line-height: 125%;
+}
+
+.Typography-module_lt-text--height-100__U8Og5 {
+    line-height: 100%;
+}
+
+.Typography-module_lt-text--height-0 {
+    line-height: 0;
+}
+
+.Typography-module_lt-text--weight-700__MTX72 {
+    font-weight: 700;
+}
+.Typography-module_lt-text--size-18__AbfHy {
+    font-size: 1.125rem;
+}
+
+.Typography-module_lt-text--size-16__m5oA0 {
+    font-size: 1rem;
+}
+
+.MainShortcutButton-module_bigButtonIcon__O9Mf6 {
+    align-self: flex-end;
+}
+
+.main-top__shortcut--big>main-shortcut {
+    flex: 1;
+}
+
+.main-top__shortcut--small {
+    display: flex;
+    gap: 12px;
+}
+
+.main-top__shortcut--small>main-shortcut {
+    flex: 1;
+}
+
+.MainShortcutButton-module_shortcutSmallButton__ZNZ3t {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(130,135,174,.12);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: row;
+    padding: 16px 0;
+    gap: 4px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 56px;
+    transition: box-shadow .2s ease-in-out;
+}
+
+.MainRollingQna-module_mainRollingQnaWrapper__XpEQG {
+    width: 100%;
+    height: 56px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(130,135,174,.12);
+    display: flex;
+    overflow: hidden;
+    transition: box-shadow .2s ease-in-out;
+}
+
+.MainRollingQna-module_mainRollingQnaBox__-uNfk {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+    background: #fff;
+}
+
+.MainRollingQna-module_hotIcon__0-7BZ {
+    position: absolute;
+    top: 14px;
+    left: 12px;
+}
+
+.MainRollingQna-module_qnaItem__22lA1.MainRollingQna-module_desktop__DhDXC {
+    top: -55px;
+    height: 55px;
+    padding: 0 12px 0 8px;
+}
+
+.MainRollingQna-module_qnaItem__22lA1.MainRollingQna-module_desktop__DhDXC.MainRollingQna-module_prev__KnzFZ {
+    top: 55px;
+}
+
+.MainRollingQna-module_qnaItem__22lA1.MainRollingQna-module_desktop__DhDXC.MainRollingQna-module_current__cOiq8 {
+    top: 0;
+}
+
+.MainRollingQna-module_qnaItem__22lA1.MainRollingQna-module_desktop__DhDXC.MainRollingQna-module_next__M188- {
+    top: -55px;
+}
+
+.MainRollingQna-module_qnaItem__22lA1 {
+    position: absolute;
+    display: flex;
+    background: #fff;
+    width: calc(100% - 40px);
+    align-self: flex-end;
+    align-items: center;
+}
+
+/*배너 아래 카테고리 버튼 css*/
+
+.main-top__lower-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-top__field-section {
+    display: flex;
+    flex-direction: row;
+}
+
+.MainTopField-module_buttonWrapper__DMA4p {
+    display: flex;
+    background: rgba(0,0,0,0);
+    border: none;
+    align-items: center;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* 마우스 오버 */
+.MainTopField-module_buttonWrapper__DMA4p:hover .MainTopField-module_name__hQMdF {
+    font-weight: 700;
+}
+
+
+.MainTopField-module_buttonIconWrap__IM6-B.MainTopField-module_desktop__BC8X3 {
+    width: 40px;
+    height: 40px;
+}
+
+.MainTopField-module_fieldName__pVeZU.MainTopField-module_desktop__BC8X3 {
+    margin-left: 12px;
+}
+
+
+.Typography-module_lt-text--weight-600__IvaQr {
+    font-weight: 600;
+}
+.Typography-module_lt-text--size-15__bWqK4 {
+    font-size: 0.9375rem;
+}
+
+/* 어떤 분야의 변호사를 찾으시나요? mobile section css*/
+
+.main-renewal-content-wrap .lawyer-search__type-select {
+    min-height: 506px;
+}
+
+.Typography-module_lt-text--height-150__JY2i8 {
+    line-height: 150%;
+}
+.Typography-module_lt-text--size-20__Coy4u {
+    font-size: 1.25rem;
+}
+
+.LawyerSearchSelect-module_tabs__uyM0i {
+    margin-top: 16px;
+    display: flex;
+}
+
+.LawyerSearchSelect-module_active__rplIM {
+    border-bottom: solid 2px #ff5e00;
+    padding-top: 1px;
+}
+.LawyerSearchSelect-module_tab__hMwiJ {
+    width: 50%;
+    height: 48px;
+    border: none;
+    border-bottom: solid 1px #e5e9ee;
+    background-color: #fff;
+    margin-bottom: 16px;
+    padding: 0;
+    cursor: pointer;
+}
+/* mobile section css 미완성*/
+/* 어떤 분야의 변호사를 찾으시나요 pc css*/
+
+.main-renewal-content-wrap .lawyer-search__category-search {
+    min-height: 329px;
+}
+
+.Typography-module_lt-text--size-24__YMtqz {
+    font-size: 1.5rem;
+}
+
+.CategoryLawyerSearch-module_desktopStyle__ndDb7 .CategoryLawyerSearch-module_title__OIKDl {
+    margin-bottom: 40px;
+}
+
+.CategoryLawyerSearch-module_desktopStyle__ndDb7 .CategoryLawyerSearch-module_categoryList__OrZR1 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px 56px;
+}
+
+.CategoryLawyerSearch-module_desktopStyle__ndDb7 .CategoryLawyerSearch-module_categoryItem__pRFMf {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 88px;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.CategoryLawyerSearch-module_desktopStyle__ndDb7 .CategoryLawyerSearch-module_categoryIconWrap__2FhxQ {
+    height: 88px;
+}
+
+.CategoryLawyerSearch-module_desktopStyle__ndDb7 .CategoryLawyerSearch-module_iconRoundWrap__80IEy {
+    height: 72px;
+    width: 72px;
+    padding: 8px;
+    border-radius: 999px;
+}
+
+.CategoryLawyerSearch-module_iconRoundWrap__80IEy:hover {
+    background-color: #f1f1f1;
+}
+
+
+/*전체보기*/
+.CategoryLawyerSearch-module_desktopStyle__ndDb7 .CategoryLawyerSearch-module_totalViewButton__vVsE- {
+    height: 116px;
+    justify-content: center;
+    gap: 12px;
+    background-color: #fff;
+}
+
+.CategoryLawyerSearch-module_desktopStyle__ndDb7 .CategoryLawyerSearch-module_totalIconRoundWrap__hL7E\+ {
+    height: 88px;
+    width: 88px;
+    padding: 22px 8px 8px;
+    border-radius: 999px;
+}
+
+/* 마우스 오버 */
+.CategoryLawyerSearch-module_totalIconRoundWrap__hL7E\+:hover {
+    background-color: #f1f1f1;
+}
+
+.CategoryLawyerSearch-module_categoryName__anLT0 {
+    white-space: nowrap;
+}
+
+.Typography-module_lt-text--height-135__ZJhNX {
+    line-height: 135%;
+}
+
+/*어떤 지역의 변호사를 찾으시나요 css*/
+
+.main-renewal-content-wrap .lawyer-search__location-search {
+    margin-top: 88px;
+    min-height: 182px;
+}
+
+.LocationLawyerSearch-module_desktopStyle__z5ODc .LocationLawyerSearch-module_title__hX8Fc {
+    margin-bottom: 40px;
+}
+
+.LocationLawyerSearch-module_locationList__cnV6c {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.LocationLawyerSearch-module_desktopStyle__z5ODc .LocationLawyerSearch-module_locationList__cnV6c {
+    gap: 16px;
+}
+
+.LocationLawyerSearch-module_desktopStyle__z5ODc .LocationLawyerSearch-module_locationItem__p71fI {
+    width: 170px;
+    height: 48px;
+}
+.LocationLawyerSearch-module_locationItem__p71fI {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    border: none;
+    background: #f7f7fa;
+    cursor: pointer;
+}
+
+/* 마우스 오버 */
+.LocationLawyerSearch-module_locationItem__p71fI:hover {
+    background: #e3e3e7;
+}
+
+.Typography-module_lt-text--size-17__8rBL9 {
+    font-size: 1.0625rem;
+}
+
+.LocationLawyerSearch-module_totalViewButton__hHkrc {
+    background: none;
+}
+
+
+/*최신 상담글 css*/
+
+.main-renewal-content-wrap .setion-divide-line {
+    background: #f7f7fa;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.04);
+    height: 12px;
+    width: 100%;
+}
+
+.RecentQuestion-module_titleLine__vxHzt {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.RecentQuestion-module_desktopStyle__ARAHM .RecentQuestion-module_title__Msamw {
+    margin-right: 4px;
+}
+
+.RecentQuestion-module_chevronRightIcon__LEXkp path {
+    fill: #2b2d2f;
+}
+
+.RecentQuestion-module_desktopStyle__ARAHM .RecentQuestion-module_questionList__9TqWR {
+    margin-top: 25px;
+    column-gap: 40px;
+}
+.RecentQuestion-module_questionList__9TqWR {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.RecentQuestion-module_desktopStyle__ARAHM .RecentQuestion-module_questionCardWrap__vS5CA {
+    padding: 24px 0 24px;
+    flex: 1 1 40%;
+}
+.RecentQuestion-module_questionCardWrap__vS5CA {
+    border-bottom: solid 1px #ecf0f4;
+    cursor: pointer;
+}
+
+.QuestionCard-module_categoryName__BWXB3 {
+    white-space: nowrap;
+}
+
+.QuestionCard-module_desktopStyle__\+jB6X .QuestionCard-module_title__70dUA {
+    margin-top: 12px;
+    height: 20px;
+}
+.QuestionCard-module_title__70dUA {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.QuestionCard-module_desktopStyle__\+jB6X .QuestionCard-module_body__Sh2HQ {
+    margin-top: 12px;
+    height: 52px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.Typography-module_lt-text--height-165__6m\+1b {
+    line-height: 165%;
+}
+.Typography-module_lt-text--weight-400__dz6jA {
+    font-weight: 400;
+}
+
+.QuestionCard-module_desktopStyle__\+jB6X .QuestionCard-module_thumbnailLine__v-\+yX {
+    gap: 5px;
+    margin-top: 12px;
+}
+.QuestionCard-module_thumbnailLine__v-\+yX {
+    display: flex;
+    align-items: center;
+}
+
+.QuestionCard-module_thumbnailList__DaNoO {
+    height: 24px;
+    overflow: hidden;
+}
+
+.QuestionCard-module_thumbnail__w9ugW:first-child {
+    margin-left: 0px;
+}
+.QuestionCard-module_thumbnail__w9ugW {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: solid 2px #fff;
+    margin-left: -12px;
+}
+
+.QuestionCard-module_desktopStyle__\+jB6X .QuestionCard-module_answerLength__zvRwZ {
+    max-width: 99px;
+    white-space: nowrap;
+}
+
+.Typography-module_lt-text--size-14__F857n {
+    font-size: 0.875rem;
+}
+
+/* 최신 상담글 더보기 버튼 css*/
+.RecentQuestion-module_desktopStyle__ARAHM .RecentQuestion-module_buttonWrap__PO9yl {
+    margin-top: 48px;
+}
+.RecentQuestion-module_buttonWrap__PO9yl {
+    text-align: center;
+}
+
+.RecentQuestion-module_viewMoreButton__lnxSU {
+    background-color: #fff;
+    border: 1px solid #d4d5e3;
+    border-radius: 8px;
+    padding: 0;
+    user-select: none;
+    cursor: pointer;
+}
+
+.RecentQuestion-module_viewMoreInner__LIXkO {
+    display: flex;
+    align-items: center;
+    padding: 12px 32px;
+}
+
+.RecentQuestion-module_buttonName__V2kVn {
+    margin: 0 8px 0 4px;
+}
+
+.RecentQuestion-module_viewMoreInner__LIXkO > p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+/*빠른 상담 가능한 변호사 section css*/
+
+.main-renewal-content-wrap .fastest-advice-list-wrap {
+    position: relative;
+}
+
+
+
+/*빠른 상담 가능한 변호사 타이틀*/
+
+.FastestAdviceList-module_titleLine__OHU0q {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.FastestAdviceList-module_title__CWm0j {
+    margin-right: 4px;
+}
+
+/*베타 뱃지*/
+
+.FastestAdviceList-module_betaBadge__EFsyH {
+    padding: 1px 3px;
+    background-color: #8564ee;
+    border-radius: 3px;
+}
+
+.Typography-module_lt-text--size-12__GYxFO {
+    font-size: 0.75rem;
+}
+
+.FastestAdviceList-module_titleLine__OHU0q {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.FastestAdviceList-module_chevronRightIcon__YU\+sZ path {
+    fill: #2b2d2f;
+}
+
+/*빠른 상담 가능한 변호사 카테고리*/
+
+.FastestAdviceList-module_desktopStyle__56ncC .FastestAdviceList-module_categoryListWrap__kknEH {
+    position: relative;
+    margin-top: 33px;
+}
+.FastestAdviceList-module_categoryListWrap__kknEH {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+}
+
+.FastestAdviceList-module_desktopStyle__56ncC .FastestAdviceList-module_categoryList__JeKq9 {
+    gap: 4px;
+}
+.FastestAdviceList-module_categoryList__JeKq9 {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+
+
+/*스크롤바*/
+.FastestAdviceList-module_categoryList__JeKq9::-webkit-scrollbar {
+    height: 17px;
+    background-color: #ffffff;
+}
+
+.FastestAdviceList-module_categoryList__JeKq9::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+    border-radius: 13px;
+    background-clip: padding-box;
+    border: 5px solid transparent;
+}
+
+.FastestAdviceList-module_categoryList__JeKq9:hover::-webkit-scrollbar-thumb {
+    background-color: #e7e7e7;
+    border-radius: 13px;
+    background-clip: padding-box;
+    border: 5px solid transparent;
+}
+
+
+
+.FastestAdviceList-module_categoryItem__wQYjr > p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+
+/*활성화 된 버튼*/
+.FastestAdviceList-module_categoryItem__wQYjr.FastestAdviceList-module_active__dzny0 {
+    background: rgba(98,102,149,.1);
+}
+.FastestAdviceList-module_categoryItem__wQYjr {
+    padding: 10px 12px;
+    border: none;
+    background-color: #fff;
+    border-radius: 24px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+/* 스크롤 버튼 */
+
+.FastestAdviceList-module_rightGradient__mun40 {
+    right: 0;
+    background: linear-gradient(270deg, #ffffff 0%, #ffffff 66.19%, rgba(255, 255, 255, 0) 100%);
+}
+.FastestAdviceList-module_gradient__Cn16A {
+    position: absolute;
+    display: inline-block;
+    width: 87px;
+    height: 36px;
+}
+
+.FastestAdviceList-module_chevronIcon__AEYx6 {
+    position: relative;
+    z-index: 1;
+    flex: 0 0 auto;
+    padding: 2px;
+    background: #f7f7fa;
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+.FastestAdviceList-module_chevronIcon__AEYx6 path {
+    fill: #7a8287;
+}
+
+/* 리스트 */
+
+.FastestAdviceList-module_desktopStyle__56ncC .FastestAdviceList-module_fastestAdviceListWrap__2dlIw {
+    margin-top: 24px;
+    height: 316px;
+}
+
+.FastestAdviceList-module_desktopStyle__56ncC .FastestAdviceList-module_fastestAdviceList__CYnjn {
+    gap: 24px;
+    width: 1100px;
+}
+.FastestAdviceList-module_fastestAdviceList__CYnjn {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.FastestAdviceList-module_desktopStyle__56ncC .FastestAdviceList-module_recentLawyerSlotCardWrap__1luXC {
+    flex: 0 0 538px;
+}
+.FastestAdviceList-module_recentLawyerSlotCardWrap__1luXC {
+    cursor: pointer;
+}
+
+.RecentLawyerSlotCard-module_desktopStyle__rvFjt.RecentLawyerSlotCard-module_cardWrap__AjOMQ {
+    padding: 28px 32px 28px;
+    gap: 26px;
+}
+
+.RecentLawyerSlotCard-module_cardWrap__AjOMQ {
+    background-color: #f7f7fa;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+}
+
+/* 썸네일 */
+
+.RecentLawyerSlotCard-module_desktopStyle__rvFjt .RecentLawyerSlotCard-module_thumbnail__4l1Jv {
+    height: 88px;
+}
+.RecentLawyerSlotCard-module_thumbnail__4l1Jv {
+    position: relative;
+    display: inline-block;
+}
+
+.RecentLawyerSlotCard-module_desktopStyle__rvFjt .RecentLawyerSlotCard-module_thumbnailImage__84yxm {
+    width: 88px;
+    height: 88px;
+}
+.RecentLawyerSlotCard-module_thumbnailImage__84yxm {
+    border-radius: 50%;
+}
+
+.RecentLawyerSlotCard-module_desktopStyle__rvFjt .RecentLawyerSlotCard-module_activeMark__\+5hwb {
+    bottom: 6px;
+    right: 2px;
+}
+.RecentLawyerSlotCard-module_activeMark__\+5hwb {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: #89eca6;
+    border: 3px solid #fff;
+    border-radius: 24px;
+}
+
+.RecentLawyerSlotCard-module_desktopStyle__rvFjt .RecentLawyerSlotCard-module_timeSlotListWrap__ebucF {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.RecentLawyerSlotCard-module_titleLine__\+PJpQ {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.RecentLawyerSlotCard-module_titleName__Rn-t\+ {
+    white-space: nowrap;
+    max-width: 150px;
+}
+
+/* 회사명 */
+
+.RecentLawyerSlotCard-module_lawyerCompany__Oe3x0 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.RecentLawyerSlotCard-module_desktopStyle__rvFjt .RecentLawyerSlotCard-module_categories__mFo7M {
+    gap: 8px;
+}
+.RecentLawyerSlotCard-module_categories__mFo7M {
+    margin-top: 12px;
+    display: flex;
+}
+
+.RecentLawyerSlotCard-module_categoryItem__1A2vT {
+    display: flex;
+    align-items: center;
+    height: 20px;
+    padding: 4px 6px;
+    background-color: #fff;
+    border-radius: 4px;
+    border: 1px solid #e6edf3;
+}
+
+.RecentLawyerSlotCard-module_timeSlotList__IdeSY {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.RecentLawyerSlotCard-module_timeSlotItem__vZFg7.RecentLawyerSlotCard-module_active__KGEUD {
+    background-color: #626695;
+}
+.RecentLawyerSlotCard-module_desktopStyle__rvFjt .RecentLawyerSlotCard-module_timeSlotItem__vZFg7 {
+    height: 28px;
+    width: 69px;
+}
+.RecentLawyerSlotCard-module_timeSlotItem__vZFg7 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #c4c8cb;
+    border-radius: 4px;
+}
+
+.Typography-module_lt-text--weight-500__K1Qvm {
+    font-weight: 500;
+}
+
+.Typography-module_lt-text--size-13__p73tB {
+    font-size: 0.8125rem;
+}
+
+/* 해결 사례 사이 모바일 display none*/
+
+
+/*해결 사례 타이틀*/
+
+.SolutionCaseList-module_titleLine__Xt2H3 {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.SolutionCaseList-module_desktopStyle__YZD4P .SolutionCaseList-module_title__0-kFO {
+    margin-right: 4px;
+}
+
+.SolutionCaseList-module_chevronRightIcon__eegoI path {
+    fill: #2b2d2f;
+}
+
+/*해결 사례 리스트 */
+
+.SolutionCaseList-module_desktopStyle__YZD4P .SolutionCaseList-module_solutionCaseList__kQChr {
+    margin-top: 25px;
+    column-gap: 40px;
+}
+.SolutionCaseList-module_solutionCaseList__kQChr {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.SolutionCaseList-module_desktopStyle__YZD4P .SolutionCaseList-module_solutionCaseCardWrap__DXdNf {
+    padding: 24px 0 24px;
+    flex: 1 1 40%;
+}
+
+.SolutionCaseList-module_solutionCaseCardWrap__DXdNf {
+    cursor: pointer;
+    border-bottom: solid 1px #ecf0f4;
+}
+
+.SolutionCaseCard-module_authorLine__\+GUzW {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/*썸네일*/
+
+.SolutionCaseCard-module_photoThumbUrl__DeEdG {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+/*타이틀*/
+
+.SolutionCaseCard-module_desktopStyle__U\+WOn .SolutionCaseCard-module_title__k3xLq {
+    margin-top: 12px;
+    height: 24px;
+}
+.SolutionCaseCard-module_title__k3xLq {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+/*컨텐츠*/
+
+.SolutionCaseCard-module_desktopStyle__U\+WOn .SolutionCaseCard-module_textContent__OKa8L {
+    margin-top: 12px;
+    height: 48px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+/*해결 사례 케이스*/
+
+.SolutionCaseCard-module_desktopStyle__U\+WOn .SolutionCaseCard-module_caseResult__O0iMv {
+    margin-top: 24px;
+    padding: 5px 8px;
+    gap: 6px;
+}
+.SolutionCaseCard-module_caseResult__O0iMv {
+    display: inline-flex;
+    align-items: center;
+    background-color: #fff2eb;
+    border-radius: 4px;
+}
+
+.SolutionCaseCard-module_gavelIcon__dVw\+M path {
+    fill: #c50000;
+}
+
+.SolutionCaseCard-module_caseResultText__MNQeO {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+/*해결사례 더보기 버튼*/
+
+.SolutionCaseList-module_buttonWrap__6TIPe {
+    text-align: center;
+}
+
+.SolutionCaseList-module_desktopStyle__YZD4P .SolutionCaseList-module_viewMoreButton__PFbgu {
+    margin-top: 48px;
+}
+.SolutionCaseList-module_viewMoreButton__PFbgu {
+    background-color: #fff;
+    border: 1px solid #d4d5e3;
+    border-radius: 8px;
+    padding: 0;
+    user-select: none;
+    cursor: pointer;
+}
+
+.SolutionCaseList-module_viewMoreInner__Ep9vp {
+    display: flex;
+    align-items: center;
+    padding: 12px 32px;
+}
+
+.SolutionCaseList-module_buttonName__6Mcxz {
+    margin: 0 8px 0 4px;
+}
+
+
+/*    알아두면 좋은 법률 정보*/
+
+.main-renewal-content-wrap .representative-guide {
+    background-color: #f7f7fa;
+    margin-top: 28px;
+}
+
+.main-renewal-content-wrap .representative-guide__title-line {
+    align-items: center;
+    cursor: pointer;
+    display: inline-flex;
+    gap: 8px;
+}
+
+/*타이틀*/
+
+.main-renewal-content-wrap .representative-guide__title {
+    color: #2b2d2f;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+.main-renewal-content-wrap .representative-guide__title-icon {
+    color: #2b2d2f;
+    font-size: 14px;
+    transform: rotate(270deg);
+}
+
+.lc.lc-chevron-down-thick:before {
+    content: "\f37e";
+}
+
+/*법률정보 배너*/
+.main-renewal-content-wrap .representative-guide .rolling-banner {
+    height: 206px;
+}
+
+.slick-track {
+    opacity: 1;
+    width: 31219px;
+    transform: translate3d(-460px, 0px, 0px);
+}
+
+/*.slick-slider .slick-list, .slick-slider .slick-track {*/
+/*    -webkit-transform: translateZ(0);*/
+/*    -moz-transform: translateZ(0);*/
+/*    -ms-transform: translateZ(0);*/
+/*    -o-transform: translateZ(0);*/
+/*    transform: translateZ(0);*/
+/*}*/
+
+.slick-slider {
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -khtml-user-select: none;
+}
+
+.slick-list, .slick-slider {
+    display: block;
+    position: relative;
+}
+
+.slick-list {
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+
+.slick-slider {
+    margin-bottom: 30px;
+}
+
+.main-renewal-content-wrap .representative-guide .rolling-banner .slick-slider {
+    margin-bottom: 0;
+}
+
+.main-renewal-content-wrap .representative-guide .rolling-banner .slick-track {
+    background-color: #f7f7fa;
+    min-height: 295px;
+    overflow-x: auto;
+}
+
+.slick-track:after, .slick-track:before {
+    content: "";
+    display: table;
+}
+
+.slick-initialized .slick-slide {
+    display: block;
+}
+
+.slick-slide {
+    display: none;
+    float: left;
+    height: 100%;
+    min-height: 1px;
+}
+
+a.carousel-guide-card__link {
+    display: block;
+    text-decoration: none;
+}
+
+.main-renewal-content-wrap .representative-guide .rolling-banner .carousel-guide-card-wrap {
+    display: block;
+    height: 231px;
+    margin: 0 12px;
+    width: 436px;
+}
+.carousel-guide-card-wrap {
+    background-color: #fff;
+    box-shadow: 0 4px 12px 0 rgba(0,0,0,.06);
+    padding: 24px 32px 30px;
+    position: relative;
+}
+
+.carousel-guide-card-wrap .guide-card__header-info {
+    align-items: center;
+    display: flex;
+    height: 25px;
+    margin-bottom: 12px;
+}
+
+.carousel-guide-card-wrap .guide-card__badge.new {
+    background-color: rgba(26,64,243,.1);
+    color: #1a40f3;
+}
+
+.carousel-guide-card-wrap .guide-card__badge.hot {
+    background-color: rgba(255,85,0,.1);
+    color: #c50000;
+}
+
+.carousel-guide-card-wrap .guide-card__badge {
+    border-radius: 24px;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 10px;
+    margin-right: 12px;
+    padding: 8px 7px 7px 9px;
+}
+
+.carousel-guide-card-wrap .guide-card__title {
+    -webkit-line-clamp: 2;
+    color: #222;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    height: 67px;
+    line-height: 1.42;
+    margin-bottom: 22px;
+}
+
+.carousel-guide-card-wrap .guide-card__keywords, .carousel-guide-card-wrap .guide-card__title {
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+}
+
+.carousel-guide-card-wrap .guide-card__keyword {
+    color: #999;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.carousel-guide-card-wrap .guide-card__keyword:after {
+    color: #e0e0e0;
+    content: "\b7";
+    padding: 5px;
+}
+
+.carousel-guide-card-wrap .guide-card__lawyer-info {
+    align-items: center;
+    display: flex;
+    height: 48px;
+}
+
+.carousel-guide-card-wrap .guide-card__lawyer-thumb {
+    margin-right: 16px;
+    vertical-align: middle;
+}
+
+.carousel-guide-card-wrap .guide-card__lawyer-thumb .photo {
+    border-radius: 50%;
+    height: 48px;
+    width: 48px;
+}
+
+.carousel-guide-card-wrap .guide-card__lawyer-title-name {
+    color: #757575;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.carousel-guide-card-wrap .guide-card__lawyer-title-name--bold {
+    color: #555;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 700;
+    margin-right: 8px;
+}
+
+/*상담 후기*/
+
+.BestReviewList-module_desktopStyle__ZeI8o .BestReviewList-module_title__Th7fO {
+    margin-left: 80px;
+}
+
+.BestReviewList-module_desktopStyle__ZeI8o .BestReviewList-module_carouselWrap__SAFJ6 {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    cursor: pointer;
+}
+
+
+.BestReviewList-module_chevronIcon__M6cEE path {
+    fill: #aeb1cb;
+}
+
+.BestReviewList-module_desktopStyle__ZeI8o .BestReviewList-module_carousel__s70ex {
+    overflow: hidden;
+}
+
+.BestReviewList-module_carouselTrack__hkZne {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.BestReviewList-module_desktopStyle__ZeI8o .BestReviewList-module_carouselTrack__hkZne {
+    gap: 24px;
+    transition: all .3s ease-out;
+    width: 1101px;
+}
+
+.BestReviewList-module_desktopStyle__ZeI8o .BestReviewList-module_bestReviewCardWrap__rm3-o {
+    flex: 0 0 auto;
+    width: 351px;
+}
+.BestReviewList-module_bestReviewCardWrap__rm3-o {
+    cursor: pointer;
+}
+
+.BestReviewCard-module_cardWrap__sBtBq {
+    background: rgba(98,102,149,.05);
+    border-radius: 12px;
+}
+.BestReviewCard-module_desktopStyle__cPosT {
+    padding: 24px 24px 19px;
+}
+
+/* 마우스 오버 */
+
+.BestReviewCard-module_cardWrap__sBtBq:hover {
+    border: 1px solid #d4d5e3;
+    box-shadow: 0px 4px 12px rgba(55,56,85,.06);
+}
+.BestReviewCard-module_desktopStyle__cPosT:hover {
+    padding: 23px 23px 18px;
+}
+
+.BestReviewCard-module_titleNameWrap__xE\+4a {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.BestReviewCard-module_formatquoteIcon__2kKTj {
+    transform: rotate(180deg);
+}
+
+.BestReviewCard-module_formatquoteIcon__2kKTj path {
+    fill: #2b2d2f;
+}
+
+.BestReviewCard-module_desktopStyle__cPosT .BestReviewCard-module_titleWrap__h3EHp {
+    margin-top: 8px;
+    height: 54px;
+}
+
+.BestReviewCard-module_title__9vNy1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.BestReviewCard-module_desktopStyle__cPosT .BestReviewCard-module_bodyWrap__bsnjJ {
+    margin-top: 16px;
+    height: 78px;
+}
+
+.BestReviewCard-module_body__yHTMf {
+    margin-top: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.BestReviewCard-module_desktopStyle__cPosT .BestReviewCard-module_userName__R-qWA {
+    margin-top: 24px;
+}
+
+/* 변호사 회원 지원 페이지 이동 */
+
+.LegalityBanner-module_banner__tRBPj {
+    width: 100%;
+    background-color: #f7f7fa;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.LegalityBanner-module_desktopStyle__qy8HW {
+    height: 170px;
+    margin: 0 auto;
+    padding: 28px 0;
+    border-radius: 12px;
+}
+
+.LegalityBanner-module_desktopStyle__qy8HW .LegalityBanner-module_title__8XNQY {
+    text-align: center;
+}
+
+.LegalityBanner-module_desktopStyle__qy8HW .LegalityBanner-module_buttonWrap__dY\+Bo {
+    justify-content: center;
+}
+.LegalityBanner-module_buttonWrap__dY\+Bo {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.LegalityBanner-module_arrowForwardIcon__x-kgX {
+    margin-left: 4px;
+}
+
+.LegalityBanner-module_introduceButton__qRFq0 {
+    padding: 4px 12px;
+    background-color: #c50000;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+.LegalityBanner-module_arrowForwardIcon__x-kgX path {
+    fill: #fff;
+}
+
+
+/*반응형*/
+@media (min-width: 960px) {
+    .lt-mobile {
+        display: none!important;
+    }
+
+    .main-top__background {
+        min-height: 354px;
+        min-width: 1100px;
+        padding: 24px 0 26px;
+    }
+
+    .main-top__contents {
+        margin: 0 auto;
+        width: 1100px;
+    }
+
+    .MainCarousel-module_carousel__xLt7b {
+        border-radius: 12px;
+    }
+
+    .main-top__lower-wrap {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main-top__lower-wrap {
+        gap: 48px;
+        margin: 34px auto 0;
+        width: 1100px;
+    }
+
+    /* 어떤 분야의 변호사를 찾으시나요 반응형 pc css*/
+
+    .main-renewal-content-wrap .lawyer-search {
+        margin: 48px auto 0;
+        width: 1100px;
+    }
+
+/*    최신 상담글 css */
+
+    .main-renewal-content-wrap .recent-question-wrap {
+        margin: 88px auto 0;
+        min-height: 548px;
+        width: 1100px;
+    }
+
+    /*빠른 상담 가능한 변호사 section css*/
+
+    .main-renewal-content-wrap .fastest-advice-list-wrap {
+        margin: 88px auto 0;
+        min-height: 441px;
+        width: 1100px;
+    }
+
+
+
+/*    해결 사례*/
+
+    .main-renewal-content-wrap .solution-case-list-wrap {
+        margin: 88px auto 0;
+        min-height: 608px;
+        width: 1100px;
+    }
+
+
+/*    알아두면 좋은 법률 정보*/
+
+    .main-renewal-content-wrap .representative-guide {
+        margin-top: 88px;
+    }
+
+    .main-renewal-content-wrap .representative-guide__title-wrap {
+        margin: 0 auto;
+        padding-top: 40px;
+        width: 1100px;
+    }
+
+    .main-renewal-content-wrap .representative-guide__title-line {
+        gap: 15px;
+    }
+
+/*    타이틀*/
+
+    .main-renewal-content-wrap .representative-guide__title {
+        font-size: 24px;
+    }
+
+    .main-renewal-content-wrap .representative-guide__title-icon {
+        font-size: 18px;
+    }
+
+/* 법률정보 배너*/
+
+    .main-renewal-content-wrap .representative-guide .rolling-banner {
+        height: 311px;
+    }
+
+    .main-renewal-content-wrap .representative-guide .rolling-banner .slick-track {
+        padding: 36px 0 40px;
+    }
+
+/* 상담 후기*/
+
+    .main-renewal-content-wrap .best-review-list-wrap {
+        margin: 88px auto 0;
+        min-height: 366px;
+        width: 1261px;
+    }
+
+/* 변호사 회원 지원 페이지로 이동*/
+
+    .main-renewal-content-wrap .legality-banner-wrap {
+        margin: 96px auto 0;
+        min-height: 170px;
+        width: 1100px;
+    }
+
+}
+
+
+@media (min-width: 504px) {
+    .main-top__field-section {
+        justify-content: space-around;
+    }
+}

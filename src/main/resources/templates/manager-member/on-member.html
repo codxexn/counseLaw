@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>회원 관리</title>
+</head>
+<link rel="stylesheet" href="Manager-member.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css">
+</head>
+<body class="h-full">
+<div class="Web">
+    <div class="flex-h-screen">
+        <!-- 네비 -->
+        <nav class="header-nav">
+            <div>
+                <div class="nav-logo">
+                    <!-- 메인페이지로 연결되도록 링크 연결 필요 -->
+                    <a href="">
+                        <img class="counseLaw-logo" src="counseLaw.png" alt="카운슬로우 로고 이미지">
+                    </a>
+                    <div class="logo-l">|</div>
+                    <div class="nav-PageName">
+                        <span>Manager Page</span>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-profileWrap">
+                <div class="nav-profile">
+                    <button class="nav-profileButton">
+                        <!-- <span class="Profile"> -->
+                        <img alt="프로필 이미지" src="https://steadio.co/_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2Fd6831bfd-5b2c-4d80-bd53-0f9548aa284a%2FprofileImage%2F84ae7c49-3ef5-4e40-9129-4d26529bb0cc.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&w=1920&q=75">
+
+                        <!-- </span> -->
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <!-- 상단 네비 부분 끝 -->
+        <!-- 메인 페이지 시작 -->
+        <div class="Manager-FadeWrap">
+            <nav class="left-FadeWrap">
+                <div class="left-Profile">
+                    <div class="left-ProfilePage">
+                        <div class="Profile-imgWrap">
+                            <button class="Profile-Button">
+                                <img alt="프로필 이미지" src="https://steadio.co/_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2Fd6831bfd-5b2c-4d80-bd53-0f9548aa284a%2FprofileImage%2F84ae7c49-3ef5-4e40-9129-4d26529bb0cc.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&w=1920&q=75">
+                            </button>
+                        </div>
+                        <h2 class="Manager-name">박지민</h2>
+                        <a target="_blank" href="">
+                            <button class="Manager-PageLink">
+                                <!--                                이동될 페이지 수정 필요-->
+                                <div class="MyPageLink">
+                                    <div>내 페이지</div>
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" height="16px" width="16px" class="LinkSVG">
+                                        <path d="M11 7a1     1 0 0 0-1-1H4v14h14v-6a1 1 0 1 0-2 0v4H6V8h4a1 1 0 0 0 1-1Z"></path>
+                                        <path d="M19.01 3.829H20v6.656a1 1 0 1 1-2 0V7.244l-5.293 5.293a1 1 0 0 1-1.414-1.415l5.293-5.292h-3.243a1 1 0 1 1 0-2H19.01Z"></path>
+                                    </svg>
+                                </div>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+                <!--                관리자 페이지 목록-->
+                <ul class="left-list">
+                    <li class="left-categories">
+                        <!--                        링크 연결 안됨-->
+                        <a href="">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="categories-post">
+                                <path d="M15.078 3.137H8.6a5.6 5.6 0 0 0-5.6 5.6v6.8a5.6 5.6 0 0 0 5.6 5.6h6.8a5.6 5.6 0 0 0 5.6-5.6V8.944l-1.6 1.6v4.993a4 4 0 0 1-4 4H8.6a4 4 0 0 1-4-4v-6.8a4 4 0 0 1 4-4h4.878l1.6-1.6Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="m20.692 7.116.534-.534a2.567 2.567 0 1 0-3.63-3.63L9.41 11.138l-1.103 3.74a.8.8 0 0 0 .994.993l3.74-1.103 6.52-6.52.005.004 1.13-1.132-.004-.004Zm-2.262 0-6.233 6.233-1.94.572.572-1.94 6.233-6.233 1.368 1.368Zm1.131-1.132-1.367-1.367.533-.534a.967.967 0 0 1 1.368 1.368l-.534.533Z"></path>
+                            </svg>
+                            <span class="categories-word">작성글 관리</span>
+                        </a>
+                    </li>
+                    <!--                 두 번째 카테고리-->
+                    <li class="left-categories">
+                        <!--                        링크 연결 안됨-->
+                        <a href="">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="categories-announcement">
+                                <path d="M10.457 8.471a1.494 1.494 0 1 1 2.988 0 1.494 1.494 0 0 1-2.988 0ZM10.955 11.459c0-.275.223-.498.498-.498h.996c.275 0 .498.223.498.498v4.979a.498.498 0 0 1-.498.498h-.996a.498.498 0 0 1-.498-.498v-4.98Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M11.951 20.117a8.166 8.166 0 1 0 0-16.333 8.166 8.166 0 0 0 0 16.333Zm0 1.792c5.5 0 9.959-4.458 9.959-9.958S17.45 1.99 11.95 1.99s-9.959 4.46-9.959 9.96c0 5.5 4.459 9.958 9.959 9.958Z"></path>
+                            </svg>
+                            <span class="categories-word">공지사항</span>
+                        </a>
+                    </li>
+                    <!--                    세 번째 카테고리-->
+                    <li class="left-categories">
+                        <!--                        링크 연결 안됨-->
+                        <a href="">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="categories-managerment">
+                                <path d="M8.5 11.7h2a6.057 6.057 0 0 1 1.769.265 6.51 6.51 0 0 0-.888 1.335H8.5a4.4 4.4 0 0 0-4.4 4.4v1c0 .22.18.4.4.4h6.881c.295.59.677 1.129 1.129 1.6H4.5a2 2 0 0 1-2-2v-1a6 6 0 0 1 6-6Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 10.2a3.502 3.502 0 0 1 0-7 3.5 3.5 0 1 1 0 7Zm1.9-3.5a1.9 1.9 0 1 1-3.8 0 1.9 1.9 0 0 1 3.8 0ZM13.945 13.147a.665.665 0 0 1 .306-.74l.833-.49a.665.665 0 0 1 .795.092l.46.437c.167.16.398.231.63.23a.892.892 0 0 0 .626-.24l.451-.445a.665.665 0 0 1 .794-.105l.84.476a.665.665 0 0 1 .32.735l-.15.616a.895.895 0 0 0 .116.66c.118.2.298.36.522.423l.61.168c.287.08.486.339.488.636l.008.965a.665.665 0 0 1-.477.644l-.608.179a.892.892 0 0 0-.513.43.898.898 0 0 0-.105.663l.159.614a.665.665 0 0 1-.307.74l-.832.49a.665.665 0 0 1-.795-.092l-.46-.437a.898.898 0 0 0-.63-.23.893.893 0 0 0-.626.24l-.452.445a.665.665 0 0 1-.794.105l-.84-.476a.665.665 0 0 1-.319-.735l.15-.617a.894.894 0 0 0-.117-.66.894.894 0 0 0-.52-.421l-.612-.17a.665.665 0 0 1-.488-.635l-.008-.965a.665.665 0 0 1 .477-.644l.608-.179a.892.892 0 0 0 .514-.43.898.898 0 0 0 .105-.663l-.159-.614Zm3.115 4.278a1.283 1.283 0 1 0 0-2.566 1.283 1.283 0 0 0 0 2.566Z"></path>
+                            </svg>
+                            <span class="categories-word">회원 관리</span>
+                        </a>
+                    </li>
+                    <!--                    네 번째 카테고리-->
+                    <li class="left-categories">
+                        <!--                        링크 연결 안됨-->
+                        <a href="">
+                            <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" class="categories-post">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M22 8.942c0 .513-.24.996-.649 1.304A2.188 2.188 0 0 0 20.477 12c0 .716.34 1.351.874 1.754.409.308.649.79.649 1.304v.968A3.967 3.967 0 0 1 18.04 20H5.96A3.967 3.967 0 0 1 2 16.026v-.968c0-.513.24-.996.649-1.304A2.188 2.188 0 0 0 3.523 12c0-.716-.34-1.351-.874-1.754A1.633 1.633 0 0 1 2 8.942v-.967A3.967 3.967 0 0 1 5.96 4h12.08C20.228 4 22 5.78 22 7.975v.967ZM5.96 5.631a2.34 2.34 0 0 0-2.336 2.344v.967A3.82 3.82 0 0 1 5.147 12a3.82 3.82 0 0 1-1.523 3.058v.968a2.34 2.34 0 0 0 2.335 2.343h12.082a2.34 2.34 0 0 0 2.335-2.343v-.968A3.82 3.82 0 0 1 18.853 12c0-1.25.598-2.36 1.523-3.058v-.967A2.34 2.34 0 0 0 18.04 5.63H5.959Z" fill="#333334"></path>
+                                <path d="M16.112 14.066c0 .751-.606 1.36-1.354 1.36a1.356 1.356 0 0 1-1.353-1.36c0-.75.606-1.358 1.353-1.358.748 0 1.354.608 1.354 1.358ZM10.697 9.537c0 .75-.606 1.359-1.353 1.359A1.356 1.356 0 0 1 7.99 9.537c0-.75.606-1.359 1.354-1.359.747 0 1.353.609 1.353 1.36ZM13.957 8.728a.772.772 0 0 1 1.095 0 .78.78 0 0 1 0 1.1l-5.419 5.44a.773.773 0 0 1-1.095 0 .78.78 0 0 1 0-1.1l5.419-5.44Z" fill="#333334"></path>
+                            </svg>
+                            <span class="categories-word">쿠폰 관리</span>
+                        </a>
+                    </li>
+                    <!--                    카테고리 ul 종료-->
+                </ul>
+            </nav>
+            <!--            네비 끝, 회원 페이지 구성-->
+            <div class="right-FadeWrap">
+                <div class="right-Fade">
+                    <div class="right-full">
+                        <div class="manager-top">
+                            <header class="manager-top-header">
+                                <h1 class="Manager-topWord">회원 관리</h1>
+                                <div>
+                                    <div style="width: 240px">
+                                        <label class="member-search-label">
+                                            <input class="member-searchBar" type="search" placeholder="회원 검색">
+                                            <button class="member-search">
+                                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="search">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M15.83 16.561a7.8 7.8 0 1 1 1.233-1.312l3.465 3.465a.9.9 0 1 1-1.272 1.273L15.83 16.56Zm1.13-5.961a6.16 6.16 0 1 1-12.32 0 6.16 6.16 0 0 1 12.32 0Z"></path>
+                                                </svg>
+                                            </button>
+                                        </label>
+                                    </div>
+                                </div>
+                            </header>
+                            <!--                            멤버 수-->
+                            <div class="memberTop-mid">
+                                <div class="member-countWrap">
+                                    <span class="count-word">전체</span>
+                                    <span class="member-count">0</span>
+                                </div>
+
+                                <div class="member-condition">
+                                    <div class="guides-Section-Search-Menu">
+                                        <div class="select-Menu">
+                                            <div class="select-Btn">
+                                                <span class="sBtn-Text"><strong>전체 회원</strong></span>
+                                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="filter">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.27 8.42a1.076 1.076 0 0 1 1.587-.13L12 14.832l7.143-6.544a1.076 1.076 0 0 1 1.586.13 1.26 1.26 0 0 1-.122 1.696L12 18l-8.607-7.885A1.26 1.26 0 0 1 3.27 8.42Z"></path>
+                                                </svg>
+                                                <i class="bx bx-chevron-down"></i>
+                                            </div>
+
+                                            <ul class="options">
+                                                <li class="option">
+                                                    <span class="option-Text">전체 회원</span>
+                                                </li>
+                                                <li class="option">
+                                                    <span class="option-Text">일반 회원</span>
+                                                </li>
+                                                <li class="option">
+                                                    <span class="option-Text">변호사 회원</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!--                                        <ul class="sort-Options">-->
+                                        <!--                                            <li class="sort-Options-Btn active">최신순</li>-->
+                                        <!--                                            <li class="sort-Options-Btn">조회순</li>-->
+                                        <!--                                        </ul>-->
+                                    </div>
+
+
+
+
+                                </div>
+                            </div>
+                            <div class="member-bottom-list">
+                                <div class="member-topName"><strong>이름</strong></div>
+                                <div style="width: 106px;" class="member-name"><strong>구분</strong></div>
+                                <div style="width: 140px;" class="member-name"><strong>가입일</strong></div>
+                                <div style="width: 72px;" class="member-name"><strong>상태</strong></div>
+                            </div>
+                        </div>
+                        <!--                        멤버 목록-->
+                        <div class="member-bottom-list">
+                            <label>
+                                <input type='checkbox' name='Basket' value='selectall'>
+
+                            </label>
+                            <div class="member-name">박지민</div>
+                            <div style="width: 96px;" class="member-name">일반 회원</div>
+                            <div style="width: 160px;" class="member-name">2023-09-17</div>
+                            <div style="width: 72px;" class="member-name">가입</div>
+                        </div>
+<!--                        두 명-->
+                        <div class="member-bottom-list">
+                            <label>
+                                <input type='checkbox' name='Basket' value='selectall'>
+
+                            </label>
+                            <div class="member-name">노수민</div>
+                            <div style="width: 96px;" class="member-name">일반 회원</div>
+                            <div style="width: 160px;" class="member-name">2023-09-16</div>
+                            <div style="width: 72px;" class="member-name">탈퇴</div>
+                        </div>
+<!--                        세 명-->
+                        <div class="member-bottom-list">
+                            <label>
+                                <input type='checkbox' name='Basket' value='selectall'>
+
+                            </label>
+                            <div class="member-name">한동석</div>
+                            <div style="width: 96px;" class="member-name">변호사 회원</div>
+                            <div style="width: 160px;" class="member-name">2023-09-01</div>
+                            <div style="width: 72px;" class="member-name">가입</div>
+                        </div>
+<!--                        네 명-->
+                        <div class="member-bottom-list">
+                            <label>
+                                <input type='checkbox' name='Basket' value='selectall'>
+                            </label>
+                            <div class="member-name">양현</div>
+                            <div style="width: 96px;" class="member-name">변호사 회원</div>
+                            <div style="width: 160px;" class="member-name">2023-09-02</div>
+                            <div style="width: 72px;" class="member-name">가입</div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="Manager-member.js"></script>
+</body>
+</html>

@@ -1,0 +1,829 @@
+/*버튼*/
+
+button, input, optgroup, select, textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+
+button {
+    overflow: visible;
+}
+
+button, select {
+    text-transform: none;
+}
+
+button, html input[type=button], input[type=reset], input[type=submit] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+button, input[type=button], input[type=file]::-webkit-file-upload-button, input[type=reset], input[type=submit] {
+    border-radius: 0;
+}
+
+
+
+
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide:not(.ng-hide-animate) {
+    display: none !important;
+}
+
+/*전체 div*/
+.search-controller {
+    background-color: #fff;
+    height: 100%;
+    overflow: visible;
+}
+
+.location-lawyers {
+    padding-top: 70px;
+    position: relative;
+}
+
+.lawyers-section {
+    background-color: #fff;
+}
+
+.search-controller section.content-section .section-wrap {
+    height: 100%;
+    margin: auto;
+    padding-bottom: 20px;
+    padding-top: 40px;
+    width: 1100px;
+}
+
+
+/*제목*/
+.location-lawyers__title {
+    color: #333;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 700;
+    text-align: center;
+}
+
+/*활동지역 변호사란?*/
+.location-lawyers .location-lawyers__info-area {
+    background-color: #fff;
+    border: 1px solid #333;
+    box-shadow: 5px 5px 5px 0 rgba(0,0,0,.1);
+    color: #757575;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    padding: 20px 21px 14px 23px;
+    position: absolute;
+    transform-origin: 100% 100%;
+    transition: transform .2s ease;
+    width: 286px;
+}
+
+/*엑스버튼*/
+.location-lawyers__info-area-close {
+    background-color: transparent;
+    border: 0;
+    height: 24px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 2px;
+    top: 3px;
+    width: 24px;
+}
+
+.closeButton {
+    width: 14px;
+    height: 14px;
+}
+
+.location-lawyers__info-button {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid #757575;
+    color: #757575;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 400;
+    margin: 0;
+    position: absolute;
+}
+
+
+
+/*active lawyer*/
+.lawyers-section .lawyers-list {
+    position: relative;
+    height: 100%;
+}
+
+.premium-lawyer-section--component {
+    align-items: center;
+    background: hsla(0,0%,100%,.9);
+    display: flex;
+}
+
+.premium-lawyer-section--title {
+    color: #555;
+    display: inline-block;
+    font-family: Gilroy;
+    position: relative;
+    z-index: 1;
+}
+
+.premium-lawyer-section--title:after {
+    color: #c50000;
+    content: ".";
+    font-size: 20px;
+}
+
+.premium-lawyer-section--sub-title {
+    color: #999;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 700;
+}
+
+/*List*/
+.lawyer-card-v2-premium {
+    background-color: #fff;
+    border-bottom: 1px solid #f1eeec;
+    position: relative;
+    width: 100%;
+}
+
+.last-lawyer {
+    border-bottom: 3px solid #757575;
+}
+
+
+/*프로필*/
+.lawyer-card-v2-premium .lawyer-profile-right {
+    cursor: pointer;
+    position: absolute;
+}
+
+.lawyer-card-v2-premium .lawyer-profile-right .picture {
+    border-radius: 50%;
+    height: 100%;
+    overflow: hidden;
+    transform: translateZ(0);
+    width: 100%;
+}
+
+.lawyer-card-v2-premium .lawyer-profile-right .picture .lawyer-profile {
+    border: 0;
+    vertical-align: middle;
+}
+
+.lawyer-card-v2-premium .lawyer-profile-left-header {
+    display: flex;
+}
+
+.lawyer-card-v2-premium .lawyer-name {
+    color: #333;
+    cursor: pointer;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.lawyer-card-v2-premium .lawyer-card-v2-premium__company-name {
+    color: #999;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 400;
+    line-height: 17px;
+    margin-top: 5px;
+}
+
+.lawyer-card-v2-premium .lawyer-description {
+    color: #333;
+    display: inline-block;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 18px;
+    margin-top: 15px;
+    text-decoration: none;
+}
+
+.lawyer-card-v2-premium .lawyer-description:after {
+    background-color: #c50000;
+    border-radius: 50%;
+    content: "";
+    display: inline-block;
+}
+
+.lawyer-card-v2-premium.hide-category .lawyer-specialization {
+    display: none;
+}
+
+/*관련후기*/
+.lawyer-card-v2-premium.hide-category .lawyer-review-coupon-icon-wrap {
+    display: flex;
+}
+
+.lawyer-card-v2-premium .lawyer-review {
+    align-items: center;
+    display: flex;
+}
+
+.lawyer-card-v2-premium .lawyer-review .lawyer-review-rate-block {
+    display: flex;
+}
+
+.lawyer-card-v2-premium .lawyer-review .lawyer-review-rate-block .lawyer-review-count {
+    color: #757575;
+    cursor: pointer;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+/*#태그*/
+.lawyer-card-v2-premium .lawyer-card-v2-premium__highlighted-keywords {
+    align-items: center;
+    display: flex;
+    margin-top: 19px;
+}
+
+.lawyer-card-v2-premium .lawyer-card-v2-premium__highlighted-keywords .lawyer-card-v2-premium__highlighted-keyword {
+    background-color: #f6f6f6;
+    border-radius: 24px;
+    color: #333;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 20px;
+    margin-right: 8px;
+    padding: 2px 8px;
+}
+
+
+/*예약하기*/
+.lawyer-card-v2-premium .available-solutions-block {
+    display: flex;
+}
+
+.lawyer-card-v2-premium .available-solutions-block .available-solutions {
+    background-color: #f6f6f6;
+    display: flex;
+}
+
+.lawyer-card-v2-premium .available-solutions-block .available-solutions .available-solution {
+    position: relative;
+}
+
+.lawyer-card-v2-premium .available-solutions-block .available-solutions .available-solution .solution-text {
+    color: #333;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.lawyer-card-v2-premium .available-solutions-block .available-solutions .available-solution .solution-title {
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.lawyer-card-v2-premium .available-solutions-block .available-solutions .available-solution {
+    position: relative;
+}
+
+.lawyer-card-v2-premium .available-solutions-block .available-solutions .available-solution.in-active .solution-text {
+    color: #999;
+}
+
+.lawyer-card-v2-premium .available-solutions-block .available-solutions .available-solution.in-active .solution-text {
+    color: #999;
+}
+
+/*버튼*/
+.lawyer-card-v2-premium .reservation-button {
+    background-color: #c50000;
+    border: 0;
+    box-shadow: 3px 3px 10px 0 rgba(0,0,0,.2);
+    color: #fff;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 700;
+    line-height: 17px;
+    outline: none;
+    vertical-align: middle;
+}
+
+.lawyer-card-v2-premium .reservation-button:hover {
+    background-color: #d90000;
+}
+
+/*더 알아보기*/
+.lawyer-card-v2-premium .lawyer-more-see-block {
+    text-align: center;
+}
+
+.lawyer-card-v2-premium .lawyer-more-see-block .lawyer-more-see-text {
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 700;
+}
+
+.lawyer-card-v2-premium .lawyer-more-see-block .lawyer-more-see-arrow {
+    border-bottom: 2px solid #d8d8d8;
+    border-right: 3px solid transparent;
+    height: 5px;
+    width: 100%;
+}
+
+.lawyer-card-v2-premium .lawyer-more-see-block .lawyer-more-see-arrow:after {
+    border-right: 3px solid #d8d8d8;
+    border-top: 0.7px solid transparent;
+    content: "";
+    height: 5px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+
+/*마우스 오버*/
+.lawyer-card-v2-premium .lawyer-more-see-block:hover .lawyer-more-see-arrow:after {
+    border-right-color: #333;
+    border-bottom: 2px solid #333;
+}
+
+/*일반 변호사 css*/
+.lawyers-section .normal-lawyer-section .normal-lawyer-section-title {
+    color: #555;
+    display: inline-block;
+    font-family: Gilroy;
+    font-weight: 800;
+    position: relative;
+    z-index: 1;
+}
+
+.lawyers-section .normal-lawyer-section .normal-lawyer-section-title:after {
+    color: #999;
+    content: ".";
+    font-size: 20px;
+}
+
+/*일반 변호사 리스트*/
+.lawyer-card-v2 {
+    background-color: #fff;
+    border-bottom: 1px solid #f1eeec;
+    overflow: hidden;
+    width: 100%;
+}
+
+/*프로필 사진*/
+.lawyer-card-v2 .lawyer-profile-right {
+    float: right;
+    text-align: center;
+}
+
+.lawyer-card-v2 .lawyer-profile {
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    object-fit: cover;
+    vertical-align: middle;
+}
+
+/*좌측 프로필 영역*/
+.lawyer-card-v2.normal-lawyer-card .lawyer-name-icon-wrap {
+    display: flex;
+}
+
+.lawyer-card-v2 .lawyer-name {
+    color: #333;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.lawyer-card-v2.hide-category .lawyer-name {
+    line-height: 24px;
+}
+
+/*회사명*/
+.lawyer-card-v2 .lawyer-card-v2__company-name {
+    color: #555;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 400;
+}
+
+.lawyer-card-v2 .lawyer-description {
+    color: #555;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 400;
+}
+
+.lawyer-card-v2.hide-category .lawyer-specialization {
+    display: none;
+}
+
+
+/*예약하기*/
+.lawyer-card-v2 .available-solutions-block {
+    display: flex;
+}
+
+.lawyer-card-v2 .available-solutions-block .available-solutions {
+    display: flex;
+}
+
+.lawyer-card-v2 .available-solutions-block .available-solutions .available-solution {
+    background-color: #f6f6f6;
+    position: relative;
+    text-align: center;
+}
+
+.lawyer-card-v2 .available-solutions-block .available-solutions .available-solution .solution-text, .lawyer-card-v2 .available-solutions-block .available-solutions .available-solution .solution-title {
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+}
+
+.lawyer-card-v2 .available-solutions-block .available-solutions .available-solution .solution-text {
+    color: #333;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.lawyer-card-v2 .available-solutions-block .available-solutions .available-solution .solution-title {
+    font-weight: 700;
+}
+
+/*더보기*/
+.lawyers-section .more-lawyers-block .more-lawyers {
+    background: #f7f7f7;
+    display: block;
+    height: 60px;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+}
+
+.lawyers-section .more-lawyers-block .more-lawyers:hover {
+    background: #f1f1f1;
+}
+
+.lawyers-section .more-lawyers-block i.more-text {
+    color: #555;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Pretendard,'Noto Sans KR', sans-serif;
+}
+
+.lawyers-section .more-lawyers-block i.more-plus {
+    color: #555;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Pretendard,'Noto Sans KR', sans-serif;
+}
+
+
+/* 반응형 */
+@media (min-width: 960px) {
+    .lt-mobile {
+        display: none !important;
+    }
+
+    .search-controller .content-section.lawyers-section .section-wrap.lawyers-section-wrap.lawyers-tab-section {
+        padding-bottom: 120px;
+        padding-top: 0;
+    }
+
+    /*상담 분야 나누는 섹션*/
+    .lawyers-section .lawyers-section-wrap.section-wrap .lawyers-section__title.title {
+        border-bottom: none;
+        padding: 16px 0 0;
+    }
+
+    /*제목*/
+    .location-lawyers__title {
+        font-size: 40px;
+        line-height: 52px;
+        margin: 0 auto 50px;
+    }
+
+    /*활동지역 변호사란?*/
+
+    .location-lawyers__info-area {
+        visibility: hidden;
+        left: 50%;
+        top: 98px;
+        transform: translateX(calc(100% - 30px)) scale(1);
+    }
+
+    .location-lawyers__info-button {
+        font-family: Pretendard,'Noto Sans KR', sans-serif;
+        font-size: 13px;
+        left: calc(50% + 438px);
+        padding: 0 0 4px;
+        top: 264px;
+    }
+
+    /*마우스오버*/
+    .location-lawyers__info-button:hover {
+        font-size: 13.2px;
+    }
+
+
+    /*active lawyer*/
+    .lawyers-section .lawyers-section-wrap.section-wrap .lawyers-list-td {
+        position: relative;
+    }
+
+    .lawyers-section .lawyers-list {
+        padding-right: 67px;
+        width: 809px;
+    }
+
+    .lawyers-section .lawyers-list.all {
+        min-height: 447px;
+    }
+
+    /*타이틀*/
+    .lawyers-section .lawyer-section-title {
+        margin-top: 53px;
+    }
+
+    .lawyers-section .premium-lawyer-section {
+        height: 40px;
+    }
+
+    .lawyers-section .lawyer-section-title.all {
+        margin-top: 17px;
+    }
+
+    .premium-lawyer-section--component {
+        height: 40px;
+    }
+
+    .premium-lawyer-section--title {
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 2.8px;
+    }
+
+    .premium-lawyer-section--sub-title {
+        font-size: 11px;
+        margin-left: 8px;
+        margin-top: 4px;
+    }
+
+    .lawyer-card-v2-premium {
+        min-height: 218px;
+        overflow: visible;
+        padding-bottom: 48px;
+        padding-top: 44px;
+    }
+
+    .lawyer-card-v2-premium.hide-category {
+        padding-bottom: 48px;
+        padding-top: 45px;
+    }
+
+    .lawyer-card-v2-premium .lawyer-profile-right {
+        height: 128px;
+        right: 0;
+        top: 40px;
+        width: 128px;
+    }
+
+    .lawyer-card-v2-premium .lawyer-profile-right .picture .lawyer-profile {
+        height: 100%;
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+        width: 100%;
+    }
+
+    .lawyer-card-v2-premium .lawyer-profile-right .picture .lawyer-profile, .lawyer-card-v2-premium .lawyer-profile-right .picture .lawyer-profile:hover {
+        -webkit-transition: all ease-out;
+        -webkit-transition-delay: .5s;
+        -moz-transition: all .5s ease-out;
+        -o-transition: all .5s ease-out;
+        transition: all .5s ease-out;
+    }
+
+    /*프로필 왼쪽 정보*/
+    .lawyer-card-v2-premium .lawyer-profile-left {
+        width: 550px;
+    }
+
+    .lawyer-card-v2-premium .lawyer-profile-left-header {
+        height: 24px;
+    }
+
+    .lawyer-card-v2-premium .lawyer-name {
+        font-size: 20px;
+    }
+
+    .lawyer-card-v2-premium .lawyer-card-v2-premium__company-name {
+        font-size: 13px;
+    }
+
+    .lawyer-card-v2-premium .lawyer-description {
+        cursor: pointer;
+        font-size: 17px;
+        line-height: 29px;
+        margin-top: 16px;
+    }
+
+    .lawyer-card-v2-premium .lawyer-description:after {
+        height: 4px;
+        line-height: 18px;
+        margin-left: 2px;
+        width: 4px;
+    }
+
+    .lawyer-card-v2-premium .lawyer-specialization {
+        cursor: pointer;
+        margin-top: 15px;
+    }
+
+    .lawyer-card-v2-premium.hide-category .lawyer-review-coupon-icon-wrap {
+        margin-top: 6px;
+    }
+
+    .lawyer-card-v2-premium .lawyer-review .lawyer-review-rate-block .lawyer-review-count {
+        font-size: 14px;
+    }
+
+    /*#태그*/
+    .lawyer-card-v2-premium .lawyer-card-v2-premium__highlighted-keywords {
+        margin-top: 26px;
+    }
+
+
+
+    /*예약하기*/
+    .lawyer-card-v2-premium .available-solutions-block {
+        height: 64px;
+        margin-top: 8px;
+    }
+
+    .lawyer-card-v2-premium.hide-category .available-solutions-block {
+        margin-top: 18px;
+    }
+
+    .lawyer-card-v2-premium .available-solutions-block .available-solutions {
+        cursor: pointer;
+        height: 64px;
+        padding-left: 20px;
+    }
+
+
+    .lawyer-card-v2-premium .available-solutions-block .available-solutions .available-solution {
+        height: 58px;
+        padding-top: 14px;
+        width: 92px;
+    }
+
+    /*버튼*/
+    .lawyer-card-v2-premium .reservation-button {
+        font-size: 14px;
+        height: 100%;
+        padding: 0 18px;
+        width: 64px;
+    }
+
+    .lawyer-card-v2-premium.hide-category .reservation-button {
+        bottom: 37px;
+        right: 2px;
+    }
+
+    /*더 알아보기*/
+    .lawyer-card-v2-premium .lawyer-more-see-block {
+        bottom: 48px;
+        cursor: pointer;
+        height: 19px;
+        position: absolute;
+        right: 24px;
+        width: 81.1px;
+    }
+
+    .lawyer-card-v2-premium .lawyer-more-see-block .lawyer-more-see-text {
+        color: #555;
+        font-size: 14px;
+    }
+
+    .lawyer-card-v2-premium .lawyer-more-see-block .lawyer-more-see-arrow {
+        margin-left: 2px;
+    }
+
+    .lawyer-card-v2-premium .lawyer-more-see-block .lawyer-more-see-arrow:after {
+        -webkit-transform: skew(50deg);
+        -moz-transform: skew(50deg);
+        -ms-transform: skew(50deg);
+        -o-transform: skew(50deg);
+        transform: skew(50deg);
+    }
+
+    /*일반 변호사 css*/
+    .lawyers-section .lawyer-section-title {
+        margin-top: 53px;
+    }
+
+    .lawyers-section .normal-lawyer-section {
+        margin-bottom: 2px;
+        margin-top: 41px;
+    }
+
+    .lawyers-section .normal-lawyer-section .normal-lawyer-section-title {
+        font-size: 14px;
+        letter-spacing: 2.8px;
+        margin-right: 2px;
+    }
+
+    /*일반 변호사 리스트*/
+    .lawyer-card-v2 {
+        padding-bottom: 35px;
+        padding-top: 30px;
+    }
+
+    .lawyer-card-v2.hide-category {
+        padding-bottom: 34px;
+        padding-top: 30px;
+    }
+
+    /*프로필 사진*/
+    .lawyer-card-v2 .lawyer-profile-right {
+        height: 72px;
+        margin-top: 8px;
+        width: 72px;
+    }
+
+    .lawyer-card-v2 .lawyer-profile {
+        height: 72px;
+        width: 72px;
+    }
+
+    .lawyer-card-v2 .lawyer-name {
+        font-size: 15px;
+    }
+
+    /*회사명*/
+    .lawyer-card-v2 .lawyer-card-v2__company-name {
+        font-size: 13px;
+        letter-spacing: 2.17px;
+        line-height: 24px;
+    }
+
+    .lawyer-card-v2 .lawyer-description {
+        cursor: pointer;
+        font-size: 15px;
+        line-height: 1.4;
+    }
+
+    /*주요분야 display:none*/
+    .lawyer-card-v2 .lawyer-specialization {
+        cursor: pointer;
+        margin-top: 9px;
+    }
+
+    /*예약하기*/
+    .lawyer-card-v2 .available-solutions-block {
+        margin-top: 12px;
+    }
+
+    .lawyer-card-v2 .available-solutions-block .available-solutions {
+        cursor: pointer;
+    }
+
+    .lawyer-card-v2 .available-solutions-block .available-solutions .available-solution {
+        flex: none;
+        height: 24px;
+        line-height: 24px;
+        margin-right: 5px;
+        text-align: center;
+        width: 97px;
+    }
+
+    .lawyers-section .more-lawyers-block .more-lawyers {
+        line-height: 53px;
+        margin-top: 40px;
+    }
+
+    .lawyers-section .more-lawyers-block i.more-text {
+        font-size: 16px;
+        margin-bottom: -1px;
+    }
+
+    .lawyers-section .more-lawyers-block i.more-plus {
+        font-size: 22px;
+        margin-left: 10px;
+    }
+
+
+}

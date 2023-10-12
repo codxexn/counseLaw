@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>무료로 온라인 상담글 작성하기 | 카운슬로우</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="./counselingWrite.css">
+</head>
+<body>
+    <div class="root pc">
+        <div style="height: 100%;">
+            <div class="QNA-Wrapper">
+                <div class="QNA-Contents">
+                    <div class="QNA-Question-Wrapper">
+                        <div class="QNA-Question-Contents">
+                            <div class="QNA-Question-Compose-Wrapper">
+                                <div class="QNA-Question-Compose-Title">
+                                    <div class="QNA-Question-Compose-Title-Wrapper">
+                                        <span class="QNA-Question-Compose-Title-Badge">FREE</span>
+                                        <p class="QNA-Question-Compose-Description">변호사의 답변을 무료로 받아보세요!</p>
+                                    </div>
+                                </div>
+                                <form role="form" name="composeForm" class="QNA-Question-Compose-Form">
+                                    <div>
+                                        <div>
+                                            <div class="Compose-Input-Upperline">
+                                                <div class="Compose-Input-Name-Wrapper">
+                                                    <div class="Compose-Input-Name">제목&nbsp;</div>
+                                                    <div class="Compose-Input-Description">
+                                                        (10자 이상
+                                                        <span class="Compose-Input-Description-Orange">*</span>
+                                                        )
+                                                    </div>
+                                                </div>
+                                                <div class="Compose-Input-Count-Wrapper Title-Count-Wrapper">
+                                                    <span class="Compose-Input-Count Title-Count">0자</span>
+                                                    <span class="Compose-Input-Total">/50자</span>
+                                                </div>
+                                            </div>
+                                            <div class="Compose-Textarea-Wrapper Title-Textarea">
+                                                <textarea onclick="onTitleClickShowTip(); onTitleClickShowCount();"  onblur="onTitleBlurHideTip(); onTitleBlurHideCount();" name="title" rows="1" class="Compose-Title-Textarea" placeholder="1개의 질문을 구체적으로 입력해주세요." maxlength="50"></textarea>
+                                                <div class="Compose-Title-Guide">
+                                                    <div class="Compose-Title-Guide-Tipline">
+                                                        <div class="Compose-Title-Guide-Tip-Image"></div>
+                                                        <div class="Compose-Title-Guide-Tip">작성 TIP</div>
+                                                    </div>
+                                                    <p class="Compose-Title-Guide-Content">
+                                                        <span class="Compose-Title-Guide-Content-Bold">
+                                                            1개의 질문을 구체적으로 작성해주시는게 좋아요.&nbsp;
+                                                        </span>
+                                                        <span class="Compose-Title-Guide-Content-Example">ex.&nbsp;</span>
+                                                        <span class="Compose-Title-Guide-Content-Question">
+                                                            사기죄로 고소를 당했는데, 어떻게 대응해야 할까요?
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="Compose-Input-Content-Wrapper">
+                                            <div class="Compose-Input-Upperline">
+                                                <div class="Compose-Input-Name-Wrapper">
+                                                    <div class="Compose-Input-Name">내용&nbsp;</div>
+                                                    <div class="Compose-Input-Description">
+                                                        (200자 이상
+                                                        <span class="Compose-Input-Description-Orange">*</span>
+                                                        )
+                                                    </div>
+                                                </div>
+                                                <div class="Compose-Input-Count-Wrapper Body-Count-Wrapper">
+                                                    <span class="Compose-Input-Count Body-Count">0자</span>
+                                                    <span class="Compose-Input-Total">/1,000자</span>
+                                                </div>
+                                            </div>
+                                            <div class="Compose-Textarea-Wrapper Body-Textarea">
+                                                <textarea onfocus="onBodyClickShowTip(); onBodyClickShowCount();" onblur="onBodyBlurHideTip(); onBodyBlurHideCount();" name="body" class="Compose-Body-Textarea" maxlength="1000" placeholder="시간 순서에 따라 구체적으로 설명해주세요."></textarea>
+                                                <div class="Compose-Title-Guide">
+                                                    <div class="Compose-Title-Guide-Tipline">
+                                                        <div class="Compose-Title-Guide-Tip-Image"></div>
+                                                        <div class="Compose-Title-Guide-Tip">작성 TIP</div>
+                                                    </div>
+                                                    <ul class="Compose-Guide-List">
+                                                        <li class="Compose-Guide-List-Item">
+                                                            사건을&nbsp;
+                                                            <span class="Compose-Title-Guide-Content-Bold">
+                                                                시간 순서에 따라 구체적으로&nbsp;
+                                                            </span>
+                                                            설명해주세요.
+                                                        </li>
+                                                        <li class="Compose-Guide-List-Item">
+                                                            <span class="Compose-Title-Guide-Content-Bold">
+                                                                개인정보(실명, 상호, 주민번호, 전화번호 등)
+                                                            </span>
+                                                            는 내용에 포함하지 말아주세요.
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="Compose-Form-Description">
+                                        <div class="Compose-Form-Notice-Title-Wrapper">
+                                            <p class="Compose-Form-Notice-Title">
+                                                상담글 등록 전 필수 안내사항
+                                            </p>
+                                        </div>
+                                        <div class="Compose-Form-Notice-Contents">
+                                            <ol class="Compose-Form-Notice-List">
+                                                <li class="Compose-Form-Notice-Item">상담글 제목은 답변을 받기에 적합한 내용으로 일부 변경될 수 있습니다.</li>
+                                                <li class="Compose-Form-Notice-Item">상담글에 변호사 답변 등록시 글 삭제가 불가합니다.</li>
+                                                <li class="Compose-Form-Notice-Item">등록된 글은 네이버 지식인, 포털 사이트, 카운슬로우 사이트에 내용이 공개됩니다.</li>
+                                                <li class="Compose-Form-Notice-Item">
+                                                    아래 사항에 해당할 경우, 서비스 이용이 제한될 수 있습니다.
+                                                    <ul class="Compose-Form-Notice-Limit-List">
+                                                        <li class="Compose-Form-Notice-Limit-Item">개인정보(개인/법인 실명, 전화번호, 주민번호, 주소, 아이디 등) 및 외부 링크 포함</li>
+                                                        <li class="Compose-Form-Notice-Limit-Item">변호사 선임 및 변호사 선임 비용과 관련된 질문 포함</li>
+                                                        <li class="Compose-Form-Notice-Limit-Item">법률 문제 해결을 목적의 상담글이 아닌 경우</li>
+                                                        <li class="Compose-Form-Notice-Limit-Item">동일/유사한 내용의 게시물을 지속적으로 반복 게재</li>
+                                                        <li class="Compose-Form-Notice-Limit-Item">의미없는 문자의 나열 포함</li>
+                                                    </ul>
+                                                </li>
+                                            </ol>
+                                        </div>
+                                        <div class="Compose-Form-Notice-Line"></div>
+                                        <div class="Compose-Form-Agreement-Wrapper">
+                                            <input type="checkbox" id="noticeAgreement" class="Compose-Form-Agreement-Checkbox">
+                                            <label for="noticeAgreement" class="Compose-Form-Agreement-Text">
+                                                안내 사항을 모두 확인했으며, 동의합니다.
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="Compose-Form-Button-Wrapper">
+                                        <button class="Compose-Form-Button" disabled type="submit">등록하기</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./counselingWrite.js"></script>
+</html>

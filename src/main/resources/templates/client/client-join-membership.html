@@ -1,0 +1,496 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>의뢰인 회원가입</title>
+    <link rel="stylesheet" href="client_join_membership.css">
+    <link rel="stylesheet" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.81.woff2">
+    <link rel="stylesheet" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.82.woff2">
+    <link rel="stylesheet" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.85.woff2">
+    <link rel="stylesheet" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.86.woff2">
+    <link rel="stylesheet" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.87.woff2">
+    <link rel="stylesheet" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.88.woff2">
+    <link rel="stylesheet" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.89.woff2">
+    <link rel="stylesheet" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.90.woff2">
+    <link rel="stylesheet" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.91.woff2">
+    <link rel="stylesheet" href="https://d2nyk3ltml4doc.cloudfront.net/lawtalk/latest/fonts/22eb3211f6def8f859e2.woff">
+    <link rel="stylesheet" href="https://d2nyk3ltml4doc.cloudfront.net/lawtalk/latest/fonts/041b48e46e314db995d9.woff">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+</head>
+<body>
+<div id="next">
+    <div id="root_view">
+        <div class="law_sign_up_container">
+        <div class="CourseLaw_auth">
+            <div class="auth_box_header">
+                <div class="auth_bpx_header_logo">
+                    <img src="KakaoTalk_20230911_154146681.png" alt="">
+                </div>
+
+                <div class="auth_box_header_title">의뢰인 회원가입</div>
+            </div>
+
+            <form action="" class="auth_body">
+
+                <button type="button" class="law_auth_kao_button">
+                    <i class="kao_icon"></i>
+                    <span class="vertical_line"></span>
+                    <span class="text">카카오로 가입하기</span>
+                </button>
+
+                <div class="law_auth_card">
+                    <h3 class="law_auth_card_header">계정정보</h3>
+
+                    <div class= "law_auth_card_body">
+                        <div class="form_group">
+                            <input type="email" class="material_form_control"
+                            name="email" placeholder="예) name@example.com" id="sign-up-email">
+                            <label class="label_color">이메일</label>
+                            <div id="sign-up-email-valid-message" style="display: none">
+                                <label class="control-label error">이메일은 반드시 입력하셔야 합니다.</label>
+                            </div>
+                        </div>
+
+                        <div class="form_group">
+                            <input id="sign-up-username" type="text" class="material_form_control"
+                                   name="username" placeholder="6~16자, 영문, 숫자, _(밑줄)">
+
+                            <label class="label_color">아이디</label>
+
+                            <div id="sign-up-username-validator-message" style="display: none">
+                                <label class="control-label error">아이디는 반드시 입력하셔야 합니다.</label>
+                            </div>
+                        </div>
+
+                        <div class="form_group">
+                            <input id="sign-up-password" type="password" class="material_form_control"
+                                   name="password" placeholder="6~16자, 영문, 숫자, 특수문자(_-!@#$%^&*.,)">
+
+                            <label class="label_color">비밀번호</label>
+
+                            <div id="sign-up-password-validator-message" style="display: none">
+                                <label class="control-label error">비밀번호는 반드시 입력하셔야 합니다.</label>
+                            </div>
+                        </div>
+
+                        <div class="form_group">
+                            <input id="sign-up-password-confirm" type="password" class="material_form_control"
+                                   name="passwordConfirm" placeholder="비밀번호를 다시 한 번 입력">
+
+                            <label class="label_color">비밀번호 재확인</label>
+
+                            <div id="sign-up-passwordConfirm-validator-message" style="display: none">
+                                <label class="control-label error">비밀번호 재확인은 반드시 입력하셔야 합니다.</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="law_auth_card_header">인증정보</h3>
+
+
+                    <div class="law_auth_card_body">
+                        <div class="form_group">
+                            <input id="sign-up-phone" type="code" class="material_form_control"
+                                   name="passwordConfirm" placeholder="예) 01012345678">
+
+                            <label class="label_color">전화번호</label>
+
+                            <div id="sign-up-phone-validator-message" style="display: none">
+                                <label class="control-label error">전화번호는 반드시 입력하셔야 합니다.</label>
+                            </div>
+
+                            <button id="certify-phone-number-button" type="button" class="text-only inline-button">[ 인증번호 발송 ]</button>
+                        </div>
+
+                        <div class="form_group">
+                            <input type="tel" class="material_form_control"
+                                   name="passwordConfirm" placeholder="6자리 숫자">
+
+                            <label class="label_color">인증번호</label>
+
+                            <button type="button" class="text-only inline-button" disabled="disabled">[인증]</button>
+                        </div>
+
+                    </div>
+
+                    <div class="law_auth_card_body without-vertical-padding">
+                        <div class="law-auth-card-body-item">
+                            <div class="form-group-checkbox">
+                                <label class="pull-left">상담안내 문자수신</label>
+                                <div class="pull-right">
+                                    <div class="law-switch">
+                                        <input type="checkbox" id="sns-accept" name="sns-accept" checked>
+                                        <label></label>
+                                    </div>
+                            </div>
+
+                        </div>
+
+                        </div>
+                    </div>
+
+                    <h3 class="law_auth_card_header">기타정보</h3>
+
+                    <div class="law_auth_card_body">
+                        <div class="form_group">
+                            <div class="material-dropdown-menu">
+                                <div class="material-dropdown-original">
+                                    <select id="sign-up-refer" name="refer" required-error-message="방문경로는 반드시 선택하셔야 합니다.">
+                                        <option value selected="selected">방문경로 선택</option>
+
+                                        <option label="블로그">블로그</option>
+
+                                        <option label="네이버 지식인">네이버 지식인</option>
+
+                                        <option label="네이버 검색광고">네이버 검색광고</option>
+
+                                        <option label="구글 검색광고">구글 검색광고</option>
+
+                                        <option label="페이스북">페이스북</option>
+
+                                        <option label="지인소개">지인소개</option>
+                                    </select>
+
+                                    <label for="sign-up-refer">방문경로</label>
+
+                                    <div id="sign-up-refer-validator-message" style="display:none">
+                                        <label class="control-label">방문경로는 반드시 선택하셔야 합니다.</label>
+                                    </div>
+                                </div>
+
+                                <button id="dropdown-button" type="button" class="material-form-control waves-effect">
+                                    방문경로 선택
+                                </button>
+
+
+                                <div class="material-dropdown-menu-content">
+                                    <ul>
+                                        <li>
+                                            <a>블로그</a>
+                                        </li>
+
+                                        <li>
+                                            <a>네이버 지식인</a>
+                                        </li>
+
+                                        <li>
+                                            <a>네이버 검색광고</a>
+                                        </li>
+
+                                        <li>
+                                            <a>구글 검색광고</a>
+                                        </li>
+
+                                        <li>
+                                            <a>페이스북</a>
+                                        </li>
+
+                                        <li>
+                                            <a>지인소개</a>
+                                        </li>
+
+                                        <li>
+                                            <a>기타</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="law_auth_card_header">선택정보</h3>
+
+                    <div class="law_auth_card_body">
+                        <div class="form_group">
+                            <input id="sign-up-recommender" type="text" class="material_form_control"
+                                   name="recommender" placeholder="6~16자, 영문, 숫자, _(밑줄)">
+
+                            <label for="sign-up-recommender" class="label_color">추천인ID</label>
+                        </div>
+
+                        <div class="form_group">
+                            <div class="material-dropdown-menu">
+                                <div class="material-dropdown-original">
+                                    <select id="sign-up-sex" name="sex">
+                                        <option value selected="selected">성별 선택</option>
+
+                                        <option label="남">남</option>
+
+                                        <option label="여">여</option>
+                                    </select>
+
+                                    <label for="sign-up-refer">성별</label>
+
+                                </div>
+
+                                <button type="button" class="material-form-control waves-effect">
+                                    성별 선택
+                                </button>
+
+
+                                <div class="material-dropdown-menu-content">
+                                    <ul>
+                                        <li>
+                                            <a href="">남</a>
+                                        </li>
+
+                                        <li>
+                                            <a href="">여</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form_group">
+                            <div class="material-dropdown-menu">
+                                <div class="material-dropdown-original">
+                                    <select id="sign-up-birth-year" name="year">
+                                        <option value selected="selected">출생년도 선택</option>
+
+                                        <option label="1950" value="number:1951">1950</option>
+
+                                        <option label="1951" value="number:1951">1951</option>
+
+                                        <option label="1952" value="number:1952">1952</option>
+
+                                        <option label="1953" value="number:1953">1953</option>
+
+                                        <option label="1954" value="number:1954">1954</option>
+
+                                        <option label="1955" value="number:1955">1955</option>
+
+                                        <option label="1956" value="number:1956">1956</option>
+
+                                        <option label="1957" value="number:1957">1957</option>
+
+                                        <option label="1958" value="number:1958">1958</option>
+
+                                    </select>
+
+                                    <label for="sign-birth-year">출생년도</label>
+                                </div>
+
+                                <button type="button" class="material-form-control waves-effect">
+                                    출생년도
+                                </button>
+
+
+                                <div class="material-dropdown-menu-content">
+                                    <ul>
+                                        <li>
+                                            <a href="">1950</a>
+                                        </li>
+
+                                        <li>
+                                            <a href="">1951</a>
+                                        </li>
+
+                                        <li>
+                                            <a href="">1952</a>
+                                        </li>
+
+                                        <li>
+                                            <a href="">1953</a>
+                                        </li>
+
+                                        <li>
+                                            <a href="">1954</a>
+                                        </li>
+
+                                        <li>
+                                            <a href="">1955</a>
+                                        </li>
+
+                                        <li>
+                                            <a href="">1956</a>
+                                        </li>
+
+                                        <li>
+                                            <a href="">1957</a>
+                                        </li>
+
+                                        <li>
+                                            <a href="">1958</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+
+                </div>
+                    <h3 class="law_auth_card_header">약관동의</h3>
+
+                    <contract-consensus>
+                        <div class="contract-consensus-container">
+                            <div class="contract-consensus-all-wrap">
+                                <div class="contract-consensus-checkbox-wrap">
+                                    <input id="sign-up-agree-all" type="checkbox" class="contract-consensus-checkbox">
+                                    <label for="sign-up-agree-all" class="contract-consensus-checkbox-label">
+                                        <i class="contract-consensus-checkbox-text">
+                                            다음에 모두 동의합니다.
+                                        </i>
+                                    </label>
+                                </div>
+
+                                <div class="contract-consent-all-text">서비스 이용약관, 개인정보 취급방침, 개인정보 이용/수집,  프로모션 정보 수신에 모두 동의함을 의미합니다.
+                                </div>
+                            </div>
+
+                            <div class="contract-consensus-line"></div>
+
+                            <div class="contract-consensus-check-box-container">
+                                <div class="contract-consensus-checkbox-wrap">
+                                    <input id="lawyer-sign-up-agreement" type="checkbox" class="contract-consensus-checkbox">
+                                    <label for="lawyer-sign-up-agreement" class="contract-consensus-checkbox-label">
+                                        <i class="contract-consensus-checkbox-text">
+                                        서비스 이용약관 동의
+                                        </i>
+                                        <i class="contract-consensus-checkbox-sub-text">
+                                            (필수)
+                                        </i>
+                                    </label>
+                                    <a target="_blank" class="contract-consensus-link">내용보기</a>
+                                </div>
+                            </div>
+
+                            <div class="contract-consensus-check-box-container">
+                                <div class="contract-consensus-checkbox-wrap">
+                                    <input id="privacy-policy" type="checkbox" class="contract-consensus-checkbox">
+                                    <label for="privacy-policy" class="contract-consensus-checkbox-label">
+                                        <i class="contract-consensus-checkbox-text">
+                                            개인정보 취급방침 동의
+                                        </i>
+                                        <i class="contract-consensus-checkbox-sub-text">
+                                            (필수)
+                                        </i>
+                                    </label>
+                                    <a target="_blank" class="contract-consensus-link">내용보기</a>
+                                </div>
+                            </div>
+
+                            <div class="contract-consensus-check-box-container">
+                                <div class="contract-consensus-checkbox-wrap">
+                                    <input id="personal-info" type="checkbox" class="contract-consensus-checkbox">
+                                    <label for="personal-info" class="contract-consensus-checkbox-label">
+                                        <i class="contract-consensus-checkbox-text">
+                                            개인정보 이용/수집 동의
+                                        </i>
+                                        <i class="contract-consensus-checkbox-sub-text">
+                                            (필수)
+                                        </i>
+                                    </label>
+                                    <a target="_blank" class="contract-consensus-link">내용보기</a>
+                                </div>
+                            </div>
+
+                            <div class="contract-consensus-check-box-container">
+                                <div class="contract-consensus-checkbox-wrap">
+                                    <input id="marketing-accept" type="checkbox" class="contract-consensus-checkbox">
+                                    <label for="marketing-accept" class="contract-consensus-checkbox-label">
+                                        <i class="contract-consensus-checkbox-text">
+                                            혜택정보(마케팅) 수신 전체동의
+                                        </i>
+                                        <i class="contract-consensus-checkbox-sub-text">
+                                            (선택)
+                                        </i>
+                                    </label>
+
+
+
+                                </div>
+
+                                <div class="contract-consensus-marketing-accept-text">
+                                    <span class="without-welcome-gift-text">신규 서비스 소식, 이벤트 안내, 할인/혜택 등 다양한 정보를</span>
+
+                                    <br class="it-mobile">
+                                    <input id="email-marketing-accept" type="checkbox" class="marketing-checkbox">
+
+                                    <label for="email-marketing-accept" class="contract-consensus-marketing-accept-checkbox-label email">
+                                        <i class="contract-consensus-marketing-accept-checkbox-text">이메일</i>
+                                    </label>
+                                    과
+                                    <br class="it-mobile">
+                                    <input id="sms-marketing-accept" type="checkbox" class="marketing-checkbox">
+
+                                    <label for="sms-marketing-accept" class="contract-consensus-marketing-accept-checkbox-label phone">
+                                        <i class="contract-consensus-marketing-accept-checkbox-text">휴대폰(카카오알림톡 또는 문자)</i>
+                                    </label>
+                                    로 받아보겠습니다.
+                                </div>
+                            </div>
+
+                            </div>
+                    </contract-consensus>
+
+                    <h3 class="law_auth_card_header">이용자 연령 확인</h3>
+
+                    <div class="law_auth_card_body">
+                        <div class="description">
+                            법률문제는 만 14세 미만 아동이 스스로 판단하기 힘든 복잡한 문제일 수 있습니다.
+                            <br>
+                            <a href="tel:112">112 경찰청</a>
+                            또는
+                            <a href="tel:1577-1391">1577-1391 아동보호전문기관</a>
+                            에 연락해 도움을 받아보세요.
+                        </div>
+
+                        <div class="user-age-check-item">
+                            <div class="user-age-check-wrap">
+                                <input id="sign-up-user-age-check" type="checkbox"
+                                name="userAgeCheck" class="user-age-check-checkbox">
+
+                                <label for="sign-up-user-age-check" class="user-age-check-label">
+                                    <i class="user-age-check-text">만 14세 이상입니다.</i>
+                                </label>
+                            </div>
+
+                            <div id="sign-up-user-age-check-validator-message" style="display: none;">
+                                <label class="control-label">반드시 동의하셔야 합니다.</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="law-auth-card-footer">
+                        <button type="submit" class="law-auth-card-footer-button">
+                            가입신청
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+</div>
+
+        <div id="dialog" class="dialog" style="display:none;">
+            <div class="dialog-overlay"></div>
+            <div class="dialog-content">
+                <div class="simple-message">
+                    <div class="title">
+                        로그인
+                        <a href="">
+                            <i class="lc"></i>
+                        </a>
+                    </div>
+
+                    <div class="body">
+                        <p style="outline: 0px;">아이디/비밀번호가 일치하지 않습니다.</p>
+                    </div>
+
+                    <div class="footer">
+                        <a class="yes">확인</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<script src="client_join_membership.js"></script>
+</html>

@@ -1,0 +1,1496 @@
+/*lawyerHome 과 동일*/
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide:not(.ng-hide-animate) {
+    display: none !important;
+}
+
+.label {
+    border-radius: 0.25em;
+    color: #fff;
+    display: inline;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    padding: 0.2em 0.6em 0.3em;
+    text-align: center;
+    vertical-align: baseline;
+    white-space: nowrap;
+}
+
+a img {
+    border: none;
+}
+
+button, input[type=button], input[type=file]::-webkit-file-upload-button, input[type=reset], input[type=submit] {
+    border-radius: 0;
+}
+
+.profile-page {
+    background-color: #fff;
+    overflow-x: hidden;
+    font-family: Pretendard,'Noto Sans KR', sans-serif;
+}
+
+.profile-page .profile-page__wrapper {
+    margin: auto;
+    width: 1401px;
+}
+
+/*컨텐츠*/
+.profile-page .profile-contents {
+    display: inline-block;
+    padding: 0 60px;
+    vertical-align: top;
+    width: 843px;
+}
+
+.profile-page .profile-contents__nav {
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    width: 723px;
+    z-index: 100;
+}
+
+.headerLogoIcon img.logoImage{
+    cursor: pointer;
+    width: auto;
+    height: 36px;
+    vertical-align: bottom;
+}
+
+/*변호사홈 버튼*/
+.profile-page .profile-contents__item-wrap {
+    border-bottom: 2px solid transparent;
+    display: inline-block;
+}
+
+.profile-page .profile-contents__nav-item {
+    align-items: center;
+    color: #757575;
+    display: flex;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.profile-page .profile-contents__item-wrap--active .profile-contents__nav-item, .profile-page .profile-contents__item-wrap:hover .profile-contents__nav-item {
+    color: #333;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 700;
+}
+
+.profile-page .profile-contents__review-count {
+    background-color: #e0e0e0;
+    border-radius: 9px;
+    color: #040506;
+    color: #757575;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 600;
+}
+
+
+
+/*페이지마다 변경되는 부분*/
+
+.profile-review.has-list {
+    min-height: 100vh;
+}
+
+/*왜 빨간색?*/
+/*.profile-review {*/
+/*    color: red;*/
+/*}*/
+
+.profile-review section.introduction {
+    align-items: center;
+    border-bottom: 3px double #e0e0e0;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-review section.introduction p.introduction-title {
+    color: #333;
+    font-family: Nanum Myeongjo;
+    font-weight: 600;
+    line-height: 1.29;
+    text-align: center;
+}
+
+/*후기*/
+.best-reviews {
+    border: 1px solid #f1eeec;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.best-reviews .best-reviews__container {
+    height: 100%;
+}
+
+.best-reviews .best-reviews__container .best-reviews__wrap {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    float: left;
+    justify-content: center;
+    left: 0;
+    position: relative;
+}
+
+.best-reviews .best-reviews__container .best-reviews__wrap .title {
+    color: #333;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.best-reviews .best-reviews__container .best-reviews__wrap .body {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.best-reviews .best-reviews__container .best-reviews__wrap .body .content {
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    color: #757575;
+    display: block;
+    display: -webkit-box;
+    font-size: 14px;
+    line-height: 21px;
+    max-height: 84px;
+    overflow: hidden;
+    text-align: center;
+    width: 488px;
+}
+
+.best-reviews .best-reviews__container .best-reviews__wrap .best-review-footer {
+    text-align: center;
+    width: 100%;
+}
+
+.best-reviews .best-reviews__container .best-reviews__wrap .best-review-footer .category {
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 700;
+    margin-right: 15px;
+}
+
+.best-reviews .best-reviews__container .best-reviews__wrap .best-review-footer .category:after {
+    border-right: 1px solid #f1eeec;
+    content: "";
+    font-size: 7px;
+    margin-left: 15px;
+}
+
+.best-reviews .best-reviews__container .best-reviews__wrap .best-review-footer .user {
+    margin-right: 14px;
+}
+
+.best-reviews .best-reviews__container .best-reviews__wrap .best-review-footer .date {
+    margin-right: 13px;
+}
+
+.best-reviews .best-reviews__container .best-reviews__wrap .best-review-footer .category, .best-reviews .best-reviews__container .best-reviews__wrap .best-review-footer .date, .best-reviews .best-reviews__container .best-reviews__wrap .best-review-footer .type, .best-reviews .best-reviews__container .best-reviews__wrap .best-review-footer .user {
+    color: #757575;
+    font-size: 12px;
+}
+
+/*화살표*/
+.best-reviews>button {
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    position: absolute;
+}
+
+.best-reviews>button.previous {
+    left: 32px;
+}
+
+.best-reviews>button.next {
+    right: 32px;
+}
+
+/*페이징*/
+.pagination {
+    border-radius: 4px;
+    display: inline-block;
+    margin: 20px 0;
+    padding-left: 0;
+}
+
+.best-reviews .pagination {
+    bottom: 44px;
+    color: #999;
+    left: 50%;
+    margin: 0 0 0 -14px;
+    position: absolute;
+    width: 30px;
+    z-index: 1;
+}
+
+.best-reviews .pagination .current {
+    color: #c50000;
+    font-size: 14px;
+    left: -8.5px;
+    position: absolute;
+    top: 0;
+    width: 10px;
+}
+
+.best-reviews .pagination .total {
+    font-size: 14px;
+    position: absolute;
+    right: 2px;
+    width: 10px;
+}
+
+.best-reviews .pagination .total:after {
+    border-left: 1px solid #999;
+    content: "";
+    height: 13px;
+    position: absolute;
+    right: 6px;
+    top: 5px;
+    transform: rotate(21deg);
+    width: 10px;
+}
+
+/*후기 리스트*/
+.profile-review .review-body .review-rating-bar {
+    font-size: 12px;
+    line-height: 14px;
+    position: relative;
+}
+
+.profile-review .review-body .review-rating-bar .review-summary {
+    display: inline-block;
+}
+
+.profile-review .review-body .review-rating-bar .review-summary span.title {
+    color: #555;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 400;
+}
+
+.profile-review .review-body .review-rating-bar .review-summary span.reviewCount {
+    color: #555;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 700;
+}
+
+.profile-review .review-body .review-rating-bar .filter-wrap {
+    display: inline-block;
+}
+
+.profile-review .review-body .review-rating-bar .filter-wrap .review-filter {
+    color: #757575;
+    float: right;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.filterArrow {
+    margin-left: 2px;
+    vertical-align: bottom;
+    width: 14px;
+}
+
+.profile-review .review-body .review-rating-bar .filter-wrap .filter-list {
+    background-color: #fff;
+    border: 1px solid #717171;
+    box-shadow: 2.3px 3.3px 0 0 rgba(0,0,0,.09);
+    /*일단! display block 처리, 원래는 none, js로 처리해야 함*/
+    display: none;
+    font-size: 12px;
+    position: absolute;
+    top: 20px;
+    z-index: 2;
+}
+
+/*스크롤바*/
+
+
+.profile-review .review-body .review-rating-bar .filter-wrap.active .filter-list {
+    display: block;
+}
+
+.profile-review .review-body .review-rating-bar .filter-wrap .filter-list .filter-tabs {
+    color: #333;
+    display: flex;
+}
+
+/*filter*/
+.profile-review .review-body .review-rating-bar .filter-wrap .filter-list .filter-tabs .category-tab, .profile-review .review-body .review-rating-bar .filter-wrap .filter-list .filter-tabs .kind-tab {
+    background: #f0f0f0;
+    border-bottom: 1px solid #717171;
+    cursor: pointer;
+    display: inline-block;
+    height: 100%;
+    text-align: center;
+    width: 50%;
+}
+
+.profile-review .review-body .review-rating-bar .filter-wrap .filter-list .filter-tabs .category-tab {
+    border-right: 1px solid #717171;
+}
+
+.profile-review .review-body .review-rating-bar .filter-wrap .filter-list .filter-tabs .category-tab.active, .profile-review .review-body .review-rating-bar .filter-wrap .filter-list .filter-tabs .kind-tab.active {
+    background: #fff;
+    border-bottom: 0;
+}
+
+/*filter content*/
+.profile-review .review-body .review-rating-bar .filter-wrap .filter-list .filter-content a {
+    color: #777;
+    display: block;
+    font-size: 12px;
+    text-align: left;
+    text-decoration: none;
+}
+
+.profile-review .review-body .review-rating-bar .filter-wrap .filter-list .filter-content a.active {
+    color: #333;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 700;
+}
+
+
+/*.lists*/
+.direct-profile-review .profile-review-more-button {
+    background: none;
+    border: 0;
+    height: 16px;
+    outline: none;
+    padding: 0;
+    width: 16px;
+    cursor: pointer;
+}
+
+.direct-profile-review .profile-review-more-button img {
+    height: 16px;
+    width: 16px;
+}
+
+/*누르면 나오는 신고하기 버튼*/
+.direct-profile-review .profile-review-report-button {
+    align-items: center;
+    background: none;
+    background-color: #fff;
+    border: 1px solid #f1f1f1;
+    border-radius: 4px;
+    bottom: -47px;
+    box-shadow: 0 4px 10px 0 rgba(51,51,51,.1);
+    box-sizing: border-box;
+    color: #555;
+    /*none 했다가 클릭하면 flex로 바꿔줘야 함*/
+    display: none;
+    font-size: 14px;
+    height: 41px;
+    justify-content: center;
+    line-height: 20px;
+    outline: none;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    width: 82px;
+}
+
+.direct-profile-review .profile-review-report-button:hover {
+    color: #c50000;
+}
+
+.direct-profile-review .area-info p.title {
+    color: #333;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 700;
+}
+
+.direct-profile-review .area-info p.body {
+    color: #555;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 400;
+}
+
+/*세부 정보*/
+.direct-profile-review .area-info .detail-info {
+    display: flex;
+    position: relative;
+}
+
+.direct-profile-review .area-info .detail-info span.category {
+    color: #555;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 700;
+}
+
+.direct-profile-review .area-info .detail-info .divide {
+    background-color: #f1eeec;
+    display: inline-block;
+    height: 12px;
+    width: 1px;
+}
+
+.direct-profile-review .area-info .detail-info span.user {
+    font-size: 12px;
+    margin-right: 18px;
+}
+
+.direct-profile-review .area-info .detail-info span.day {
+    color: #999;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 400;
+}
+
+.direct-profile-review .area-info .detail-info span.kind {
+    color: #999;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 400;
+}
+
+/*페이징*/
+
+.profile-review section.review-pagination {
+    width: 100%;
+}
+
+.lt-pagination .lt-pagination__pages {
+    background: #f7f7f7;
+    border-radius: 0;
+    display: block;
+    height: 60px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.profile-review section.review-pagination .lt-pagination__pages-button-wrap {
+    text-align: center;
+}
+
+.lt-pagination .lt-pagination__pages-button {
+    color: #555;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 59px;
+    text-decoration: none;
+}
+
+
+
+
+.lt-pagination .lt-pagination__pages-button:not(:last-child) {
+    margin-right: 29px;
+}
+
+.lt-pagination .lt-pagination__pages-button.on {
+    border-bottom: 2px solid #c50000;
+    color: #c50000;
+}
+
+.profile-review section.review-pagination .lt-pagination__pages-button-wrap .lt-pagination__pages-button {
+    display: inline-block;
+    height: 39px;
+}
+
+
+
+
+
+
+
+/*페이지마다 변경되는 부분 끝*/
+
+
+
+/*footer*/
+.lawyer-profile-footer--container {
+    width: 100%;
+}
+
+.lawyer-profile-footer--links-container {
+    display: flex;
+}
+
+.lawyer-profile-footer--link-wrap {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.lawyer-profile-footer--link-text {
+    color: #757575;
+    cursor: pointer;
+    display: block;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 17px;
+}
+
+.lawyer-profile-footer--link-text.privacy-policy {
+    color: #c50000!important;
+}
+
+.lawyer-profile-footer--company-info {
+    color: #757575;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+    white-space: pre-wrap;
+}
+
+.lawyer-profile-footer--copyright-wrap {
+    display: flex;
+}
+
+
+/*좌측 프로필*/
+.profile-page .profile-page__picture {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 21px;
+    height: 100vh;
+    padding-bottom: 24px;
+    padding-top: 24px;
+    position: fixed;
+    width: 498px;
+}
+
+.profile-page .profile-page__picture .profile-pic-card {
+    width: 498px;
+    height: 393px;
+}
+
+.LawyerPictureCard-module_card__UlnaG {
+    height: 100%;
+    max-height: 762px;
+    width: 498px;
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.LawyerPictureCard-module_header__uQ6j0 {
+    position: relative;
+    padding-top: 32px;
+    padding-left: 40px;
+    padding-right: 40px;
+    height: 122px;
+    background-color: #35373a;
+}
+
+.Typography-module_lt-text--size-28__JzLvX {
+    font-size: 1.75rem;
+}
+
+.Typography-module_lt-text--weight-700__MTX72 {
+    font-weight: 700;
+}
+
+.Typography-module_lt-text--height-100__U8Og5 {
+    line-height: 100%;
+}
+
+.Typography-module_lt-text--inherit__uNmPK {
+    cursor: inherit;
+}
+
+.LawyerPictureCard-module_lawyerName__HtkU1 {
+    display: inline-flex;
+    gap: 9px;
+    align-items: center;
+}
+
+.LawyerPictureCard-module_officeName__keMRp {
+    margin-top: 14px;
+}
+
+.Typography-module_lt-text--weight-400__dz6jA {
+    font-weight: 400;
+}
+
+.Typography-module_lt-text--size-16__m5oA0 {
+    font-size: 1rem;
+}
+
+/*즐찾, 공유 버튼*/
+.LawyerPictureCard-module_buttons__IClTr {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    gap: 12px;
+    right: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.star {
+    width: 18px;
+}
+
+
+.LawyerPictureCard-module_bookmarkIcon__-GEYk, .LawyerPictureCard-module_shareIcon__tvFUa {
+    cursor: pointer;
+}
+
+.LawyerPictureCard-module_bookmarkIcon__-GEYk path, .LawyerPictureCard-module_shareIcon__tvFUa path {
+    fill: #fff;
+}
+
+.LawyerPictureCard-module_bookmarkIcon__-GEYk, .LawyerPictureCard-module_shareIcon__tvFUa {
+    cursor: pointer;
+}
+
+.LawyerPictureCard-module_bookmarkIcon__-GEYk path, .LawyerPictureCard-module_shareIcon__tvFUa path {
+    fill: #fff;
+}
+
+/*사진부분*/
+
+.LawyerPictureCard-module_body__ovTxk {
+    max-height: 640px;
+    height: calc(100% - 122px);
+    position: relative;
+    background-color: #35373a;
+}
+
+.LawyerPictureCard-module_carouselWrapper__JDfOy {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.LawyerPictureCard-module_carouselInner__jRoGT {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.LawyerPictureCard-module_carouselImage__2MQfY {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: inherit;
+    object-position: center center;
+    pointer-events: none;
+    transition: opacity .5s ease;
+}
+
+.LawyerPictureCard-module_carouselImage__2MQfY.LawyerPictureCard-module_visible__SGhfg {
+    opacity: 1;
+}
+
+
+/*예약하기*/
+.profile-page .profile-page__reservation-panel-sheet {
+    position: relative;
+}
+
+.profile-page .profile-page__reservation-panel {
+    visibility: hidden;
+}
+
+.profile-page .profile-page__reservation-panel--visible {
+    visibility: visible;
+}
+
+.ReservationPricePanel-module_panel__VviDH {
+    padding: 24px;
+    width: 498px;
+    border-radius: 12px;
+    border: 1px solid #ecf0f4;
+    background: #fff;
+    box-shadow: 0px 2px 16px 0px rgba(0,0,0,.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+/*쿠폰 발급 전*/
+.ReservationPricePanel-module_couponButton__SuusI {
+    width: 450px;
+    height: 64px;
+    border-radius: 8px;
+    border: 1px solid rgba(197, 0, 0, 0.87);
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 20px;
+    cursor: pointer;
+}
+/*쿠폰 발급 후*/
+.ReservationPricePanel-module_isAlreadyDownloadedCoupon__0jwVU {
+    display: none;
+    background-color: #f8fafb;
+    border: 1px solid #f8fafb;
+    cursor: default;
+}
+/*발급완료*/
+.ReservationPricePanel-module_couponDownload__kU17O {
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+    gap: 3px;
+}
+
+.ReservationPricePanel-module_downloadComplete__kPVNE path {
+    fill: #c4c8cb;
+}
+
+.Typography-module_lt-text--weight-600__IvaQr {
+    font-weight: 600;
+}
+.Typography-module_lt-text--size-18__AbfHy {
+    font-size: 1.125rem;
+}
+
+
+.Typography-module_lt-text--size-12__GYxFO {
+    font-size: 0.75rem;
+}
+
+
+/*쿠폰 다운로드*/
+.ReservationPricePanel-module_couponDownload__kU17O {
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+    gap: 3px;
+}
+
+.Typography-module_lt-text--weight-500__K1Qvm {
+    font-weight: 500;
+}
+
+.ReservationPricePanel-module_downloadIcon__tY\+fG path {
+    fill: #c50000;
+}
+
+/*예약 옵션*/
+.ReservationPricePanel-module_consultationOptionRow__OXhDC {
+    margin-top: 8px;
+    width: 100%;
+    display: flex;
+    gap: 30px;
+    padding: 0 24px;
+}
+
+.ReservationPricePanel-module_couponButton__SuusI+.ReservationPricePanel-module_consultationOptionRow__OXhDC {
+    margin-top: 28px;
+}
+
+.ReservationPricePanel-module_consultationOption__1KM-G {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Typography-module_lt-text--height-150__JY2i8 {
+    line-height: 150%;
+}
+
+.ReservationPricePanel-module_consultationPrice__Cm3yr {
+    margin-top: 9px;
+    white-space: nowrap;
+}
+
+.ReservationPricePanel-module_consultationDivider__eoZMh {
+    flex: 0 0 1px;
+    background-color: #dde1e8;
+}
+
+.ReservationPricePanel-module_reserveButtonBottom__iUPKk {
+    display: flex;
+    padding: 0px 20px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    flex-basis: 56px;
+    border-radius: 8px;
+    border: 0;
+    background: #c50000;
+    cursor: pointer;
+    margin-top: 28px;
+    position: relative;
+}
+
+.ReservationPricePanel-module_reserveButtonBottom__iUPKk:hover {
+    background: #d20000;
+}
+
+.Typography-module_lt-text--size-20__Coy4u {
+    font-size: 1.25rem;
+}
+
+
+/*상담예약하기 누르면 뜨는 창*/
+/*ReservationPricePanel-module_reserveButtonBottom__iUPKk 누르면 클래스 명에 -- visible 추가*/
+.profile-page__reservation-sheet-wrap {
+    /*display: block;*/
+}
+
+
+.profile-page .profile-page__reservation-sheet {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .2s ease;
+}
+
+.profile-page .profile-page__reservation-sheet--visible {
+    max-height: 900px;
+}
+
+.ReservationSheet-module_wrapper__0whZO {
+    border-radius: 12px;
+    border: 1px solid #ecf0f4;
+    background-color: #fff;
+    width: 482px;
+    height: 658px;
+    position: relative;
+    padding: 7px 23px 0 23px;
+}
+
+.IconDropdown-module_iconDropdown__zgosj {
+    border-bottom: 1px solid #ecf0f4;
+    transition: padding-bottom .2s ease;
+    background-color: #fff;
+}
+
+.IconDropdown-module_iconDropdown__zgosj.IconDropdown-module_isOpened__iilty {
+    padding-bottom: 20px;
+}
+
+.IconDropdown-module_iconDropdownHeader__URGu7 {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 14px;
+    padding: 20px 0;
+}
+
+.IconDropdown-module_iconDropdownIcon__heGYZ {
+    width: 24px;
+    height: 24px;
+}
+
+.IconDropdown-module_iconDropdownIcon__heGYZ path {
+    fill: #60666c;
+}
+
+.Typography-module_lt-text--weight-600__IvaQr {
+    font-weight: 600;
+}
+
+.IconDropdown-module_iconDropdown__zgosj.IconDropdown-module_isOpened__iilty .IconDropdown-module_iconDropdownArrow__ctRf- {
+    transform: rotate(270deg);
+}
+
+.IconDropdown-module_iconDropdownArrow__ctRf- path {
+    fill: #7a8287;
+}
+
+.IconDropdown-module_iconDropdownBody__J02T8 {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows .2s ease;
+}
+
+.IconDropdown-module_iconDropdown__zgosj.IconDropdown-module_isOpened__iilty .IconDropdown-module_iconDropdownBody__J02T8 {
+    grid-template-rows: 1fr;
+}
+
+.IconDropdown-module_iconDropdownBodyInner__1Mztd {
+    overflow: hidden;
+    position: relative;
+}
+
+.ReservationSheet-module_typeButtons__LB0n6 {
+    display: flex;
+    gap: 12px;
+}
+
+.ReservationSheet-module_typeButton__Yj3zD {
+    display: flex;
+    height: 44px;
+    padding: 0px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    flex: 0 0 calc(33.3333333333% - 8px);
+    cursor: pointer;
+    border-radius: 8px;
+    border: 1px solid #ced4dc;
+    background-color: #fff;
+    color: rgb(96, 102, 108);
+}
+
+.ReservationSheet-module_typeButton__Yj3zD:hover {
+    border: 1px solid #c50000;
+    color: #c50000;
+}
+
+.IconDropdown-module_iconDropdownArrow__ctRf- {
+    transform: rotate(90deg);
+    margin-left: auto;
+}
+
+.ReservationSheet-module_dates__NTIvy {
+    display: flex;
+    gap: 20px;
+}
+
+.ReservationSheet-module_dateButton__4uTaz {
+    display: flex;
+    width: 44px;
+    height: 46px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background-color: #f8fafb;
+    border: 1px solid #f8fafb;
+    cursor: pointer;
+}
+
+.ReservationSheet-module_dateButtonText__FeznC {
+    margin-top: 8px;
+    text-align: center;
+    cursor: pointer;
+}
+
+/*시간*/
+.ReservationSheet-module_timeSelector__f-P1w {
+    overflow-y: scroll;
+    padding-bottom: 12px;
+    transition: max-height .2s ease;
+    max-height: 0;
+}
+
+
+.ReservationSheet-module_timeSelector__f-P1w::-webkit-scrollbar {
+    width: 8px;
+}
+
+.ReservationSheet-module_timeSelector__f-P1w::-webkit-scrollbar-thumb {
+    /*스크롤바 색상*/
+    background: white;
+}
+
+.ReservationSheet-module_timeSelector__f-P1w::-webkit-scrollbar-track {
+    /*스크롤바 배경 색상*/
+    background: white;
+
+}
+
+.ReservationSheet-module_timeGroupLabel__lUV8C {
+    color: #60666c;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 100%;
+}
+
+.ReservationSheet-module_timeIndexButtons__92KzU {
+    margin-top: 12px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.ReservationSheet-module_timeIndexButton__Dr2YA {
+    display: inline-flex;
+    background-color: #fff;
+    height: 44px;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    width: calc((100% - 48px)/5);
+    border: 1px solid #ced4dc;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 100%;
+}
+
+.ReservationSheet-module_timeGroupLabel__lUV8C.ReservationSheet-module_pm__zIIki {
+    margin-top: 20px;
+}
+
+/*총결제금액*/
+.ReservationSheet-module_buttons__6t3N4 {
+    display: flex;
+    width: 100%;
+    padding: 24px 23px 23px 23px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0px -4px 12px 0px rgba(0,0,0,.04);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.ReservationSheet-module_totalPriceWrap__7-CWC {
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+}
+
+.ReservationSheet-module_totalPriceText__cLaIG {
+    color: #7a8287;
+    font-family: "Pretendard Variable";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 145%;
+}
+
+.ReservationSheet-module_totalPriceValue__pVpLO {
+    color: #000;
+    font-family: "Pretendard Variable";
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 165%;
+}
+
+/*다음*/
+.ReservationSheet-module_nextButton__-mYex {
+    width: 276px;
+    height: 56px;
+    padding: 0px 18px;
+    color: #fff;
+    text-align: center;
+    font-family: "Pretendard Variable";
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 100%;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: #c50000;
+    border: 0;
+}
+
+.ReservationSheet-module_nextButton__-mYex-disabled {
+    width: 276px;
+    height: 56px;
+    padding: 0px 18px;
+    text-align: center;
+    font-family: "Pretendard Variable";
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 100%;
+    cursor: not-allowed;
+    border-radius: 8px;
+    border: 0;
+    background: #f4f7f9;
+    color: #c4c8cb;
+}
+
+/*closeButton*/
+.profile-page .profile-page__reservation-sheet-close {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: -32px;
+}
+
+.closeWhite {
+    width: 24px;
+}
+
+/*선택시*/
+.ReservationSheet-module_typeButton__Yj3zD-select {
+    border: 1px solid #c50000;
+    background-color: rgba(197, 0, 0, 0.08);
+    color: #c50000;
+    display: flex;
+    height: 44px;
+    padding: 0px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    flex: 0 0 calc(33.3333333333% - 8px);
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+
+.ReservationSheet-module_dateButton__4uTaz-select {
+    display: flex;
+    width: 44px;
+    height: 46px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid #c50000;
+    background-color: #c50000;
+}
+
+
+.ReservationSheet-module_timeIndexButton__Dr2YA-select {
+    display: inline-flex;
+    height: 44px;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    width: calc((100% - 48px)/5);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 100%;
+    border: 1px solid #c50000;
+    background-color: rgba(197, 0, 0, 0.25);
+    color: #c50000;
+}
+
+
+
+
+
+
+
+/*상담예약하기 누르면 뜨는 창* 끝/
+
+
+
+
+
+
+
+/*반응형*/
+@media (min-width: 960px) {
+    .lt-mobile {
+        display: none !important;
+    }
+
+    .profile-page .profile-page__wrapper {
+        padding-top: 0;
+    }
+
+    /*nav items*/
+    .profile-page .profile-contents__nav-items {
+        align-items: center;
+        border-bottom: 3px double #e0e0e0;
+        display: flex;
+        gap: 44px;
+        height: 117px;
+        padding: 0;
+    }
+
+    .profile-page .profile-contents__review-count {
+        font-size: 13px;
+        margin-left: 5px;
+        padding: 1.2px 3px;
+    }
+
+
+
+    /*페이지마다 변경되는 부분*/
+    .profile-page .profile-page__tab {
+        padding-top: 100px;
+    }
+
+    /*타이틀*/
+    .profile-review section.introduction {
+        height: 160px;
+    }
+
+    .profile-review section.introduction p.introduction-title {
+        font-size: 28px;
+        margin-top: 22px;
+        width: 100%;
+    }
+
+
+    /*후기*/
+
+    .best-reviews {
+        height: 303px;
+        margin-top: 20px;
+        width: 722px;
+    }
+
+    .profile-home section.reviews .bestreview-cards .best-reviews {
+        margin-top: 0;
+    }
+
+    .best-reviews .best-reviews__container .best-reviews__wrap {
+        height: 260px;
+        min-width: 722px;
+        top: 0;
+    }
+
+    .best-reviews .best-reviews__container .best-reviews__wrap .title {
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        display: block;
+        display: -webkit-box;
+        font-size: 24px;
+        line-height: 30px;
+        max-height: 60px;
+        max-width: 474px;
+        overflow: hidden;
+    }
+
+    .best-reviews .best-reviews__container .best-reviews__wrap .body {
+        margin: 15px auto 11px;
+        width: 474px;
+    }
+
+    /*화살표*/
+    .best-reviews>button {
+        top: calc(50% - 15px);
+    }
+
+    .prevArrow, .nextArrow {
+        width: 32px;
+        vertical-align: top;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    /*후기 리스트*/
+    .profile-review .review-body {
+        margin-top: 68px;
+    }
+
+    .profile-review .review-body .review-rating-bar {
+        padding-bottom: 21px;
+    }
+
+    .profile-review .review-body .review-rating-bar .review-summary span.title {
+        font-size: 18px;
+    }
+
+    .profile-review .review-body .review-rating-bar .review-summary span.reviewCount {
+        font-size: 18px;
+    }
+
+
+    .profile-review .review-body .review-rating-bar .filter-wrap .review-filter {
+        margin-left: 30px;
+    }
+
+    .profile-review .review-body .review-rating-bar .filter-wrap .review-filter i {
+        margin-tpo: 1px;
+        font-size: 11px;
+        margin-left: 10px;
+        margin-right: 4px;
+    }
+
+    .profile-review .review-body .review-rating-bar .filter-wrap .filter-list {
+        left: 89px;
+        width: 162.2px;
+    }
+
+
+    .profile-review .review-body .review-rating-bar .filter-wrap .filter-list .filter-tabs {
+        height: 33px;
+        line-height: 33px;
+    }
+
+    /*filter content*/
+    .profile-review .review-body .review-rating-bar .filter-wrap .filter-list .filter-content {
+        max-height: 289px;
+        overflow-y: auto;
+        padding: 14px 0 14px 14px;
+    }
+
+    .filter-content::-webkit-scrollbar {
+        width: 7px;
+    }
+
+    .filter-content::-webkit-scrollbar-thumb {
+        background: rgba(206, 206, 206, 0.57);
+        border-radius: 15px;
+    }
+
+    .filter-content::-webkit-scrollbar-track {
+        background: white;
+    }
+
+
+    .profile-review .review-body .review-rating-bar .filter-wrap .filter-list .filter-content a {
+        line-height: 2;
+    }
+
+    .profile-review .review-body .review-rating-bar .filter-wrap .filter-list .filter-content a {
+        line-height: 2;
+    }
+
+    /*.lists*/
+    .profile-review .lists profile-review .direct-profile-review {
+        border-bottom: 1px solid #f1eeec;
+        padding: 44px 0 49px;
+    }
+
+    .direct-profile-review .area-info {
+        position: relative;
+        width: 100%;
+    }
+
+    .direct-profile-review .profile-review-more {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    /*누르면 나오는 신고하기 버튼*/
+    .direct-profile-review .profile-review-report-button {
+        bottom: -46px;
+        right: -3px;
+    }
+
+
+    .direct-profile-review .area-info p.title {
+        font-size: 20px;
+        letter-spacing: -.8px;
+        line-height: 28px;
+        padding-bottom: 3px;
+    }
+
+    .direct-profile-review .area-info p.body {
+        font-size: 14px;
+        letter-spacing: -.5px;
+        line-height: 22px;
+        margin-bottom: 16px;
+    }
+
+    /*세부정보*/
+    .direct-profile-review .area-info .detail-info {
+        padding-top: 16px;
+    }
+
+    .direct-profile-review .area-info .detail-info span.category {
+        font-size: 12px;
+        margin-right: 16px;
+    }
+
+    .direct-profile-review .area-info .detail-info .divide {
+        margin-right: 15px;
+    }
+
+    .direct-profile-review .area-info .detail-info span.user {
+        color: #999;
+        font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+        font-weight: 400;
+    }
+
+    .direct-profile-review .area-info .detail-info span.day {
+        font-size: 12px;
+        margin-right: 12px;
+    }
+
+    .direct-profile-review .area-info .detail-info span.kind {
+        font-size: 12px;
+    }
+
+    /*페이징*/
+    .profile-review section.review-pagination {
+        margin-top: 48px;
+    }
+
+    .profile-review section.review-pagination .lt-pagination__pages {
+        margin-bottom: 88px;
+    }
+
+    .profile-review section.review-pagination .lt-pagination__pages-button-wrap .lt-pagination__pages-button {
+        font-size: 14px;
+    }
+
+    .profile-review section.review-pagination .lt-pagination__pages-button-wrap .lt-pagination__pages-button:not(:last-child) {
+        margin-right: 20px;
+    }
+
+    .profile-review section.review-pagination .lt-pagination__pages-button-wrap .lt-pagination__pages-button.on {
+        padding: 0;
+    }
+
+
+    /*페이지마다 변경되는 부분 끝*/
+
+
+
+    /*footer*/
+    .lawyer-profile-footer--container {
+        border-top: 1px solid #e0e0e0;
+        margin-top: 12px;
+        padding: 46px 0 50px;
+    }
+
+    .lawyer-profile-footer--links-container {
+        justify-content: space-between;
+        margin-bottom: 7px;
+        width: 447px;
+    }
+
+    .lawyer-profile-footer--link-wrap {
+        width: 332px;
+    }
+
+    .lawyer-profile-footer--company-info {
+        width: 608px;
+    }
+
+    .lawyer-profile-footer--copyright-wrap {
+        align-items: flex-end;
+    }
+
+    .lawyer-profile-footer--logo {
+        height: 36px;
+        width: 126px;
+    }
+
+    .logoBlack {
+        height: 100%;
+    }
+
+    .lawyer-profile-footer--copyright {
+        margin-left: 45px;
+    }
+
+    .profile-page .profile-page__picture .profile-pic-card {
+        flex: 1;
+        max-height: 762px;
+    }
+
+    /*상담예약하기 누르면 뜨는 창*/
+    .profile-page .profile-page__reservation-sheet-wrap {
+        bottom: 0;
+        left: 50%;
+        position: absolute;
+        transform: translateX(-50%);
+    }
+
+    .profile-page .profile-page__reservation-sheet {
+        border-radius: 12px;
+        box-shadow: 0 2px 16px 0 rgba(0,0,0,.08);
+    }
+
+    /*상담예약하기 누르면 뜨는 창 끝*/
+
+}
+
+
+
+
+

@@ -1,0 +1,307 @@
+p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.headerWrapper {
+    background: #fff;
+    position: fixed;
+    top: 0;
+    transition: background .25s ease;
+    width: 100%;
+    z-index: 1000;
+}
+
+.headerInnerWrapper {
+    position: relative;
+    width: 100%;
+    z-index: 51;
+}
+
+.headerModule {
+    display: flex;
+    flex-direction: row;
+    min-width: 335px;
+    width: 100%;
+    height: 56px;
+    padding: 0 20px;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.headerLeft {
+    display: inline-flex;
+    align-items: center;
+}
+
+.headerLogoIcon img.logoImage{
+    cursor: pointer;
+    width: auto;
+    height: 36px;
+    vertical-align: bottom;
+}
+
+.headerSearchBarWrapper {
+    width: 295px;
+}
+
+.searchInputWrapper.searchBarBorder {
+    border: 2px solid #c50000;
+    background: #fff;
+}
+
+.searchInputWrapper {
+    box-sizing: border-box;
+    border-radius: 100px;
+    display: inline-flex;
+    width: 100%;
+    height: 44px;
+    align-items: center;
+    padding: 0 12px 0 10px;
+}
+
+.searchInputIcon {
+    width: 24px;
+    height: 24px;
+    flex: 0 0 auto;
+    margin-right: 4px;
+}
+
+
+.searchInput {
+    border: none;
+    line-height: 20px;
+    font-size: 1rem;
+    background: rgba(0,0,0,0);
+    width: 100%;
+    padding: 0 0 1px 6px;
+}
+
+.searchInput:hover, .searchInput:focus {
+    outline: none;
+}
+
+.searchInput::placeholder {
+    color: #c4c8cb;
+}
+
+.deleteAllButton.searchBarBorder {
+    /*visibility: hidden;*/
+}
+
+.deleteAllButton {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    border: none;
+    border-radius: 50%;
+    margin: 4px 0 4px 4px;
+    background: white;
+    padding: 0px;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.deleteAllButtonImage {
+    width: 16px;
+    height: 16px;
+}
+
+.headerRight {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.accountButton {
+    padding: 5px 0;
+    cursor: pointer;
+}
+.textInherit {
+    cursor: inherit;
+}
+.textHeight100 {
+    line-height: 100%;
+}
+.textWeight400 {
+    font-weight: 400;
+}
+.textSize14 {
+    font-size: 0.875rem;
+}
+/* 헤더 모듈*/
+.textWeight700 {
+    font-weight: 700;
+}
+.textSize20 {
+    font-size: 1.25rem;
+}
+
+.tabNavMenu .NavMenuList {
+    gap: 32px;
+}
+.NavMenuList {
+    display: flex;
+    align-items: center;
+}
+
+.menuItemButtonActive {
+    color: rgb(43, 45, 47);
+    padding: 0 0 12px 0;
+    border: none;
+    word-break: keep-all;
+    background: none;
+    cursor: pointer;
+    padding-bottom: 9px;
+    border-bottom: solid 3px #2b2d2f;
+}
+
+.menuItemButton {
+    color: rgb(195, 201, 208);
+    padding: 0 0 12px 0;
+    border: none;
+    word-break: keep-all;
+    background: none;
+    cursor: pointer;
+}
+
+.tabNavMenu .NavBarUnderLine {
+    position: relative;
+    height: 1px;
+    background: #e2e4e5;
+    width: 100vw;
+    margin-top: -1px;
+    transform: translateX(calc((1100px - 100vw) / 2));
+}
+
+
+@media (min-width: 960px) {
+    .headerModule {
+        height: 72px;
+        padding: 0;
+    }
+
+    .headerLeft {
+        gap: 24px;
+    }
+
+    .headerSearchBarWrapper {
+        position: relative;
+    }
+
+    .navBar {
+        margin: 20px auto 0;
+        width: 1100px;
+    }
+
+    .bottomTabWrap {
+        display: none;
+    }
+
+}
+
+@media (max-width: 959px) {
+    .headerLeft {
+        flex: 1 1;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .headerSearchBarWrapper {
+        display: none;
+    }
+
+    .headerLogoIcon img.logoImage{
+        height: 27px;
+    }
+
+    .tabNavMenu .NavMenuList {
+        gap: 16px;
+        padding: 0 20px;
+        /*overflow-x: scroll;*/
+        /*-ms-overflow-style: none;*/
+        /*scrollbar-width: none;*/
+        /*scroll-behavior: smooth;*/
+        display: flex;
+        align-items: center;
+    }
+
+    .textSize20 {
+        font-size: 1.0625rem;
+    }
+
+/*    Bottom Tab Css*/
+
+    .bottomTabWrap {
+        display: block;
+        bottom: 0;
+        position: fixed;
+        width: 100%;
+        z-index: 51;
+    }
+
+    .bottomTabMenu {
+        border-radius: 8px 8px 0px 0px;
+        border-top: 1px solid #ecf0f4;
+        background-color: #fff;
+    }
+
+    .BottomTabMenuList {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .BottomMenuItemButton {
+        border: none;
+        word-break: keep-all;
+        background: none;
+        cursor: pointer;
+        padding: 7px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1px;
+        width: 55px;
+        user-select: none;
+    }
+
+    .BottomTabActive path {
+        fill: #c50000;
+    }
+
+    .BottomTabInactive path {
+        fill: #7a8287;
+    }
+
+    .BottomTabMenuName {
+        display: flex;
+        align-items: center;
+        height: 17px;
+    }
+
+    .textInherit {
+        cursor: inherit;
+    }
+    .textHeight140 {
+        line-height: 140%;
+    }
+    .textWeight600 {
+        font-weight: 600;
+    }
+
+    .textWeight500 {
+        font-weight: 500;
+    }
+
+    .textSize12 {
+        font-size: 0.75rem;
+    }
+
+
+}
