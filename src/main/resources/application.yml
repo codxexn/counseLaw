@@ -1,0 +1,36 @@
+
+#server
+server:
+  port: 10000
+
+
+  servlet:
+    session:
+      tracking-modes: cookie
+
+
+spring:
+  datasource:
+    hikari:
+      driver-class-name: oracle.jdbc.OracleDriver
+      jdbc-url: jdbc:oracle:thin:@//15.165.76.197/XE
+      username: hr
+      password: hr
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ptever.help
+    password: sakvckakbwfxsjbl
+    properties:
+      mail:
+        smtp:
+          auth: true
+          timeout: 5000
+          starttls:
+            enable: true
+
+mvc:
+  pathmatch:
+    matching-startegy: ant_math_matcher
+
