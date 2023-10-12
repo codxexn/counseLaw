@@ -106,19 +106,14 @@ h3.title {
 }
 
 /*에러 메시지*/
-.form-group.has-error label.control-label.error {
-    display: block;
-    font-size: 13px;
-    height: 25px;
-    line-height: 25px;
-}
-
-label.control-label.error {
+.text-count-error {
+    display: none;
     color: #da1e28;
     font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
     font-size: 13px;
     font-weight: 400;
-    line-height: 100%;
+    height: 25px;
+    line-height: 25px;
     padding-top: 8px;
 }
 
@@ -310,19 +305,31 @@ label.control-label.error {
 .Typography-module_lt-text--height-100__U8Og5 {
     line-height: 100%;
 }
+.Typography-module_lt-text--weight-400__dz6jA {
+    font-weight: 400;
+}
+.Typography-module_lt-text--weight-500__K1Qvm {
+    font-weight: 500;
+}
 .Typography-module_lt-text--weight-600__IvaQr {
     font-weight: 600;
+}
+.Typography-module_lt-text--weight-700__MTX72 {
+    font-weight: 700;
 }
 .Typography-module_lt-text--size-16__m5oA0 {
     font-size: 1rem;
 }
-
-.Typography-module_lt-text--weight-700__MTX72 {
-    font-weight: 700;
-}
 .Typography-module_lt-text--size-17__8rBL9 {
     font-size: 1.0625rem;
 }
+.Typography-module_lt-text--size-20__Coy4u {
+    font-size: 1.25rem;
+}
+.Typography-module_lt-text--size-15__bWqK4 {
+    font-size: 0.9375rem;
+}
+
 /*폰트관련 끝*/
 
 /*payment*/
@@ -337,7 +344,246 @@ label.control-label.error {
     flex-direction: column;
 }
 
+/*쿠폰 부분*/
+.coupon-select {
+    background-color: #f9f9f9;
+    color: #222;
+    cursor: pointer;
+    font-size: 16px;
+    height: 44px;
+    line-height: 1.2;
+    padding: 15px 0 14px 20px;
+    width: 100%;
+    margin-top: 15px;
+}
 
+.coupon-title {
+    font-size: 14px;
+    width: 100%;
+}
+
+.coupon-title .bold {
+    font-weight: 700;
+}
+
+img.coupon-arrow {
+    width: 20px;
+    float: right;
+    margin-right: 15px;
+    margin-top: -3px;
+}
+
+.coupon-content {
+    position: relative;
+    display: none;
+    /*js로 display block*/
+}
+
+.coupon-list {
+    height: 100%;
+    left: 0;
+    overflow: inherit;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+.isFold {
+    box-sizing: inherit;
+}
+
+li.coupon-books {
+    background-color: #f1eeec;
+    height: 60px;
+    padding: 0 20px;
+    position: relative;
+    list-style: none;
+}
+
+.coupon-wrap {
+    border-bottom: 1px solid #e6e2e1;
+    height: 100%;
+    position: relative;
+}
+
+li.coupon-books:last-child .coupon-wrap {
+    border: none;
+}
+
+.coupon-name-wrap {
+    display: inline-block;
+    height: 100%;
+    max-width: 60%;
+}
+
+.coupon-name {
+    color: #555;
+    font-size: 14px;
+    height: auto;
+    line-height: 16px;
+    margin-top: 20px;
+    max-height: 30px;
+    overflow: hidden;
+    width: auto;
+}
+
+.coupon-info {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.coupon-info .coupon-value {
+    color: #222;
+    font-size: 19px;
+    font-weight: 700;
+    padding-top: 7px;
+    text-align: right;
+}
+
+.coupon-info .coupon-endAt {
+    color: #777;
+    font-size: 12px;
+    text-align: right;
+}
+
+/*상담료*/
+.PaymentMethod-module_originPrice {
+    margin-top: 23px;
+    display: flex;
+    align-items: center;
+}
+
+.PaymentMethod-module_originPriceValue {
+    margin-left: auto;
+}
+
+.PaymentMethod-module_couponPrice {
+    margin-top: 16px;
+    gap: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.PaymentMethod-module_cancelCouponButton {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.PaymentMethod-module_couponPriceValue {
+    margin-left: auto;
+}
+
+.PaymentMethod-module_totalPrice {
+    margin-top: 17px;
+    display: flex;
+    align-items: center;
+}
+
+.PaymentMethod-module_totalPriceValue {
+    margin-left: auto;
+}
+
+/*동의*/
+.PaymentMethod-module_agreement {
+    cursor: pointer;
+    margin-top: 39px;
+}
+
+.PaymentMethod-module_agreementText {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.PaymentMethod-module_check path {
+    fill: #e2e4e5;
+}
+
+/*결제전 확인*/
+.PaymentMethod-module_inform {
+    height: 159px;
+    margin-top: 16px;
+    border-radius: 8px;
+    border: 1px solid #ecf0f4;
+    background: #f4f7f9;
+    padding: 0 7px;
+    transition: height .2s ease;
+}
+
+.PaymentMethod-module_informHeader {
+    padding-top: 11px;
+    padding-bottom: 11px;
+    padding-left: 7px;
+    display: flex;
+    align-items: center;
+}
+
+.PaymentMethod-module_informBody {
+    display: block;
+    overflow: hidden;
+    margin-top: -10px;
+    transition: height .2s ease,padding-top .2s ease;
+    color: #60666c;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    white-space: pre-wrap;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 150%;
+    position: relative;
+    overflow-y: scroll;
+    padding-bottom: 12px;
+    height: calc(100% - 41px);
+    padding-left: 10px;
+    padding-right: 12px;
+    letter-spacing: -0.5px;
+}
+
+.PaymentMethod-module_informBullet {
+    position: absolute;
+    left: -1px;
+}
+.PaymentMethod-module_informBullet::after {
+    content: "・";
+}
+
+.PaymentMethod-module_informTextOrange {
+    color: #c50000;
+}
+
+.PaymentMethod-module_informTextBold {
+    font-weight: 500;
+}
+
+/*결제하기 버튼*/
+.PaymentMethod-module_paymentButton {
+    width: 100%;
+    display: flex;
+    height: 48px;
+    margin-top: 24px;
+    padding: 0px 18px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background: #f4f7f9;
+    border: 0;
+    cursor: not-allowed;
+    color: #c4c8cb;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 100%;
+}
+
+.PaymentMethod-module_active {
+    border-radius: 8px;
+    background-color: #c50000;
+    color: #fff;
+    cursor: pointer;
+}
 
 
 
@@ -424,11 +670,6 @@ label.control-label.error {
     }
 
     /*번호*/
-    .reservation-form .input-advice-phone__sub-title {
-        color: #3f4246;
-        font-size: 16px;
-        line-height: 120%;
-    }
 
     .reservation-form .input-advice-phone__sub-desc {
         font-size: 13px;
