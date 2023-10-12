@@ -1,0 +1,623 @@
+html, body, div, section, h2, a, img, span, i, li, ul {
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+body, div, li, ul, a, span {
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+}
+
+html {
+    line-height: 1;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    color: #333;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+*, ::after, ::before {
+    /* -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box; */
+    box-sizing: border-box;
+}
+
+section {
+    display: block;
+}
+
+/* ============================= */
+
+.search-Controller {
+    background-color: #fff;
+    height: 100%;
+    overflow: visible;
+}
+
+.content-Section .upper-Posts-Section-Header {
+    background-image: url(https://d2nyk3ltml4doc.cloudfront.net/lawtalk/latest/images/0cb1e48e97121240a8a5.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 313px;
+    position: relative;
+}
+
+.content-Section .upper-Posts-Section-Header-Layer {
+    background-color: rgba(0,0,0,.53);
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.content-Section .upper-Posts-Section-Title {
+    margin: auto;
+    position: relative;
+    top: 117px;
+}
+
+.content-Section .upper-Posts-Section-tab-Desc-Title {
+    color: #fff;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 16px;
+    position: relative;
+    text-align: center;
+    z-index: 1;
+}
+
+.content-Section .upper-Posts-Section-tab-Desc-Title::after {
+    color: #ff4e00;
+    content: ".";
+    margin-left: 2px;
+    position: relative;
+    top: 3px;
+}
+
+.content-Section .upper-Posts-Section-Mention {
+    color: #f1f1f1;
+    font-family: Pretendard;
+    font-size: 18px;
+    line-height: 1.67;
+    text-align: center;
+}
+
+.content-Section .upper-Posts-Section-Title-Text-Img {
+    background-image: url(data:image/png;base64,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);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 46px;
+    left: 205px;
+    margin: 0 auto;
+    position: relative;
+    top: -125px;
+    width: 103px;
+}
+
+.search-Controller section.content-Section .posts-Section-Wrapper {
+    height: 100%;
+    margin: auto;
+    padding-bottom: 20px;
+    padding-top: 40px;
+    width: 1100px;
+}
+
+.content-Section .posts-Section-Body {
+    position: relative;
+}
+
+.content-Section .posts-Section-Menu {
+    align-items: center;
+    display: flex;
+    margin-bottom: 8px;
+}
+
+
+.select-Menu {
+    align-items: center;
+    display: flex;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+    width: 15%;
+
+}
+
+.select-Menu .select-Btn {
+    display: flex;
+    width: 100%;
+    padding: 11px;
+    font-size: 14px;
+    font-weight: 400;
+    border: none;
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+    color: #555;
+}
+
+i.bx {
+    color: #999;
+    margin-left: auto;
+}
+
+.select-Btn i {
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.select-Menu.show .select-Btn i {
+    transform: rotate(-180deg);
+}
+
+.select-Menu.show {
+    background-color: #f6f6f6;
+}
+
+
+.select-Menu .options {
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+    background-color: #fff;
+    border: 1px solid #f1f1f1;
+    border-radius: 8px;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,.08);
+    height: 223px;
+    left: 0;
+    overflow-y: scroll;
+    padding: 12px;
+    position: absolute;
+    top: 38px;
+    width: 165px;
+}
+
+.select-Menu .options::-webkit-scrollbar {
+    display: none;
+}
+
+.select-Menu.show .options {
+    display: block;
+}
+
+.options .option {
+    display: flex;
+    cursor: pointer;
+    border-radius: 5px;
+    align-items: center;
+    height: 33px;
+    /* padding: 5px 0px; */
+
+}
+
+
+
+.options li:hover {
+    background-color: rgba(255,85,0,.05);
+
+}
+
+.options .option:hover .option-Text {
+    color: #e04b00;
+}
+
+
+.options .option-Text {
+    font-size: 14px;
+    color: #555;
+}
+
+
+.content-Section .posts-Section-Body .sort-Options {
+    color: #757575;
+    font-size: 14px;
+    line-height: 1;
+    margin-left: auto;
+}
+
+.content-Section .posts-Section-Body .sort-Options-Btn.active, .content-Section .posts-Section-Body .sort-Options-Btn:hover {
+    border-bottom: 1px solid #333;
+    color: #333;
+    padding-bottom: 1px;
+}
+
+.content-Section .posts-Section-Body .sort-Options-Btn {
+    color: #737373;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 16px;
+    margin-left: 12px;
+}
+
+.content-Section .posts-Selection-Load-Section {
+    min-height: 550px;
+}
+
+.content-Section .posts-Section-Body .card-List-Section {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+a.solution-Card-Link {
+    display: block;
+    text-decoration: none;
+}
+
+a {
+    color: #337ab7;
+    background-color: transparent;
+}
+
+.solution-Card-Wrapper {
+    padding: 38px 0 40px;
+    position: relative;
+}
+
+.solution-Card-Wrapper .solution-Card-Lawyer-Info {
+    align-items: center;
+    display: flex;
+    height: 27px;
+    margin-bottom: 8px;
+}
+
+.solution-Card-Wrapper .solution-Card-Lawyer-Thumb {
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.solution-Card-Wrapper .solution-Card-Lawyer-Thumb .photo {
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+}
+
+a img {
+    border: none;
+}
+
+.solution-Card-Wrapper .solution-Card-Lawyer-Name {
+    color: #999;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.solution-Card-Wrapper .solution-Card-Title {
+    color: #222;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 26px;
+    margin-bottom: 8px;
+    min-height: 26px;
+}
+
+.solution-Card-Wrapper .solution-Card-Content {
+    color: #757575;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    margin-bottom: 24px;
+    min-height: 44px;
+}
+.solution-Card-Wrapper .solution-Card-Title, .solution-Card-Wrapper .solution-Card-Content {
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+}
+
+.solution-Card-Wrapper .solution-Card-Sentence-Result {
+    background-color: rgba(224,75,0,.05);
+    display: inline-block;
+    height: 32px;
+    padding: 8px 12px 9px 8px;
+}
+
+/* .solution-Card-Wrapper .solution-Card-Sentence-Result-Icon {
+    margin-right: 6px;
+    vertical-align: bottom;
+} */
+
+.solution-Card-Wrapper .solution-Card-Sentence-Result-Icon, .solution-Card-Wrapper .solution-Card-Sentence-Result-Text {
+    color: #e04b00;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 14px;
+}
+
+.lc {
+    text-rendering: auto;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    font-family: LawCompanyGlyphs;
+    font-size: inherit;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: inherit;
+    transform: translate(0);
+    vertical-align: top;
+}
+
+/* .lc.lc-Judge::before {
+    content: "\f23a";
+} */
+
+.content-Section .posts-Section-Body .card-List-Section-Post-Card-Line {
+    background: #e0e0e0;
+    height: 1px;
+    width: 100%;
+}
+
+/* mobile */
+
+.select-Menu-mobile {
+    align-items: center;
+    display: flex;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+
+}
+
+.select-Menu-mobile .select-Btn-mobile {
+    display: flex;
+    width: 100%;
+    padding: 11px;
+    font-size: 14px;
+    font-weight: 400;
+    border: none;
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+    color: #555;
+}
+
+i.bx {
+    color: #999;
+    margin-left: auto;
+}
+
+.select-Btn-mobile i {
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.select-Menu-mobile.showMobile .select-Btn-mobile i {
+    transform: rotate(-180deg);
+}
+
+.select-Menu-mobile.showMobile {
+    background-color: #f6f6f6;
+}
+
+
+.select-Menu-mobile .options-mobile {
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+    background-color: #fff;
+    border: 1px solid #f1f1f1;
+    border-radius: 8px;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,.08);
+    height: 223px;
+    left: 0;
+    overflow-y: scroll;
+    padding: 12px;
+    position: absolute;
+    top: 38px;
+    width: 165px;
+}
+
+.select-Menu-mobile .options-mobile::-webkit-scrollbar {
+    display: none;
+}
+
+.select-Menu-mobile.showMobile .options-mobile {
+    display: block;
+}
+
+.options-mobile .option-mobile {
+    display: flex;
+    cursor: pointer;
+    border-radius: 5px;
+    align-items: center;
+    height: 33px;
+    /* padding: 5px 0px; */
+
+}
+
+
+
+.options-mobile li:hover {
+    background-color: rgba(255,85,0,.05);
+
+}
+
+.options-mobile .option-mobile:hover .option-Text-mobile {
+    color: #e04b00;
+}
+
+
+.options-mobile .option-Text-mobile {
+    font-size: 14px;
+    color: #555;
+}
+
+
+.content-Section .posts-Section-Body .sort-Options-Btn-mobile.activeMobile, .content-Section .posts-Section-Body .sort-Options-Btn-mobile:hover {
+    border-bottom: 1px solid #333;
+    color: #333;
+    padding-bottom: 1px;
+}
+
+.content-Section .posts-Section-Body .sort-Options-Btn-mobile {
+    color: #737373;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 16px;
+    margin-left: 12px;
+}
+
+/* 미디어 쿼리 */
+
+.pc {
+    display: block;
+}
+
+.mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .pc {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+    }
+
+    .mobile-View {
+        height: auto;
+    }
+
+    .search-Controller {
+        overflow-x: hidden;
+    }
+
+    .content-Section .upper-Posts-Section-Header {
+        background-image: url(https://d2nyk3ltml4doc.cloudfront.net/lawtalk/latest/images/768943ce44eaed069252.png);
+        height: 125px;
+    }
+
+    .content-Section .upper-Posts-Section-Title {
+        top: 37px;
+    }
+
+    .content-Section .upper-Posts-Section-tab-Desc-Title {
+        font-size: 20px;
+        line-height: 30px;
+        margin-bottom: 4px;
+    }
+
+    .content-Section .upper-Posts-Section-tab-Desc-Title::after {
+        margin-left: 1px;
+        top: 2px;
+    }
+
+    .content-Section .upper-Posts-Section-Mention {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .content-Section .upper-Posts-Section-Title-Text-Img {
+        background-image: url(data:image/png;base64,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);
+        height: 34px;
+        left: 100px;
+        top: -70px;
+        width: 69px;
+    }
+
+    .search-Controller section.content-Section .posts-Section-Wrapper {
+        padding: 0;
+        width: 100%;
+    }
+
+    .content-Section .posts-Section {
+        margin-top: 0;
+    }
+
+    .content-Section .posts-Section-Body {
+        padding: 24px 20px;
+    }
+
+    .content-Section .posts-Section-Body .sort-Options {
+        font-size: 12px;
+    }
+
+    .solution-Card-Wrapper {
+        padding: 24px 0;
+    }
+
+    .solution-Card-Wrapper .solution-Card-Lawyer-Info {
+        height: 23px;
+    }
+
+    .solution-Card-Wrapper .solution-Card-Lawyer-Thumb .photo {
+        height: 20px;
+        width: 20px;
+    }
+
+    .solution-Card-Wrapper .solution-Card-Lawyer-Name {
+        font-size: 12px;
+    }
+
+    .solution-Card-Wrapper .solution-Card-Title {
+        font-size: 17px;
+    }
+
+    .solution-Card-Wrapper .solution-Card-Content {
+        font-size: 13px;
+        line-height: 20px;
+        margin-bottom: 16px;
+        min-height: 40px;
+    }
+
+    .select-Menu-mobile .options-mobile {
+        z-index: 50;
+    }
+
+}
+
+@media (min-width: 769px) {
+    .pc-View {
+        height: 100%;
+    }
+
+    .content-Section .posts-Section-Body .card-List-Section {
+        column-gap: 48px;
+    }
+
+    .content-Section .posts-Section-Body .card-List-Section-Card-Wrapper {
+        flex: 0 1 0;
+    }
+
+    .solution-Card-Wrapper .solution-Card-Title {
+        -webkit-line-clamp: 1;
+        margin-bottom: 12px;
+    }
+
+    .solution-Card-Wrapper .solution-Card-Title, .solution-Card-Wrapper .solution-Card-Content {
+        width: 516px;
+    }
+
+    .dropdown-Contents {
+        z-index: 50;
+    }
+
+    .select-Menu .options {
+        z-index: 50;
+    }
+}

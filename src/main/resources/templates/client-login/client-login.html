@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>의뢰인 로그인</title>
+  <link rel="stylesheet" href="clinet-login.css">
+    <link rel="stylesheet" href="https://d2nyk3ltml4doc.cloudfront.net/lawtalk/latest/fonts/22eb3211f6def8f859e2.woff">
+    <link rel="stylesheet" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.77.woff2">
+    <link rel="stylesheet" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.79.woff2">
+    <link rel="stylesheet" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.80.woff2">
+    <link rel="stylesheet" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.81.woff2">
+    <link rel="stylesheet" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.82.woff2">
+    <link rel="stylesheet" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.83.woff2">
+    <link rel="stylesheet" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.84.woff2">
+    <link rel="stylesheet" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.85.woff2">
+    <link rel="stylesheet" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.86.woff2">
+    <link rel="stylesheet" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.87.woff2">
+    <link rel="stylesheet" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.88.woff2">
+    <link rel="stylesheet" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.89.woff2">
+    <link rel="stylesheet" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.90.woff2">
+    <link rel="stylesheet" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.91.woff2">
+    <link rel="stylesheet" href="https://d2nyk3ltml4doc.cloudfront.net/lawtalk/latest/fonts/22eb3211f6def8f859e2.woff">
+    <link rel="stylesheet" href="https://d2nyk3ltml4doc.cloudfront.net/lawtalk/latest/fonts/22eb3211f6def8f859e2.woff">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+</head>
+<body>
+
+        <div id="next">
+            <div id="root-view">
+                <header class="header-module-header">
+                    <div class="header-module-headerLeft">
+                        <div class="header-module-logo_Icon">
+                            <img src="KakaoTalk_20230911_154146681.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="header-module-displayTextPageWrapper">
+                        <p class="Typography-module-it-text">로그인</p>
+                    </div>
+
+                    <div class="headerRightSide-module">
+                        <div class="headerRightSide-module-searchIconWrapper">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18.9 20.3L13.3 14.7C12.8 15.1 12.225 15.4167 11.575 15.65C10.925 15.8833 10.2333 16 9.5 16C7.68333 16 6.146 15.371 4.888 14.113C3.62933 12.8543 3 11.3167 3 9.5C3 7.68333 3.62933 6.14567 4.888 4.887C6.146 3.629 7.68333 3 9.5 3C11.3167 3 12.8543 3.629 14.113 4.887C15.371 6.14567 16 7.68333 16 9.5C16 10.2333 15.8833 10.925 15.65 11.575C15.4167 12.225 15.1 12.8 14.7 13.3L20.325 18.925C20.5083 19.1083 20.6 19.3333 20.6 19.6C20.6 19.8667 20.5 20.1 20.3 20.3C20.1167 20.4833 19.8833 20.575 19.6 20.575C19.3167 20.575 19.0833 20.4833 18.9 20.3ZM9.5 14C10.75 14 11.8127 13.5627 12.688 12.688C13.5627 11.8127 14 10.75 14 9.5C14 8.25 13.5627 7.18733 12.688 6.312C11.8127 5.43733 10.75 5 9.5 5C8.25 5 7.18733 5.43733 6.312 6.312C5.43733 7.18733 5 8.25 5 9.5C5 10.75 5.43733 11.8127 6.312 12.688C7.18733 13.5627 8.25 14 9.5 14Z"
+                                      fill="black"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="law-sign-in-new-container">
+                    <div class="lawyer-sign-in-section" style="display:none;">
+                        <div class="sign-in-section-tabs">
+                            <div class="sign-in-section-tab left-tab">로그인</div>
+
+                            <div class="sign-in-section-tab active">
+                                변호사로 로그인
+                            </div>
+                        </div>
+
+                        <form style="position: relative;" name="form"class="sign-in-section-form" id="lawyer-login-form">
+                            <label for="username" class="sign-in-section-form-username">
+                                아이디
+                            </label>
+
+                            <input type="text" id="username" name="id" placeholder="아이디를 입력해주세요."
+                                   class="sign-in-section-form-input">
+
+                            <div id="username-validator-message" class="sign-in-validation-message" style="display: none;">
+                                <label class="control-label">아이디는 영문, 숫자, 밑줄(_)만 입력 가능합니다.</label>
+                            </div>
+
+                            <label for="password" class="sign-in-section-form-password">
+                                비밀번호
+                            </label>
+
+                            <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요."
+                                   class="sign-in-section-form-input">
+
+
+
+                            <div class="sign-in-section-form-options">
+                                <div class="form-group">
+                                    <div class="box">
+                                        <div id="auto-sign-in" class="check-circle">
+
+                                        </div>
+                                    </div>
+                                    <label for="auto-sign-in">로그인 상태 유지</label>
+                                </div>
+
+
+
+                                <a href="https://www.lawtalk.co.kr/auth/reset-password" class="search-id-password">
+                                    아이디/비밀번호 찾기
+                                </a>
+                            </div>
+
+
+
+                            <button type="submit" class="sign-in-section-form-button">로그인</button>
+                        </form>
+
+
+                        <div class="law-landing-sign-up">
+                            <div class="lawyer-landing-sign-up-desc">변호사님, 아직 가입 안 하셨나요?</div>
+
+                            <a href="" class="law-lading-sign-up-link">변호사 가입 안내</a>
+                        </div>
+
+
+                    </div>
+                    <div class="client-sign-in-section">
+                        <div class="sign-in-section-tabs">
+                            <div class="sign-in-section-tab left-tab active">로그인</div>
+
+                            <div class="sign-in-section-tab">
+                                <div class="sign-in-section-tab-info">
+                                    변호사이신가요?
+                                </div>
+                                변호사로 로그인
+                            </div>
+                        </div>
+
+                        <form style="position: relative;" name="form"class="sign-in-section-form" id="client-login-form">
+                            <label for="username" class="sign-in-section-form-username">
+                                아이디
+                            </label>
+
+                            <input type="text" id="clientusername" name="id" placeholder="아이디를 입력해주세요."
+                            class="sign-in-section-form-input">
+
+                            <div id="client-username-validator-message" class="sign-in-validation-message" style="display: none;">
+                                <label class="control-label">아이디는 영문, 숫자, 밑줄(_)만 입력 가능합니다.</label>
+                            </div>
+
+                            <label for="password" class="sign-in-section-form-password">
+                                비밀번호
+                            </label>
+
+                            <input type="password" id="clienpassword" name="password" placeholder="비밀번호를 입력해주세요."
+                                   class="sign-in-section-form-input">
+
+
+
+                            <div class="sign-in-section-form-options">
+                                <div class="form-group">
+                                    <div class="box">
+                                        <div id="client-auto-sign-in" class="check-circle">
+
+                                        </div>
+                                    </div>
+                                    <label for="auto-sign-in">로그인 상태 유지</label>
+                                </div>
+
+
+
+                                <a href="https://www.lawtalk.co.kr/auth/reset-password" class="search-id-password">
+                                    아이디/비밀번호 찾기
+                                </a>
+                            </div>
+
+
+
+                            <button type="submit" class="sign-in-section-form-button">로그인</button>
+                        </form>
+
+                        <div class="sign-in-section-auth-buttons">
+                            <hr class="divide-line">
+
+                         <div class="sign-in-section-auth-buttons-contour">
+                            <div class="sign-in-section-auth-buttons-contour-text">또는</div>
+                         </div>
+
+                         <button type="button" class="sign-in-section-auth-buttons-button">
+                            <i class="kao-icon"></i>
+                             카카오로 로그인
+                         </button>
+                        </div>
+
+                     <div class="sign-in-section-non-member">
+                         <div class="section-in-section-non-member">
+                             아직 카운슬로 회원이 아니신가요?
+
+                             <a class="sign-in-section-non-member-landing-sign-link">
+                                 회원가입
+                             </a>
+                         </div>
+
+                         <a class="sign-in-section-non-member-advice">비회원 상담 조회</a>
+                     </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="dialog" class="dialog" style="display:none;">
+            <div class="dialog-overlay"></div>
+            <div class="dialog-content">
+                <div class="simple-message">
+                    <div class="title">
+                        로그인
+                        <a href="">
+                            <i class="lc"></i>
+                        </a>
+                    </div>
+
+                    <div class="body">
+                        <p style="outline: 0px;">아이디/비밀번호가 일치하지 않습니다.</p>
+                    </div>
+
+                    <div class="footer">
+                        <a class="yes">확인</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</body>
+<script src="client-login.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

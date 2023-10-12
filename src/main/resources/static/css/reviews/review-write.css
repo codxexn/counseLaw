@@ -1,0 +1,576 @@
+/* 전체 css */
+* {font-family: Pretendard,'Noto Sans KR', sans-serif;}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    line-height: 1;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f1f4f6;
+}
+
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+body {
+    background-color: #fff;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.42857143;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f1f4f6;
+}
+
+body {
+    margin: 0;
+}
+
+*, :after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    display: block;
+    /*margin: 8px;*/
+}
+
+a {
+    cursor: pointer;
+    background-color: transparent;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
+
+div {
+    display: block;
+}
+
+a:active, a:hover {
+    outline: 0;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+
+button, input[type=button], input[type=file]::-webkit-file-upload-button, input[type=reset], input[type=submit] {
+    border-radius: 0;
+}
+
+a, body, button, dd, div, dl, dt, h1, h2, h3, h4, h5, h6, html, label, li, p, span, table, td, tr, ul {
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+}
+
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+button, html input[type=button], input[type=reset], input[type=submit] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+button, select {
+    text-transform: none;
+}
+
+button {
+    overflow: visible;
+}
+
+button, input, optgroup, select, textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+
+/* 후기 작성 css */
+
+.Review-Wrapper {
+    background-color: #fff;
+    width: 100%;
+}
+
+.Review-Question-Compose-Wrapper {
+    background-color: #fff;
+}
+
+.Review-Question-Compose-Title {
+    background-color: #f8fafb;
+}
+
+.Review-Question-Compose-Title-Wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    margin: 0 auto;
+    padding: 12px 0;
+    width: 672px;
+}
+
+.Review-Question-Compose-Title-Badge {
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    background-color: #c50000;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 150%;
+    padding: 0 4px;
+}
+
+.Review-Question-Compose-Description {
+    color: #2b2d2f;
+    font-weight: 600;
+    line-height: 140%;
+    font-size: 16px;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+}
+
+.Review-Question-Compose-Form {
+    position: relative;
+    margin: 31px auto 0;
+    padding-bottom: 140px;
+    width: 672px;
+    background-color: #fff;
+}
+
+.Compose-Input-Case-Title-Wrapper {
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Compose-Input-Case-Title {
+    width: 672px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Compose-Input-Case-Description {
+    font-size: 30px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.Compose-Input-Case-Border {
+    width: 200px;
+    height: 50px;
+    border-bottom: 1px solid #7a8287;
+}
+
+.Compose-Input-Stars-Wrapper {
+    margin-top: 50px;
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.Compose-Input-Stars {
+    cursor: pointer;
+}
+
+.bi-star {
+    color: #c50000;
+}
+
+.bi-star:hover, .bi-star-fill:hover {
+    filter: drop-shadow(1px 1px 2px #c50000);
+}
+
+.bi-star-fill {
+    display: none;
+    color: #c50000;
+}
+
+.Compose-Input-Upperline {
+    align-items: flex-end;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.Compose-Input-Name-Wrapper {
+    align-items: center;
+    display: flex;
+}
+
+.Compose-Input-Name {
+    color: #2b2d2f;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 700;
+    line-height: 120%;
+    font-size: 20px;
+}
+
+.Compose-Input-Description {
+    color: #7a8287;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 400;
+    line-height: 120%;
+    font-size: 17px;
+}
+
+.Compose-Input-Description-Orange {
+    color: #c50000;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 400;
+    line-height: 120%;
+    font-size: 17px;
+}
+
+.Compose-Input-Count-Wrapper {
+    display: none;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+}
+
+.Compose-Input-Count, .Compose-Input-Total {
+    font-size: 12px;
+    color: #7a8287;
+}
+
+.Compose-Title-Textarea {
+    min-height: 48px;
+    word-wrap: break-word;
+    border: 1px solid #c4c8cb;
+    border-radius: 8px;
+    -webkit-box-shadow: none;
+    color: #2b2d2f;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 165%;
+    overflow-y: hidden;
+    padding: 10px 12px;
+    resize: none;
+    white-space: pre-wrap;
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    background-image: none;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    display: block;
+    overflow: auto;
+}
+
+.Compose-Title-Textarea:focus {
+    border: 1px solid #000;
+}
+
+textarea::placeholder {
+    color: rgb(195, 195, 195);
+}
+
+.Compose-Title-Guide {
+    background-color: rgba(255,94,0,.06);
+    border-radius: 8px;
+    display: none;
+    font-size: 12px;
+    margin-top: 14px;
+    padding: 12px 16px;
+    position: relative;
+}
+
+.Compose-Title-Guide:before {
+    border-bottom: 6px solid rgba(255,94,0,.06);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    content: "";
+    display: block;
+    height: 0;
+    left: 20px;
+    position: absolute;
+    top: -6px;
+    width: 0;
+}
+
+.Compose-Title-Guide-Tipline {
+    align-items: center;
+    display: flex;
+    gap: 4px;
+    margin-bottom: 4px;
+}
+
+.Compose-Title-Guide-Tip-Image {
+    background-image: url(data:image/png;base64,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);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 22px;
+    width: 14px;
+}
+
+.Compose-Title-Guide-Tip {
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    color: #c50000;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 160%;
+}
+
+.Compose-Title-Guide-Content {
+    color: #35373a;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 190%;
+    margin-top: 4px;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+}
+
+.Compose-Title-Guide-Content-Bold {
+    font-size: 15px;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 700;
+}
+
+.Compose-Title-Guide-Content-Question {
+    font-size: 15px;
+    color: #35373a;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 400;
+    line-height: 190%;
+}
+
+
+.Compose-Input-Content-Wrapper {
+    margin-top: 32px;
+}
+
+.Compose-Body-Textarea {
+    min-height: 228px;
+    word-wrap: break-word;
+    border: 1px solid #c4c8cb;
+    border-radius: 8px;
+    -webkit-box-shadow: none;
+    color: #2b2d2f;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 165%;
+    overflow-y: hidden;
+    padding: 10px 12px;
+    resize: none;
+    white-space: pre-wrap;
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    background-image: none;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    display: block;
+    overflow: auto;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+.Compose-Body-Textarea:focus {
+    border: 1px solid #000;
+}
+
+.Compose-Guide-List {
+    display: flex;
+    flex-direction: column;
+}
+
+.Compose-Guide-List-Item {
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 400;
+    color: #35373a;
+    font-size: 15px;
+    line-height: 160%;
+    list-style-type: "·";
+    margin-left: 4px;
+    padding-left: 4px;
+}
+
+::marker {
+    unicode-bidi: isolate;
+    font-variant-numeric: tabular-nums;
+    text-transform: none;
+    text-indent: 0px !important;
+    text-align: start !important;
+    text-align-last: start !important;
+}
+
+.Compose-Form-Description {
+    background-color: #f4f7f9;
+    border-radius: 8px;
+    margin-top: 32px;
+    padding: 20px;
+}
+
+.Compose-Form-Notice-Title-Wrapper {
+    align-items: center;
+    display: flex;
+    gap: 12px;
+}
+
+.Compose-Form-Notice-Title {
+    color: #2b2d2f;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 135%;
+}
+
+.Compose-Form-Notice-List {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-left: 18px;
+    padding-top: 16px;
+}
+
+.Compose-Form-Notice-Item {
+    color: #60666c;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 165%;
+    list-style-type: decimal;
+}
+
+.Compose-Form-Notice-Item strong {
+    font-weight: 800;
+}
+
+.Compose-Form-Notice-Limit-List {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 6px;
+    margin-bottom: 0;
+}
+
+.Compose-Form-Notice-Limit-Item {
+    color: #7a8287;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 145%;
+    list-style-type: "∙";
+}
+
+.Compose-Form-Notice-Line {
+    background-color: #d3dfeb;
+    height: 1px;
+    margin: 16px 0;
+    width: 100%;
+}
+
+.Compose-Form-Agreement-Wrapper {
+    align-items: center;
+    display: flex;
+    gap: 4px;
+    justify-content: flex-start;
+}
+
+.Compose-Form-Agreement-Checkbox {
+    appearance: none;
+    margin: 0;
+    line-height: normal;
+    box-sizing: border-box;
+    padding: 0;
+    cursor: pointer;
+    height: 24px;
+    width: 24px;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    font: inherit;
+    writing-mode: horizontal-tb !important;
+    background-color: initial;
+    border: initial;
+}
+
+.Compose-Form-Agreement-Checkbox:before {
+    background-color: #c4c8cb;
+    content: "";
+    display: inline-block;
+    height: 24px;
+    -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTEwLjYgMTMuOC0yLjE3NS0yLjE3NWEuOTE4LjkxOCAwIDAgMC0uNjc1LS4yNzVjLS4yNjcgMC0uNS4xLS43LjNhLjk0OC45NDggMCAwIDAtLjI3NS43YzAgLjI4My4wOTIuNTE3LjI3NS43TDkuOSAxNS45YS45NDguOTQ4IDAgMCAwIC43LjI3NS45NDguOTQ4IDAgMCAwIC43LS4yNzVsNS42NzUtNS42NzVhLjkxOC45MTggMCAwIDAgLjI3NS0uNjc1YzAtLjI2Ny0uMS0uNS0uMy0uN2EuOTQ4Ljk0OCAwIDAgMC0uNy0uMjc1Ljk0OC45NDggMCAwIDAtLjcuMjc1TDEwLjYgMTMuOFpNMTIgMjJhOS43MzMgOS43MzMgMCAwIDEtMy45LS43ODggMTAuMDkyIDEwLjA5MiAwIDAgMS0zLjE3NS0yLjEzN2MtLjktLjktMS42MTItMS45NTgtMi4xMzctMy4xNzVBOS43MzMgOS43MzMgMCAwIDEgMiAxMmMwLTEuMzgzLjI2My0yLjY4My43ODgtMy45YTEwLjA5MiAxMC4wOTIgMCAwIDEgMi4xMzctMy4xNzVjLjktLjkgMS45NTgtMS42MTMgMy4xNzUtMi4xMzhBOS43NDMgOS43NDMgMCAwIDEgMTIgMmMxLjM4MyAwIDIuNjgzLjI2MiAzLjkuNzg3YTEwLjEwNSAxMC4xMDUgMCAwIDEgMy4xNzUgMi4xMzhjLjkuOSAxLjYxMiAxLjk1OCAyLjEzNyAzLjE3NUE5LjczMyA5LjczMyAwIDAgMSAyMiAxMmE5LjczMyA5LjczMyAwIDAgMS0uNzg4IDMuOSAxMC4wOTIgMTAuMDkyIDAgMCAxLTIuMTM3IDMuMTc1Yy0uOS45LTEuOTU4IDEuNjEyLTMuMTc1IDIuMTM3QTkuNzMzIDkuNzMzIDAgMCAxIDEyIDIyWiIgZmlsbD0iIzAwMCIvPjwvc3ZnPg==);
+    mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTEwLjYgMTMuOC0yLjE3NS0yLjE3NWEuOTE4LjkxOCAwIDAgMC0uNjc1LS4yNzVjLS4yNjcgMC0uNS4xLS43LjNhLjk0OC45NDggMCAwIDAtLjI3NS43YzAgLjI4My4wOTIuNTE3LjI3NS43TDkuOSAxNS45YS45NDguOTQ4IDAgMCAwIC43LjI3NS45NDguOTQ4IDAgMCAwIC43LS4yNzVsNS42NzUtNS42NzVhLjkxOC45MTggMCAwIDAgLjI3NS0uNjc1YzAtLjI2Ny0uMS0uNS0uMy0uN2EuOTQ4Ljk0OCAwIDAgMC0uNy0uMjc1Ljk0OC45NDggMCAwIDAtLjcuMjc1TDEwLjYgMTMuOFpNMTIgMjJhOS43MzMgOS43MzMgMCAwIDEtMy45LS43ODggMTAuMDkyIDEwLjA5MiAwIDAgMS0zLjE3NS0yLjEzN2MtLjktLjktMS42MTItMS45NTgtMi4xMzctMy4xNzVBOS43MzMgOS43MzMgMCAwIDEgMiAxMmMwLTEuMzgzLjI2My0yLjY4My43ODgtMy45YTEwLjA5MiAxMC4wOTIgMCAwIDEgMi4xMzctMy4xNzVjLjktLjkgMS45NTgtMS42MTMgMy4xNzUtMi4xMzhBOS43NDMgOS43NDMgMCAwIDEgMTIgMmMxLjM4MyAwIDIuNjgzLjI2MiAzLjkuNzg3YTEwLjEwNSAxMC4xMDUgMCAwIDEgMy4xNzUgMi4xMzhjLjkuOSAxLjYxMiAxLjk1OCAyLjEzNyAzLjE3NUE5LjczMyA5LjczMyAwIDAgMSAyMiAxMmE5LjczMyA5LjczMyAwIDAgMS0uNzg4IDMuOSAxMC4wOTIgMTAuMDkyIDAgMCAxLTIuMTM3IDMuMTc1Yy0uOS45LTEuOTU4IDEuNjEyLTMuMTc1IDIuMTM3QTkuNzMzIDkuNzMzIDAgMCAxIDEyIDIyWiIgZmlsbD0iIzAwMCIvPjwvc3ZnPg==);
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    width: 24px;
+}
+
+.Compose-Form-Agreement-Checkbox:checked:before {
+    background-color: #c50000;
+}
+
+.Compose-Form-Agreement-Text {
+    font-size: 16px;
+    color: #35373a;
+    cursor: pointer;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 500;
+    line-height: 135%;
+}
+
+.Compose-Form-Button-Wrapper {
+    right: calc(50vw - 550px);
+    height: 72px;
+    align-items: center;
+    display: flex;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.Compose-Form-Button {
+    background-color: transparent;
+    border: none;
+    color: #c4c8cb;
+    cursor: pointer;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 135%;
+    margin-left: auto;
+    outline: none;
+    padding: 0;
+}
+
+:disabled {
+    cursor: not-allowed;
+}

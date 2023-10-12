@@ -1,0 +1,250 @@
+/*ng-class*/
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide:not(.ng-hide-animate) {
+    display: none !important;
+}
+
+/*전체 div*/
+.search-controller {
+    background-color: #fff;
+    overflow: visible;
+}
+
+.lawyer-find .lawyer-find__toggle-wrap {
+    text-align: center;
+}
+
+/* 분야/ 지역으로 찾기 버튼*/
+.wide-toggle {
+    border: 2px solid #e0e0e0;
+    display: inline-block;
+    position: relative;
+}
+
+.wide-toggle .wide-toggle__option-hovering {
+    border: 2px solid #333;
+    box-shadow: 3px 3px 5px 0 rgba(0,0,0,.13);
+    left: -2px;
+    position: absolute;
+    top: -2px;
+    transition: transform .2s ease;
+}
+
+
+
+.wide-toggle .wide-toggle__option {
+    color: #cfcfcf;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 700;
+    position: relative;
+    transition: color .3s ease;
+    vertical-align: top;
+    z-index: 1;
+}
+
+/*활성화시 글자 색생 변환*/
+.wide-toggle .wide-toggle__option--active {
+    color: #333;
+}
+
+/*마우스 오버*/
+.wide-toggle .wide-toggle__option:hover {
+    color: #333;
+}
+
+/*카테고리 섹션*/
+.category-search-container {
+    position: relative;
+}
+
+/*모바일 display none*/
+.category-search-container .group-category-list-container__fixed-blank {
+    height: 52px;
+}
+
+.group-category-list__item.active, .group-category-list__item:focus, .group-category-list__item:hover {
+    color: #333;
+    text-decoration: none;
+}
+
+.category-search-container .category-search-list-container .find-group-categories-list-container .find-group-category__title {
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 700;
+}
+
+.category-search-container .category-search-list-container .find-group-categories-list-container .find-group-category__body .find-category {
+    text-decoration: none;
+}
+
+.category-search-container .category-search-list-container .find-group-categories-list-container .find-group-category__body .find-category__title {
+    color: #333;
+    display: inline-block;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.category-search-container .category-search-list-container .find-group-categories-list-container .find-group-category__body .find-category__description {
+    color: #999;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+}
+
+.category-search-container .category-search-list-container .find-group-categories-list-container .find-group-category__body .find-category:hover .find-category__title {
+    color: #c50000;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 700;
+}
+
+.magnifier {
+    width: 13.5px;
+    height: 13.5px;
+    margin-left: 4px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* 반응형 */
+@media (min-width: 960px) {
+    .lt-mobile {
+        display: none !important;
+    }
+
+    .lawyer-find {
+        padding-top: 27px;
+    }
+
+    .wide-toggle {
+        border-radius: 30px;
+    }
+
+    .wide-toggle .wide-toggle__option-hovering {
+        border-radius: 30px;
+        height: 52px;
+        width: 208px;
+    }
+
+    .wide-toggle .wide-toggle__option {
+        font-size: 18px;
+        height: 49px;
+        line-height: 46px;
+        margin-left: 19px;
+        padding-left: 2px;
+        text-align: center;
+        width: 167px;
+    }
+
+    .wide-toggle .wide-toggle__option:last-child {
+        margin-right: 19px;
+    }
+
+/*    카테고리 섹션*/
+    .category-search-container {
+        margin: 0 auto;
+        padding-top: 52px;
+        width: 1080px;
+    }
+
+/*    사이드바 카테고리 리스트*/
+    .group-category-list {
+        position: absolute;
+        width: 196px;
+    }
+    /*스크롤바*/
+    .group-category-list::-webkit-scrollbar {
+        width: 7px;
+        background-color: #ffffff;
+
+    }
+
+    .group-category-list::-webkit-scrollbar-thumb {
+        background-color: #ffffff;
+        border-radius: 13px;
+    }
+
+    .group-category-list:hover::-webkit-scrollbar-thumb {
+        background-color: #e7e7e7;
+        border-radius: 13px;
+    }
+
+
+
+    .group-category-list__item {
+        color: #cfcfcf;
+        display: block;
+        font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 30px;
+        margin-bottom: 14px;
+    }
+
+    .group-category-list__item.active {
+        color: #333;
+    }
+
+/*    세부 카테고리*/
+    .category-search-container .category-search-list-container {
+        margin-left: 273px;
+        padding-bottom: 90px;
+        width: 808px;
+    }
+
+/*    세부 카테고리 헤더*/
+    .category-search-container .category-search-list-container .find-group-categories-list-container .find-group-category__header {
+        background-color: #f6f6f6;
+        margin-top: 4px;
+        padding-bottom: 21px;
+        padding-left: 20px;
+        padding-top: 21px;
+        width: 100%;
+    }
+/*    제목*/
+    .category-search-container .category-search-list-container .find-group-categories-list-container .find-group-category__title {
+        font-size: 18px;
+        width: 175px;
+    }
+
+/*    소카테고리*/
+    .category-search-container .category-search-list-container .find-group-categories-list-container .find-group-category__body {
+        margin-bottom: 48px;
+        margin-top: 22px;
+    }
+
+    .category-search-container .category-search-list-container .find-group-categories-list-container .find-group-category__body .find-category-wrap {
+        border-left: 1px solid #e0e0e0;
+        display: inline-block;
+        padding-bottom: 24px;
+        padding-left: 19px;
+        width: 50%;
+    }
+
+    .category-search-container .category-search-list-container .find-group-categories-list-container .find-group-category__body .find-category {
+        display: inline-block;
+        padding-bottom: 23px;
+    }
+
+    .category-search-container .category-search-list-container .find-group-categories-list-container .find-group-category__body .find-category.bottom-padding-none {
+        height: 16px;
+        padding-bottom: 0;
+    }
+
+    .category-search-container .category-search-list-container .find-group-categories-list-container .find-group-category__body .find-category__title {
+        font-size: 16px;
+        margin-bottom: 6px;
+    }
+
+
+}

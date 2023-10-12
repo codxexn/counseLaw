@@ -1,0 +1,1000 @@
+.location-lawyers--advice .empty-search__button, a, body, button, div, form, h1, h2, h3, h4, h5, h6, html, li, ol, p, span, ul {
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+}
+
+a, body, button, dd, div, dl, dt, h1, h2, h3, h4, h5, h6, html, label, li, p, span, table, td, tr, ul {
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+}
+
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+
+*, :after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+section{
+    display:block;
+}
+
+div{
+    display : block;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f1f4f6;
+}
+body {
+    background-color: #fff;
+    color: #333;
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+}
+
+html {
+    line-height: 1;
+}
+html {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    font-size: 10px;
+}
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    font-family: sans-serif;
+}
+
+div::-webkit-scrollbar, div::-webkit-scrollbar-thumb {
+    display: none;
+}
+
+div::-webkit-scrollbar, div::-webkit-scrollbar-thumb {
+    display: none;
+}
+
+h2, h3{
+    color:#999;
+}
+
+h2{
+    font-size: 20px;
+}
+
+h5{
+    color:#777;
+}
+
+h4, h5{
+    font-size: 14px;
+}
+
+h5{
+    display: block;
+    font-size: 0.83em;
+    margin-block-start: 1.67em;
+    margin-block-end: 1.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+b, h1, h2, h3, h4{
+    font-weight: 700;
+}
+
+.h2, h2{
+    font-size: 30px;
+}
+
+.h1, .h2, .h3, h1, h2, h3 {
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    color: inherit;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+a img{
+    border:none;
+}
+
+
+/* body부분 CSS*/
+.FooterColor{
+    background-color:#fff;
+}
+
+#root{
+    height:100%;
+}
+
+.searchController{
+    background-color: #fff;
+    height: 100%;
+    overflow: visible;
+}
+
+
+.caseSection{
+    background: #fff;
+    position: relative;
+}
+
+.caseSectionWrap.sectionWrap.sectionWrapCases{
+    padding-bottom: 100px;
+    padding-top:0;
+}
+
+.sectionWrap{
+    height: 100%;
+    margin: auto;
+    padding-bottom: 20px;
+    padding-top: 40px;
+    width: 1100px;
+}
+
+.caseSectionTitle{
+    border-bottom: 1px solid #e1dedd;
+}
+
+.encouragingMention{
+    font-size: 48px;
+    line-height:60px;
+    margin:56px 0;
+    color:#2b2d2f;
+    font-family: Pretendard Variable;
+    font-weight:700;
+}
+
+.ltMobile{
+    display:none;
+}
+
+@media(min-width: 960px){
+    .ltMobile{
+        display:none!important;
+    }
+}
+
+
+.casesTop.RankWeekAnswerMobile{
+    background: #e1dedd;
+    padding-bottom: 8px;
+}
+
+.rankTitleWrap{
+    background:#fff;
+    padding:0 20px;
+}
+
+.rankTitle{
+    border-bottom: 1px solid #f1eeec;
+    padding:20px 0 18px;
+}
+
+.rankTitle > span{
+    color:#333;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.rankTitle > i{
+    color:#777;
+    float:right;
+}
+
+.lc{
+    text-rendering: auto;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    font-family: LawCompanyGlyphs;
+    font-size: inherit;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: inherit;
+    transform: translate(0);
+    vertical-align: top;
+}
+
+.rankBodyWrap{
+    -webkit-overflow-scrolling: touch;
+    background: #fff;
+    overflow: scroll;
+}
+
+.rankBody{
+    min-height: 117px;
+    padding: 20px 0 20px 20px;
+    white-space: nowrap;
+}
+
+.rankBodyWrap .rankBody .lawyerRank{
+    display: inline-block;
+    margin-right: 20px;
+    text-align: center;
+    width: 76px;
+}
+
+.ranking{
+    background: #7a6569;
+    border-radius: 50%;
+    color: #fff;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    height: 26px;
+    line-height: 32px;
+    position: absolute;
+    right: 2px;
+    top: 26px;
+    width: 26px;
+}
+
+.oneToThree.lcCrown{
+    display:inline-block;
+    margin-top:-10px;
+    padding-left: 3px;
+}
+
+.ranking > .lcCrown{
+    display:none;
+}
+
+span.rk{
+    margin-left: -14px;
+}
+.image{
+    border-radius: 50%;
+    height:52px;
+    width:52px;
+}
+
+.lawyerBody{
+    color: #222;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    margin-top: 7px;
+}
+
+.caseSectionBody{
+    display:inline-block;
+    width:748px;
+}
+
+@media (min-width: 960px){
+    .sortOptions{
+        border-right: 1px solid #e1dedd;
+        padding:15px 0 11px;
+    }
+}
+
+
+.sortOptions{
+    border-bottom:1px solid #f1eeec;
+    font-size: 14px;
+}
+
+.sortOptionsAccuracy{
+    display:inline-block;
+}
+
+li.sortOption{
+    color: #737373;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 16px;
+}
+
+.midDot{
+    display:inline-block;
+    margin:0 9px;
+}
+
+.ngHide{
+    display:none !important;
+}
+
+.active{
+    border-bottom: 1px solid #333;
+    color:#333;
+    padding-bottom: 3px;
+}
+
+.sortOption:hover{
+    border-bottom: #333;
+    color:#333;
+    padding-bottom: 3px;
+}
+
+.midDot::after{
+    color:#d4cfcf;
+    content:"\b7";
+    padding-left: 3px;
+}
+
+.loadSection{
+    min-height: 550px;
+}
+
+@media(max-width: 959px){
+    .loadSection .casesList{
+        padding-right:20px;
+    }
+}
+
+
+.loadSection .casesList{
+    padding-right: 40px;
+}
+
+@media (max-width: 959px){
+    .caseSectionBody .casesList{
+        padding:0 20px;
+    }
+}
+
+
+.caseCardLink{
+    display:block;
+    text-decoration: none;
+}
+
+@media (max-width: 959px){
+    .caseCardWrap{
+        padding:30px 0;
+    }
+}
+
+
+.caseCardWrap{
+    padding:48px 0 50px;
+    position: relative;
+}
+
+.caseCardLine.Bottom{
+    display:none;
+}
+
+.caseCardLine.Top{
+    top:-1px;
+}
+
+.caseCardLine{
+    background: #f1eeec;
+    height: 1px;
+    left: 0;
+    position: absolute;
+    transition: width .5s ease-in-out;
+    width: 60px;
+}
+
+
+@media (max-width: 959px){
+    .caseKeywords{
+        margin-top:-3px;
+    }
+}
+
+
+.caseKeywords{
+    margin-bottom: 10px;
+}
+
+@media (max-width: 959px){
+    .caseKeyword{
+        font-size: 12px;
+        line-height: 18px;
+    }
+}
+
+
+.caseKeyword{
+    color:#757575;
+}
+
+.caseKeyword:last-child:after{
+    content:"";
+}
+
+.caseKeyword:after{
+    color: #d4cfcf;
+    content: "\b7";
+    padding-left: 3px;
+}
+
+
+@media (max-width: 959px){
+    .caseCardWrap .caseCardTitle{
+        font-size: 22px;
+        margin-bottom: 17px;
+    }
+}
+
+
+.caseCardTitle{
+    color: #323131;
+    font-size: 24px;
+    line-height: 1.33;
+    margin-bottom: 21px;
+    white-space: pre-wrap;
+}
+
+.caseCardWrap .caseAnswer{
+    color: #ff4e00;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+@media (max-width: 959px)
+.caseCardWrap .caseAnswer .caseAnswerLawyer{
+    font-size: 16px;
+    padding-left: 6px;
+}
+
+.caseCardWrap .caseAnswer .caseAnswerLawyer{
+    color: #555;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 400;
+    padding-left: 10px;
+}
+
+@media (max-width: 959px)
+.caseCardWrap .caseCardAnswer{
+    font-size:16px
+}
+
+.caseCardWrap .caseCardAnswer{
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    color: #555;
+    display: -webkit-box;
+    font-size: 15px;
+    line-height: 1.6em;
+    max-height: 3.2em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (max-width: 959px)
+.caseCardWrap .caseCardEtcAnswer{
+    margin-left: -2px;
+    margin-top: 5px;
+    padding-top: 3px;
+}
+
+@media (max-width: 959px)
+.caseCardWrap .caseCardEtcAnswer .photos{
+    margin-right: 6px;
+}
+
+.caseCardWrap .caseCardEtcAnswer .photos{
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.caseCardWrap .caseCardEtcAnswer .photos .photo{
+    border: 2px solid #fff;
+    border-radius: 50%;
+    height: 26px;
+    margin-left: -13px;
+    width: 26px;
+}
+
+.caseCardWrap .caseCardEtcAnswer .etcLawyers{
+    color: #777;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 23px;
+    position: relative;
+    vertical-align: middle;
+}
+
+.caseCardWrap .caseCardEtcAnswer .etcLawyers .etcLawyersInner {
+    left: 0;
+    line-height: 32px;
+    min-width: 160px;
+}
+
+@media (max-width: 959px)
+.caseCardWrap .caseCardInfo{
+    margin-top:20px;
+}
+
+.caseCardWrap .caseCardInfo{
+    color: #999;
+    font-size: 12px;
+    margin-top: 29px
+}
+
+.caseCardWrap .caseCardInfo .viewCount {
+    margin-right:20px;
+}
+
+@media (max-width: 959px)
+.caseCardWrap .caseCardInfo .number{
+    margin-left: 3px;
+}
+
+.caseCardWrap .caseCardInfo .number{
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 700;
+    margin-left: 2px;
+}
+
+.caseCardWrap .caseCardInfo .bookMarkCount{
+    padding-right: 20px;
+    position: relative;
+}
+
+@media (max-width: 959px)
+.caseCardWrap .caseCardInfo .bookMarkCount .lc{
+    font-size:13px;
+    left:6px;
+    top:0;
+    top:3px;
+}
+
+.caseCardWrap .caseCardInfo .bookMarkCount .lc{
+    color:#999;
+    left:0;
+    position: absolute;
+}
+
+
+
+.lc.lcStarSharpO{
+    content:"\f25a";
+}
+
+.caseCardWrap .caseCardInfo .answerDate{
+    float:right;
+}
+
+.caseCardWrap .caseCardLine.Bottom{
+    bottom:0;
+}
+
+.caseCardWrap .caseCardLine{
+    background: #f1eeec;
+    height: 1px;
+    left: 0;
+    position: absolute;
+    transition: width .5s ease-in-out;
+    width: 60px;
+}
+
+@media (max-width: 959px)
+.paginationWrap{
+    padding-right: 40px;
+}
+
+.beforePage.off{
+    color:#999;
+}
+
+.beforePage{
+    padding-left: 53px;
+}
+
+@media (max-width: 959px)
+.beforePage{
+    padding:23px 0;
+}
+
+.nextPage{
+    padding-left: 53px;
+}
+
+.beforePage, .nextPage{
+    border-top: 1px solid #f1eeec;
+    color: #555;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 22px 0;
+    text-align: center;
+    width: 50%;
+}
+
+@media (min-width: 960px)
+.searchController .ltMobile{
+    display:none;
+}
+
+.beforePage i{
+    margin-left: -2px;
+    margin-right: 2px;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.beforePage i, .beforePage span{
+    float: left;
+}
+
+.beforePage span{
+    margin-top:-1px;
+}
+
+i.lc{
+    text-rendering: auto;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    font-family: LawCompanyGlyphs;
+    font-size: inherit;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: inherit;
+    transform: translate(0);
+    vertical-align: top;
+}
+
+.paginationWrap .pagination{
+    background: #f7f7f7;
+    border-radius: 0;
+    display: block;
+    height: 60px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.pagination{
+    border-radius: 4px;
+    display: inline-block;
+    margin: 20px 0;
+    padding-left: 0;
+}
+
+.paginationButton.on{
+    border-bottom: 2px solid #ff4e00;
+    color: #ff4e00;
+}
+
+.paginationButton:not(:last-child){
+    margin-right: 29px;
+}
+
+.paginationButton{
+    color: #555;
+    font-family: Amplitude Medium;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 59px;
+    text-decoration: none;
+}
+
+.next{
+    right:24px;
+}
+
+.next, .prev{
+    border: 1px solid #e1dedd;
+    cursor: pointer;
+    font-size: 12px;
+    height: 30px;
+    line-height: 29px;
+    position: absolute;
+    text-align: center;
+    top: 15px;
+    width: 108px;
+}
+
+.next .ltDesktop, .prev .ltDesktop{
+    margin-top: -15px;
+}
+
+.next .lc.lcChevronRight, .prev .lc.lcChevronRight{
+    font-size: 14px;
+    margin-left: 3px;
+    margin-right: -5px;
+    margin-top: 2px;
+}
+
+.next i, .prev i{
+    -webkit-transform: translateY(-1px);
+    -moz-transform: translateY(-1px);
+    -ms-transform: translateY(-1px);
+    -o-transform: translateY(-1px);
+    transform: translateY(-1px);
+}
+
+.next .lc.lcChevronRight:before{
+    content:"\f221";
+}
+
+#root .cgBusy.cgBusyBackdrop{
+    opacity: .8;
+}
+
+#root .cgBusy{
+    z-index: 50;
+}
+
+.cgBusyBackdropAnimation.ngHide{
+    opacity:0;
+}
+
+.cgBusyBackdrop{
+    background-color: #fff;
+    opacity: .7;
+}
+
+.cgbusy{
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1001;
+}
+
+.ngHide:not(.ngHideAnimate){
+    display:none !important;
+}
+
+.lawtalkLoaderImages{
+    height: 38px;
+    left: 50%;
+    margin: -19px 0 0 -28px;
+    position: absolute;
+    top: 50%;
+    width: 56px;
+    z-index: 2;
+}
+
+.lawtalkLoaderImages img{
+    height: 38px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 56px;
+}
+
+.asideSection.caseAsideSection{
+    padding-bottom: 0;
+}
+
+.asideSection{
+    float:right;
+    padding-left: 40px;
+    width:328px;
+}
+
+.rankWeekAnswer{
+    border-bottom: 1px solid #e1dedd;
+    padding:43px 0 29px;
+}
+
+.rankWeekAnswer .rankTitle{
+    color: #323131;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.rankWeekAnswer ul.rankBody{
+    max-height: 282px;
+    min-height: 282px;
+    overflow: hidden;
+    padding: 30px 0;
+    -webkit-transition: max-height .25s ease-in-out;
+    -moz-transition: max-height .25s ease-in-out;
+    -o-transition: max-height .25s ease-in-out;
+    transition: max-height .25s ease-in-out;
+}
+
+ul.rankBody li.lawyerRank:not(:last-child){
+    margin-bottom: 30px;
+}
+
+ul.rankBody li.lawyerRank{
+    height: 54px;
+}
+
+ul.rankBody li.lawyerRank a{
+    display: block;
+    height:100%;
+    width:100%;
+}
+
+ul.rankBody li.lawyerRank .ranking{
+    color: #7a6569;
+    float: left;
+    margin-left: 3px;
+    margin-right: 9px;
+    margin-top: 9px;
+    width: 25px;
+}
+
+ul.rankBody .lawyerRank .ranking i.lc.lcCrown{
+    display: block;
+    margin-bottom: -4px;
+}
+
+
+.lc.lcCrown:before{
+    content:"\f287";
+}
+
+.ranking .rk{
+    font-family: Amplitude Medium;
+    font-size: 14px;
+}
+
+.ranking span{
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+li.lawyerRank .image{
+    border-radius: 50%;
+    float: left;
+    height: 54px;
+    margin-top: 2px;
+    width: 54px;
+}
+
+a img{
+    border:none;
+}
+
+li.lawyerRank .body {
+    float: right;
+    height: 54px;
+    padding: 2px 12px 0;
+    width: 195px;
+}
+
+ul.rankBody li.lawyerRank .body .name{
+    color: #323131;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+ul.rankBody li.lawyerRank .body .desc{
+    color: #777;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+ul.rankBody li.lawyerRank .ranking.fourToTen{
+    color:#777;
+    margin-top: 18px;
+}
+
+.rankWeekAnswer .moreRank{
+    color:#777;
+    cursor: pointer;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 7px;
+}
+
+.rankWeekAnswer .moreRank i{
+    font-size: 25px;
+    -webkit-transform: rotate(0deg) translate(2px,-3px);
+    -moz-transform: rotate(0deg) translate(2px,-3px);
+    -ms-transform: rotate(0deg) translate(2px,-3px);
+    -o-transform: rotate(0deg) translate(2px,-3px);
+    transform: rotate(0deg) translate(2px,-3px);
+}
+
+.lc.lcAngleDown:before{
+    content:"\f220";
+}
+
+@media (min-width: 960px)
+.composeFloatingButton{
+    bottom: 33px;
+    height: 88px;
+    padding-bottom: 9px;
+    right: calc(50% - 514px);
+    width: 88px;
+}
+
+.composeFloatingButton{
+    bottom: 33px;
+    height: 88px;
+    padding-bottom: 9px;
+    right: calc(50% - 514px);
+    width: 88px;
+    align-items: center;
+    background-color: #f50;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    outline: none;
+    position: fixed;
+    text-decoration: none;
+    z-index: 100;
+}
+
+i.lc.lcPencilFill{
+    color:#fff;
+    font-size: 32px;
+}
+
+.lc.lcPencilFill:before{
+    content:"\f35d";
+}
+
+.composeFloatingButtonText{
+    color: #fff;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: -.5px;
+    line-height: 13px;
+    margin-top: 1px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

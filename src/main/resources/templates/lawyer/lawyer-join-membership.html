@@ -1,0 +1,558 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <style type="text/css">
+        @charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>변호사 회원가입</title>
+    <link rel="stylesheet" href="lawyer_join_membership.css">
+    <link rel="preconnect" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.0.woff2">
+    <link rel="preconnect" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.76.woff2">
+    <link rel="preconnect" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.77.woff2">
+    <link rel="preconnect" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.78.woff2">
+    <link rel="preconnect" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.79.woff2">
+    <link rel="preconnect" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.80.woff2">
+    <link rel="preconnect" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.81.woff2">
+    <link rel="preconnect" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.82.woff2">
+    <link rel="preconnect" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.83.woff2">
+    <link rel="preconnect" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.84.woff2">
+    <link rel="preconnect" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.85.woff2">
+    <link rel="preconnect" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.86.woff2">
+    <link rel="preconnect" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.87.woff2">
+    <link rel="preconnect" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.88.woff2">
+    <link rel="preconnect" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.89.woff2">
+    <link rel="preconnect" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.90.woff2">
+    <link rel="preconnect" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.91.woff2">
+    <link rel="preconnect" href="https://d2nyk3ltml4doc.cloudfront.net/lawtalk/latest/fonts/22eb3211f6def8f859e2.woff">
+    <link rel="preconnect" href="https://d2nyk3ltml4doc.cloudfront.net/lawtalk/latest/fonts/041b48e46e314db995d9.woff">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+</head>
+<body>
+<div id="next">
+    <div id="root_view">
+        <div class="law_sign_up_container">
+        <div class="CourseLaw_auth">
+            <div class="auth_box_header">
+                <div class="auth_bpx_header_logo">
+                    <img src="KakaoTalk_20230911_154146681.png" alt="">
+                </div>
+
+                <div class="auth_box_header_title">변호사 회원가입</div>
+            </div>
+
+            <form action="" class="auth_body">
+
+
+                <div class="law_auth_card">
+                    <h3 class="law_auth_card_header">계정정보</h3>
+
+                    <div class= "law_auth_card_body">
+                        <div class="form_group">
+                            <input type="email" class="material_form_control"
+                            name="email" placeholder="예) name@example.com" id="sign-up-email">
+                            <label class="label_color">이메일</label>
+                            <div id="sign-up-email-valid-message" style="display: none">
+                                <label class="control-label error">이메일은 반드시 입력하셔야 합니다.</label>
+                            </div>
+                        </div>
+
+                        <div class="form_group">
+                            <input id="sign-up-username" type="text" class="material_form_control"
+                                   name="username" placeholder="6~16자, 영문, 숫자, _(밑줄)">
+
+                            <label class="label_color">아이디</label>
+
+                            <div id="sign-up-username-validator-message" style="display: none">
+                                <label class="control-label error">아이디는 반드시 입력하셔야 합니다.</label>
+                            </div>
+                        </div>
+
+                        <div class="form_group">
+                            <input id="sign-up-password" type="password" class="material_form_control"
+                                   name="password" placeholder="6~16자, 영문, 숫자, 특수문자(_-!@#$%^&*.,)">
+
+                            <label class="label_color">비밀번호</label>
+
+                            <div id="sign-up-password-validator-message" style="display: none">
+                                <label class="control-label error">비밀번호는 반드시 입력하셔야 합니다.</label>
+                            </div>
+                        </div>
+
+                        <div class="form_group">
+                            <input id="sign-up-password-confirm" type="password" class="material_form_control"
+                                   name="passwordConfirm" placeholder="비밀번호를 다시 한 번 입력">
+
+                            <label class="label_color">비밀번호 재확인</label>
+
+                            <div id="sign-up-passwordConfirm-validator-message" style="display: none">
+                                <label class="control-label error">비밀번호 재확인은 반드시 입력하셔야 합니다.</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="law_auth_card_header">인증정보</h3>
+
+
+                    <div class="law_auth_card_body">
+                        <div class="form_group">
+                            <input id="lawyer-sign-up-name" type="text" class="material_form_control"
+                                   name="lawyerName" placeholder="예) 홍길동">
+
+                            <label class="lawyer-sign-up-name">이름</label>
+
+                            <div id="lawyer-sign-up-lawyerName-validator-message" style="display: none">
+                                <label class="control-label">이름은 반드시 입력하셔야 합니다.</label>
+                            </div>
+                        </div>
+
+
+                        <div class="form_group">
+                            <input id="lawyer-sign-up-company" type="text" class="material_form_control"
+                                   name="lawyerCompany" placeholder="예) 홍길동 법률사무소, 법무법인 홍길동">
+
+                            <label class="lawyer-sign-up-company">소속(사무소, 회사명)</label>
+
+                            <div id="lawyer-sign-up-lawyerCompany-validator-message" style="display: none">
+                                <label class="control-label">사무소명은 반드시 입력하셔야 합니다.</label>
+                            </div>
+                        </div>
+
+                        <div class="form_group">
+                            <input id="lawyer-sign-up-company-telephone" type="tel" class="material_form_control"
+                                   name="lawyerOfficePhone" placeholder="예) 0212345678">
+
+                            <label class="lawyer-sign-up-company-telephone">소속 전화번호</label>
+
+                            <div id="lawyer-sign-up-lawyerOfficePhone-validator-message" style="display: none">
+                                <label class="control-label">사무소 전화번호는 반드시 입력하셔야 합니다.</label>
+                            </div>
+                        </div>
+
+                        <div class="form_group">
+                            <input id="lawyer-sign-up-cellphone" type="tel" class="material_form_control"
+                                   name="lawyerPhone" placeholder="예) 01012345678">
+
+                            <label class="lawyer-sign-up-company-telephone">휴대폰 번호</label>
+
+                            <div id="lawyer-sign-up-cellphone-validator-message"  style="display: none">
+                                <label class="control-label">휴대폰 번호는 반드시 입력하셔야 합니다.</label>
+                            </div>
+                        </div>
+
+                        <div class="form_group">
+                            <div class="material-dropdown-menu">
+                                <div class="material-dropdown-original">
+                                    <select id="lawyer-sign-up-examination" name="examination" class="material-form-control">
+                                        <option value selected="selected">출신시험 선택</option>
+
+                                        <option label="사법시험">사법시험</option>
+
+                                        <option label="변호사시험">변호사시험</option>
+
+                                        <option label="군법무관 임용시험">군법무관 임용시험</option>
+
+                                        <option label="고등고시">고등고시</option>
+                                    </select>
+
+                                    <label for="lawyer-sign-up-examination">출신시험</label>
+
+                                </div>
+
+                                <button type="button" class="material-form-control waves-effect">
+                                    출신시험 선택
+                                </button>
+
+
+
+                                <div class="material-dropdown-menu-content">
+                                    <ul>
+                                        <li>
+                                            <a>사법시험</a>
+                                        </li>
+
+                                        <li>
+                                            <a>변호사시험</a>
+                                        </li>
+
+                                        <li>
+                                            <a>군법무관 임용시험</a>
+                                        </li>
+
+                                        <li>
+                                            <a>고등고시</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="law_auth_card_header">추천 변호사</h3>
+
+                    <div class="law_auth_card_body">
+                        <div class="recommender-selects">
+                            <div class="recommender-select recommender-select-thing">
+                                <input id="sign-up-recommender-type-name" type="radio" name="recommenderName" value="recommenderName"
+                                       ng-model="recommenderType" ng-click="clickRecommenderType('recommenderName')" class="ng-pristine ng-untouched ng-valid ng-not-empty" >
+
+                                <label for="sign-up-recommender-type-name" class="recommender-select-label">추천 변호사 이름</label>
+                            </div>
+
+                            <div class="recommender-select recommender-select-thing">
+                                <input id="sign-up-recommender-type-id" ng-model="recommenderType"
+                                       type="radio" name="recommenderId" value="recommenderId">
+
+                                <label for="sign-up-recommender-type-id" ng-click="clickRecommenderType('recommenderName')" class="recommender-select-label">추천 변호사 ID</label>
+                            </div>
+
+                            <div class="recommender-select">
+                                <input id="sign-up-recommender-type-empty" type="radio" name="recommenderEmpty" value="recommenderEmpty">
+
+                                <label for="sign-up-recommender-type-empty" class="recommender-select-label">없음</label>
+                            </div>
+                        </div>
+
+                        <div class="lawyer-sign-up-recommender material-form-group">
+                            <input id="lawyer-sign-up-recommender-name" type="text" name="recommenderNameValue"
+                                   placeholder="추천 변호사님의 성함을 기재해주세요. (한글만 입력)" class="material_form_control">
+
+                            <input id="lawyer-sign-up-recommender" type="text" name="recommender" style="display: none"
+                                   placeholder="6~16자, 영문, 숫자, 특수문자(_-!@#$%^&*.,)" class="material_form_control">
+                        </div>
+                    </div>
+
+                    <h3 class="law_auth_card_header">기타정보</h3>
+
+                    <div class="law_auth_card_body">
+                        <div class="form_group">
+                            <div class="material-dropdown-menu">
+                                <div class="material-dropdown-original">
+                                    <select id="sign-up-refer" name="refer" required-error-message="방문경로는 반드시 선택하셔야 합니다.">
+                                        <option value selected="selected">방문경로 선택</option>
+
+                                        <option label="비즈니스 매니저">비즈니스 매니저</option>
+
+                                        <option label="모든 변호사">모든 변호사</option>
+
+                                        <option label="블로그">블로그</option>
+
+                                        <option label="네이버 지식인">네이버 지식인</option>
+
+                                        <option label="포털사이트 검색광고">포털사이트 검색광고</option>
+
+                                        <option label="검색광고">페이스북/인스타그램</option>
+
+                                        <option label="유튜브 광고">유튜브 광고</option>
+
+                                        <option label="변호사 인터뷰 영상">변호사 인터뷰 영상</option>
+
+                                        <option label="로톡뉴스">로톡뉴스</option>
+
+                                        <option label="로톡 변호사스퀘어">로톡 변호사스퀘어</option>
+
+                                        <option label="옥외광고(지하철,버스 등)">옥외광고(지하철,버스 등)</option>
+
+                                        <option label="신문광고">신문광고</option>
+
+                                        <option label="우편물">우편물</option>
+
+                                        <option label="이메일 안내">이메일 안내</option>
+
+                                        <option label="전화 안내">전화 안내</option>
+
+                                        <option label="지인소개">지인소개</option>
+
+                                        <option label="설문조사">설문조사</option>
+
+                                        <option label="기타">기타</option>
+
+                                    </select>
+
+                                    <label for="sign-up-refer">방문경로</label>
+
+                                    <div id="sign-up-refer-validator-message" style="display:none">
+                                        <label class="control-label">방문경로는 반드시 선택하셔야 합니다.</label>
+                                    </div>
+                                </div>
+
+                                <button id="dropdown-button" type="button" class="material-form-control waves-effect">
+                                    방문경로 선택
+                                </button>
+
+
+                                <div class="material-dropdown-menu-content">
+                                    <ul>
+                                        <li>
+                                            <a>비즈니스 매니저</a>
+                                        </li>
+
+                                        <li>
+                                            <a>모든변호사</a>
+                                        </li>
+
+                                        <li>
+                                            <a>블로그</a>
+                                        </li>
+
+                                        <li>
+                                            <a>네이버 지식인</a>
+                                        </li>
+
+                                        <li>
+                                            <a>포털사이트 검색광고</a>
+                                        </li>
+
+                                        <li>
+                                            <a>페이스북/인스타그램</a>
+                                        </li>
+
+                                        <li>
+                                            <a>유튜브 광고</a>
+                                        </li>
+
+                                        <li>
+                                            <a>카카오 플러스 친구</a>
+                                        </li>
+
+                                        <li>
+                                            <a>변호사 인터뷰영상</a>
+                                        </li>
+
+                                        <li>
+                                            <a>로톡뉴스</a>
+                                        </li>
+
+                                        <li>
+                                            <a>로톡 변호사스퀘어</a>
+                                        </li>
+
+                                        <li>
+                                            <a>옥외광고(지하철, 버스 등)</a>
+                                        </li>
+
+                                        <li>
+                                            <a>신문광고</a>
+                                        </li>
+
+                                        <li>
+                                            <a>우편물</a>
+                                        </li>
+
+                                        <li>
+                                            <a>이메일 안내</a>
+                                        </li>
+
+                                        <li>
+                                            <a>전화 안내</a>
+                                        </li>
+
+                                        <li>
+                                            <a>지인소개</a>
+                                        </li>
+
+                                        <li>
+                                            <a>설문조사</a>
+                                        </li>
+
+                                        <li>
+                                            <a>기타</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+
+                     </div>
+
+
+                    <h3 class="law_auth_card_header">약관동의</h3>
+
+                    <contract-consensus>
+                        <div class="contract-consensus-container">
+                            <div class="contract-consensus-all-wrap">
+                                <div class="contract-consensus-checkbox-wrap">
+                                    <input id="sign-up-agree-all" type="checkbox" class="contract-consensus-checkbox">
+                                    <label for="sign-up-agree-all" class="contract-consensus-checkbox-label">
+                                        <i class="contract-consensus-checkbox-text">
+                                            다음에 모두 동의합니다.
+                                        </i>
+                                    </label>
+                                </div>
+
+                                <div class="contract-consent-all-text">서비스 이용약관, 개인정보 취급방침, 개인정보 이용/수집,  프로모션 정보 수신에 모두 동의함을 의미합니다.
+                                </div>
+                            </div>
+
+                            <div class="contract-consensus-line"></div>
+
+                            <div class="contract-consensus-check-box-container">
+                                <div class="contract-consensus-checkbox-wrap">
+                                    <input id="lawyer-sign-up-agreement" type="checkbox" class="contract-consensus-checkbox">
+                                    <label for="lawyer-sign-up-agreement" class="contract-consensus-checkbox-label">
+                                        <i class="contract-consensus-checkbox-text">
+                                        서비스 이용약관 동의
+                                        </i>
+                                        <i class="contract-consensus-checkbox-sub-text">
+                                            (필수)
+                                        </i>
+                                    </label>
+                                    <a target="_blank" class="contract-consensus-link">내용보기</a>
+                                </div>
+                            </div>
+
+                            <div class="contract-consensus-check-box-container">
+                                <div class="contract-consensus-checkbox-wrap">
+                                    <input id="privacy-policy" type="checkbox" class="contract-consensus-checkbox">
+                                    <label for="privacy-policy" class="contract-consensus-checkbox-label">
+                                        <i class="contract-consensus-checkbox-text">
+                                            개인정보 취급방침 동의
+                                        </i>
+                                        <i class="contract-consensus-checkbox-sub-text">
+                                            (필수)
+                                        </i>
+                                    </label>
+                                    <a target="_blank" class="contract-consensus-link">내용보기</a>
+                                </div>
+                            </div>
+
+                            <div class="contract-consensus-check-box-container">
+                                <div class="contract-consensus-checkbox-wrap">
+                                    <input id="personal-info" type="checkbox" class="contract-consensus-checkbox">
+                                    <label for="personal-info" class="contract-consensus-checkbox-label">
+                                        <i class="contract-consensus-checkbox-text">
+                                            개인정보 이용/수집 동의
+                                        </i>
+                                        <i class="contract-consensus-checkbox-sub-text">
+                                            (필수)
+                                        </i>
+                                    </label>
+                                    <a target="_blank" class="contract-consensus-link">내용보기</a>
+                                </div>
+                            </div>
+
+                            <div class="contract-consensus-check-box-container">
+                                <div class="contract-consensus-checkbox-wrap">
+                                    <input id="marketing-accept" type="checkbox" class="contract-consensus-checkbox">
+                                    <label for="marketing-accept" class="contract-consensus-checkbox-label">
+                                        <i class="contract-consensus-checkbox-text">
+                                            혜택정보(마케팅) 수신 전체동의
+                                        </i>
+                                        <i class="contract-consensus-checkbox-sub-text">
+                                            (선택)
+                                        </i>
+                                    </label>
+
+
+
+                                </div>
+
+                                <div class="contract-consensus-marketing-accept-text">
+                                    <span class="without-welcome-gift-text">신규 서비스 소식, 이벤트 안내, 할인/혜택 등 다양한 정보를</span>
+
+                                    <br class="it-mobile">
+                                    <input id="email-marketing-accept" type="checkbox" class="marketing-checkbox">
+
+                                    <label for="email-marketing-accept" class="contract-consensus-marketing-accept-checkbox-label email">
+                                        <i class="contract-consensus-marketing-accept-checkbox-text">이메일</i>
+                                    </label>
+                                    과
+                                    <br class="it-mobile">
+                                    <input id="sms-marketing-accept" type="checkbox" class="marketing-checkbox">
+
+                                    <label for="sms-marketing-accept" class="contract-consensus-marketing-accept-checkbox-label phone">
+                                        <i class="contract-consensus-marketing-accept-checkbox-text">휴대폰(카카오알림톡 또는 문자)</i>
+                                    </label>
+                                    로 받아보겠습니다.
+                                </div>
+                            </div>
+
+                            </div>
+                    </contract-consensus>
+
+                    <div class="law_auth_card_body agreement-kin">
+                        <div class="law-auth-card-body-item">
+                            <div class="form-group form-group-checkbox">
+                                <div class="law-kin-checkbox">
+                                    <input type="checkbox" id="lawyer-agreement-kin" name="lawyeragreementkin">
+
+                                    <label for="lawyer-agreement-kin"></label>
+
+                                    <div class="kin-check-info">
+                                        <label for="lawyer-agreement-kin">
+                                            네이버 지식iN 변호사등록도 함께 신청합니다.</label>
+                                    </div>
+                                </div>
+
+                                <div class="agreement-kin-comment">로톡에서 네이버 지식iN 전문가 등록을 하면,
+                                    네이버 검색결과에서 변호사님 지식iN 답변이 상위노출됩니다.</div>
+
+                                <div class="material-form-group kin-naiver-id-form-group">
+                                    <input id="lawyer-naiver-id" text="text" placeholder="네이버 아이디" name="lawyerNaiverId"
+                                           validator="lawyerNaiverId" ng-change="changeLawyerNaiverId()" ng-model="user.lawyer.naiverId"
+                                           lawyer-naver-id-error-message="네이버 아이디를 입력해야 합니다." class="material_form_control validateElement ng-pristine ng-untouched ng-pending ng-empty">
+                                    <label for="lawyer-naiver-id"></label>
+
+                                    <div id="lawyer-naiver-id-validator-message" class="lawyer-naiver-id-message" style="display: none;">
+                                        <label class="control-label error" style="line-height: 65px;" important!>네이버 아이디를 입력해야 합니다.</label>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="law-auth-card-footer">
+                        <div class="law-auth-card-footer-description">
+                            <i class="lc"></i>
+
+                            <span>가입 신청을 하시면 변호사 자격 확인 절차가 있으며, 이후 변호사님의 경력, 자격, 주요분야 등
+필수 정보가 모두 입력되어야 변호사님 프로필이 검색에 노출이 됩니다.</span>
+                        </div>
+                        <button type="submit" class="law-auth-card-footer-button">
+                            가입신청
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+
+        </div>
+
+        <div id="dialog" class="dialog" style="display:none;">
+            <div class="dialog-overlay"></div>
+            <div class="dialog-content">
+                <div class="simple-message">
+                    <div class="title">
+                        로그인
+                        <a href="">
+                            <i class="lc"></i>
+                        </a>
+                    </div>
+
+                    <div class="body">
+                        <p style="outline: 0px;">아이디/비밀번호가 일치하지 않습니다.</p>
+                    </div>
+
+                    <div class="footer">
+                        <a class="yes">확인</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="lawyer_join_membership.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</html>

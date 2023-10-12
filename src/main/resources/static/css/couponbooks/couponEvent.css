@@ -1,0 +1,797 @@
+/* 전체 css */
+* {font-family: Pretendard,'Noto Sans KR', sans-serif;}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    line-height: 1;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f1f4f6;
+}
+
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+body {
+    background-color: #fff;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.42857143;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f1f4f6;
+}
+
+body {
+    margin: 0;
+}
+
+*, :after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    display: block;
+    /*margin: 8px;*/
+}
+
+a {
+    cursor: pointer;
+    background-color: transparent;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
+
+div {
+    display: block;
+}
+
+a:active, a:hover {
+    outline: 0;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+
+button, input[type=button], input[type=file]::-webkit-file-upload-button, input[type=reset], input[type=submit] {
+    border-radius: 0;
+}
+
+a, body, button, dd, div, dl, dt, h1, h2, h3, h4, h5, h6, html, label, li, p, span, table, td, tr, ul {
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+}
+
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+button, html input[type=button], input[type=reset], input[type=submit] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+button, select {
+    text-transform: none;
+}
+
+button {
+    overflow: visible;
+}
+
+button, input, optgroup, select, textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+
+/* 내 쿠폰함 css */
+@font-face {
+    font-family: "Amplitude-Medium";
+    src: url("https://db.onlinewebfonts.com/t/cfacbd01431cbe68ac87ba5af5c3b444.eot");
+    src: url("https://db.onlinewebfonts.com/t/cfacbd01431cbe68ac87ba5af5c3b444.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/cfacbd01431cbe68ac87ba5af5c3b444.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/cfacbd01431cbe68ac87ba5af5c3b444.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/cfacbd01431cbe68ac87ba5af5c3b444.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/cfacbd01431cbe68ac87ba5af5c3b444.svg#Amplitude-Medium")format("svg");
+}
+
+.CouponbookPage-Wrapper {
+    -webkit-font-smoothing: antialiased;
+    margin: 0 auto;
+    max-width: 672px;
+    width: 100%;
+}
+
+.GiveUCoupons {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Phrase {
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.Phrase-Row {
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 38px;
+    text-align: center;
+    width: 100%;
+}
+
+.Orange-Dot:after {
+    color: #c50000;
+    content: ".";
+    font-size: 24px;
+    padding-left: 2px;
+}
+
+.Couponbook-Tab-Nav {
+    width: 100%;
+    height: 58px;
+    display: flex;
+    flex-direction: row;
+}
+
+.Couponbook-Tab-Nav-Mobile {
+    width: 100%;
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+}
+
+.Couponbooks-Tab {
+    background-color: #f0f0f0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 400;
+    height: 100%;
+    width: 50%;
+}
+
+.Couponbooks-Tab:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    width: 0;
+}
+
+.Couponbooks-Tab-Text-Mobile {
+    color: #777;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 14px;
+}
+
+.Couponbooks-Tab-Text {
+    color: #777;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+    font-style: normal;
+}
+
+.Couponbooks-Tab.Active {
+    background-color: #fff;
+}
+
+.Active .Couponbooks-Tab-Text {
+    color: #333;
+    display: inline-block;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.Active .Couponbooks-Tab-Text-Mobile {
+    color: #333;
+    display: inline-block;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+    font-size: 14px;
+    line-height: 14px;
+}
+
+.CouponEvent-Description {
+    background-color: #fff;
+    width: 100%;
+    padding: 60px 0 48px;
+}
+
+.CouponEvent-Description-Mobile {
+    background-color: #fff;
+    width: 100%;
+    padding: 36px 20px 24px;
+}
+
+.CouponEvent-FirstRow {
+    color: #222;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 400;
+    text-align: center;
+    width: 100%;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.CouponEvent-FirstRow-Mobile {
+    color: #222;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 400;
+    text-align: center;
+    width: 100%;
+    font-size: 18px;
+    line-height: 18px;
+}
+
+.CouponEvent-FirstRow:after, .CouponEvent-FirstRow-Mobile:after {
+    color: #c50000;
+    content: ".";
+    font-size: 24px;
+    padding-left: 2px;
+}
+
+.CouponEvent-SecondRow {
+    color: #777;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 38px;
+    text-align: center;
+    width: 100%;
+}
+
+.CouponEvent-Content {
+    background-color: #fff;
+    padding: 0 48px 28px;
+}
+
+.CouponEvent-Content-Mobile {
+    background-color: #fff;
+    padding: 0 20px 20px;
+}
+
+.Coupons {
+    overflow: visible;
+}
+
+.CouponWrapper {
+    overflow: visible;
+    padding-bottom: 20px;
+}
+
+.CouponWrapper-Mobile {
+    overflow: visible;
+    padding-bottom: 16px;
+}
+
+.CouponEventCard-Orange {
+    display: block;
+    overflow: visible;
+    width: 100%;
+    height: 172px;
+}
+
+.CouponEventCard-Orange-Mobile {
+    display: block;
+    overflow: visible;
+    width: 100%;
+    height: 96px;
+}
+
+.CouponEventCard-LeftIcon-Wrapper {
+    display: inline-block;
+    float: left;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    width: 92px;
+    background-color: #c50000;
+}
+
+.CouponEventCard-LeftIcon-Wrapper-Mobile {
+    display: inline-block;
+    float: left;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    width: 50px;
+    background-color: #c50000;
+}
+
+.CouponEventCard-LeftIcon-Wrapper:before, .CouponEventCard-LeftIcon-Wrapper-Mobile:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    width: 0;
+}
+
+.CouponEventCard-LeftIcon-Wrapper > svg, .CouponEventCard-LeftIcon-Wrapper-Mobile > svg {
+    color: #fff;
+    display: inline-block;
+    vertical-align: middle;
+    text-rendering: auto;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: LawCompanyGlyphs;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    transform: translate(0);
+    font-size: 62px;
+    line-height: 62px;
+}
+
+.CouponEventCard-RightDownload {
+    border-left: none;
+    border-bottom: 8px solid #c50000;
+    border-right: 8px solid #c50000;
+    border-top: 8px solid #c50000;
+    background-size: 2px 14px;
+    width: 92px;
+    background-color: #fff;
+    background-image: linear-gradient(#f4f2f0 50%,hsla(0,0%,100%,0) 0);
+    background-position: 0;
+    background-repeat: repeat-y;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    overflow: visible;
+    cursor: pointer;
+    position: relative;
+    float: right;
+    -webkit-transition: background-color .2s ease,border-color .2s ease;
+    -moz-transition: background-color .2s ease,border-color .2s ease;
+    -o-transition: background-color .2s ease,border-color .2s ease;
+    transition: background-color .2s ease,border-color .2s ease;
+}
+
+.CouponEventCard-RightDownload-Mobile {
+    border-left: none;
+    border-bottom: 5px solid #c50000;
+    border-right: 5px solid #c50000;
+    border-top: 5px solid #c50000;
+    background-size: 2px 12px;
+    width: 48px;
+    background-color: #fff;
+    background-image: linear-gradient(#f4f2f0 50%,hsla(0,0%,100%,0) 0);
+    background-position: 0;
+    background-repeat: repeat-y;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    overflow: visible;
+    cursor: pointer;
+    position: relative;
+    float: right;
+    -webkit-transition: background-color .2s ease,border-color .2s ease;
+    -moz-transition: background-color .2s ease,border-color .2s ease;
+    -o-transition: background-color .2s ease,border-color .2s ease;
+    transition: background-color .2s ease,border-color .2s ease;
+}
+
+.CouponEventCard-RightDownload:hover, .CouponEventCard-RightDownload-Mobile:hover {
+    background-color: #f8f8f8;
+    border-color: #790202;
+}
+
+.CouponEventCard-RightDownload:hover:after {
+    border-width: 0 86px 10px 0;
+    bottom: -18px;
+    right: 2px;
+    border-color: transparent hsla(0,0%,39%,.3) transparent transparent;
+    content: "";
+    filter: blur(2px);
+    border-style: solid;
+    height: 0;
+    position: absolute;
+    -webkit-transition: border-color .3s ease-out;
+    -moz-transition: border-color .3s ease-out;
+    -o-transition: border-color .3s ease-out;
+    transition: border-color .3s ease-out;
+    width: 0;
+}
+
+.CouponEventCard-RightDownload-Mobile:hover:after {
+    border-width: 0 44px 5px 0;
+    bottom: -10px;
+    right: 2px;
+    border-color: transparent hsla(0,0%,39%,.3) transparent transparent;
+    content: "";
+    filter: blur(2px);
+    border-style: solid;
+    height: 0;
+    position: absolute;
+    -webkit-transition: border-color .3s ease-out;
+    -moz-transition: border-color .3s ease-out;
+    -o-transition: border-color .3s ease-out;
+    transition: border-color .3s ease-out;
+    width: 0;
+}
+
+.CouponEventCard-DownloadCoupon {
+    color: #c50000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.DownloadCoupon-Text {
+    font-size: 16px;
+    text-align: center;
+    line-height: 16px;
+    width: 100%;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 700;
+}
+
+.DownloadCoupon-Text-Mobile {
+    font-size: 12px;
+    text-align: center;
+    line-height: 12px;
+    width: 100%;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 700;
+}
+
+.DownloadCoupon-IconWrapper {
+    font-size: 32px;
+    line-height: 32px;
+    margin-top: 4px;
+    width: 100%;
+    text-rendering: auto;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    font-family: LawCompanyGlyphs;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    transform: translate(0);
+    vertical-align: top;
+    text-align: center;
+}
+
+.DownloadCoupon-IconWrapper-Mobile {
+    font-size: 20px;
+    line-height: 20px;
+    margin-top: 2px;
+    width: 100%;
+    text-rendering: auto;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    font-family: LawCompanyGlyphs;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    transform: translate(0);
+    vertical-align: top;
+    text-align: center;
+}
+
+.CouponEventCard-Content {
+    border-left: none;
+    border-right: none;
+    border-bottom: 8px solid #c50000;
+    border-top: 8px solid #c50000;
+    background-color: #fff;
+    cursor: default;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.CouponEventCard-Content-Mobile {
+    border-left: none;
+    border-right: none;
+    border-bottom: 5px solid #c50000;
+    border-top: 5px solid #c50000;
+    background-color: #fff;
+    cursor: default;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.CouponEventCard-Content:before, .CouponEventCard-Content-Mobile:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    width: 0;
+}
+
+.CouponEventCard-ContentInner {
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.CouponEventCard-ContentInner-Mobile {
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    line-height: 10px;
+}
+
+
+.CouponEventCard-Phrase {
+    color: #555;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 400;
+    overflow: hidden;
+    padding: 0 20px;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 18px;
+    line-height: 18px;
+}
+
+.CouponEventCard-Phrase-Mobile {
+    color: #555;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 400;
+    overflow: hidden;
+    padding: 0 20px;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+    line-height: 12px;
+}
+
+.CouponEventCard-CouponValue {
+    color: #333;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.CouponEventCard-CouponValue-Mobile {
+    color: #333;
+    text-align: center;
+    margin-top: 8px;
+}
+
+.CouponDiscountRate {
+    vertical-align: middle;
+    font-family: Amplitude-Medium, sans-serif;
+    font-size: 38px;
+    line-height: 38px;
+}
+
+.CouponDiscountRate-Mobile {
+    vertical-align: middle;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: 700;
+}
+
+.CouponUnit {
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 700;
+    vertical-align: middle;
+    font-size: 28px;
+    line-height: 28px;
+}
+
+.CouponUnit-Mobile {
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 700;
+    vertical-align: middle;
+    font-size: 18px;
+    line-height: 18px;
+}
+
+.CouponEventCard-EndDate {
+    color: #777;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 400;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 6px;
+}
+
+.CouponEventCard-EndDate-Mobile {
+    color: #777;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 400;
+    text-align: center;
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+.CouponEventCard-DiscountLimit {
+    color: #777;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 400;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 6px;
+}
+
+.CouponEventCard-DiscountLimit-Mobile {
+    color: #777;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 400;
+    text-align: center;
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+.Couponbook-Footer {
+    background: none;
+    color: #757372;
+    font-size: 12px;
+    line-height: 18px;
+    max-width: none;
+    text-align: center;
+    width: 100%;
+    padding: 40px 0;
+}
+
+.Couponbook-Footer-Mobile {
+    background: none;
+    color: #757372;
+    font-size: 12px;
+    line-height: 18px;
+    max-width: none;
+    text-align: center;
+    width: 100%;
+    padding: 25px 15px;
+}
+
+.Couponbook-Footer-Row {
+    position: relative;
+    padding-bottom: 30px;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+}
+
+.Couponbook-Footer-Row-Mobile {
+    position: relative;
+    padding-bottom: 20px;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+}
+
+.Couponbook-Footer-Row:last-child {
+    padding-bottom: 0;
+}
+
+.Couponbook-Footer-Row-Mobile:last-child {
+    padding-bottom: 0;
+}
+
+.Couponbook-Footer-VerticalLine {
+    color: #a9a7a6;
+    padding: 0 10px;
+}
+
+.Couponbook-Footer-VerticalLine-Mobile {
+    color: #a9a7a6;
+    padding: 0 10px;
+    display: block;
+}
+
+.Couponbook-Footer-VerticalLine:before {
+    content: "|";
+}
+
+.Couponbook-Footer-VerticalLine-Mobile:before {
+    content: "";
+}
+
+.Couponbook-Footer-Content {
+    color: #a0a0a0;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 12px;
+    margin: auto;
+    width: 100%;
+    padding: 0 calc(50% - 470px);
+    text-align: justify;
+}
+
+.Couponbook-Footer-Content-Mobile {
+    color: #a0a0a0;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 12px;
+    margin: auto;
+    width: 100%;
+    text-align: justify;
+}
+
+.Couponbook-Footer-Copyright {
+    color: inherit;
+    font-family: Amplitude Medium,sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-decoration: none;
+    font-stretch: 100%;
+    line-height: 18px;
+}
+
+.OpenFooter {
+    background: none;
+    border: none;
+    outline: 0;
+    padding: 0;
+    position: absolute;
+    right: 15px;
+}
+
+/* 미디어 쿼리 */
+.pc {
+    display: block;
+}
+
+.mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .pc {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+    }
+}

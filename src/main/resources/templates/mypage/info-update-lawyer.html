@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>개인정보 수정 | 카운슬로우</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="./info-update.css">
+</head>
+<body>
+<div class="root pc">
+    <div style="height: 100%;">
+        <div class="Info-Update-Wrapper">
+            <div class="Info-Update">
+                <div class="Info-Update-Body">
+                    <form role="form" name="accountForm" class="Account-Info-Card">
+                        <h3 class="Account-Info-Card-Header">계정정보</h3>
+                        <div class="Account-Info-Card-Body">
+                            <div class="Account-Info-Card-Group">
+                                <input value="hds1234@gmail.com" id="my-email" type="email" placeholder="예) name@example.com" maxlength="255" name="email" class="Account-Info-Card-Group-Input">
+                                <label for="my-email">이메일</label>
+                                <div class="Missing-Email-Message">
+                                    <label>이메일은 반드시 입력하셔야 합니다.</label>
+                                </div>
+                            </div>
+                            <div class="Account-Info-Card-Group">
+                                <input id="old-password" type="password" maxlength="255" name="oldPassword" class="Account-Info-Card-Group-Input">
+                                <label for="old-password">기존 비밀번호</label>
+                                <p class="Update-Error Old-Password-Error">기존 비밀번호와 일치하지 않습니다.</p>
+                            </div>
+                            <div class="Account-Info-Card-Group">
+                                <input id="new-password" type="password" maxlength="255" name="newPassword" class="Account-Info-Card-Group-Input">
+                                <label for="new-password">새로운 비밀번호</label>
+                                <p class="Update-Error New-Password-Error">올바르지 않은 형식입니다.</p>
+                            </div>
+                            <div class="Account-Info-Card-Group">
+                                <input id="new-password-re" type="password" maxlength="255" name="newPasswordRepeat" class="Account-Info-Card-Group-Input">
+                                <label for="new-password-re">비밀번호 확인</label>
+                                <p class="Update-Error New-Password-Different">비밀번호가 일치하지 않습니다.</p>
+                                <p class="Update-No-Problem New-Password-Same">새로운 비밀번호가 일치합니다.</p>
+                            </div>
+                        </div>
+                        <div class="Account-Info-Card-Footer">
+                            <button type="submit" class="Account-Info-Card-Button">[ 저장 ]</button>
+                        </div>
+                    </form>
+                    <form role="form" name="phoneForm" class="Account-Info-Card">
+                        <h3 class="Account-Info-Card-Header">전화번호</h3>
+                        <div class="Account-Info-Card-Body">
+                            <div class="Account-Info-Card-Group">
+                                <input value="01012345678" id="my-phone" type="text" placeholder="예) 01012345678" maxlength="11" name="phone" class="Account-Info-Card-Group-Input">
+                                <label for="my-phone">전화번호</label>
+                                <div class="Missing-Phone-Message">
+                                    <label>전화번호는 반드시 입력하셔야 합니다.</label>
+                                </div>
+                                <button type="button" class="Authenticate-Phone-Button">[ 인증번호 발송 ]</button>
+                            </div>
+                            <div class="Account-Info-Card-Group Phone-Auth-Code-Wrapper">
+                                <input id="phone-auth-code" type="text" maxlength="6" name="phoneAuthCode" class="Account-Info-Card-Group-Input">
+                                <label for="phone-auth-code">인증번호</label>
+                                <button type="button" class="Authenticate-Phone-Check-Button">[ 인증번호 확인 ]</button>
+                                <p class="Update-Error Phone-Auth-Code-Error">인증번호가 일치하지 않습니다.</p>
+                                <p class="Update-No-Problem Phone-Auth-Code-Same">인증번호가 일치합니다.</p>
+                            </div>
+                        </div>
+                        <div class="Account-Info-Card-Footer">
+                            <button type="submit" class="Account-Info-Card-Button">[ 저장 ]</button>
+                        </div>
+                    </form>
+                    <form role="form" name="lawyerForm" class="Account-Info-Card">
+                        <h3 class="Account-Info-Card-Header">변호사 정보</h3>
+                        <div class="Account-Info-Card-Body">
+                            <div class="Account-Info-Card-Group">
+                                <input id="my-company" type="text" placeholder="변호사님의 소속 회사를 입력해주세요. (없을 경우 '개인')" maxlength="255" name="company" class="Account-Info-Card-Group-Input">
+                                <label for="my-company">소속 회사</label>
+                            </div>
+                            <div class="Account-Info-Card-Group">
+                                <input id="my-address" type="text" placeholder="의뢰인분들이 찾아갈 수 있는 변호사님의 주소를 입력해주세요." maxlength="255" name="address" class="Account-Info-Card-Group-Input">
+                                <label for="my-address">사무실 주소</label>
+                            </div>
+                            <div class="Account-Info-Card-Group">
+                                <input id="my-school" type="text" placeholder="변호사님의 최종 학력을 입력해주세요." maxlength="255" name="school" class="Account-Info-Card-Group-Input">
+                                <label for="my-school">학력</label>
+                            </div>
+                            <div class="Account-Info-Card-Group-Field">
+                                <span class="label-for-fields">분야</span>
+                                <div class="field-checkboxes">
+                                    <!-- th로 id, name, for, 분야명 가져올겁니다. 예시로 3개만 만들겠습니다. -->
+                                    <input id="type1" value="성매매" type="checkbox" name="type1">
+                                    <label for="type1">성매매</label>
+                                    <input id="type2" value="횡령/배임" type="checkbox" name="type2">
+                                    <label for="type2">횡령/배임</label>
+                                    <input id="type3" value="사기/공갈" type="checkbox" name="type3">
+                                    <label for="type3">사기/공갈</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Account-Info-Card-Footer">
+                            <button type="submit" class="Account-Info-Card-Button">[ 저장 ]</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="Info-Update-Footer">
+                    <div class="Info-Update-Footer-Row">
+                        <a href="">변호사 회원탈퇴</a>
+                        <a href="">메인 페이지</a>
+                    </div>
+                    <div class="Info-Update-Footer-Row">
+                        <a href="" class="Info-Update-Footer-Copyright">
+                            (C) CounseLaw Co., Ltd.
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="info-update.js"></script>
+</html>

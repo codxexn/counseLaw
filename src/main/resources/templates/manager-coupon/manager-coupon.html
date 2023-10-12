@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>쿠폰</title>
+    <link rel="stylesheet" href="Manager.coupon.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css">
+</head>
+<body class="h-full">
+<div class="Web">
+    <div class="flex-h-screen">
+        <!-- 네비 -->
+        <nav class="header-nav">
+            <div>
+                <div class="nav-logo">
+                    <!-- 메인페이지로 연결되도록 링크 연결 필요 -->
+                    <a href="">
+                        <img class="counseLaw-logo" src="counseLaw.png" alt="카운슬로우 로고 이미지">
+                    </a>
+                    <div class="logo-l">|</div>
+                    <div class="nav-PageName">
+                        <span>Manager Page</span>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-profileWrap">
+                <div class="nav-profile">
+                    <button class="nav-profileButton">
+                        <!-- <span class="Profile"> -->
+                        <img alt="프로필 이미지" src="https://steadio.co/_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2Fd6831bfd-5b2c-4d80-bd53-0f9548aa284a%2FprofileImage%2F84ae7c49-3ef5-4e40-9129-4d26529bb0cc.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&w=1920&q=75">
+
+                        <!-- </span> -->
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <!-- 상단 네비 부분 끝 -->
+        <!-- 메인 페이지 시작 -->
+        <div class="Manager-FadeWrap">
+            <nav class="left-FadeWrap">
+                <div class="left-Profile">
+                    <div class="left-ProfilePage">
+                        <div class="Profile-imgWrap">
+                            <button class="Profile-Button">
+                                <img alt="프로필 이미지" src="https://steadio.co/_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2Fd6831bfd-5b2c-4d80-bd53-0f9548aa284a%2FprofileImage%2F84ae7c49-3ef5-4e40-9129-4d26529bb0cc.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&w=1920&q=75">
+                            </button>
+                        </div>
+                        <h2 class="Manager-name">박지민</h2>
+                        <a target="_blank" href="">
+                            <button class="Manager-PageLink">
+                                <!--                                이동될 페이지 수정 필요-->
+                                <div class="MyPageLink">
+                                    <div>내 페이지</div>
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" height="16px" width="16px" class="LinkSVG">
+                                        <path d="M11 7a1     1 0 0 0-1-1H4v14h14v-6a1 1 0 1 0-2 0v4H6V8h4a1 1 0 0 0 1-1Z"></path>
+                                        <path d="M19.01 3.829H20v6.656a1 1 0 1 1-2 0V7.244l-5.293 5.293a1 1 0 0 1-1.414-1.415l5.293-5.292h-3.243a1 1 0 1 1 0-2H19.01Z"></path>
+                                    </svg>
+                                </div>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+                <!--                관리자 페이지 목록-->
+                <ul class="left-list">
+                    <li class="left-categories">
+                        <!--                        링크 연결 안됨-->
+                        <a href="">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="categories-post">
+                                <path d="M15.078 3.137H8.6a5.6 5.6 0 0 0-5.6 5.6v6.8a5.6 5.6 0 0 0 5.6 5.6h6.8a5.6 5.6 0 0 0 5.6-5.6V8.944l-1.6 1.6v4.993a4 4 0 0 1-4 4H8.6a4 4 0 0 1-4-4v-6.8a4 4 0 0 1 4-4h4.878l1.6-1.6Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="m20.692 7.116.534-.534a2.567 2.567 0 1 0-3.63-3.63L9.41 11.138l-1.103 3.74a.8.8 0 0 0 .994.993l3.74-1.103 6.52-6.52.005.004 1.13-1.132-.004-.004Zm-2.262 0-6.233 6.233-1.94.572.572-1.94 6.233-6.233 1.368 1.368Zm1.131-1.132-1.367-1.367.533-.534a.967.967 0 0 1 1.368 1.368l-.534.533Z"></path>
+                            </svg>
+                            <span class="categories-word">작성글 관리</span>
+                        </a>
+                    </li>
+                    <!--                 두 번째 카테고리-->
+                    <li class="left-categories">
+                        <!--                        링크 연결 안됨-->
+                        <a href="">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="categories-announcement">
+                                <path d="M10.457 8.471a1.494 1.494 0 1 1 2.988 0 1.494 1.494 0 0 1-2.988 0ZM10.955 11.459c0-.275.223-.498.498-.498h.996c.275 0 .498.223.498.498v4.979a.498.498 0 0 1-.498.498h-.996a.498.498 0 0 1-.498-.498v-4.98Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M11.951 20.117a8.166 8.166 0 1 0 0-16.333 8.166 8.166 0 0 0 0 16.333Zm0 1.792c5.5 0 9.959-4.458 9.959-9.958S17.45 1.99 11.95 1.99s-9.959 4.46-9.959 9.96c0 5.5 4.459 9.958 9.959 9.958Z"></path>
+                            </svg>
+                            <span class="categories-word">공지사항</span>
+                        </a>
+                    </li>
+                    <!--                    세 번째 카테고리-->
+                    <li class="left-categories">
+                        <!--                        링크 연결 안됨-->
+                        <a href="">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="categories-managerment">
+                                <path d="M8.5 11.7h2a6.057 6.057 0 0 1 1.769.265 6.51 6.51 0 0 0-.888 1.335H8.5a4.4 4.4 0 0 0-4.4 4.4v1c0 .22.18.4.4.4h6.881c.295.59.677 1.129 1.129 1.6H4.5a2 2 0 0 1-2-2v-1a6 6 0 0 1 6-6Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 10.2a3.502 3.502 0 0 1 0-7 3.5 3.5 0 1 1 0 7Zm1.9-3.5a1.9 1.9 0 1 1-3.8 0 1.9 1.9 0 0 1 3.8 0ZM13.945 13.147a.665.665 0 0 1 .306-.74l.833-.49a.665.665 0 0 1 .795.092l.46.437c.167.16.398.231.63.23a.892.892 0 0 0 .626-.24l.451-.445a.665.665 0 0 1 .794-.105l.84.476a.665.665 0 0 1 .32.735l-.15.616a.895.895 0 0 0 .116.66c.118.2.298.36.522.423l.61.168c.287.08.486.339.488.636l.008.965a.665.665 0 0 1-.477.644l-.608.179a.892.892 0 0 0-.513.43.898.898 0 0 0-.105.663l.159.614a.665.665 0 0 1-.307.74l-.832.49a.665.665 0 0 1-.795-.092l-.46-.437a.898.898 0 0 0-.63-.23.893.893 0 0 0-.626.24l-.452.445a.665.665 0 0 1-.794.105l-.84-.476a.665.665 0 0 1-.319-.735l.15-.617a.894.894 0 0 0-.117-.66.894.894 0 0 0-.52-.421l-.612-.17a.665.665 0 0 1-.488-.635l-.008-.965a.665.665 0 0 1 .477-.644l.608-.179a.892.892 0 0 0 .514-.43.898.898 0 0 0 .105-.663l-.159-.614Zm3.115 4.278a1.283 1.283 0 1 0 0-2.566 1.283 1.283 0 0 0 0 2.566Z"></path>
+                            </svg>
+                            <span class="categories-word">회원 관리</span>
+                        </a>
+                    </li>
+                    <!--                    네 번째 카테고리-->
+                    <li class="left-categories">
+                        <!--                        링크 연결 안됨-->
+                        <a href="">
+                            <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" class="categories-coupon">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M22 8.942c0 .513-.24.996-.649 1.304A2.188 2.188 0 0 0 20.477 12c0 .716.34 1.351.874 1.754.409.308.649.79.649 1.304v.968A3.967 3.967 0 0 1 18.04 20H5.96A3.967 3.967 0 0 1 2 16.026v-.968c0-.513.24-.996.649-1.304A2.188 2.188 0 0 0 3.523 12c0-.716-.34-1.351-.874-1.754A1.633 1.633 0 0 1 2 8.942v-.967A3.967 3.967 0 0 1 5.96 4h12.08C20.228 4 22 5.78 22 7.975v.967ZM5.96 5.631a2.34 2.34 0 0 0-2.336 2.344v.967A3.82 3.82 0 0 1 5.147 12a3.82 3.82 0 0 1-1.523 3.058v.968a2.34 2.34 0 0 0 2.335 2.343h12.082a2.34 2.34 0 0 0 2.335-2.343v-.968A3.82 3.82 0 0 1 18.853 12c0-1.25.598-2.36 1.523-3.058v-.967A2.34 2.34 0 0 0 18.04 5.63H5.959Z" fill="#333334"></path><path d="M16.112 14.066c0 .751-.606 1.36-1.354 1.36a1.356 1.356 0 0 1-1.353-1.36c0-.75.606-1.358 1.353-1.358.748 0 1.354.608 1.354 1.358ZM10.697 9.537c0 .75-.606 1.359-1.353 1.359A1.356 1.356 0 0 1 7.99 9.537c0-.75.606-1.359 1.354-1.359.747 0 1.353.609 1.353 1.36ZM13.957 8.728a.772.772 0 0 1 1.095 0 .78.78 0 0 1 0 1.1l-5.419 5.44a.773.773 0 0 1-1.095 0 .78.78 0 0 1 0-1.1l5.419-5.44Z" fill="#333334"></path>
+                            </svg>
+                            <span class="categories-word">쿠폰 관리</span>
+                        </a>
+                    </li>
+                    <!--                    네 번째 카테고리-->
+
+                    <!--                    카테고리 ul 종료-->
+                </ul>
+            </nav>
+<!--            메인 시작-->
+            <div class="coupon-Wrap">
+                <div class="coupon-mainWrap">
+                    <div class="coupon-page">
+                        <header class="page-word">
+                            <h1 class="coupon-font">쿠폰 관리</h1>
+                        </header>
+                        <div class="coupon-top">
+                            <div>
+                                <ul class="coupon-explain">
+                                    <li class="explain-list">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="explain-detail">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <p class="coupon-listWord">쿠폰은 난수번호로 발급되며, 이용자는 쿠폰 번호를 입력하여 혜택을 받을 수 있습니다.</p>
+                                    </li>
+                                    <li class="second-list">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="explain-detail">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <p class="coupon-listWord">발급한 쿠폰은 알림톡으로 선물할 수 있습니다.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div style="margin-top: 40px">
+                            <span class="coupon-countWord">전체</span>
+                            <span class="coupon-count">0</span>
+                        </div>
+                        <div class="coupon-info">
+                            <div class="coupon-info-name">쿠폰 이름</div>
+                            <div class="coupon-info-date">발급 날짜</div>
+                            <div class="coupon-info-stock">발급 수량</div>
+                            <div class="coupon-info-period">혜택 기간</div>
+                            <div class="coupon-info-period">유효기간</div>
+                        </div>
+                        <ul>
+                            <div class="coupon-list">
+                                <svg width="54" height="56" fill="none" xmlns="http://www.w3.org/2000/svg" class="noCoupon-img">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.702 17.497a3 3 0 0 1 3.424-2.506l41.26 6.383a3 3 0 0 1 2.506 3.424l-1.053 6.806a3.859 3.859 0 0 0-1.18 7.627l-1.053 6.807a3 3 0 0 1-3.423 2.506l-41.26-6.383a3 3 0 0 1-2.507-3.424l1.053-6.806a3.859 3.859 0 0 0 1.18-7.627l1.053-6.807Z" fill="#A08DFF"></path>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.803 18.464c.263.04.443.287.403.55l-.138.894a.482.482 0 0 1-.954-.147l.138-.894a.482.482 0 0 1 .55-.403Zm-.415 2.681c.263.04.444.287.403.55l-.277 1.788a.482.482 0 1 1-.953-.147l.277-1.788a.482.482 0 0 1 .55-.403Zm-.553 3.575c.263.04.444.287.403.55l-.277 1.788a.482.482 0 1 1-.953-.147l.277-1.788a.482.482 0 0 1 .55-.403Zm-.553 3.575c.263.04.444.287.403.55l-.277 1.788a.482.482 0 0 1-.953-.147l.277-1.788a.482.482 0 0 1 .55-.403Zm-.553 3.575c.263.04.444.287.403.55l-.277 1.788a.482.482 0 0 1-.953-.147l.276-1.788a.482.482 0 0 1 .55-.403Zm-.553 3.575c.263.04.443.287.403.55l-.277 1.788a.482.482 0 0 1-.953-.147l.276-1.788a.482.482 0 0 1 .55-.403Zm-.553 3.575c.263.04.443.287.403.55l-.139.894a.482.482 0 1 1-.953-.147l.138-.894a.482.482 0 0 1 .55-.403Z" fill="#000"></path>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M24.848 29.871c1.082.168 2.18-.575 2.365-1.774.185-1.199-.637-2.238-1.719-2.405-1.082-.168-2.18.575-2.365 1.773-.186 1.2.636 2.239 1.718 2.406Zm-.26 1.672a3.806 3.806 0 1 0 1.165-7.523 3.806 3.806 0 0 0-1.164 7.523ZM33.836 39.666c1.082.167 2.18-.575 2.365-1.774.185-1.2-.636-2.238-1.719-2.406-1.082-.167-2.18.575-2.365 1.774-.185 1.199.636 2.238 1.719 2.406Zm-.259 1.671a3.806 3.806 0 1 0 1.164-7.523 3.806 3.806 0 0 0-1.164 7.523ZM36.885 27.694c.285.39.2.937-.19 1.223L23.603 38.5a.875.875 0 1 1-1.033-1.41l13.094-9.586a.875.875 0 0 1 1.222.19Z" fill="#fff"></path>
+                                    <path d="M4.756 4.544c2.083.05 3.502 1.417 5.227 3.003.303-.864.92-3.58 1.915-3.642 1.616-.102 2.337 2.443 1.813 3.482-.668 1.321-1.147 2.778-1.79 4.117-.131.274-.87 2.127-1.094 1.9-.3-.302-.878-.68-1.248-.936-.932-.643-1.82-1.456-2.67-2.225C5.51 8.977 3.06 7.025 3.485 5.049c.105-.486.874-.514 1.271-.505Z" fill="#92EAFF"></path>
+                                    <ellipse cx="26.188" cy="53.541" rx="19.126" ry="2.459" fill="#E4E4E4"></ellipse>
+                                    <path d="M52.481 47.424c-1.736-.793-3.453-.232-5.509.385.096-.833.673-3.319-.122-3.768-1.291-.73-2.904 1.079-2.887 2.146.022 1.355-.165 2.748-.171 4.109-.002.278-.134 2.1.141 2.004.369-.13.997-.21 1.404-.273 1.025-.157 2.082-.472 3.091-.766 1.66-.484 4.46-1.114 4.9-2.913.108-.442-.515-.773-.847-.924Z" fill="#92EAFF"></path>
+                                </svg>
+                                <p class="noCoupon-word">발급된 쿠폰이 없습니다</p>
+                            </div>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+/* 전체 css */
+* {font-family: Pretendard,'Noto Sans KR', sans-serif;}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    line-height: 1;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f1f4f6;
+}
+
+
+
+caption, td, th {
+    font-weight: 400;
+    text-align: left;
+    vertical-align: middle;
+}
+
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+body {
+    background-color: #fff;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.42857143;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f1f4f6;
+}
+
+body {
+    margin: 0;
+}
+
+*, :after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    display: block;
+    /*margin: 8px;*/
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+p {
+    display: block;
+    /*margin-block-start: 1em;*/
+    /*margin-block-end: 1em;*/
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
+
+div {
+    display: block;
+}
+
+a:active, a:hover {
+    outline: 0;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+h5 {
+    color: #777;
+}
+

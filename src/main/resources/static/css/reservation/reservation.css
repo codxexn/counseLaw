@@ -1,0 +1,477 @@
+a, body, button, dd, div, dl, dt, h1, h2, h3, h4, h5, h6, html, label, li, p, span, table, td, tr, ul {
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+}
+
+textarea::placeholder, input::placeholder {
+    color: #e1e1e1;
+}
+
+#adviceBody:focus {
+    border: 1px solid black;
+}
+
+
+/*헤더*/
+nav.header-nav-renew.directive {
+    background-color: #fff;
+    height: 48px;
+}
+
+img.back {
+    width: 40px;
+    margin-top: 20px;
+}
+
+h3.title {
+    color: #333;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    height: 80px;
+    line-height: 80px;
+    margin: 0 auto;
+    position: absolute;
+    right: 50%;
+    text-align: center;
+    top: 40px;
+    transform: translate(50%,-50%);
+}
+
+/*컨텐츠*/
+.reservation-controller {
+    position: relative;
+}
+
+.reservation-body {
+    background-color: #fff;
+}
+
+/*사건 내용과 궁금한 점*/
+.reservation-form__input-main-title {
+    color: #333;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 150%;
+}
+
+.reservation-form .form-group {
+    margin-bottom: 0;
+}
+
+/*텍스트 부분*/
+.reservation-form .input-advice-body__textarea-wrap {
+    position: relative;
+}
+
+.reservation-form .advice-input-field {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: #fff;
+    border: 1px solid #c4c8cb;
+    border-radius: 8px;
+    -webkit-box-shadow: none;
+    -mox-box-shadow: none;
+    box-shadow: none;
+    color: #2b2d2f;
+    outline: none;
+    width: 100%;
+}
+
+.reservation-form textarea.advice-input-field {
+    color: #2b2d2f;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    height: 200px;
+    line-height: 160%;
+    margin-top: 16px;
+    padding: 8px 20px 8px 16px;
+    resize: none;
+}
+
+.reservation-form .input-advice-body__text-limit {
+    position: absolute;
+    right: 0;
+}
+
+/*글자수*/
+.reservation-form .input-advice-body__guide-text, .reservation-form .input-advice-body__limit-text {
+    color: #9fa4a9;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 100%;
+}
+
+/*에러 메시지*/
+.form-group.has-error label.control-label.error {
+    display: block;
+    font-size: 13px;
+    height: 25px;
+    line-height: 25px;
+}
+
+label.control-label.error {
+    color: #da1e28;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 100%;
+    padding-top: 8px;
+}
+
+
+/*작성 팁*/
+.reservation-form .write-guide {
+    margin-top: 24px;
+}
+
+/*타이틀*/
+.reservation-form .write-guide__notice-title {
+    color: #c50000;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 100%;
+    margin-bottom: 12px;
+}
+
+/*내용*/
+.reservation-form .write-guide__notice-item {
+    color: #4c5055;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 160%;
+    list-style-type: "•";
+    margin-left: 8px;
+    padding-left: 4px;
+}
+
+.reservation-form .write-guide__notice-item .bold {
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 700;
+}
+
+/*예약자 정보*/
+.reservation-form__input-main-title {
+    color: #333;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 150%;
+}
+
+.reservation-form__input-main-desc {
+    color: #60666c;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 150%;
+    margin-top: 8px;
+    padding-bottom: 32px;
+}
+
+.reservation-form .input-advice-name__sub-title {
+    color: #35373a;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 100%;
+    margin-bottom: 8px;
+}
+
+.reservation-form .advice-input-field {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: #fff;
+    border: 1px solid #c4c8cb;
+    border-radius: 8px;
+    -webkit-box-shadow: none;
+    -mox-box-shadow: none;
+    box-shadow: none;
+    color: #2b2d2f;
+    outline: none;
+    width: 100%;
+}
+
+.reservation-form input.advice-input-field {
+    font-size: 17px;
+    height: 48px;
+    padding: 0 12px;
+}
+
+/*번호*/
+.reservation-form .input-advice-phone {
+    margin-top: 24px;
+}
+
+.reservation-form .input-advice-phone__title-line {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.reservation-form .input-advice-phone__sub-title {
+    color: #35373a;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 100%;
+}
+
+.reservation-form .input-advice-phone__sub-desc {
+    color: #60666c;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 100%;
+}
+
+/*반드시 확인해주세요*/
+.form-body__check-please .check-please {
+    background: #f8fafb;
+    border: 1px solid #d3dfeb;
+    border-radius: 8px;
+    padding: 24px;
+}
+
+.form-body__check-please .check-please__title {
+    color: #3f4246;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 135%;
+}
+
+.form-body__check-please .check-please__content {
+    margin-top: 16px;
+}
+
+.check-please__sub-title {
+    color: #60666c;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 165%;
+    margin-bottom: 8px;
+}
+
+.check-please__desc-list {
+    padding-left: 14px;
+}
+
+.check-please__desc {
+    color: #7a8287;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 145%;
+    list-style-type: "•";
+}
+
+/*우측 payment 설정*/
+
+.CompactLawyerCard-module_wrapper {
+    width: 374px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-radius: 8px;
+    border: 1px solid #c50000;
+    padding: 24px 0 24px 20px;
+}
+
+.CompactLawyerCard-module_thumbnailImage {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.CompactLawyerCard-module_texts {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/*폰트 관련*/
+.Typography-module_lt-text--inherit__uNmPK {
+    cursor: inherit;
+    font-family: inherit;
+}
+.Typography-module_lt-text--height-100__U8Og5 {
+    line-height: 100%;
+}
+.Typography-module_lt-text--weight-600__IvaQr {
+    font-weight: 600;
+}
+.Typography-module_lt-text--size-16__m5oA0 {
+    font-size: 1rem;
+}
+
+.Typography-module_lt-text--weight-700__MTX72 {
+    font-weight: 700;
+}
+.Typography-module_lt-text--size-17__8rBL9 {
+    font-size: 1.0625rem;
+}
+/*폰트관련 끝*/
+
+/*payment*/
+.PaymentMethod-module_wrapper {
+    width: 374px;
+    padding: 24px;
+    border-radius: 8px;
+    border: 1px solid #dde1e8;
+    background-color: #fff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+
+
+/*반응형*/
+@media (min-width: 960px) {
+    #root-view {
+        height: 100%;
+    }
+
+    .advices.controller .advices-content {
+        background: #fff;
+        min-height: 100vh;
+        padding-bottom: 128px;
+        position: relative;
+    }
+
+    /*헤더*/
+    nav.header-nav-renew.directive {
+        height: 80px;
+        border-bottom: solid 1px lightgray;
+    }
+
+    nav.header-nav-renew.directive .header-nav-renew-container {
+        margin: 0 auto;
+        width: 1080px;
+    }
+
+    h3.title {
+        width: 672px;
+    }
+
+    /*컨텐츠*/
+    .reservation-controller {
+        margin: 0 auto;
+        width: 1100px;
+    }
+
+    .reservation-body {
+        padding-top: 42px;
+        width: 672px;
+    }
+
+    /*사건 내용과 궁금한 점*/
+    .reservation-form__input-main-title {
+        line-height: 120%;
+    }
+
+    /*텍스트 부분*/
+    .reservation-form textarea.advice-input-field {
+        padding: 12px 20px;
+    }
+
+    /*작성 팁*/
+    .reservation-form .write-guide__notice-title {
+        line-height: 120%;
+        margin-bottom: 8px;
+    }
+
+    /*내용*/
+    .reservation-form .write-guide__notice-item {
+        line-height: 170%;
+    }
+
+    /*예약자 정보*/
+    .reservation-controller .reservation-form .form-body__reservation-information {
+        margin-top: 64px;
+    }
+
+    .reservation-form__input-main-title {
+        line-height: 120%;
+    }
+
+    .reservation-form__input-main-desc {
+        font-size: 16px;
+        padding-bottom: 40px;
+    }
+
+    .reservation-form .input-advice-name__sub-title {
+        color: #3f4246;
+        font-size: 16px;
+        line-height: 120%;
+    }
+
+    /*번호*/
+    .reservation-form .input-advice-phone__sub-title {
+        color: #3f4246;
+        font-size: 16px;
+        line-height: 120%;
+    }
+
+    .reservation-form .input-advice-phone__sub-desc {
+        font-size: 13px;
+    }
+
+    /*반드시 확인해주세요*/
+    .form-body__check-please {
+        margin-top: 40px;
+    }
+
+    .form-body__check-please .check-please__title {
+        font-size: 17px;
+    }
+
+    .form-body__check-please .check-please__content {
+        display: flex;
+        margin-top: 20px;
+    }
+
+    .check-please__left-content {
+        flex: 0 0 50%;
+        padding-right: 20px;
+    }
+
+    .check-please__right-content {
+        flex: 0 0 50%;
+    }
+
+    .check-please__desc {
+        font-size: 14px;
+        line-height: 165%;
+    }
+
+    /*우측 payment 설정*/
+    .reservation-controller div.reservation-controller__payment-method-panel {
+        position: absolute;
+        left: 720px;
+        top: 85px;
+    }
+
+    /*결제수단*/
+    .reservation-controller .reservation-controller__payment-method {
+        margin-top: 25px;
+    }
+
+}

@@ -1,0 +1,486 @@
+/* 전체 css */
+* {font-family: Pretendard,'Noto Sans KR', sans-serif;}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f1f4f6;
+}
+
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    border: 0;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+body {
+    background-color: #fff;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.42857143;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f1f4f6;
+}
+
+body {
+    margin: 0;
+}
+
+*, :after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    display: block;
+    /*margin: 8px;*/
+}
+
+a {
+    cursor: pointer;
+    background-color: transparent;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
+
+a:active, a:hover {
+    outline: 0;
+}
+
+/* 마이페이지 css */
+
+.root.pc {
+    height: 100%;
+}
+
+.root.mobile {
+    height: auto;
+}
+
+.MypageHeaderWrapper {
+    background: #fff;
+    position: fixed;
+    top: 0;
+    transition: background .25s ease;
+    width: 100%;
+    z-index: 1000;
+}
+
+.MypageHeader {
+    display: flex;
+    flex-direction: row;
+    min-width: 335px;
+    width: 100%;
+    height: 72px;
+    padding: 0;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.MypageHeader-Mobile {
+    position: relative;
+    width: 100%;
+    z-index: 51;
+}
+
+.MypageHeaderModule-Mobile {
+    display: flex;
+    flex-direction: row;
+    min-width: 335px;
+    width: 100%;
+    height: 56px;
+    padding: 0 20px;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.MypageHeaderLeft {
+    display: inline-flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.MypageHeaderLeft-Mobile {
+    display: inline-flex;
+    align-items: center;
+    flex: 1 1;
+}
+
+.MypageHeaderLeft-ArrowWrapper {
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    margin-left: -4px;
+}
+
+.MypageHeaderLeft-Title {
+    margin-left: 8px;
+    color: rgb(43, 45, 47);
+    cursor: inherit;
+    line-height: 125%;
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.MypageHeader-LogoWrapper {
+    cursor: pointer;
+    width: 100%;
+}
+
+.MypageHeader-MainLogo {
+    overflow: hidden;
+    width: 118px;
+    height: 26px;
+}
+
+.MypageHeaderCenter {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.MypageHeaderText {
+    color: rgb(43, 45, 47);
+    cursor: inherit;
+    line-height: 125%;
+    font-weight: 700;
+    font-size: 1.125rem;
+}
+
+.MypageHeaderRight {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.MypageHeaderRight-ButtonContainer {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.MypageHeaderRight-Button {
+    color: rgb(122, 130, 135);
+    padding: 5px 6px;
+    cursor: pointer;
+    line-height: 100%;
+    font-weight: 400;
+    font-size: 0.875rem;
+}
+
+.MypageHeader-Placeholder {
+    height: 72px;
+}
+
+.MypageHeader-Placeholder-Mobile {
+    height: 56px;
+}
+
+.MypageWrapper {
+    margin: 9px auto 0;
+    width: 672px;
+}
+
+.MypageWrapper-Mobile {
+    width: 100%;
+}
+
+.MypageCard {
+    padding: 48px 20px 42px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.MypageCard-lawyer {
+    padding: 20px 20px 42px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.MypageCard-Mobile {
+    background-color: #fff;
+    padding: 26px 20px 32px;
+    text-align: center;
+}
+
+.MypageButtonwrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.MypageProfilewrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mypage-image-wrapper {
+    width: 100px;
+    height: 100px;
+}
+
+.mypage-profile-image {
+    width: 100%;
+}
+
+.mypage-profile-desc-wrapper {
+    text-align: right;
+}
+
+.mypage-profile-name {
+    margin-top: 20px;
+    font-size: 25px;
+    margin-bottom: 0px;
+}
+
+.mypage-name {
+    font-weight: 600;
+}
+
+.mypage-profile-desc {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.mypage-profile-ad {
+    font-weight: 600;
+    color: #c50000;
+}
+
+.MypageButtonwrapper-Mobile {
+    display: flex;
+    justify-content: space-between;
+    width: 93%;
+}
+
+.MypageButton {
+    color: #757575;
+    display: flex;
+    flex-direction: column;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 700;
+    text-align: left;
+    text-decoration: none;
+    flex: none;
+    font-size: 14px;
+    width: 184px;
+    height: 53px;
+    line-height: 14px;
+}
+
+.MypageButton-Mobile {
+    color: #757575;
+    display: flex;
+    flex-direction: column;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-weight: 700;
+    text-align: left;
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 12px;
+}
+
+.MypageButtonCount {
+    color: #cfcfcf;
+    font-size: 32px;
+    font-family: Gilroy, 'Noto Sans KR', sans-serif;
+    margin-top: 7px;
+    line-height: 32px;
+    font-feature-settings: normal;
+    font-kerning: auto;
+    font-optical-sizing: auto;
+    font-stretch: 100%;
+    font-style: normal;
+    font-variant-alternates: normal;
+    font-variant-caps: normal;
+    font-variant-east-asian: normal;
+    font-variant-ligatures: normal;
+    font-variant-numeric: normal;
+    font-variation-settings: normal;
+}
+
+.MypageButtonCount-Mobile {
+    color: #cfcfcf;
+    font-size: 24px;
+    font-family: Gilroy, 'Noto Sans KR', sans-serif;
+    margin-top: 7px;
+    line-height: 24px;
+    font-feature-settings: normal;
+    font-kerning: auto;
+    font-optical-sizing: auto;
+    font-stretch: 100%;
+    font-style: normal;
+    font-variant-alternates: normal;
+    font-variant-caps: normal;
+    font-variant-east-asian: normal;
+    font-variant-ligatures: normal;
+    font-variant-numeric: normal;
+    font-variation-settings: normal;
+}
+
+.MypageBox {
+    padding: 56px 60px;
+    background-color: #f6f6f6;
+}
+
+.MypageBox-Mobile {
+    background-color: #f6f6f6;
+    padding: 35px 20px 22px;
+}
+
+.MypageBox-Title {
+    border-bottom: 3px solid #333;
+    color: #333;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 26px;
+    padding-bottom: 13px;
+}
+
+.MypageBox-Title-Mobile {
+    border-bottom: 3px solid #333;
+    color: #333;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 23px;
+    padding-bottom: 13px;
+}
+
+.MypageBox-MenuItem {
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+}
+
+.MypageBox-MenuItem-Info{
+    display: flex;
+    justify-content: space-between;
+}
+
+.MypageBox-MenuItem-Info:not(:last-child){
+    margin-bottom: 17px;
+}
+
+.MypageBox-MenuItem-Mobile {
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+}
+
+.MypageBox-MenuItem:not(:last-child){
+    margin-bottom: 17px;
+}
+
+.MypageBox-MenuItem-Mobile:not(:last-child){
+    margin-bottom: 23px;
+}
+
+.MypageBox{
+    padding-bottom: 10px;
+}
+
+.MypageBox:last-of-type{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.MypageBox-MenuItemLabel {
+    color: #555;
+    font-size: 18px;
+}
+
+.MypageBox-MenuItemLabel-Mobile {
+    color: #555;
+    font-size: 16px;
+}
+
+.MypageBox-MenuItemText {
+    color: #555;
+    font-size: 15px;
+    width: 40%;
+    text-align: right;
+    word-break: keep-all;
+}
+
+.MypageBox-MenuItemCount {
+    font-size: 32px;
+    margin-top: -6px;
+    width: 40px;
+    font-family: Gilroy;
+    text-align: center;
+    color: #cfcfcf;
+    font-weight: 700;
+    line-height: 32px;
+}
+
+.MypageBox-MenuItemCount-Mobile {
+    font-size: 24px;
+    margin-top: -3px;
+    width: 30px;
+    font-family: Gilroy;
+    text-align: center;
+    color: #cfcfcf;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+/* 미디어 쿼리 */
+.pc {
+    display: block;
+}
+
+.mobile {
+    display: none;
+}
+
+@media (max-width: 768px){
+    .pc {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+    }
+}
+
+
+
+
+
+
+
+
+

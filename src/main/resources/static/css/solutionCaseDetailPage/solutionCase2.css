@@ -1,0 +1,806 @@
+html, body, div, section, h2, a, img, span, i, header, h1, p, b, u, ul, li {
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+body, div, li, ul, a, span, h1, p, button {
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+}
+
+button {
+    border-radius: 0;
+    font-size: inherit;
+    line-height: inherit;
+    -webkit-appearance: button;
+    cursor: pointer;
+    text-transform: none;
+    overflow: visible;
+    font: inherit;
+    margin: 0;
+}
+
+
+
+header, section {
+    display: block;
+}
+
+html {
+    line-height: 1;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    color: #333;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+*, ::after, ::before {
+    /* -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box; */
+    box-sizing: border-box;
+}
+
+section {
+    display: block;
+}
+
+/* ============================= */
+.post.controller {
+    outline: 0;
+}
+
+.post-Wrapper {
+    background-color: #fff;
+}
+
+.post.controller .post-Wrapper .header-Wrapper {
+    background-position: 50% 50%;
+    background-size: cover;
+    position: relative;
+    text-align: center;
+}
+
+.post.controller .post-Wrapper .header-Wrapper header {
+    margin: auto;
+}
+
+.post.controller .post-Wrapper .header-Wrapper header .type span {
+    border-bottom: 1px solid #c0b3b6;
+    color: #c0b3b6;
+    display: inline-block;
+}
+
+.post.controller .post-Wrapper .header-Wrapper header .keywords .keyword {
+    color: #c0b3b6;
+    font-weight: 700;
+}
+
+.post.controller .post-Wrapper .header-Wrapper header .keywords .keyword::after {
+    content: "\b7";
+    padding: 0 3px;
+}
+
+.post.controller .post-Wrapper .header-Wrapper header .title {
+    word-wrap: break-word;
+    color: #fff;
+    font-weight: 400;
+}
+
+.post.controller .post-Wrapper .header-Wrapper header .lawyer {
+    color: #c0b3b6;
+}
+
+.post.controller .post-Wrapper .header-Wrapper header .case-Result {
+    background-color: rgba(55,46,44,.75);
+}
+
+.post.controller .post-Wrapper .header-Wrapper header .case-Result .result {
+    color: #ff6d37;
+    font-weight: 700;
+}
+
+.post.controller .post-Wrapper .header-Wrapper header .case-Result .number {
+    color: #aa999d;
+}
+
+.post.controller .post-Wrapper section {
+    background-color: #fff;
+    margin: 0 auto;
+    max-width: 940px;
+    width: 100%;
+}
+
+.post.controller .html-Content {
+    outline: 0;
+}
+
+.post.controller .html-Content p, .post.controller .html-Content span {
+    font-size: inherit;
+}
+
+.post.controller .html-Content p, .post.controller .html-Content span {
+    font-weight: 400;
+    line-height: inherit;
+}
+
+.post.controller .html-Content p, .post.controller .html-Content span, .post.controller .html-Content img  {
+    color: #555;
+}
+
+.post.controller .html-Content b {
+    color: #333;
+    font-weight: 700;
+}
+
+.post.controller .html-Content img {
+    width: 100%;
+}
+
+.post.controller .post-Wrapper section .content-Copyright .copyright-Title {
+    color: #f50;
+    font-family: Nanum Myeongjo;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.post.controller .post-Wrapper section .content-Copyright .copyright-Body {
+    color: #757575;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+}
+
+.post.controller .post-Wrapper section .not-Counselaw {
+    padding-bottom: 0;
+    border-bottom: 1px solid #f1eeec;
+    border-top: 1px solid #f1eeec;
+    padding: 24px 0;
+}
+
+.not-Counselaw .lawyer-Profile.directive {
+    color: #222;
+    font-size: 13px;
+    height: auto;
+    overflow: visible;
+    position: relative;
+    text-decoration: none;
+    width: 100%;
+}
+
+.not-Counselaw .lawyer-Profile.directive .lawyer-Thumb {
+    display: block;
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #337ab7;
+    background-color: transparent;
+}
+
+
+.not-Counselaw .lawyer-Profile.directive .lawyer-Thumb>img {
+    height: 100%;
+    width: 100%;
+}
+
+.not-Counselaw .lawyer-Profile.directive .lawyer-Thumb>img {
+    border-radius: 50%;
+}
+
+a img {
+    border: none;
+}
+
+.not-Counselaw .lawyer-Profile.directive .profile-Right {
+    float: right;
+    overflow: visible;
+    text-align: center;
+}
+
+.not-Counselaw .lawyer-Profile.directive .profile-Right .advice-Reserve-Btn {
+    background-color: #c50000;
+    color: #fff;
+    display: inline-block;
+    font-size: 15px;
+    height: 48px;
+    position: relative;
+    vertical-align: middle;
+}
+
+.not-Counselaw .lawyer-Profile.directive .profile-Right .advice-Reserve-Btn::before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    width: 0;
+}
+
+.not-Counselaw .lawyer-Profile.directive .profile-Right .advice-Reserve-Btn .reservation {
+    background-color: transparent;
+    border: 0;
+    font-weight: 700;
+    line-height: 16px;
+    padding: 0;
+    vertical-align: middle;
+}
+
+.not-Counselaw .lawyer-Profile.directive .profile-Right .advice-Reserve-Btn::after {
+    border-right: 2px solid #fff;
+    border-top: 2px solid #fff;
+    content: "";
+    height: 8px;
+    position: absolute;
+    right: 19px;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    width: 8px;
+}
+
+.not-Counselaw .lawyer-Profile.directive .profile-Left {
+    overflow: hidden;
+}
+
+.not-Counselaw .lawyer-Profile.directive a.lawyer-Name {
+    color: inherit;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 16px;
+}
+
+.not-Counselaw .lawyer-Profile.directive .lawyer-Company {
+    color: #555;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+.post.controller .post-Wrapper section .not-Counselaw::after {
+    background-color: #fff;
+}
+
+.not-Counselaw::after {
+    content: "";
+    display: block;
+    height: 1px;
+}
+
+.post.controller .post-List-Panel {
+    border: 1px solid #f1eeec;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.post.controller .post-List-Panel .panel-Heading {
+    background-color: #fcfbf9;
+    border-radius: 0;
+    color: #222;
+    font-size: 15px;
+}
+
+.panel-Heading {
+    border-bottom: 1px solid transparent;
+}
+
+.post.controller .post-List-Panel .panel-Heading span.bold {
+    font-weight: 700;
+}
+
+.post.controller .post-List-Panel .panel-Body {
+    background-color: #fff;
+}
+
+.panel-Body::before, .panel-Body::after{
+    content: " ";
+    display: table;
+}
+
+.post.controller .post-List-Panel .panel-Body ul {
+    list-style: none;
+}
+
+.post.controller .post-List-Panel .panel-Body ul li  {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.post.controller .post-List-Panel .panel-Body ul li::before {
+    content: "\b7";
+    margin-right: 7px;
+}
+
+.post.controller .post-List-Panel .panel-Body ul li.active a {
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.post.controller .post-List-Panel .panel-Body ul li a {
+    color: #555;
+    font-size: 14px;
+}
+
+.panel-Body::after {
+    clear: both;
+}
+
+.post.controller .keyword-Container {
+    background-color: #fff;
+}
+
+.post.controller .post-Control-Wrapper {
+    background-color: #fcfbf9;
+    height: 54px;
+    width: 100%;
+}
+
+.post.controller .post-Control-Wrapper .post-Control {
+    line-height: 54px;
+    margin: auto;
+    max-width: 840px;
+    width: 100%;
+}
+
+.post.controller .post-Control-Wrapper .post-Control::after, .post.controller .post-Control-Wrapper .post-Control::before {
+    clear: both;
+    content: "";
+    display: table;
+    float: none;
+}
+
+.post.controller .post-Control-Wrapper .post-Control .left {
+    display: inline;
+    float: left;
+}
+
+.post.controller .post-Control-Wrapper .post-Control .left span {
+    color: #aa999d;
+    line-height: 54px;
+}
+
+.post.controller .post-Control-Wrapper .post-Control .count, .post.controller .post-Control-Wrapper .post-Control .text {
+    font-size: 12px;
+    line-height: 16px;
+    vertical-align: text-bottom;
+}
+
+.post.controller .post-Control-Wrapper .post-Control .right {
+    float: right;
+}
+
+.post.controller .post-Control-Wrapper .post-Control .right button {
+    background: none;
+    border: none;
+    color: #aa999d;
+    height: 54px;
+    padding: 0;
+}
+
+.post.controller .post-Control-Wrapper .post-Control i {
+    font-size: 15px;
+}
+
+.lc {
+    text-rendering: auto;
+    display: inline-block;
+    font-family: LawCompanyGlyphs;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: inherit;
+    transform: translate(0);
+    vertical-align: top;
+}
+
+.bx.bx-heart {
+    display: block;
+}
+
+.bx.bxs-heart {
+    display: none;
+}
+
+.post-Control .right {
+    display: flex;
+}
+
+.useful {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.useful:hover, .share:hover {
+    color: #ff6d37 !important;
+}
+
+.share {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.useful .count {
+    display: none;
+}
+
+.post.controller .post-List-Panel.outer-Panel {
+    border: none;
+    margin: 42px auto 0;
+}
+
+/* mobile */
+
+
+.bx.bx-heart.mobile {
+    display: block;
+}
+
+.bx.bxs-heart.mobile{
+    display: none;
+}
+
+.post-Control .right {
+    display: flex;
+}
+
+.useful-mobile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.share-mobile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.useful-mobile .count {
+    display: none;
+}
+
+
+/* 미디어 쿼리 */
+
+.pc {
+    display: block;
+}
+
+.mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .pc {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+    }
+
+    .mobile-View {
+        height: auto;
+    }
+
+    .post.controller {
+        background-color: #e1dedd;
+    }
+
+    .post.controller .post-Wrapper .header-Wrapper header {
+        padding: 36px 0;
+        width: 250px;
+    }
+
+    .post.controller .post-Wrapper .header-Wrapper header .type {
+        margin-bottom: 36px;
+    }
+
+    .post.controller .post-Wrapper .header-Wrapper header .type span {
+        font-size: 15px;
+    }
+
+    .post.controller .post-Wrapper .header-Wrapper header .keywords .keyword {
+        font-size: 12px;
+    }
+
+    .post.controller .post-Wrapper .header-Wrapper header .keywords .keyword::after {
+        content: "\b7";
+        padding: 0 3px;
+    }
+
+    .post.controller .post-Wrapper .header-Wrapper header .title {
+        font-size: 28px;
+        line-height: 140%;
+        margin: 24px 0;
+    }
+
+    .post.controller .post-Wrapper .header-Wrapper header .lawyer {
+        font-size: 14px;
+    }
+
+    .post.controller .post-Wrapper .header-Wrapper header .case-Result {
+        margin: 36px auto 0;
+        padding: 16px 0;
+        width: 240px;
+    }
+
+    .post.controller .post-Wrapper .header-Wrapper header .case-Result .result {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
+    .post.controller .post-Wrapper .header-Wrapper header .case-Result .number {
+        font-size: 12px;
+    }
+
+    .post.controller .post-Wrapper section {
+        padding: 0px 20px 25px;
+    }
+
+    .post.controller .post-Wrapper section .html-Content {
+        padding-bottom: 38px;
+    }
+
+    .post.controller .post-Wrapper section .html-Content {
+        font-size: 16px;
+        line-height: 180%;
+    }
+
+    .post.controller .post-Wrapper section .not-Counselaw {
+        margin-bottom: 24px;
+        margin-top: 48px;
+    }
+
+    .post.controller .post-Wrapper section .lawyer-Profile.directive {
+        padding-bottom: 20px;
+        padding-left: 52px;
+    }
+
+    .post.controller .post-Wrapper section .lawyer-Profile.directive .lawyer-Thumb {
+        height: 40px;
+        width: 40px;
+    }
+
+    .lawyer-Profile.directive .profile-Right .advice-Reserve-Btn {
+        margin-top: -4px;
+        width: 120px;
+    }
+
+    .lawyer-Profile.directive .profile-Right .advice-Reserve-Btn .reservation {
+        display: inline-block;
+        font-size: 13px;
+        margin-right: 21px;
+    }
+
+    .lawyer-Profile.directive .profile-left {
+        height: 48px;
+    }
+
+    .lawyer-Profile.directive .lawyer-Company {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 100%;
+    }
+
+    .post.controller .post-List-Panel .panel-Heading {
+        height: 43px;
+        line-height: 43px;
+        padding: 0 16px;
+    }
+
+    .post.controller .post-List-Panel .panel-Body {
+        padding: 15px 16px;
+    }
+
+    .post.controller .post-List-Panel .panel-Body ul li {
+        height: 27px;
+        line-height: 27px;
+    }
+
+    .post.controller .post-Control-Wrapper {
+        margin-bottom: 8px;
+        padding: 0 20px;
+    }
+
+    .post.controller .post-Control-Wrapper .post-Control .right button {
+        margin-right: 25px;
+    }
+
+    .post.controller .post-Control-Wrapper .post-Control .right button i {
+        margin-right: 6px;
+    }
+    .post.controller .post-Control-Wrapper .post-Control .right button:last-child i {
+        margin-right: 0;
+    }
+
+    .post.controller .post-List-Panel.outer-Panel {
+        margin: 0 auto;
+        padding-bottom: 8px;
+        width: calc(100% - 40px);
+    }
+
+    .post.controller .post-List-Panel.outer-Panel .panel-Heading {
+        height: 43px;
+        line-height: 43px;
+        padding: 0 16px;
+    }
+
+    .post.controller .post-List-Panel.outer-Panel .panel-Body {
+        padding: 15px 16px;
+    }
+
+    .post.controller .post-List-Panel.outer-Panel .panel-Body ul li {
+        height: 27px;
+        line-height: 27px;
+    }
+
+
+}
+
+@media (min-width: 769px) {
+    .pc-View {
+        height: 100%;
+    }
+    .post.controller .post-Wrapper .header-Wrapper {
+        min-height: 470px;
+    }
+
+    .post.controller .post-Wrapper .header-Wrapper header {
+        padding: 70px 0;
+        width: 618px;
+    }
+
+    .post.controller .post-Wrapper .header-Wrapper header .type {
+        margin-bottom: 70px;
+    }
+
+    .post.controller .post-Wrapper .header-Wrapper header .type span {
+        font-size: 18px;
+    }
+
+    .post.controller .post-Wrapper .header-Wrapper header .keywords .keyword {
+        font-size: 14px;
+    }
+    .post.controller .post-Wrapper .header-Wrapper header .title {
+        font-size: 50px;
+        line-height: 68px;
+        margin: 30px 0 60px;
+    }
+
+    .post.controller .post-Wrapper .header-Wrapper header .lawyer {
+        font-size: 16px;
+    }
+
+    .post.controller .post-Wrapper .header-Wrapper header .case-Result {
+        margin: 40px auto 0;
+        padding: 20px 0;
+        width: 366px;
+    }
+
+    .post.controller .post-Wrapper .header-Wrapper header .case-Result .result {
+        font-size: 18px;
+        margin-bottom: 14px;
+    }
+
+    .post.controller .post-Wrapper .header-Wrapper header .case-Result .number {
+        font-size: 14px;
+    }
+
+    .post.controller .post-Wrapper section {
+        padding: 0px 50px 42px;
+    }
+
+    .post.controller .post-Wrapper section .html-Content {
+        padding-bottom: 50px;
+    }
+
+    .post.controller .html-Content {
+        font-size: 16px;
+        line-height: 36px;
+    }
+
+    .post.controller .post-Wrapper section .not-Counselaw {
+        margin-bottom: 42px;
+        margin-top: 60px;
+        padding-top: 42px;
+    }
+
+    .not-Counselaw .lawyer-Profile.directive {
+        padding-left: 63px;
+    }
+
+    .not-Counselaw .lawyer-Profile.directive .lawyer-Thumb {
+        height: 55px;
+        width: 55px;
+    }
+
+    .not-Counselaw .lawyer-Profile.directive .profile-Right .advice-Reserve-Btn {
+        margin-top: 4px;
+        width: 224px;
+    }
+
+    .not-Counselaw .lawyer-Profile.directive .profile-Right .advice-Reserve-Btn .reservation {
+        display: inline-block;
+        font-size: 14px;
+        margin-right: 20px;
+    }
+
+    .lt-Mobile {
+        display: none!important;
+    }
+
+    .not-Counselaw .lawyer-Profile.directive .profile-Left {
+        margin-left: 1px;
+    }
+
+    .not-Counselaw .lawyer-Profile.directive a.lawyer-Name {
+        margin-top: 7px;
+    }
+
+    .not-Counselaw .lawyer-Profile.directive .lawyer-Company {
+        letter-spacing: 2.3px;
+    }
+
+    .not-Counselaw::after {
+        margin: 42px 48px 0 0;
+    }
+    .post.controller .post-List-Panel .panel-Heading {
+        height: 54px;
+        line-height: 54px;
+        padding: 0 26px;
+    }
+
+    .post.controller .post-List-Panel .panel-Body {
+        padding: 15px 28px;
+    }
+
+    .post.controller .post-List-Panel .panel-Body ul li {
+        height: 40px;
+        line-height: 40px;
+    }
+
+    .post.controller .post-Control-Wrapper .post-Control .count, .post.controller .post-Control-Wrapper .post-Control .text {
+        font-size: 14px;
+    }
+
+    .post.controller .post-Control-Wrapper .post-Control .right button {
+        margin-right: 30px;
+    }
+
+    .post.controller .post-Control-Wrapper .post-Control .right button i {
+        margin-right: 6px;
+    }
+
+    .post.controller .post-List-Panel.outer-Panel {
+        max-width: 840px;
+    }
+
+
+}
+
