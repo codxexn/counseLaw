@@ -16,14 +16,14 @@
                               custom-function="true" center="" visible-user-buttons="false">
                 <!---->
                 <nav class="header-nav-renew directive">
-                        <div class="header-nav-renew-container"><!---->
-                            <!--뒤로가기 버튼-->
-                            <a>
-                                <img class="back" src="back.png" alt="">
-                            </a>
-                            <!--상담예약 타이틀 -->
-                            <h3 class="title">상담 예약</h3>
-                        </div>
+                    <div class="header-nav-renew-container"><!---->
+                        <!--뒤로가기 버튼-->
+                        <a>
+                            <img class="back" src="back.png" alt="">
+                        </a>
+                        <!--상담예약 타이틀 -->
+                        <h3 class="title">상담 예약</h3>
+                    </div>
                 </nav>
             </header-nav-renew>
             <!--30분 예약 선점 부분 삭제-->
@@ -50,7 +50,7 @@
                                             </div>
                                         </div>
                                         <!---->
-                                        <label class="control-label error">최소 글자수는 10자입니다.</label>
+                                        <label class="text-count-error">최소 글자수는 10자입니다.</label>
                                         <!---->
                                         <!--내 상담내역에서 가져오기 삭제-->
                                     </div>
@@ -78,32 +78,33 @@
                                 </div>
                                 <div class="form-body__reservation-information">
                                     <label class="reservation-form__input-main-title">예약자 정보</label>
-                                    <div class="reservation-form__input-main-desc">예약자 정보는 상담목적 외에 사용되지 않으며,&nbsp;안전한 시스템으로 엄격하게 관리됩니다.
+                                    <div class="reservation-form__input-main-desc">예약자 정보는 상담목적 외에 사용되지 않으며,&nbsp;안전한
+                                        시스템으로 엄격하게 관리됩니다.
                                     </div><!---->
                                     <div class="input-advice-name">
-                                        <div class="input-advice-name__sub-title">가명 또는 이름</div>
+                                        <div class="input-advice-name__sub-title">가명 또는 이름   <span class="input-advice-phone__sub-desc">👉🏻 5글자까지 입력이 가능합니다. </span></div>
                                         <div class="form-group">
                                             <input type="text" placeholder="ex. 김카슬" maxlength="5"
-                                                                       message-id="advice-name-validator-message"
-                                                                       name="advice-name" autocomplete="off"
-                                                                       class="advice-input-field input-advice-name">
-                                            <div id="advice-name-validator-message" class="error-msg-wrapper"></div>
+                                                   message-id="advice-name-validator-message"
+                                                   name="advice-name" autocomplete="off"
+                                                   class="advice-input-field input-advice-name">
+                                            <!--                                            <div id="advice-name-validator-message" class="error-msg-wrapper"></div>-->
                                         </div>
                                     </div>
                                     <div class="input-advice-phone">
                                         <div class="input-advice-phone__title-line">
                                             <div class="input-advice-phone__sub-title">연락 받으실 번호</div>
-                                            <div class="input-advice-phone__sub-desc">👉🏻 안심번호로 변환하여 전달됩니다.</div>
+                                            <!--                                            <div class="input-advice-phone__sub-desc">👉🏻 안심번호로 변환하여 전달됩니다.</div>-->
+                                            <span class="input-advice-phone__sub-desc">👉🏻 예시> 01012341234 </span>
                                         </div>
                                         <div class="form-group reservation-form__input-button-wrap has-success">
                                             <input
-                                                type="tel" ng-model="advice.phone" name="advice-phone"
-                                                phone-error-message="올바른 전화번호가 아닙니다." placeholder="휴대폰 번호를 입력해 주세요"
-                                                autocomplete="off" validator="required, phone, initialSendIdentify"
-                                                send-identify-flag="isIdentify" sended-identify-flag="sendedIdentify"
-                                                class="advice-input-field">
-                                            <div id="advice-phone-validator-message" class="error-msg-wrapper"
-                                                 style="display: none;"></div><!---->
+                                                    type="tel" name="advice-phone" maxlength="11"
+                                                    phone-error-message="올바른 전화번호가 아닙니다." placeholder="휴대폰 번호를 입력해 주세요"
+                                                    autocomplete="off" validator="required, phone, initialSendIdentify"
+                                                    class="advice-input-field input-advice-phone">
+                                            <!--                                            <div id="advice-phone-validator-message" class="error-msg-wrapper"-->
+                                            <!--                                                 style="display: none;"></div>&lt;!&ndash;&ndash;&gt;-->
                                         </div>
                                     </div><!----><!---->
                                 </div>
@@ -148,103 +149,124 @@
                 </div><!----><!---->
                 <div class="reservation-controller__payment-method-panel">
                     <div class="reservation-controller__compact-lawyer-card">
-<!--                        <lawtalk-next-compact-lawyer-card image-url="advice.lawyer.photoOriginal"-->
-<!--                                                          lawyer-name="advice.lawyer.name" advice-type="advice.kind"-->
-<!--                                                          date="getDate(advice.dayString)" time="getTime(advice.time)"-->
-<!--                                                          is-mobile="isMobile">-->
-                            <div class="CompactLawyerCard-module_wrapper">
-                                <img
+                        <!--                        <lawtalk-next-compact-lawyer-card image-url="advice.lawyer.photoOriginal"-->
+                        <!--                                                          lawyer-name="advice.lawyer.name" advice-type="advice.kind"-->
+                        <!--                                                          date="getDate(advice.dayString)" time="getTime(advice.time)"-->
+                        <!--                                                          is-mobile="isMobile">-->
+                        <div class="CompactLawyerCard-module_wrapper">
+                            <img
                                     class="CompactLawyerCard-module_thumbnailImage"
                                     src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/original/6093509aacca08004653289c-original.jpg"
                                     alt="조혜인 변호사 썸네일 이미지">
-                                <div class="CompactLawyerCard-module_texts">
-                                    <p
+                            <div class="CompactLawyerCard-module_texts">
+                                <p
                                         class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
                                         style="color: rgb(43, 45, 47);">조혜인 변호사와의 15분 전화상담</p>
-                                    <p class="Typography-module_lt-text--size-17__8rBL9 Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                       style="color: rgb(43, 45, 47);">2023년 10월 12일(목)&nbsp;&nbsp;오전 10:30</p></div>
-                            </div>
-<!--                        </lawtalk-next-compact-lawyer-card>-->
+                                <p class="Typography-module_lt-text--size-17__8rBL9 Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
+                                   style="color: rgb(43, 45, 47);">2023년 10월 12일(목)&nbsp;&nbsp;오전 10:30</p></div>
+                        </div>
+                        <!--                        </lawtalk-next-compact-lawyer-card>-->
                     </div><!---->
                     <div ng-if="paymentMethod.adviceId" class="reservation-controller__payment-method">
-<!--                        <lawtalk-next-payment-method advice="advice" available-coupon-count="couponCount"-->
-<!--                                                     origin-price="paymentMethod.originPrice"-->
-<!--                                                     coupon-price="advice.coupon.value || 0"-->
-<!--                                                     is-agreement-checked="paymentMethod.isAgreementChecked"-->
-<!--                                                     total-price="getTotalPrice()"-->
-<!--                                                     is-payment-active="adviceInputForm.$invalid === false"-->
-<!--                                                     is-mobile="isMobile" informs="paymentMethod.informs"-->
-<!--                                                     check-list="paymentMethod.checkList" has-border="!isMobile"-->
-<!--                                                     agree-text="(isNonMember ? '' : '(필수) ') + '아래 내용을 확인했으며, 모두 동의합니다.'"-->
-<!--                                                     show-coupon-button="!isNonMember"-->
-<!--                                                     handle-click-payment="onClickPaymentOnPaymentMethod"-->
-<!--                                                     handle-click-open-coupon-popup="onClickOpenCouponPopup"-->
-<!--                                                     handle-click-cancel-coupon="cancelCoupon"-->
-<!--                                                     handle-click-show-check="onClickShowCheck"-->
-<!--                                                     handle-click-information="onClickInformation"-->
-<!--                                                     handle-click-agree-check="!isNonMember ? onClickAgreeCheck : undefined"-->
-<!--                                                     handle-click-method="onClickMethod">-->
-                            <div>
-                                <div class="lawtalk-next-payment-method-wrapper">
-                                    <div class="PaymentMethod-module_wrapper PaymentMethod-module_couponAvailable">
-                                        <div class="PaymentMethod-module_scrollArea">
-                                            <!--결제수단 삭제-->
-                                            <div class="PaymentMethod-module_priceInfo__UVb7G">
-                                                <div class="PaymentMethod-module_paymentPriceText__Q4qQr"><p
-                                                        class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                        style="color: rgb(43, 45, 47);">결제금액</p>
-                                                    <button class="PaymentMethod-module_availableCoupon__yDOl8">쿠폰
-                                                        등록하기
-                                                    </button>
+                        <!--                        <lawtalk-next-payment-method advice="advice" available-coupon-count="couponCount"-->
+                        <!--                                                     origin-price="paymentMethod.originPrice"-->
+                        <!--                                                     coupon-price="advice.coupon.value || 0"-->
+                        <!--                                                     is-agreement-checked="paymentMethod.isAgreementChecked"-->
+                        <!--                                                     total-price="getTotalPrice()"-->
+                        <!--                                                     is-payment-active="adviceInputForm.$invalid === false"-->
+                        <!--                                                     is-mobile="isMobile" informs="paymentMethod.informs"-->
+                        <!--                                                     check-list="paymentMethod.checkList" has-border="!isMobile"-->
+                        <!--                                                     agree-text="(isNonMember ? '' : '(필수) ') + '아래 내용을 확인했으며, 모두 동의합니다.'"-->
+                        <!--                                                     show-coupon-button="!isNonMember"-->
+                        <!--                                                     handle-click-payment="onClickPaymentOnPaymentMethod"-->
+                        <!--                                                     handle-click-open-coupon-popup="onClickOpenCouponPopup"-->
+                        <!--                                                     handle-click-cancel-coupon="cancelCoupon"-->
+                        <!--                                                     handle-click-show-check="onClickShowCheck"-->
+                        <!--                                                     handle-click-information="onClickInformation"-->
+                        <!--                                                     handle-click-agree-check="!isNonMember ? onClickAgreeCheck : undefined"-->
+                        <!--                                                     handle-click-method="onClickMethod">-->
+                        <div>
+                            <div class="lawtalk-next-payment-method-wrapper">
+                                <div class="PaymentMethod-module_wrapper PaymentMethod-module_couponAvailable">
+                                    <div class="PaymentMethod-module_scrollArea">
+                                        <!--결제수단 삭제-->
+                                        <div class="PaymentMethod-module_priceInfo__UVb7G">
+                                            <div class="PaymentMethod-module_paymentPriceText__Q4qQr"><p
+                                                    class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
+                                                    style="color: rgb(43, 45, 47);">결제금액</p>
+                                                <div class="coupon-select">
+                                                    <div class="coupon-title">
+                                                        적용 가능 쿠폰
+                                                        <span class="bold"> 1</span> 장
+                                                        <img src="down.png" class="coupon-arrow">
+                                                    </div>
                                                 </div>
-                                                <div class="PaymentMethod-module_originPrice__WqRdq"><p
-                                                        class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                        style="color: rgb(96, 102, 108);">상담료</p>
-                                                    <p class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 PaymentMethod-module_originPriceValue__A7CwZ Typography-module_lt-text--inherit__uNmPK"
-                                                       style="color: rgb(43, 45, 47);">20,000원</p></div>
-                                                <div class="PaymentMethod-module_couponPrice__rpvWA"><p
-                                                        class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                        style="color: rgb(255, 94, 0);">쿠폰 할인</p>
-                                                    <p class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-100__U8Og5 PaymentMethod-module_couponPriceValue__2JfMy Typography-module_lt-text--inherit__uNmPK"
-                                                       style="color: rgb(255, 94, 0);">0원</p></div>
-                                                <div class="PaymentMethod-module_priceDivider__YmHXG"></div>
-                                                <div class="PaymentMethod-module_totalPrice__2zakm"><p
-                                                        class="Typography-module_lt-text--size-18__AbfHy Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                        style="color: rgb(76, 80, 85);">총 결제금액</p>
-                                                    <p class="Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 PaymentMethod-module_totalPriceValue__Ikwpg Typography-module_lt-text--inherit__uNmPK"
-                                                       style="color: rgb(43, 45, 47);">20,000원</p></div>
-                                            </div>
-                                            <div class="PaymentMethod-module_agreement__6sFw7">
-                                                <p class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 PaymentMethod-module_agreementText__cjz7X Typography-module_lt-text--inherit__uNmPK"
-                                                   style="color: rgb(96, 102, 108);">
-                                                    <svg class="PaymentMethod-module_check__C8gB-" width="24"
-                                                         height="24" viewBox="0 0 24 24" fill="none"
-                                                         xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M10.6 13.8L8.425 11.625C8.24167 11.4417 8.01667 11.35 7.75 11.35C7.48333 11.35 7.25 11.45 7.05 11.65C6.86667 11.8333 6.775 12.0667 6.775 12.35C6.775 12.6333 6.86667 12.8667 7.05 13.05L9.9 15.9C10.0833 16.0833 10.3167 16.175 10.6 16.175C10.8833 16.175 11.1167 16.0833 11.3 15.9L16.975 10.225C17.1583 10.0417 17.25 9.81667 17.25 9.55C17.25 9.28333 17.15 9.05 16.95 8.85C16.7667 8.66667 16.5333 8.575 16.25 8.575C15.9667 8.575 15.7333 8.66667 15.55 8.85L10.6 13.8ZM12 22C10.6167 22 9.31667 21.7373 8.1 21.212C6.88333 20.6873 5.825 19.975 4.925 19.075C4.025 18.175 3.31267 17.1167 2.788 15.9C2.26267 14.6833 2 13.3833 2 12C2 10.6167 2.26267 9.31667 2.788 8.1C3.31267 6.88333 4.025 5.825 4.925 4.925C5.825 4.025 6.88333 3.31233 8.1 2.787C9.31667 2.26233 10.6167 2 12 2C13.3833 2 14.6833 2.26233 15.9 2.787C17.1167 3.31233 18.175 4.025 19.075 4.925C19.975 5.825 20.6873 6.88333 21.212 8.1C21.7373 9.31667 22 10.6167 22 12C22 13.3833 21.7373 14.6833 21.212 15.9C20.6873 17.1167 19.975 18.175 19.075 19.075C18.175 19.975 17.1167 20.6873 15.9 21.212C14.6833 21.7373 13.3833 22 12 22Z"
-                                                              fill="black"></path>
-                                                    </svg>
-                                                    (필수) 아래 내용을 확인했으며, 모두 동의합니다.
-                                                </p>
-                                            </div>
-                                            <div class="PaymentMethod-module_inform__ySl6Z PaymentMethod-module_opened__y+uvn">
-                                                <div class="PaymentMethod-module_informHeader__1wcfF"><p
-                                                        class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                        style="color: rgb(43, 45, 47);">결제 전 반드시 확인해주세요!</p>
-                                                    <svg class="PaymentMethod-module_informArrow__IMyC9" width="24"
-                                                         height="24" viewBox="0 0 24 24" fill="none"
-                                                         xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M9.275 17.3C9.09167 17.1167 9 16.8834 9 16.6C9 16.3167 9.09167 16.0834 9.275 15.9L13.175 12L9.275 8.10005C9.09167 7.91672 9 7.68338 9 7.40005C9 7.11672 9.09167 6.88338 9.275 6.70005C9.45833 6.51672 9.69167 6.42505 9.975 6.42505C10.2583 6.42505 10.4917 6.51672 10.675 6.70005L15.275 11.3C15.375 11.4 15.446 11.5084 15.488 11.625C15.5293 11.7417 15.55 11.8667 15.55 12C15.55 12.1334 15.5293 12.2584 15.488 12.375C15.446 12.4917 15.375 12.6 15.275 12.7L10.675 17.3C10.4917 17.4834 10.2583 17.575 9.975 17.575C9.69167 17.575 9.45833 17.4834 9.275 17.3Z"
-                                                              fill="black"></path>
-                                                    </svg>
+                                                <div class="coupon-content">
+                                                    <div class="coupon-list">
+                                                        <ul class="isFold">
+                                                            <li class="coupon-books">
+                                                                <div class="coupon-wrap">
+                                                                    <div class="coupon-name-wrap">
+                                                                        <div class="coupon-name">
+                                                                            한동석 변호사 이벤트 쿠폰
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="coupon-info">
+                                                                        <div class="coupon-value">10,000원 할인</div>
+                                                                        <div class="coupon-endAt">2023년 10월 15일까지</div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
-                                                <span class="PaymentMethod-module_informBody__rje4r"><span
-                                                        class="PaymentMethod-module_informBullet__P-wKx"></span>예약취소는 15분 전화상담 <span
-                                                        class="PaymentMethod-module_informTextOrange__BU50k">1시간 전까지만 마이페이지에서 취소</span> 가능하며, 이후에는 취소 및 환불이 불가능합니다.
-<span class="PaymentMethod-module_informBullet__P-wKx"></span>예약날짜 및 시간변경은 상담 1시간 전까지만 가능하며, 로톡 고객센터로 문의주시면 됩니다.
-<span class="PaymentMethod-module_informBullet__P-wKx"></span>변호사 사정으로 상담을 하지 못한 경우에는 100% 환불해 드립니다.
-<span class="PaymentMethod-module_informBullet__P-wKx"></span>의뢰인 사정으로 상담을 하지 못한 경우 또는 상담이 이루어진 경우에는 환불해드리지 않습니다.
-<span class="PaymentMethod-module_informBullet__P-wKx"></span>로톡은 예약 및 결제 정보의 중개서비스 또는 통신판매중개 시스템을 제공할 뿐 통신판매의 당사자가 아니며, 변호사가 제공하는 법률상담의 내용과 질에 대해서 법적 책임이 없음에 동의합니다.
-<span class="PaymentMethod-module_informTextBold__toI+A"><span class="PaymentMethod-module_informBullet__P-wKx"></span>변호사와의 법률상담에 관하여 다음에 동의합니다.</span>
+                                            </div>
+                                            <div class="PaymentMethod-module_originPrice">
+                                                <p class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
+                                                   style="color: rgb(96, 102, 108);">상담료</p>
+                                                <p class="PaymentMethod-module_originPriceValue Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
+                                                   style="color: rgb(43, 45, 47);">20,000원</p>
+                                            </div>
+                                            <div class="PaymentMethod-module_couponPrice">
+                                                <p class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
+                                                   style="color: #c50000;">쿠폰 할인</p>
+                                                <button class="PaymentMethod-module_cancelCouponButton">
+                                                    <p class="Typography-module_lt-text--size-13__p73tB Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
+                                                       style="color: rgb(159, 164, 169);">적용취소</p>
+                                                </button>
+                                                <p class="PaymentMethod-module_couponPriceValue Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
+                                                   style="color: #c50000;">-10,000원</p>
+                                            </div>
+                                            <div class="PaymentMethod-module_totalPrice"><p
+                                                    class="Typography-module_lt-text--size-18__AbfHy Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
+                                                    style="color: rgb(76, 80, 85);">총 결제금액</p>
+                                                <p class="PaymentMethod-module_totalPriceValue Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
+                                                   style="color: rgb(43, 45, 47);">10,000원</p></div>
+                                        </div>
+                                        <div class="PaymentMethod-module_agreement">
+                                            <p class="PaymentMethod-module_agreementText Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
+                                               style="color: rgb(96, 102, 108);">
+                                                <svg class="PaymentMethod-module_check" width="24"
+                                                     height="24" viewBox="0 0 24 24" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M10.6 13.8L8.425 11.625C8.24167 11.4417 8.01667 11.35 7.75 11.35C7.48333 11.35 7.25 11.45 7.05 11.65C6.86667 11.8333 6.775 12.0667 6.775 12.35C6.775 12.6333 6.86667 12.8667 7.05 13.05L9.9 15.9C10.0833 16.0833 10.3167 16.175 10.6 16.175C10.8833 16.175 11.1167 16.0833 11.3 15.9L16.975 10.225C17.1583 10.0417 17.25 9.81667 17.25 9.55C17.25 9.28333 17.15 9.05 16.95 8.85C16.7667 8.66667 16.5333 8.575 16.25 8.575C15.9667 8.575 15.7333 8.66667 15.55 8.85L10.6 13.8ZM12 22C10.6167 22 9.31667 21.7373 8.1 21.212C6.88333 20.6873 5.825 19.975 4.925 19.075C4.025 18.175 3.31267 17.1167 2.788 15.9C2.26267 14.6833 2 13.3833 2 12C2 10.6167 2.26267 9.31667 2.788 8.1C3.31267 6.88333 4.025 5.825 4.925 4.925C5.825 4.025 6.88333 3.31233 8.1 2.787C9.31667 2.26233 10.6167 2 12 2C13.3833 2 14.6833 2.26233 15.9 2.787C17.1167 3.31233 18.175 4.025 19.075 4.925C19.975 5.825 20.6873 6.88333 21.212 8.1C21.7373 9.31667 22 10.6167 22 12C22 13.3833 21.7373 14.6833 21.212 15.9C20.6873 17.1167 19.975 18.175 19.075 19.075C18.175 19.975 17.1167 20.6873 15.9 21.212C14.6833 21.7373 13.3833 22 12 22Z"
+                                                          fill=""></path>
+                                                </svg>
+                                                (필수) 아래 내용을 확인했으며, 모두 동의합니다.
+                                            </p>
+                                        </div>
+                                        <div class="PaymentMethod-module_inform">
+                                            <div class="PaymentMethod-module_informHeader"><p
+                                                    class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
+                                                    style="color: rgb(43, 45, 47);">결제 전 반드시 확인해주세요!</p>
+                                            </div>
+                                            <span class="PaymentMethod-module_informBody">
+<span class="PaymentMethod-module_informBullet"></span>예약취소는 15분 전화상담  <span class="PaymentMethod-module_informTextOrange">1시간 전까지만 마이페이지에서 취소 가능</span>하며, 이후에는 취소 및 환불이 불가능합니다.
+<span class="PaymentMethod-module_informBullet"></span>예약날짜 및 시간변경은 상담 1시간 전까지만 가능하며, 로톡 고객센터로 문의주시면 됩니다.
+<span class="PaymentMethod-module_informBullet"></span>변호사 사정으로 상담을 하지 못한 경우에는 100% 환불해 드립니다.
+<span class="PaymentMethod-module_informBullet"></span>의뢰인 사정으로 상담을 하지 못한 경우 또는 상담이 이루어진 경우에는 환불해드리지 않습니다.
+<span class="PaymentMethod-module_informBullet"></span>로톡은 예약 및 결제 정보의 중개서비스 또는 통신판매중개 시스템을 제공할 뿐 통신판매의 당사자가 아니며, 변호사가 제공하는 법률상담의 내용과 질에 대해서 법적 책임이 없음에 동의합니다.
+<span class="PaymentMethod-module_informTextBold"><span class="PaymentMethod-module_informBullet"></span>변호사와의 법률상담에 관하여 다음에 동의합니다.</span>
   ・상담을 위해 작성한 이름과 상담요청내용, 전화번호가 변호사에게 제공됨에 동의합니다.
   ・상담료는 20분 영상상담당 변호사가 정한 금액 (원)에 따릅니다.
   ・의뢰인은 변호사에게 다음의 사항을 제외하고 법률적인 문제에 관해 상담을 의뢰할 수 있습니다.
@@ -252,45 +274,23 @@
     2. 대한민국의 법질서에 반하는 행위를 강요하는 사항
     3. 변호사의 품위를 저해할 우려가 있는 사항
     4. 기본적 인권 옹호에 관련된 변호사의 의무에 위반될 우려가 있는 사항
-<span class="PaymentMethod-module_informBullet__P-wKx"></span>의뢰인과 변호사는 서로의 명예를 해치거나 과장광고와 같은 서로의 동의를 얻지 아니한 약속을 다른사람에게 할 수 없으며 이로 인한 책임은 고의 또는 과실 있는 당사자가 부담합니다.
-<span class="PaymentMethod-module_informBullet__P-wKx"></span>의뢰인과 변호사는 상담과 관련된 기타 사항에 관하여는 일반 민법의 규정에 따라 권리와 의무를 부담합니다.
-<span class="PaymentMethod-module_informBullet__P-wKx"></span>의뢰인과 변호사는 법률상담에 관하여 위 사항에 서로 동의합니다.</span></div>
-                                        </div>
-                                        <div class="PaymentMethod-module_paymentButtonWrap__ggGL6">
-                                            <button class="PaymentMethod-module_paymentButton__jUrtE">결제하기</button>
-                                        </div>
+<span class="PaymentMethod-module_informBullet"></span>의뢰인과 변호사는 서로의 명예를 해치거나 과장광고와 같은 서로의 동의를 얻지 아니한 약속을 다른사람에게 할 수 없으며 이로 인한 책임은 고의 또는 과실 있는 당사자가 부담합니다.
+<span class="PaymentMethod-module_informBullet"></span>의뢰인과 변호사는 상담과 관련된 기타 사항에 관하여는 일반 민법의 규정에 따라 권리와 의무를 부담합니다.
+<span class="PaymentMethod-module_informBullet"></span>의뢰인과 변호사는 법률상담에 관하여 위 사항에 서로 동의합니다.</span></div>
+                                    </div>
+                                    <div class="PaymentMethod-module_paymentButtonWrap">
+                                        <button class="PaymentMethod-module_paymentButton">결제하기</button>
                                     </div>
                                 </div>
-                                <div id="couponDialogButton" coupon-select-dialog-button=""></div>
                             </div>
-<!--                        </lawtalk-next-payment-method>-->
-                    </div><!----></div><!----><!---->
-                <form name="advicePayForm" class="reservation-form hidden ng-pristine ng-valid"><input type="hidden"
-                                                                                                       name="cid"
-                                                                                                       ng-model="gaClientId"
-                                                                                                       value="911643572.1695033024"
-                                                                                                       autocomplete="off"
-                                                                                                       class="ng-pristine ng-untouched ng-valid ng-not-empty"><input
-                        type="text" name="method" ng-model="payment.method"
-                        class="ng-pristine ng-untouched ng-valid ng-not-empty"><input type="text" name="coupon"
-                                                                                      ng-model="advice.coupon.code"
-                                                                                      class="ng-pristine ng-untouched ng-valid ng-empty">
-                    <!----><input type="text" name="page" ng-model="additional.page" ng-if="additional.page"
-                                  class="ng-pristine ng-untouched ng-valid ng-not-empty"><!----><!----><input
-                            type="text" name="source" ng-model="additional.source" ng-if="additional.source"
-                            class="ng-pristine ng-untouched ng-valid ng-not-empty"><!----><!----><!----><input
-                            type="text" name="position" ng-model="additional.position" ng-if="additional.position"
-                            class="ng-pristine ng-untouched ng-valid ng-not-empty"><!----><!----><input type="text"
-                                                                                                        name="sc"
-                                                                                                        ng-model="additional.sc"
-                                                                                                        ng-if="additional.sc"
-                                                                                                        class="ng-pristine ng-untouched ng-valid ng-not-empty">
-                    <!----><!----><input type="text" name="sca" ng-model="additional.sca" ng-if="additional.sca"
-                                         class="ng-pristine ng-untouched ng-valid ng-not-empty"><!----><!---->
-                    <!----><input type="text" name="adid" ng-model="additional.adid" ng-if="additional.adid"
-                                  class="ng-pristine ng-untouched ng-valid ng-not-empty"><!----></form>
-            </div><!----></div>
+                        </div>
+                        <!--                        </lawtalk-next-payment-method>-->
+                    </div><!---->
+                </div><!---->
+            </div><!---->
+        </div>
     </div>
 </div>
 </body>
+<script src="reservation.js"></script>
 </html>
