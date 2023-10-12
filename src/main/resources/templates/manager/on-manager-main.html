@@ -6,7 +6,7 @@
   <title>관리자 페이지</title>
   <link rel="stylesheet" href="Manager.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css">
-</head>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 <body class="h-full">
 <div class="Web">
   <div class="flex-h-screen">
@@ -157,9 +157,9 @@
                     <div class="select-Menu">
                       <div class="select-Btn">
                         <span class="sBtn-Text"><strong>전체</strong></span>
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="filter">
-                          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.27 8.42a1.076 1.076 0 0 1 1.587-.13L12 14.832l7.143-6.544a1.076 1.076 0 0 1 1.586.13 1.26 1.26 0 0 1-.122 1.696L12 18l-8.607-7.885A1.26 1.26 0 0 1 3.27 8.42Z"></path>
-                        </svg>
+                        <!--                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="filter">-->
+                        <!--                          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.27 8.42a1.076 1.076 0 0 1 1.587-.13L12 14.832l7.143-6.544a1.076 1.076 0 0 1 1.586.13 1.26 1.26 0 0 1-.122 1.696L12 18l-8.607-7.885A1.26 1.26 0 0 1 3.27 8.42Z"></path>-->
+                        <!--                        </svg>-->
                         <i class="bx bx-chevron-down"></i>
                       </div>
 
@@ -193,39 +193,45 @@
                 </div>
               </div>
               <div class="memberTop-bottom">
-                <div class="member-name"><strong>작성자</strong></div>
+                <div style="width: 192px"   class="member-name"><strong>작성자</strong></div>
                 <div style="width: 96px;" class="member-name"><strong>구분</strong></div>
                 <div style="width: 90px;" class="member-name"><strong>작성일</strong></div>
                 <div style="width: 200px;" class="member-name"><strong>제목</strong></div>
               </div>
-<!--              작성글 리스트-->
+              <!--              작성글 리스트-->
               <div class="memberTop-bottom">
                 <div class="member-name">박지민</div>
                 <div style="width: 96px;" class="member-name">변호사 상담글</div>
                 <div style="width: 90px;" class="member-name">2023-09-18</div>
                 <div style="width: 200px;" class="member-name">음주운전 초범..</div>
-              </div>
-<!--      여기까지-->
-<!--               작성글 리스트-->
-                <div class="memberTop-bottom">
-                  <div class="member-name">양현</div>
-                  <div style="width: 96px;" class="member-name">변호사 상담글</div>
-                  <div style="width: 90px;" class="member-name">2023-09-18</div>
-                  <div style="width: 200px;" class="member-name">소매치기를 당..</div>
-
+                <div style="width: 200px;" class="member-name">
+                  <i class='bx bx-trash bx-sm'></i>
                 </div>
-<!--                여기까지-->
               </div>
-            </div>
-            <!--                        멤버 목록-->
-            <div class="member-bottom">
+              <!--      여기까지-->
+              <!--               작성글 리스트-->
+              <div class="memberTop-bottom">
+                <div class="member-name">양현</div>
+                <div style="width: 96px;" class="member-name">변호사 상담글</div>
+                <div style="width: 90px;" class="member-name">2023-09-18</div>
+                <div style="width: 200px;" class="member-name">소매치기를 당..</div>
+                <div style="width: 200px;" class="member-name">
+                  <i class='bx bx-trash bx-sm'></i>
+                </div>
 
+              </div>
+              <!--                여기까지-->
             </div>
+          </div>
+          <!--                        멤버 목록-->
+          <div class="member-bottom">
+
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>
 <script src="Manager.js"></script>
 </body>
