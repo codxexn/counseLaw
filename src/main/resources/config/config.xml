@@ -3,5 +3,26 @@
 <configuration>
     <typeAliases>
         <typeAlias type="com.app.counselawb.domain.vo.MemberVO" alias="memberVO"/>
+        <typeAlias type="com.app.counselawb.domain.vo.ConsultingCaseImgVO" alias="consultingCaseImgVO"/>
+        <typeAlias type="com.app.counselawb.domain.vo.ConsultingCaseReplyVO" alias="consultingCaseReplyVO"/>
+        <typeAlias type="com.app.counselawb.domain.vo.ConsultingCaseVO" alias="consultingCaseVO"/>
+        <typeAlias type="com.app.counselawb.domain.vo.ConsultingReviewVO" alias="consultingReviewVO"/>
+        <typeAlias type="com.app.counselawb.domain.vo.CouponAdminVO" alias="couponAdminVO"/>
+        <typeAlias type="com.app.counselawb.domain.vo.CouponVO" alias="couponVO"/>
+        <typeAlias type="com.app.counselawb.domain.vo.ExperienceVO" alias="experienceVO"/>
+        <typeAlias type="com.app.counselawb.domain.vo.FieldVO" alias="fieldVO"/>
+        <typeAlias type="com.app.counselawb.domain.vo.LawyerFieldVO" alias="lawyerFieldVO"/>
+        <typeAlias type="com.app.counselawb.domain.vo.LawyerLikeVO" alias="lawyerLikeVO"/>
+        <typeAlias type="com.app.counselawb.domain.vo.LawyerLocationVO" alias="lawyerLocationVO"/>
+        <typeAlias type="com.app.counselawb.domain.vo.LegalGuideImgVO" alias="legalGuideImgVO"/>
+        <typeAlias type="com.app.counselawb.domain.vo.LegalGuideVO" alias="legalGuideVO"/>
+        <typeAlias type="com.app.counselawb.domain.vo.LocationVO" alias="locationVO"/>
+        <typeAlias type="com.app.counselawb.domain.vo.MemberCouponVO" alias="memberCouponVO"/>
+        <typeAlias type="com.app.counselawb.domain.vo.NoticeVO" alias="noticeVO"/>
+        <typeAlias type="com.app.counselawb.domain.vo.PaymentVO" alias="paymentVO"/>
+        <typeAlias type="com.app.counselawb.domain.vo.ReservationVO" alias="reservationVO"/>
+        <typeAlias type="com.app.counselawb.domain.vo.SolutionCaseImgVO" alias="solutionCaseImgVO"/>
+        <typeAlias type="com.app.counselawb.domain.vo.SolutionCaseVO" alias="solutionCaseVO"/>
+        <typeAlias type="com.app.counselawb.domain.vo.LawyerVO" alias="lawyerVO"/>
     </typeAliases>
 </configuration>
