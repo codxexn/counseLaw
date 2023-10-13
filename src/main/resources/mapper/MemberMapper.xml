@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.counselawb.mapper.MemberMapper">
+    <select id="selectByLogin" resultType="memberVO">
+        SELECT MEMBER_ID, MEMBER_EMAIL, MEMBER_PASSWORD, MEMBER_NAME, MEMBER_STATE, MEMBER_PHONE, MEMBER_LOGIN_CODE, CREATE_DATE, UPDATE_DATE
+        FROM TBL_MEMBER
+        WHERE MEMBER_EMAIL = #{memberEmail} AND MEMBER_PASSWORD = #{memberPassword}
+    </select>
+</mapper>
