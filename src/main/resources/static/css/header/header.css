@@ -5,7 +5,6 @@ p {
 
 .headerWrapper {
     background: #fff;
-    position: fixed;
     top: 0;
     transition: background .25s ease;
     width: 100%;

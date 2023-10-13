@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="my-header-head">
     <meta charset="UTF-8">
     <title>카운슬로우 - 내 손 안의 법률상담사</title>
     <link rel="stylesheet" type="text/css"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"/>
-    <link rel="stylesheet" href="../defaultSetting.css">
-    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" th:href="@{/css/header/header.css}">
+    <link rel="stylesheet" th:href="@{/css/defaultSetting.css}">
 </head>
 <body>
-<div class="headerWrapper">
+<div class="headerWrapper"  th:fragment="my-header">
     <div class="headerInnerWrapper">
         <header class="headerModule">
             <div class="headerLeft">
                 <div class="headerLogoIcon">
-                    <img class="logoImage" src="./counseLawLogo.png" alt="">
+                    <img class="logoImage" src="/image/header/counseLawLogo.png" alt="">
                 </div>
                 <div class="headerSearchBarWrapper">
                     <div class="searchInputWrapper searchBarBorder">
-                        <img class="searchInputIcon searchBarBorder" src="./searchIcon.png">
+                        <img class="searchInputIcon searchBarBorder" src="/image/header/searchIcon.png">
                         <input type="text" placeholder="어떤 문제가 있으신가요?"
                                class="searchInput searchBarBorder"
                                value="">
                         <button class="deleteAllButton searchBarBorder">
-                            <img class="deleteAllButtonImage" src="./deleteAllButton.png" alt="" srcset="">
+                            <img class="deleteAllButtonImage" src="/image/header/deleteAllButton.png" alt="" srcset="">
                         </button>
                     </div>
                 </div>
@@ -138,5 +138,5 @@
 </div>
 
 </body>
-<script src="header.js"></script>
+<script src="/js/header/header.js"></script>
 </html>
