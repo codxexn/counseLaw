@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="my-footer-head">
     <meta charset="UTF-8">
     <title>카운슬로우 - 내 손 안의 법률상담사</title>
     <link rel="stylesheet" type="text/css"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"/>
-    <link rel="stylesheet" href="../defaultSetting.css">
-    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" th:href="@{/css/defaultSetting.css}">
+    <link rel="stylesheet" th:href="@{/css/footer/footer.css}">
 </head>
 <body>
-<footer class="footerWrapper">
+<footer class="footerWrapper" th:fragment="my-footer">
     <div class="inner-footer">
         <div class="lt-footer-copyright-wrap-mobile lt-mobile">
                 <div class="footer-logo-wrap">
-                    <img class="footer-logo-image-black" src="./counseLawLogoBlack.png" alt="" srcset="">
+                    <img class="footer-logo-image-black" src="/image/footer/counseLawLogoBlack.png" alt="" srcset="">
                     <div class="copyright">(C) Law&amp;Company Co., Ltd. ALL RIGHTS RESERVED.</div>
                 </div>
         </div>
