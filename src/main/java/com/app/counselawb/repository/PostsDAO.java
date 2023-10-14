@@ -14,6 +14,9 @@ import java.util.List;
 public class PostsDAO {
     private final PostsMapper postsMapper;
 
+    // 모든 포스트 조회
+    public List<PostsDTO> findByAllPosts() { return postsMapper.selectByAllPosts(); }
+
     // 상담 사례 조회
     public List<PostsDTO> findByConsultingCasePosts() { return postsMapper.selectByConsultingCasePosts(); }
 

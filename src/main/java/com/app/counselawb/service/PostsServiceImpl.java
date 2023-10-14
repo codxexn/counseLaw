@@ -18,6 +18,9 @@ public class PostsServiceImpl implements PostsService {
     private final PostsDAO postsDAO;
 
     @Override
+    public List<PostsDTO> findByAllPosts() { return  postsDAO.findByAllPosts(); }
+
+    @Override
     public List<PostsDTO> findByConsultingCasePosts() {
         return postsDAO.findByConsultingCasePosts();
     }

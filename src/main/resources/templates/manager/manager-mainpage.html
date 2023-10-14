@@ -230,12 +230,32 @@
                                 <div style="width: 200px;" class="member-name"><strong>제목</strong></div>
                             </div>
                             <div>
+                                <div class="memberTop-bottom" th:if="${#strings.equals(selectedOption, 'selectAll')}"
+                                     th:each="post : ${selectAllPosts}">
+                                    <!--                                    <div th:if="${#strings.equals(selectedOption, 'legalGuide')}">-->
+                                    <div style="width: 192px" class="posts" th:text="${post.postAuthorName}">한땡땡</div>
+                                    <div style="width: 96px;" class="posts">
+                                        <span th:if="${#strings.equals(post.postType, '상담 사례')}">상담 사례</span>
+                                        <span th:if="${#strings.equals(post.postType, '해결 사례')}">해결 사례</span>
+                                        <span th:if="${#strings.equals(post.postType, '법률 가이드')}">법률 가이드</span>
+                                    </div>
+                                    <div style="width: 127px;" class="posts"
+                                         th:text="${#temporals.format(post.postCreateDate , 'yyyy-MM-dd HH:mm')}">
+                                        2023
+                                    </div>
+                                    <div style="width: 200px;" class="posts"
+                                         th:text="${post.postTitle}">테스트제목1
+                                    </div>
+                                    <button>삭제</button>
+                                </div>
+                            </div>
+                            <div>
                                 <div class="memberTop-bottom" th:if="${#strings.equals(selectedOption, 'legalGuide')}"
                                      th:each="legalGuidePost : ${legalGuides}">
                                     <!--                                    <div th:if="${#strings.equals(selectedOption, 'legalGuide')}">-->
                                     <div style="width: 192px" class="posts" th:text="${legalGuidePost.lawyerName}">한땡땡
                                     </div>
-                                    <div style="width: 96px;" class="posts">법률 가이드</div>
+                                    <div style="width: 96px;" class="posts" th:text="|법률 가이드|">법률 가이드</div>
                                     <div style="width: 127px;" class="posts"
                                          th:text="${#temporals.format(legalGuidePost.createDate, 'yyyy-MM-dd HH:mm')}">
                                         2023
@@ -254,7 +274,7 @@
                                     <div style="width: 192px" class="posts"
                                          th:text="${solutionCasePost.lawyerName}">한땡땡
                                     </div>
-                                    <div style="width: 96px;" class="posts">해결 사례</div>
+                                    <div style="width: 96px;" class="posts" th:text="|해결 사례|">해결 사례</div>
                                     <div style="width: 127px;" class="posts"
                                          th:text="${#temporals.format(solutionCasePost.createDate, 'yyyy-MM-dd HH:mm')}">
                                         2023
@@ -273,7 +293,7 @@
                                     <div style="width: 192px" class="posts"
                                          th:text="${consultingCasePost.memberName}">한땡땡
                                     </div>
-                                    <div style="width: 96px;" class="posts">해결 사례</div>
+                                    <div style="width: 96px;" class="posts" th:text="|상담 사례|">상담 사례</div>
                                     <div style="width: 127px;" class="posts"
                                          th:text="${#temporals.format(consultingCasePost.createDate, 'yyyy-MM-dd HH:mm')}">
                                         2023
@@ -292,7 +312,7 @@
                             <!--                                    <div class="member-name" th:text="${resolutionCase.category}">해결사례</div>-->
                             <!--                                </div>-->
                             <!--                        멤버 목록-->
-                            <div class="member-bottom" th:if="${legalGuides == null && solutionCases == null && consultingCases == null}">
+                            <div class="member-bottom" th:if="${selectAllPosts == null &&   legalGuides == null && solutionCases == null && consultingCases == null}">
                                 <svg width="53" height="56" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M27.516 1.62c-6.654-4.436-21.823.626-21.821 10.475 0 5.567 1.956 10.31 3.889 14.205-1.403-.463-2.853-1.072-3.8-2.095-.466-.502-1.151-1.115-1.802-1.35-.993-.358-2.035.135-2.572.923-1.212 1.776-1.071 2.717-.403 4.643 4.364 5.647 8.167 5.53 11.275 5.435.286-.009.566-.017.84-.021.897 3.13 2.706 6.042 4.099 8.965 1.617 5.694 9.313 4.544 12.913 1.697 2.3-1.819 5.187-2.36 8.117-1.475 2.303.419 3.88-.68 5.236-1.624 1.031-.72 1.934-1.348 2.93-1.149 1.19.238 2.511.191 2.718-1.307.521-3.781-8.391-5.535-11.284-7.062 4.98-2.883 7.416-7.67 6.968-10.861-.31-2.2-2.168-2.967-4.076-1.773-2.206 1.38-2.758 3.32-5.42 4.348 1.822-6.821 3.386-14.515-7.807-21.975Z"
                                           fill="#9D8DFF"></path>

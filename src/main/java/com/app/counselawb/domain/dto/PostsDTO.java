@@ -23,6 +23,10 @@ public class PostsDTO {
     private String caseTitle;
     private String caseContent;
     private LocalDateTime createDate;
-    private LocalDateTime updateDate;
-
+    private String postType;
+    private Long postId;
+    private String postTitle;
+    private String postContent;
+    private LocalDateTime postCreateDate;
+    private String postAuthorName;
 }

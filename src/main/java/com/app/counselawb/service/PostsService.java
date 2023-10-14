@@ -6,6 +6,8 @@ import com.app.counselawb.domain.dto.PostsDTO;
 import java.util.List;
 
 public interface PostsService {
+    // 모든 포스트 조회
+    public List<PostsDTO> findByAllPosts();
 
     // 상담 사례
     public List<PostsDTO> findByConsultingCasePosts();

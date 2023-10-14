@@ -28,10 +28,10 @@ public class ManageController {
     public String goToManageMain(@RequestParam(name="selectedOption", defaultValue = "selectAll") String selectedOption, Model model) {
         model.addAttribute("selectedOption", selectedOption);
 
-        if("legalGuide".equals(selectedOption)) {
-            // 법률 가이드 정보 조회
-            List<PostsDTO> legalGuides = postsService.findByLegalGuidePosts();
-            model.addAttribute("legalGuides", legalGuides);
+
+        if("selectAll".equals(selectedOption)) {
+            List<PostsDTO> selectAllPosts = postsService.findByAllPosts();
+            model.addAttribute("selectAllPosts", selectAllPosts);
         } else if("solutionCase".equals(selectedOption)) {
             // 해결 사례 조회
             List<PostsDTO> solutionCases = postsService.findBySolutionCasePosts();
@@ -40,6 +40,10 @@ public class ManageController {
             // 상담 사례 조회
             List<PostsDTO> consultingCases = postsService.findByConsultingCasePosts();
             model.addAttribute("consultingCases",consultingCases);
+        } else if("legalGuide".equals(selectedOption)) {
+            // 법률 가이드 정보 조회
+            List<PostsDTO> legalGuides = postsService.findByLegalGuidePosts();
+            model.addAttribute("legalGuides", legalGuides);
         }
 
 
