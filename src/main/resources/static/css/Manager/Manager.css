@@ -489,6 +489,26 @@ i.bx {
     /*background-color: #f6f6f6;*/
 }
 
+.selectOption {
+    font-size: 14px;
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,.08);
+    overflow-y: scroll;
+    top: 148px;
+    width: 90px;
+}
+
+.selectButton {
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,.08);
+    top: 148px;
+    width: 50px;
+}
+
 
 .select-Menu .options {
     font-size: 14px;
@@ -581,9 +601,10 @@ ol, ul {
     column-gap: 24px;
     align-items: center;
     display: flex;
-    margin-top: 20px;
+    margin-top: 16px;
     border-color: #e6e6e7;
 }
+
 .member-name {
     width: 176px;
     justify-content: flex-start;
@@ -596,6 +617,21 @@ ol, ul {
     color: #1d1d1e;
     fill: #1d1d1e;
 }
+
+.posts {
+    width: 176px;
+    justify-content: flex-start;
+    align-items: center;
+    flex-shrink: 0;
+    display: flex;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 18px;
+    color: #1d1d1e;
+    fill: #1d1d1e;
+}
+
+
 .member-bottom {
     justify-content: center;
     flex-direction: column;
