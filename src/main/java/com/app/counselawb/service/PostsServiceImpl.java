@@ -16,6 +16,17 @@ import java.util.List;
 @Slf4j
 public class PostsServiceImpl implements PostsService {
     private final PostsDAO postsDAO;
+
+    @Override
+    public List<PostsDTO> findByConsultingCasePosts() {
+        return postsDAO.findByConsultingCasePosts();
+    }
+
+    @Override
+    public List<PostsDTO> findBySolutionCasePosts() {
+        return postsDAO.findBySolutionCasePosts();
+    }
+
     @Override
     public List<PostsDTO> findByLegalGuidePosts() {
         return postsDAO.findByLegalGuidePosts();

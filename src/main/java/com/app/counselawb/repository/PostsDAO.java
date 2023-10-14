@@ -14,6 +14,12 @@ import java.util.List;
 public class PostsDAO {
     private final PostsMapper postsMapper;
 
+    // 상담 사례 조회
+    public List<PostsDTO> findByConsultingCasePosts() { return postsMapper.selectByConsultingCasePosts(); }
+
+    // 해결 사례 조회
+    public List<PostsDTO> findBySolutionCasePosts() { return postsMapper.selectBySolutionCasePosts(); }
+
     // 법률 가이드 조회
     public List<PostsDTO> findByLegalGuidePosts() {
         return postsMapper.selectByLegalGuidePosts();

@@ -1,10 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.counselawb.mapper.PostsMapper">
+    <select id="selectByConsultingCasePosts" resultType="postsDTO">
+        <![CDATA[
+        SELECT CONSULTING_CASE_ID, CASE_TITLE, CASE_CONTENT, CREATE_DATE, MEMBER_NAME
+        FROM (
+                 SELECT CC.CONSULTING_CASE_ID, CC.CASE_TITLE, CC.CASE_CONTENT, CC.CREATE_DATE, M.MEMBER_NAME
+                 FROM TBL_CONSULTING_CASE CC
+                          JOIN TBL_MEMBER M ON M.MEMBER_ID = CC.MEMBER_ID
+             )
+        ORDER BY CONSULTING_CASE_ID DESC
+        ]]>
+    </select>
+    
+    <select id="selectBySolutionCasePosts" resultType="postsDTO">
+        <![CDATA[
+        SELECT SOLUTION_CASE_ID, SOLUTION_CASE_TITLE, SOLUTION_CASE_CONTENT, CREATE_DATE, LAWYER_NAME
+        FROM (
+                SELECT SC.SOLUTION_CASE_ID, SC.SOLUTION_CASE_TITLE, SC.SOLUTION_CASE_CONTENT, SC.CREATE_DATE, L.LAWYER_NAME
+                FROM TBL_SOLUTION_CASE SC
+                JOIN TBL_LAWYER L ON L.LAWYER_ID = SC.LAWYER_ID
+             )
+        ORDER BY SOLUTION_CASE_ID DESC
+        ]]>
+    </select>
+    
     <select id="selectByLegalGuidePosts" resultType="postsDTO">
-        SELECT LG.LEGAL_GUIDE_ID, LG.LEGAL_GUIDE_TITLE, LG.LEGAL_GUIDE_CONTENT, LG.CREATE_DATE, L.LAWYER_NAME
-        FROM TBL_LEGAL_GUIDE LG
-        JOIN TBL_LAWYER L ON L.LAWYER_ID = LG.LAWYER_ID
-        ORDER BY LG.CREATE_DATE DESC;
+        <![CDATA[
+        SELECT LEGAL_GUIDE_ID, LEGAL_GUIDE_TITLE, LEGAL_GUIDE_CONTENT, CREATE_DATE, LAWYER_NAME
+        FROM (
+                 SELECT LG.LEGAL_GUIDE_ID, LG.LEGAL_GUIDE_TITLE, LG.LEGAL_GUIDE_CONTENT, LG.CREATE_DATE, L.LAWYER_NAME
+                 FROM TBL_LEGAL_GUIDE LG
+                 JOIN TBL_LAWYER L ON L.LAWYER_ID = LG.LAWYER_ID
+             )
+        ORDER BY LEGAL_GUIDE_ID DESC
+        ]]>
     </select>
 </mapper>

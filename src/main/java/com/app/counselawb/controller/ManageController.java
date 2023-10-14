@@ -21,19 +21,29 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/manager/*")
 public class ManageController {
-    private PostsService postsService;
+    private final PostsService postsService;
 
     @GetMapping("manager-mainpage")
-    public String goToManageMain(@RequestParam(name="selectedOption") String selectedOption, Model model) {
+//    public void goTomanagePage() {;}
+    public String goToManageMain(@RequestParam(name="selectedOption", defaultValue = "selectAll") String selectedOption, Model model) {
         model.addAttribute("selectedOption", selectedOption);
 
-        if("법률 가이드".equals(selectedOption)) {
+        if("legalGuide".equals(selectedOption)) {
             // 법률 가이드 정보 조회
             List<PostsDTO> legalGuides = postsService.findByLegalGuidePosts();
             model.addAttribute("legalGuides", legalGuides);
+        } else if("solutionCase".equals(selectedOption)) {
+            // 해결 사례 조회
+            List<PostsDTO> solutionCases = postsService.findBySolutionCasePosts();
+            model.addAttribute("solutionCases", solutionCases);
+        } else if("consultingCase".equals(selectedOption)) {
+            // 상담 사례 조회
+            List<PostsDTO> consultingCases = postsService.findByConsultingCasePosts();
+            model.addAttribute("consultingCases",consultingCases);
         }
 
-        return "manager-mainpage";
+
+        return "/manager/manager-mainpage";
     }
 
 }

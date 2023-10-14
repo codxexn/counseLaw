@@ -11,7 +11,28 @@
 <body>
 <div class="headerWrapper"  th:fragment="my-header">
     <div class="headerInnerWrapper">
-        <header class="headerModule">
+        <header class="headerModule" th:if="${session.member == null}">
+            <div class="headerLeft">
+                <div class="headerLogoIcon">
+                    <img class="logoImage" src="/image/header/counseLawLogo.png" alt="">
+                </div>
+                <div class="headerSearchBarWrapper">
+                    <div class="searchInputWrapper searchBarBorder">
+                        <img class="searchInputIcon searchBarBorder" src="/image/header/searchIcon.png">
+                        <input type="text" placeholder="어떤 문제가 있으신가요?"
+                               class="searchInput searchBarBorder"
+                               value="">
+                        <button class="deleteAllButton searchBarBorder">
+                            <img class="deleteAllButtonImage" src="/image/header/deleteAllButton.png" alt="" srcset="">
+                        </button>
+                    </div>
+                </div>
+            </div>
+<!--            로그인 회원가입-->
+            <a href=""><div class="headerRight">
+                <p class="textSize14 textWeight400 textHeight100 accountButton textInherit" style="color: rgb(122, 130, 135);">로그인/가입</p></div></a>
+        </header>
+        <header class="headerModule" th:if="${session.member != null}">
             <div class="headerLeft">
                 <div class="headerLogoIcon">
                     <img class="logoImage" src="/image/header/counseLawLogo.png" alt="">

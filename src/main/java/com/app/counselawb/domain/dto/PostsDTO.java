@@ -3,6 +3,7 @@ package com.app.counselawb.domain.dto;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Component
@@ -19,8 +20,8 @@ public class PostsDTO {
     private String legalGuideContent;
     private String solutionCaseTitle;
     private String solutionCaseContent;
-    private String consultingCaseTitle;
-    private String consultingCaseContent;
+    private String caseTitle;
+    private String caseContent;
     private LocalDateTime createDate;
     private LocalDateTime updateDate;
 
