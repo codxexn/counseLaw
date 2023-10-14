@@ -1,6 +1,7 @@
 package com.app.counselawb.controller;
 
 
+import com.app.counselawb.domain.vo.LawyerVO;
 import com.app.counselawb.service.LawyerService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,9 +22,18 @@ public class LawyerMypageController {
     @GetMapping("mypage-lawyer")
     public String GoToMypageLawyer(HttpSession session, Model model) {
         if (session.getAttribute("lawyer") == null) {
-            return "/login/login";
+            return "/client-login/client-login";
         }
-        return "";
+        LawyerVO currentLawyer = (LawyerVO) session.getAttribute("lawyer");
+        model.addAttribute("currentLawyer", currentLawyer);
+        Long lawyerId = currentLawyer.getLawyerId();
+        int scCount = lawyerService.findSCTotalByLawyerId(lawyerId);
+        int lgCount = lawyerService.findLGTotalByLawyerId(lawyerId);
+        int favCount = lawyerService.findFavTotalByLawyerId(lawyerId);
+        model.addAttribute("scCount", scCount);
+        model.addAttribute("lgCount", lgCount);
+        model.addAttribute("favCount", favCount);
+        return "/mypage/mypage-lawyer";
     }
 
 }

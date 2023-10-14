@@ -3,7 +3,33 @@
 <mapper namespace="com.app.counselawb.mapper.LawyerMapper">
     <select id="selectByLawyerId" resultType="lawyerVO">
         SELECT LAWYER_ID, LAWYER_EMAIL, LAWYER_PASSWORD, LAWYER_NAME, LAWYER_STATE, LAWYER_PHONE, LAWYER_COMPANY, LAWYER_ADDRESS, LAWYER_QUALIFICATION, LAWYER_EDUCATION, LAWYER_IMAGE, CALL_PRICE, VIDEO_PRICE, VISIT_PRICE
-        FROM TBL_LAWYER
+        FROM TBL_LAWYER L
+        WHERE LAWYER_ID = #{lawyerId}
+    </select>
+
+    <select id="selectSCTotalByLawyerId" resultType="int">
+        SELECT COUNT(SOLUTION_CASE_ID)
+        FROM TBL_SOLUTION_CASE
+        WHERE LAWYER_ID = #{lawyerId}
+    </select>
+
+    <select id="selectLGTotalByLawyerId" resultType="int">
+        SELECT COUNT(LEGAL_GUIDE_ID)
+        FROM TBL_LEGAL_GUIDE
+        WHERE LAWYER_ID = #{lawyerId}
+    </select>
+
+    <select id="selectFavTotalByLawyerId" resultType="int">
+        SELECT COUNT(LAWYER_LIKE_ID)
+        FROM TBL_LAWYER_LIKE
+        WHERE LAWYER_ID = #{lawyerId}
+    </select>
+
+    <select id="selectFieldsByLawyerId" resultType="lawyerFieldDTO">
+        SELECT LF.LAWYER_FIELD_ID, LF.FIELD_ID, LF.LAWYER_ID, F.FIELD_TITLE, F.FIELD_DESCRIPTION
+        FROM TBL_LAWYER_FIELD LF
+        JOIN TBL_FIELD F
+        ON F.FIELD_ID = LF.FIELD_ID
         WHERE LAWYER_ID = #{lawyerId}
     </select>
 
