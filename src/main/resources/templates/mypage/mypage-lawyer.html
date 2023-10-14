@@ -41,11 +41,11 @@
             <div class="MypageCard">
                 <div class="MypageProfilewrapper">
                     <div class="mypage-image-wrapper">
-                        <img th:src="${session.currentLawyer.lawyerImage}" alt="프로필 사진" class="mypage-profile-image">
+                        <img th:src="${currentLawyer.lawyerImage}" alt="프로필 사진" class="mypage-profile-image">
                     </div>
                     <div class="mypage-profile-desc-wrapper">
                         <div class="mypage-profile-name">
-                            <span th:text="${session.currentLawyer.lawyerName}" class="mypage-name"></span>&nbsp;변호사님
+                            <span th:text="${currentLawyer.lawyerName}" class="mypage-name"></span>&nbsp;변호사님
                         </div>
                         <div class="mypage-profile-desc">
                             <span class="mypage-profile-ad">카운슬로우</span>
@@ -75,19 +75,19 @@
                     <div class="MypageBox-Title">내 정보</div>
                     <div class="MypageBox-MenuItem-Info">
                         <div class="MypageBox-MenuItemLabel">내 분야</div>
-                        <div class="MypageBox-MenuItemText">음주/무면허, 교통사고/도주, 횡령/배임, 사기/공갈</div>
+                        <div th:text="${fields}" class="MypageBox-MenuItemText"></div>
                     </div>
                     <div class="MypageBox-MenuItem-Info">
                         <div class="MypageBox-MenuItemLabel">내 주소</div>
-                        <div class="MypageBox-MenuItemText">서울시 강남구 역삼동 KIA별관 13층 J클래스</div>
+                        <div th:text="${currentLawyer.lawyerAddress}" class="MypageBox-MenuItemText"></div>
                     </div>
                     <div class="MypageBox-MenuItem-Info">
                         <div class="MypageBox-MenuItemLabel">소속 회사</div>
-                        <div class="MypageBox-MenuItemText">DS 법률사무소</div>
+                        <div th:text="${currentLawyer.lawyerCompany}" class="MypageBox-MenuItemText"></div>
                     </div>
                     <div class="MypageBox-MenuItem-Info">
                         <div class="MypageBox-MenuItemLabel">학력</div>
-                        <div class="MypageBox-MenuItemText">서울대학교 로스쿨 졸업</div>
+                        <div th:text="${currentLawyer.lawyerEducation}" class="MypageBox-MenuItemText"></div>
                     </div>
                 </div>
             </div>
@@ -96,19 +96,19 @@
                     <div class="MypageBox-Title">내 상담내역</div>
                     <a href="" class="MypageBox-MenuItem">
                         <div class="MypageBox-MenuItemLabel">15분 전화상담</div>
-                        <div class="MypageBox-MenuItemCount">0</div>
+                        <div th:text="${phoneCount}" class="MypageBox-MenuItemCount"></div>
                     </a>
                     <a href="" class="MypageBox-MenuItem">
                         <div class="MypageBox-MenuItemLabel">20분 영상상담</div>
-                        <div class="MypageBox-MenuItemCount">0</div>
+                        <div th:text="${videoCount}" class="MypageBox-MenuItemCount"></div>
                     </a>
                     <a href="" class="MypageBox-MenuItem">
                         <div class="MypageBox-MenuItemLabel">30분 방문상담</div>
-                        <div class="MypageBox-MenuItemCount">0</div>
+                        <div th:text="${visitCount}" class="MypageBox-MenuItemCount"></div>
                     </a>
                     <a href="" class="MypageBox-MenuItem">
                         <div class="MypageBox-MenuItemLabel">내 상담사례</div>
-                        <div class="MypageBox-MenuItemCount">0</div>
+                        <div th:text="${replyCount}" class="MypageBox-MenuItemCount"></div>
                     </a>
                 </div>
             </div>

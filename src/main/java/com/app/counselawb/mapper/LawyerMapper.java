@@ -26,4 +26,16 @@ public interface LawyerMapper {
     // 변호사 id로 분야들 조회
     public List<LawyerFieldDTO> selectFieldsByLawyerId(Long lawyerId);
 
+    // 전화 상담 횟수 조회
+    public int selectPhoneCountByLawyerId(Long lawyerId);
+
+    // 영상 상담 횟수 조회
+    public int selectVideoCountByLawyerId(Long lawyerId);
+
+    // 방문 상담 횟수 조회
+    public int selectVisitCountByLawyerId(Long lawyerId);
+
+    // 상담 사례 답글 단 횟수 조회
+    public int selectReplyCountByLawyerId(Long lawyerId);
+
 }

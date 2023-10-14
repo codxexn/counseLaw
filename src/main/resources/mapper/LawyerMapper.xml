@@ -33,4 +33,28 @@
         WHERE LAWYER_ID = #{lawyerId}
     </select>
 
+    <select id="selectPhoneCountByLawyerId" resultType="int">
+        SELECT COUNT(RESERVATION_ID)
+        FROM TBL_RESERVATION
+        WHERE LAWYER_ID = #{lawyerId} AND CONSULTING_TYPE = 'PHONE'
+    </select>
+
+    <select id="selectVideoCountByLawyerId" resultType="int">
+        SELECT COUNT(RESERVATION_ID)
+        FROM TBL_RESERVATION
+        WHERE LAWYER_ID = #{lawyerId} AND CONSULTING_TYPE = 'VIDEO'
+    </select>
+
+    <select id="selectVisitCountByLawyerId" resultType="int">
+        SELECT COUNT(RESERVATION_ID)
+        FROM TBL_RESERVATION
+        WHERE LAWYER_ID = #{lawyerId} AND CONSULTING_TYPE = 'VISIT'
+    </select>
+
+    <select id="selectReplyCountByLawyerId" resultType="int">
+        SELECT COUNT(CONSULTING_CASE_REPLY_ID)
+        FROM TBL_CONSULTING_CASE_REPLY
+        WHERE LAWYER_ID = #{lawyerId}
+    </select>
+
 </mapper>

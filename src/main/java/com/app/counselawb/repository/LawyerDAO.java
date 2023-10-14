@@ -42,4 +42,24 @@ public class LawyerDAO {
     public List<LawyerFieldDTO> readFieldsByLawyerId(Long lawyerId){
         return lawyerMapper.selectFieldsByLawyerId(lawyerId);
     }
+
+    // 전화 상담 횟수 조회
+    public int readPhoneCountByLawyerId(Long lawyerId){
+        return lawyerMapper.selectPhoneCountByLawyerId(lawyerId);
+    }
+
+    // 영상 상담 횟수 조회
+    public int readVideoCountByLawyerId(Long lawyerId){
+        return lawyerMapper.selectVideoCountByLawyerId(lawyerId);
+    }
+
+    // 방문 상담 횟수 조회
+    public int readVisitCountByLawyerId(Long lawyerId){
+        return lawyerMapper.selectVisitCountByLawyerId(lawyerId);
+    }
+
+    // 상담 사례 답글 단 횟수 조회
+    public int readReplyCountByLawyerId(Long lawyerId){
+        return lawyerMapper.selectReplyCountByLawyerId(lawyerId);
+    }
 }

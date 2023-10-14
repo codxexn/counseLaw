@@ -42,4 +42,24 @@ public class LawyerServiceImpl implements LawyerService {
     public List<LawyerFieldDTO> findFieldsByLawyerId(Long lawyerId) {
         return lawyerDAO.readFieldsByLawyerId(lawyerId);
     }
+
+    @Override
+    public int findPhoneCountByLawyerId(Long lawyerId) {
+        return lawyerDAO.readPhoneCountByLawyerId(lawyerId);
+    }
+
+    @Override
+    public int findVideoCountByLawyerId(Long lawyerId) {
+        return lawyerDAO.readVideoCountByLawyerId(lawyerId);
+    }
+
+    @Override
+    public int findVisitCountByLawyerId(Long lawyerId) {
+        return lawyerDAO.readVisitCountByLawyerId(lawyerId);
+    }
+
+    @Override
+    public int findReplyCountByLawyerId(Long lawyerId) {
+        return lawyerDAO.readReplyCountByLawyerId(lawyerId);
+    }
 }
