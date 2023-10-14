@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.counselawb.mapper.LawyerMapper">
+    <select id="selectByLawyerId" resultType="lawyerVO">
+        SELECT LAWYER_ID, LAWYER_EMAIL, LAWYER_PASSWORD, LAWYER_NAME, LAWYER_STATE, LAWYER_PHONE, LAWYER_COMPANY, LAWYER_ADDRESS, LAWYER_QUALIFICATION, LAWYER_EDUCATION, LAWYER_IMAGE, CALL_PRICE, VIDEO_PRICE, VISIT_PRICE
+        FROM TBL_LAWYER
+        WHERE LAWYER_ID = #{lawyerId}
+    </select>
+
+</mapper>
