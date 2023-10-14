@@ -25,5 +25,6 @@
         <typeAlias type="com.app.counselawb.domain.vo.SolutionCaseVO" alias="solutionCaseVO"/>
         <typeAlias type="com.app.counselawb.domain.vo.LawyerVO" alias="lawyerVO"/>
         <typeAlias type="com.app.counselawb.domain.dto.LawyerFieldDTO" alias="lawyerFieldDTO" />
+        <typeAlias type="com.app.counselawb.domain.dto.PostsDTO" alias="postsDTO" />
     </typeAliases>
 </configuration>
