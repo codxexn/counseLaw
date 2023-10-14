@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>관리자 페이지</title>
-    <link rel="stylesheet" href="Manager.css">
+    <link rel="stylesheet" href="/css/Manager/Manager.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -16,8 +16,8 @@
             <div>
                 <div class="nav-logo">
                     <!-- 메인페이지로 연결되도록 링크 연결 필요 -->
-                    <a href="">
-                        <img class="counseLaw-logo" src="counseLaw.png" alt="카운슬로우 로고 이미지">
+                    <a th:href="@{/}">
+                        <img class="counseLaw-logo" src="/image/Manager/counseLaw.png" alt="카운슬로우 로고 이미지">
                     </a>
                     <div class="logo-l">|</div>
                     <div class="nav-PageName">
@@ -156,22 +156,37 @@
                                 <div class="member-condition">
                                     <div class="guides-Section-Search-Menu">
                                         <div class="select-Menu">
-                                            <div class="select-Btn">
-                                                <span class="sBtn-Text"><strong>전체</strong></span>
-                                                <!--                                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="filter">-->
-                                                <!--                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.27 8.42a1.076 1.076 0 0 1 1.587-.13L12 14.832l7.143-6.544a1.076 1.076 0 0 1 1.586.13 1.26 1.26 0 0 1-.122 1.696L12 18l-8.607-7.885A1.26 1.26 0 0 1 3.27 8.42Z"></path>-->
-                                                <!--                                                </svg>-->
-                                                <i class="bx bx-chevron-down"></i>
-                                            </div>
+<!--                                            <div class="select-Btn">-->
+<!--                                                <span class="sBtn-Text"><strong>전체</strong></span>-->
+<!--                                                &lt;!&ndash;                                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="filter">&ndash;&gt;-->
+<!--                                                &lt;!&ndash;                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.27 8.42a1.076 1.076 0 0 1 1.587-.13L12 14.832l7.143-6.544a1.076 1.076 0 0 1 1.586.13 1.26 1.26 0 0 1-.122 1.696L12 18l-8.607-7.885A1.26 1.26 0 0 1 3.27 8.42Z"></path>&ndash;&gt;-->
+<!--                                                &lt;!&ndash;                                                </svg>&ndash;&gt;-->
+<!--                                                <i class="bx bx-chevron-down"></i>-->
+<!--                                            </div>-->
 
-                                            <ul class="options">
-                                                <li class="option">
-                                                    <span class="option-Text">전체</span>
-                                                </li>
-                                                <li class="option">
-                                                    <span class="option-Text">변호사 상담 글</span>
-                                                </li>
-                                            </ul>
+                                            <form th:action="@{/manager/manager-mainpage}" method="get">
+                                                <select name="selectedOption">
+                                                    <option value="selectAll">전체</option>
+                                                    <option value="consultingCase">상담사례</option>
+                                                    <option value="consultingCase">해결사례</option>
+                                                    <option value="consultingCase">법률 가이드</option>
+                                                </select>
+                                                <button class="button" type="submit">선택</button>
+                                            </form>
+<!--                                            <ul class="options">-->
+<!--                                                <li class="option">-->
+<!--                                                    <span class="option-Text">전체</span>-->
+<!--                                                </li>-->
+<!--                                                <li class="option">-->
+<!--                                                    <span class="option-Text">상담 사례</span>-->
+<!--                                                </li>-->
+<!--                                                <li class="option">-->
+<!--                                                    <span class="option-Text">해결 사례</span>-->
+<!--                                                </li>-->
+<!--                                                <li class="option">-->
+<!--                                                    <span class="option-Text">법률 가이드</span>-->
+<!--                                                </li>-->
+<!--                                            </ul>-->
                                         </div>
                                         <!--                                        <ul class="sort-Options">-->
                                         <!--                                            <li class="sort-Options-Btn active">최신순</li>-->
@@ -199,6 +214,22 @@
                                 <div style="width: 90px;" class="member-name"><strong>작성일</strong></div>
                                 <div style="width: 200px;" class="member-name"><strong>제목</strong></div>
                             </div>
+
+                            <div class="memberTop-bottom" >
+                                <div class="posts-wrapper"  th:if="${#strings.equals(selectedOption, '법률 가이드')}">
+                                    <div th:each="legalguide : ${legalGuides}">
+                                        <div class="member-name" th:text="legalguide."></div>
+                                        <div class="member-name">법률 가이드</div>
+                                </div>
+
+<!--                                <div class="posts-wrapper" th:if="${#strings.equals(selectedOption, '상담사례')}">-->
+<!--                                    <div class="member-name" th:text="${consultingCase.category}">상담사례</div>-->
+<!--                                </div>-->
+<!--                                &lt;!&ndash; 해결사례 데이터 &ndash;&gt;-->
+<!--                                <div class="posts-wrapper" th:if="${#strings.equals(selectedOption, '해결사례')}">-->
+<!--                                    <div class="member-name" th:text="${resolutionCase.category}">해결사례</div>-->
+<!--                                </div>-->
+                            </div>
                         </div>
                         <!--                        멤버 목록-->
                         <div class="member-bottom">
@@ -213,6 +244,6 @@
         </div>
     </div>
 </div>
-<script src="Manager.js"></script>
+<script src="/js/Manager/Manager.js"></script>
 </body>
 </html>
