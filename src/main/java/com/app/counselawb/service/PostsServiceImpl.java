@@ -1,6 +1,7 @@
 package com.app.counselawb.service;
 
 import com.app.counselawb.domain.dto.PostsDTO;
+import com.app.counselawb.domain.pagination.Pagination;
 import com.app.counselawb.mapper.PostsMapper;
 import com.app.counselawb.repository.PostsDAO;
 import lombok.RequiredArgsConstructor;
@@ -21,8 +22,13 @@ public class PostsServiceImpl implements PostsService {
     public List<PostsDTO> findByAllPosts() { return  postsDAO.findByAllPosts(); }
 
     @Override
-    public List<PostsDTO> findByConsultingCasePosts() {
-        return postsDAO.findByConsultingCasePosts();
+    public List<PostsDTO> findByConsultingCasePosts(Pagination pagination) {
+        return postsDAO.findByConsultingCasePosts(pagination);
+    }
+
+    @Override
+    public int findTotalConsultingPosts() {
+        return postsDAO.findTotalConsultingPosts();
     }
 
     @Override

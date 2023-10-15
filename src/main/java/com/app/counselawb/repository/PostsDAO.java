@@ -1,6 +1,7 @@
 package com.app.counselawb.repository;
 
 import com.app.counselawb.domain.dto.PostsDTO;
+import com.app.counselawb.domain.pagination.Pagination;
 import com.app.counselawb.mapper.PostsMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +19,10 @@ public class PostsDAO {
     public List<PostsDTO> findByAllPosts() { return postsMapper.selectByAllPosts(); }
 
     // 상담 사례 조회
-    public List<PostsDTO> findByConsultingCasePosts() { return postsMapper.selectByConsultingCasePosts(); }
+    public List<PostsDTO> findByConsultingCasePosts(Pagination pagination) { return postsMapper.selectByConsultingCasePosts(pagination); }
+
+    // 상담 사례 개수
+    public int findTotalConsultingPosts() { return  postsMapper.selectTotalConsultingPosts(); }
 
     // 해결 사례 조회
     public List<PostsDTO> findBySolutionCasePosts() { return postsMapper.selectBySolutionCasePosts(); }
