@@ -3280,6 +3280,10 @@
     <footer th:replace="~{fix/footer :: my-footer}"></footer>
 </div>
 </body>
+<script th:inline="javascript">
+    const lawyer = [[${session.lawyer}]];
+    console.log(lawyer)
+</script>
 <script src="/js/mainPage/mainPage.js"></script>
 <script src="/js/header/header.js"></script>
 </html>
