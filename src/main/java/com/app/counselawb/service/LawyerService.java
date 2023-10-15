@@ -35,4 +35,10 @@ public interface LawyerService {
 
     // 상담 사례 답글 단 횟수 조회
     public int findReplyCountByLawyerId(Long lawyerId);
+
+    // 비밀번호 변경
+    public void revisePw(LawyerVO lawyerVO);
+
+    // 전화번호 변경
+    public void revisePhone(LawyerVO lawyerVO);
 }

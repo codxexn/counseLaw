@@ -57,4 +57,16 @@
         WHERE LAWYER_ID = #{lawyerId}
     </select>
 
+    <update id="updatePw">
+        UPDATE TBL_LAWYER
+        SET LAWYER_PASSWORD = #{lawyerPassword}
+        WHERE LAWYER_ID = #{lawyerId}
+    </update>
+
+    <update id="updatePhone">
+        UPDATE TBL_LAWYER
+        SET LAWYER_PHONE = #{lawyerPhone}
+        WHERE LAWYER_ID = #{lawyerId}
+    </update>
+
 </mapper>

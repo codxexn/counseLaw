@@ -38,4 +38,10 @@ public interface LawyerMapper {
     // 상담 사례 답글 단 횟수 조회
     public int selectReplyCountByLawyerId(Long lawyerId);
 
+    // 비밀번호 변경
+    public void updatePw(LawyerVO lawyerVO);
+
+    // 전화번호 변경
+    public void updatePhone(LawyerVO lawyerVO);
+
 }

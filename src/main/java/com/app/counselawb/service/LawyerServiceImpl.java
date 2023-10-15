@@ -62,4 +62,14 @@ public class LawyerServiceImpl implements LawyerService {
     public int findReplyCountByLawyerId(Long lawyerId) {
         return lawyerDAO.readReplyCountByLawyerId(lawyerId);
     }
+
+    @Override
+    public void revisePw(LawyerVO lawyerVO) {
+        lawyerDAO.modifyPw(lawyerVO);
+    }
+
+    @Override
+    public void revisePhone(LawyerVO lawyerVO) {
+        lawyerDAO.modifyPhone(lawyerVO);
+    }
 }

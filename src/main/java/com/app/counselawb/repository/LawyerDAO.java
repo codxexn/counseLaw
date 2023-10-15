@@ -62,4 +62,14 @@ public class LawyerDAO {
     public int readReplyCountByLawyerId(Long lawyerId){
         return lawyerMapper.selectReplyCountByLawyerId(lawyerId);
     }
+
+    // 비밀번호 변경
+    public void modifyPw(LawyerVO lawyerVO){
+        lawyerMapper.updatePw(lawyerVO);
+    }
+
+    // 전화번호 변경
+    public void modifyPhone(LawyerVO lawyerVO){
+        lawyerMapper.updatePhone(lawyerVO);
+    }
 }
