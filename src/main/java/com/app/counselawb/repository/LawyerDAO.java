@@ -2,6 +2,8 @@ package com.app.counselawb.repository;
 
 
 import com.app.counselawb.domain.dto.LawyerFieldDTO;
+import com.app.counselawb.domain.vo.ExperienceVO;
+import com.app.counselawb.domain.vo.FieldVO;
 import com.app.counselawb.domain.vo.LawyerFieldVO;
 import com.app.counselawb.domain.vo.LawyerVO;
 import com.app.counselawb.mapper.LawyerMapper;
@@ -71,5 +73,40 @@ public class LawyerDAO {
     // 전화번호 변경
     public void modifyPhone(LawyerVO lawyerVO){
         lawyerMapper.updatePhone(lawyerVO);
+    }
+
+    // 분야 리스트 조회
+    public List<FieldVO> readAllFields(){
+        return lawyerMapper.selectAllFields();
+    }
+
+    // 변호사 분야 추가
+    public void writeLawyerFields(Long fieldId, Long lawyerId){
+        lawyerMapper.insertLawyerFields(fieldId, lawyerId);
+    }
+
+    // 변호사 분야 삭제
+    public void removeLawyerFields(Long lawyerId){
+        lawyerMapper.deleteLawyerFields(lawyerId);
+    }
+
+    // 변호사 기타 정보 업데이트
+    public void modifyLawyerInfo(LawyerVO lawyerVO){
+        lawyerMapper.updateLawyerInfo(lawyerVO);
+    }
+
+    // 변호사 경력 조회
+    public List<ExperienceVO> readCareersByLawyerId(Long lawyerId){
+        return lawyerMapper.selectCareersByLawyerId(lawyerId);
+    }
+
+    // 경력 개별 삭제
+    public void removeExperienceByExperienceId(Long experienceId){
+        lawyerMapper.deleteExperienceByExperienceId(experienceId);
+    }
+
+    // 경력 추가
+    public void writeExperience(ExperienceVO experienceVO){
+        lawyerMapper.insertExperience(experienceVO);
     }
 }

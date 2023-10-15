@@ -27,7 +27,7 @@
                     </div>
                     <div class="MypageHeaderRight">
                         <div class="MypageHeaderRight-ButtonContainer">
-                            <p onclick="location.href='/mypage/info-update-lawyer'" class="MypageHeaderRight-Button">내 정보 수정</p>
+                            <p onclick="location.href='/mypage-lawyer/info-update'" class="MypageHeaderRight-Button">내 정보 수정</p>
                             <p onclick="location.href='/login/logout'" class="MypageHeaderRight-Button">로그아웃</p>
                         </div>
                     </div>
@@ -41,7 +41,8 @@
             <div class="MypageCard">
                 <div class="MypageProfilewrapper">
                     <div class="mypage-image-wrapper">
-                        <img th:src="${currentLawyer.lawyerImage}" alt="프로필 사진" class="mypage-profile-image">
+                        <img th:src="${currentLawyer.lawyerImage == null ? '/image/defaultLawyerProfile/defaultLawyerProfile.png' : currentLawyer.lawyerImage}"
+                             alt="프로필 사진" class="mypage-profile-image">
                     </div>
                     <div class="mypage-profile-desc-wrapper">
                         <div class="mypage-profile-name">
@@ -72,10 +73,23 @@
             </div>
             <div class="MypageBox">
                 <div class="MypageBox-AdviceList">
+                    <div class="MypageBox-Title">내 경력</div>
+                    <div th:each="career: ${careers}" class="MypageBox-MenuItem-Info">
+                        <div class="MypageBox-MenuItemLabel">
+                            <span th:text="${career.startYear}"></span>
+                            -
+                            <span th:text="${career.endYear == 0 ? '현재' : career.endYear}"></span>
+                        </div>
+                        <div th:text="${career.experienceContent}" class="MypageBox-MenuItemText"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="MypageBox">
+                <div class="MypageBox-AdviceList">
                     <div class="MypageBox-Title">내 정보</div>
                     <div class="MypageBox-MenuItem-Info">
                         <div class="MypageBox-MenuItemLabel">내 분야</div>
-                        <div th:text="${fields}" class="MypageBox-MenuItemText"></div>
+                        <div th:text="${fields.equals('') ? '미입력' : fields}" class="MypageBox-MenuItemText"></div>
                     </div>
                     <div class="MypageBox-MenuItem-Info">
                         <div class="MypageBox-MenuItemLabel">내 주소</div>
@@ -86,8 +100,8 @@
                         <div th:text="${currentLawyer.lawyerCompany}" class="MypageBox-MenuItemText"></div>
                     </div>
                     <div class="MypageBox-MenuItem-Info">
-                        <div class="MypageBox-MenuItemLabel">학력</div>
-                        <div th:text="${currentLawyer.lawyerEducation}" class="MypageBox-MenuItemText"></div>
+                        <div class="MypageBox-MenuItemLabel">최종 학력</div>
+                        <div th:text="${currentLawyer.lawyerEducation == null ? '미입력' : currentLawyer.lawyerEducation}" class="MypageBox-MenuItemText"></div>
                     </div>
                 </div>
             </div>

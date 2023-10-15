@@ -2,6 +2,8 @@ package com.app.counselawb.mapper;
 
 
 import com.app.counselawb.domain.dto.LawyerFieldDTO;
+import com.app.counselawb.domain.vo.ExperienceVO;
+import com.app.counselawb.domain.vo.FieldVO;
 import com.app.counselawb.domain.vo.LawyerFieldVO;
 import com.app.counselawb.domain.vo.LawyerVO;
 import org.apache.ibatis.annotations.Mapper;
@@ -43,5 +45,26 @@ public interface LawyerMapper {
 
     // 전화번호 변경
     public void updatePhone(LawyerVO lawyerVO);
+
+    // 분야 리스트 조회
+    public List<FieldVO> selectAllFields();
+
+    // 변호사 분야 추가
+    public void insertLawyerFields(Long fieldId, Long lawyerId);
+
+    // 변호사 분야 삭제
+    public void deleteLawyerFields(Long lawyerId);
+
+    // 변호사 기타 정보 업데이트
+    public void updateLawyerInfo(LawyerVO lawyerVO);
+
+    // 변호사 경력 조회
+    public List<ExperienceVO> selectCareersByLawyerId(Long lawyerId);
+
+    // 경력 개별 삭제
+    public void deleteExperienceByExperienceId(Long experienceId);
+
+    // 경력 추가
+    public void insertExperience(ExperienceVO experienceVO);
 
 }

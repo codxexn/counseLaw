@@ -2,6 +2,8 @@ package com.app.counselawb.controller;
 
 
 import com.app.counselawb.domain.dto.LawyerFieldDTO;
+import com.app.counselawb.domain.vo.ExperienceVO;
+import com.app.counselawb.domain.vo.FieldVO;
 import com.app.counselawb.domain.vo.LawyerVO;
 import com.app.counselawb.service.LawyerService;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -40,11 +43,13 @@ public class LawyerMypageController {
         model.addAttribute("scCount", scCount);
         model.addAttribute("lgCount", lgCount);
         model.addAttribute("favCount", favCount);
+        List<ExperienceVO> foundExperiences = lawyerService.findCareersByLawyerId(lawyerId);
+        model.addAttribute("careers", foundExperiences);
         List<LawyerFieldDTO> foundFields = lawyerService.findFieldsByLawyerId(lawyerId);
-        foundFields.forEach((field) -> {
-            sb.append(field.getFieldTitle()).append(", ");
-        });
-        sb.deleteCharAt(sb.length()-1).deleteCharAt(sb.length()-1);
+        for (int i=0; i < foundFields.size(); i++){
+            sb.append(foundFields.get(i).getFieldTitle());
+            if (i < foundFields.size()-1) sb.append(", ");
+        }
         model.addAttribute("fields", sb.toString());
         int phoneCount = lawyerService.findPhoneCountByLawyerId(lawyerId);
         int videoCount = lawyerService.findVideoCountByLawyerId(lawyerId);
@@ -63,6 +68,18 @@ public class LawyerMypageController {
         if (session.getAttribute("lawyer") == null){
             return "/client-login/client-login";
         }
+        LawyerVO lawyerVO = (LawyerVO) session.getAttribute("lawyer");
+        Long lawyerId = lawyerVO.getLawyerId();
+        List<LawyerFieldDTO> foundFields = lawyerService.findFieldsByLawyerId(lawyerId);
+        List<Long> foundFieldIds = new ArrayList<>();
+        foundFields.forEach((field) -> {
+            foundFieldIds.add(field.getFieldId());
+        });
+        model.addAttribute("fields", foundFieldIds);
+        List<ExperienceVO> foundCareers = lawyerService.findCareersByLawyerId(lawyerId);
+        model.addAttribute("careerList", foundCareers);
+        List<FieldVO> fieldList = lawyerService.findAllFields();
+        model.addAttribute("fieldList", fieldList);
         model.addAttribute("passwordErrorMsg", null);
         return "/mypage/info-update-lawyer";
     }
@@ -70,7 +87,7 @@ public class LawyerMypageController {
 
     // 비밀번호 변경
     @PostMapping("info-update-pw")
-    public RedirectView changePwAndGoToMypage(HttpSession session, @RequestParam("oldPassword") String oldPassword,
+    public RedirectView changePw(HttpSession session, @RequestParam("oldPassword") String oldPassword,
                                               @RequestParam("newPassword") String newPassword){
         LawyerVO currentLawyer = (LawyerVO) session.getAttribute("lawyer");
         if (!currentLawyer.getLawyerPassword().equals(oldPassword)){
@@ -80,7 +97,7 @@ public class LawyerMypageController {
         lawyerService.revisePw(currentLawyer);
         session.removeAttribute("lawyer");
         session.setAttribute("lawyer", currentLawyer);
-        return new RedirectView("/mypage-lawyer/mypage-lawyer");
+        return new RedirectView("/mypage-lawyer/info-update");
     }
 
     // 비밀번호 변경 시 기존 비밀번호와 일치하지 않을 때
@@ -93,13 +110,53 @@ public class LawyerMypageController {
 
     // 전화번호 변경
     @PostMapping("info-update-phone")
-    public RedirectView changePhoneAndGoToMyPage(HttpSession session, @RequestParam("phone") String lawyerPhone){
+    public RedirectView changePhone(HttpSession session, @RequestParam("phone") String lawyerPhone){
         LawyerVO currentLawyer = (LawyerVO) session.getAttribute("lawyer");
         currentLawyer.setLawyerPhone(lawyerPhone);
         lawyerService.revisePhone(currentLawyer);
         session.removeAttribute("lawyer");
         session.setAttribute("lawyer", currentLawyer);
-        return new RedirectView("/mypage-lawyer/mypage-lawyer");
+        return new RedirectView("/mypage-lawyer/info-update");
+    }
+
+    // 변호사 정보 업데이트
+    @PostMapping("info-update-info")
+    public RedirectView changeInfo(HttpSession session, @RequestParam("company") String lawyerCompany,
+                                                @RequestParam("address") String lawyerAddress, @RequestParam("school") String lawyerEducation,
+                                                @RequestParam("eachField") List<Long> checkedFieldIds){
+        LawyerVO currentLawyer = (LawyerVO) session.getAttribute("lawyer");
+        currentLawyer.setLawyerCompany(lawyerCompany);
+        currentLawyer.setLawyerAddress(lawyerAddress);
+        currentLawyer.setLawyerEducation(lawyerEducation);
+        Long currentLawyerId = currentLawyer.getLawyerId();
+        lawyerService.reviseLawyerInfo(currentLawyer);
+        lawyerService.discardLawyerFields(currentLawyerId);
+        checkedFieldIds.forEach((fieldId) -> {
+            lawyerService.saveLawyerFields(fieldId, currentLawyerId);
+        });
+        session.removeAttribute("lawyer");
+        session.setAttribute("lawyer", currentLawyer);
+        return new RedirectView("/mypage-lawyer/info-update");
+    }
+
+    // 변호사 경력 개별 삭제
+    @PostMapping("info-update-career-delete")
+    public RedirectView deleteCareer(HttpSession session, @RequestParam("experienceId") Long experienceId){
+        lawyerService.discardExperienceByExperienceId(experienceId);
+        return new RedirectView("/mypage-lawyer/info-update");
+    }
+
+    // 변호사 경력 추가
+    @PostMapping("info-update-career")
+    public RedirectView insertCareer(HttpSession session, @RequestParam("startYear") int startYear, @RequestParam("lawyerId") Long lawyerId,
+                                     @RequestParam("endYear") int endYear, @RequestParam("experienceContent") String experienceContent){
+        ExperienceVO experienceVO = new ExperienceVO();
+        experienceVO.setLawyerId(lawyerId);
+        experienceVO.setStartYear(startYear);
+        experienceVO.setEndYear(endYear);
+        experienceVO.setExperienceContent(experienceContent);
+        lawyerService.saveExperience(experienceVO);
+        return new RedirectView("/mypage-lawyer/info-update");
     }
 
 
