@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpSession;
 import java.util.Optional;
@@ -44,23 +45,17 @@ public class LoginController {
     }
 
     @PostMapping("lawyer-login")
-    public ModelAndView lawyerLogin(LawyerVO lawyerVO, HttpSession session) {
-        ModelAndView mv = new ModelAndView();
+    public RedirectView lawyerLogin(LawyerVO lawyerVO, HttpSession session) {
         Optional<LawyerVO> foundLawyer = memberService.lawyerLogin(lawyerVO);
         if (foundLawyer.isPresent()) {
             LawyerVO lawyer = foundLawyer.get();
             if (lawyer.getLawyerState().matches("WITHDRAW|SUSPENDED")) {
-                mv.setViewName("login/login-error");
-                return mv;
+                return new RedirectView("/login/login-error");
             }
             session.setAttribute("lawyer", foundLawyer.get());
-            mv.addObject("lawyer", lawyer);
-            mv.setViewName("/mainpage/mainpage");
-            log.info(((LawyerVO)session.getAttribute("lawyer")).toString());
-            return mv;
+            log.info((session.getAttribute("lawyer")).toString());
+            return new RedirectView("/");
         }
-        mv.setViewName("login/login-error");
-        return mv;
+        return new RedirectView("/login/login-error");
     }
-
 }
