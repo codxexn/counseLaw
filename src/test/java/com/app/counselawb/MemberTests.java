@@ -1,5 +1,6 @@
 package com.app.counselawb;
 
+import com.app.counselawb.domain.vo.LawyerVO;
 import com.app.counselawb.domain.vo.MemberVO;
 import com.app.counselawb.mapper.MemberMapper;
 import com.app.counselawb.repository.MemberDAO;
@@ -20,6 +21,7 @@ public class MemberTests {
     @Autowired
     private MemberService memberService;
 
+    // 일반 회원 로그인 테스트
     @Test
     public void selectByLoginMapperTest() {
         MemberVO memberVO = new MemberVO();
@@ -42,6 +44,15 @@ public class MemberTests {
         memberVO.setMemberEmail("admin@counselaw.com");
         memberVO.setMemberPassword("rhksflwk");
         memberService.memberLogin(memberVO).map(MemberVO::toString).ifPresent(log::info);
+    }
+
+    // 변호사 회원 로그인 테스트
+    @Test
+    public void selectLawyerByLoginMapperTest() {
+        LawyerVO lawyerVO = new LawyerVO();
+        lawyerVO.setLawyerEmail("lawyerTest@gmail.com");
+        lawyerVO.setLawyerPassword("1234");
+        memberMapper.selectLawyerByLogin(lawyerVO).map(LawyerVO::toString).ifPresent(log::info);
     }
 
 }
