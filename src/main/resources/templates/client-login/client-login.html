@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>의뢰인 로그인</title>
-  <link rel="stylesheet" href="clinet-login.css">
+  <link rel="stylesheet" href="/css/client-login/clinet-login.css">
     <link rel="stylesheet" href="https://d2nyk3ltml4doc.cloudfront.net/lawtalk/latest/fonts/22eb3211f6def8f859e2.woff">
     <link rel="stylesheet" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.77.woff2">
     <link rel="stylesheet" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.79.woff2">
@@ -33,7 +33,7 @@
                 <header class="header-module-header">
                     <div class="header-module-headerLeft">
                         <div class="header-module-logo_Icon">
-                            <img src="KakaoTalk_20230911_154146681.png" alt="">
+                            <img class="logo" src="/image/client-login/logo.png">
                         </div>
                     </div>
 
@@ -61,13 +61,13 @@
                             </div>
                         </div>
 
-                        <form style="position: relative;" name="form"class="sign-in-section-form" id="lawyer-login-form">
+                        <form style="position: relative;" method="post" class="sign-in-section-form" id="lawyer-login-form" th:action="@{/login/lawyer-login}" th:object="${lawyerVO}">
                             <label for="username" class="sign-in-section-form-username">
                                 아이디
                             </label>
 
                             <input type="text" id="username" name="id" placeholder="아이디를 입력해주세요."
-                                   class="sign-in-section-form-input">
+                                   class="sign-in-section-form-input" th:field="*{lawyerEmail}">
 
                             <div id="username-validator-message" class="sign-in-validation-message" style="display: none;">
                                 <label class="control-label">아이디는 영문, 숫자, 밑줄(_)만 입력 가능합니다.</label>
@@ -78,7 +78,7 @@
                             </label>
 
                             <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요."
-                                   class="sign-in-section-form-input">
+                                   class="sign-in-section-form-input" th:field="*{lawyerPassword}">
 
 
 
@@ -125,13 +125,13 @@
                             </div>
                         </div>
 
-                        <form style="position: relative;" name="form"class="sign-in-section-form" id="client-login-form">
+                        <form style="position: relative;" method="post" class="sign-in-section-form" id="client-login-form" th:action="@{/login/client-login}" th:object="${memberVO}">
                             <label for="username" class="sign-in-section-form-username">
                                 아이디
                             </label>
 
                             <input type="text" id="clientusername" name="id" placeholder="아이디를 입력해주세요."
-                            class="sign-in-section-form-input">
+                            class="sign-in-section-form-input" th:field="*{memberEmail}">
 
                             <div id="client-username-validator-message" class="sign-in-validation-message" style="display: none;">
                                 <label class="control-label">아이디는 영문, 숫자, 밑줄(_)만 입력 가능합니다.</label>
@@ -142,7 +142,7 @@
                             </label>
 
                             <input type="password" id="clienpassword" name="password" placeholder="비밀번호를 입력해주세요."
-                                   class="sign-in-section-form-input">
+                                   class="sign-in-section-form-input" th:field="*{memberPassword}">
 
 
 
@@ -164,7 +164,6 @@
                             </div>
 
 
-
                             <button type="submit" class="sign-in-section-form-button">로그인</button>
                         </form>
 
@@ -183,7 +182,7 @@
 
                      <div class="sign-in-section-non-member">
                          <div class="section-in-section-non-member">
-                             아직 카운슬로 회원이 아니신가요?
+                             아직 카운슬로우 회원이 아니신가요?
 
                              <a class="sign-in-section-non-member-landing-sign-link">
                                  회원가입
@@ -220,7 +219,7 @@
         </div>
 
 </body>
-<script src="client-login.js"></script>
+<script src="/js/client-login/client-login.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </html>
 

@@ -1,5 +1,6 @@
 package com.app.counselawb.service;
 
+import com.app.counselawb.domain.vo.LawyerVO;
 import com.app.counselawb.domain.vo.MemberVO;
 import com.app.counselawb.repository.MemberDAO;
 import lombok.RequiredArgsConstructor;
@@ -20,4 +21,8 @@ public class MemberServiceImpl implements MemberService {
     public Optional<MemberVO> memberLogin(MemberVO memberVO) {
         return memberDAO.findByLogin(memberVO);
     }
+
+    @Override
+    public Optional<LawyerVO> lawyerLogin(LawyerVO lawyerVO) { return memberDAO.findLawyerByLogin(lawyerVO); }
+
 }

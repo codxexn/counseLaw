@@ -1,5 +1,6 @@
 package com.app.counselawb.repository;
 
+import com.app.counselawb.domain.vo.LawyerVO;
 import com.app.counselawb.domain.vo.MemberVO;
 import com.app.counselawb.mapper.MemberMapper;
 import lombok.RequiredArgsConstructor;
@@ -16,4 +17,7 @@ public class MemberDAO {
 
     // 일반 회원 로그인
     public Optional<MemberVO> findByLogin(MemberVO memberVO) { return memberMapper.selectByLogin(memberVO);}
+
+    // 변호사 회원 로그인
+    public Optional<LawyerVO> findLawyerByLogin(LawyerVO lawyerVO) { return memberMapper.selectLawyerByLogin(lawyerVO);}
 }

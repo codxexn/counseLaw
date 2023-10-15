@@ -1,5 +1,6 @@
 package com.app.counselawb.controller;
 
+import com.app.counselawb.domain.vo.LawyerVO;
 import com.app.counselawb.domain.vo.MemberVO;
 import com.app.counselawb.service.MemberService;
 import lombok.RequiredArgsConstructor;
@@ -18,14 +19,15 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @RequestMapping("/login/*")
 public class LoginController {
-    private MemberService memberService;
-    @GetMapping("login")
-    public void GoToLogin(MemberVO memberVO){;}
+    private final MemberService memberService;
+    @GetMapping("client-login")
+    public String GoToLogin(MemberVO memberVO, LawyerVO lawyerVO){return "/client-login/client-login";}
 
-    @PostMapping("login")
+    @PostMapping("client-login")
     public ModelAndView memberLogin(MemberVO memberVO, HttpSession session) {
         ModelAndView mv = new ModelAndView();
         Optional<MemberVO> foundMember = memberService.memberLogin(memberVO);
+
         if (foundMember.isPresent()) {
             MemberVO member = foundMember.get();
             if (member.getMemberState().matches("WITHDRAW|SUSPENDED")) {
@@ -34,24 +36,31 @@ public class LoginController {
             }
             session.setAttribute("member", foundMember.get());
             mv.addObject("member", member);
-            mv.setViewName("/");
+            mv.setViewName("/mainpage/mainpage");
             return mv;
         }
         mv.setViewName("login/login-error");
         return mv;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
+    @PostMapping("lawyer-login")
+    public ModelAndView lawyerLogin(LawyerVO lawyerVO, HttpSession session) {
+        ModelAndView mv = new ModelAndView();
+        Optional<LawyerVO> foundLawyer = memberService.lawyerLogin(lawyerVO);
+        if (foundLawyer.isPresent()) {
+            LawyerVO lawyer = foundLawyer.get();
+            if (lawyer.getLawyerState().matches("WITHDRAW|SUSPENDED")) {
+                mv.setViewName("login/login-error");
+                return mv;
+            }
+            session.setAttribute("lawyer", foundLawyer.get());
+            mv.addObject("lawyer", lawyer);
+            mv.setViewName("/mainpage/mainpage");
+            log.info(((LawyerVO)session.getAttribute("lawyer")).toString());
+            return mv;
+        }
+        mv.setViewName("login/login-error");
+        return mv;
+    }
 
 }
