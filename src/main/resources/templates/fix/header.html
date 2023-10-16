@@ -49,9 +49,6 @@
                     </div>
                 </div>
             </div>
-            <form>
-                <button type="submit" class="TopNavMenu-LogoutButton">로그아웃</button>
-            </form>
             <a href="/mypage/mypage">
             <div class="headerRight"><p
                     class="textSize14 textWeight400 textHeight100 accountButton textInherit"
@@ -74,58 +71,14 @@
                     </div>
                 </div>
             </div>
-            <form>
-                <button type="submit" class="TopNavMenu-LogoutButton">로그아웃</button>
-            </form>
-            <a href="/manager/manager-mainpage">
+            <a href="/mypage/mypage">
                 <div class="headerRight"><p
                         class="textSize14 textWeight400 textHeight100 accountButton textInherit"
                         style="color: rgb(122, 130, 135);">관리자 페이지</p></div></a>
-        </header>
-        <header class="headerModule" th:if="${session.lawyer == null}">
-            <div class="headerLeft">
-                <div class="headerLogoIcon">
-                    <img class="logoImage" src="/image/header/counseLawLogo.png" alt="">
-                </div>
-                <div class="headerSearchBarWrapper">
-                    <div class="searchInputWrapper searchBarBorder">
-                        <img class="searchInputIcon searchBarBorder" src="/image/header/searchIcon.png">
-                        <input type="text" placeholder="어떤 문제가 있으신가요?"
-                               class="searchInput searchBarBorder"
-                               value="">
-                        <button class="deleteAllButton searchBarBorder">
-                            <img class="deleteAllButtonImage" src="/image/header/deleteAllButton.png" alt="" srcset="">
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!--            로그인 회원가입-->
-            <a href="/login/client-login"><div class="headerRight">
-                <p class="textSize14 textWeight400 textHeight100 accountButton textInherit" style="color: rgb(122, 130, 135);">로그인/가입</p></div></a>
-        </header>
-        <header class="headerModule" th:if="${session.lawyer != null}">
-            <div class="headerLeft">
-                <div class="headerLogoIcon">
-                    <img class="logoImage" src="/image/header/counseLawLogo.png" alt="">
-                </div>
-                <div class="headerSearchBarWrapper">
-                    <div class="searchInputWrapper searchBarBorder">
-                        <img class="searchInputIcon searchBarBorder" src="/image/header/searchIcon.png">
-                        <input type="text" placeholder="어떤 문제가 있으신가요?"
-                               class="searchInput searchBarBorder"
-                               value="">
-                        <button class="deleteAllButton searchBarBorder">
-                            <img class="deleteAllButtonImage" src="/image/header/deleteAllButton.png" alt="" srcset="">
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!--            로그아웃 및 마이페이지-->
-            <form>
-                <button type="submit" class="TopNavMenu-LogoutButton">로그아웃</button>
-            </form>
-            <a href=""><div class="headerRight">
-                <p class="textSize14 textWeight400 textHeight100 accountButton textInherit" style="color: rgb(122, 130, 135);">마이페이지</p></div></a>
+            <a href="/mypage/mypage">
+                <div class="headerRight"><p
+                        class="textSize14 textWeight400 textHeight100 accountButton textInherit"
+                        style="color: rgb(122, 130, 135);">마이페이지</p></div></a>
         </header>
 
     </div><!---->
