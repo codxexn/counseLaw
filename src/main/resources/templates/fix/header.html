@@ -28,11 +28,11 @@
                     </div>
                 </div>
             </div>
-<!--            로그인 회원가입-->
+            <!--            로그인 회원가입-->
             <a href="/login/client-login"><div class="headerRight">
                 <p class="textSize14 textWeight400 textHeight100 accountButton textInherit" style="color: rgb(122, 130, 135);">로그인/가입</p></div></a>
         </header>
-        <header class="headerModule" th:if="${session.member != null}">
+        <header class="headerModule" th:if="${session.member != null && session.member.memberId != 1}">
             <div class="headerLeft">
                 <div class="headerLogoIcon">
                     <img class="logoImage" src="/image/header/counseLawLogo.png" alt="">
@@ -49,9 +49,83 @@
                     </div>
                 </div>
             </div>
-            <div class="headerRight"><p
-                    class="textSize14 textWeight400 textHeight100 accountButton textInherit"
-                    style="color: rgb(122, 130, 135);">로그인/가입</p></div>
+            <form>
+                <button type="submit" class="TopNavMenu-LogoutButton">로그아웃</button>
+            </form>
+            <a href="/mypage/mypage">
+                <div class="headerRight"><p
+                        class="textSize14 textWeight400 textHeight100 accountButton textInherit"
+                        style="color: rgb(122, 130, 135);">마이페이지</p></div></a>
+        </header>
+        <header class="headerModule" th:if="${session.member != null && session.member.memberId == 1}">
+            <div class="headerLeft">
+                <div class="headerLogoIcon">
+                    <img class="logoImage" src="/image/header/counseLawLogo.png" alt="">
+                </div>
+                <div class="headerSearchBarWrapper">
+                    <div class="searchInputWrapper searchBarBorder">
+                        <img class="searchInputIcon searchBarBorder" src="/image/header/searchIcon.png">
+                        <input type="text" placeholder="어떤 문제가 있으신가요?"
+                               class="searchInput searchBarBorder"
+                               value="">
+                        <button class="deleteAllButton searchBarBorder">
+                            <img class="deleteAllButtonImage" src="/image/header/deleteAllButton.png" alt="" srcset="">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <form>
+                <button type="submit" class="TopNavMenu-LogoutButton">로그아웃</button>
+            </form>
+            <a href="/manager/manager-mainpage">
+                <div class="headerRight"><p
+                        class="textSize14 textWeight400 textHeight100 accountButton textInherit"
+                        style="color: rgb(122, 130, 135);">관리자 페이지</p></div></a>
+        </header>
+        <header class="headerModule" th:if="${session.lawyer == null}">
+            <div class="headerLeft">
+                <div class="headerLogoIcon">
+                    <img class="logoImage" src="/image/header/counseLawLogo.png" alt="">
+                </div>
+                <div class="headerSearchBarWrapper">
+                    <div class="searchInputWrapper searchBarBorder">
+                        <img class="searchInputIcon searchBarBorder" src="/image/header/searchIcon.png">
+                        <input type="text" placeholder="어떤 문제가 있으신가요?"
+                               class="searchInput searchBarBorder"
+                               value="">
+                        <button class="deleteAllButton searchBarBorder">
+                            <img class="deleteAllButtonImage" src="/image/header/deleteAllButton.png" alt="" srcset="">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!--            로그인 회원가입-->
+            <a href="/login/client-login"><div class="headerRight">
+                <p class="textSize14 textWeight400 textHeight100 accountButton textInherit" style="color: rgb(122, 130, 135);">로그인/가입</p></div></a>
+        </header>
+        <header class="headerModule" th:if="${session.lawyer != null}">
+            <div class="headerLeft">
+                <div class="headerLogoIcon">
+                    <img class="logoImage" src="/image/header/counseLawLogo.png" alt="">
+                </div>
+                <div class="headerSearchBarWrapper">
+                    <div class="searchInputWrapper searchBarBorder">
+                        <img class="searchInputIcon searchBarBorder" src="/image/header/searchIcon.png">
+                        <input type="text" placeholder="어떤 문제가 있으신가요?"
+                               class="searchInput searchBarBorder"
+                               value="">
+                        <button class="deleteAllButton searchBarBorder">
+                            <img class="deleteAllButtonImage" src="/image/header/deleteAllButton.png" alt="" srcset="">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!--            로그아웃 및 마이페이지-->
+            <form>
+                <button type="submit" class="TopNavMenu-LogoutButton">로그아웃</button>
+            </form>
+            <a href=""><div class="headerRight">
+                <p class="textSize14 textWeight400 textHeight100 accountButton textInherit" style="color: rgb(122, 130, 135);">마이페이지</p></div></a>
         </header>
 
     </div><!---->
@@ -81,81 +155,81 @@
 <!--Bottom Tab-->
 
 <div class="bottomTabWrap">
-        <div class="bottomTabMenu">
-            <div class="BottomTabMenuList">
-                <button class="BottomMenuItemButton BottomTabActive">
-                    <svg class="BottomTabMenuIcon" width="24" height="24" viewBox="0 0 24 24"
-                         fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_1625_152)">
-                            <rect width="24" height="24" fill="none"></rect>
-                            <path d="M12.6 3.45C12.2444 3.18333 11.7556 3.18333 11.4 3.45L4.4 8.7C4.14819 8.88885 4 9.18524 4 9.5V20C4 20.5523 4.44772 21 5 21H9C9.55228 21 10 20.5523 10 20V14.1C10 14.0448 10.0448 14 10.1 14H13.95C13.9776 14 14 14.0224 14 14.05V20C14 20.5523 14.4477 21 15 21H19C19.5523 21 20 20.5523 20 20V9.5C20 9.18524 19.8518 8.88885 19.6 8.7L12.6 3.45Z"
-                                  fill="" ></path>
-                        </g>
-                        <defs>
-                            <clipPath id="clip0_1625_152">
-                                <rect width="24" height="24" fill="white"></rect>
-                            </clipPath>
-                        </defs>
-                    </svg>
-                    <div class="BottomTabMenuName"><p
-                            class="textSize12 textWeight600 textHeight140 textInherit"
-                            style="color: #c50000;">홈</p></div>
-                </button>
-                <button class="BottomMenuItemButton BottomTabInactive">
-                    <svg class="BottomTabMenuIcon" width="24" height="24" viewBox="0 0 24 24"
-                         fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div class="bottomTabMenu">
+        <div class="BottomTabMenuList">
+            <button class="BottomMenuItemButton BottomTabActive">
+                <svg class="BottomTabMenuIcon" width="24" height="24" viewBox="0 0 24 24"
+                     fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_1625_152)">
                         <rect width="24" height="24" fill="none"></rect>
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                              d="M16.5 11C16.5 14.0376 14.0376 16.5 11 16.5C7.96243 16.5 5.5 14.0376 5.5 11C5.5 7.96243 7.96243 5.5 11 5.5C14.0376 5.5 16.5 7.96243 16.5 11ZM15.1079 16.6685C13.9541 17.5061 12.5347 18 11 18C7.13401 18 4 14.866 4 11C4 7.13401 7.13401 4 11 4C14.866 4 18 7.13401 18 11C18 12.7903 17.3279 14.4237 16.2222 15.6615L20.5303 19.9697C20.8232 20.2626 20.8232 20.7374 20.5303 21.0303C20.2374 21.3232 19.7626 21.3232 19.4697 21.0303L15.1079 16.6685Z"
-                              fill=""></path>
-                    </svg>
-                    <div class="BottomTabMenuName"><p
-                            class="textSize12 textWeight500 textHeight140 textInherit"
-                            style="color: rgb(122, 130, 135);">검색</p></div>
-                </button>
-                <button class="BottomMenuItemButton BottomTabInactive">
-                    <svg class="BottomTabMenuIcon" width="24" height="24" viewBox="0 0 24 24"
-                         fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="24" height="24" fill="none"></rect>
-                        <path d="M7 12.25C7 11.8357 7.33582 11.5 7.75 11.5H11.25V8C11.25 7.58569 11.5858 7.25 12 7.25C12.4142 7.25 12.75 7.58569 12.75 8V11.5H16.25C16.6642 11.5 17 11.8357 17 12.25C17 12.6643 16.6642 13 16.25 13H12.75V16.5C12.75 16.9143 12.4142 17.25 12 17.25C11.5858 17.25 11.25 16.9143 11.25 16.5V13H7.75C7.33582 13 7 12.6643 7 12.25Z"
-                              fill="black"></path>
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                              d="M12 22C17.5228 22 22 17.5229 22 12C22 6.47705 17.5228 2 12 2C6.47717 2 2 6.47705 2 12C2 17.5229 6.47717 22 12 22ZM12 20.5C16.6945 20.5 20.5 16.6943 20.5 12C20.5 7.30566 16.6945 3.5 12 3.5C7.30554 3.5 3.5 7.30566 3.5 12C3.5 16.6943 7.30554 20.5 12 20.5Z"
-                              fill=""></path>
-                    </svg>
-                    <div class="BottomTabMenuName"><p
-                            class="textSize12 textWeight500 textHeight140 textInherit"
-                            style="color: rgb(122, 130, 135);">상담글 작성</p></div>
-                </button>
-                <button class="BottomMenuItemButton BottomTabInactive">
-                    <svg class="BottomTabMenuIcon" width="24" height="24" viewBox="0 0 24 24"
-                         fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="24" height="24" fill="none"></rect>
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                              d="M10.9438 4.80916C11.343 3.8823 12.6571 3.8823 13.0563 4.80916L14.7426 8.72504L18.988 9.11879C19.9928 9.21199 20.3989 10.4618 19.6408 11.1278L16.4376 13.9417L17.3751 18.101C17.5969 19.0854 16.5338 19.8579 15.6661 19.3426L12.0001 17.1658L8.33407 19.3426C7.46636 19.8579 6.40319 19.0854 6.62507 18.101L7.56248 13.9417L4.35936 11.1278C3.60121 10.4618 4.00731 9.21198 5.01214 9.11879L9.25749 8.72504L10.9438 4.80916ZM12.0001 5.64325L10.4162 9.32103C10.2498 9.70764 9.88536 9.97239 9.46623 10.0113L5.47903 10.3811L8.48738 13.0239C8.80361 13.3017 8.9428 13.73 8.85025 14.1407L7.96984 18.047L11.4129 16.0026C11.7749 15.7877 12.2253 15.7877 12.5872 16.0026L16.0303 18.047L15.1499 14.1407C15.0573 13.73 15.1965 13.3017 15.5128 13.0239L18.5211 10.3811L14.5339 10.0113C14.1148 9.97239 13.7504 9.70764 13.5839 9.32103L12.0001 5.64325Z"
-                              fill=""></path>
-                    </svg>
-                    <div class="BottomTabMenuName"><p
-                            class="textSize12 textWeight500 textHeight140 textInherit"
-                            style="color: rgb(122, 130, 135);">내 관심글</p></div>
-                </button>
-                <button class="BottomMenuItemButton BottomTabInactive">
-                    <svg class="BottomTabMenuIcon" width="24" height="24" viewBox="0 0 24 24"
-                         fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="24" height="24" fill="none"></rect>
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                              d="M16 8C16 10.2091 14.2091 12 12 12C9.79086 12 8 10.2091 8 8C8 5.79086 9.79086 4 12 4C14.2091 4 16 5.79086 16 8ZM14.7 8C14.7 9.49117 13.4912 10.7 12 10.7C10.5088 10.7 9.3 9.49117 9.3 8C9.3 6.50883 10.5088 5.3 12 5.3C13.4912 5.3 14.7 6.50883 14.7 8Z"
-                              fill="black"></path>
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                              d="M4 17.5C4 15.2909 5.79086 13.5 8 13.5H16C18.2091 13.5 20 15.2909 20 17.5V19.5C20 20.0523 19.5523 20.5 19 20.5H5C4.44772 20.5 4 20.0523 4 19.5V17.5ZM18.7 17.5V19.2H5.3V17.5C5.3 16.0088 6.50883 14.8 8 14.8H16C17.4912 14.8 18.7 16.0088 18.7 17.5Z"
-                              fill=""></path>
-                    </svg>
-                    <div class="BottomTabMenuName"><p
-                            class="textSize12 textWeight500 textHeight140 textInherit"
-                            style="color: rgb(122, 130, 135);">마이페이지</p></div>
-                </button>
-            </div>
+                        <path d="M12.6 3.45C12.2444 3.18333 11.7556 3.18333 11.4 3.45L4.4 8.7C4.14819 8.88885 4 9.18524 4 9.5V20C4 20.5523 4.44772 21 5 21H9C9.55228 21 10 20.5523 10 20V14.1C10 14.0448 10.0448 14 10.1 14H13.95C13.9776 14 14 14.0224 14 14.05V20C14 20.5523 14.4477 21 15 21H19C19.5523 21 20 20.5523 20 20V9.5C20 9.18524 19.8518 8.88885 19.6 8.7L12.6 3.45Z"
+                              fill="" ></path>
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_1625_152">
+                            <rect width="24" height="24" fill="white"></rect>
+                        </clipPath>
+                    </defs>
+                </svg>
+                <div class="BottomTabMenuName"><p
+                        class="textSize12 textWeight600 textHeight140 textInherit"
+                        style="color: #c50000;">홈</p></div>
+            </button>
+            <button class="BottomMenuItemButton BottomTabInactive">
+                <svg class="BottomTabMenuIcon" width="24" height="24" viewBox="0 0 24 24"
+                     fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="24" height="24" fill="none"></rect>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M16.5 11C16.5 14.0376 14.0376 16.5 11 16.5C7.96243 16.5 5.5 14.0376 5.5 11C5.5 7.96243 7.96243 5.5 11 5.5C14.0376 5.5 16.5 7.96243 16.5 11ZM15.1079 16.6685C13.9541 17.5061 12.5347 18 11 18C7.13401 18 4 14.866 4 11C4 7.13401 7.13401 4 11 4C14.866 4 18 7.13401 18 11C18 12.7903 17.3279 14.4237 16.2222 15.6615L20.5303 19.9697C20.8232 20.2626 20.8232 20.7374 20.5303 21.0303C20.2374 21.3232 19.7626 21.3232 19.4697 21.0303L15.1079 16.6685Z"
+                          fill=""></path>
+                </svg>
+                <div class="BottomTabMenuName"><p
+                        class="textSize12 textWeight500 textHeight140 textInherit"
+                        style="color: rgb(122, 130, 135);">검색</p></div>
+            </button>
+            <button class="BottomMenuItemButton BottomTabInactive">
+                <svg class="BottomTabMenuIcon" width="24" height="24" viewBox="0 0 24 24"
+                     fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="24" height="24" fill="none"></rect>
+                    <path d="M7 12.25C7 11.8357 7.33582 11.5 7.75 11.5H11.25V8C11.25 7.58569 11.5858 7.25 12 7.25C12.4142 7.25 12.75 7.58569 12.75 8V11.5H16.25C16.6642 11.5 17 11.8357 17 12.25C17 12.6643 16.6642 13 16.25 13H12.75V16.5C12.75 16.9143 12.4142 17.25 12 17.25C11.5858 17.25 11.25 16.9143 11.25 16.5V13H7.75C7.33582 13 7 12.6643 7 12.25Z"
+                          fill="black"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M12 22C17.5228 22 22 17.5229 22 12C22 6.47705 17.5228 2 12 2C6.47717 2 2 6.47705 2 12C2 17.5229 6.47717 22 12 22ZM12 20.5C16.6945 20.5 20.5 16.6943 20.5 12C20.5 7.30566 16.6945 3.5 12 3.5C7.30554 3.5 3.5 7.30566 3.5 12C3.5 16.6943 7.30554 20.5 12 20.5Z"
+                          fill=""></path>
+                </svg>
+                <div class="BottomTabMenuName"><p
+                        class="textSize12 textWeight500 textHeight140 textInherit"
+                        style="color: rgb(122, 130, 135);">상담글 작성</p></div>
+            </button>
+            <button class="BottomMenuItemButton BottomTabInactive">
+                <svg class="BottomTabMenuIcon" width="24" height="24" viewBox="0 0 24 24"
+                     fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="24" height="24" fill="none"></rect>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M10.9438 4.80916C11.343 3.8823 12.6571 3.8823 13.0563 4.80916L14.7426 8.72504L18.988 9.11879C19.9928 9.21199 20.3989 10.4618 19.6408 11.1278L16.4376 13.9417L17.3751 18.101C17.5969 19.0854 16.5338 19.8579 15.6661 19.3426L12.0001 17.1658L8.33407 19.3426C7.46636 19.8579 6.40319 19.0854 6.62507 18.101L7.56248 13.9417L4.35936 11.1278C3.60121 10.4618 4.00731 9.21198 5.01214 9.11879L9.25749 8.72504L10.9438 4.80916ZM12.0001 5.64325L10.4162 9.32103C10.2498 9.70764 9.88536 9.97239 9.46623 10.0113L5.47903 10.3811L8.48738 13.0239C8.80361 13.3017 8.9428 13.73 8.85025 14.1407L7.96984 18.047L11.4129 16.0026C11.7749 15.7877 12.2253 15.7877 12.5872 16.0026L16.0303 18.047L15.1499 14.1407C15.0573 13.73 15.1965 13.3017 15.5128 13.0239L18.5211 10.3811L14.5339 10.0113C14.1148 9.97239 13.7504 9.70764 13.5839 9.32103L12.0001 5.64325Z"
+                          fill=""></path>
+                </svg>
+                <div class="BottomTabMenuName"><p
+                        class="textSize12 textWeight500 textHeight140 textInherit"
+                        style="color: rgb(122, 130, 135);">내 관심글</p></div>
+            </button>
+            <button class="BottomMenuItemButton BottomTabInactive">
+                <svg class="BottomTabMenuIcon" width="24" height="24" viewBox="0 0 24 24"
+                     fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="24" height="24" fill="none"></rect>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M16 8C16 10.2091 14.2091 12 12 12C9.79086 12 8 10.2091 8 8C8 5.79086 9.79086 4 12 4C14.2091 4 16 5.79086 16 8ZM14.7 8C14.7 9.49117 13.4912 10.7 12 10.7C10.5088 10.7 9.3 9.49117 9.3 8C9.3 6.50883 10.5088 5.3 12 5.3C13.4912 5.3 14.7 6.50883 14.7 8Z"
+                          fill="black"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M4 17.5C4 15.2909 5.79086 13.5 8 13.5H16C18.2091 13.5 20 15.2909 20 17.5V19.5C20 20.0523 19.5523 20.5 19 20.5H5C4.44772 20.5 4 20.0523 4 19.5V17.5ZM18.7 17.5V19.2H5.3V17.5C5.3 16.0088 6.50883 14.8 8 14.8H16C17.4912 14.8 18.7 16.0088 18.7 17.5Z"
+                          fill=""></path>
+                </svg>
+                <div class="BottomTabMenuName"><p
+                        class="textSize12 textWeight500 textHeight140 textInherit"
+                        style="color: rgb(122, 130, 135);">마이페이지</p></div>
+            </button>
         </div>
+    </div>
 </div>
 
 </body>

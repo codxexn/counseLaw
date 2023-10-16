@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>카운슬로우 - CounseLaw</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-    <link rel="stylesheet" href="./mypage.css">
+    <link rel="stylesheet" href="/css/mypage/mypage.css">
 </head>
 <body style="background-color: #fff;">
     <div class="root pc">
@@ -17,7 +17,7 @@
                     <header class="MypageHeader">
                         <div class="MypageHeaderLeft">
                             <div class="MypageHeader-LogoWrapper">
-                                <img src="./main_logo.png" alt="카운슬로우 로고" class="MypageHeader-MainLogo">
+                                <img src="/image/mypage/main_logo.png" alt="카운슬로우 로고" class="MypageHeader-MainLogo">
                             </div>
                         </div>
                         <div class="MypageHeaderCenter">
@@ -26,7 +26,7 @@
                         <div class="MypageHeaderRight">
                             <div class="MypageHeaderRight-ButtonContainer">
                                 <p class="MypageHeaderRight-Button">내 정보 수정</p>
-                                <p class="MypageHeaderRight-Button">로그아웃</p>
+                                <a href="/login/logout-finally" style="text-decoration: none;"><p class="MypageHeaderRight-Button" >로그아웃</p></a>
                             </div>
                         </div>
                     </header>
