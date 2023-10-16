@@ -113,10 +113,200 @@ button, input, optgroup, select, textarea {
 }
 
 /* 개인정보수정 css */
+* {
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif !important;
+}
+
+.MypageHeaderWrapper {
+    background: #fff;
+    position: fixed;
+    top: 0;
+    transition: background .25s ease;
+    width: 100%;
+    z-index: 1000;
+}
+
+.MypageHeader {
+    display: flex;
+    flex-direction: row;
+    min-width: 335px;
+    width: 100%;
+    height: 72px;
+    padding: 0;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.MypageHeader-Mobile {
+    position: relative;
+    width: 100%;
+    z-index: 51;
+}
+
+.MypageHeaderModule-Mobile {
+    display: flex;
+    flex-direction: row;
+    min-width: 335px;
+    width: 100%;
+    height: 56px;
+    padding: 0 20px;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.MypageHeaderLeft {
+    display: inline-flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.MypageHeaderLeft-Mobile {
+    display: inline-flex;
+    align-items: center;
+    flex: 1 1;
+}
+
+.MypageHeaderLeft-ArrowWrapper {
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    margin-left: -4px;
+}
+
+.MypageHeaderLeft-Title {
+    margin-left: 8px;
+    color: rgb(43, 45, 47);
+    cursor: inherit;
+    line-height: 125%;
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.MypageHeader-LogoWrapper {
+    cursor: pointer;
+    width: 100%;
+}
+
+.MypageHeader-MainLogo {
+    overflow: hidden;
+    width: 118px;
+    height: 26px;
+}
+
+.MypageHeaderCenter {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.MypageHeaderText {
+    color: rgb(43, 45, 47);
+    cursor: inherit;
+    line-height: 125%;
+    font-weight: 700;
+    font-size: 1.125rem;
+}
+
+.MypageHeaderRight {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.MypageHeaderRight-ButtonContainer {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.MypageHeaderRight-Button {
+    color: rgb(122, 130, 135);
+    padding: 5px 6px;
+    cursor: pointer;
+    line-height: 100%;
+    font-weight: 400;
+    font-size: 0.875rem;
+}
+
+.MypageBox-MenuItem-Info{
+    display: flex;
+    justify-content: space-between;
+}
+
+.MypageBox-MenuItem-Info:not(:last-child){
+    margin-bottom: 17px;
+}
+
+.MypageBox-MenuItem-Mobile {
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+}
+
+.MypageBox-MenuItem:not(:last-child){
+    margin-bottom: 17px;
+}
+
+.MypageBox-MenuItem-Mobile:not(:last-child){
+    margin-bottom: 23px;
+}
+
+.MypageBox{
+    padding-bottom: 10px;
+}
+
+.MypageBox:last-of-type{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.MypageBox-MenuItemLabel {
+    color: #555;
+    font-size: 18px;
+}
+
+.MypageBox-MenuItemLabel-Mobile {
+    color: #555;
+    font-size: 16px;
+}
+
+.MypageBox-MenuItemText {
+    color: #555;
+    font-size: 15px;
+    width: 40%;
+    text-align: right;
+    word-break: keep-all;
+}
+
+.careerUpdateButton:hover {
+    color: rgb(51, 151, 255);
+}
+
+.careerDeleteButton:hover{
+    color: #c50000;
+}
+
+.careerButton {
+    outline: none;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+}
 
 .Info-Update-Wrapper {
     display: block;
     width: 100%;
+    margin-top: 72px;
 }
 
 .Info-Update {
@@ -170,6 +360,12 @@ button, input, optgroup, select, textarea {
 
 .field-checkboxes {
     margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.field-checkbox {
+    margin-bottom: 10px;
 }
 
 .Account-Info-Card-Group-Field input[type=checkbox] {
@@ -314,6 +510,11 @@ button, input, optgroup, select, textarea {
     text-align: center;
 }
 
+.profile-image-buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .Account-Info-Card-Button {
     color: #c50000;
     font-size: 18px;
@@ -400,4 +601,29 @@ button, input, optgroup, select, textarea {
     font-family: Amplitude-Medium,sans-serif;
     font-size: 11px;
     text-decoration: none!important;
+}
+
+.profile-image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mypage-image-wrapper {
+    width: 200px;
+    height: 200px;
+}
+
+.mypage-profile-image-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.mypage-profile-image {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
 }

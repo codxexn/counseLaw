@@ -21,4 +21,6 @@ public class LegalGuideVO {
     /////////////////
     // 변호사 id (fk)
     private Long lawyerId;
+    // 분야 id (fk)
+    private Long fieldId;
 }

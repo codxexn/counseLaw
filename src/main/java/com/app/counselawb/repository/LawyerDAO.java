@@ -2,6 +2,8 @@ package com.app.counselawb.repository;
 
 
 import com.app.counselawb.domain.dto.LawyerFieldDTO;
+import com.app.counselawb.domain.vo.ExperienceVO;
+import com.app.counselawb.domain.vo.FieldVO;
 import com.app.counselawb.domain.vo.LawyerFieldVO;
 import com.app.counselawb.domain.vo.LawyerVO;
 import com.app.counselawb.mapper.LawyerMapper;
@@ -41,5 +43,85 @@ public class LawyerDAO {
     // 변호사 id로 분야들 조회
     public List<LawyerFieldDTO> readFieldsByLawyerId(Long lawyerId){
         return lawyerMapper.selectFieldsByLawyerId(lawyerId);
+    }
+
+    // 전화 상담 횟수 조회
+    public int readPhoneCountByLawyerId(Long lawyerId){
+        return lawyerMapper.selectPhoneCountByLawyerId(lawyerId);
+    }
+
+    // 영상 상담 횟수 조회
+    public int readVideoCountByLawyerId(Long lawyerId){
+        return lawyerMapper.selectVideoCountByLawyerId(lawyerId);
+    }
+
+    // 방문 상담 횟수 조회
+    public int readVisitCountByLawyerId(Long lawyerId){
+        return lawyerMapper.selectVisitCountByLawyerId(lawyerId);
+    }
+
+    // 상담 사례 답글 단 횟수 조회
+    public int readReplyCountByLawyerId(Long lawyerId){
+        return lawyerMapper.selectReplyCountByLawyerId(lawyerId);
+    }
+
+    // 비밀번호 변경
+    public void modifyPw(LawyerVO lawyerVO){
+        lawyerMapper.updatePw(lawyerVO);
+    }
+
+    // 전화번호 변경
+    public void modifyPhone(LawyerVO lawyerVO){
+        lawyerMapper.updatePhone(lawyerVO);
+    }
+
+    // 분야 리스트 조회
+    public List<FieldVO> readAllFields(){
+        return lawyerMapper.selectAllFields();
+    }
+
+    // 변호사 분야 추가
+    public void writeLawyerFields(Long fieldId, Long lawyerId){
+        lawyerMapper.insertLawyerFields(fieldId, lawyerId);
+    }
+
+    // 변호사 분야 삭제
+    public void removeLawyerFields(Long lawyerId){
+        lawyerMapper.deleteLawyerFields(lawyerId);
+    }
+
+    // 변호사 기타 정보 업데이트
+    public void modifyLawyerInfo(LawyerVO lawyerVO){
+        lawyerMapper.updateLawyerInfo(lawyerVO);
+    }
+
+    // 변호사 경력 조회
+    public List<ExperienceVO> readCareersByLawyerId(Long lawyerId){
+        return lawyerMapper.selectCareersByLawyerId(lawyerId);
+    }
+
+    // 경력 개별 삭제
+    public void removeExperienceByExperienceId(Long experienceId){
+        lawyerMapper.deleteExperienceByExperienceId(experienceId);
+    }
+
+    // 경력 추가
+    public void writeExperience(ExperienceVO experienceVO){
+        lawyerMapper.insertExperience(experienceVO);
+    }
+
+    // 변호사 프사 업데이트
+    public void modifyProfilePhoto(LawyerVO lawyerVO){
+        lawyerMapper.updateProfileImage(lawyerVO);
+    }
+
+    // 변호사 프사 가져오기
+    public String readProfileImage(Long lawyerId){
+        return lawyerMapper.selectProfileImage(lawyerId);
+    }
+
+    // 변호사 프사 삭제
+    public void removeProfileImage(Long lawyerId){
+        lawyerMapper.deleteProfileImage(lawyerId);
     }
 }
