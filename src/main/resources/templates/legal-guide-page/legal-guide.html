@@ -4,12 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>법률가이드 페이지</title>
-    <link rel="stylesheet" href="legalGuide.css" />
+    <link rel="stylesheet" href="/css/legalGuidePage/legalGuide.css" />
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+    <th:block th:replace="~{fix/header :: my-header-head}"></th:block>
+    <th:block th:replace="~{fix/footer :: my-footer-head}"></th:block>
 </head>
 <body class="footer-Color">
 <!-- 롤링배너 및 드롭다운 & 최신순 조회순 적용 및 상세 페이지 남음 -->
 <div class="root pc">
+    <header th:replace="~{fix/header :: my-header}"></header>
     <div class="pc-View">
         <div class="search-Controller">
             <div class="search-Controller" style="visibility: visible">
@@ -2821,6 +2824,7 @@
         </div>
     </div>
 </div>
+<footer th:replace="~{fix/footer :: my-footer}"></footer>
 </body>
-<script src="legalGuide.js"></script>
+<script src="/js/legalGuidePage/legalGuide.js"></script>
 </html>
