@@ -27,5 +27,6 @@
         <typeAlias type="com.app.counselawb.domain.dto.LawyerFieldDTO" alias="lawyerFieldDTO" />
         <typeAlias type="com.app.counselawb.domain.dto.PostsDTO" alias="postsDTO" />
         <typeAlias type="com.app.counselawb.domain.dto.ConsultingCaseDTO" alias="consultingCaseDTO" />
+        <typeAlias type="com.app.counselawb.domain.dto.LawyerLocationDTO" alias="lawyerLocationDTO"/>
     </typeAliases>
 </configuration>
