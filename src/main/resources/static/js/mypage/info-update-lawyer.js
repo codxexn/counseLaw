@@ -23,3 +23,18 @@ function deleteCareer(experienceId){
         f.submit();
     })
 }
+
+const defaultImg = document.querySelector(".mypage-profile-image");
+const file = document.querySelector("input[name=file]");
+const imageWrapper = document.querySelector(".mypage-profile-image-wrapper");
+file.addEventListener("change", (e) => {
+    if (file.files && file.files[0]){
+        let reader = new FileReader();
+        reader.onload = function(e){
+            defaultImg.src = e.target.result;
+        };
+        reader.readAsDataURL(file.files[0]);
+    } else {
+        defaultImg.src = "/image/defaultLawyerProfile/defaultLawyerProfile.png";
+    }
+})

@@ -107,4 +107,22 @@
         VALUES(SEQ_EXPERIENCE.NEXTVAL, #{lawyerId}, #{startYear}, #{endYear}, #{experienceContent})
     </insert>
 
+    <update id="updateProfileImage">
+        UPDATE TBL_LAWYER
+        SET LAWYER_IMAGE = #{lawyerImage}
+        WHERE LAWYER_ID = #{lawyerId}
+    </update>
+
+    <select id="selectProfileImage" resultType="String">
+        SELECT LAWYER_IMAGE
+        FROM TBL_LAWYER
+        WHERE LAWYER_ID = #{lawyerId}
+    </select>
+
+    <update id="deleteProfileImage">
+        UPDATE TBL_LAWYER
+        SET LAWYER_IMAGE = NULL
+        WHERE LAWYER_ID = #{lawyerId}
+    </update>
+
 </mapper>

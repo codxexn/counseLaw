@@ -17,7 +17,7 @@
             <header class="MypageHeader">
                 <div class="MypageHeaderLeft">
                     <div class="MypageHeader-LogoWrapper">
-                        <img src="/image/mypage/main_logo.png" alt="카운슬로우 로고" class="MypageHeader-MainLogo">
+                        <img onclick="location.href='/'" src="/image/mypage/main_logo.png" alt="카운슬로우 로고" class="MypageHeader-MainLogo">
                     </div>
                 </div>
                 <div class="MypageHeaderCenter">
@@ -36,6 +36,28 @@
         <div class="Info-Update-Wrapper">
             <div class="Info-Update">
                 <div class="Info-Update-Body">
+                    <form th:action="@{/mypage-lawyer/info-update-profile}" method="post" role="form" name="accountForm" class="Account-Info-Card"
+                    enctype="multipart/form-data">
+                        <h3 class="Account-Info-Card-Header">프로필 사진</h3>
+                        <div class="profile-image-wrapper">
+                            <div class="mypage-image-wrapper">
+                                <div class="mypage-profile-image-wrapper">
+                                    <img th:src="${lawyerImage == null ? '/image/defaultLawyerProfile/defaultLawyerProfile.png' : lawyerImage}"
+                                         alt="프로필 사진" class="mypage-profile-image">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Account-Info-Card-Body">
+                            <div class="Account-Info-Card-Group">
+                                <input type="hidden" th:name="lawyerId" th:value="${session.lawyer.lawyerId}">
+                                <input type="file" name="file" accept="image/png, image/jpg, image/jpeg">
+                            </div>
+                        </div>
+                        <div class="Account-Info-Card-Footer profile-image-buttons">
+                            <button type="submit" class="Account-Info-Card-Button">[ 저장 ]</button>
+                            <button type="button" onclick="location.href='/mypage-lawyer/delete-profile'" class="Account-Info-Card-Button">[ 삭제 ]</button>
+                        </div>
+                    </form>
                     <form th:action="@{/mypage-lawyer/info-update-pw}" method="post" role="form" name="accountForm" class="Account-Info-Card">
                         <h3 class="Account-Info-Card-Header">계정정보</h3>
                         <div class="Account-Info-Card-Body">

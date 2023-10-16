@@ -109,4 +109,19 @@ public class LawyerDAO {
     public void writeExperience(ExperienceVO experienceVO){
         lawyerMapper.insertExperience(experienceVO);
     }
+
+    // 변호사 프사 업데이트
+    public void modifyProfilePhoto(LawyerVO lawyerVO){
+        lawyerMapper.updateProfileImage(lawyerVO);
+    }
+
+    // 변호사 프사 가져오기
+    public String readProfileImage(Long lawyerId){
+        return lawyerMapper.selectProfileImage(lawyerId);
+    }
+
+    // 변호사 프사 삭제
+    public void removeProfileImage(Long lawyerId){
+        lawyerMapper.deleteProfileImage(lawyerId);
+    }
 }

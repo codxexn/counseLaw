@@ -109,4 +109,19 @@ public class LawyerServiceImpl implements LawyerService {
     public void saveExperience(ExperienceVO experienceVO) {
         lawyerDAO.writeExperience(experienceVO);
     }
+
+    @Override
+    public void reviseProfileImage(LawyerVO lawyerVO) {
+        lawyerDAO.modifyProfilePhoto(lawyerVO);
+    }
+
+    @Override
+    public String findProfileImage(Long lawyerId) {
+        return lawyerDAO.readProfileImage(lawyerId);
+    }
+
+    @Override
+    public void discardProfileImage(Long lawyerId) {
+        lawyerDAO.removeProfileImage(lawyerId);
+    }
 }

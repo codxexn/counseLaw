@@ -64,4 +64,13 @@ public interface LawyerService {
 
     // 경력 추가
     public void saveExperience(ExperienceVO experienceVO);
+
+    // 변호사 프사 업데이트
+    public void reviseProfileImage(LawyerVO lawyerVO);
+
+    // 변호사 프사 가져오기
+    public String findProfileImage(Long lawyerId);
+
+    // 변호사 프사 삭제
+    public void discardProfileImage(Long lawyerId);
 }

@@ -19,7 +19,7 @@
                 <header class="MypageHeader">
                     <div class="MypageHeaderLeft">
                         <div class="MypageHeader-LogoWrapper">
-                            <img src="/image/mypage/main_logo.png" alt="카운슬로우 로고" class="MypageHeader-MainLogo">
+                            <img onclick="location.href='/'" src="/image/mypage/main_logo.png" alt="카운슬로우 로고" class="MypageHeader-MainLogo">
                         </div>
                     </div>
                     <div class="MypageHeaderCenter">
@@ -41,8 +41,10 @@
             <div class="MypageCard">
                 <div class="MypageProfilewrapper">
                     <div class="mypage-image-wrapper">
-                        <img th:src="${currentLawyer.lawyerImage == null ? '/image/defaultLawyerProfile/defaultLawyerProfile.png' : currentLawyer.lawyerImage}"
-                             alt="프로필 사진" class="mypage-profile-image">
+                        <div class="mypage-profile-image-wrapper">
+                            <img th:src="${currentLawyer.lawyerImage == null ? '/image/defaultLawyerProfile/defaultLawyerProfile.png' : currentLawyer.lawyerImage}"
+                                 alt="프로필 사진" class="mypage-profile-image">
+                        </div>
                     </div>
                     <div class="mypage-profile-desc-wrapper">
                         <div class="mypage-profile-name">
@@ -199,4 +201,5 @@
     </div>
 </div>
 </body>
+
 </html>

@@ -5,18 +5,28 @@ import com.app.counselawb.domain.dto.LawyerFieldDTO;
 import com.app.counselawb.domain.vo.ExperienceVO;
 import com.app.counselawb.domain.vo.FieldVO;
 import com.app.counselawb.domain.vo.LawyerVO;
+import com.app.counselawb.domain.vo.MemberVO;
 import com.app.counselawb.service.LawyerService;
+import com.app.counselawb.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.RandomStringUtils;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +39,7 @@ public class LawyerMypageController {
 
     // 변호사 마이페이지 가기
     @GetMapping("mypage-lawyer")
-    public String GoToMypageLawyer(HttpSession session, Model model) {
+    public String GoToMypageLawyer(HttpSession session, Model model, MemberVO memberVO, LawyerVO lawyerVO) {
         if (session.getAttribute("lawyer") == null) {
             return "/client-login/client-login";
         }
@@ -64,12 +74,12 @@ public class LawyerMypageController {
 
     // 변호사 정보 변경 페이지 가기
     @GetMapping("info-update")
-    public String GoToInfoUpdate(HttpSession session, Model model){
+    public String GoToInfoUpdate(HttpSession session, Model model, MemberVO memberVO, LawyerVO lawyerVO){
         if (session.getAttribute("lawyer") == null){
             return "/client-login/client-login";
         }
-        LawyerVO lawyerVO = (LawyerVO) session.getAttribute("lawyer");
-        Long lawyerId = lawyerVO.getLawyerId();
+        LawyerVO lawyer = (LawyerVO) session.getAttribute("lawyer");
+        Long lawyerId = lawyer.getLawyerId();
         List<LawyerFieldDTO> foundFields = lawyerService.findFieldsByLawyerId(lawyerId);
         List<Long> foundFieldIds = new ArrayList<>();
         foundFields.forEach((field) -> {
@@ -81,7 +91,48 @@ public class LawyerMypageController {
         List<FieldVO> fieldList = lawyerService.findAllFields();
         model.addAttribute("fieldList", fieldList);
         model.addAttribute("passwordErrorMsg", null);
+        String lawyerProfile = lawyerService.findProfileImage(lawyerId);
+        model.addAttribute("lawyerImage", lawyerProfile);
         return "/mypage/info-update-lawyer";
+    }
+
+    // 프사 변경
+    @PostMapping("info-update-profile")
+    public RedirectView uploadProfileImage(@RequestParam("lawyerId") Long lawyerId, MultipartHttpServletRequest mhsr) throws Exception{
+        MultipartFile image = mhsr.getFile("file");
+        if (image != null){
+            LawyerVO lawyerVO = new LawyerVO();
+            lawyerVO.setLawyerId(lawyerId);
+            String originFileName = image.getOriginalFilename();
+            String fileNameExtension = FilenameUtils.getExtension(originFileName).toLowerCase();
+            String absolutePath = new File("").getAbsolutePath() + "\\src\\main\\resources\\static";
+            String fileUrl = "/image/lawyer-profile-images/";
+            File destinationFile;
+            String destinationFileName;
+            do {
+                destinationFileName = RandomStringUtils.randomAlphanumeric(32) + "." + fileNameExtension;
+                destinationFile = new File(absolutePath + fileUrl + destinationFileName);
+            } while (destinationFile.exists());
+
+            destinationFile.getParentFile().mkdirs();
+            image.transferTo(destinationFile);
+
+            lawyerVO.setLawyerImage(fileUrl + destinationFileName);
+            lawyerService.reviseProfileImage(lawyerVO);
+        }
+        return new RedirectView("/mypage-lawyer/info-update");
+    }
+
+    // 프사 삭제
+    @GetMapping("delete-profile")
+    public RedirectView deleteProfileImage(HttpSession session){
+        LawyerVO currentLawyer = (LawyerVO) session.getAttribute("lawyer");
+        Long lawyerId = currentLawyer.getLawyerId();
+        lawyerService.discardProfileImage(lawyerId);
+        currentLawyer.setLawyerImage(null);
+        session.removeAttribute("lawyer");
+        session.setAttribute("lawyer", currentLawyer);
+        return new RedirectView("/mypage-lawyer/info-update");
     }
 
 

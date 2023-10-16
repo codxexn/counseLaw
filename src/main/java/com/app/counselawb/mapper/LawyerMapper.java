@@ -67,4 +67,13 @@ public interface LawyerMapper {
     // 경력 추가
     public void insertExperience(ExperienceVO experienceVO);
 
+    // 변호사 프사 업데이트
+    public void updateProfileImage(LawyerVO lawyerVO);
+
+    // 변호사 프사 가져오기
+    public String selectProfileImage(Long lawyerId);
+
+    // 변호사 프사 삭제
+    public void deleteProfileImage(Long lawyerId);
+
 }
