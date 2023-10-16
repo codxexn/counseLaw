@@ -15,10 +15,14 @@ public class SolutionCaseVO {
     private String solutionCaseTitle;
     // 해결 사례 내용
     private String solutionCaseContent;
+    // 판결 내역
+    private String sentenceResult;
     // 기본 세팅
     private LocalDateTime createDate;
     private LocalDateTime updateDate;
     //////////////
     // 변호사 id (fk)
     private Long lawyerId;
+    // 분야 id (fk)
+    private Long fieldId;
 }

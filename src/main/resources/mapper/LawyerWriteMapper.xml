@@ -6,4 +6,24 @@
                                     LAWYER_ID, FIELD_ID)
         VALUES(SEQ_LEGAL_GUIDE.NEXTVAL, #{legalGuideTitle}, #{legalGuideContent}, #{lawyerId}, #{fieldId})
     </insert>
+
+    <insert id="insertSolutionCase">
+        INSERT INTO TBL_SOLUTION_CASE(SOLUTION_CASE_ID, SOLUTION_CASE_TITLE, SOLUTION_CASE_CONTENT, LAWYER_ID, FIELD_ID, SENTENCE_RESULT)
+        VALUES(SEQ_SOLUTION_CASE.NEXTVAL, #{solutionCaseTitle}, #{solutionCaseContent}, #{lawyerId}, #{fieldId}, #{sentenceResult})
+    </insert>
+
+    <insert id="insertSolutionCaseImg">
+        INSERT INTO TBL_SOLUTION_CASE_IMG(SOLUTION_CASE_IMG_ID, SOLUTION_CASE_ID, ORIGIN_FILE_NAME, STORED_FILE_NAME, IMG_SIZE, IMG_PATH)
+        VALUES(SEQ_SOLUTION_CASE_IMG.NEXTVAL, #{solutionCaseId}, #{originFileName}, #{storedFileName}, #{imgSize}, #{imgPath})
+    </insert>
+
+    <select id="selectLatestIdByLawyerId" resultType="long">
+        SELECT P2.SOLUTION_CASE_ID
+        FROM (SELECT ROWNUM R, P1.SOLUTION_CASE_ID
+              FROM (SELECT SOLUTION_CASE_ID
+                    FROM TBL_SOLUTION_CASE
+                    WHERE LAWYER_ID = #{lawyerId}
+                    ORDER BY SOLUTION_CASE_ID DESC) P1) P2
+        WHERE P2.R = 1
+    </select>
 </mapper>
