@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -7,31 +7,74 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>개인정보 수정 | 카운슬로우</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-    <link rel="stylesheet" href="./info-update.css">
+    <link rel="stylesheet" href="/css/mypage/info-update.css">
+    <th:block th:replace="~{fix/footer :: my-footer-head}"></th:block>
 </head>
 <body>
 <div class="root pc">
     <div style="height: 100%;">
+        <div class="MypageHeaderWrapper">
+            <header class="MypageHeader">
+                <div class="MypageHeaderLeft">
+                    <div class="MypageHeader-LogoWrapper">
+                        <img onclick="location.href='/'" src="/image/mypage/main_logo.png" alt="카운슬로우 로고" class="MypageHeader-MainLogo">
+                    </div>
+                </div>
+                <div class="MypageHeaderCenter">
+                    <p class="MypageHeaderText">개인정보 수정</p>
+                </div>
+                <div class="MypageHeaderRight">
+                    <div class="MypageHeaderRight-ButtonContainer">
+                        <p onclick="location.href='/mypage-lawyer/mypage-lawyer'" class="MypageHeaderRight-Button">마이페이지</p>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="MypageHeader-PlaceholderWrapper">
+            <div class="MypageHeader-Placeholder"></div>
+        </div>
         <div class="Info-Update-Wrapper">
             <div class="Info-Update">
                 <div class="Info-Update-Body">
-                    <form role="form" name="accountForm" class="Account-Info-Card">
+                    <form th:action="@{/mypage-lawyer/info-update-profile}" method="post" role="form" name="accountForm" class="Account-Info-Card"
+                    enctype="multipart/form-data">
+                        <h3 class="Account-Info-Card-Header">프로필 사진</h3>
+                        <div class="profile-image-wrapper">
+                            <div class="mypage-image-wrapper">
+                                <div class="mypage-profile-image-wrapper">
+                                    <img th:src="${lawyerImage == null ? '/image/defaultLawyerProfile/defaultLawyerProfile.png' : lawyerImage}"
+                                         alt="프로필 사진" class="mypage-profile-image">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Account-Info-Card-Body">
+                            <div class="Account-Info-Card-Group">
+                                <input type="hidden" th:name="lawyerId" th:value="${session.lawyer.lawyerId}">
+                                <input type="file" name="file" accept="image/png, image/jpg, image/jpeg">
+                            </div>
+                        </div>
+                        <div class="Account-Info-Card-Footer profile-image-buttons">
+                            <button type="submit" class="Account-Info-Card-Button">[ 저장 ]</button>
+                            <button type="button" onclick="location.href='/mypage-lawyer/delete-profile'" class="Account-Info-Card-Button">[ 삭제 ]</button>
+                        </div>
+                    </form>
+                    <form th:action="@{/mypage-lawyer/info-update-pw}" method="post" role="form" name="accountForm" class="Account-Info-Card">
                         <h3 class="Account-Info-Card-Header">계정정보</h3>
                         <div class="Account-Info-Card-Body">
                             <div class="Account-Info-Card-Group">
-                                <input value="hds1234@gmail.com" id="my-email" type="email" placeholder="예) name@example.com" maxlength="255" name="email" class="Account-Info-Card-Group-Input">
+                                <input disabled th:value="${session.lawyer.lawyerEmail}" id="my-email" type="email" placeholder="예) name@example.com" maxlength="255" name="email" class="Account-Info-Card-Group-Input">
                                 <label for="my-email">이메일</label>
                                 <div class="Missing-Email-Message">
                                     <label>이메일은 반드시 입력하셔야 합니다.</label>
                                 </div>
                             </div>
                             <div class="Account-Info-Card-Group">
-                                <input id="old-password" type="password" maxlength="255" name="oldPassword" class="Account-Info-Card-Group-Input">
+                                <input id="old-password" th:name="oldPassword" type="password" maxlength="255" name="oldPassword" class="Account-Info-Card-Group-Input">
                                 <label for="old-password">기존 비밀번호</label>
-                                <p class="Update-Error Old-Password-Error">기존 비밀번호와 일치하지 않습니다.</p>
+                                <p th:if="${passwordErrorMsg != null}" th:text="${passwordErrorMsg}" class="Update-Error Old-Password-Error">기존 비밀번호와 일치하지 않습니다.</p>
                             </div>
                             <div class="Account-Info-Card-Group">
-                                <input id="new-password" type="password" maxlength="255" name="newPassword" class="Account-Info-Card-Group-Input">
+                                <input id="new-password" th:name="newPassword" type="password" maxlength="255" name="newPassword" class="Account-Info-Card-Group-Input">
                                 <label for="new-password">새로운 비밀번호</label>
                                 <p class="Update-Error New-Password-Error">올바르지 않은 형식입니다.</p>
                             </div>
@@ -46,11 +89,11 @@
                             <button type="submit" class="Account-Info-Card-Button">[ 저장 ]</button>
                         </div>
                     </form>
-                    <form role="form" name="phoneForm" class="Account-Info-Card">
+                    <form th:action="@{/mypage-lawyer/info-update-phone}" method="post" role="form" name="phoneForm" class="Account-Info-Card">
                         <h3 class="Account-Info-Card-Header">전화번호</h3>
                         <div class="Account-Info-Card-Body">
                             <div class="Account-Info-Card-Group">
-                                <input value="01012345678" id="my-phone" type="text" placeholder="예) 01012345678" maxlength="11" name="phone" class="Account-Info-Card-Group-Input">
+                                <input th:value="${session.lawyer.lawyerPhone}" th:name="phone" id="my-phone" type="text" placeholder="예) 01012345678" maxlength="11" name="phone" class="Account-Info-Card-Group-Input">
                                 <label for="my-phone">전화번호</label>
                                 <div class="Missing-Phone-Message">
                                     <label>전화번호는 반드시 입력하셔야 합니다.</label>
@@ -69,31 +112,66 @@
                             <button type="submit" class="Account-Info-Card-Button">[ 저장 ]</button>
                         </div>
                     </form>
-                    <form role="form" name="lawyerForm" class="Account-Info-Card">
+                    <form th:action="@{/mypage-lawyer/info-update-info}" method="post" role="form" name="lawyerForm" class="Account-Info-Card">
                         <h3 class="Account-Info-Card-Header">변호사 정보</h3>
                         <div class="Account-Info-Card-Body">
                             <div class="Account-Info-Card-Group">
-                                <input id="my-company" type="text" placeholder="변호사님의 소속 회사를 입력해주세요. (없을 경우 '개인')" maxlength="255" name="company" class="Account-Info-Card-Group-Input">
+                                <input th:value="${session.lawyer.lawyerCompany == null ? '미입력' : session.lawyer.lawyerCompany}" th:name="company" id="my-company" type="text" placeholder="변호사님의 소속 회사를 입력해주세요. (없을 경우 '개인')" maxlength="255" name="company" class="Account-Info-Card-Group-Input">
                                 <label for="my-company">소속 회사</label>
                             </div>
                             <div class="Account-Info-Card-Group">
-                                <input id="my-address" type="text" placeholder="의뢰인분들이 찾아갈 수 있는 변호사님의 주소를 입력해주세요." maxlength="255" name="address" class="Account-Info-Card-Group-Input">
+                                <input th:value="${session.lawyer.lawyerAddress == null ? '미입력' : session.lawyer.lawyerAddress}" th:name="address" id="my-address" type="text" placeholder="의뢰인분들이 찾아갈 수 있는 변호사님의 주소를 입력해주세요." maxlength="255" name="address" class="Account-Info-Card-Group-Input">
                                 <label for="my-address">사무실 주소</label>
                             </div>
                             <div class="Account-Info-Card-Group">
-                                <input id="my-school" type="text" placeholder="변호사님의 최종 학력을 입력해주세요." maxlength="255" name="school" class="Account-Info-Card-Group-Input">
+                                <input th:value="${session.lawyer.lawyerEducation == null ? '미입력' : session.lawyer.lawyerEducation}" th:name="school" id="my-school" type="text" placeholder="변호사님의 최종 학력을 입력해주세요." maxlength="255" name="school" class="Account-Info-Card-Group-Input">
                                 <label for="my-school">학력</label>
                             </div>
                             <div class="Account-Info-Card-Group-Field">
                                 <span class="label-for-fields">분야</span>
                                 <div class="field-checkboxes">
                                     <!-- th로 id, name, for, 분야명 가져올겁니다. 예시로 3개만 만들겠습니다. -->
-                                    <input id="type1" value="성매매" type="checkbox" name="type1">
-                                    <label for="type1">성매매</label>
-                                    <input id="type2" value="횡령/배임" type="checkbox" name="type2">
-                                    <label for="type2">횡령/배임</label>
-                                    <input id="type3" value="사기/공갈" type="checkbox" name="type3">
-                                    <label for="type3">사기/공갈</label>
+                                    <div th:each="field : ${fieldList}" class="field-checkbox">
+                                        <input th:id="|type + ${field.fieldId}|" th:name="eachField" th:value="${field.fieldId}" type="checkbox"
+                                        th:checked="${#lists.contains(fields, field.fieldId) ? 'true' : 'false'}">
+                                        <label th:for="|type + ${field.fieldId}|" th:text="${field.fieldTitle}"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Account-Info-Card-Footer">
+                            <button type="submit" class="Account-Info-Card-Button">[ 저장 ]</button>
+                        </div>
+                    </form>
+                    <form th:action="@{/mypage-lawyer/info-update-career}" method="post" role="form" name="lawyerForm" class="Account-Info-Card">
+                        <h3 class="Account-Info-Card-Header">내 경력</h3>
+                        <input type="hidden" th:value="${session.lawyer.lawyerId}" th:name="lawyerId">
+                        <div class="Account-Info-Card-Body">
+                            <div class="Account-Info-Card-Group">
+                                <input th:name="startYear" id="startYear" type="text" placeholder="시작 연도를 4자리 숫자로 입력해주세요. (ex. 2015)" maxlength="5" name="startYear" class="Account-Info-Card-Group-Input">
+                                <label for="startYear">시작 연도</label>
+                            </div>
+                            <div class="Account-Info-Card-Group">
+                                <input th:name="endYear" id="endYear" type="text" placeholder="종료 연도를 4자리 숫자로 입력해주세요. 진행 중이라면 0을 입력해주세요." maxlength="5" name="endYear" class="Account-Info-Card-Group-Input">
+                                <label for="endYear">종료 연도</label>
+                            </div>
+                            <div class="Account-Info-Card-Group">
+                                <input th:name="experienceContent" id="experienceContent" type="text" placeholder="경력 내용을 입력해주세요. (ex. 김앤장 법률사무소 대표)" maxlength="250" name="experienceContent" class="Account-Info-Card-Group-Input">
+                                <label for="experienceContent">경력 내용</label>
+                            </div>
+                            <div th:each="career: ${careerList}" class="MypageBox-MenuItem-Info">
+                                <div class="MypageBox-MenuItemLabel">
+                                    <span th:text="${career.startYear}"></span>
+                                    -
+                                    <span th:text="${career.endYear == 0 ? '현재' : career.endYear}"></span>
+                                </div>
+                                <div th:text="${career.experienceContent}" class="MypageBox-MenuItemText"></div>
+                                <div class="careerButtonWrapper">
+                                    <button th:onclick="|deleteCareer(${career.experienceId})|" type="button" class="careerButton careerDeleteButton">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                            <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                                        </svg>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -105,18 +183,21 @@
                 <div class="Info-Update-Footer">
                     <div class="Info-Update-Footer-Row">
                         <a href="">변호사 회원탈퇴</a>
-                        <a href="">메인 페이지</a>
+                        <a th:href="@{/}">메인 페이지</a>
                     </div>
                     <div class="Info-Update-Footer-Row">
-                        <a href="" class="Info-Update-Footer-Copyright">
+                        <a th:href="@{/}" class="Info-Update-Footer-Copyright">
                             (C) CounseLaw Co., Ltd.
                         </a>
                     </div>
                 </div>
             </div>
         </div>
+        <footer th:replace="~{fix/footer :: my-footer}"></footer>
     </div>
 </div>
 </body>
-<script src="info-update.js"></script>
+<script src="/js/mypage/info-update.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script src="/js/mypage/info-update-lawyer.js"></script>
 </html>

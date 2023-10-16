@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.counselawb.mapper.LawyerWriteMapper">
+    <insert id="insertLegalGuide">
+        INSERT INTO TBL_LEGAL_GUIDE(LEGAL_GUIDE_ID, LEGAL_GUIDE_TITLE, LEGAL_GUIDE_CONTENT,
+                                    LAWYER_ID, FIELD_ID)
+        VALUES(SEQ_LEGAL_GUIDE.NEXTVAL, #{legalGuideTitle}, #{legalGuideContent}, #{lawyerId}, #{fieldId})
+    </insert>
+</mapper>

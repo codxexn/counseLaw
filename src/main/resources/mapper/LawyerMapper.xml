@@ -33,4 +33,96 @@
         WHERE LAWYER_ID = #{lawyerId}
     </select>
 
+    <select id="selectPhoneCountByLawyerId" resultType="int">
+        SELECT COUNT(RESERVATION_ID)
+        FROM TBL_RESERVATION
+        WHERE LAWYER_ID = #{lawyerId} AND CONSULTING_TYPE = 'PHONE'
+    </select>
+
+    <select id="selectVideoCountByLawyerId" resultType="int">
+        SELECT COUNT(RESERVATION_ID)
+        FROM TBL_RESERVATION
+        WHERE LAWYER_ID = #{lawyerId} AND CONSULTING_TYPE = 'VIDEO'
+    </select>
+
+    <select id="selectVisitCountByLawyerId" resultType="int">
+        SELECT COUNT(RESERVATION_ID)
+        FROM TBL_RESERVATION
+        WHERE LAWYER_ID = #{lawyerId} AND CONSULTING_TYPE = 'VISIT'
+    </select>
+
+    <select id="selectReplyCountByLawyerId" resultType="int">
+        SELECT COUNT(CONSULTING_CASE_REPLY_ID)
+        FROM TBL_CONSULTING_CASE_REPLY
+        WHERE LAWYER_ID = #{lawyerId}
+    </select>
+
+    <update id="updatePw">
+        UPDATE TBL_LAWYER
+        SET LAWYER_PASSWORD = #{lawyerPassword}
+        WHERE LAWYER_ID = #{lawyerId}
+    </update>
+
+    <update id="updatePhone">
+        UPDATE TBL_LAWYER
+        SET LAWYER_PHONE = #{lawyerPhone}
+        WHERE LAWYER_ID = #{lawyerId}
+    </update>
+
+    <select id="selectAllFields" resultType="fieldVO">
+        SELECT FIELD_ID, FIELD_TITLE, FIELD_DESCRIPTION
+        FROM TBL_FIELD
+    </select>
+
+    <insert id="insertLawyerFields">
+        INSERT INTO TBL_LAWYER_FIELD(LAWYER_FIELD_ID, FIELD_ID, LAWYER_ID)
+        VALUES(SEQ_LAWYER_FIELD.NEXTVAL, #{fieldId}, #{lawyerId})
+    </insert>
+
+    <delete id="deleteLawyerFields">
+        DELETE FROM TBL_LAWYER_FIELD
+        WHERE LAWYER_ID = #{lawyerId}
+    </delete>
+
+    <update id="updateLawyerInfo">
+        UPDATE TBL_LAWYER
+        SET LAWYER_COMPANY = #{lawyerCompany}, LAWYER_ADDRESS = #{lawyerAddress}, LAWYER_EDUCATION = #{lawyerEducation}
+        WHERE LAWYER_ID = #{lawyerId}
+    </update>
+
+    <select id="selectCareersByLawyerId" resultType="experienceVO">
+        SELECT EXPERIENCE_ID, LAWYER_ID, START_YEAR, END_YEAR, EXPERIENCE_CONTENT
+        FROM TBL_EXPERIENCE
+        WHERE LAWYER_ID = #{lawyerId}
+        ORDER BY START_YEAR DESC
+    </select>
+
+    <delete id="deleteExperienceByExperienceId">
+        DELETE FROM TBL_EXPERIENCE
+        WHERE EXPERIENCE_ID = #{experienceId}
+    </delete>
+
+    <insert id="insertExperience">
+        INSERT INTO TBL_EXPERIENCE(EXPERIENCE_ID, LAWYER_ID, START_YEAR, END_YEAR, EXPERIENCE_CONTENT)
+        VALUES(SEQ_EXPERIENCE.NEXTVAL, #{lawyerId}, #{startYear}, #{endYear}, #{experienceContent})
+    </insert>
+
+    <update id="updateProfileImage">
+        UPDATE TBL_LAWYER
+        SET LAWYER_IMAGE = #{lawyerImage}
+        WHERE LAWYER_ID = #{lawyerId}
+    </update>
+
+    <select id="selectProfileImage" resultType="String">
+        SELECT LAWYER_IMAGE
+        FROM TBL_LAWYER
+        WHERE LAWYER_ID = #{lawyerId}
+    </select>
+
+    <update id="deleteProfileImage">
+        UPDATE TBL_LAWYER
+        SET LAWYER_IMAGE = NULL
+        WHERE LAWYER_ID = #{lawyerId}
+    </update>
+
 </mapper>

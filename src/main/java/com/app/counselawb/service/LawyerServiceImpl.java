@@ -1,6 +1,8 @@
 package com.app.counselawb.service;
 
 import com.app.counselawb.domain.dto.LawyerFieldDTO;
+import com.app.counselawb.domain.vo.ExperienceVO;
+import com.app.counselawb.domain.vo.FieldVO;
 import com.app.counselawb.domain.vo.LawyerVO;
 import com.app.counselawb.repository.LawyerDAO;
 import lombok.RequiredArgsConstructor;
@@ -41,5 +43,85 @@ public class LawyerServiceImpl implements LawyerService {
     @Override
     public List<LawyerFieldDTO> findFieldsByLawyerId(Long lawyerId) {
         return lawyerDAO.readFieldsByLawyerId(lawyerId);
+    }
+
+    @Override
+    public int findPhoneCountByLawyerId(Long lawyerId) {
+        return lawyerDAO.readPhoneCountByLawyerId(lawyerId);
+    }
+
+    @Override
+    public int findVideoCountByLawyerId(Long lawyerId) {
+        return lawyerDAO.readVideoCountByLawyerId(lawyerId);
+    }
+
+    @Override
+    public int findVisitCountByLawyerId(Long lawyerId) {
+        return lawyerDAO.readVisitCountByLawyerId(lawyerId);
+    }
+
+    @Override
+    public int findReplyCountByLawyerId(Long lawyerId) {
+        return lawyerDAO.readReplyCountByLawyerId(lawyerId);
+    }
+
+    @Override
+    public void revisePw(LawyerVO lawyerVO) {
+        lawyerDAO.modifyPw(lawyerVO);
+    }
+
+    @Override
+    public void revisePhone(LawyerVO lawyerVO) {
+        lawyerDAO.modifyPhone(lawyerVO);
+    }
+
+    @Override
+    public List<FieldVO> findAllFields() {
+        return lawyerDAO.readAllFields();
+    }
+
+    @Override
+    public void saveLawyerFields(Long fieldId, Long lawyerId) {
+        lawyerDAO.writeLawyerFields(fieldId, lawyerId);
+    }
+
+    @Override
+    public void discardLawyerFields(Long lawyerId) {
+        lawyerDAO.removeLawyerFields(lawyerId);
+    }
+
+    @Override
+    public void reviseLawyerInfo(LawyerVO lawyerVO) {
+        lawyerDAO.modifyLawyerInfo(lawyerVO);
+    }
+
+    @Override
+    public List<ExperienceVO> findCareersByLawyerId(Long lawyerId) {
+        return lawyerDAO.readCareersByLawyerId(lawyerId);
+    }
+
+    @Override
+    public void discardExperienceByExperienceId(Long experienceId) {
+        lawyerDAO.removeExperienceByExperienceId(experienceId);
+    }
+
+    @Override
+    public void saveExperience(ExperienceVO experienceVO) {
+        lawyerDAO.writeExperience(experienceVO);
+    }
+
+    @Override
+    public void reviseProfileImage(LawyerVO lawyerVO) {
+        lawyerDAO.modifyProfilePhoto(lawyerVO);
+    }
+
+    @Override
+    public String findProfileImage(Long lawyerId) {
+        return lawyerDAO.readProfileImage(lawyerId);
+    }
+
+    @Override
+    public void discardProfileImage(Long lawyerId) {
+        lawyerDAO.removeProfileImage(lawyerId);
     }
 }

@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>법률가이드 작성하기 | 카운슬로우</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="/css/lawyer-write/lawyer-write.css">
+    <th:block th:replace="~{fix/header :: my-header-head}"></th:block>
+    <th:block th:replace="~{fix/footer :: my-footer-head}"></th:block>
+</head>
+<body>
+<div class="root pc">
+    <div style="height: 100%;">
+        <header th:replace="~{fix/header :: my-header}"></header>
+        <div class="QNA-Wrapper">
+            <div class="QNA-Contents">
+                <div class="QNA-Question-Wrapper">
+                    <div class="QNA-Question-Contents">
+                        <div class="QNA-Question-Compose-Wrapper">
+                            <div class="QNA-Question-Compose-Title">
+                                <div class="QNA-Question-Compose-Title-Wrapper">
+                                    <span class="QNA-Question-Compose-Title-Badge">TIP</span>
+                                    <p class="QNA-Question-Compose-Description">의뢰인분들을 위한 가이드를 자세하게 작성해주세요.</p>
+                                </div>
+                            </div>
+                            <form th:action="@{/lawyer-write/lawyer-write-lg}" method="post" name="composeForm" class="QNA-Question-Compose-Form">
+                                <div>
+                                    <div>
+                                        <input type="hidden" th:value="${lawyerId}" th:name="lawyerId">
+                                        <div class="Compose-Input-Upperline field-wrapper">
+                                            <div class="Compose-Input-Name-Wrapper">
+                                                <div class="Compose-Input-Name">분야&nbsp;</div>
+                                                <div class="Compose-Input-Description">
+                                                    (1개 선택
+                                                    <span class="Compose-Input-Description-Orange">*</span>
+                                                    )
+                                                </div>
+                                            </div>
+                                            <div class="field-checkboxes">
+                                                <div th:each="field : ${fieldList}" class="field-checkbox">
+                                                    <input th:id="|type + ${field.fieldId}|" th:name="eachField" th:value="${field.fieldId}" type="radio">
+                                                    <label th:for="|type + ${field.fieldId}|" th:text="${field.fieldTitle}"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="Compose-Input-Upperline">
+                                            <div class="Compose-Input-Name-Wrapper">
+                                                <div class="Compose-Input-Name">제목&nbsp;</div>
+                                                <div class="Compose-Input-Description">
+                                                    (10자 이상
+                                                    <span class="Compose-Input-Description-Orange">*</span>
+                                                    )
+                                                </div>
+                                            </div>
+                                            <div class="Compose-Input-Count-Wrapper Title-Count-Wrapper">
+                                                <span class="Compose-Input-Count Title-Count">0자</span>
+                                                <span class="Compose-Input-Total">/50자</span>
+                                            </div>
+                                        </div>
+                                        <div class="Compose-Textarea-Wrapper Title-Textarea">
+                                            <textarea onclick="onTitleClickShowTip(); onTitleClickShowCount();"  onblur="onTitleBlurHideTip();
+                                            onTitleBlurHideCount();" name="title" rows="1" class="Compose-Title-Textarea"
+                                                      placeholder="의뢰인분들이 이해하기 쉬운 제목을 입력해주세요."
+                                                      th:name="title" maxlength="50"></textarea>
+                                            <div class="Compose-Title-Guide">
+                                                <div class="Compose-Title-Guide-Tipline">
+                                                    <div class="Compose-Title-Guide-Tip-Image"></div>
+                                                    <div class="Compose-Title-Guide-Tip">작성 TIP</div>
+                                                </div>
+                                                <p class="Compose-Title-Guide-Content">
+                                                        <span class="Compose-Title-Guide-Content-Bold">
+                                                            의뢰인분들이 이해하기 쉽도록 작성하시는 게 좋아요.
+                                                        </span>
+                                                    <br>
+                                                    <span class="Compose-Title-Guide-Content-Example">ex.&nbsp;</span>
+                                                    <span class="Compose-Title-Guide-Content-Question">
+                                                            [민사] 임대차보증금을 전 집주인에게 받을 수 있을까요?
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="Compose-Input-Content-Wrapper">
+                                        <div class="Compose-Input-Upperline">
+                                            <div class="Compose-Input-Name-Wrapper">
+                                                <div class="Compose-Input-Name">내용&nbsp;</div>
+                                                <div class="Compose-Input-Description">
+                                                    (200자 이상
+                                                    <span class="Compose-Input-Description-Orange">*</span>
+                                                    )
+                                                </div>
+                                            </div>
+                                            <div class="Compose-Input-Count-Wrapper Body-Count-Wrapper">
+                                                <span class="Compose-Input-Count Body-Count">0자</span>
+                                                <span class="Compose-Input-Total">/3,000자</span>
+                                            </div>
+                                        </div>
+                                        <div class="Compose-Textarea-Wrapper Body-Textarea">
+                                            <textarea onfocus="onBodyClickShowTip(); onBodyClickShowCount();" onblur="onBodyBlurHideTip();
+                                            onBodyBlurHideCount();" name="body" class="Compose-Body-Textarea" maxlength="3000"
+                                                      th:name="body" placeholder="항목을 나누어 구체적으로 설명해주세요."></textarea>
+                                            <div class="Compose-Title-Guide">
+                                                <div class="Compose-Title-Guide-Tipline">
+                                                    <div class="Compose-Title-Guide-Tip-Image"></div>
+                                                    <div class="Compose-Title-Guide-Tip">작성 TIP</div>
+                                                </div>
+                                                <ul class="Compose-Guide-List">
+                                                    <li class="Compose-Guide-List-Item">
+                                                        법률가이드를 찾은 의뢰인분들 누구나 이해할 수 있도록
+                                                        <span class="Compose-Title-Guide-Content-Bold">
+                                                                항목을 나누어 구체적으로
+                                                            </span>
+                                                        설명해주세요.
+                                                    </li>
+                                                    <li class="Compose-Guide-List-Item">
+                                                            <span class="Compose-Title-Guide-Content-Bold">
+                                                                개인정보(실명, 상호, 주민번호, 전화번호 등)
+                                                            </span>
+                                                        는 내용에 포함하지 말아주세요.
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="Compose-Form-Description">
+                                    <div class="Compose-Form-Notice-Title-Wrapper">
+                                        <p class="Compose-Form-Notice-Title">
+                                            법률가이드 등록 전 필수 안내사항
+                                        </p>
+                                    </div>
+                                    <div class="Compose-Form-Notice-Contents">
+                                        <ol class="Compose-Form-Notice-List">
+                                            <li class="Compose-Form-Notice-Item">법률가이드 제목은 적합한 내용으로 일부 변경될 수 있습니다.</li>
+                                            <li class="Compose-Form-Notice-Item">등록된 글은 네이버 지식인, 포털 사이트, 카운슬로우 사이트에 내용이 공개됩니다.</li>
+                                            <li class="Compose-Form-Notice-Item">
+                                                아래 사항에 해당할 경우, 서비스 이용이 제한될 수 있습니다.
+                                                <ul class="Compose-Form-Notice-Limit-List">
+                                                    <li class="Compose-Form-Notice-Limit-Item">개인정보(개인/법인 실명, 전화번호, 주민번호, 주소, 아이디 등) 및 외부 링크 포함</li>
+                                                    <li class="Compose-Form-Notice-Limit-Item">변호사 선임 및 변호사 선임 비용과 관련된 홍보 내용 포함</li>
+                                                    <li class="Compose-Form-Notice-Limit-Item">법률 가이드 목적의 게시물이 아닌 경우</li>
+                                                    <li class="Compose-Form-Notice-Limit-Item">동일/유사한 내용의 게시물을 지속적으로 반복 게재</li>
+                                                    <li class="Compose-Form-Notice-Limit-Item">의미없는 문자의 나열 포함</li>
+                                                </ul>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                    <div class="Compose-Form-Notice-Line"></div>
+                                    <div class="Compose-Form-Agreement-Wrapper">
+                                        <input type="checkbox" id="noticeAgreement" class="Compose-Form-Agreement-Checkbox">
+                                        <label for="noticeAgreement" class="Compose-Form-Agreement-Text">
+                                            안내 사항을 모두 확인했으며, 동의합니다.
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="Compose-Form-Button-Wrapper">
+                                    <button class="Compose-Form-Button" disabled type="submit">등록하기</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer th:replace="~{fix/footer :: my-footer}"></footer>
+    </div>
+</div>
+</body>
+<script src="/js/lawyer-write/lawyer-write.js"></script>
+</html>

@@ -13,9 +13,9 @@ public class ExperienceVO {
     // 경력 id
     private Long experienceId;
     // 시작 연도
-    private LocalDate startYear;
+    private int startYear;
     // 종료 연도
-    private LocalDate endYear;
+    private int endYear;
     // 경력 내용
     private String experienceContent;
     // 기본 세팅
