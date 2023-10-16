@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.counselawb.mapper.ConsultingCaseMapper">
+<!--    상담사례 전체 목록 불러오기-->
+    <select id="selectAllConsultingCase" resultType="consultingCaseVO">
+        SELECT CONSULTING_CASE_ID, MEMBER_ID, CASE_TITLE, CASE_CONTENT, CREATE_DATE, UPDATE_DATE
+        FROM TBL_CONSULTING_CASE
+
+    </select>
+
+<!--    상담사례의 변호사 이름, 작성자 이름, 답변 내용 개수등 다 불러오기-->
+    <select id="readAllConsult" resultType="consultingCaseDTO">
+        SELECT
+            CC.CONSULTING_CASE_ID,
+            CC.CASE_TITLE,
+            CC.CASE_CONTENT,
+            CC.MEMBER_ID,
+            CCR.LAWYER_ID,
+            L.LAWYER_NAME,
+            CCR.CONSULTING_CASE_REPLY_ID,
+            CCR.CONSULTING_CASE_REPLY_CONTENT,
+            CCR.CREATE_DATE AS REPLY_CREATE_DATE
+        FROM
+            TBL_CONSULTING_CASE CC
+                LEFT JOIN
+            TBL_CONSULTING_CASE_REPLY CCR ON CC.CONSULTING_CASE_ID = CCR.CONSULTING_CASE_ID
+                LEFT JOIN
+            TBL_LAWYER L ON CCR.LAWYER_ID = L.LAWYER_ID
+    </select>
+
+<!--    상담사례 총 개수 불러오기-->
+    <select id="selectAllCaseCounts" resultType="int">
+        SELECT COUNT(CONSULTING_CASE_ID)
+        FROM TBL_CONSULTING_CASE
+    </select>
+
+
+
+</mapper>
