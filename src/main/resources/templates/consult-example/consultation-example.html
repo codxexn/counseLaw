@@ -1,17 +1,20 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>상담사례 페이지</title>
-    <link rel="stylesheet" href="consultationExample.css">
+    <link rel="stylesheet" href="/css/consultExample/consultationExample.css">
+    <th:block th:replace="~{fix/header :: my-header-head}"></th:block>
+    <th:block th:replace="~{fix/footer :: my-footer-head}"></th:block>
 </head>
 <body class="FooterColor">
 <!-- body부분 전체 -->
 <!-- script는 제외하고 html, css만 작성-->
 <div id="root" >
+    <header th:replace="~{fix/header :: my-header}"></header>
     <div class="searchController">
         <div ui-view class="searchContent" style="visibility: visible;">
             <section class="caseSection">
@@ -210,7 +213,8 @@
                             <section class="casesList">
                                 <!--10개-->
                                 <!-- 1-->
-                                <lawyer-case-card ng-repeat="caseInCases" case="case" sort="sort" select-context-additional search-keyword="keyword" card-order="1" class="caseCard">
+                                <lawyer-case-card th:each="consultCases:${consultCase}"
+                                        ng-repeat="caseInCases" case="case" sort="sort" select-context-additional search-keyword="keyword" card-order="1" class="caseCard">
                                     <a href="../consult-detail/consult-detail.html" class="caseCardLink">
                                         <div class="caseCardWrap">
                                             <div class="caseCardLine Top">
@@ -223,17 +227,17 @@
                                                 </span>
                                             </h5>
                                             <!-- 제목 -->
-                                            <div style class="caseCardTitle">유부남과의 관계에 대한 법적인 문제 상담
+                                            <div style class="caseCardTitle" th:text="${consultCases.caseTitle}">유부남과의 관계에 대한 법적인 문제 상담
                                             </div>
                                             <!-- 답변한 변호사 -->
                                             <div class="caseAnswer">
                                                 답변
-                                                <span class="caseAnswerLawyer">
+                                                <span class="caseAnswerLawyer" th:text="${consultCases.lawyerName}">
                                                     하선호 변호사
                                                 </span>
                                             </div>
                                             <!-- 답변의 내용-->
-                                            <div class="caseCardAnswer">
+                                            <div class="caseCardAnswer" th:utext="${consultCases.replyContent}">
                                                 만약 상대가 결혼을 한 상태라면 성적자기결정권 침해로인한 손해배상을 청구할 수 있습니다. 게시글만 가지고 원론적으로 답변드린거라서 전화주시면 어떻게 법적대응하셔야하는지
                                                 알려드리도록 하겠습니다.
                                             </div>
@@ -1012,7 +1016,7 @@
                         </div>
                     </aside>
                     <!--상담글 쓰기-->
-                    <a href="../counseling/counseling-write.html" class="composeFloatingButton">
+                    <a href="/counseling/counseling-write" class="composeFloatingButton">
                         <i class="lc lcPencilFill">
                         </i>
                         <div class="composeFloatingButtonText ltDesktop">상담글 쓰기</div>
@@ -1020,8 +1024,10 @@
                 </div>
             </section>
         </div>
+        <footer th:replace="~{fix/footer :: my-footer}"></footer>
+
+
     </div>
 </div>
-
 </body>
 </html>
