@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -7,7 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>무료로 온라인 상담글 작성하기 | 카운슬로우</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-    <link rel="stylesheet" href="./counselingWrite.css">
+    <link rel="stylesheet" href="/css/counseling/counselingWrite.css">
+    <th:block th:replace="~{fix/header :: my-header-head}"></th:block>
+    <th:block th:replace="~{fix/footer :: my-footer-head}"></th:block>
 </head>
 <body>
     <div class="root pc">
@@ -23,13 +25,14 @@
                                         <p class="QNA-Question-Compose-Description">변호사의 답변을 무료로 받아보세요!</p>
                                     </div>
                                 </div>
-                                <form role="form" name="composeForm" class="QNA-Question-Compose-Form">
+                                <form role="form" name="composeForm" class="QNA-Question-Compose-Form"
+                                    th:action="@{/counseling/counseling-write}" th:object="${consultingCaseVO}">
                                     <div>
                                         <div>
                                             <div class="Compose-Input-Upperline">
                                                 <div class="Compose-Input-Name-Wrapper">
                                                     <div class="Compose-Input-Name">제목&nbsp;</div>
-                                                    <div class="Compose-Input-Description">
+                                                    <div class="Compose-Input-Description" >
                                                         (10자 이상
                                                         <span class="Compose-Input-Description-Orange">*</span>
                                                         )
@@ -41,13 +44,14 @@
                                                 </div>
                                             </div>
                                             <div class="Compose-Textarea-Wrapper Title-Textarea">
-                                                <textarea onclick="onTitleClickShowTip(); onTitleClickShowCount();"  onblur="onTitleBlurHideTip(); onTitleBlurHideCount();" name="title" rows="1" class="Compose-Title-Textarea" placeholder="1개의 질문을 구체적으로 입력해주세요." maxlength="50"></textarea>
+                                                <textarea th:field="*{faqTitle}"
+                                                        onclick="onTitleClickShowTip(); onTitleClickShowCount();"  onblur="onTitleBlurHideTip(); onTitleBlurHideCount();" name="title" rows="1" class="Compose-Title-Textarea" placeholder="1개의 질문을 구체적으로 입력해주세요." maxlength="50"></textarea>
                                                 <div class="Compose-Title-Guide">
                                                     <div class="Compose-Title-Guide-Tipline">
                                                         <div class="Compose-Title-Guide-Tip-Image"></div>
                                                         <div class="Compose-Title-Guide-Tip">작성 TIP</div>
                                                     </div>
-                                                    <p class="Compose-Title-Guide-Content">
+                                                    <p class="Compose-Title-Guide-Content" >
                                                         <span class="Compose-Title-Guide-Content-Bold">
                                                             1개의 질문을 구체적으로 작성해주시는게 좋아요.&nbsp;
                                                         </span>
@@ -75,7 +79,8 @@
                                                 </div>
                                             </div>
                                             <div class="Compose-Textarea-Wrapper Body-Textarea">
-                                                <textarea onfocus="onBodyClickShowTip(); onBodyClickShowCount();" onblur="onBodyBlurHideTip(); onBodyBlurHideCount();" name="body" class="Compose-Body-Textarea" maxlength="1000" placeholder="시간 순서에 따라 구체적으로 설명해주세요."></textarea>
+                                                <textarea onfocus="onBodyClickShowTip(); onBodyClickShowCount();" onblur="onBodyBlurHideTip(); onBodyBlurHideCount();" name="body" class="Compose-Body-Textarea" maxlength="1000" placeholder="시간 순서에 따라 구체적으로 설명해주세요."
+                                                          th:field="*{caseContent}"></textarea>
                                                 <div class="Compose-Title-Guide">
                                                     <div class="Compose-Title-Guide-Tipline">
                                                         <div class="Compose-Title-Guide-Tip-Image"></div>
@@ -141,7 +146,8 @@
                 </div>
             </div>
         </div>
+        <footer th:replace="~{fix/footer :: my-footer}"></footer>
     </div>
 </body>
-<script src="./counselingWrite.js"></script>
+<script src="/static/js/counselingWrite.js"></script>
 </html>
