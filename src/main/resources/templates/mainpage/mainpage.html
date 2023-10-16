@@ -3282,7 +3282,10 @@
 </body>
 <script th:inline="javascript">
     const lawyer = [[${session.lawyer}]];
-    console.log(lawyer)
+    const member = [[${session.member}]];
+</script>
+<script th:if="${alertMsg} != null">
+    alert("로그인 상태입니다. 로그아웃 진행 후 로그인을 시도하세요.");
 </script>
 <script src="/js/mainPage/mainPage.js"></script>
 <script src="/js/header/header.js"></script>
