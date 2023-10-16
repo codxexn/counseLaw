@@ -6,13 +6,17 @@ import com.app.counselawb.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.PrintWriter;
 import java.util.Optional;
 
 @Controller
@@ -21,29 +25,34 @@ import java.util.Optional;
 @RequestMapping("/login/*")
 public class LoginController {
     private final MemberService memberService;
+
+    // 로그인 화면으로 이동
     @GetMapping("client-login")
-    public String GoToLogin(MemberVO memberVO, LawyerVO lawyerVO){return "/client-login/client-login";}
+    public String GoToLogin(HttpSession session, MemberVO memberVO, LawyerVO lawyerVO, Model model){
+        if (session.getAttribute("member") != null || session.getAttribute("lawyer") != null) {
+            model.addAttribute("alertMsg", "로그인 상태입니다. 로그아웃 진행 후 로그인을 시도하세요.");
+            return "/mainpage/mainpage";
+        }
+        return "/client-login/client-login";
+    }
 
+    // 일반 회원 로그인
     @PostMapping("client-login")
-    public ModelAndView memberLogin(MemberVO memberVO, HttpSession session) {
-        ModelAndView mv = new ModelAndView();
+    public RedirectView memberLogin(MemberVO memberVO, HttpSession session) {
         Optional<MemberVO> foundMember = memberService.memberLogin(memberVO);
-
         if (foundMember.isPresent()) {
             MemberVO member = foundMember.get();
             if (member.getMemberState().matches("WITHDRAW|SUSPENDED")) {
-                mv.setViewName("login/login-error");
-                return mv;
+                return new RedirectView("/login/login-error");
             }
             session.setAttribute("member", foundMember.get());
-            mv.addObject("member", member);
-            mv.setViewName("/mainpage/mainpage");
-            return mv;
+            log.info((session.getAttribute("member")).toString());
+            return new RedirectView("/");
         }
-        mv.setViewName("login/login-error");
-        return mv;
+        return new RedirectView("/login/login-error");
     }
 
+    // 변호사 로그인
     @PostMapping("lawyer-login")
     public RedirectView lawyerLogin(LawyerVO lawyerVO, HttpSession session) {
         Optional<LawyerVO> foundLawyer = memberService.lawyerLogin(lawyerVO);
@@ -58,4 +67,16 @@ public class LoginController {
         }
         return new RedirectView("/login/login-error");
     }
+
+    // 로그아웃
+    @GetMapping("logout-finally")
+    public RedirectView logout(HttpSession session){
+        if(session != null) {
+            session.invalidate();
+        }
+
+        return new RedirectView("/");
+    }
+
+
 }

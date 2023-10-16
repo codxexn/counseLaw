@@ -126,44 +126,30 @@
                         </div>
 
                         <form style="position: relative;" method="post" class="sign-in-section-form" id="client-login-form" th:action="@{/login/client-login}" th:object="${memberVO}">
-                            <label for="username" class="sign-in-section-form-username">
+                            <label for="clientusername" class="sign-in-section-form-username">
                                 아이디
                             </label>
-
                             <input type="text" id="clientusername" name="id" placeholder="아이디를 입력해주세요."
                             class="sign-in-section-form-input" th:field="*{memberEmail}">
-
                             <div id="client-username-validator-message" class="sign-in-validation-message" style="display: none;">
                                 <label class="control-label">아이디는 영문, 숫자, 밑줄(_)만 입력 가능합니다.</label>
                             </div>
-
-                            <label for="password" class="sign-in-section-form-password">
+                            <label for="clientpassword" class="sign-in-section-form-password">
                                 비밀번호
                             </label>
-
-                            <input type="password" id="clienpassword" name="password" placeholder="비밀번호를 입력해주세요."
+                            <input type="password" id="clientpassword" name="password" placeholder="비밀번호를 입력해주세요."
                                    class="sign-in-section-form-input" th:field="*{memberPassword}">
-
-
-
                             <div class="sign-in-section-form-options">
                                 <div class="form-group">
                                     <div class="box">
-                                        <div id="client-auto-sign-in" class="check-circle">
-
-                                        </div>
+                                        <div id="client-auto-sign-in" class="check-circle"></div>
                                     </div>
                                     <label for="auto-sign-in">로그인 상태 유지</label>
                                 </div>
-
-
-
                                 <a href="https://www.lawtalk.co.kr/auth/reset-password" class="search-id-password">
                                     아이디/비밀번호 찾기
                                 </a>
                             </div>
-
-
                             <button type="submit" class="sign-in-section-form-button">로그인</button>
                         </form>
 
@@ -219,7 +205,10 @@
         </div>
 
 </body>
-
+<script th:inline="javascript">
+    const lawyer = [[${session.lawyer}]];
+    const member = [[${session.member}]];
+</script>
 <script src="/js/client-login/client-login.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </html>
