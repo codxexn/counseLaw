@@ -20,6 +20,8 @@ public interface PostsMapper {
     // 해결 사례 조회
     public List<PostsDTO> selectBySolutionCasePosts();
 
+    public int selectTotalSolutionCasePosts();
+
     // legalGuide Post 조회
     public List<PostsDTO> selectByLegalGuidePosts();
 }

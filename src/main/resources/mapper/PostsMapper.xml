@@ -83,23 +83,33 @@
         <![CDATA[
         SELECT SOLUTION_CASE_ID, SOLUTION_CASE_TITLE, SOLUTION_CASE_CONTENT, CREATE_DATE, LAWYER_NAME
         FROM (
-                SELECT SC.SOLUTION_CASE_ID, SC.SOLUTION_CASE_TITLE, SC.SOLUTION_CASE_CONTENT, SC.CREATE_DATE, L.LAWYER_NAME
+                SELECT SC.SOLUTION_CASE_ID, SC.SOLUTION_CASE_TITLE, SC.SOLUTION_CASE_CONTENT, SC.CREATE_DATE, L.LAWYER_NAME, ROWNUM AS rnum
                 FROM TBL_SOLUTION_CASE SC
                 JOIN TBL_LAWYER L ON L.LAWYER_ID = SC.LAWYER_ID
              )
+        WHERE rnum BETWEEN #{startRow} AND #{endRow}
         ORDER BY SOLUTION_CASE_ID DESC
         ]]>
+    </select>
+
+    <select id="selectTotalConsultingPosts" resultType="int">
+        SELECT COUNT(CONSULTING_CASE_ID) FROM TBL_CONSULTING_CASE
     </select>
 
     <select id="selectByLegalGuidePosts" resultType="postsDTO">
         <![CDATA[
         SELECT LEGAL_GUIDE_ID, LEGAL_GUIDE_TITLE, LEGAL_GUIDE_CONTENT, CREATE_DATE, LAWYER_NAME
         FROM (
-                 SELECT LG.LEGAL_GUIDE_ID, LG.LEGAL_GUIDE_TITLE, LG.LEGAL_GUIDE_CONTENT, LG.CREATE_DATE, L.LAWYER_NAME
+                 SELECT LG.LEGAL_GUIDE_ID, LG.LEGAL_GUIDE_TITLE, LG.LEGAL_GUIDE_CONTENT, LG.CREATE_DATE, L.LAWYER_NAME, ROWNUM AS rnum
                  FROM TBL_LEGAL_GUIDE LG
                  JOIN TBL_LAWYER L ON L.LAWYER_ID = LG.LAWYER_ID
              )
-        ORDER BY LEGAL_GUIDE_ID DESC
+        WHERE rnum BETWEEN #{startRow} AND #{endRow}
+        ORDER BY CREATE_DATE DESC
         ]]>
+    </select>
+
+    <select id="selectTotalConsultingPosts" resultType="int">
+        SELECT COUNT(CONSULTING_CASE_ID) FROM TBL_CONSULTING_CASE
     </select>
 </mapper>
