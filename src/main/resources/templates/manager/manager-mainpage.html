@@ -48,7 +48,7 @@
                             <!--                                <img alt="프로필 이미지" src="https://steadio.co/_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2Fd6831bfd-5b2c-4d80-bd53-0f9548aa284a%2FprofileImage%2F84ae7c49-3ef5-4e40-9129-4d26529bb0cc.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&w=1920&q=75">-->
                             <!--                            </button>-->
                         </div>
-                        <h2 class="Manager-name" >관리자: 박지민</h2> <!--th:text="|관리자: + ${session.member.memberName}|"-->
+                        <h2 class="Manager-name">관리자: 박지민</h2> <!--th:text="|관리자: + ${session.member.memberName}|"-->
                         <a target="_blank" href="">
                             <button class="Manager-PageLink">
                                 <!--                                이동될 페이지 수정 필요-->
@@ -235,9 +235,7 @@
                                     <!--                                    <div th:if="${#strings.equals(selectedOption, 'legalGuide')}">-->
                                     <div style="width: 192px" class="posts" th:text="${post.postAuthorName}">한땡땡</div>
                                     <div style="width: 96px;" class="posts">
-                                        <span th:if="${#strings.equals(post.postType, '상담 사례')}">상담 사례</span>
-                                        <span th:if="${#strings.equals(post.postType, '해결 사례')}">해결 사례</span>
-                                        <span th:if="${#strings.equals(post.postType, '법률 가이드')}">법률 가이드</span>
+                                        <span th:text="${post.postType}"></span>
                                     </div>
                                     <div style="width: 127px;" class="posts"
                                          th:text="${#temporals.format(post.postCreateDate , 'yyyy-MM-dd HH:mm')}">
@@ -312,7 +310,8 @@
                             <!--                                    <div class="member-name" th:text="${resolutionCase.category}">해결사례</div>-->
                             <!--                                </div>-->
                             <!--                        멤버 목록-->
-                            <div class="member-bottom" th:if="${selectAllPosts == null &&   legalGuides == null && solutionCases == null && consultingCases == null}">
+                            <div class="member-bottom"
+                                 th:if="${selectAllPosts == null &&   legalGuides == null && solutionCases == null && consultingCases == null}">
                                 <svg width="53" height="56" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M27.516 1.62c-6.654-4.436-21.823.626-21.821 10.475 0 5.567 1.956 10.31 3.889 14.205-1.403-.463-2.853-1.072-3.8-2.095-.466-.502-1.151-1.115-1.802-1.35-.993-.358-2.035.135-2.572.923-1.212 1.776-1.071 2.717-.403 4.643 4.364 5.647 8.167 5.53 11.275 5.435.286-.009.566-.017.84-.021.897 3.13 2.706 6.042 4.099 8.965 1.617 5.694 9.313 4.544 12.913 1.697 2.3-1.819 5.187-2.36 8.117-1.475 2.303.419 3.88-.68 5.236-1.624 1.031-.72 1.934-1.348 2.93-1.149 1.19.238 2.511.191 2.718-1.307.521-3.781-8.391-5.535-11.284-7.062 4.98-2.883 7.416-7.67 6.968-10.861-.31-2.2-2.168-2.967-4.076-1.773-2.206 1.38-2.758 3.32-5.42 4.348 1.822-6.821 3.386-14.515-7.807-21.975Z"
                                           fill="#9D8DFF"></path>
@@ -328,12 +327,138 @@
                                 </svg>
                                 <p class="member-nolist">작성글이 없습니다</p>
                             </div>
+
+<!--                            <footer class="Footer_Wrapper" th:with="start=${pagination.startPage},-->
+<!--                    last=(${pagination.endPage})">-->
+
+<!--                                <div class="PaginationButtonGroup_PrevButtonWrapper">-->
+<!--                                    <button th:if="${pagination.page == start}" disabled width="40px" height="40px"-->
+<!--                                            font-size="18px"-->
+<!--                                            id="prevprev_button" class="ButtonPage_Styled">-->
+<!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath fill='%23FFF' fill-opacity='0' fill-rule='nonzero' d='M0 0h40v40H0z'/%3E %3Cpath stroke='%23DDD' stroke-width='1.5' d='M16 16l4 4-4 4M21 16l4 4-4 4'/%3E %3C/g%3E %3C/svg%3E"-->
+<!--                                             class="PaginationButtonGroup_Icon">-->
+<!--                                    </button>-->
+<!--                                    <button th:if="${pagination.page != start}"-->
+<!--                                            th:onclick="'location.href=\'/manager/manager-mainpage?selectedOption=' + ${selectedOption} + '&page=' + ${start}'"-->
+<!--                                            width="40px" height="40px" font-size="18px" id="prevprev_button"-->
+<!--                                            style="cursor: pointer;"-->
+<!--                                            class="ButtonPage_Styled">-->
+<!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Crect width='40' height='40' fill='%23FFF' fill-opacity='0' fill-rule='nonzero' rx='20'/%3E %3Cg stroke='%23000' stroke-width='1.5'%3E %3Cpath d='M16 16l4 4-4 4M21 16l4 4-4 4'/%3E %3C/g%3E %3C/g%3E %3C/svg%3E"-->
+<!--                                             class="PaginationButtonGroup_Icon">-->
+<!--                                    </button>-->
+<!--                                    <button th:if="${pagination.page == start}" disabled width="40px" height="40px"-->
+<!--                                            font-size="18px"-->
+<!--                                            class="ButtonPage_Styled" id="prev_button">-->
+<!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath fill='none' d='M0 0h40v40H0z'/%3E %3Cpath stroke='%23DDD' stroke-width='1.5' d='M18 16l4 4-4 4'/%3E %3C/g%3E %3C/svg%3E"-->
+<!--                                             class="PaginationButtonGroup_Icon">-->
+<!--                                    </button>-->
+<!--                                    <button th:if="${pagination.page != start}"-->
+<!--                                            th:onclick="'location.href=\'/manager/manager-mainpage?selectedOption=' + ${selectedOption} + '&page=' + ${pagination.page - 1}'"-->
+<!--                                            width="40px" height="40px" font-size="18px" class="ButtonPage_Styled"-->
+<!--                                            id="prev_button">-->
+<!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath d='M18 0H0v18h18z'/%3E %3Cpath stroke='%23000' stroke-width='1.5' d='M7 5l4 4-4 4'/%3E %3C/g%3E %3C/svg%3E"-->
+<!--                                             class="PaginationButtonGroup_Icon">-->
+<!--                                    </button>-->
+<!--                                </div>-->
+
+<!--                                &lt;!&ndash; 중간 페이지 버튼 (1부터 마지막 페이지까지) &ndash;&gt;-->
+<!--                                <button th:each="buttonpage: ${#numbers.sequence(start, last)}" class="footerButton"-->
+<!--                                        th:class="${buttonpage == pagination.page ? 'ButtonPage_StyledButtonOn' : 'ButtonPage_StyledButtonOff'}">-->
+<!--                                    <a th:text="${buttonpage}"-->
+<!--                                       th:href="@{/manager/manager-mainpage(selectedOption=${selectedOption}, page=${buttonpage})}">Link-->
+<!--                                        Text</a>-->
+<!--                                </button>-->
+
+<!--                                &lt;!&ndash; 다음 페이지 버튼 &ndash;&gt;-->
+<!--                                <div class="PaginationButtonGroup_NextButtonWrapper">-->
+<!--                                    <button th:if="${pagination.page == last}" disabled width="40px" height="40px"-->
+<!--                                            font-size="18px"-->
+<!--                                            class="ButtonPage_Styled" id="next_button">-->
+<!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath fill='none' d='M0 0h40v40H0z'/%3E %3Cpath stroke='%23DDD' stroke-width='1.5' d='M18 16l4 4-4 4'/%3E %3C/g%3E %3C/svg%3E"-->
+<!--                                             class="" id="next_button">-->
+<!--                                    </button>-->
+<!--                                    <button th:if="${pagination.page != last}"-->
+<!--                                            th:onclick="'location.href=\'/manager/manager-mainpage?selectedOption=' + ${selectedOption} + '&page=' + ${pagination.page + 1}'"-->
+<!--                                            width="40px" height="40px" font-size="18px" class="ButtonPage_Styled"-->
+<!--                                            id="next_button">-->
+<!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath d='M18 0H0v18h18z'/%3E %3Cpath stroke='%23000' stroke-width='1.5' d='M7 5l4 4-4 4'/%3E %3C/g%3E %3C/svg%3E"-->
+<!--                                             class="" id="next_button">-->
+<!--                                    </button>-->
+<!--                                    <button th:if="${pagination.page == last}" disabled width="40px" height="40px"-->
+<!--                                            font-size="18px"-->
+<!--                                            class="ButtonPage_Styled" id="nextnext_button">-->
+<!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath fill='%23FFF' fill-opacity='0' fill-rule='nonzero' d='M0 0h40v40H0z'/%3E %3Cpath stroke='%23DDD' stroke-width='1.5' d='M16 16l4 4-4 4M21 16l4 4-4 4'/%3E %3C/g%3E %3C/svg%3E"-->
+<!--                                             class="" id="nextnext_button">-->
+<!--                                    </button>-->
+<!--                                    <button th:if="${pagination.page != last}"-->
+<!--                                            th:onclick="'location.href=\'/manager/manager-mainpage?selectedOption=' + ${selectedOption} + '&page=' + ${pagination.realEnd}'"-->
+<!--                                            width="40px" height="40px" font-size="18px" class="ButtonPage_Styled"-->
+<!--                                            id="nextnext_button">-->
+<!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Crect width='40' height='40' fill='%23FFF' fill-opacity='0' fill-rule='nonzero' rx='20'/%3E %3Cg stroke='%23000' stroke-width='1.5'%3E %3Cpath d='M16 16l4 4-4 4M21 16l4 4-4 4'/%3E %3C/g%3E %3C/g%3E %3C/svg%3E"-->
+<!--                                             class="PaginationButtonGroup_Icon" id="nextnext_button">-->
+<!--                                    </button>-->
+<!--                                </div>-->
+<!--                            </footer>-->
+<!--                            <footer class="Footer_Wrapper">-->
+<!--                                <div class="PaginationButtonGroup_PrevButtonWrapper">-->
+<!--                                    <button th:disabled="${!pagination.prev}" class="ButtonPage_Styled" onclick="navigatePage('[[${selectedOption}]]', [[${pagination.startPage}]])">-->
+<!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath fill='%23FFF' fill-opacity='0' fill-rule='nonzero' d='M0 0h40v40H0z'/%3E %3Cpath stroke='%23DDD' stroke-width='1.5' d='M16 16l4 4-4 4M21 16l4 4-4 4'/%3E %3C/g%3E %3C/svg%3E" class="PaginationButtonGroup_Icon">-->
+<!--                                    </button>-->
+<!--                                    <button th:disabled="${!pagination.prev}" class="ButtonPage_Styled" onclick="navigatePage('[[${selectedOption}]]', [[${pagination.page - 1}]])">-->
+<!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath fill='none' d='M0 0h40v40H0z'/%3E %3Cpath stroke='%23DDD' stroke-width='1.5' d='M18 16l4 4-4 4'/%3E %3C/g%3E %3C/svg%3E" class="PaginationButtonGroup_Icon">-->
+<!--                                    </button>-->
+<!--                                </div>-->
+
+<!--                                &lt;!&ndash; 중간 페이지 버튼 &ndash;&gt;-->
+<!--                                <button th:each="buttonpage: ${#numbers.sequence(pagination.startPage, pagination.endPage)}" class="footerButton"-->
+<!--                                        th:class="${buttonpage == pagination.page ? 'ButtonPage_StyledButtonOn' : 'ButtonPage_StyledButtonOff'}">-->
+<!--                                    <a th:text="${buttonpage}" th:href="@{/manager/manager-mainpage(selectedOption=${selectedOption}, page=${buttonpage})}">[[${buttonpage}]]</a>-->
+<!--                                </button>-->
+
+<!--                                &lt;!&ndash; 다음 페이지 버튼 &ndash;&gt;-->
+<!--                                <div class="PaginationButtonGroup_NextButtonWrapper">-->
+<!--                                    <button th:disabled="${!pagination.next}" class="ButtonPage_Styled" onclick="navigatePage('[[${selectedOption}]]', [[${pagination.page + 1}]])">-->
+<!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath d='M18 0H0v18h18z'/%3E %3Cpath stroke='%23000' stroke-width='1.5' d='M7 5l4 4-4 4'/%3E %3C/g%3E %3C/svg%3E">-->
+<!--                                    </button>-->
+<!--                                    <button th:disabled="${!pagination.next}" class="ButtonPage_Styled" onclick="navigatePage('[[${selectedOption}]]', [[${pagination.realEnd}]])">-->
+<!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Crect width='40' height='40' fill='%23FFF' fill-opacity='0' fill-rule='nonzero' rx='20'/%3E %3Cg stroke='%23000' stroke-width='1.5'%3E %3Cpath d='M16 16l4 4-4 4M21 16l4 4-4 4'/%3E %3C/g%3E %3C/g%3E %3C/svg%3E">-->
+<!--                                    </button>-->
+<!--                                </div>-->
+<!--                            </footer>-->
+                            <footer class="Footer_Wrapper" th:with="start=${pagination.startPage}, last=(${pagination.endPage})">
+                                <div class="PaginationButtonGroup_PrevButtonWrapper">
+                                    <button th:if="${pagination.page != start}"
+                                            th:onclick="'location.href=\'' + @{/manager/manager-mainpage(selectedOption=${selectedOption}, page=${pagination.page - 1})} + '\''">
+                                        Previous
+                                    </button>
+                                    <button th:if="${pagination.page == start}" disabled>
+                                        Previous
+                                    </button>
+                                </div>
+
+                                <!-- 중간 페이지 버튼 (1부터 마지막 페이지까지) -->
+                                <button th:each="buttonpage: ${#numbers.sequence(start, last)}" class="footerButton"
+                                        th:class="${buttonpage == pagination.page ? 'ButtonPage_StyledButtonOn' : 'ButtonPage_StyledButtonOff'}">
+                                    <a th:text="${buttonpage}" th:href="@{/manager/manager-mainpage(selectedOption=${selectedOption}, page=${buttonpage})}">[[${buttonpage}]]</a>
+                                </button>
+
+                                <div class="PaginationButtonGroup_NextButtonWrapper">
+                                    <button th:if="${pagination.page != last}"
+                                            th:onclick="'location.href=\'' + @{/manager/manager-mainpage(selectedOption=${selectedOption}, page=${pagination.page + 1})} + '\''">
+                                        Next
+                                    </button>
+                                    <button th:if="${pagination.page == last}" disabled>
+                                        Next
+                                    </button>
+                                </div>
+                            </footer>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="/js/Manager/Manager.js"></script>
+</div>
+<script src="/js/Manager/Manager.js"></script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 package com.app.counselawb;
 
 import com.app.counselawb.domain.dto.PostsDTO;
+import com.app.counselawb.domain.pagination.Pagination;
 import com.app.counselawb.mapper.PostsMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,8 @@ public class PostsMapperTests {
     private PostsMapper postsMapper;
 
     @Test
-    public void selectByLegalGuidePostsTest() {
-        List<PostsDTO> legalGuides = postsMapper.selectByLegalGuidePosts();
+    public void selectByLegalGuidePostsTest(Pagination pagination) {
+        List<PostsDTO> legalGuides = postsMapper.selectByLegalGuidePosts(pagination);
 
         for (PostsDTO legalGuide : legalGuides) {
             System.out.println("Legal Guide ID: " + legalGuide.getLegalGuideId());

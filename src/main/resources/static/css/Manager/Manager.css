@@ -656,3 +656,83 @@ ol, ul {
     color: black;
     fill: black;
 }
+
+footer.Footer_Wrapper{
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-flex: 0;
+    width: 100%;
+    padding: 30px 0px;
+    background-color: white;
+}
+
+div.PaginationButtonGroup_PrevButtonWrapper{
+    display: flex;
+    margin-right: 10px;
+}
+
+button.ButtonPage_Styled{
+    width: 40px;
+    height: 40px;
+    line-height: normal;
+    padding: 0px;
+    background-color: white;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 18px;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    outline: none;
+}
+
+.PaginationButtonGroup_Icon{
+    transform: rotate(180deg);
+}
+
+button.ButtonPage_StyledButtonOn{
+    width: 40px;
+    height: 40px;
+    line-height: normal;
+    padding: 0px;
+    background-color: white;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 50%;
+    color: rgb(51, 151, 255);
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    outline: none;
+}
+
+button.ButtonPage_StyledOff{
+    width: 40px;
+    height: 40px;
+    line-height: normal;
+    padding: 0px;
+    background-color: white;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 18px;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    outline: none;
+}
+
+
+div.PaginationButtonGroup_NextButtonWrapper{
+    display: flex;
+    margin-left: 10px;
+}

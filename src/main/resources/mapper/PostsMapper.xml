@@ -2,64 +2,127 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.counselawb.mapper.PostsMapper">
     <select id="selectByAllPosts" resultType="postsDTO">
-    <![CDATA[
-        SELECT
-            pc.post_type AS postType,
-            pc.post_id AS post_id,
-            pc.post_title AS postTitle,
-            pc.post_content AS postContent,
-            pc.post_create_date AS postCreateDate,
-            pc.lawyer_id AS lawyerId,
-            COALESCE(m.MEMBER_NAME, l.LAWYER_NAME) AS post_author_name
+        <![CDATA[
+        SELECT *
         FROM (
-                 SELECT '상담 사례' AS post_type, CC.CONSULTING_CASE_ID AS post_id, CC.CASE_TITLE AS post_title, CC.CASE_CONTENT AS post_content, CC.CREATE_DATE AS post_create_date, CC.MEMBER_ID, NULL AS LAWYER_ID
-                 FROM TBL_CONSULTING_CASE CC
-                 UNION ALL
-                 SELECT '해결 사례' AS post_type, SC.SOLUTION_CASE_ID AS post_id, SC.SOLUTION_CASE_TITLE AS post_title, SC.SOLUTION_CASE_CONTENT AS post_content, SC.CREATE_DATE AS post_create_date, NULL AS MEMBER_ID, SC.LAWYER_ID
-                 FROM TBL_SOLUTION_CASE SC
-                 UNION ALL
-                 SELECT '법률 가이드' AS post_type, LG.LEGAL_GUIDE_ID AS post_id, LG.LEGAL_GUIDE_TITLE AS post_title, LG.LEGAL_GUIDE_CONTENT AS post_content, LG.CREATE_DATE AS post_create_date, NULL AS MEMBER_ID, LG.LAWYER_ID
-                 FROM TBL_LEGAL_GUIDE LG
-             ) pc
-                 LEFT JOIN TBL_MEMBER m ON pc.MEMBER_ID = m.MEMBER_ID
-                 LEFT JOIN TBL_LAWYER l ON pc.LAWYER_ID = l.LAWYER_ID
-        ORDER BY pc.post_create_date DESC
+                 SELECT
+                     pc.post_type AS postType,
+                     pc.post_id AS post_id,
+                     pc.post_title AS postTitle,
+                     pc.post_content AS postContent,
+                     pc.post_create_date AS postCreateDate,
+                     pc.lawyer_id AS lawyerId,
+                     COALESCE(m.MEMBER_NAME, l.LAWYER_NAME) AS post_author_name
+                 FROM (
+                          SELECT '상담 사례' AS post_type, CC.CONSULTING_CASE_ID AS post_id, CC.CASE_TITLE AS post_title, CC.CASE_CONTENT AS post_content, CC.CREATE_DATE AS post_create_date, CC.MEMBER_ID, NULL AS LAWYER_ID
+                          FROM TBL_CONSULTING_CASE CC
+                          UNION ALL
+                          SELECT '해결 사례' AS post_type, SC.SOLUTION_CASE_ID AS post_id, SC.SOLUTION_CASE_TITLE AS post_title, SC.SOLUTION_CASE_CONTENT AS post_content, SC.CREATE_DATE AS post_create_date, NULL AS MEMBER_ID, SC.LAWYER_ID
+                          FROM TBL_SOLUTION_CASE SC
+                          UNION ALL
+                          SELECT '법률 가이드' AS post_type, LG.LEGAL_GUIDE_ID AS post_id, LG.LEGAL_GUIDE_TITLE AS post_title, LG.LEGAL_GUIDE_CONTENT AS post_content, LG.CREATE_DATE AS post_create_date, NULL AS MEMBER_ID, LG.LAWYER_ID
+                          FROM TBL_LEGAL_GUIDE LG
+                      ) pc
+                          LEFT JOIN TBL_MEMBER m ON pc.MEMBER_ID = m.MEMBER_ID
+                          LEFT JOIN TBL_LAWYER l ON pc.LAWYER_ID = l.LAWYER_ID
+                 ORDER BY pc.post_create_date DESC
+             )
+        WHERE ROWNUM BETWEEN #{startRow} AND #{endRow}
         ]]>
     </select>
 
+    <select id="selectTotalAllPosts" resultType="int">
+        SELECT COUNT(*) FROM (
+                                 SELECT CC.CONSULTING_CASE_ID FROM TBL_CONSULTING_CASE CC
+                                 UNION ALL
+                                 SELECT SC.SOLUTION_CASE_ID FROM TBL_SOLUTION_CASE SC
+                                 UNION ALL
+                                 SELECT LG.LEGAL_GUIDE_ID FROM TBL_LEGAL_GUIDE LG
+                             )
+    </select>
+<!--    <select id="selectByAllPosts" resultType="postsDTO">-->
+<!--    <![CDATA[-->
+<!--        SELECT-->
+<!--            pc.post_type AS postType,-->
+<!--            pc.post_id AS post_id,-->
+<!--            pc.post_title AS postTitle,-->
+<!--            pc.post_content AS postContent,-->
+<!--            pc.post_create_date AS postCreateDate,-->
+<!--            pc.lawyer_id AS lawyerId,-->
+<!--            COALESCE(m.MEMBER_NAME, l.LAWYER_NAME) AS post_author_name-->
+<!--        FROM (-->
+<!--                 SELECT '상담 사례' AS post_type, CC.CONSULTING_CASE_ID AS post_id, CC.CASE_TITLE AS post_title, CC.CASE_CONTENT AS post_content, CC.CREATE_DATE AS post_create_date, CC.MEMBER_ID, NULL AS LAWYER_ID-->
+<!--                 FROM TBL_CONSULTING_CASE CC-->
+<!--                 UNION ALL-->
+<!--                 SELECT '해결 사례' AS post_type, SC.SOLUTION_CASE_ID AS post_id, SC.SOLUTION_CASE_TITLE AS post_title, SC.SOLUTION_CASE_CONTENT AS post_content, SC.CREATE_DATE AS post_create_date, NULL AS MEMBER_ID, SC.LAWYER_ID-->
+<!--                 FROM TBL_SOLUTION_CASE SC-->
+<!--                 UNION ALL-->
+<!--                 SELECT '법률 가이드' AS post_type, LG.LEGAL_GUIDE_ID AS post_id, LG.LEGAL_GUIDE_TITLE AS post_title, LG.LEGAL_GUIDE_CONTENT AS post_content, LG.CREATE_DATE AS post_create_date, NULL AS MEMBER_ID, LG.LAWYER_ID-->
+<!--                 FROM TBL_LEGAL_GUIDE LG-->
+<!--             ) pc-->
+<!--                 LEFT JOIN TBL_MEMBER m ON pc.MEMBER_ID = m.MEMBER_ID-->
+<!--                 LEFT JOIN TBL_LAWYER l ON pc.LAWYER_ID = l.LAWYER_ID-->
+<!--        ORDER BY pc.post_create_date DESC-->
+<!--        ]]>-->
+<!--    </select>-->
+
     <select id="selectByConsultingCasePosts" resultType="postsDTO">
+<!--        <![CDATA[-->
+<!--        SELECT CONSULTING_CASE_ID, CASE_TITLE, CASE_CONTENT, CREATE_DATE, MEMBER_NAME-->
+<!--        FROM (-->
+<!--                 SELECT CC.CONSULTING_CASE_ID, CC.CASE_TITLE, CC.CASE_CONTENT, CC.CREATE_DATE, M.MEMBER_NAME-->
+<!--                 FROM TBL_CONSULTING_CASE CC-->
+<!--                          JOIN TBL_MEMBER M ON M.MEMBER_ID = CC.MEMBER_ID-->
+<!--             )-->
+<!--        ORDER BY CONSULTING_CASE_ID DESC-->
+<!--        ]]>-->
         <![CDATA[
         SELECT CONSULTING_CASE_ID, CASE_TITLE, CASE_CONTENT, CREATE_DATE, MEMBER_NAME
         FROM (
-                 SELECT CC.CONSULTING_CASE_ID, CC.CASE_TITLE, CC.CASE_CONTENT, CC.CREATE_DATE, M.MEMBER_NAME
-                 FROM TBL_CONSULTING_CASE CC
-                          JOIN TBL_MEMBER M ON M.MEMBER_ID = CC.MEMBER_ID
-             )
+            SELECT CC.CONSULTING_CASE_ID, CC.CASE_TITLE, CC.CASE_CONTENT, CC.CREATE_DATE, M.MEMBER_NAME, ROWNUM AS rnum
+            FROM TBL_CONSULTING_CASE CC
+            JOIN TBL_MEMBER M ON M.MEMBER_ID = CC.MEMBER_ID
+            )
+        WHERE rnum BETWEEN #{startRow} AND #{endRow}
         ORDER BY CONSULTING_CASE_ID DESC
         ]]>
+    </select>
+    
+    <select id="selectTotalConsultingPosts" resultType="int">
+        SELECT COUNT(CONSULTING_CASE_ID) FROM TBL_CONSULTING_CASE
     </select>
 
     <select id="selectBySolutionCasePosts" resultType="postsDTO">
         <![CDATA[
         SELECT SOLUTION_CASE_ID, SOLUTION_CASE_TITLE, SOLUTION_CASE_CONTENT, CREATE_DATE, LAWYER_NAME
         FROM (
-                SELECT SC.SOLUTION_CASE_ID, SC.SOLUTION_CASE_TITLE, SC.SOLUTION_CASE_CONTENT, SC.CREATE_DATE, L.LAWYER_NAME
+                SELECT SC.SOLUTION_CASE_ID, SC.SOLUTION_CASE_TITLE, SC.SOLUTION_CASE_CONTENT, SC.CREATE_DATE, L.LAWYER_NAME, ROWNUM AS rnum
                 FROM TBL_SOLUTION_CASE SC
                 JOIN TBL_LAWYER L ON L.LAWYER_ID = SC.LAWYER_ID
              )
+        WHERE rnum BETWEEN #{startRow} AND #{endRow}
         ORDER BY SOLUTION_CASE_ID DESC
         ]]>
+    </select>
+
+    <select id="selectTotalSolutionCasePosts" resultType="int">
+        SELECT COUNT(SOLUTION_CASE_ID) FROM TBL_SOLUTION_CASE
     </select>
 
     <select id="selectByLegalGuidePosts" resultType="postsDTO">
         <![CDATA[
         SELECT LEGAL_GUIDE_ID, LEGAL_GUIDE_TITLE, LEGAL_GUIDE_CONTENT, CREATE_DATE, LAWYER_NAME
         FROM (
-                 SELECT LG.LEGAL_GUIDE_ID, LG.LEGAL_GUIDE_TITLE, LG.LEGAL_GUIDE_CONTENT, LG.CREATE_DATE, L.LAWYER_NAME
+                 SELECT LG.LEGAL_GUIDE_ID, LG.LEGAL_GUIDE_TITLE, LG.LEGAL_GUIDE_CONTENT, LG.CREATE_DATE, L.LAWYER_NAME, ROWNUM AS rnum
                  FROM TBL_LEGAL_GUIDE LG
                  JOIN TBL_LAWYER L ON L.LAWYER_ID = LG.LAWYER_ID
              )
+        WHERE rnum BETWEEN #{startRow} AND #{endRow}
         ORDER BY LEGAL_GUIDE_ID DESC
         ]]>
+    </select>
+
+    <select id="selectTotalLegalGuidePosts" resultType="int">
+        SELECT COUNT(LEGAL_GUIDE_ID) FROM TBL_LEGAL_GUIDE
     </select>
 </mapper>
