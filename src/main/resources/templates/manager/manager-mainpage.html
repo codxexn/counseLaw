@@ -235,9 +235,7 @@
                                     <!--                                    <div th:if="${#strings.equals(selectedOption, 'legalGuide')}">-->
                                     <div style="width: 192px" class="posts" th:text="${post.postAuthorName}">한땡땡</div>
                                     <div style="width: 96px;" class="posts">
-                                        <span th:if="${#strings.equals(post.postType, '상담 사례')}">상담 사례</span>
-                                        <span th:if="${#strings.equals(post.postType, '해결 사례')}">해결 사례</span>
-                                        <span th:if="${#strings.equals(post.postType, '법률 가이드')}">법률 가이드</span>
+                                        <span th:text="${post.postType}"></span>
                                     </div>
                                     <div style="width: 127px;" class="posts"
                                          th:text="${#temporals.format(post.postCreateDate , 'yyyy-MM-dd HH:mm')}">
@@ -462,10 +460,5 @@
     </div>
 </div>
 <script src="/js/Manager/Manager.js"></script>
-<script>
-    function navigatePage(selectedOption, page) {
-        location.href = '/manager/manager-mainpage?selectedOption=' + selectedOption + '&page=' + page;
-    }
-</script>
 </body>
 </html>

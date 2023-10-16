@@ -8,7 +8,10 @@ import java.util.List;
 
 public interface PostsService {
     // 모든 포스트 조회
-    public List<PostsDTO> findByAllPosts();
+    public List<PostsDTO> findByAllPosts(Pagination pagination);
+
+    // 모든 포스트 개수
+    public int findTotalAllPosts();
 
     // 상담 사례
     public List<PostsDTO> findByConsultingCasePosts(Pagination pagination);
@@ -17,9 +20,15 @@ public interface PostsService {
     public int findTotalConsultingPosts();
 
     // 해결 사례 조회
-    public List<PostsDTO> findBySolutionCasePosts();
+    public List<PostsDTO> findBySolutionCasePosts(Pagination pagination);
+
+    // 해결 사례 전체 개수
+    public int findTotalSolutionCasePosts();
 
     // 법률 가이드 조회
-    public List<PostsDTO> findByLegalGuidePosts();
+    public List<PostsDTO> findByLegalGuidePosts(Pagination pagination);
+
+    // 법률 가이드 전체 개수
+    public int findTotalLegalGuidePosts();
 
 }

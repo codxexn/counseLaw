@@ -28,17 +28,19 @@
     //    public void goTomanagePage() {;}
         public String goToManageMain(@RequestParam(name="selectedOption", defaultValue = "selectAll") String selectedOption, Model model, Pagination pagination) {
             model.addAttribute("selectedOption", selectedOption);
-            pagination.setTotal(postsService.findTotalConsultingPosts());
+            pagination.setTotal(postsService.findTotalAllPosts());
+//            pagination.setTotal(postsService.findTotalSolutionCasePosts());
+//            pagination.setTotal(postsService.findTotalConsultingPosts());
+//            pagination.setTotal(postsService.findTotalLegalGuidePosts());
             pagination.progress();
-
             model.addAttribute("pagination", pagination);
 
             if("selectAll".equals(selectedOption)) {
-                List<PostsDTO> selectAllPosts = postsService.findByAllPosts();
+                List<PostsDTO> selectAllPosts = postsService.findByAllPosts(pagination);
                 model.addAttribute("selectAllPosts", selectAllPosts);
             } else if("solutionCase".equals(selectedOption)) {
                 // 해결 사례 조회
-                List<PostsDTO> solutionCases = postsService.findBySolutionCasePosts();
+                List<PostsDTO> solutionCases = postsService.findBySolutionCasePosts(pagination);
                 model.addAttribute("solutionCases", solutionCases);
             } else if("consultingCase".equals(selectedOption)) {
                 // 상담 사례 조회
@@ -46,7 +48,7 @@
                 model.addAttribute("consultingCases",consultingCases);
             } else if("legalGuide".equals(selectedOption)) {
                 // 법률 가이드 정보 조회
-                List<PostsDTO> legalGuides = postsService.findByLegalGuidePosts();
+                List<PostsDTO> legalGuides = postsService.findByLegalGuidePosts(pagination);
                 model.addAttribute("legalGuides", legalGuides);
             }
 

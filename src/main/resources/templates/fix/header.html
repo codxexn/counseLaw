@@ -11,7 +11,7 @@
 <body>
 <div class="headerWrapper"  th:fragment="my-header">
     <div class="headerInnerWrapper">
-        <header class="headerModule" th:if="${session.member == null}">
+        <header class="headerModule" th:if="${session.member == null && session.lawyer == null}">
             <div class="headerLeft">
                 <div class="headerLogoIcon">
                     <img class="logoImage" src="/image/header/counseLawLogo.png" alt="">
@@ -32,7 +32,7 @@
             <a href="/login/client-login"><div class="headerRight">
                 <p class="textSize14 textWeight400 textHeight100 accountButton textInherit" style="color: rgb(122, 130, 135);">로그인/가입</p></div></a>
         </header>
-        <header class="headerModule" th:if="${session.member != null && session.member.memberId != 1}">
+        <header class="headerModule" th:if="${session.member != null && session.lawyer == null && session.member.memberId != 1}">
             <div class="headerLeft">
                 <div class="headerLogoIcon">
                     <img class="logoImage" src="/image/header/counseLawLogo.png" alt="">
@@ -57,7 +57,7 @@
                         class="textSize14 textWeight400 textHeight100 accountButton textInherit"
                         style="color: rgb(122, 130, 135);">마이페이지</p></div></a>
         </header>
-        <header class="headerModule" th:if="${session.member != null && session.member.memberId == 1}">
+        <header class="headerModule" th:if="${session.member != null && session.lawyer == null &&session.member.memberId == 1}">
             <div class="headerLeft">
                 <div class="headerLogoIcon">
                     <img class="logoImage" src="/image/header/counseLawLogo.png" alt="">
@@ -82,28 +82,7 @@
                         class="textSize14 textWeight400 textHeight100 accountButton textInherit"
                         style="color: rgb(122, 130, 135);">관리자 페이지</p></div></a>
         </header>
-        <header class="headerModule" th:if="${session.lawyer == null}">
-            <div class="headerLeft">
-                <div class="headerLogoIcon">
-                    <img class="logoImage" src="/image/header/counseLawLogo.png" alt="">
-                </div>
-                <div class="headerSearchBarWrapper">
-                    <div class="searchInputWrapper searchBarBorder">
-                        <img class="searchInputIcon searchBarBorder" src="/image/header/searchIcon.png">
-                        <input type="text" placeholder="어떤 문제가 있으신가요?"
-                               class="searchInput searchBarBorder"
-                               value="">
-                        <button class="deleteAllButton searchBarBorder">
-                            <img class="deleteAllButtonImage" src="/image/header/deleteAllButton.png" alt="" srcset="">
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!--            로그인 회원가입-->
-            <a href="/login/client-login"><div class="headerRight">
-                <p class="textSize14 textWeight400 textHeight100 accountButton textInherit" style="color: rgb(122, 130, 135);">로그인/가입</p></div></a>
-        </header>
-        <header class="headerModule" th:if="${session.lawyer != null}">
+        <header class="headerModule" th:if="${session.lawyer != null && session.member == null}">
             <div class="headerLeft">
                 <div class="headerLogoIcon">
                     <img class="logoImage" src="/image/header/counseLawLogo.png" alt="">
