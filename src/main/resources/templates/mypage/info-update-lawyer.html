@@ -130,11 +130,20 @@
                             <div class="Account-Info-Card-Group-Field">
                                 <span class="label-for-fields">분야</span>
                                 <div class="field-checkboxes">
-                                    <!-- th로 id, name, for, 분야명 가져올겁니다. 예시로 3개만 만들겠습니다. -->
                                     <div th:each="field : ${fieldList}" class="field-checkbox">
                                         <input th:id="|type + ${field.fieldId}|" th:name="eachField" th:value="${field.fieldId}" type="checkbox"
                                         th:checked="${#lists.contains(fields, field.fieldId) ? 'true' : 'false'}">
                                         <label th:for="|type + ${field.fieldId}|" th:text="${field.fieldTitle}"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="Account-Info-Card-Group-Field">
+                                <span class="label-for-fields">활동지역</span>
+                                <div class="field-checkboxes">
+                                    <div th:each="location : ${locationList}" class="field-checkbox">
+                                        <input th:id="|type + ${location.locationId}|" th:name="eachLocation" th:value="${location.locationId}" type="checkbox"
+                                               th:checked="${#lists.contains(locations, location.locationId) ? 'true' : 'false'}">
+                                        <label th:for="|type + ${location.locationId}|" th:text="${location.locationName}"></label>
                                     </div>
                                 </div>
                             </div>

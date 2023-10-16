@@ -94,6 +94,10 @@
                         <div th:text="${fields.equals('') ? '미입력' : fields}" class="MypageBox-MenuItemText"></div>
                     </div>
                     <div class="MypageBox-MenuItem-Info">
+                        <div class="MypageBox-MenuItemLabel">내 활동지역</div>
+                        <div th:text="${locations.equals('') ? '미입력' : locations}" class="MypageBox-MenuItemText"></div>
+                    </div>
+                    <div class="MypageBox-MenuItem-Info">
                         <div class="MypageBox-MenuItemLabel">내 주소</div>
                         <div th:text="${currentLawyer.lawyerAddress}" class="MypageBox-MenuItemText"></div>
                     </div>

@@ -26,7 +26,7 @@
                                     <p class="QNA-Question-Compose-Description">변호사님의 해결사례를 자세하게 작성해주세요.</p>
                                 </div>
                             </div>
-                            <form th:action="@{/lawyer-write/lawyer-write-sc}" method="post" name="composeForm" class="QNA-Question-Compose-Form">
+                            <form th:action="@{/lawyer-write/lawyer-write-sc}" method="post" name="composeForm" class="QNA-Question-Compose-Form" enctype="multipart/form-data">
                                 <div>
                                     <div>
                                         <input type="hidden" th:value="${lawyerId}" th:name="lawyerId">
@@ -124,6 +124,39 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="Compose-Input-Content-Wrapper">
+                                        <div class="Compose-Input-Upperline">
+                                            <div class="Compose-Input-Name-Wrapper">
+                                                <div class="Compose-Input-Name">판결 내역&nbsp;</div>
+                                                <div class="Compose-Input-Description">
+                                                    (필수
+                                                    <span class="Compose-Input-Description-Orange">*</span>
+                                                    )
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="Compose-Textarea-Wrapper Result-Textarea">
+                                            <textarea name="result" class="Compose-Result-Textarea" maxlength="30"
+                                                      th:name="result" placeholder="판결 내역을 적어주세요. ex) 감형, 집행유예 성공 / 기소유예"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="Compose-Input-Content-Wrapper">
+                                        <div class="Compose-Input-Upperline">
+                                            <div class="Compose-Input-Name-Wrapper">
+                                                <div class="Compose-Input-Name">첨부 이미지&nbsp;</div>
+                                            </div>
+                                        </div>
+                                        <div class="Compose-Textarea-Wrapper image-input-btn-wrapper">
+                                            <input type="file" name="files" multiple accept="image/png, image/jpg, image/jpeg">
+                                            <button onclick="deleteImages()" type="button">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                                    <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <div class="upload-image-wrapper">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="Compose-Form-Description">
                                     <div class="Compose-Form-Notice-Title-Wrapper">
@@ -168,5 +201,5 @@
     </div>
 </div>
 </body>
-<script src="/js/lawyer-write/lawyer-write.js"></script>
+<script src="/js/lawyer-write/lawyer-write-sc.js"></script>
 </html>
