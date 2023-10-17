@@ -46,6 +46,27 @@ public class PostsServiceImpl implements PostsService {
         return postsDAO.findByLegalGuidePosts(pagination);
     }
 
+    @Override
     // 법률 가이드 전체 개수
     public int findTotalLegalGuidePosts() { return  postsDAO.findTotalLegalGuidePosts(); }
+
+    @Override
+    // 해결 사례 게시글 삭제
+    public void removeSolutionCasePost(Long solutionCaseId) {postsDAO.deleteSolutionCasePost(solutionCaseId);}
+
+    @Override
+    // 상담 사례 게시글 삭제
+    public void removeConsultingCasePost(Long consultingCaseId) {postsDAO.deleteConsultingCasePost(consultingCaseId);}
+
+    @Override
+    // 법률 가이드 삭제
+    public void removeLegalGuidePost(Long legalGuideId) {postsDAO.deleteLegalGuidePost(legalGuideId);}
+
+    @Override
+    // 상담 사례 답변 삭제
+    public void removeConsultingCaseReply(Long consultingCaseId) {postsDAO.deleteConsultingCaseReply(consultingCaseId);}
+
+    // 해결 사례 이미지들 삭제
+    @Override
+    public void removeSolutionCaseImages(Long solutionCaseId) {postsDAO.deleteSolutionCaseImages(solutionCaseId);}
 }
