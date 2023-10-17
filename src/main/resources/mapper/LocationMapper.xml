@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.counselawb.mapper.LocationMapper">
+    <select id="selectAllLocations" resultType="locationVO">
+        SELECT LOCATION_ID, LOCATION_NAME
+        FROM TBL_LOCATION
+    </select>
+
+    <select id="selectLocationsByLawyerId" resultType="lawyerLocationDTO">
+        SELECT LL.LAWYER_LOCATION_ID, LL.LAWYER_ID, LL.LOCATION_ID, L.LOCATION_NAME
+        FROM TBL_LAWYER_LOCATION LL
+        JOIN TBL_LOCATION L
+        ON L.LOCATION_ID = LL.LOCATION_ID
+        WHERE LAWYER_ID = #{lawyerId}
+    </select>
+
+    <delete id="deleteLocationsByLawyerId">
+        DELETE FROM TBL_LAWYER_LOCATION
+        WHERE LAWYER_ID = #{lawyerId}
+    </delete>
+
+    <insert id="insertLocationsByLawyerId">
+        INSERT INTO TBL_LAWYER_LOCATION(LAWYER_LOCATION_ID, LAWYER_ID, LOCATION_ID)
+        VALUES(SEQ_LAWYER_LOCATION.NEXTVAL, #{lawyerId}, #{locationId})
+    </insert>
+</mapper>

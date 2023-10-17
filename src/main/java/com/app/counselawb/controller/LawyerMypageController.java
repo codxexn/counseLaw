@@ -2,11 +2,10 @@ package com.app.counselawb.controller;
 
 
 import com.app.counselawb.domain.dto.LawyerFieldDTO;
-import com.app.counselawb.domain.vo.ExperienceVO;
-import com.app.counselawb.domain.vo.FieldVO;
-import com.app.counselawb.domain.vo.LawyerVO;
-import com.app.counselawb.domain.vo.MemberVO;
+import com.app.counselawb.domain.dto.LawyerLocationDTO;
+import com.app.counselawb.domain.vo.*;
 import com.app.counselawb.service.LawyerService;
+import com.app.counselawb.service.LocationService;
 import com.app.counselawb.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -36,6 +35,7 @@ import java.util.List;
 @RequestMapping("/mypage-lawyer/*")
 public class LawyerMypageController {
     private final LawyerService lawyerService;
+    private final LocationService locationService;
 
     // 변호사 마이페이지 가기
     @GetMapping("mypage-lawyer")
@@ -61,6 +61,13 @@ public class LawyerMypageController {
             if (i < foundFields.size()-1) sb.append(", ");
         }
         model.addAttribute("fields", sb.toString());
+        sb = new StringBuilder();
+        List<LawyerLocationDTO> foundLocations = locationService.findLocationsByLawyerId(lawyerId);
+        for (int i=0; i < foundLocations.size(); i++){
+            sb.append(foundLocations.get(i).getLocationName());
+            if (i < foundLocations.size()-1) sb.append(", ");
+        }
+        model.addAttribute("locations", sb.toString());
         int phoneCount = lawyerService.findPhoneCountByLawyerId(lawyerId);
         int videoCount = lawyerService.findVideoCountByLawyerId(lawyerId);
         int visitCount = lawyerService.findVisitCountByLawyerId(lawyerId);
@@ -86,10 +93,18 @@ public class LawyerMypageController {
             foundFieldIds.add(field.getFieldId());
         });
         model.addAttribute("fields", foundFieldIds);
+        List<LawyerLocationDTO> foundLocations = locationService.findLocationsByLawyerId(lawyerId);
+        List<Long> foundLocationIds = new ArrayList<>();
+        foundLocations.forEach((location) -> {
+           foundLocationIds.add(location.getLocationId());
+        });
+        model.addAttribute("locations", foundLocationIds);
         List<ExperienceVO> foundCareers = lawyerService.findCareersByLawyerId(lawyerId);
         model.addAttribute("careerList", foundCareers);
         List<FieldVO> fieldList = lawyerService.findAllFields();
         model.addAttribute("fieldList", fieldList);
+        List<LocationVO> locationList = locationService.findAllLocations();
+        model.addAttribute("locationList", locationList);
         model.addAttribute("passwordErrorMsg", null);
         String lawyerProfile = lawyerService.findProfileImage(lawyerId);
         model.addAttribute("lawyerImage", lawyerProfile);
@@ -174,8 +189,9 @@ public class LawyerMypageController {
     @PostMapping("info-update-info")
     public RedirectView changeInfo(HttpSession session, @RequestParam("company") String lawyerCompany,
                                                 @RequestParam("address") String lawyerAddress, @RequestParam("school") String lawyerEducation,
-                                                @RequestParam("eachField") List<Long> checkedFieldIds){
+                                                @RequestParam("eachField") List<Long> checkedFieldIds, @RequestParam("eachLocation") List<Long> checkedLocationIds){
         LawyerVO currentLawyer = (LawyerVO) session.getAttribute("lawyer");
+        LawyerLocationVO lawyerLocationVO = new LawyerLocationVO();
         currentLawyer.setLawyerCompany(lawyerCompany);
         currentLawyer.setLawyerAddress(lawyerAddress);
         currentLawyer.setLawyerEducation(lawyerEducation);
@@ -184,6 +200,12 @@ public class LawyerMypageController {
         lawyerService.discardLawyerFields(currentLawyerId);
         checkedFieldIds.forEach((fieldId) -> {
             lawyerService.saveLawyerFields(fieldId, currentLawyerId);
+        });
+        locationService.discardLocationsByLawyerId(currentLawyerId);
+        lawyerLocationVO.setLawyerId(currentLawyerId);
+        checkedLocationIds.forEach((locationId) -> {
+            lawyerLocationVO.setLocationId(locationId);
+            locationService.saveLocationsByLawyerId(lawyerLocationVO);
         });
         session.removeAttribute("lawyer");
         session.setAttribute("lawyer", currentLawyer);
