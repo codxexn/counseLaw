@@ -186,6 +186,12 @@ button[disabled], html input[disabled] {
     word-break: keep-all;
 }
 
+.addressWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
 /*전화번호*/
 .profile-home section.profile-home__basic-info .basic-info-content .phone-number {
     color: #555;
@@ -208,7 +214,7 @@ button[disabled], html input[disabled] {
 }
 
 .profile-home section.profile-home__basic-info .basic-info-contents .right__category {
-    cursor: pointer;
+    /*cursor: pointer;*/
     display: flex;
 }
 
@@ -228,16 +234,24 @@ button[disabled], html input[disabled] {
     font-weight: 400;
 }
 
-.priceValue {
-    color: #999;
-    border-bottom: 1px solid #999;
-    font-size: 12px;
+.careerWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
-/*마우스 오버*/
-.priceValue:hover {
-    color: #333;
+.priceValue {
+    /*color: #999;*/
+    /*border-bottom: 1px solid #999;*/
+    /*font-size: 12px;*/
+    color: #757575;
+    font-size: 14px;
 }
+
+/*!*마우스 오버*!*/
+/*.priceValue:hover {*/
+/*    color: #333;*/
+/*}*/
 
 /*상담사례*/
 .profile-home section.no-margin {

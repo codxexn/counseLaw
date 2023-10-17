@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.counselawb.mapper.ConsultingReviewMapper">
+    <select id="selectReviewCountsByLawyerId" resultType="int">
+        SELECT COUNT(CR.CONSULTING_REVIEW_ID)
+        FROM TBL_CONSULTING_REVIEW CR
+        JOIN TBL_RESERVATION R
+        ON R.RESERVATION_ID = CR.RESERVATION_ID
+        WHERE R.LAWYER_ID = #{lawyerId}
+    </select>
+</mapper>
