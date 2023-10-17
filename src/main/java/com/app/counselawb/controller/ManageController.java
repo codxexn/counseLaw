@@ -88,23 +88,24 @@
         public RedirectView deletePostAndGoToMainpage(@RequestParam(name = "legalGuideId", required = false) Long legalGuideId,
                                                       @RequestParam(name = "solutionCaseId", required = false) Long solutionCaseId,
                                                       @RequestParam(name = "consultingCaseId", required = false) Long consultingCaseId) {
-            List<SolutionCaseImgVO> foundImages = solutionCaseImgService.findSolutionCaseImages(solutionCaseId);
-            if (!foundImages.isEmpty()) {
-                postsService.removeSolutionCaseImages(solutionCaseId);
-            }
 
-            List<ConsultingCaseReplyDTO> foundReplies = consultingCaseReplyService.findAllByConsultingCaseId(consultingCaseId);
-            if(!foundReplies.isEmpty()) {
-                postsService.removeConsultingCaseReply(consultingCaseId);
-            }
+
 
             if (legalGuideId != null) {
                 // 법률 가이드 게시물 삭제
                 postsService.removeLegalGuidePost(legalGuideId);
             } else if (solutionCaseId != null) {
+                List<SolutionCaseImgVO> foundImages = solutionCaseImgService.findSolutionCaseImages(solutionCaseId);
+                if (!foundImages.isEmpty()) {
+                    postsService.removeSolutionCaseImages(solutionCaseId);
+                }
                 // 해결 사례 게시물 삭제
                 postsService.removeSolutionCasePost(solutionCaseId);
             } else if (consultingCaseId != null) {
+                List<ConsultingCaseReplyDTO> foundReplies = consultingCaseReplyService.findAllByConsultingCaseId(consultingCaseId);
+                if(!foundReplies.isEmpty()) {
+                    postsService.removeConsultingCaseReply(consultingCaseId);
+                }
                 // 상담 사례 게시물 삭제
                 postsService.removeConsultingCasePost(consultingCaseId);
             }
