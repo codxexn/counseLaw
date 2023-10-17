@@ -2,10 +2,12 @@ package com.app.counselawb.controller;
 
 
 import com.app.counselawb.domain.dto.LawyerFieldDTO;
+import com.app.counselawb.domain.dto.LawyerReplyDTO;
 import com.app.counselawb.domain.vo.ExperienceVO;
 import com.app.counselawb.domain.vo.LawyerFieldVO;
 import com.app.counselawb.domain.vo.LawyerVO;
 import com.app.counselawb.service.ConsultingReviewService;
+import com.app.counselawb.service.LawyerHomeService;
 import com.app.counselawb.service.LawyerService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,6 +21,7 @@ import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Controller
 @Slf4j
@@ -28,6 +31,7 @@ public class LawyerHomeController {
     private HttpSession session;
     private final LawyerService lawyerService;
     private final ConsultingReviewService consultingReviewService;
+    private final LawyerHomeService lawyerHomeService;
 
     @GetMapping("lawyer-home")
     public void GoToLawyerHome(@RequestParam("lawyerId") Long lawyerId, Model model){
@@ -52,6 +56,10 @@ public class LawyerHomeController {
         model.addAttribute("fields", sb.toString());
         List<ExperienceVO> foundExperiences = lawyerService.findCareersByLawyerId(lawyerId);
         model.addAttribute("careers", foundExperiences);
+        List<LawyerReplyDTO> foundCaseReplies = lawyerHomeService.findCasesAndRepliesByLawyerId(lawyerId);
+        foundCaseReplies = foundCaseReplies.stream().limit(3).collect(Collectors.toList());
+        log.info("{}", foundCaseReplies);
+        model.addAttribute("caseReplies", foundCaseReplies);
 
     }
 
