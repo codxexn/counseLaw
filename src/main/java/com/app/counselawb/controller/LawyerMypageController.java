@@ -190,9 +190,12 @@ public class LawyerMypageController {
     public RedirectView changeInfo(HttpSession session, @RequestParam("company") String lawyerCompany,
                                                 @RequestParam("address") String lawyerAddress, @RequestParam("school") String lawyerEducation,
                                                 @RequestParam("callPrice") int callPrice, @RequestParam("videoPrice") int videoPrice, @RequestParam("visitPrice") int visitPrice,
+                                                @RequestParam("introduction") String lawyerIntroduction, @RequestParam("qualification") String lawyerQualification,
                                                 @RequestParam("eachField") List<Long> checkedFieldIds, @RequestParam("eachLocation") List<Long> checkedLocationIds){
         LawyerVO currentLawyer = (LawyerVO) session.getAttribute("lawyer");
         LawyerLocationVO lawyerLocationVO = new LawyerLocationVO();
+        currentLawyer.setLawyerIntroduction(lawyerIntroduction);
+        currentLawyer.setLawyerQualification(lawyerQualification);
         currentLawyer.setLawyerCompany(lawyerCompany);
         currentLawyer.setLawyerAddress(lawyerAddress);
         currentLawyer.setLawyerEducation(lawyerEducation);

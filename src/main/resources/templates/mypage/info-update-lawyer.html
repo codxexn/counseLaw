@@ -116,6 +116,14 @@
                         <h3 class="Account-Info-Card-Header">변호사 정보</h3>
                         <div class="Account-Info-Card-Body">
                             <div class="Account-Info-Card-Group">
+                                <input th:value="${session.lawyer.lawyerIntroduction == null ? '미입력' : session.lawyer.lawyerIntroduction}" th:name="introduction" id="my-introduction" type="text" placeholder="변호사님을 한 마디로 소개해주세요." maxlength="255" name="introduction" class="Account-Info-Card-Group-Input">
+                                <label for="my-introduction">내 소개</label>
+                            </div>
+                            <div class="Account-Info-Card-Group">
+                                <input th:value="${session.lawyer.lawyerQualification == null ? '미입력' : session.lawyer.lawyerQualification}" th:name="qualification" id="my-qualification" type="text" placeholder="변호사 자격을 입력해주세요. (ex. 2015 변호사 자격 취득)" maxlength="255" name="qualification" class="Account-Info-Card-Group-Input">
+                                <label for="my-qualification">변호사 자격</label>
+                            </div>
+                            <div class="Account-Info-Card-Group">
                                 <input th:value="${session.lawyer.lawyerCompany == null ? '미입력' : session.lawyer.lawyerCompany}" th:name="company" id="my-company" type="text" placeholder="변호사님의 소속 회사를 입력해주세요. (없을 경우 '개인')" maxlength="255" name="company" class="Account-Info-Card-Group-Input">
                                 <label for="my-company">소속 회사</label>
                             </div>

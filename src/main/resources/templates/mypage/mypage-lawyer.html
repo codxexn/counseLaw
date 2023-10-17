@@ -91,7 +91,11 @@
                     <div class="MypageBox-Title">내 정보</div>
                     <div class="MypageBox-MenuItem-Info">
                         <div class="MypageBox-MenuItemLabel">내 소개</div>
-                        <div class="MypageBox-MenuItemText"></div>
+                        <div th:text="${currentLawyer.lawyerIntroduction == null ? '미입력' : currentLawyer.lawyerIntroduction}" class="MypageBox-MenuItemText"></div>
+                    </div>
+                    <div class="MypageBox-MenuItem-Info">
+                        <div class="MypageBox-MenuItemLabel">변호사 자격</div>
+                        <div th:text="${currentLawyer.lawyerQualification == null ? '미입력' : currentLawyer.lawyerQualification}" class="MypageBox-MenuItemText"></div>
                     </div>
                     <div class="MypageBox-MenuItem-Info">
                         <div class="MypageBox-MenuItemLabel">내 분야</div>
