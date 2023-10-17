@@ -4,34 +4,36 @@ const prev = document.querySelector('.prevArrow');
 const next = document.querySelector('.nextArrow');
 let count = 0;
 const current = document.querySelector('.current');
+let reviewLength = document.querySelector("input[name=reviewCounts]").value;
 
 
+if (reviewLength > 0){
+    prev.addEventListener('click', () => {
+        count--;
+        if (count < 1) {
+            count = 0;
+            element.style.transition = 'transform 0s';
+            element.style.transform = 'translate(-' + 722 * count + 'px';
+        } else {
+            element.style.transition = 'transform 0s';
+            element.style.transform = 'translate(-' + 722 * count + 'px';
+        }
+        current.innerText = count + 1;
+    });
 
-prev.addEventListener('click', () => {
-    count--;
-    if (count < 1) {
-        count = 0;
-        element.style.transition = 'transform 0s';
-        element.style.transform = 'translate(-' + 722 * count + 'px';
-    } else {
-        element.style.transition = 'transform 0s';
-        element.style.transform = 'translate(-' + 722 * count + 'px';
-    }
-    current.innerText = count + 1;
-});
-
-next.addEventListener('click', () => {
-    count++;
-    if (count > 9) {
-        count = 9;
-        element.style.transition = 'transform 0s';
-        element.style.transform = 'translate(-' + 722 * count + 'px';
-    } else {
-        element.style.transition = 'transform 0s';
-        element.style.transform = 'translate(-' + 722 * count + 'px';
-    }
-    current.innerText = count + 1;
-});
+    next.addEventListener('click', () => {
+        count++;
+        if (count > reviewLength - 1) {
+            count = reviewLength - 1;
+            element.style.transition = 'transform 0s';
+            element.style.transform = 'translate(-' + 722 * count + 'px';
+        } else {
+            element.style.transition = 'transform 0s';
+            element.style.transform = 'translate(-' + 722 * count + 'px';
+        }
+        current.innerText = count + 1;
+    });
+}
 
 
 // 즐겨 찾기 별 이미지 변환

@@ -3,6 +3,7 @@ package com.app.counselawb.controller;
 
 import com.app.counselawb.domain.dto.LawyerFieldDTO;
 import com.app.counselawb.domain.dto.LawyerReplyDTO;
+import com.app.counselawb.domain.dto.LawyerReviewDTO;
 import com.app.counselawb.domain.vo.ExperienceVO;
 import com.app.counselawb.domain.vo.LawyerFieldVO;
 import com.app.counselawb.domain.vo.LawyerVO;
@@ -58,8 +59,17 @@ public class LawyerHomeController {
         model.addAttribute("careers", foundExperiences);
         List<LawyerReplyDTO> foundCaseReplies = lawyerHomeService.findCasesAndRepliesByLawyerId(lawyerId);
         foundCaseReplies = foundCaseReplies.stream().limit(3).collect(Collectors.toList());
-        log.info("{}", foundCaseReplies);
         model.addAttribute("caseReplies", foundCaseReplies);
+        List<LawyerReviewDTO> foundReviews = lawyerHomeService.findReviewsByLawyerId(lawyerId);
+        List<String> consultingTypes = new ArrayList<>();
+        foundReviews.forEach((review) -> {
+           String consultingType = review.getConsultingType();
+           if (consultingType.equals("PHONE")) consultingType = "전화상담";
+           else if (consultingType.equals("VIDEO")) consultingType = "영상상담";
+           else consultingType = "방문상담";
+           review.setConsultingType(consultingType);
+        });
+        model.addAttribute("reviews", foundReviews);
 
     }
 
