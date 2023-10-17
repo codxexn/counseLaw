@@ -6,9 +6,12 @@
     <title>법률가이드 상세보기</title>
     <link rel="stylesheet" href="/css/legalGuideDetailPage/legalGuide2.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <th:block th:replace="~{fix/header :: my-header-head}"></th:block>
+    <th:block th:replace="~{fix/footer :: my-footer-head}"></th:block>
 </head>
 <body class="footer-Color">
 <div class="root pc">
+    <header th:replace="~{fix/header :: my-header}"></header>
     <div class="pc-View">
         <div class="post controller">
             <div class="post-Wrapper" style="position: relative;">
@@ -711,6 +714,7 @@
         </div>
     </div>
 </div>
+<footer th:replace="~{fix/footer :: my-footer}"></footer>
 </body>
 <script src="/js/legalGuideDetailPage/legalGuide2.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

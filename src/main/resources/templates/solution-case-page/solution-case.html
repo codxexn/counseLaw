@@ -6,10 +6,13 @@
     <title>해결사례 페이지</title>
     <link rel="stylesheet" href="/css/solutionCasePage/solutionCase.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <th:block th:replace="~{fix/header :: my-header-head}"></th:block>
+    <th:block th:replace="~{fix/footer :: my-footer-head}"></th:block>
 </head>
 <body>
 <!-- 드롭다운 및 최신순 조회순 클릭되게하는 js남음 -->
 <div class="root pc">
+    <header th:replace="~{fix/header :: my-header}"></header>
     <div class="pc-View">
         <div class="search-Controller">
             <div class="search-Content" style="visibility: visible;">
@@ -693,6 +696,7 @@
         </div>
     </div>
 </div>
+<footer th:replace="~{fix/footer :: my-footer}"></footer>
 </body>
 <script src="/js/solutionCasePage/solutionCase.js"></script>
 </html>
