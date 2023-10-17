@@ -42,4 +42,18 @@ public class PostsDAO {
     // 법률 가이드 전체 개수
     public int findTotalLegalGuidePosts() { return  postsMapper.selectTotalLegalGuidePosts(); }
 
+    // 해결 사례 게시글 삭제
+    public void deleteSolutionCasePost(Long solutionCaseId) {
+        postsMapper.deleteSolutionCasePost(solutionCaseId);
+    }
+    // 상담 사례 게시글 삭제
+    public void deleteConsultingCasePost(Long consultingCaseId) {
+        postsMapper.deleteConsultingCasePost(consultingCaseId);
+    }
+
+    // 법률 가이드 삭제
+    public void deleteLegalGuidePost(Long legalGuideId) {
+        postsMapper.deleteLegalGuidePost(legalGuideId);
+    }
+
 }

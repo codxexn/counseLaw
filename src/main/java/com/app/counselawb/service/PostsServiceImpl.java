@@ -50,4 +50,10 @@ public class PostsServiceImpl implements PostsService {
     public int findTotalLegalGuidePosts() { return  postsDAO.findTotalLegalGuidePosts(); }
 
 
+    // 해결 사례 게시글 삭제
+    public void removeSolutionCasePost(Long solutionCaseId) {postsDAO.deleteSolutionCasePost(solutionCaseId);}
+    // 상담 사례 게시글 삭제
+    public void removeConsultingCasePost(Long consultingCaseId) {postsDAO.deleteConsultingCasePost(consultingCaseId);}
+    // 법률 가이드 삭제
+    public void removeLegalGuidePost(Long legalGuideId) {postsDAO.deleteLegalGuidePost(legalGuideId);}
 }

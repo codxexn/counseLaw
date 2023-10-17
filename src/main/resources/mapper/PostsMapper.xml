@@ -231,4 +231,19 @@
         WHERE LG.LEGAL_GUIDE_TITLE LIKE '%' || #{keyword} || '%' OR L.LAWYER_NAME LIKE '%' || #{keyword} || '%'
         ]]>
     </select>
+
+    <delete id="deleteSolutionCasePost">
+        DELETE FROM TBL_SOLUTION_CASE
+        WHERE SOLUTION_CASE_ID = #{solutionCaseId}
+    </delete>
+
+    <delete id="deleteConsultingCasePost">
+        DELETE FROM TBL_CONSULTING_CASE
+        WHERE CONSULTING_CASE_ID = #{consultingCaseId}
+    </delete>
+
+    <delete id="deleteLegalGuidePost">
+        DELETE FROM TBL_LEGAL_GUIDE
+        WHERE LEGAL_GUIDE_ID = #{legalGuideId}
+    </delete>
 </mapper>

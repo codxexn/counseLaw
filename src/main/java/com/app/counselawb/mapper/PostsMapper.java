@@ -59,5 +59,10 @@ public interface PostsMapper {
     public int searchTotalLegalGuides(Search search);
 
     // 해결 사례 게시글 삭제
+    public void deleteSolutionCasePost(Long solutionCaseId);
+    // 상담 사례 게시글 삭제
+    public void deleteConsultingCasePost(Long consultingCaseId);
 
+    // 법률 가이드 삭제
+    public void deleteLegalGuidePost(Long legalGuideId);
 }

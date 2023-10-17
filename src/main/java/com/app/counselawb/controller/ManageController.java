@@ -11,8 +11,10 @@
     import org.springframework.stereotype.Controller;
     import org.springframework.ui.Model;
     import org.springframework.web.bind.annotation.GetMapping;
+    import org.springframework.web.bind.annotation.PostMapping;
     import org.springframework.web.bind.annotation.RequestMapping;
     import org.springframework.web.bind.annotation.RequestParam;
+    import org.springframework.web.servlet.view.RedirectView;
 
     import java.util.List;
 
@@ -71,7 +73,27 @@
 
 
 
-            return "/manager/manager-mainpage";
+            return "manager/manager-mainpage";
+        }
+
+
+
+        @PostMapping("posts-delete")
+        public RedirectView deletePostAndGoToMainpage(@RequestParam(name = "legalGuideId", required = false) Long legalGuideId, @RequestParam(name = "solutionCaseId", required = false) Long solutionCaseId, @RequestParam(name = "consultingCaseId", required = false) Long consultingCaseId) {
+
+            if (legalGuideId != null) {
+                // 법률 가이드 게시물 삭제
+                postsService.removeLegalGuidePost(legalGuideId);
+            } else if (solutionCaseId != null) {
+                // 해결 사례 게시물 삭제
+                postsService.removeSolutionCasePost(solutionCaseId);
+            } else if (consultingCaseId != null) {
+                // 상담 사례 게시물 삭제
+                postsService.removeConsultingCasePost(consultingCaseId);
+            }
+
+            // 삭제 작업을 완료하고 메인 페이지로 리디렉션합니다.
+            return new RedirectView("/manager/manager-mainpage");
         }
 
     }
