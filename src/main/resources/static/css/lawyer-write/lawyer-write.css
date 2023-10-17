@@ -190,6 +190,22 @@ button, input, optgroup, select, textarea {
     font-size: 20px;
 }
 
+.image-input-btn-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.image-input-btn-wrapper button {
+    border: none;
+    background-color: #fff;
+    outline: none;
+    cursor: pointer;
+}
+
+.image-input-btn-wrapper button:hover {
+    color: #c50000;
+}
+
 .Compose-Input-Description {
     color: #7a8287;
     font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
@@ -356,6 +372,34 @@ textarea:focus {
     border: 1px solid #000;
 }
 
+.Compose-Result-Textarea {
+    min-height: 48px;
+    word-wrap: break-word;
+    border: 1px solid #c4c8cb;
+    border-radius: 8px;
+    -webkit-box-shadow: none;
+    color: #2b2d2f;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 165%;
+    overflow-y: hidden;
+    padding: 10px 12px;
+    resize: none;
+    white-space: pre-wrap;
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    background-image: none;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    display: block;
+    overflow: auto;
+}
+
+.Compose-Result-Textarea:focus {
+    border: 1px solid #000;
+}
+
 .Compose-Guide-List {
     display: flex;
     flex-direction: column;
@@ -379,6 +423,15 @@ textarea:focus {
     text-indent: 0px !important;
     text-align: start !important;
     text-align-last: start !important;
+}
+
+.upload-image-wrapper {
+    margin-top: 10px;
+    max-width: 672px;
+}
+
+.uploaded-image {
+    width: 48%;
 }
 
 .Compose-Form-Description {

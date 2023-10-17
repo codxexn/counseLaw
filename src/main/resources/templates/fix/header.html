@@ -49,7 +49,7 @@
                     </div>
                 </div>
             </div>
-            <form>
+            <form th:action="@{login/logout-finally}">
                 <button type="submit" class="TopNavMenu-LogoutButton">로그아웃</button>
             </form>
             <a href="/mypage/mypage">
@@ -74,7 +74,7 @@
                     </div>
                 </div>
             </div>
-            <form>
+            <form th:action="@{login/logout-finally}">
                 <button type="submit" class="TopNavMenu-LogoutButton">로그아웃</button>
             </form>
             <a href="/manager/manager-mainpage">
@@ -100,7 +100,7 @@
                 </div>
             </div>
             <!--            로그아웃 및 마이페이지-->
-            <form>
+            <form th:action="@{login/logout-finally}">
                 <button type="submit" class="TopNavMenu-LogoutButton">로그아웃</button>
             </form>
             <a href=""><div class="headerRight">
