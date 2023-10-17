@@ -17,6 +17,20 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/member/*")
 public class MemberController {
 
+    // 변호사 가입안내 페이지로 이동
+
+
+
+    // 회원가입 select 화면으로 이동
+    @GetMapping("client-lawyer-select")
+    public String goToJoinPage(MemberVO memberVO, LawyerVO lawyerVO){
+        return "/member/client-lawyer-select";
+    }
+
+
+
+
+    // 일반회원 마이페이지로
     @GetMapping("mypage-member")
     public String goToMyPage(HttpSession session, Model model, MemberVO memberVO, LawyerVO lawyerVO) {
 
@@ -27,5 +41,13 @@ public class MemberController {
         } else {
             return "/client-login/client-login";
         }
+    }
+
+    // 마이페이지에서 내 정보 수정으로
+    @GetMapping("myInfo-update")
+    public String goToMyInfoUpdatePage(HttpSession session, Model model, MemberVO memberVO, LawyerVO lawyerVO) {
+        MemberVO currentMember = (MemberVO)session.getAttribute("member");
+        model.addAttribute("currentMember", currentMember);
+        return "/mypage/info-update";
     }
 }

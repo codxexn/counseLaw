@@ -169,13 +169,10 @@
                      <div class="sign-in-section-non-member">
                          <div class="section-in-section-non-member">
                              아직 카운슬로우 회원이 아니신가요?
-
                              <a class="sign-in-section-non-member-landing-sign-link">
                                  회원가입
                              </a>
                          </div>
-
-                         <a class="sign-in-section-non-member-advice">비회원 상담 조회</a>
                      </div>
                     </div>
                 </div>
@@ -208,6 +205,9 @@
 <script th:inline="javascript">
     const lawyer = [[${session.lawyer}]];
     const member = [[${session.member}]];
+</script>
+<script th:if="${errorMessage} != null">
+    alert("아이디 혹은 비밀번호가 일치하지 않습니다.");
 </script>
 <script src="/js/client-login/client-login.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
