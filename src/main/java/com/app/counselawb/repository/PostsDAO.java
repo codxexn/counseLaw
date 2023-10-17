@@ -1,5 +1,6 @@
 package com.app.counselawb.repository;
 
+import com.app.counselawb.domain.Search;
 import com.app.counselawb.domain.dto.PostsDTO;
 import com.app.counselawb.domain.pagination.Pagination;
 import com.app.counselawb.mapper.PostsMapper;
@@ -40,4 +41,5 @@ public class PostsDAO {
 
     // 법률 가이드 전체 개수
     public int findTotalLegalGuidePosts() { return  postsMapper.selectTotalLegalGuidePosts(); }
+
 }

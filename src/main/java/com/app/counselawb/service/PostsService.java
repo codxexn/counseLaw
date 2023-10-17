@@ -31,4 +31,6 @@ public interface PostsService {
     // 법률 가이드 전체 개수
     public int findTotalLegalGuidePosts();
 
+
+
 }
