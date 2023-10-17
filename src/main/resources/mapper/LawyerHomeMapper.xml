@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.counselawb.mapper.LawyerHomeMapper">
-
+    <select id="selectCasesAndRepliesByLawyerId" resultType="lawyerReplyDTO">
+        SELECT CC.CONSULTING_CASE_ID, CC.MEMBER_ID, CC.CASE_TITLE, CCR.CONSULTING_CASE_REPLY_ID, CCR.LAWYER_ID, CCR.CONSULTING_CASE_REPLY_CONTENT, CCR.CREATE_DATE, CCR.UPDATE_DATE
+        FROM TBL_CONSULTING_CASE CC
+        JOIN TBL_CONSULTING_CASE_REPLY CCR
+        ON CC.CONSULTING_CASE_ID = CCR.CONSULTING_CASE_ID
+        WHERE CCR.LAWYER_ID = #{lawyerId}
+        ORDER BY CCR.CONSULTING_CASE_REPLY_ID DESC
+    </select>
 </mapper>

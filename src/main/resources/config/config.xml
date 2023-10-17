@@ -31,5 +31,6 @@
         <typeAlias type="com.app.counselawb.domain.dto.SearchDTO" alias="searchDTO" />
         <typeAlias type="com.app.counselawb.domain.dto.ConsultingCaseReplyDTO" alias="consultingCaseReplyDTO" />
         <typeAlias type="com.app.counselawb.domain.dto.LawyerReplyDTO" alias="lawyerReplyDTO" />
+        <typeAlias type="com.app.counselawb.domain.dto.LawyerReviewDTO" alias="lawyerReviewDTO" />
     </typeAliases>
 </configuration>

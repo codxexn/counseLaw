@@ -113,70 +113,18 @@
                         <section class="activity cases no-margin">
                             <div class="header">
                                 <div class="title">상담사례</div>
-                                <div class="count">49</div>
+                                <div th:text="${#lists.size(caseReplies)}" class="count"></div>
                                 <a class="goto">
                                     <img class="gotoArrow" src="/image/lawyerHome/arrow.png" alt="화살표">
                                 </a>
                             </div>
                             <div class="body">
-                                <a class="card case" href="">
-                                    <div class="q">음주운전 면허취소에 대한 상담</div>
-                                    <div class="a">
-                                        <span>답변</span>
-                                        지금 게시글만 가지고는 정확한
-    
-                                        상담이 어려운 점들이 있습니다.
-    
-                                        전화주시며
-    
-                                        그때 당시의 정황과 사실에 대해
-    
-                                        자세히 듣고
-    
-                                        어떻게 전략적으로 법적대응하셔야 하는지
-    
-                                        알려드리도록 하겠습니다.
-                                    </div>
-                                    <div class="created-date">2일 전 작성 됨</div>
+                                <a th:each="caseReply : ${caseReplies}" class="card case" href="">
+                                    <div th:text="${caseReply.caseTitle}" class="q"></div>
+                                    <div th:utext="'<span>답변</span>' + ${caseReply.consultingCaseReplyContent}" class="a"></div>
+                                    <div th:text="${#temporals.format(caseReply.createDate, 'yyyy년 MM월 dd일 HH:mm 작성됨')}" class="created-date"></div>
                                 </a>
-                                <a class="card case" href="">
-                                    <div class="q">몰카미수와 합의금에 대한 궁금증</div>
-                                    <div class="a">
-                                        <span>답변</span>
-                                        일단 게시글만 가지고 답변드리자면
-    
-                                        합의금에는 정해진 금액이 없습니다.
-    
-                                        그리고 로톡 규정상 어느정도 금액이라고
-    
-                                        명확하게 말씀을 드리지 못합니다.
-    
-                                        전화주시면 어떻게 법적대응하셔야 하는지
-    
-                                        알려드리도록 하겠습니다.
-                                    </div>
-                                    <div class="created-date">20시간 전 작성 됨</div>
-                                </a>
-                                <a class="card case" href="">
-                                    <div class="q">집행유예기간 중 동일범죄에 대한 상담</div>
-                                    <div class="a">
-                                        <span>답변</span>
-                                        집행유예 기간 중 범죄라 상황이 매우
-    
-                                        좋지않습니다.
-    
-                                        게시글만 가지고는 답변드리기 곤란한
-    
-                                        점들이 있습니다.
-    
-                                        전화주시면
-    
-                                        어떻게 법적대응하셔야 하는지
-    
-                                        알려드리도록 하겠습니다
-                                    </div>
-                                    <div class="created-date">13시간 전 작성 됨</div>
-                                </a>
+                                <span th:if="${#lists.isEmpty(caseReplies)}">아직 답글을 남긴 상담사례가 없습니다.</span>
                             </div>
                         </section>
                         <a class="case basic-info-more profile-home__more-btn profile-home__more-btn--2">
