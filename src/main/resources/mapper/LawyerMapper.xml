@@ -86,7 +86,7 @@
 
     <update id="updateLawyerInfo">
         UPDATE TBL_LAWYER
-        SET LAWYER_COMPANY = #{lawyerCompany}, LAWYER_ADDRESS = #{lawyerAddress}, LAWYER_EDUCATION = #{lawyerEducation}
+        SET LAWYER_COMPANY = #{lawyerCompany}, LAWYER_ADDRESS = #{lawyerAddress}, LAWYER_EDUCATION = #{lawyerEducation}, CALL_PRICE = #{callPrice}, VIDEO_PRICE = #{videoPrice}, VISIT_PRICE = #{visitPrice}
         WHERE LAWYER_ID = #{lawyerId}
     </update>
 

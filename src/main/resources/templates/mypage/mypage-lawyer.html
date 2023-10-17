@@ -91,7 +91,7 @@
                     <div class="MypageBox-Title">내 정보</div>
                     <div class="MypageBox-MenuItem-Info">
                         <div class="MypageBox-MenuItemLabel">내 소개</div>
-                        <div th:text="${}" class="MypageBox-MenuItemText"></div>
+                        <div class="MypageBox-MenuItemText"></div>
                     </div>
                     <div class="MypageBox-MenuItem-Info">
                         <div class="MypageBox-MenuItemLabel">내 분야</div>
@@ -112,6 +112,18 @@
                     <div class="MypageBox-MenuItem-Info">
                         <div class="MypageBox-MenuItemLabel">최종 학력</div>
                         <div th:text="${currentLawyer.lawyerEducation == null ? '미입력' : currentLawyer.lawyerEducation}" class="MypageBox-MenuItemText"></div>
+                    </div>
+                    <div class="MypageBox-MenuItem-Info">
+                        <div class="MypageBox-MenuItemLabel">전화상담 가격</div>
+                        <div th:text="|${#numbers.formatInteger(currentLawyer.callPrice, 1, 'COMMA')}원|" class="MypageBox-MenuItemText"></div>
+                    </div>
+                    <div class="MypageBox-MenuItem-Info">
+                        <div class="MypageBox-MenuItemLabel">영상상담 가격</div>
+                        <div th:text="|${#numbers.formatInteger(currentLawyer.videoPrice, 1, 'COMMA')}원|" class="MypageBox-MenuItemText"></div>
+                    </div>
+                    <div class="MypageBox-MenuItem-Info">
+                        <div class="MypageBox-MenuItemLabel">방문상담 가격</div>
+                        <div th:text="|${#numbers.formatInteger(currentLawyer.visitPrice, 1, 'COMMA')}원|" class="MypageBox-MenuItemText"></div>
                     </div>
                 </div>
             </div>

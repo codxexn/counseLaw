@@ -127,13 +127,25 @@
                                 <input th:value="${session.lawyer.lawyerEducation == null ? '미입력' : session.lawyer.lawyerEducation}" th:name="school" id="my-school" type="text" placeholder="변호사님의 최종 학력을 입력해주세요." maxlength="255" name="school" class="Account-Info-Card-Group-Input">
                                 <label for="my-school">학력</label>
                             </div>
+                            <div class="Account-Info-Card-Group">
+                                <input th:value="${session.lawyer.callPrice}" th:name="callPrice" id="callPrice" type="number" placeholder="전화상담 가격을 입력해주세요." name="callPrice" class="Account-Info-Card-Group-Input">
+                                <label for="callPrice">전화상담 가격</label>
+                            </div>
+                            <div class="Account-Info-Card-Group">
+                                <input th:value="${session.lawyer.videoPrice}" th:name="videoPrice" id="videoPrice" type="number" placeholder="영상상담 가격을 입력해주세요." name="videoPrice" class="Account-Info-Card-Group-Input">
+                                <label for="videoPrice">영상상담 가격</label>
+                            </div>
+                            <div class="Account-Info-Card-Group">
+                                <input th:value="${session.lawyer.visitPrice}" th:name="visitPrice" id="visitPrice" type="number" placeholder="방문상담 가격을 입력해주세요." name="visitPrice" class="Account-Info-Card-Group-Input">
+                                <label for="visitPrice">방문상담 가격</label>
+                            </div>
                             <div class="Account-Info-Card-Group-Field">
                                 <span class="label-for-fields">분야</span>
                                 <div class="field-checkboxes">
                                     <div th:each="field : ${fieldList}" class="field-checkbox">
-                                        <input th:id="|type + ${field.fieldId}|" th:name="eachField" th:value="${field.fieldId}" type="checkbox"
+                                        <input th:id="|type${field.fieldId}|" th:name="eachField" th:value="${field.fieldId}" type="checkbox"
                                         th:checked="${#lists.contains(fields, field.fieldId) ? 'true' : 'false'}">
-                                        <label th:for="|type + ${field.fieldId}|" th:text="${field.fieldTitle}"></label>
+                                        <label th:for="|type${field.fieldId}|" th:text="${field.fieldTitle}"></label>
                                     </div>
                                 </div>
                             </div>
@@ -141,9 +153,9 @@
                                 <span class="label-for-fields">활동지역</span>
                                 <div class="field-checkboxes">
                                     <div th:each="location : ${locationList}" class="field-checkbox">
-                                        <input th:id="|type + ${location.locationId}|" th:name="eachLocation" th:value="${location.locationId}" type="checkbox"
+                                        <input th:id="|type${location.locationId}|" th:name="eachLocation" th:value="${location.locationId}" type="checkbox"
                                                th:checked="${#lists.contains(locations, location.locationId) ? 'true' : 'false'}">
-                                        <label th:for="|type + ${location.locationId}|" th:text="${location.locationName}"></label>
+                                        <label th:for="|type${location.locationId}|" th:text="${location.locationName}"></label>
                                     </div>
                                 </div>
                             </div>
