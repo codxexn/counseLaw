@@ -148,8 +148,8 @@
                                 <div>
                                     <div style="width: 240px; margin-left: 710px;">
                                         <label class="member-search-label">
-                                            <input class="member-searchBar" type="search" placeholder="작성글 검색">
-                                            <button class="member-search">
+                                            <input class="member-searchBar" type="search" placeholder="작성글 검색" name="keyword">
+                                            <button class="member-search" type="submit">
                                                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
                                                      class="search">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -165,7 +165,7 @@
                                 <div class="member-countWrap">
                                     <span class="count-word">전체</span>
                                     <!--이름이랑 후기는 그냥 selectOPtion에서 가져오는 것들 하고 전체일 경우 이름: 전체 count : 다 더하는거-->
-                                    <span class="member-count">0</span>
+                                    <span class="member-count"  th:text="${pagination.total}">0</span>
                                 </div>
 
                                 <div class="member-condition">
@@ -181,10 +181,10 @@
 
                                             <form th:action="@{/manager/manager-mainpage}" method="get">
                                                 <select class="selectOption" name="selectedOption">
-                                                    <option value="selectAll" selected>전체</option>
-                                                    <option value="consultingCase">상담사례</option>
-                                                    <option value="solutionCase">해결사례</option>
-                                                    <option value="legalGuide">법률 가이드</option>
+                                                    <option value="selectAll" th:selected="${selectedOption == 'selectAll'}">전체</option>
+                                                    <option value="consultingCase" th:selected="${selectedOption == 'consultingCase'}">상담사례</option>
+                                                    <option value="solutionCase" th:selected="${selectedOption == 'solutionCase'}">해결사례</option>
+                                                    <option value="legalGuide" th:selected="${selectedOption == 'legalGuide'}">법률 가이드</option>
                                                 </select>
                                                 <button class="selectButton" type="submit">조회</button>
                                             </form>
@@ -230,7 +230,7 @@
                                 <div style="width: 200px;" class="member-name"><strong>제목</strong></div>
                             </div>
                             <div>
-                                <div class="memberTop-bottom" th:if="${#strings.equals(selectedOption, 'selectAll')}"
+                                <div class="memberTop-bottom" th:if="${selectedOption == 'selectAll'}"
                                      th:each="post : ${selectAllPosts}">
                                     <!--                                    <div th:if="${#strings.equals(selectedOption, 'legalGuide')}">-->
                                     <div style="width: 192px" class="posts" th:text="${post.postAuthorName}">한땡땡</div>
@@ -244,11 +244,34 @@
                                     <div style="width: 200px;" class="posts"
                                          th:text="${post.postTitle}">테스트제목1
                                     </div>
-                                    <button>삭제</button>
+                                    <div class="detailContent-Button" th:if="${post.postType == '해결 사례'}">
+                                        <button th:onclick="|deletePost(${post.postId}, 'solutionCase')|" class="detailContent-DeleteButton">
+                                            <input type="hidden" th:value="${post.postId}" th:name="solutionCaseId">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="detailContent-Button" th:if="${post.postType == '법률 가이드'}">
+                                        <button th:onclick="|deletePost(${post.postId}, 'legalGuide')|" class="detailContent-DeleteButton">
+                                            <input type="hidden" th:value="${post.postId}" th:name="legalGuideId">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="detailContent-Button" th:if="${post.postType == '상담 사례'}">
+                                        <button th:onclick="|deletePost(${post.postId}, 'consultingCase')|" class="detailContent-DeleteButton">
+                                            <input type="hidden" th:value="${post.postId}" th:name="consultingCaseId">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                             <div>
-                                <div class="memberTop-bottom" th:if="${#strings.equals(selectedOption, 'legalGuide')}"
+                                <div class="memberTop-bottom" th:if="${selectedOption == 'legalGuide'}"
                                      th:each="legalGuidePost : ${legalGuides}">
                                     <!--                                    <div th:if="${#strings.equals(selectedOption, 'legalGuide')}">-->
                                     <div style="width: 192px" class="posts" th:text="${legalGuidePost.lawyerName}">한땡땡
@@ -261,12 +284,44 @@
                                     <div style="width: 200px;" class="posts"
                                          th:text="${legalGuidePost.legalGuideTitle}">테스트제목1
                                     </div>
-                                    <button>삭제</button>
+                                    <div class="detailContent-Button">
+                                        <button th:onclick="|deletePost(${legalGuidePost.legalGuideId}, 'legalGuide')|" class="detailContent-DeleteButton">
+                                            <input type="hidden" th:value="${legalGuidePost.legalGuideId}" th:name="legalGuideId">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
+<!--                            검색 때-->
+<!--                            <div>-->
+<!--                                <div class="memberTop-bottom" th:if="${selectedOption == 'solutionCase'}"-->
+<!--                                     th:each="solutionCaseResult : ${searchSolutionCaseResults}">-->
+<!--                                    &lt;!&ndash;                                    <div th:if="${#strings.equals(selectedOption, 'legalGuide')}">&ndash;&gt;-->
+<!--                                    <div style="width: 192px" class="posts"-->
+<!--                                         th:text="${solutionCaseResult.lawyerName}">한땡땡-->
+<!--                                    </div>-->
+<!--                                    <div style="width: 96px;" class="posts" th:text="|해결 사례|">해결 사례</div>-->
+<!--                                    <div style="width: 127px;" class="posts"-->
+<!--                                         th:text="${#temporals.format(solutionCaseResult.createDate, 'yyyy-MM-dd HH:mm')}">-->
+<!--                                        2023-->
+<!--                                    </div>-->
+<!--                                    <div style="width: 200px;" class="posts"-->
+<!--                                         th:text="${solutionCaseResult.solutionCaseTitle}">테스트제목1-->
+<!--                                    </div>-->
+<!--                                    <div class="detailContent-Button">-->
+<!--                                        <button onclick="deletePost()" class="detailContent-DeleteButton">-->
+<!--                                            <input type="hidden" th:value="${session.postId}" th:name="postId">-->
+<!--                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">-->
+<!--                                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>-->
+<!--                                            </svg>-->
+<!--                                        </button>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
                             <div>
-                                <div class="memberTop-bottom"
-                                     th:if="${#strings.equals(selectedOption, 'solutionCase')}"
+                                <div class="memberTop-bottom" th:if="${selectedOption == 'solutionCase'}"
                                      th:each="solutionCasePost : ${solutionCases}">
                                     <!--                                    <div th:if="${#strings.equals(selectedOption, 'legalGuide')}">-->
                                     <div style="width: 192px" class="posts"
@@ -280,12 +335,46 @@
                                     <div style="width: 200px;" class="posts"
                                          th:text="${solutionCasePost.solutionCaseTitle}">테스트제목1
                                     </div>
-                                    <button>삭제</button>
+                                    <div class="detailContent-Button">
+                                        <button th:onclick="|deletePost(${solutionCasePost.solutionCaseId}, 'solutionCase')|" class="detailContent-DeleteButton">
+                                            <input type="hidden" th:value="${solutionCasePost.solutionCaseId}" th:name="solutionCaseId">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
+<!--                            검색 때-->
+<!--                            <div>-->
+<!--                                <div class="memberTop-bottom"-->
+<!--                                     th:if="${selectedOption == 'consultingCase'}"-->
+<!--                                     th:each="consultingCaseResult : ${searchConsultingCaseResults}">-->
+<!--                                    &lt;!&ndash;                                    <div th:if="${#strings.equals(selectedOption, 'legalGuide')}">&ndash;&gt;-->
+<!--                                    <div style="width: 192px" class="posts"-->
+<!--                                         th:text="${consultingCaseResult.memberName}">한땡땡-->
+<!--                                    </div>-->
+<!--                                    <div style="width: 96px;" class="posts" th:text="|상담 사례|">상담 사례</div>-->
+<!--                                    <div style="width: 127px;" class="posts"-->
+<!--                                         th:text="${#temporals.format(consultingCaseResult.createDate, 'yyyy-MM-dd HH:mm')}">-->
+<!--                                        2023-->
+<!--                                    </div>-->
+<!--                                    <div style="width: 200px;" class="posts"-->
+<!--                                         th:text="${consultingCaseResult.caseTitle}">테스트제목1-->
+<!--                                    </div>-->
+<!--                                    <div class="detailContent-Button">-->
+<!--                                        <button onclick="deletePost()" class="detailContent-DeleteButton">-->
+<!--                                            <input type="hidden" th:value="${session.postId}" th:name="postId">-->
+<!--                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">-->
+<!--                                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>-->
+<!--                                            </svg>-->
+<!--                                        </button>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
                             <div>
                                 <div class="memberTop-bottom"
-                                     th:if="${#strings.equals(selectedOption, 'consultingCase')}"
+                                     th:if="${selectedOption == 'consultingCase'}"
                                      th:each="consultingCasePost : ${consultingCases}">
                                     <!--                                    <div th:if="${#strings.equals(selectedOption, 'legalGuide')}">-->
                                     <div style="width: 192px" class="posts"
@@ -299,7 +388,14 @@
                                     <div style="width: 200px;" class="posts"
                                          th:text="${consultingCasePost.caseTitle}">테스트제목1
                                     </div>
-                                    <button>삭제</button>
+                                    <div class="detailContent-Button">
+                                        <button th:onclick="|deletePost(${consultingCasePost.consultingCaseId}, 'consultingCase')|" class="detailContent-DeleteButton">
+                                            <input type="hidden" th:value="${consultingCasePost.consultingCaseId}" th:name="consultingCaseId">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                             <!--                                <div class="posts-wrapper" th:if="${#strings.equals(selectedOption, '상담사례')}">-->
@@ -311,7 +407,7 @@
                             <!--                                </div>-->
                             <!--                        멤버 목록-->
                             <div class="member-bottom"
-                                 th:if="${selectAllPosts == null &&   legalGuides == null && solutionCases == null && consultingCases == null}">
+                                 th:if="${pagination.total == 0}">
                                 <svg width="53" height="56" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M27.516 1.62c-6.654-4.436-21.823.626-21.821 10.475 0 5.567 1.956 10.31 3.889 14.205-1.403-.463-2.853-1.072-3.8-2.095-.466-.502-1.151-1.115-1.802-1.35-.993-.358-2.035.135-2.572.923-1.212 1.776-1.071 2.717-.403 4.643 4.364 5.647 8.167 5.53 11.275 5.435.286-.009.566-.017.84-.021.897 3.13 2.706 6.042 4.099 8.965 1.617 5.694 9.313 4.544 12.913 1.697 2.3-1.819 5.187-2.36 8.117-1.475 2.303.419 3.88-.68 5.236-1.624 1.031-.72 1.934-1.348 2.93-1.149 1.19.238 2.511.191 2.718-1.307.521-3.781-8.391-5.535-11.284-7.062 4.98-2.883 7.416-7.67 6.968-10.861-.31-2.2-2.168-2.967-4.076-1.773-2.206 1.38-2.758 3.32-5.42 4.348 1.822-6.821 3.386-14.515-7.807-21.975Z"
                                           fill="#9D8DFF"></path>
@@ -428,7 +524,7 @@
                             <footer class="Footer_Wrapper" th:with="start=${pagination.startPage}, last=(${pagination.endPage})">
                                 <div class="PaginationButtonGroup_PrevButtonWrapper">
                                     <button th:if="${pagination.page != start}"
-                                            th:onclick="'location.href=\'' + @{/manager/manager-mainpage(selectedOption=${selectedOption}, page=${pagination.page - 1})} + '\''">
+                                            th:onclick="'location.href=\'' + @{/manager/manager-mainpage(selectedOption=${selectedOption}, keyword=${keyword}, page=${pagination.page - 1})} + '\''">
                                         Previous
                                     </button>
                                     <button th:if="${pagination.page == start}" disabled>
@@ -439,12 +535,12 @@
                                 <!-- 중간 페이지 버튼 (1부터 마지막 페이지까지) -->
                                 <button th:each="buttonpage: ${#numbers.sequence(start, last)}" class="footerButton"
                                         th:class="${buttonpage == pagination.page ? 'ButtonPage_StyledButtonOn' : 'ButtonPage_StyledButtonOff'}">
-                                    <a th:text="${buttonpage}" th:href="@{/manager/manager-mainpage(selectedOption=${selectedOption}, page=${buttonpage})}">[[${buttonpage}]]</a>
+                                    <a th:text="${buttonpage}" th:href="@{/manager/manager-mainpage(selectedOption=${selectedOption}, keyword=${keyword}, page=${buttonpage})}">[[${buttonpage}]]</a>
                                 </button>
 
                                 <div class="PaginationButtonGroup_NextButtonWrapper">
                                     <button th:if="${pagination.page != last}"
-                                            th:onclick="'location.href=\'' + @{/manager/manager-mainpage(selectedOption=${selectedOption}, page=${pagination.page + 1})} + '\''">
+                                            th:onclick="'location.href=\'' + @{/manager/manager-mainpage(selectedOption=${selectedOption}, keyword=${keyword}, page=${pagination.page + 1})} + '\''">
                                         Next
                                     </button>
                                     <button th:if="${pagination.page == last}" disabled>
@@ -459,6 +555,7 @@
         </div>
     </div>
 </div>
-<script src="/js/Manager/Manager.js"></script>
 </body>
+<script src="/js/Manager/Manager.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </html>

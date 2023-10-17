@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.counselawb.mapper.SolutionCaseImgMapper">
+    <select id="selectSolutionCaseImages" resultType="SolutionCaseImgVO">
+        SELECT SOLUTION_CASE_IMG_ID, SOLUTION_CASE_ID, STORED_FILE_NAME, IMG_PATH FROM TBL_SOLUTION_CASE_IMG
+        WHERE SOLUTION_CASE_ID = #{solutionCaseId}
+        ORDER BY SOLUTION_CASE_IMG_ID
+    </select>
+</mapper>
