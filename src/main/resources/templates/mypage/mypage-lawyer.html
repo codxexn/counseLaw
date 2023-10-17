@@ -90,6 +90,10 @@
                 <div class="MypageBox-AdviceList">
                     <div class="MypageBox-Title">내 정보</div>
                     <div class="MypageBox-MenuItem-Info">
+                        <div class="MypageBox-MenuItemLabel">내 소개</div>
+                        <div th:text="${}" class="MypageBox-MenuItemText"></div>
+                    </div>
+                    <div class="MypageBox-MenuItem-Info">
                         <div class="MypageBox-MenuItemLabel">내 분야</div>
                         <div th:text="${fields.equals('') ? '미입력' : fields}" class="MypageBox-MenuItemText"></div>
                     </div>
