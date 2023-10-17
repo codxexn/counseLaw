@@ -52,12 +52,12 @@
             <form th:action="@{login/logout-finally}">
                 <button type="submit" class="TopNavMenu-LogoutButton">로그아웃</button>
             </form>
-            <a href="/mypage/mypage">
+            <a href="/member/mypage-member">
                 <div class="headerRight"><p
                         class="textSize14 textWeight400 textHeight100 accountButton textInherit"
                         style="color: rgb(122, 130, 135);">마이페이지</p></div></a>
         </header>
-        <header class="headerModule" th:if="${session.member != null && session.lawyer == null &&session.member.memberId == 1}">
+        <header class="headerModule" th:if="${session.member != null && session.lawyer == null && session.member.memberId == 1}">
             <div class="headerLeft">
                 <div class="headerLogoIcon">
                     <img class="logoImage" src="/image/header/counseLawLogo.png" alt="">
