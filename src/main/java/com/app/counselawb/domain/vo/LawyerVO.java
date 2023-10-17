@@ -37,6 +37,8 @@ public class LawyerVO {
     private int videoPrice;
     // 방문상담 가격
     private int visitPrice;
+    // 변호사 소개
+    private String lawyerIntroduction;
     // 기본 세팅
     private LocalDateTime createDate;
     private LocalDateTime updateDate;
