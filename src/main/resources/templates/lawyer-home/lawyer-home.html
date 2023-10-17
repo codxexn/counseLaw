@@ -19,18 +19,18 @@
                         <img class="logoImage" src="/image/lawyerHome/counseLawLogo.png" alt="로고 이미지">
                     </div>
                     <li class="profile-contents__item-wrap profile-contents__item-wrap--active">
-                        <a class="profile-contents__nav-item">변호사홈</a>
+                        <a th:href="|/lawyer-home/lawyer-home?lawyerId=${lawyerId}|" class="profile-contents__nav-item">변호사홈</a>
                     </li>
                     <li class="profile-contents__item-wrap">
-                        <a class="profile-contents__nav-item">변호사정보</a>
+                        <a th:href="|/lawyer-home/lawyer-info|" class="profile-contents__nav-item">변호사정보</a>
                     </li>
                     <li class="profile-contents__item-wrap">
-                        <a class="profile-contents__nav-item">법률사례</a>
+                        <a th:href="|/lawyer-home/lawyer-counsel-case|" class="profile-contents__nav-item">법률사례</a>
                     </li>
                     <li class="profile-contents__item-wrap review">
-                        <a class="profile-contents__nav-item">
+                        <a th:href="|/lawyer-home/client-reviews|" class="profile-contents__nav-item">
                             의뢰인후기
-                            <div class="profile-contents__review-count">12</div>
+                            <div th:text="${reviewCount}" class="profile-contents__review-count"></div>
                         </a>
                     </li>
                 </ul>
@@ -38,14 +38,12 @@
             <div class="profile-page__tab">
                 <div class="profile-home">
                     <section class="profile-home__basic-info">
-                        <h1 class="profile-home__introduce lt-desktop ad-lawyer">
-                            동석짱 법률사무소 및 개발자 출신의 변호사
-                        </h1>
+                        <h1 th:text="|${selectedLawyer.lawyerIntroduction == null ? selectedLawyer.lawyerName : selectedLawyer.lawyerIntroduction}|" class="profile-home__introduce lt-desktop ad-lawyer"></h1>
                         <div class="basic-info-contents" style="display: flex;">
                             <div class="basic-info-content">
                                 <div class="left__name-rr">
                                     <div class="left__lawyer-name">
-                                        <i class="left__lawyer-name-text">한동석 변호사</i>
+                                        <i th:text="|${selectedLawyer.lawyerName} 변호사|" class="left__lawyer-name-text"></i>
                                         <div class="left__compliance-badge-wrap">
                                             <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIiBmaWxsPSJub25lIj4KICA8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMzVfMTA3MjYpIj4KICAgIDxwYXRoIGQ9Ik0xOS4xNjcxIDEwTDE3LjEzMzcgNy42NzVMMTcuNDE3MSA0LjZMMTQuNDA4NyAzLjkxNjY3TDEyLjgzMzcgMS4yNUwxMC4wMDA0IDIuNDY2NjdMNy4xNjcwNyAxLjI1TDUuNTkyMDcgMy45MDgzM0wyLjU4Mzc0IDQuNTgzMzNMMi44NjcwNyA3LjY2NjY3TDAuODMzNzQgMTBMMi44NjcwNyAxMi4zMjVMMi41ODM3NCAxNS40MDgzTDUuNTkyMDcgMTYuMDkxN0w3LjE2NzA3IDE4Ljc1TDEwLjAwMDQgMTcuNTI1TDEyLjgzMzcgMTguNzQxN0wxNC40MDg3IDE2LjA4MzNMMTcuNDE3MSAxNS40TDE3LjEzMzcgMTIuMzI1TDE5LjE2NzEgMTBaTTguNDA4NzQgMTMuOTMzM0w1LjI0MjA3IDEwLjc1ODNMNi40NzU0MSA5LjUyNUw4LjQwODc0IDExLjQ2NjdMMTMuMjgzNyA2LjU3NUwxNC41MTcxIDcuODA4MzNMOC40MDg3NCAxMy45MzMzWiIgZmlsbD0idXJsKCNwYWludDBfbGluZWFyXzM1XzEwNzI2KSIvPgogIDwvZz4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQwX2xpbmVhcl8zNV8xMDcyNiIgeDE9IjUuNzk5MDIiIHkxPSIyLjM0Mzc1IiB4Mj0iMTQuMzQ1MSIgeTI9IjE3LjYzODQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzg0NThGRiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNFNTgzRjQiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8Y2xpcFBhdGggaWQ9ImNsaXAwXzM1XzEwNzI2Ij4KICAgICAgPHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBmaWxsPSJ3aGl0ZSIvPgogICAgPC9jbGlwUGF0aD4KICA8L2RlZnM+Cjwvc3ZnPgo=" width="20" height="20" class="left__compliance-badge">
                                         </div>
@@ -61,38 +59,43 @@
 <!--                                    </div>-->
 <!--                                    <div class="compliance-rate__percentage">100%</div>-->
 <!--                                </div>-->
-                                <div class="left__lawfirm left__lawfirm--has-compliance">
-                                    법률사무소 자바
-                                </div>
-                                <div class="left__address">
+                                <div th:text="${selectedLawyer.lawyerCompany == null ? '미입력' : selectedLawyer.lawyerCompany}" class="left__lawfirm left__lawfirm--has-compliance"></div>
+                                <div class="left__address addressWrapper">
                                     <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2IiBmaWxsPSJub25lIj4KICA8cGF0aCBkPSJNNy45OTk4NCA3Ljk5OTkyQzguMzY2NSA3Ljk5OTkyIDguNjgwNSA3Ljg2OTI1IDguOTQxODQgNy42MDc5MkM5LjIwMjczIDcuMzQ3MDMgOS4zMzMxNyA3LjAzMzI1IDkuMzMzMTcgNi42NjY1OUM5LjMzMzE3IDYuMjk5OTIgOS4yMDI3MyA1Ljk4NTkyIDguOTQxODQgNS43MjQ1OUM4LjY4MDUgNS40NjM3IDguMzY2NSA1LjMzMzI1IDcuOTk5ODQgNS4zMzMyNUM3LjYzMzE3IDUuMzMzMjUgNy4zMTkzOSA1LjQ2MzcgNy4wNTg1IDUuNzI0NTlDNi43OTcxNyA1Ljk4NTkyIDYuNjY2NSA2LjI5OTkyIDYuNjY2NSA2LjY2NjU5QzYuNjY2NSA3LjAzMzI1IDYuNzk3MTcgNy4zNDcwMyA3LjA1ODUgNy42MDc5MkM3LjMxOTM5IDcuODY5MjUgNy42MzMxNyA3Ljk5OTkyIDcuOTk5ODQgNy45OTk5MlpNNy45OTk4NCAxNC40MTY2QzcuOTEwOTUgMTQuNDE2NiA3LjgyMjA2IDE0LjM5OTkgNy43MzMxNyAxNC4zNjY2QzcuNjQ0MjggMTQuMzMzMyA3LjU2NjUgMTQuMjg4OCA3LjQ5OTg0IDE0LjIzMzNDNS44Nzc2MSAxMi43OTk5IDQuNjY2NSAxMS40Njk1IDMuODY2NSAxMC4yNDE5QzMuMDY2NSA5LjAxMzkyIDIuNjY2NSA3Ljg2NjU5IDIuNjY2NSA2Ljc5OTkyQzIuNjY2NSA1LjEzMzI1IDMuMjAyNzMgMy44MDU0NyA0LjI3NTE3IDIuODE2NTlDNS4zNDcxNyAxLjgyNzcgNi41ODg3MyAxLjMzMzI1IDcuOTk5ODQgMS4zMzMyNUM5LjQxMDk1IDEuMzMzMjUgMTAuNjUyNSAxLjgyNzcgMTEuNzI0NSAyLjgxNjU5QzEyLjc5NjkgMy44MDU0NyAxMy4zMzMyIDUuMTMzMjUgMTMuMzMzMiA2Ljc5OTkyQzEzLjMzMzIgNy44NjY1OSAxMi45MzMyIDkuMDEzOTIgMTIuMTMzMiAxMC4yNDE5QzExLjMzMzIgMTEuNDY5NSAxMC4xMjIxIDEyLjc5OTkgOC40OTk4NCAxNC4yMzMzQzguNDMzMTcgMTQuMjg4OCA4LjM1NTM5IDE0LjMzMzMgOC4yNjY1IDE0LjM2NjZDOC4xNzc2MSAxNC4zOTk5IDguMDg4NzMgMTQuNDE2NiA3Ljk5OTg0IDE0LjQxNjZaIiBmaWxsPSIjNjA2NjZDIi8+Cjwvc3ZnPgo=" width="16" height="16" class="left__address-icon">
-                                    서울특별시 서초구 서초중앙로24길 16 (서초동) 8층 법률사무소 자바
+                                    <p th:text="${selectedLawyer.lawyerAddress == null ? '미입력' : selectedLawyer.lawyerCompany}"></p>
                                 </div>
                                 <div class="phone-number lt-desktop">
                                     사무실 전화
-                                    <span class="number">050-7725-5704</span>
+                                    <span th:text="${selectedLawyer.lawyerPhone}" class="number"></span>
                                 </div>
                             </div>
                             <div class="right">
                                 <div class="right__category">
                                     <span class="label">분야</span>
-                                    <span class="value">성폭력/강제추행 등, 사이버 명예훼손/모욕, 사기/공갈, 고소/소송절차, 횡령/배임, 폭행/협박/상해 일반, 교통사고/도주 </span>
+                                    <span th:text="${fields == '' ? '미입력' : fields}" class="value"></span>
                                 </div>
                                 <div class="right__category">
                                     <span class="label">경력</span>
-                                    <span class="value">동석짱 법률사무소</span>
+                                    <div class="value careerWrapper">
+                                        <div th:if="${!#lists.isEmpty(careers)}" th:each="career: ${careers}">
+                                            <span th:text="${career.experienceContent}"></span>
+                                        </div>
+                                        <div th:if="${#lists.isEmpty(careers)}">
+                                            <span>미입력</span>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="right__category">
                                     <span class="label">자격</span>
-                                    <span class="value">2021년 변호사자격 취득</span>
+                                    <span th:text="${selectedLawyer.lawyerQualification == null ? '미입력' : selectedLawyer.lawyerQualification}" class="value"></span>
                                 </div>
                                 <div class="right__category">
                                     <span class="label">학력</span>
-                                    <span class="value">
-                                        <span class="item">경찰대학 </span>
-                                        <span class="item"> </span>
-                                        <span class="item">학사 </span>
-                                        <span class="item">졸업</span>
+                                    <span class="value" th:text="${selectedLawyer.lawyerEducation == null ? '미입력' : selectedLawyer.lawyerEducation}">
+<!--                                        <span class="item">경찰대학 </span>-->
+<!--                                        <span class="item"> </span>-->
+<!--                                        <span class="item">학사 </span>-->
+<!--                                        <span class="item">졸업</span>-->
                                     </span>
                                 </div>
                                 <div class="right__category pricing">
@@ -105,11 +108,7 @@
                     <div class="profile-home__divider lt-mobile"></div><!----><!---->
                     <div class="activity-detail">
                         <section class="activity-summary no-margin">
-                            <div class="section-title">
-                                한동석 변호사의 법률 활동을
-                                <br>
-                                확인하세요.
-                            </div>
+                            <div class="section-title" th:utext="${selectedLawyer.lawyerName} + ' 변호사의 법률 활동을 <br> 확인하세요.'"></div>
                         </section>
                         <section class="activity cases no-margin">
                             <div class="header">
@@ -447,7 +446,7 @@
                         <div class="LawyerPictureCard-module_body__ovTxk">
                             <div class="LawyerPictureCard-module_carouselWrapper__JDfOy">
                                 <div class="LawyerPictureCard-module_carouselInner__jRoGT">
-                                    <img class="LawyerPictureCard-module_carouselImage__2MQfY LawyerPictureCard-module_visible__SGhfg" src="/image/lawyerHome/profile.png" alt="1 번째 한동석 변호사 이미지">
+                                    <img th:src="${profilePath == null ? '/image/lawyerHome/profile.png' : profilePath}" class="LawyerPictureCard-module_carouselImage__2MQfY LawyerPictureCard-module_visible__SGhfg" alt="1 번째 한동석 변호사 이미지">
                                 </div>
                             </div>
                         </div>
@@ -458,42 +457,42 @@
                 <div class="profile-page__reservation-panel profile-page__reservation-panel--visible">
                     <lawtalk-next-reservation-price-panel>
                         <div class="ReservationPricePanel-module_panel__VviDH">
-                            <!--쿠폰 발급 전-->
-                            <button class="ReservationPricePanel-module_couponButton__SuusI">
-                                <p class="Typography-module_lt-text--size-18__AbfHy Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                    style="color: rgba(197, 0, 0, 0.87);">
-                                    10,000원 할인
-                                </p>
-                                <p class="Typography-module_lt-text--size-12__GYxFO Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                   style="color: rgb(122, 130, 135);">(~10월 15일)</p>
-                                <div class="ReservationPricePanel-module_couponDownload__kU17O">
-                                    <p class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                        style="color: rgba(197, 0, 0, 0.87);">쿠폰받기
-                                    </p>
-                                    <svg class="ReservationPricePanel-module_downloadIcon__tY+fG" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12 15.575C11.8667 15.575 11.7417 15.554 11.625 15.512C11.5083 15.4707 11.4 15.4 11.3 15.3L7.7 11.7C7.51667 11.5167 7.425 11.2833 7.425 11C7.425 10.7167 7.51667 10.4833 7.7 10.3C7.88333 10.1167 8.12067 10.0207 8.412 10.012C8.704 10.004 8.94167 10.0917 9.125 10.275L11 12.15V5C11 4.71667 11.096 4.479 11.288 4.287C11.4793 4.09567 11.7167 4 12 4C12.2833 4 12.521 4.09567 12.713 4.287C12.9043 4.479 13 4.71667 13 5V12.15L14.875 10.275C15.0583 10.0917 15.296 10.004 15.588 10.012C15.8793 10.0207 16.1167 10.1167 16.3 10.3C16.4833 10.4833 16.575 10.7167 16.575 11C16.575 11.2833 16.4833 11.5167 16.3 11.7L12.7 15.3C12.6 15.4 12.4917 15.4707 12.375 15.512C12.2583 15.554 12.1333 15.575 12 15.575ZM6 20C5.45 20 4.97933 19.8043 4.588 19.413C4.196 19.021 4 18.55 4 18V16C4 15.7167 4.09567 15.479 4.287 15.287C4.479 15.0957 4.71667 15 5 15C5.28333 15 5.521 15.0957 5.713 15.287C5.90433 15.479 6 15.7167 6 16V18H18V16C18 15.7167 18.096 15.479 18.288 15.287C18.4793 15.0957 18.7167 15 19 15C19.2833 15 19.5207 15.0957 19.712 15.287C19.904 15.479 20 15.7167 20 16V18C20 18.55 19.8043 19.021 19.413 19.413C19.021 19.8043 18.55 20 18 20H6Z"
-                                              fill="black"></path>
-                                    </svg>
-                                </div>
-                            </button>
-                            <!--쿠폰 발급 전 끝-->
-                            <!--쿠폰 발급 후-->
-                            <button class="ReservationPricePanel-module_couponButton__SuusI ReservationPricePanel-module_isAlreadyDownloadedCoupon__0jwVU">
-                                <p class="Typography-module_lt-text--size-18__AbfHy Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                   style="color: rgb(196, 200, 203);">10,000원 할인</p>
-                                <p class="Typography-module_lt-text--size-12__GYxFO Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                   style="color: rgb(196, 200, 203);">(~10월 15일)</p>
-                                <div class="ReservationPricePanel-module_couponDownload__kU17O">
-                                    <p class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                        style="color: rgb(196, 200, 203);">발급 완료
-                                    </p>
-                                    <svg class="ReservationPricePanel-module_downloadComplete__kPVNE" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M9.54988 17.575C9.41655 17.575 9.29155 17.554 9.17488 17.512C9.05821 17.4707 8.94988 17.4 8.84988 17.3L4.54988 13C4.36655 12.8167 4.27888 12.579 4.28688 12.287C4.29555 11.9957 4.39154 11.7584 4.57488 11.575C4.75821 11.3917 4.99155 11.3 5.27488 11.3C5.55821 11.3 5.79155 11.3917 5.97488 11.575L9.54988 15.15L18.0249 6.67502C18.2082 6.49169 18.4459 6.40002 18.7379 6.40002C19.0292 6.40002 19.2665 6.49169 19.4499 6.67502C19.6332 6.85836 19.7249 7.09569 19.7249 7.38702C19.7249 7.67902 19.6332 7.91669 19.4499 8.10002L10.2499 17.3C10.1499 17.4 10.0415 17.4707 9.92488 17.512C9.80821 17.554 9.68321 17.575 9.54988 17.575Z"
-                                              fill="black"></path>
-                                    </svg>
-                                </div>
-                            </button>
-                            <!--쿠폰 발급 후 끝-->
+<!--                            &lt;!&ndash;쿠폰 발급 전&ndash;&gt;-->
+<!--                            <button class="ReservationPricePanel-module_couponButton__SuusI">-->
+<!--                                <p class="Typography-module_lt-text&#45;&#45;size-18__AbfHy Typography-module_lt-text&#45;&#45;weight-600__IvaQr Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                    style="color: rgba(197, 0, 0, 0.87);">-->
+<!--                                    10,000원 할인-->
+<!--                                </p>-->
+<!--                                <p class="Typography-module_lt-text&#45;&#45;size-12__GYxFO Typography-module_lt-text&#45;&#45;weight-400__dz6jA Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                   style="color: rgb(122, 130, 135);">(~10월 15일)</p>-->
+<!--                                <div class="ReservationPricePanel-module_couponDownload__kU17O">-->
+<!--                                    <p class="Typography-module_lt-text&#45;&#45;size-16__m5oA0 Typography-module_lt-text&#45;&#45;weight-500__K1Qvm Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                        style="color: rgba(197, 0, 0, 0.87);">쿠폰받기-->
+<!--                                    </p>-->
+<!--                                    <svg class="ReservationPricePanel-module_downloadIcon__tY+fG" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--                                        <path d="M12 15.575C11.8667 15.575 11.7417 15.554 11.625 15.512C11.5083 15.4707 11.4 15.4 11.3 15.3L7.7 11.7C7.51667 11.5167 7.425 11.2833 7.425 11C7.425 10.7167 7.51667 10.4833 7.7 10.3C7.88333 10.1167 8.12067 10.0207 8.412 10.012C8.704 10.004 8.94167 10.0917 9.125 10.275L11 12.15V5C11 4.71667 11.096 4.479 11.288 4.287C11.4793 4.09567 11.7167 4 12 4C12.2833 4 12.521 4.09567 12.713 4.287C12.9043 4.479 13 4.71667 13 5V12.15L14.875 10.275C15.0583 10.0917 15.296 10.004 15.588 10.012C15.8793 10.0207 16.1167 10.1167 16.3 10.3C16.4833 10.4833 16.575 10.7167 16.575 11C16.575 11.2833 16.4833 11.5167 16.3 11.7L12.7 15.3C12.6 15.4 12.4917 15.4707 12.375 15.512C12.2583 15.554 12.1333 15.575 12 15.575ZM6 20C5.45 20 4.97933 19.8043 4.588 19.413C4.196 19.021 4 18.55 4 18V16C4 15.7167 4.09567 15.479 4.287 15.287C4.479 15.0957 4.71667 15 5 15C5.28333 15 5.521 15.0957 5.713 15.287C5.90433 15.479 6 15.7167 6 16V18H18V16C18 15.7167 18.096 15.479 18.288 15.287C18.4793 15.0957 18.7167 15 19 15C19.2833 15 19.5207 15.0957 19.712 15.287C19.904 15.479 20 15.7167 20 16V18C20 18.55 19.8043 19.021 19.413 19.413C19.021 19.8043 18.55 20 18 20H6Z"-->
+<!--                                              fill="black"></path>-->
+<!--                                    </svg>-->
+<!--                                </div>-->
+<!--                            </button>-->
+<!--                            &lt;!&ndash;쿠폰 발급 전 끝&ndash;&gt;-->
+<!--                            &lt;!&ndash;쿠폰 발급 후&ndash;&gt;-->
+<!--                            <button class="ReservationPricePanel-module_couponButton__SuusI ReservationPricePanel-module_isAlreadyDownloadedCoupon__0jwVU">-->
+<!--                                <p class="Typography-module_lt-text&#45;&#45;size-18__AbfHy Typography-module_lt-text&#45;&#45;weight-600__IvaQr Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                   style="color: rgb(196, 200, 203);">10,000원 할인</p>-->
+<!--                                <p class="Typography-module_lt-text&#45;&#45;size-12__GYxFO Typography-module_lt-text&#45;&#45;weight-400__dz6jA Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                   style="color: rgb(196, 200, 203);">(~10월 15일)</p>-->
+<!--                                <div class="ReservationPricePanel-module_couponDownload__kU17O">-->
+<!--                                    <p class="Typography-module_lt-text&#45;&#45;size-16__m5oA0 Typography-module_lt-text&#45;&#45;weight-500__K1Qvm Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                        style="color: rgb(196, 200, 203);">발급 완료-->
+<!--                                    </p>-->
+<!--                                    <svg class="ReservationPricePanel-module_downloadComplete__kPVNE" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--                                        <path d="M9.54988 17.575C9.41655 17.575 9.29155 17.554 9.17488 17.512C9.05821 17.4707 8.94988 17.4 8.84988 17.3L4.54988 13C4.36655 12.8167 4.27888 12.579 4.28688 12.287C4.29555 11.9957 4.39154 11.7584 4.57488 11.575C4.75821 11.3917 4.99155 11.3 5.27488 11.3C5.55821 11.3 5.79155 11.3917 5.97488 11.575L9.54988 15.15L18.0249 6.67502C18.2082 6.49169 18.4459 6.40002 18.7379 6.40002C19.0292 6.40002 19.2665 6.49169 19.4499 6.67502C19.6332 6.85836 19.7249 7.09569 19.7249 7.38702C19.7249 7.67902 19.6332 7.91669 19.4499 8.10002L10.2499 17.3C10.1499 17.4 10.0415 17.4707 9.92488 17.512C9.80821 17.554 9.68321 17.575 9.54988 17.575Z"-->
+<!--                                              fill="black"></path>-->
+<!--                                    </svg>-->
+<!--                                </div>-->
+<!--                            </button>-->
+<!--                            &lt;!&ndash;쿠폰 발급 후 끝&ndash;&gt;-->
                             <div class="ReservationPricePanel-module_consultationOptionRow__OXhDC">
                                 <div class="ReservationPricePanel-module_consultationOption__1KM-G active">
                                     <p class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-150__JY2i8 consultationTitle Typography-module_lt-text--inherit__uNmPK"
@@ -504,12 +503,12 @@
                                        style="color: rgb(43, 45, 47);">20,000원</p>
                                 </div>
                                 <div class="ReservationPricePanel-module_consultationDivider__eoZMh"></div>
-                                <div class="ReservationPricePanel-module_consultationOption__1KM-G">
+                                <div class="ReservationPricePanel-module_consultationOption__1KM-G active">
                                     <p class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-150__JY2i8 consultationTitle Typography-module_lt-text--inherit__uNmPK"
-                                        style="color: rgb(196, 200, 203);">20분 영상상담
+                                       style="color: rgb(96, 102, 108);">20분 영상상담
                                     </p>
                                     <p class="Typography-module_lt-text--size-18__AbfHy Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-150__JY2i8 ReservationPricePanel-module_consultationPrice__Cm3yr Typography-module_lt-text--inherit__uNmPK"
-                                       style="color: rgb(196, 200, 203);">30,000원</p>
+                                       style="color: rgb(43, 45, 47);">30,000원</p>
                                 </div>
                                 <div class="ReservationPricePanel-module_consultationDivider__eoZMh"></div>
                                 <div class="ReservationPricePanel-module_consultationOption__1KM-G active">
