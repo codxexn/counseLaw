@@ -56,4 +56,10 @@ public class PostsDAO {
         postsMapper.deleteLegalGuidePost(legalGuideId);
     }
 
+    // 상담 사례 답변 삭제
+    public void deleteConsultingCaseReply(Long consultingCaseId) {postsMapper.deleteConsultingCaseReply(consultingCaseId);}
+
+    // 해결 사례 이미지들 삭제
+    public void deleteSolutionCaseImages(Long solutionCaseId) {postsMapper.deleteSolutionCaseImages(solutionCaseId);}
+
 }

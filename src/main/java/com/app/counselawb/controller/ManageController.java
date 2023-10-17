@@ -1,11 +1,15 @@
     package com.app.counselawb.controller;
 
     import com.app.counselawb.domain.Search;
+    import com.app.counselawb.domain.dto.ConsultingCaseReplyDTO;
     import com.app.counselawb.domain.dto.PostsDTO;
     import com.app.counselawb.domain.dto.SearchDTO;
     import com.app.counselawb.domain.pagination.Pagination;
+    import com.app.counselawb.domain.vo.SolutionCaseImgVO;
+    import com.app.counselawb.service.ConsultingCaseReplyService;
     import com.app.counselawb.service.PostsService;
     import com.app.counselawb.service.SearchService;
+    import com.app.counselawb.service.SolutionCaseImgService;
     import lombok.RequiredArgsConstructor;
     import lombok.extern.slf4j.Slf4j;
     import org.springframework.stereotype.Controller;
@@ -25,6 +29,8 @@
     public class ManageController {
         private final PostsService postsService;
         private final SearchService searchService;
+        private final ConsultingCaseReplyService consultingCaseReplyService;
+        private final SolutionCaseImgService solutionCaseImgService;
 
 
 
@@ -79,7 +85,18 @@
 
 
         @PostMapping("posts-delete")
-        public RedirectView deletePostAndGoToMainpage(@RequestParam(name = "legalGuideId", required = false) Long legalGuideId, @RequestParam(name = "solutionCaseId", required = false) Long solutionCaseId, @RequestParam(name = "consultingCaseId", required = false) Long consultingCaseId) {
+        public RedirectView deletePostAndGoToMainpage(@RequestParam(name = "legalGuideId", required = false) Long legalGuideId,
+                                                      @RequestParam(name = "solutionCaseId", required = false) Long solutionCaseId,
+                                                      @RequestParam(name = "consultingCaseId", required = false) Long consultingCaseId) {
+            List<SolutionCaseImgVO> foundImages = solutionCaseImgService.findSolutionCaseImages(solutionCaseId);
+            if (!foundImages.isEmpty()) {
+                postsService.removeSolutionCaseImages(solutionCaseId);
+            }
+
+            List<ConsultingCaseReplyDTO> foundReplies = consultingCaseReplyService.findAllByConsultingCaseId(consultingCaseId);
+            if(!foundReplies.isEmpty()) {
+                postsService.removeConsultingCaseReply(consultingCaseId);
+            }
 
             if (legalGuideId != null) {
                 // 법률 가이드 게시물 삭제
@@ -92,7 +109,6 @@
                 postsService.removeConsultingCasePost(consultingCaseId);
             }
 
-            // 삭제 작업을 완료하고 메인 페이지로 리디렉션합니다.
             return new RedirectView("/manager/manager-mainpage");
         }
 

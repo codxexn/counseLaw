@@ -38,4 +38,10 @@ public interface PostsService {
     // 법률 가이드 삭제
     public void removeLegalGuidePost(Long legalGuideId);
 
+    // 상담 사례 답변 삭제
+    public void removeConsultingCaseReply(Long consultingCaseId);
+
+    // 해결 사례 이미지들 삭제
+    public void removeSolutionCaseImages(Long solutionCaseId);
+
 }

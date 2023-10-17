@@ -246,4 +246,14 @@
         DELETE FROM TBL_LEGAL_GUIDE
         WHERE LEGAL_GUIDE_ID = #{legalGuideId}
     </delete>
+
+    <delete id="deleteConsultingCaseReply">
+        DELETE FROM TBL_CONSULTING_CASE_REPLY
+        WHERE CONSULTING_CASE_ID = #{consultingCaseId}
+    </delete>
+
+    <delete id="deleteSolutionCaseImages">
+        DELETE FROM TBL_SOLUTION_CASE_IMG
+        WHERE SOLUTION_CASE_ID = #{solutionCaseId}
+    </delete>
 </mapper>
