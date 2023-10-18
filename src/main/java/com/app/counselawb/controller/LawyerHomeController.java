@@ -40,6 +40,12 @@ public class LawyerHomeController {
         StringBuilder sb = new StringBuilder();
         if (foundLawyer.isPresent()){
             LawyerVO lawyerVO = foundLawyer.get();
+            String lawyerIntroduction = lawyerVO.getLawyerIntroduction();
+            if (lawyerIntroduction.charAt(lawyerIntroduction.length()-1) == '.'){
+                sb.append(lawyerIntroduction);
+                sb.deleteCharAt(sb.length()-1);
+                lawyerVO.setLawyerIntroduction(sb.toString());
+            }
             model.addAttribute("selectedLawyer", lawyerVO);
         } else {
             model.addAttribute("selectedLawyer", null);
@@ -50,6 +56,7 @@ public class LawyerHomeController {
         String lawyerProfilePath = lawyerService.findProfileImage(lawyerId);
         model.addAttribute("profilePath", lawyerProfilePath);
         List<LawyerFieldDTO> foundFields = lawyerService.findFieldsByLawyerId(lawyerId);
+        sb = new StringBuilder();
         for (int i=0; i < foundFields.size(); i++){
             sb.append(foundFields.get(i).getFieldTitle());
             if (i < foundFields.size()-1) sb.append(", ");

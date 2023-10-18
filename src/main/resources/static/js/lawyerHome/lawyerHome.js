@@ -38,27 +38,30 @@ if (reviewLength > 0){
 
 // 즐겨 찾기 별 이미지 변환
 const starImage = document.querySelector('.star');
-starImage.addEventListener("click",
-    (e) =>  {
-        if(e.target.src.includes("yellowStar.png")){
-            e.target.src = "./blankedStar.png"
-        } else {
-            e.target.src = "./yellowStar.png"
-        }
-    })
+if (starImage != null){
+    starImage.addEventListener("click",
+            (e) =>  {
+                if(e.target.src.includes("yellowStar.png")){
+                    e.target.src = "/image/lawyerHome/blankedStar.png";
+                } else {
+                    e.target.src = "/image/lawyerHome/yellowStar.png";
+                }
+    });
+}
+
 
 // 상담 예약하기 누르면 예약 module 띄우기
 const reservationButton = document.querySelector('.ReservationPricePanel-module_reserveButtonBottom__iUPKk');
 const  module = document.querySelector('.profile-page__reservation-sheet');
 const closeButton = document.querySelector('.closeWhite');
-
+console.log(reservationButton);
 reservationButton.addEventListener('click', ()=> {
     module.className = module.className + '--visible';
-})
+});
 
 closeButton.addEventListener('click', () => {
     module.className = 'profile-page__reservation-sheet';
-})
+});
 
 
 // 화살표 누르면
@@ -141,15 +144,29 @@ timeButtons.forEach((time) => {
 })
 
 // 쿠폰 발급시
-const couponButton = document.querySelector('.ReservationPricePanel-module_couponButton__SuusI');
-const alreadyDownloaded = document.querySelector('.ReservationPricePanel-module_isAlreadyDownloadedCoupon__0jwVU');
-couponButton.addEventListener('click', (e)=> {
-    couponButton.style.display = 'none';
-    Swal.fire(
-        '쿠폰 발급 완료',
-        '쿠폰이 정상 발급되었습니다. <br> 내 쿠폰함을 확인해주세요.',
-        'success'
-    )
-    alreadyDownloaded.style.display = 'flex';
-})
+// const couponButton = document.querySelector('.ReservationPricePanel-module_couponButton__SuusI');
+// const alreadyDownloaded = document.querySelector('.ReservationPricePanel-module_isAlreadyDownloadedCoupon__0jwVU');
+// couponButton.addEventListener('click', (e)=> {
+//     couponButton.style.display = 'none';
+//     Swal.fire(
+//         '쿠폰 발급 완료',
+//         '쿠폰이 정상 발급되었습니다. <br> 내 쿠폰함을 확인해주세요.',
+//         'success'
+//     )
+//     alreadyDownloaded.style.display = 'flex';
+// })
 
+// 공유 버튼 클릭 시 클립보드에 url 복사하기
+function clipCopy() {
+    let dummy = document.createElement("textarea");
+    document.body.appendChild(dummy);
+    dummy.value = window.document.location.href;
+    dummy.select();
+    document.execCommand("copy");
+    document.body.removeChild(dummy);
+    Swal.fire(
+        'URL 복사 완료',
+        '주소가 클립보드에 복사되었습니다. <br> 원하는 곳에 붙여넣기 해주세요.',
+        'success'
+    );
+}
