@@ -227,7 +227,7 @@ button, input[type=button], input[type=file]::-webkit-file-upload-button, input[
 
 /*가격정보*/
 .profile-info .advice-fee {
-    border-top: 1px solid #f1eeec;
+    /*border-top: 1px solid #f1eeec;*/
 }
 
 .profile-info .advice-fee .title {
@@ -426,7 +426,9 @@ button, input[type=button], input[type=file]::-webkit-file-upload-button, input[
     font-size: 12px;
     font-weight: 400;
     line-height: 20px;
-    white-space: pre-wrap;
+    /*white-space: pre-wrap;*/
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .lawyer-profile-footer--copyright-wrap {
@@ -513,6 +515,7 @@ button, input[type=button], input[type=file]::-webkit-file-upload-button, input[
     right: 32px;
     top: 50%;
     transform: translateY(-50%);
+    cursor: pointer;
 }
 
 .star {
@@ -708,6 +711,15 @@ button, input[type=button], input[type=file]::-webkit-file-upload-button, input[
     cursor: pointer;
     margin-top: 28px;
     position: relative;
+}
+
+.ReservationPricePanel-module_reserveButtonBottom__iUPKk:disabled {
+    cursor: not-allowed;
+    background: #757575;
+}
+.ReservationPricePanel-module_reserveButtonBottom__iUPKk:disabled:hover {
+    cursor: not-allowed;
+    background: #757575;
 }
 
 .ReservationPricePanel-module_reserveButtonBottom__iUPKk:hover {
@@ -996,6 +1008,7 @@ button, input[type=button], input[type=file]::-webkit-file-upload-button, input[
 
 .closeWhite {
     width: 24px;
+    display: none;
 }
 
 /*선택시*/
@@ -1133,7 +1146,7 @@ button, input[type=button], input[type=file]::-webkit-file-upload-button, input[
 
     /*경력사항*/
     .profile-info .resume-history {
-        padding-bottom: 60px;
+        /*padding-bottom: 60px;*/
     }
 
     .profile-info a.anchor.resume_history {
@@ -1185,7 +1198,7 @@ button, input[type=button], input[type=file]::-webkit-file-upload-button, input[
     /*가격정보*/
 
     .profile-info .advice-fee {
-        padding-top: 60px;
+        /*padding-top: 60px;*/
     }
 
     .profile-info .advice-fee .title {
