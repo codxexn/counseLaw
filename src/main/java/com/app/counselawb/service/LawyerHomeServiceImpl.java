@@ -1,6 +1,7 @@
 package com.app.counselawb.service;
 
 import com.app.counselawb.domain.dto.LawyerReplyDTO;
+import com.app.counselawb.domain.dto.LawyerReviewDTO;
 import com.app.counselawb.repository.LawyerHomeDAO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,5 +19,10 @@ public class LawyerHomeServiceImpl implements LawyerHomeService {
     @Override
     public List<LawyerReplyDTO> findCasesAndRepliesByLawyerId(Long lawyerId) {
         return lawyerHomeDAO.readCasesAndRepliesByLawyerId(lawyerId);
+    }
+
+    @Override
+    public List<LawyerReviewDTO> findReviewsByLawyerId(Long lawyerId) {
+        return lawyerHomeDAO.readReviewsByLawyerId(lawyerId);
     }
 }
