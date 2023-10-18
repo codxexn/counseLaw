@@ -81,7 +81,21 @@ public class LawyerHomeController {
     }
 
     @GetMapping("lawyer-info")
-    public String GoToLawyerInfo(){
+    public String GoToLawyerInfo(@RequestParam("lawyerId") Long lawyerId, Model model){
+        Optional<LawyerVO> foundLawyer = lawyerService.findByLawyerId(lawyerId);
+        if (foundLawyer.isPresent()){
+            LawyerVO lawyerVO = foundLawyer.get();
+            model.addAttribute("selectedLawyer", lawyerVO);
+        } else {
+            model.addAttribute("selectedLawyer", null);
+        }
+        model.addAttribute("lawyerId", lawyerId);
+        int reviewCount = consultingReviewService.findReviewCountsByLawyerId(lawyerId);
+        model.addAttribute("reviewCount", reviewCount);
+        List<LawyerFieldDTO> foundFields = lawyerService.findFieldsByLawyerId(lawyerId);
+        model.addAttribute("fields", foundFields);
+        List<ExperienceVO> foundExperiences = lawyerService.findCareersByLawyerId(lawyerId);
+        model.addAttribute("careers", foundExperiences);
         return "/lawyer-info/lawyer-info";
     }
 

@@ -22,13 +22,13 @@
                         <a th:href="|/lawyer-home/lawyer-home?lawyerId=${lawyerId}|" class="profile-contents__nav-item">변호사홈</a>
                     </li>
                     <li class="profile-contents__item-wrap">
-                        <a th:href="|/lawyer-home/lawyer-info|" class="profile-contents__nav-item">변호사정보</a>
+                        <a th:href="|/lawyer-home/lawyer-info?lawyerId=${lawyerId}|" class="profile-contents__nav-item">변호사정보</a>
                     </li>
                     <li class="profile-contents__item-wrap">
-                        <a th:href="|/lawyer-home/lawyer-counsel-case|" class="profile-contents__nav-item">법률사례</a>
+                        <a th:href="|/lawyer-home/lawyer-counsel-case?lawyerId=${lawyerId}|" class="profile-contents__nav-item">법률사례</a>
                     </li>
                     <li class="profile-contents__item-wrap review">
-                        <a th:href="|/lawyer-home/client-reviews|" class="profile-contents__nav-item">
+                        <a th:href="|/lawyer-home/client-reviews?lawyerId=${lawyerId}|" class="profile-contents__nav-item">
                             의뢰인후기
                             <div th:text="${reviewCount}" class="profile-contents__review-count"></div>
                         </a>

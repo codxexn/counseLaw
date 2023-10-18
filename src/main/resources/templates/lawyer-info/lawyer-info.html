@@ -25,18 +25,18 @@
                         <img class="logoImage" src="/image/lawyerInfo/counseLawLogo.png" alt="카운슬로우 로고">
                     </div>
                     <li class="profile-contents__item-wrap">
-                        <a class="profile-contents__nav-item">변호사홈</a>
+                        <a th:href="|/lawyer-home/lawyer-home?lawyerId=${lawyerId}|" class="profile-contents__nav-item">변호사홈</a>
                     </li>
                     <li class="profile-contents__item-wrap profile-contents__item-wrap--active">
-                        <a class="profile-contents__nav-item">변호사정보</a>
+                        <a th:href="|/lawyer-home/lawyer-info?lawyerId=${lawyerId}|" class="profile-contents__nav-item">변호사정보</a>
                     </li>
                     <li class="profile-contents__item-wrap">
-                        <a class="profile-contents__nav-item">법률사례</a>
+                        <a th:href="|/lawyer-home/lawyer-counsel-case?lawyerId=${lawyerId}|" class="profile-contents__nav-item">법률사례</a>
                     </li>
                     <li class="profile-contents__item-wrap review">
-                        <a class="profile-contents__nav-item">
+                        <a th:href="|/lawyer-home/client-reviews?lawyerId=${lawyerId}|" class="profile-contents__nav-item">
                             의뢰인후기
-                            <div class="profile-contents__review-count">12</div>
+                            <div th:text="${reviewCount}" class="profile-contents__review-count"></div>
                         </a>
                     </li>
                 </ul>
@@ -45,32 +45,14 @@
             <div class="profile-page__tab">
                 <div class="profile-info">
                     <section class="introduction">
-                        <p class="introduction-title">한동석 변호사의 경험을 토대로<br>전문성을 판단하세요.</p>
+                        <p class="introduction-title" th:utext="${selectedLawyer.lawyerName} + ' 변호사의 경험을 토대로<br>전문성을 판단하세요.'"></p>
                     </section>
                     <div class="key-field">
                         <a id="key-field-title" class="anchor key-field-title"></a>
                         <span class="title">주요분야</span>
                         <div class="fields">
-                            <div class="field">
-                                <span class="name">성폭력/강제추행 등</span>
-                            </div>
-                            <div class="field">
-                                <span class="name">사이버 명예훼손/모욕</span>
-                            </div>
-                            <div class="field">
-                                <span class="name">사기/공갈</span>
-                            </div>
-                            <div class="field">
-                                <span class="name">고소/소송절차</span>
-                            </div>
-                            <div class="field">
-                                <span class="name">횡령/배임</span>
-                            </div>
-                            <div class="field">
-                                <span class="name">폭행/협박/상해 일반</span>
-                            </div>
-                            <div class="field">
-                                <span class="name">교통사고/도주</span>
+                            <div th:each="field: ${fields}" class="field">
+                                <span th:text="${field.fieldTitle}" class="name"></span>
                             </div>
                         </div>
                     </div>
@@ -82,103 +64,15 @@
                             <div class="histories-container">
                                 <span class="name">경력</span>
                                 <div class="histories">
-                                    <div class="history">
+                                    <div th:each="career : ${careers}" class="history">
                                         <div class="left">
-                                            <span class="from">2021</span>
+                                            <span th:text="${career.startYear}" class="from"></span>
                                             <span class="dash" style="visibility: visible;">-</span>
-                                            <span class="to" style="visibility: visible;">2023</span>
+                                            <span th:text="${career.endYear == 0 ? '현재' : career.endYear}" class="to" style="visibility: visible;"></span>
                                         </div>
                                         <div class="right">
-                                            <span class="description">동석짱 법률사무소</span>
-                                            <a target="_blank" class="description ng-hide">동석짱 법률사무소</a>
-                                        </div>
-                                    </div>
-                                    <div class="history">
-                                        <div class="left">
-                                            <span class="from">2023</span>
-                                            <span class="dash" style="visibility: visible;">-</span>
-                                            <span class="to" style="visibility: visible;">~</span>
-                                        </div>
-                                        <div class="right">
-                                            <span class="description">경찰청 자문위원</span>
-                                            <a target="_blank" class="description ng-hide">경찰청 자문위원</a>
-                                        </div>
-                                    </div>
-                                    <div class="history">
-                                        <div class="left">
-                                            <span class="from">2023</span>
-                                            <span class="dash" style="visibility: visible;">-</span>
-                                            <span class="to" style="visibility: visible;">~</span>
-                                        </div>
-                                        <div class="right">
-                                            <span class="description">법률사무소 자바 대표변호사</span>
-                                            <a target="_blank" class="description ng-hide">법률사무소 자바 대표변호사</a>
-                                        </div>
-                                    </div>
-                                    <div class="history">
-                                        <div class="left">
-                                            <span class="from">2019</span>
-                                            <span class="dash" style="visibility: visible;">-</span>
-                                            <span class="to" style="visibility: visible;">2020</span>
-                                        </div>
-                                        <div class="right">
-                                            <span class="description">서울마포경찰서</span>
-                                            <a target="_blank" class="description ng-hide">서울마포경찰서</a>
-                                        </div>
-                                    </div>
-                                    <div class="history">
-                                        <div class="left">
-                                            <span class="from">2017</span>
-                                            <span class="dash" style="visibility: visible;">-</span>
-                                            <span class="to" style="visibility: visible;">2018</span>
-                                        </div>
-                                        <div class="right">
-                                            <span class="description">인사혁신처 인사관리국</span>
-                                            <a target="_blank" class="description ng-hide">인사혁신처 인사관리국</a>
-                                        </div>
-                                    </div>
-                                    <div class="history">
-                                        <div class="left">
-                                            <span class="from">2015</span>
-                                            <span class="dash" style="visibility: visible;">-</span>
-                                            <span class="to" style="visibility: visible;">2016</span>
-                                        </div>
-                                        <div class="right">
-                                            <span class="description">경찰청 경무인사기획관실</span>
-                                            <a target="_blank" class="description ng-hide">경찰청 경무인사기획관실</a>
-                                        </div>
-                                    </div>
-                                    <div class="history">
-                                        <div class="left">
-                                            <span class="from">2012</span>
-                                            <span class="dash" style="visibility: visible;">-</span>
-                                            <span class="to" style="visibility: visible;">2014</span>
-                                        </div>
-                                        <div class="right">
-                                            <span class="description">서울중부경찰서 경제범죄수사팀/강력범죄수사팀</span>
-                                            <a target="_blank" class="description ng-hide">서울중부경찰서 경제범죄수사팀/강력범죄수사팀</a>
-                                        </div>
-                                    </div>
-                                    <div class="history">
-                                        <div class="left">
-                                            <span class="from">2014</span>
-                                            <span class="dash" style="visibility: visible;">-</span>
-                                            <span class="to" style="visibility: visible;">2014</span>
-                                        </div>
-                                        <div class="right">
-                                            <span class="description">서울경찰청 수사과</span>
-                                            <a target="_blank" class="description ng-hide">서울경찰청 수사과</a>
-                                        </div>
-                                    </div>
-                                    <div class="history">
-                                        <div class="left">
-                                            <span class="from">2010</span>
-                                            <span class="dash" style="visibility: visible;">-</span>
-                                            <span class="to" style="visibility: visible;">2012</span>
-                                        </div>
-                                        <div class="right">
-                                            <span class="description">경찰청</span>
-                                            <a target="_blank" class="description ng-hide">경찰청</a>
+                                            <span th:text="${career.experienceContent}" class="description"></span>
+<!--                                            <a target="_blank" class="description ng-hide">동석짱 법률사무소</a>-->
                                         </div>
                                     </div>
                                 </div>
@@ -191,13 +85,13 @@
                                 <div class="histories">
                                     <div class="history">
                                         <div class="left">
-                                            <span class="from">2021</span>
+                                            <span class="from"></span>
                                             <span class="dash" style="visibility: hidden;">-</span>
                                             <span class="to" style="visibility: hidden;"></span>
                                         </div>
                                         <div class="right">
-                                            <span class="description">변호사</span>
-                                            <a target="_blank" class="description ng-hide">변호사</a>
+                                            <span th:text="${selectedLawyer.lawyerQualification}" class="description"></span>
+<!--                                            <a target="_blank" class="description ng-hide">변호사</a>-->
                                         </div>
                                     </div>
                                 </div>
@@ -206,28 +100,17 @@
                         </resume-history>
                         <resume-history name="'학력'" histories="academics" class="history-careers" style="display: block;">
                             <div class="histories-container">
-                                <span class="name">학력</span>
+                                <span class="name">최종 학력</span>
                                 <div class="histories">
                                     <div class="history">
                                         <div class="left">
-                                            <span class="from">2006</span>
-                                            <span class="dash" style="visibility: visible;">-</span>
-                                            <span class="to" style="visibility: visible;">2010</span>
+                                            <span class="from"></span>
+                                            <span class="dash" style="visibility: hidden;">-</span>
+                                            <span class="to" style="visibility: hidden;"></span>
                                         </div>
                                         <div class="right">
-                                            <span class="description">경찰대학  학사 졸업</span>
-                                            <a target="_blank" class="description ng-hide">경찰대학 학사 졸업</a>
-                                        </div>
-                                    </div>
-                                    <div class="history">
-                                        <div class="left">
-                                            <span class="from">2018</span>
-                                            <span class="dash" style="visibility: visible;">-</span>
-                                            <span class="to" style="visibility: visible;">2021</span>
-                                        </div>
-                                        <div class="right">
-                                            <span class="description">서강대학교 로스쿨 석사 졸업</span>
-                                            <a target="_blank" class="description ng-hide">서강대학교 로스쿨 석사 졸업</a>
+                                            <span th:text="${selectedLawyer.lawyerEducation}" class="description"></span>
+<!--                                            <a target="_blank" class="description ng-hide">경찰대학 학사 졸업</a>-->
                                         </div>
                                     </div>
                                 </div>
@@ -235,87 +118,87 @@
                             </div>
                         </resume-history>
                         <div class="divider" style="display: block;"></div>
-                        <span class="title" style="display: block;">활동사항</span>
-                        <resume-history name="'수상'" histories="awards" class="history-careers" style="display: block;">
-                            <div class="histories-container">
-                                <span class="name">수상</span>
-                                <div class="histories">
-                                    <div class="history">
-                                        <div class="left">
-                                            <span class="from">2017</span>
-                                            <span class="dash" style="visibility: hidden;">-</span>
-                                            <span class="to" style="visibility: hidden;"></span>
-                                        </div>
-                                        <div class="right">
-                                            <span class="description">인사혁신처장상(인사행정 발전)</span>
-                                            <a target="_blank" class="description ng-hide">인사혁신처장상(인사행정 발전)</a>
-                                        </div>
-                                    </div>
-                                    <div class="history">
-                                        <div class="left">
-                                            <span class="from">2015</span>
-                                            <span class="dash" style="visibility: hidden;">-</span>
-                                            <span class="to" style="visibility: hidden;"></span>
-                                        </div>
-                                        <div class="right">
-                                            <span class="description">경찰청장상(경찰관 교육)</span>
-                                            <a target="_blank" class="description ng-hide">경찰청장상(경찰관 교육)</a>
-                                        </div>
-                                    </div>
-                                    <div class="history">
-                                        <div class="left">
-                                            <span class="from">2014</span>
-                                            <span class="dash" style="visibility: hidden;">-</span>
-                                            <span class="to" style="visibility: hidden;"></span>
-                                        </div>
-                                        <div class="right">
-                                            <span class="description">경찰청장상(살인범 검거)</span>
-                                            <a target="_blank" class="description ng-hide">경찰청장상(살인범 검거)</a>
-                                        </div>
-                                    </div>
-                                    <div class="history">
-                                        <div class="left">
-                                            <span class="from">2013</span>
-                                            <span class="dash" style="visibility: hidden;">-</span>
-                                            <span class="to" style="visibility: hidden;"></span>
-                                        </div>
-                                        <div class="right">
-                                            <span class="description">서울경찰청장상(선거사범 검거)</span>
-                                            <a target="_blank" class="description ng-hide">서울경찰청장상(선거사범 검거)</a>
-                                        </div>
-                                    </div>
-                                    <div class="history">
-                                        <div class="left">
-                                            <span class="from">2011</span>
-                                            <span class="dash" style="visibility: hidden;">-</span>
-                                            <span class="to" style="visibility: hidden;"></span>
-                                        </div>
-                                        <div class="right">
-                                            <span class="description">경찰청장상(집회사범 관리)</span>
-                                            <a target="_blank" class="description ng-hide">경찰청장상(집회사범 관리)</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </resume-history>
-                        <resume-history name="'논문/출판'" histories="papers" class="history-careers" style="display: none;">
-                            <div class="histories-container ng-hide">
-                                <span class="name">논문/출판</span>
-                                <div class="histories"></div>
-                            </div>
-                        </resume-history>
-                        <resume-history name="'보도'" histories="news" class="history-careers" style="display: none;">
-                            <div class="histories-container ng-hide">
-                                <span class="name">보도</span>
-                                <div class="histories"></div>
-                            </div>
-                        </resume-history>
-                        <resume-history name="'기타'" histories="etcActs" class="history-careers" style="display: none;">
-                            <div class="histories-container ng-hide">
-                                <span class="name">기타</span>
-                                <div class="histories"></div>
-                            </div>
-                        </resume-history>
+<!--                        <span class="title" style="display: block;">활동사항</span>-->
+<!--                        <resume-history name="'수상'" histories="awards" class="history-careers" style="display: block;">-->
+<!--                            <div class="histories-container">-->
+<!--                                <span class="name">수상</span>-->
+<!--                                <div class="histories">-->
+<!--                                    <div class="history">-->
+<!--                                        <div class="left">-->
+<!--                                            <span class="from">2017</span>-->
+<!--                                            <span class="dash" style="visibility: hidden;">-</span>-->
+<!--                                            <span class="to" style="visibility: hidden;"></span>-->
+<!--                                        </div>-->
+<!--                                        <div class="right">-->
+<!--                                            <span class="description">인사혁신처장상(인사행정 발전)</span>-->
+<!--                                            <a target="_blank" class="description ng-hide">인사혁신처장상(인사행정 발전)</a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="history">-->
+<!--                                        <div class="left">-->
+<!--                                            <span class="from">2015</span>-->
+<!--                                            <span class="dash" style="visibility: hidden;">-</span>-->
+<!--                                            <span class="to" style="visibility: hidden;"></span>-->
+<!--                                        </div>-->
+<!--                                        <div class="right">-->
+<!--                                            <span class="description">경찰청장상(경찰관 교육)</span>-->
+<!--                                            <a target="_blank" class="description ng-hide">경찰청장상(경찰관 교육)</a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="history">-->
+<!--                                        <div class="left">-->
+<!--                                            <span class="from">2014</span>-->
+<!--                                            <span class="dash" style="visibility: hidden;">-</span>-->
+<!--                                            <span class="to" style="visibility: hidden;"></span>-->
+<!--                                        </div>-->
+<!--                                        <div class="right">-->
+<!--                                            <span class="description">경찰청장상(살인범 검거)</span>-->
+<!--                                            <a target="_blank" class="description ng-hide">경찰청장상(살인범 검거)</a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="history">-->
+<!--                                        <div class="left">-->
+<!--                                            <span class="from">2013</span>-->
+<!--                                            <span class="dash" style="visibility: hidden;">-</span>-->
+<!--                                            <span class="to" style="visibility: hidden;"></span>-->
+<!--                                        </div>-->
+<!--                                        <div class="right">-->
+<!--                                            <span class="description">서울경찰청장상(선거사범 검거)</span>-->
+<!--                                            <a target="_blank" class="description ng-hide">서울경찰청장상(선거사범 검거)</a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="history">-->
+<!--                                        <div class="left">-->
+<!--                                            <span class="from">2011</span>-->
+<!--                                            <span class="dash" style="visibility: hidden;">-</span>-->
+<!--                                            <span class="to" style="visibility: hidden;"></span>-->
+<!--                                        </div>-->
+<!--                                        <div class="right">-->
+<!--                                            <span class="description">경찰청장상(집회사범 관리)</span>-->
+<!--                                            <a target="_blank" class="description ng-hide">경찰청장상(집회사범 관리)</a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </resume-history>-->
+<!--                        <resume-history name="'논문/출판'" histories="papers" class="history-careers" style="display: none;">-->
+<!--                            <div class="histories-container ng-hide">-->
+<!--                                <span class="name">논문/출판</span>-->
+<!--                                <div class="histories"></div>-->
+<!--                            </div>-->
+<!--                        </resume-history>-->
+<!--                        <resume-history name="'보도'" histories="news" class="history-careers" style="display: none;">-->
+<!--                            <div class="histories-container ng-hide">-->
+<!--                                <span class="name">보도</span>-->
+<!--                                <div class="histories"></div>-->
+<!--                            </div>-->
+<!--                        </resume-history>-->
+<!--                        <resume-history name="'기타'" histories="etcActs" class="history-careers" style="display: none;">-->
+<!--                            <div class="histories-container ng-hide">-->
+<!--                                <span class="name">기타</span>-->
+<!--                                <div class="histories"></div>-->
+<!--                            </div>-->
+<!--                        </resume-history>-->
                     </div>
                     <a id="advice_fee" class="anchor advice_fee"></a>
                     <div class="advice-fee">
@@ -332,7 +215,7 @@
                                         <div class="average-bar lt-desktop"></div>
                                         <div class="advice-calc-fee-row">
                                             <span class="fee-title">15분 전화상담</span>
-                                            <span class="fee-info">20,000원</span>
+                                            <span th:text="${selectedLawyer.callPrice == 0 ? '미입력' : #numbers.formatInteger(selectedLawyer.callPrice, 1, 'COMMA')} + '원'" class="fee-info">20,000원</span>
                                             <div class="indicator-wrapper lt-desktop">
                                                 <div class="indicator" style="width: 25%;"></div>
                                             </div>
@@ -342,7 +225,7 @@
                                         </div>
                                         <div class="advice-calc-fee-row">
                                             <span class="fee-title">20분 영상상담</span>
-                                            <span class="fee-info">30,000원</span>
+                                            <span th:text="${selectedLawyer.videoPrice == 0 ? '미입력' : #numbers.formatInteger(selectedLawyer.videoPrice, 1, 'COMMA')} + '원'" class="fee-info">30,000원</span>
                                             <div class="indicator-wrapper lt-desktop">
                                                 <div class="indicator" style="width: 50%;"></div>
                                             </div>
@@ -352,7 +235,7 @@
                                         </div>
                                         <div class="advice-calc-fee-row">
                                             <span class="fee-title">30분 방문상담</span>
-                                            <span class="fee-info">50,000원</span>
+                                            <span th:text="${selectedLawyer.visitPrice == 0 ? '미입력' : #numbers.formatInteger(selectedLawyer.visitPrice, 1, 'COMMA')} + '원'" class="fee-info">50,000원</span>
                                             <div class="indicator-wrapper lt-desktop">
                                                 <div class="indicator" style="width: 75%;"></div>
                                             </div>
