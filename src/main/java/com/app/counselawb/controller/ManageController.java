@@ -5,11 +5,9 @@
     import com.app.counselawb.domain.dto.PostsDTO;
     import com.app.counselawb.domain.dto.SearchDTO;
     import com.app.counselawb.domain.pagination.Pagination;
+    import com.app.counselawb.domain.vo.NoticeVO;
     import com.app.counselawb.domain.vo.SolutionCaseImgVO;
-    import com.app.counselawb.service.ConsultingCaseReplyService;
-    import com.app.counselawb.service.PostsService;
-    import com.app.counselawb.service.SearchService;
-    import com.app.counselawb.service.SolutionCaseImgService;
+    import com.app.counselawb.service.*;
     import lombok.RequiredArgsConstructor;
     import lombok.extern.slf4j.Slf4j;
     import org.springframework.stereotype.Controller;
@@ -31,7 +29,7 @@
         private final SearchService searchService;
         private final ConsultingCaseReplyService consultingCaseReplyService;
         private final SolutionCaseImgService solutionCaseImgService;
-
+        private final NoticeService noticeService;
 
 
         @GetMapping("manager-mainpage")
@@ -111,6 +109,42 @@
             }
 
             return new RedirectView("/manager/manager-mainpage");
+        }
+
+        @GetMapping("manager-announcement")
+        public String goToAnnouncementPage(@RequestParam(name="selectedOption", defaultValue = "latestPost") String selectedOption, NoticeVO noticeVO, Model model){
+            model.addAttribute("selectedOption", selectedOption);
+
+            if ("latestPost".equals(selectedOption)) {
+                List<NoticeVO> latestNotices = noticeService.findLatestNotice();
+                model.addAttribute("latestNotices", latestNotices);
+            } else if("oldPost".equals(selectedOption)) {
+                List<NoticeVO> oldNotices = noticeService.findOldNotice();
+                model.addAttribute("oldNotices", oldNotices);
+            }
+
+            return "/manager/manager-announcement";
+        }
+
+        // 공지사항 작성
+        @GetMapping("manager-post")
+        public void announcementPostToWritePost(NoticeVO noticeVO) {;}
+
+
+        @PostMapping("manager-post")
+        public RedirectView uploadAnnouncementPost(NoticeVO noticeVO){
+            noticeService.saveNotice(noticeVO);
+
+            return new RedirectView("/manager/manager-announcement");
+        }
+
+        // 공지사항 삭제
+        @PostMapping("notices-delete")
+        public RedirectView deleteNoticesAndGoToAnnouncement(@RequestParam(name = "noticeId", required = false) Long noticeId) {
+            noticeService.deleteNotice(noticeId);
+
+            return new RedirectView("/manager/manager-announcement");
+
         }
 
     }

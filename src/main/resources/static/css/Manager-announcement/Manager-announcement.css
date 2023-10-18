@@ -440,10 +440,10 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #f3f3f4;
 }
 .announcement-countFilter {
-    margin-top: -70px   ;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    justify-content: space-between;
+    margin-top: -82px;
+    margin-bottom: -11px;
+    padding-top: 2px;
+    justify-content: right;
     align-items: center;
     display: flex;
 }
@@ -952,7 +952,7 @@ textarea {
     border: none;
     outline: none;
     resize: none;
-    font-size: 20px;
+    font-size: 15px;
     padding-top: 10px;
     padding-left: 10px;
 }
@@ -962,3 +962,81 @@ textarea::placeholder {
     line-height: 24px;
     color: #B9B9BB;
 }
+.selectOption {
+    font-size: 14px;
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,.08);
+    overflow-y: scroll;
+    top: 148px;
+    width: 90px;
+}
+.selectButton {
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,.08);
+    top: 148px;
+    width: 50px;
+}
+
+.select-Menu {
+    align-items: center;
+    display: flex;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+    /*margin-right: 150px;*/
+    margin-top: 90px;
+}
+
+.member-condition {
+    column-gap: 12px;
+}
+
+.memberTop-bottom {
+    cursor: pointer;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    border-bottom-width: 1px;
+    border-top-width: 1px;
+    /*컬럼갭 빼야될 필요*/
+    column-gap: 24px;
+    align-items: center;
+    display: flex;
+    margin-top: 16px;
+    border-color: #e6e6e7;
+}
+
+.member-name {
+    width: 176px;
+    justify-content: flex-start;
+    align-items: center;
+    flex-shrink: 0;
+    display: flex;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 18px;
+    color: #1d1d1e;
+    fill: #1d1d1e;
+}
+
+.posts {
+    width: 176px;
+    justify-content: flex-start;
+    align-items: center;
+    flex-shrink: 0;
+    display: flex;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 18px;
+    color: #1d1d1e;
+    fill: #1d1d1e;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+}
+
