@@ -22,7 +22,9 @@
                 <ul class="profile-contents__nav-items">
                     <!--세줄 메뉴 없애고 로고 넣음-->
                     <div class="headerLogoIcon">
-                        <img class="logoImage" src="/image/lawyerInfo/counseLawLogo.png" alt="카운슬로우 로고">
+                        <a href="/">
+                            <img class="logoImage" src="/image/lawyerInfo/counseLawLogo.png" alt="카운슬로우 로고">
+                        </a>
                     </div>
                     <li class="profile-contents__item-wrap">
                         <a th:href="|/lawyer-home/lawyer-home?lawyerId=${lawyerId}|" class="profile-contents__nav-item">변호사홈</a>
@@ -220,7 +222,7 @@
                                                 <div class="indicator" th:style="'width: ' + ${callPercent} + '%;'"></div>
                                             </div>
                                             <div class="reservation">
-                                                <a class="go-reservation" href="">예약하기</a>
+                                                <p th:text="${#numbers.formatDecimal(callPercent, 1, 1)} + '%'" class="go-reservation" style="margin-top: 4px;"></p>
                                             </div>
                                         </div>
                                         <div class="advice-calc-fee-row">
@@ -230,7 +232,7 @@
                                                 <div class="indicator" th:style="'width: ' + ${videoPercent} + '%;'"></div>
                                             </div>
                                             <div class="reservation">
-                                                <a class="go-reservation" href="">예약하기</a>
+                                                <p th:text="${#numbers.formatDecimal(videoPercent, 1, 1)} + '%'" class="go-reservation" style="margin-top: 4px;"></p>
                                             </div>
                                         </div>
                                         <div class="advice-calc-fee-row">
@@ -240,9 +242,12 @@
                                                 <div class="indicator" th:style="'width: ' + ${visitPercent} + '%;'"></div>
                                             </div>
                                             <div class="reservation">
-                                                <a class="go-reservation" href="">예약하기</a>
+                                                <p th:text="${#numbers.formatDecimal(visitPercent, 1, 1)} + '%'" class="go-reservation" style="margin-top: 4px;"></p>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="legend-bottom lt-desktop">
+                                        <span class="price-bottom-desc">* 최저가 0%, 평균가 50%, 최고가 100% 기준</span>
                                     </div>
                                 </div>
                             </div>
@@ -270,15 +275,19 @@
                                 </div>
                             </div>
                             <div class="right">
-                                <span class="title">수임료</span>
+                                <span class="title">기타 가격 정보</span>
                                 <div class="sevice-charges">
                                     <div class="charge">
-                                        <span class="charge-title">재판 소송대리</span>
-                                        <span class="charge-description">착수금 550만원 이상 / 성공보수 0만원</span>
+                                        <span class="charge-title">전화상담</span>
+                                        <span th:text="'평균 ' + ${#numbers.formatInteger(priceInfo.callPriceAverage, 1, 'COMMA')} + '원'" class="charge-description"></span>
                                     </div>
                                     <div class="charge">
-                                        <span class="charge-title">수사단계 대리</span>
-                                        <span class="charge-description">착수금 550만원 이상 / 성공보수 0만원</span>
+                                        <span class="charge-title">영상상담</span>
+                                        <span th:text="'평균 ' + ${#numbers.formatInteger(priceInfo.videoPriceAverage, 1, 'COMMA')} + '원'" class="charge-description"></span>
+                                    </div>
+                                    <div class="charge">
+                                        <span class="charge-title">방문상담</span>
+                                        <span th:text="'평균 ' + ${#numbers.formatInteger(priceInfo.visitPriceAverage, 1, 'COMMA')} + '원'" class="charge-description"></span>
                                     </div>
                                 </div>
                             </div>
