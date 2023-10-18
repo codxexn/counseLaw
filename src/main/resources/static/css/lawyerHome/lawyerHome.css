@@ -1199,6 +1199,7 @@ button[disabled], html input[disabled] {
 
 .closeWhite {
     width: 24px;
+    display: none;
 }
 
 /*선택시*/
