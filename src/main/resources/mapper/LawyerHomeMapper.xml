@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.counselawb.mapper.LawyerHomeMapper">
+    <select id="selectCasesAndRepliesByLawyerId" resultType="lawyerReplyDTO">
+        SELECT CC.CONSULTING_CASE_ID, CC.MEMBER_ID, CC.CASE_TITLE, CCR.CONSULTING_CASE_REPLY_ID, CCR.LAWYER_ID, CCR.CONSULTING_CASE_REPLY_CONTENT, CCR.CREATE_DATE, CCR.UPDATE_DATE
+        FROM TBL_CONSULTING_CASE CC
+        JOIN TBL_CONSULTING_CASE_REPLY CCR
+        ON CC.CONSULTING_CASE_ID = CCR.CONSULTING_CASE_ID
+        WHERE CCR.LAWYER_ID = #{lawyerId}
+        ORDER BY CCR.CONSULTING_CASE_REPLY_ID DESC
+    </select>
 
+    <select id="selectReviewsByLawyerId" resultType="lawyerReviewDTO">
+        SELECT R.RESERVATION_ID, R.CONSULTING_TYPE, R.LAWYER_ID, R.MEMBER_ID, CR.CONSULTING_REVIEW_ID, CR.FIELD_ID, CR.REVIEW_TITLE, CR.REVIEW_CONTENT, CR.CREATE_DATE, F.FIELD_TITLE, M.MEMBER_NAME
+        FROM TBL_RESERVATION R
+        JOIN TBL_CONSULTING_REVIEW CR
+        ON R.RESERVATION_ID = CR.RESERVATION_ID
+        JOIN TBL_FIELD F
+        ON CR.FIELD_ID = F.FIELD_ID
+        JOIN TBL_MEMBER M
+        ON R.MEMBER_ID = M.MEMBER_ID
+        WHERE R.LAWYER_ID = #{lawyerId}
+    </select>
 </mapper>

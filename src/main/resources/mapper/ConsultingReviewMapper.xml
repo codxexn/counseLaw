@@ -8,4 +8,5 @@
         ON R.RESERVATION_ID = CR.RESERVATION_ID
         WHERE R.LAWYER_ID = #{lawyerId}
     </select>
+
 </mapper>
