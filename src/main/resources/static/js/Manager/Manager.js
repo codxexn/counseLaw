@@ -44,6 +44,25 @@ options.forEach(option => {
 //     });
 // });
 
+// function enterkey() {
+//     if (window.event.keyCode == 13) {
+//         <!-- 여기서 form에게 submit 하라고 리모컨 버튼 누르듯 조종하는 것-->
+//         document.getElementById("searchForm").submit();
+//     }
+// }
+//
+// const searchForm = document.getElementById("searchForm");
+// const inputElement = document.getElementById("search_keyword");
+// const selectedOption = document.getElementById("selectedOption").value();
+//
+// searchForm.addEventListener("submit", function (event) {
+//    event.preventDefault();
+//    const keyword = inputElement.value.trim();
+//    console.log(selectedOption);
+//
+//    window.location.href = `/manager/manager-mainpage?selectedOption=${selectedOption}&keyword=${keyword}`;
+// });
+
 // function submitForm() {
 //     // 선택한 옵션, 검색어, 페이지 값을 가져옴
 //     var selectedOption = document.getElementById("selectedOption").value;

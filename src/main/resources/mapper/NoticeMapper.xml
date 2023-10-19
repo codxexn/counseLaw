@@ -7,20 +7,37 @@
     </insert>
     
     <select id="selectByNoticeId" resultType="noticeVo">
-        SELECT NOTICE_ID, NOTICE_TITLE, NOTICE_CONTENT, UPDATE_DATE
+        SELECT NOTICE_ID, NOTICE_TITLE, NOTICE_CONTENT, CREATE_DATE
         FROM TBL_NOTICE
         WHERE NOTICE_ID = #{noticeId}
     </select>
 
     <select id="selectLatestNotice" resultType="noticeVO">
-        SELECT *
-        FROM TBL_NOTICE
-        ORDER BY UPDATE_DATE DESC
+    <![CDATA[
+    SELECT *
+    FROM (
+             SELECT ROWNUM AS rnum, TBL_NOTICE.*
+             FROM TBL_NOTICE
+             ORDER BY CREATE_DATE DESC
+         )
+    WHERE rnum BETWEEN #{startRow} AND #{endRow}
+    ]]>
+    </select>
+
+    <select id="selectTotalNotice" resultType="int">
+        SELECT COUNT(NOTICE_ID) FROM TBL_NOTICE
     </select>
 
     <select id="selectOldNotice" resultType="noticeVO">
+    <![CDATA[
         SELECT *
-        FROM TBL_NOTICE
+        FROM (
+                 SELECT ROWNUM AS rnum, TBL_NOTICE.*
+                 FROM TBL_NOTICE
+                 ORDER BY CREATE_DATE
+             )
+        WHERE rnum BETWEEN #{startRow} AND #{endRow}
+        ]]>
     </select>
 
     <update id="updateNotice">

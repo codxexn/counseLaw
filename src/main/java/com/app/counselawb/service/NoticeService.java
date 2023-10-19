@@ -1,5 +1,6 @@
 package com.app.counselawb.service;
 
+import com.app.counselawb.domain.pagination.Pagination;
 import com.app.counselawb.domain.vo.NoticeVO;
 
 import java.util.List;
@@ -12,10 +13,13 @@ public interface NoticeService {
     public Optional<NoticeVO> findByNoticeId(Long noticeId);
 
     // 공지사항 최신순 조회
-    public List<NoticeVO> findLatestNotice();
+    public List<NoticeVO> findLatestNotice(Pagination pagination);
 
     // 공지사항 오래된순 조회
-    public List<NoticeVO> findOldNotice();
+    public List<NoticeVO> findOldNotice(Pagination pagination);
+
+    // 공지사항 총 개수
+    public int findTotalNotice();
 
     // 공지사항 수정
     public void reviseNotice(NoticeVO noticeVO);

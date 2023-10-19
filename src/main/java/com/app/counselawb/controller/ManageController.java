@@ -18,6 +18,7 @@
     import org.springframework.web.bind.annotation.RequestParam;
     import org.springframework.web.servlet.view.RedirectView;
 
+    import javax.servlet.http.HttpSession;
     import java.util.List;
     import java.util.Optional;
 
@@ -36,37 +37,37 @@
         @GetMapping("manager-mainpage")
     //    public void goTomanagePage() {;}
         public String goToManageMain(@RequestParam(name="selectedOption", defaultValue = "selectAll") String selectedOption, @RequestParam(name = "keyword", required = false) String keyword,
-            Model model, Pagination pagination) {
+                                     Model model, Pagination pagination, HttpSession session) {
             model.addAttribute("selectedOption", selectedOption);
 
             if (keyword != null && !keyword.isEmpty()) {
                 Search search = new Search();
                 search.setKeyword(keyword);
-                SearchDTO searchResults = searchService.getResult(pagination, search);
+                SearchDTO searchResults = searchService.getResult(search);
                 model.addAttribute("searchResults", searchResults);
                 log.info("Keyword received: " + keyword);
-            }else {
-                if("selectAll".equals(selectedOption)) {
+            } else {
+                if ("selectAll".equals(selectedOption)) {
                     pagination.setTotal(postsService.findTotalAllPosts());
                     pagination.progress();
                     model.addAttribute("pagination", pagination);
                     List<PostsDTO> selectAllPosts = postsService.findByAllPosts(pagination);
                     model.addAttribute("selectAllPosts", selectAllPosts);
-                } else if("solutionCase".equals(selectedOption)) {
+                } else if ("solutionCase".equals(selectedOption)) {
                     pagination.setTotal(postsService.findTotalSolutionCasePosts());
                     pagination.progress();
                     model.addAttribute("pagination", pagination);
                     // 해결 사례 조회
                     List<PostsDTO> solutionCases = postsService.findBySolutionCasePosts(pagination);
                     model.addAttribute("solutionCases", solutionCases);
-                } else if("consultingCase".equals(selectedOption)) {
+                } else if ("consultingCase".equals(selectedOption)) {
                     pagination.setTotal(postsService.findTotalConsultingPosts());
                     pagination.progress();
                     model.addAttribute("pagination", pagination);
                     // 상담 사례 조회
                     List<PostsDTO> consultingCases = postsService.findByConsultingCasePosts(pagination);
-                    model.addAttribute("consultingCases",consultingCases);
-                } else if("legalGuide".equals(selectedOption)) {
+                    model.addAttribute("consultingCases", consultingCases);
+                } else if ("legalGuide".equals(selectedOption)) {
                     pagination.setTotal(postsService.findTotalLegalGuidePosts());
                     pagination.progress();
                     model.addAttribute("pagination", pagination);
@@ -80,6 +81,7 @@
 
             return "manager/manager-mainpage";
         }
+
 
 
 
@@ -113,14 +115,20 @@
         }
 
         @GetMapping("manager-announcement")
-        public String goToAnnouncementPage(@RequestParam(name="selectedOption", defaultValue = "latestPost") String selectedOption, NoticeVO noticeVO, Model model){
+        public String goToAnnouncementPage(@RequestParam(name="selectedOption", defaultValue = "latestPost") String selectedOption, NoticeVO noticeVO, Model model, Pagination pagination){
             model.addAttribute("selectedOption", selectedOption);
 
             if ("latestPost".equals(selectedOption)) {
-                List<NoticeVO> latestNotices = noticeService.findLatestNotice();
+                pagination.setTotal(noticeService.findTotalNotice());
+                pagination.progress();
+                model.addAttribute("pagination", pagination);
+                List<NoticeVO> latestNotices = noticeService.findLatestNotice(pagination);
                 model.addAttribute("latestNotices", latestNotices);
             } else if("oldPost".equals(selectedOption)) {
-                List<NoticeVO> oldNotices = noticeService.findOldNotice();
+                pagination.setTotal(noticeService.findTotalNotice());
+                pagination.progress();
+                model.addAttribute("pagination", pagination);
+                List<NoticeVO> oldNotices = noticeService.findOldNotice(pagination);
                 model.addAttribute("oldNotices", oldNotices);
             }
 
@@ -174,4 +182,6 @@
 
         }
 
+        @GetMapping("manager-member")
+        public void goToManagerMemberPage(){;}
     }

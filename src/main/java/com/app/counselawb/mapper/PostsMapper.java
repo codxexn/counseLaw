@@ -34,26 +34,22 @@ public interface PostsMapper {
     // 법률 가이드 전체 개수
     public int selectTotalLegalGuidePosts();
 
-    // 전체 검색
-    public List<PostsDTO> searchAllPosts(Pagination pagination, Search search);
 
-    // 검색 결과 개수 (전체 검색)
-    public int searchTotalAllPosts(Search search);
 
     // 상담 사례 검색
-    public List<PostsDTO> searchConsultingCases(Pagination pagination, Search search);
+    public List<PostsDTO> searchConsultingCases(Search search);
 
     // 상담 사례 검색 개수
     public int searchTotalConsultingCases(Search search);
 
     // 해결 사례 검색
-    public List<PostsDTO> searchSolutionCases(Pagination pagination, Search search);
+    public List<PostsDTO> searchSolutionCases(Search search);
 
     // 해결 사례 검색 개수
     public int searchTotalSolutionCases(Search search);
 
     // 법률 가이드 검색
-    public List<PostsDTO> searchLegalGuides(Pagination pagination, Search search);
+    public List<PostsDTO> searchLegalGuides(Search search);
 
     // 법률 가이드 검색 개수
     public int searchTotalLegalGuides(Search search);

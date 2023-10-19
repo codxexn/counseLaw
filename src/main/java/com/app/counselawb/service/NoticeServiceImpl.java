@@ -1,5 +1,6 @@
 package com.app.counselawb.service;
 
+import com.app.counselawb.domain.pagination.Pagination;
 import com.app.counselawb.domain.vo.NoticeVO;
 import com.app.counselawb.repository.NoticeDAO;
 import lombok.RequiredArgsConstructor;
@@ -21,13 +22,18 @@ public class NoticeServiceImpl implements NoticeService {
     }
 
     @Override
-    public List<NoticeVO> findLatestNotice() {
-        return noticeDAO.findLatestNotice();
+    public List<NoticeVO> findLatestNotice(Pagination pagination) {
+        return noticeDAO.findLatestNotice(pagination);
     }
 
     @Override
-    public List<NoticeVO> findOldNotice() {
-        return noticeDAO.findOldNotice();
+    public List<NoticeVO> findOldNotice(Pagination pagination) {
+        return noticeDAO.findOldNotice(pagination);
+    }
+
+    @Override
+    public int findTotalNotice() {
+        return noticeDAO.findTotalNotice();
     }
 
     @Override
