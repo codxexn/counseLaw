@@ -1,5 +1,7 @@
 package com.app.counselawb.service;
 
+import com.app.counselawb.domain.dto.ConsultDetailDTO;
+import com.app.counselawb.domain.dto.ConsultingWriteDTO;
 import com.app.counselawb.domain.pagination.Pagination;
 import com.app.counselawb.domain.vo.ConsultingCaseVO;
 import com.app.counselawb.repository.ConsultingCaseDAO;
@@ -28,7 +30,12 @@ public class ConsultingCaseServiceImpl implements ConsultingCaseService {
     }
 
     @Override
-    public void insert(ConsultingCaseVO consultingCaseVO) {
-        consultingCaseDAO.insertConsult(consultingCaseVO);
+    public void insert(ConsultingWriteDTO consultingWriteDTO) {
+        consultingCaseDAO.insertConsult(consultingWriteDTO);
+    }
+
+    @Override
+    public List<ConsultDetailDTO> readDetails(Pagination pagination) {
+        return consultingCaseDAO.readDetail(pagination);
     }
 }

@@ -14,6 +14,7 @@
 <body>
     <div class="root pc">
         <div style="height: 100%;">
+            <header th:replace="~{fix/header :: my-header}"></header>
             <div class="QNA-Wrapper">
                 <div class="QNA-Contents">
                     <div class="QNA-Question-Wrapper">
@@ -25,10 +26,11 @@
                                         <p class="QNA-Question-Compose-Description">변호사의 답변을 무료로 받아보세요!</p>
                                     </div>
                                 </div>
-                                <form role="form" name="composeForm" class="QNA-Question-Compose-Form"
-                                    th:action="@{/counseling/counseling-write}" th:object="${consultingCaseVO}">
+                                <form role="form" name="composeForm" class="QNA-Question-Compose-Form" method="post"
+                                    th:action="@{/counseling/counseling-write}" th:object="${consultingWriteDTO}" >
                                     <div>
                                         <div>
+                                            <input type="hidden" th:value="${session.member.memberId}" th:name="memberId">
                                             <div class="Compose-Input-Upperline">
                                                 <div class="Compose-Input-Name-Wrapper">
                                                     <div class="Compose-Input-Name">제목&nbsp;</div>
@@ -80,7 +82,7 @@
                                             </div>
                                             <div class="Compose-Textarea-Wrapper Body-Textarea">
                                                 <textarea onfocus="onBodyClickShowTip(); onBodyClickShowCount();" onblur="onBodyBlurHideTip(); onBodyBlurHideCount();" name="body" class="Compose-Body-Textarea" maxlength="1000" placeholder="시간 순서에 따라 구체적으로 설명해주세요."
-                                                          th:field="*{caseContent}"></textarea>
+                                                          th:field="*{faqContent}"></textarea>
                                                 <div class="Compose-Title-Guide">
                                                     <div class="Compose-Title-Guide-Tipline">
                                                         <div class="Compose-Title-Guide-Tip-Image"></div>
@@ -137,7 +139,7 @@
                                         </div>
                                     </div>
                                     <div class="Compose-Form-Button-Wrapper">
-                                        <button class="Compose-Form-Button" disabled type="submit">등록하기</button>
+                                        <button class="Compose-Form-Button"  type="submit">등록하기</button>
                                     </div>
                                 </form>
                             </div>

@@ -9,14 +9,14 @@ import java.time.LocalDateTime;
 @Component
 @Data
 public class ConsultingCaseDTO {
+    // 멤버 id (fk)
+    private Long memberId;
     // 상담 사례 id
     private Long consultingCaseId;
     // 상담 사례 제목
     private String caseTitle;
     // 상담 사례 내용
     private String caseContent;
-    // 멤버 id (fk)
-    private Long memberId;
     // 변호사 id
     private Long lawyerId;
     // 변호사 이름
