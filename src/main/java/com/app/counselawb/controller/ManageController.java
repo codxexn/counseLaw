@@ -19,6 +19,7 @@
     import org.springframework.web.servlet.view.RedirectView;
 
     import java.util.List;
+    import java.util.Optional;
 
     @Controller
     @Slf4j
@@ -134,6 +135,32 @@
         @PostMapping("manager-post")
         public RedirectView uploadAnnouncementPost(NoticeVO noticeVO){
             noticeService.saveNotice(noticeVO);
+
+            return new RedirectView("/manager/manager-announcement");
+        }
+
+        // 공지사항 수정
+        @PostMapping("detail-notice-update")
+        public String detailNoticeUpdate(@RequestParam(name = "noticeId", required = false) Long noticeId, Model model, NoticeVO noticeVO ) {
+            Optional<NoticeVO> foundNotice = noticeService.findByNoticeId(noticeId);
+            if (foundNotice.isPresent()) {
+                model.addAttribute("foundNotice", foundNotice.get());
+            } else {
+                model.addAttribute("foundNotice", null);
+            }
+
+            return "/manager/manager-updatePost";
+
+        }
+
+        @PostMapping("manager-updatePost")
+        public RedirectView uploadUpdateNoticePost(@RequestParam(name = "noticeId", required = false) Long noticeId, @RequestParam("noticeTitle") String noticeTitle, @RequestParam("noticeContent") String noticeContent) {
+            NoticeVO noticeVO = new NoticeVO();
+            noticeVO.setNoticeId(noticeId);
+            noticeVO.setNoticeTitle(noticeTitle);
+            noticeVO.setNoticeContent(noticeContent);
+
+            noticeService.reviseNotice(noticeVO);
 
             return new RedirectView("/manager/manager-announcement");
         }

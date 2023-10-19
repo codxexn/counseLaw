@@ -180,6 +180,10 @@
                                 <!--                                        class="detailContent-DeleteButton">수정-->
                                 <!--                                    <input type="hidden" th:value="${post.postId}" th:name="solutionCaseId">-->
                                 <!--                                </button>-->
+                                <button th:onclick="|updatePost(${latestNotice.noticeId})|"
+                                        class="detailContent-DeleteButton">수정
+                                    <input type="hidden" th:value="${latestNotice.noticeId}" th:name="noticeId">
+                                </button>
                                 <button th:onclick="|deletePost(${latestNotice.noticeId})|"
                                         class="detailContent-DeleteButton">삭제
                                     <input type="hidden" th:value="${latestNotice.noticeId}" th:name="noticeId">
@@ -198,6 +202,10 @@
                                      th:text="${#temporals.format(oldNotice.updateDate , 'yyyy-MM-dd HH:mm')}">
                                     2023
                                 </div>
+                                <button th:onclick="|updatePost(${oldNotice.noticeId})|"
+                                        class="detailContent-DeleteButton">수정
+                                    <input type="hidden" th:value="${oldNotice.noticeId}" th:name="noticeId">
+                                </button>
                                 <button th:onclick="|deletePost(${oldNotice.noticeId})|"
                                         class="detailContent-DeleteButton">삭제
                                     <input type="hidden" th:value="${oldNotice.noticeId}" th:name="noticeId">

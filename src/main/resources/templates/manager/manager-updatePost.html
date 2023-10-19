@@ -36,12 +36,12 @@
                                 <path d="M13.833 8a.667.667 0 0 0-.666-.667H5.72L8.973 4.08a.667.667 0 1 0-.943-.943L3.167 8l4.863 4.863a.665.665 0 0 0 .94-.94L5.72 8.667h7.447A.667.667 0 0 0 13.833 8Z"></path>
                             </svg>
                         </button>
-                        <h1 class="h1-font">공지사항</h1>
                     </a>
+                    <h1 class="h1-font">공지사항</h1>
                 </div>
                 <div class="post-saveWrap">
                     <div>
-                        <button class="post-post" type="submit" form="post" disabled>게시</button>
+                        <button class="post-post" type="submit" form="post" disabled>수정</button>
                     </div>
                 </div>
             </div>
@@ -52,12 +52,14 @@
             <div class="post-writeWrap">
                 <section class="post-left">
                     <!--                    제목 입력-->
-                    <form id="post" th:action="@{/manager/manager-post}" method="post" th:object="${noticeVO}"
+                    <form id="post" th:action="@{/manager/manager-updatePost}" method="post"
                           enctype="multipart/form-data">
+                        <input type="hidden" name="noticeId" th:name="noticeId" th:value="${foundNotice.noticeId}">
                         <div class="post-title">
                             <div>
                                 <label class="title-blank">
-                                    <input type="text" class="title-text" th:field="*{noticeTitle}"
+                                    <input type="text" class="title-text" th:name="noticeTitle"
+                                           th:value="${foundNotice.noticeTitle}"
                                            placeholder="제목을 입력해주세요">
                                 </label>
                             </div>
@@ -67,7 +69,9 @@
                             <div style="margin-bottom: 48px">
                                 <div class="post-detailWrap">
                                     <textarea rows="20" cols="55" placeholder="본문 내용을 입력하세요"
-                                              class="post-mainPost" th:field="*{noticeContent}"></textarea>
+                                              class="post-mainPost" th:name="noticeContent"
+                                              th:value="${foundNotice.noticeContent}"
+                                              th:text="${foundNotice.noticeContent}"></textarea>
                                     <div></div>
                                 </div>
                             </div>

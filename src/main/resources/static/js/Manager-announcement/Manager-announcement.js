@@ -15,6 +15,24 @@ options.forEach(option => {
     })
 });
 
+// 업데이트
+
+function updatePost(postId) {
+    let f = document.createElement('form');
+
+    let obj;
+    obj = document.createElement('input');
+    obj.setAttribute('type', 'hidden');
+    obj.setAttribute('name', 'noticeId');
+    obj.setAttribute('value', postId);
+
+    f.appendChild(obj);
+    f.setAttribute('method', 'post');
+    f.setAttribute('action', '/manager/detail-notice-update');
+    document.body.appendChild(f);
+    f.submit();
+}
+
 
 function deletePost(postId){
     Swal.fire({

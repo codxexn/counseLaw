@@ -6,12 +6,19 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class NoticeServiceImpl implements NoticeService {
     private final NoticeDAO noticeDAO;
     @Override
     public void saveNotice(NoticeVO noticeVO) { noticeDAO.writeNotice(noticeVO); }
+
+    @Override
+    public Optional<NoticeVO> findByNoticeId(Long noticeId) {
+        return noticeDAO.readByNoticeId(noticeId);
+    }
 
     @Override
     public List<NoticeVO> findLatestNotice() {
@@ -21,6 +28,11 @@ public class NoticeServiceImpl implements NoticeService {
     @Override
     public List<NoticeVO> findOldNotice() {
         return noticeDAO.findOldNotice();
+    }
+
+    @Override
+    public void reviseNotice(NoticeVO noticeVO) {
+        noticeDAO.modifyNotice(noticeVO);
     }
 
     @Override
