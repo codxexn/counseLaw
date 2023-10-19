@@ -1,5 +1,6 @@
 package com.app.counselawb.mapper;
 
+import com.app.counselawb.domain.Search;
 import com.app.counselawb.domain.dto.PostsDTO;
 import com.app.counselawb.domain.pagination.Pagination;
 import org.apache.ibatis.annotations.Mapper;
@@ -32,4 +33,42 @@ public interface PostsMapper {
 
     // 법률 가이드 전체 개수
     public int selectTotalLegalGuidePosts();
+
+    // 전체 검색
+    public List<PostsDTO> searchAllPosts(Pagination pagination, Search search);
+
+    // 검색 결과 개수 (전체 검색)
+    public int searchTotalAllPosts(Search search);
+
+    // 상담 사례 검색
+    public List<PostsDTO> searchConsultingCases(Pagination pagination, Search search);
+
+    // 상담 사례 검색 개수
+    public int searchTotalConsultingCases(Search search);
+
+    // 해결 사례 검색
+    public List<PostsDTO> searchSolutionCases(Pagination pagination, Search search);
+
+    // 해결 사례 검색 개수
+    public int searchTotalSolutionCases(Search search);
+
+    // 법률 가이드 검색
+    public List<PostsDTO> searchLegalGuides(Pagination pagination, Search search);
+
+    // 법률 가이드 검색 개수
+    public int searchTotalLegalGuides(Search search);
+
+    // 해결 사례 게시글 삭제
+    public void deleteSolutionCasePost(Long solutionCaseId);
+    // 상담 사례 게시글 삭제
+    public void deleteConsultingCasePost(Long consultingCaseId);
+
+    // 법률 가이드 삭제
+    public void deleteLegalGuidePost(Long legalGuideId);
+
+    // 상담 사례 답변 삭제
+    public void deleteConsultingCaseReply(Long consultingCaseId);
+
+    // 해결 사례 이미지들 삭제
+    public void deleteSolutionCaseImages(Long solutionCaseId);
 }

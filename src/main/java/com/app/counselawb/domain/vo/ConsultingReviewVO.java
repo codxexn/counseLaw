@@ -21,4 +21,7 @@ public class ConsultingReviewVO {
     /////////////
     // 상담예약 id (fk)
     private Long reservationId;
+    // 상담분야 id (fk)
+    private Long fieldId;
+
 }

@@ -31,4 +31,17 @@ public interface PostsService {
     // 법률 가이드 전체 개수
     public int findTotalLegalGuidePosts();
 
+    // 해결 사례 게시글 삭제
+    public void removeSolutionCasePost(Long solutionCaseId);
+    // 상담 사례 게시글 삭제
+    public void removeConsultingCasePost(Long consultingCaseId);
+    // 법률 가이드 삭제
+    public void removeLegalGuidePost(Long legalGuideId);
+
+    // 상담 사례 답변 삭제
+    public void removeConsultingCaseReply(Long consultingCaseId);
+
+    // 해결 사례 이미지들 삭제
+    public void removeSolutionCaseImages(Long solutionCaseId);
+
 }
