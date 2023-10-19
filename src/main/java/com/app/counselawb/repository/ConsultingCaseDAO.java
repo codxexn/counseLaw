@@ -1,5 +1,7 @@
 package com.app.counselawb.repository;
 
+import com.app.counselawb.domain.dto.ConsultDetailDTO;
+import com.app.counselawb.domain.dto.ConsultingWriteDTO;
 import com.app.counselawb.domain.pagination.Pagination;
 import com.app.counselawb.domain.vo.ConsultingCaseVO;
 import com.app.counselawb.mapper.ConsultingCaseMapper;
@@ -26,7 +28,12 @@ public class ConsultingCaseDAO {
     }
 
 //    상담글 작성
-    public void insertConsult(ConsultingCaseVO consultingCaseVO){
-        consultingCaseMapper.writeConsult(consultingCaseVO);
+    public void insertConsult(ConsultingWriteDTO consultingWriteDTO){
+        consultingCaseMapper.writeConsult(consultingWriteDTO);
+    }
+
+//    상담 사례 상세페이지에 쓸 내용 불러오기
+    public List<ConsultDetailDTO> readDetail(Pagination pagination){
+        return consultingCaseMapper.readDetailConsult(pagination);
     }
 }

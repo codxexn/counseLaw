@@ -1,10 +1,14 @@
 package com.app.counselawb.controller;
 
+import com.app.counselawb.domain.dto.ConsultingWriteDTO;
 import com.app.counselawb.domain.vo.ConsultingCaseVO;
+import com.app.counselawb.domain.vo.LawyerVO;
+import com.app.counselawb.domain.vo.MemberVO;
 import com.app.counselawb.service.ConsultingCaseService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @Slf4j
@@ -23,22 +28,26 @@ public class ConsultWriteController {
 
 //    이 부분은 로그인 연결 후에 주석 풀기
     @GetMapping("counseling-write")
-    public String  goToCounselingWrite(HttpSession session){
-        if(session.getAttribute("user")==null){
-            return "login/client-login";
+    public String goToCounselingWrite(HttpSession session, Model model, ConsultingWriteDTO consultingWriteDTO, MemberVO memberVO, LawyerVO lawyerVO){
+        if (session.getAttribute("member") == null){
+            return "/client-login/client-login";
         }
+
         return "/counseling/counseling-write";
     }
 
-//    @GetMapping("counseling-write")
-//    public void goToCounselingWrite(){;}
-
     @PostMapping("counseling-write")
-    public RedirectView writeConsult(@RequestParam("memberId") Long memberId, ConsultingCaseVO consultingCaseVO){
-        consultingCaseVO.setMemberId(memberId);
-        consultingCaseService.insert(consultingCaseVO);
+    public RedirectView writeConsulting(@RequestParam("memberId") Long memberId,
+                                     ConsultingWriteDTO consultingWriteDTO){
+        System.out.println("memberId = " + memberId);
+        consultingWriteDTO.setMemberId(memberId);
+        consultingCaseService.insert(consultingWriteDTO);
 
         return new RedirectView("/consult-example/consultation-example");
     }
+
+    //    @GetMapping("counseling-write")
+//    public void goToCounselingWrite(){;}
+
 
 }
