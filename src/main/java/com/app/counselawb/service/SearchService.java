@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface SearchService {
     // 검색 모아둠
-    public SearchDTO getResult(Pagination pagination, Search search);
+    public SearchDTO getResult(Search search);
 
 }

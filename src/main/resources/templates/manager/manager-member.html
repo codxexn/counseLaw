@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>회원 관리</title>
 </head>
-<link rel="stylesheet" href="Manager-member.css">
+<link rel="stylesheet" href="/css/Manager-member/Manager-member.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css">
 </head>
 <body class="h-full">
@@ -15,23 +15,13 @@
             <div>
                 <div class="nav-logo">
                     <!-- 메인페이지로 연결되도록 링크 연결 필요 -->
-                    <a href="">
-                        <img class="counseLaw-logo" src="counseLaw.png" alt="카운슬로우 로고 이미지">
+                    <a th:href="@{/}">
+                        <img class="counseLaw-logo" src="/image/Manager-member/counseLaw.png" alt="카운슬로우 로고 이미지">
                     </a>
                     <div class="logo-l">|</div>
                     <div class="nav-PageName">
                         <span>Manager Page</span>
                     </div>
-                </div>
-            </div>
-            <div class="nav-profileWrap">
-                <div class="nav-profile">
-                    <button class="nav-profileButton">
-                        <!-- <span class="Profile"> -->
-                        <img alt="프로필 이미지" src="https://steadio.co/_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2Fd6831bfd-5b2c-4d80-bd53-0f9548aa284a%2FprofileImage%2F84ae7c49-3ef5-4e40-9129-4d26529bb0cc.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&w=1920&q=75">
-
-                        <!-- </span> -->
-                    </button>
                 </div>
             </div>
         </nav>
@@ -41,12 +31,7 @@
             <nav class="left-FadeWrap">
                 <div class="left-Profile">
                     <div class="left-ProfilePage">
-                        <div class="Profile-imgWrap">
-                            <button class="Profile-Button">
-                                <img alt="프로필 이미지" src="https://steadio.co/_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2Fd6831bfd-5b2c-4d80-bd53-0f9548aa284a%2FprofileImage%2F84ae7c49-3ef5-4e40-9129-4d26529bb0cc.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&w=1920&q=75">
-                            </button>
-                        </div>
-                        <h2 class="Manager-name">박지민</h2>
+                        <h2 class="Manager-name">관리자: 박지민</h2>
                         <a target="_blank" href="">
                             <button class="Manager-PageLink">
                                 <!--                                이동될 페이지 수정 필요-->
@@ -65,7 +50,7 @@
                 <ul class="left-list">
                     <li class="left-categories">
                         <!--                        링크 연결 안됨-->
-                        <a href="">
+                        <a href="/manager/manager-mainpage">
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="categories-post">
                                 <path d="M15.078 3.137H8.6a5.6 5.6 0 0 0-5.6 5.6v6.8a5.6 5.6 0 0 0 5.6 5.6h6.8a5.6 5.6 0 0 0 5.6-5.6V8.944l-1.6 1.6v4.993a4 4 0 0 1-4 4H8.6a4 4 0 0 1-4-4v-6.8a4 4 0 0 1 4-4h4.878l1.6-1.6Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="m20.692 7.116.534-.534a2.567 2.567 0 1 0-3.63-3.63L9.41 11.138l-1.103 3.74a.8.8 0 0 0 .994.993l3.74-1.103 6.52-6.52.005.004 1.13-1.132-.004-.004Zm-2.262 0-6.233 6.233-1.94.572.572-1.94 6.233-6.233 1.368 1.368Zm1.131-1.132-1.367-1.367.533-.534a.967.967 0 0 1 1.368 1.368l-.534.533Z"></path>
                             </svg>
@@ -75,7 +60,7 @@
                     <!--                 두 번째 카테고리-->
                     <li class="left-categories">
                         <!--                        링크 연결 안됨-->
-                        <a href="">
+                        <a href="/manager/manager-announcement">
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="categories-announcement">
                                 <path d="M10.457 8.471a1.494 1.494 0 1 1 2.988 0 1.494 1.494 0 0 1-2.988 0ZM10.955 11.459c0-.275.223-.498.498-.498h.996c.275 0 .498.223.498.498v4.979a.498.498 0 0 1-.498.498h-.996a.498.498 0 0 1-.498-.498v-4.98Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M11.951 20.117a8.166 8.166 0 1 0 0-16.333 8.166 8.166 0 0 0 0 16.333Zm0 1.792c5.5 0 9.959-4.458 9.959-9.958S17.45 1.99 11.95 1.99s-9.959 4.46-9.959 9.96c0 5.5 4.459 9.958 9.959 9.958Z"></path>
                             </svg>
@@ -85,7 +70,7 @@
                     <!--                    세 번째 카테고리-->
                     <li class="left-categories">
                         <!--                        링크 연결 안됨-->
-                        <a href="">
+                        <a href="/manager/manager-member">
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="categories-managerment">
                                 <path d="M8.5 11.7h2a6.057 6.057 0 0 1 1.769.265 6.51 6.51 0 0 0-.888 1.335H8.5a4.4 4.4 0 0 0-4.4 4.4v1c0 .22.18.4.4.4h6.881c.295.59.677 1.129 1.129 1.6H4.5a2 2 0 0 1-2-2v-1a6 6 0 0 1 6-6Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 10.2a3.502 3.502 0 0 1 0-7 3.5 3.5 0 1 1 0 7Zm1.9-3.5a1.9 1.9 0 1 1-3.8 0 1.9 1.9 0 0 1 3.8 0ZM13.945 13.147a.665.665 0 0 1 .306-.74l.833-.49a.665.665 0 0 1 .795.092l.46.437c.167.16.398.231.63.23a.892.892 0 0 0 .626-.24l.451-.445a.665.665 0 0 1 .794-.105l.84.476a.665.665 0 0 1 .32.735l-.15.616a.895.895 0 0 0 .116.66c.118.2.298.36.522.423l.61.168c.287.08.486.339.488.636l.008.965a.665.665 0 0 1-.477.644l-.608.179a.892.892 0 0 0-.513.43.898.898 0 0 0-.105.663l.159.614a.665.665 0 0 1-.307.74l-.832.49a.665.665 0 0 1-.795-.092l-.46-.437a.898.898 0 0 0-.63-.23.893.893 0 0 0-.626.24l-.452.445a.665.665 0 0 1-.794.105l-.84-.476a.665.665 0 0 1-.319-.735l.15-.617a.894.894 0 0 0-.117-.66.894.894 0 0 0-.52-.421l-.612-.17a.665.665 0 0 1-.488-.635l-.008-.965a.665.665 0 0 1 .477-.644l.608-.179a.892.892 0 0 0 .514-.43.898.898 0 0 0 .105-.663l-.159-.614Zm3.115 4.278a1.283 1.283 0 1 0 0-2.566 1.283 1.283 0 0 0 0 2.566Z"></path>
                             </svg>
@@ -95,7 +80,7 @@
                     <!--                    네 번째 카테고리-->
                     <li class="left-categories">
                         <!--                        링크 연결 안됨-->
-                        <a href="">
+                        <a href="/manager/manager-coupon">
                             <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" class="categories-post">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M22 8.942c0 .513-.24.996-.649 1.304A2.188 2.188 0 0 0 20.477 12c0 .716.34 1.351.874 1.754.409.308.649.79.649 1.304v.968A3.967 3.967 0 0 1 18.04 20H5.96A3.967 3.967 0 0 1 2 16.026v-.968c0-.513.24-.996.649-1.304A2.188 2.188 0 0 0 3.523 12c0-.716-.34-1.351-.874-1.754A1.633 1.633 0 0 1 2 8.942v-.967A3.967 3.967 0 0 1 5.96 4h12.08C20.228 4 22 5.78 22 7.975v.967ZM5.96 5.631a2.34 2.34 0 0 0-2.336 2.344v.967A3.82 3.82 0 0 1 5.147 12a3.82 3.82 0 0 1-1.523 3.058v.968a2.34 2.34 0 0 0 2.335 2.343h12.082a2.34 2.34 0 0 0 2.335-2.343v-.968A3.82 3.82 0 0 1 18.853 12c0-1.25.598-2.36 1.523-3.058v-.967A2.34 2.34 0 0 0 18.04 5.63H5.959Z" fill="#333334"></path>
                                 <path d="M16.112 14.066c0 .751-.606 1.36-1.354 1.36a1.356 1.356 0 0 1-1.353-1.36c0-.75.606-1.358 1.353-1.358.748 0 1.354.608 1.354 1.358ZM10.697 9.537c0 .75-.606 1.359-1.353 1.359A1.356 1.356 0 0 1 7.99 9.537c0-.75.606-1.359 1.354-1.359.747 0 1.353.609 1.353 1.36ZM13.957 8.728a.772.772 0 0 1 1.095 0 .78.78 0 0 1 0 1.1l-5.419 5.44a.773.773 0 0 1-1.095 0 .78.78 0 0 1 0-1.1l5.419-5.44Z" fill="#333334"></path>
@@ -187,6 +172,6 @@
         </div>
     </div>
 </div>
-<script src="Manager-member.js"></script>
+<script src="/js/Manager-member/Manager-member.js"></script>
 </body>
 </html>

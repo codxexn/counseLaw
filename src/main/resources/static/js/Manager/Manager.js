@@ -16,35 +16,65 @@ options.forEach(option => {
 });
 
 
-const searchForm = document.getElementById("searchForm");
-const inputElement = document.getElementById("search_keyword");
-const selectedOption = document.getElementById("selectedOption").value;
+// const searchForm = document.getElementById("searchForm");
+// const inputElement = document.getElementById("search_keyword");
+// const selectedOption = document.getElementById("selectedOption").value;
+//
+// searchForm.addEventListener("submit", function(event) {
+//     event.preventDefault();
+//     const keyword = inputElement.value;
+//
+//     if (keyword.trim() === "") {
+//         window.location.href = `/manager/manager-mainpage?selectedOption=${selectedOption}`;
+//     } else {
+//         window.location.href = `/manager/manager-mainpage?keyword=${encodeURIComponent(keyword)}&selectedOption=${selectedOption}`;
+//     }
+// });
+// // Pagination buttons
+// const paginationButtons = document.querySelectorAll(".footerButton");
+//
+// paginationButtons.forEach(button => {
+//     button.addEventListener("click", function(event) {
+//         event.preventDefault();
+//         const buttonpage = this.getAttribute("data-page");
+//
+//         if (buttonpage) {
+//             window.location.href = `/manager/manager-mainpage?selectedOption=${selectedOption}&keyword=${encodeURIComponent(keyword)}&page=${buttonpage}`;
+//         }
+//     });
+// });
 
-searchForm.addEventListener("submit", function(event) {
-    event.preventDefault();
-    const keyword = inputElement.value;
+// function enterkey() {
+//     if (window.event.keyCode == 13) {
+//         <!-- 여기서 form에게 submit 하라고 리모컨 버튼 누르듯 조종하는 것-->
+//         document.getElementById("searchForm").submit();
+//     }
+// }
+//
+// const searchForm = document.getElementById("searchForm");
+// const inputElement = document.getElementById("search_keyword");
+// const selectedOption = document.getElementById("selectedOption").value();
+//
+// searchForm.addEventListener("submit", function (event) {
+//    event.preventDefault();
+//    const keyword = inputElement.value.trim();
+//    console.log(selectedOption);
+//
+//    window.location.href = `/manager/manager-mainpage?selectedOption=${selectedOption}&keyword=${keyword}`;
+// });
 
-    if (keyword.trim() === "") {
-        window.location.href = `/manager/manager-mainpage?selectedOption=${selectedOption}`;
-    } else {
-        window.location.href = `/manager/manager-mainpage?keyword=${encodeURIComponent(keyword)}&selectedOption=${selectedOption}`;
-    }
-});
-// Pagination buttons
-const paginationButtons = document.querySelectorAll(".footerButton");
-
-paginationButtons.forEach(button => {
-    button.addEventListener("click", function(event) {
-        event.preventDefault();
-        const buttonpage = this.getAttribute("data-page");
-
-        if (buttonpage) {
-            window.location.href = `/manager/manager-mainpage?selectedOption=${selectedOption}&keyword=${encodeURIComponent(keyword)}&page=${buttonpage}`;
-        }
-    });
-});
-
-
+// function submitForm() {
+//     // 선택한 옵션, 검색어, 페이지 값을 가져옴
+//     var selectedOption = document.getElementById("selectedOption").value;
+//     var keyword = document.querySelector(".member-searchBar").value;
+//     var page = 1; // 페이지 번호를 여기서 설정 (필요에 따라 변경)
+//
+//     // URL 생성
+//     var url = '/manager/manager-mainpage?selectedOption=' + selectedOption + '&keyword=' + keyword + '&page=' + page;
+//
+//     // 페이지 이동
+//     window.location.href = url;
+// }
 // 게시물 삭제 클릭 시 실행 함수
 
 function deletePost(postId, postType){
