@@ -22,7 +22,9 @@
                 <ul class="profile-contents__nav-items">
                     <!--세줄 메뉴 없애고 로고 넣음-->
                     <div class="headerLogoIcon">
-                        <img class="logoImage" src="/image/lawyerInfo/counseLawLogo.png" alt="카운슬로우 로고">
+                        <a href="/">
+                            <img class="logoImage" src="/image/lawyerInfo/counseLawLogo.png" alt="카운슬로우 로고">
+                        </a>
                     </div>
                     <li class="profile-contents__item-wrap">
                         <a th:href="|/lawyer-home/lawyer-home?lawyerId=${lawyerId}|" class="profile-contents__nav-item">변호사홈</a>
@@ -84,11 +86,11 @@
                                 <span class="name">자격</span>
                                 <div class="histories">
                                     <div class="history">
-                                        <div class="left">
-                                            <span class="from"></span>
-                                            <span class="dash" style="visibility: hidden;">-</span>
-                                            <span class="to" style="visibility: hidden;"></span>
-                                        </div>
+<!--                                        <div class="left">-->
+<!--                                            <span class="from"></span>-->
+<!--                                            <span class="dash" style="visibility: hidden;">-</span>-->
+<!--                                            <span class="to" style="visibility: hidden;"></span>-->
+<!--                                        </div>-->
                                         <div class="right">
                                             <span th:text="${selectedLawyer.lawyerQualification}" class="description"></span>
 <!--                                            <a target="_blank" class="description ng-hide">변호사</a>-->
@@ -103,11 +105,11 @@
                                 <span class="name">최종 학력</span>
                                 <div class="histories">
                                     <div class="history">
-                                        <div class="left">
-                                            <span class="from"></span>
-                                            <span class="dash" style="visibility: hidden;">-</span>
-                                            <span class="to" style="visibility: hidden;"></span>
-                                        </div>
+<!--                                        <div class="left">-->
+<!--                                            <span class="from"></span>-->
+<!--                                            <span class="dash" style="visibility: hidden;">-</span>-->
+<!--                                            <span class="to" style="visibility: hidden;"></span>-->
+<!--                                        </div>-->
                                         <div class="right">
                                             <span th:text="${selectedLawyer.lawyerEducation}" class="description"></span>
 <!--                                            <a target="_blank" class="description ng-hide">경찰대학 학사 졸업</a>-->
@@ -217,32 +219,35 @@
                                             <span class="fee-title">15분 전화상담</span>
                                             <span th:text="${selectedLawyer.callPrice == 0 ? '미입력' : #numbers.formatInteger(selectedLawyer.callPrice, 1, 'COMMA')} + '원'" class="fee-info">20,000원</span>
                                             <div class="indicator-wrapper lt-desktop">
-                                                <div class="indicator" style="width: 25%;"></div>
+                                                <div class="indicator" th:style="'width: ' + ${callPercent} + '%;'"></div>
                                             </div>
                                             <div class="reservation">
-                                                <a class="go-reservation" href="">예약하기</a>
+                                                <p th:text="${#numbers.formatDecimal(callPercent, 1, 1)} + '%'" class="go-reservation" style="margin-top: 4px;"></p>
                                             </div>
                                         </div>
                                         <div class="advice-calc-fee-row">
                                             <span class="fee-title">20분 영상상담</span>
                                             <span th:text="${selectedLawyer.videoPrice == 0 ? '미입력' : #numbers.formatInteger(selectedLawyer.videoPrice, 1, 'COMMA')} + '원'" class="fee-info">30,000원</span>
                                             <div class="indicator-wrapper lt-desktop">
-                                                <div class="indicator" style="width: 50%;"></div>
+                                                <div class="indicator" th:style="'width: ' + ${videoPercent} + '%;'"></div>
                                             </div>
                                             <div class="reservation">
-                                                <a class="go-reservation" href="">예약하기</a>
+                                                <p th:text="${#numbers.formatDecimal(videoPercent, 1, 1)} + '%'" class="go-reservation" style="margin-top: 4px;"></p>
                                             </div>
                                         </div>
                                         <div class="advice-calc-fee-row">
                                             <span class="fee-title">30분 방문상담</span>
                                             <span th:text="${selectedLawyer.visitPrice == 0 ? '미입력' : #numbers.formatInteger(selectedLawyer.visitPrice, 1, 'COMMA')} + '원'" class="fee-info">50,000원</span>
                                             <div class="indicator-wrapper lt-desktop">
-                                                <div class="indicator" style="width: 75%;"></div>
+                                                <div class="indicator" th:style="'width: ' + ${visitPercent} + '%;'"></div>
                                             </div>
                                             <div class="reservation">
-                                                <a class="go-reservation" href="">예약하기</a>
+                                                <p th:text="${#numbers.formatDecimal(visitPercent, 1, 1)} + '%'" class="go-reservation" style="margin-top: 4px;"></p>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="legend-bottom lt-desktop">
+                                        <span class="price-bottom-desc">* 최저가 0%, 평균가 50%, 최고가 100% 기준</span>
                                     </div>
                                 </div>
                             </div>
@@ -253,28 +258,36 @@
                                 <div class="sevice-charges">
                                     <div class="charge">
                                         <span class="charge-title">전화상담</span>
-                                        <span class="charge-description">4만원 정액 / 30분 당</span>
+                                        <span th:text="${#numbers.formatInteger(selectedLawyer.callPrice, 1, 'COMMA')} + '원 정액 / 15분 당'" class="charge-description"></span>
+                                    </div>
+                                    <div class="charge">
+                                        <span class="charge-title">영상상담</span>
+                                        <span th:text="${#numbers.formatInteger(selectedLawyer.videoPrice, 1, 'COMMA')} + '원 정액 / 20분 당'" class="charge-description"></span>
                                     </div>
                                     <div class="charge">
                                         <span class="charge-title">방문상담</span>
-                                        <span class="charge-description">5만원 정액 / 30분 당</span>
+                                        <span th:text="${#numbers.formatInteger(selectedLawyer.visitPrice, 1, 'COMMA')} + '원 정액 / 30분 당'" class="charge-description"></span>
                                     </div>
-                                    <div class="charge">
-                                        <span class="charge-title">서면작성</span>
-                                        <span class="charge-description">50만원 이상 / 회 당</span>
-                                    </div>
+<!--                                    <div class="charge">-->
+<!--                                        <span class="charge-title">서면작성</span>-->
+<!--                                        <span class="charge-description">50만원 이상 / 회 당</span>-->
+<!--                                    </div>-->
                                 </div>
                             </div>
                             <div class="right">
-                                <span class="title">수임료</span>
+                                <span class="title">기타 가격 정보</span>
                                 <div class="sevice-charges">
                                     <div class="charge">
-                                        <span class="charge-title">재판 소송대리</span>
-                                        <span class="charge-description">착수금 550만원 이상 / 성공보수 0만원</span>
+                                        <span class="charge-title">전화상담</span>
+                                        <span th:text="'평균 ' + ${#numbers.formatInteger(priceInfo.callPriceAverage, 1, 'COMMA')} + '원'" class="charge-description"></span>
                                     </div>
                                     <div class="charge">
-                                        <span class="charge-title">수사단계 대리</span>
-                                        <span class="charge-description">착수금 550만원 이상 / 성공보수 0만원</span>
+                                        <span class="charge-title">영상상담</span>
+                                        <span th:text="'평균 ' + ${#numbers.formatInteger(priceInfo.videoPriceAverage, 1, 'COMMA')} + '원'" class="charge-description"></span>
+                                    </div>
+                                    <div class="charge">
+                                        <span class="charge-title">방문상담</span>
+                                        <span th:text="'평균 ' + ${#numbers.formatInteger(priceInfo.visitPriceAverage, 1, 'COMMA')} + '원'" class="charge-description"></span>
                                     </div>
                                 </div>
                             </div>
@@ -301,7 +314,7 @@
                 <footer class="lawyer-profile-footer--container lt-desktop">
                     <div class="lawyer-profile-footer--links-container">
                         <div class="lawyer-profile-footer--link-wrap">
-                            <a href="" target="_blank" class="lawyer-profile-footer--link-text">회사소개</a>
+                            <a href="/member/lawyer-introduction" target="_blank" class="lawyer-profile-footer--link-text">회사소개</a>
                             <a class="lawyer-profile-footer--link-text" href="">이용약관</a>
                             <a class="lawyer-profile-footer--link-text privacy-policy" href="">개인정보처리방침</a>
                             <a class="lawyer-profile-footer--link-text" href="">법적책임</a>
@@ -328,17 +341,17 @@
                 <lawtalk-next-lawyer-picture-card>
                     <div class="LawyerPictureCard-module_card__UlnaG">
                         <div class="LawyerPictureCard-module_header__uQ6j0">
-                            <p class="Typography-module_lt-text--size-28__JzLvX Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 LawyerPictureCard-module_lawyerName__HtkU1 Typography-module_lt-text--inherit__uNmPK" style="color: rgb(255, 255, 255);">
-                                한동석 변호사
-                                <img src="https://d2nyk3ltml4doc.cloudfront.net/lawtalk-ui/latest/d393ca3915424828eef9.svg"
-                                width="24" height="24" alt="예약 준수율 뱃지 이미지">
+                            <p class="Typography-module_lt-text--size-28__JzLvX Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 LawyerPictureCard-module_lawyerName__HtkU1 Typography-module_lt-text--inherit__uNmPK"
+                               style="color: rgb(255, 255, 255);">
+                                <span th:text="${selectedLawyer.lawyerName} + ' 변호사'"></span>
+                                <img src="https://d2nyk3ltml4doc.cloudfront.net/lawtalk-ui/latest/d393ca3915424828eef9.svg" width="24" height="24" alt="예약 준수율 뱃지 이미지">
                             </p>
-                            <p class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-100__U8Og5 LawyerPictureCard-module_officeName__keMRp Typography-module_lt-text--inherit__uNmPK" style="color: rgb(241, 238, 236);">
-                                법률사무소 자바
+                            <p class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-100__U8Og5 LawyerPictureCard-module_officeName__keMRp Typography-module_lt-text--inherit__uNmPK"
+                               style="color: rgb(241, 238, 236);" th:if="${selectedLawyer.lawyerCompany != null}" th:text="${selectedLawyer.lawyerCompany}">
                             </p>
                             <div class="LawyerPictureCard-module_buttons__IClTr">
-                                <img class="star" src="/image/lawyerInfo/blankedStar.png" alt="즐겨찾기 이미지">
-                                <svg class="LawyerPictureCard-module_shareIcon__tvFUa" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <img th:if="${session.member != null}" class="star" src="/image/lawyerHome/blankedStar.png" alt="검은별">
+                                <svg onclick="clipCopy()" class="LawyerPictureCard-module_shareIcon__tvFUa" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                     <g clip-path="url(#clip0_315_9153)">
                                         <path d="M15.5 7.09091L14.2575 8.18818L12.8662 6.95955V15.5909H11.1337V6.95955L9.7425 8.18818L8.5 7.09091L12 4L15.5 7.09091ZM19 10.9545V19.4545C19 20.3045 18.2125 21 17.25 21H6.75C5.77875 21 5 20.3045 5 19.4545V10.9545C5 10.0968 5.77875 9.40909 6.75 9.40909H9.375V10.9545H6.75V19.4545H17.25V10.9545H14.625V9.40909H17.25C18.2125 9.40909 19 10.0968 19 10.9545Z" fill="black"></path>
                                     </g>
@@ -353,9 +366,7 @@
                         <div class="LawyerPictureCard-module_body__ovTxk">
                             <div class="LawyerPictureCard-module_carouselWrapper__JDfOy">
                                 <div class="LawyerPictureCard-module_carouselInner__jRoGT">
-                                    <img class="LawyerPictureCard-module_carouselImage__2MQfY LawyerPictureCard-module_visible__SGhfg"
-                                        src="/image/lawyerInfo/profile.png"
-                                        alt="1 번째 한동석 변호사 이미지">
+                                    <img th:src="${profilePath == null ? '/image/lawyerHome/profile.png' : profilePath}" class="LawyerPictureCard-module_carouselImage__2MQfY LawyerPictureCard-module_visible__SGhfg" alt="1 번째 한동석 변호사 이미지">
                                 </div>
                             </div>
                         </div>
@@ -366,96 +377,101 @@
                 <div class="profile-page__reservation-panel profile-page__reservation-panel--visible">
                     <lawtalk-next-reservation-price-panel>
                         <div class="ReservationPricePanel-module_panel__VviDH">
-                            <!--쿠폰 발급 전-->
-                            <button class="ReservationPricePanel-module_couponButton__SuusI"><p
-                                    class="Typography-module_lt-text--size-18__AbfHy Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                    style="color: rgba(197, 0, 0, 0.87);">10,000원 할인</p>
-                                <p class="Typography-module_lt-text--size-12__GYxFO Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                   style="color: rgb(122, 130, 135);">(~10월 15일)</p>
-                                <div class="ReservationPricePanel-module_couponDownload__kU17O"><p
-                                        class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                        style="color: rgba(197, 0, 0, 0.87);">쿠폰받기</p>
-                                    <svg class="ReservationPricePanel-module_downloadIcon__tY+fG" width="24" height="24"
-                                         viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12 15.575C11.8667 15.575 11.7417 15.554 11.625 15.512C11.5083 15.4707 11.4 15.4 11.3 15.3L7.7 11.7C7.51667 11.5167 7.425 11.2833 7.425 11C7.425 10.7167 7.51667 10.4833 7.7 10.3C7.88333 10.1167 8.12067 10.0207 8.412 10.012C8.704 10.004 8.94167 10.0917 9.125 10.275L11 12.15V5C11 4.71667 11.096 4.479 11.288 4.287C11.4793 4.09567 11.7167 4 12 4C12.2833 4 12.521 4.09567 12.713 4.287C12.9043 4.479 13 4.71667 13 5V12.15L14.875 10.275C15.0583 10.0917 15.296 10.004 15.588 10.012C15.8793 10.0207 16.1167 10.1167 16.3 10.3C16.4833 10.4833 16.575 10.7167 16.575 11C16.575 11.2833 16.4833 11.5167 16.3 11.7L12.7 15.3C12.6 15.4 12.4917 15.4707 12.375 15.512C12.2583 15.554 12.1333 15.575 12 15.575ZM6 20C5.45 20 4.97933 19.8043 4.588 19.413C4.196 19.021 4 18.55 4 18V16C4 15.7167 4.09567 15.479 4.287 15.287C4.479 15.0957 4.71667 15 5 15C5.28333 15 5.521 15.0957 5.713 15.287C5.90433 15.479 6 15.7167 6 16V18H18V16C18 15.7167 18.096 15.479 18.288 15.287C18.4793 15.0957 18.7167 15 19 15C19.2833 15 19.5207 15.0957 19.712 15.287C19.904 15.479 20 15.7167 20 16V18C20 18.55 19.8043 19.021 19.413 19.413C19.021 19.8043 18.55 20 18 20H6Z"
-                                              fill="black"></path>
-                                    </svg>
-                                </div>
-                            </button>
-                            <!--쿠폰 발급 전 끝-->
-                            <!--쿠폰 발급 후-->
-                            <button class="ReservationPricePanel-module_couponButton__SuusI ReservationPricePanel-module_isAlreadyDownloadedCoupon__0jwVU">
-                                <p class="Typography-module_lt-text--size-18__AbfHy Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                   style="color: rgb(196, 200, 203);">10,000원 할인</p>
-                                <p class="Typography-module_lt-text--size-12__GYxFO Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                   style="color: rgb(196, 200, 203);">(~10월 15일)</p>
-                                <div class="ReservationPricePanel-module_couponDownload__kU17O"><p
-                                        class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                        style="color: rgb(196, 200, 203);">발급 완료</p>
-                                    <svg class="ReservationPricePanel-module_downloadComplete__kPVNE" width="24"
-                                         height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M9.54988 17.575C9.41655 17.575 9.29155 17.554 9.17488 17.512C9.05821 17.4707 8.94988 17.4 8.84988 17.3L4.54988 13C4.36655 12.8167 4.27888 12.579 4.28688 12.287C4.29555 11.9957 4.39154 11.7584 4.57488 11.575C4.75821 11.3917 4.99155 11.3 5.27488 11.3C5.55821 11.3 5.79155 11.3917 5.97488 11.575L9.54988 15.15L18.0249 6.67502C18.2082 6.49169 18.4459 6.40002 18.7379 6.40002C19.0292 6.40002 19.2665 6.49169 19.4499 6.67502C19.6332 6.85836 19.7249 7.09569 19.7249 7.38702C19.7249 7.67902 19.6332 7.91669 19.4499 8.10002L10.2499 17.3C10.1499 17.4 10.0415 17.4707 9.92488 17.512C9.80821 17.554 9.68321 17.575 9.54988 17.575Z"
-                                              fill="black"></path>
-                                    </svg>
-                                </div>
-                            </button>
-                            <!--쿠폰 발급 후 끝-->
+                            <!--                            &lt;!&ndash;쿠폰 발급 전&ndash;&gt;-->
+                            <!--                            <button class="ReservationPricePanel-module_couponButton__SuusI">-->
+                            <!--                                <p class="Typography-module_lt-text&#45;&#45;size-18__AbfHy Typography-module_lt-text&#45;&#45;weight-600__IvaQr Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+                            <!--                                    style="color: rgba(197, 0, 0, 0.87);">-->
+                            <!--                                    10,000원 할인-->
+                            <!--                                </p>-->
+                            <!--                                <p class="Typography-module_lt-text&#45;&#45;size-12__GYxFO Typography-module_lt-text&#45;&#45;weight-400__dz6jA Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+                            <!--                                   style="color: rgb(122, 130, 135);">(~10월 15일)</p>-->
+                            <!--                                <div class="ReservationPricePanel-module_couponDownload__kU17O">-->
+                            <!--                                    <p class="Typography-module_lt-text&#45;&#45;size-16__m5oA0 Typography-module_lt-text&#45;&#45;weight-500__K1Qvm Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+                            <!--                                        style="color: rgba(197, 0, 0, 0.87);">쿠폰받기-->
+                            <!--                                    </p>-->
+                            <!--                                    <svg class="ReservationPricePanel-module_downloadIcon__tY+fG" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+                            <!--                                        <path d="M12 15.575C11.8667 15.575 11.7417 15.554 11.625 15.512C11.5083 15.4707 11.4 15.4 11.3 15.3L7.7 11.7C7.51667 11.5167 7.425 11.2833 7.425 11C7.425 10.7167 7.51667 10.4833 7.7 10.3C7.88333 10.1167 8.12067 10.0207 8.412 10.012C8.704 10.004 8.94167 10.0917 9.125 10.275L11 12.15V5C11 4.71667 11.096 4.479 11.288 4.287C11.4793 4.09567 11.7167 4 12 4C12.2833 4 12.521 4.09567 12.713 4.287C12.9043 4.479 13 4.71667 13 5V12.15L14.875 10.275C15.0583 10.0917 15.296 10.004 15.588 10.012C15.8793 10.0207 16.1167 10.1167 16.3 10.3C16.4833 10.4833 16.575 10.7167 16.575 11C16.575 11.2833 16.4833 11.5167 16.3 11.7L12.7 15.3C12.6 15.4 12.4917 15.4707 12.375 15.512C12.2583 15.554 12.1333 15.575 12 15.575ZM6 20C5.45 20 4.97933 19.8043 4.588 19.413C4.196 19.021 4 18.55 4 18V16C4 15.7167 4.09567 15.479 4.287 15.287C4.479 15.0957 4.71667 15 5 15C5.28333 15 5.521 15.0957 5.713 15.287C5.90433 15.479 6 15.7167 6 16V18H18V16C18 15.7167 18.096 15.479 18.288 15.287C18.4793 15.0957 18.7167 15 19 15C19.2833 15 19.5207 15.0957 19.712 15.287C19.904 15.479 20 15.7167 20 16V18C20 18.55 19.8043 19.021 19.413 19.413C19.021 19.8043 18.55 20 18 20H6Z"-->
+                            <!--                                              fill="black"></path>-->
+                            <!--                                    </svg>-->
+                            <!--                                </div>-->
+                            <!--                            </button>-->
+                            <!--                            &lt;!&ndash;쿠폰 발급 전 끝&ndash;&gt;-->
+                            <!--                            &lt;!&ndash;쿠폰 발급 후&ndash;&gt;-->
+                            <!--                            <button class="ReservationPricePanel-module_couponButton__SuusI ReservationPricePanel-module_isAlreadyDownloadedCoupon__0jwVU">-->
+                            <!--                                <p class="Typography-module_lt-text&#45;&#45;size-18__AbfHy Typography-module_lt-text&#45;&#45;weight-600__IvaQr Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+                            <!--                                   style="color: rgb(196, 200, 203);">10,000원 할인</p>-->
+                            <!--                                <p class="Typography-module_lt-text&#45;&#45;size-12__GYxFO Typography-module_lt-text&#45;&#45;weight-400__dz6jA Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+                            <!--                                   style="color: rgb(196, 200, 203);">(~10월 15일)</p>-->
+                            <!--                                <div class="ReservationPricePanel-module_couponDownload__kU17O">-->
+                            <!--                                    <p class="Typography-module_lt-text&#45;&#45;size-16__m5oA0 Typography-module_lt-text&#45;&#45;weight-500__K1Qvm Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+                            <!--                                        style="color: rgb(196, 200, 203);">발급 완료-->
+                            <!--                                    </p>-->
+                            <!--                                    <svg class="ReservationPricePanel-module_downloadComplete__kPVNE" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+                            <!--                                        <path d="M9.54988 17.575C9.41655 17.575 9.29155 17.554 9.17488 17.512C9.05821 17.4707 8.94988 17.4 8.84988 17.3L4.54988 13C4.36655 12.8167 4.27888 12.579 4.28688 12.287C4.29555 11.9957 4.39154 11.7584 4.57488 11.575C4.75821 11.3917 4.99155 11.3 5.27488 11.3C5.55821 11.3 5.79155 11.3917 5.97488 11.575L9.54988 15.15L18.0249 6.67502C18.2082 6.49169 18.4459 6.40002 18.7379 6.40002C19.0292 6.40002 19.2665 6.49169 19.4499 6.67502C19.6332 6.85836 19.7249 7.09569 19.7249 7.38702C19.7249 7.67902 19.6332 7.91669 19.4499 8.10002L10.2499 17.3C10.1499 17.4 10.0415 17.4707 9.92488 17.512C9.80821 17.554 9.68321 17.575 9.54988 17.575Z"-->
+                            <!--                                              fill="black"></path>-->
+                            <!--                                    </svg>-->
+                            <!--                                </div>-->
+                            <!--                            </button>-->
+                            <!--                            &lt;!&ndash;쿠폰 발급 후 끝&ndash;&gt;-->
                             <div class="ReservationPricePanel-module_consultationOptionRow__OXhDC">
-                                <div class="ReservationPricePanel-module_consultationOption__1KM-G active"><p
-                                        class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-150__JY2i8 consultationTitle Typography-module_lt-text--inherit__uNmPK"
-                                        style="color: rgb(96, 102, 108);">15분 전화상담</p>
+                                <div class="ReservationPricePanel-module_consultationOption__1KM-G active">
+                                    <p class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-150__JY2i8 consultationTitle Typography-module_lt-text--inherit__uNmPK"
+                                       style="color: rgb(96, 102, 108);">
+                                        15분 전화상담
+                                    </p>
                                     <p class="Typography-module_lt-text--size-18__AbfHy Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-150__JY2i8 ReservationPricePanel-module_consultationPrice__Cm3yr Typography-module_lt-text--inherit__uNmPK"
-                                       style="color: rgb(43, 45, 47);">20,000원</p></div>
+                                       style="color: rgb(43, 45, 47);" th:text="${#numbers.formatInteger(selectedLawyer.callPrice, 1, 'COMMA')} + '원'"></p>
+                                </div>
                                 <div class="ReservationPricePanel-module_consultationDivider__eoZMh"></div>
-                                <div class="ReservationPricePanel-module_consultationOption__1KM-G"><p
-                                        class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-150__JY2i8 consultationTitle Typography-module_lt-text--inherit__uNmPK"
-                                        style="color: rgb(196, 200, 203);">20분 영상상담</p>
+                                <div class="ReservationPricePanel-module_consultationOption__1KM-G active">
+                                    <p class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-150__JY2i8 consultationTitle Typography-module_lt-text--inherit__uNmPK"
+                                       style="color: rgb(96, 102, 108);">20분 영상상담
+                                    </p>
                                     <p class="Typography-module_lt-text--size-18__AbfHy Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-150__JY2i8 ReservationPricePanel-module_consultationPrice__Cm3yr Typography-module_lt-text--inherit__uNmPK"
-                                       style="color: rgb(196, 200, 203);">30,000원</p></div>
+                                       style="color: rgb(43, 45, 47);" th:text="${#numbers.formatInteger(selectedLawyer.videoPrice, 1, 'COMMA')} + '원'"></p>
+                                </div>
                                 <div class="ReservationPricePanel-module_consultationDivider__eoZMh"></div>
-                                <div class="ReservationPricePanel-module_consultationOption__1KM-G active"><p
-                                        class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-150__JY2i8 consultationTitle Typography-module_lt-text--inherit__uNmPK"
-                                        style="color: rgb(96, 102, 108);">30분 방문상담</p>
+                                <div class="ReservationPricePanel-module_consultationOption__1KM-G active">
+                                    <p class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-150__JY2i8 consultationTitle Typography-module_lt-text--inherit__uNmPK"
+                                       style="color: rgb(96, 102, 108);">30분 방문상담
+                                    </p>
                                     <p class="Typography-module_lt-text--size-18__AbfHy Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-150__JY2i8 ReservationPricePanel-module_consultationPrice__Cm3yr Typography-module_lt-text--inherit__uNmPK"
-                                       style="color: rgb(43, 45, 47);">50,000원</p></div>
+                                       style="color: rgb(43, 45, 47);" th:text="${#numbers.formatInteger(selectedLawyer.visitPrice, 1, 'COMMA')} + '원'">
+                                    </p>
+                                </div>
                             </div>
-                            <button class="ReservationPricePanel-module_reserveButtonBottom__iUPKk"><p
-                                    class="Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                    style="color: rgb(255, 255, 255);">상담 예약하기</p></button>
+                            <div th:if="${session.member == null && session.lawyer == null}" style="color: #c50000; text-align: center; margin-top: 20px;">
+                                로그인이 필요합니다.&nbsp;
+                                <a href="/login/client-login" style="text-decoration: underline; color: #333;">로그인하러 가기</a>
+                            </div>
+                            <div th:if="${session.member == null && session.lawyer != null}" style="color: #c50000; text-align: center; margin-top: 20px;">
+                                의뢰인 계정으로 로그인해주세요.&nbsp;
+                                <a href="/login/logout-finally" style="text-decoration: underline; color: #333;">로그아웃하기</a>
+                            </div>
+                            <button th:disabled="${session.member != null ? 'false' : 'true'}" type="button" class="ReservationPricePanel-module_reserveButtonBottom__iUPKk">
+                                <p class="Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
+                                   style="color: rgb(255, 255, 255);">상담 예약하기
+                                </p>
+                            </button>
                         </div>
                     </lawtalk-next-reservation-price-panel>
                 </div>
                 <!--상담 예약하기 누르면 뜨는 창-->
                 <div class="profile-page__reservation-sheet-wrap lt-desktop">
-                    <div ng-class="{ 'profile-page__reservation-sheet--visible': showReservationSheet }"
-                         class="profile-page__reservation-sheet">
-                        <lawtalk-next-reservation-sheet available-advice-types="reservationData.availableAdviceTypes"
-                                                        selected-advice-type="reservationData.selectedAdviceType"
-                                                        dates="daysData[reservationData.selectedAdviceType]"
-                                                        selected-date-index="reservationData.selectedDateIndex"
-                                                        time-indices="daysData[reservationData.selectedAdviceType][reservationData.selectedDateIndex].times"
-                                                        selected-time-index="reservationData.selectedTimeIndex"
-                                                        is-disabled="!reservationData.selectedTimeIndex"
-                                                        is-mobile="isMobile" disable-time-indices="[]"
-                                                        total-price="lawyer.adviceFee[reservationData.selectedAdviceType] || 0"
-                                                        handle-click-advice-type="handleClickAdviceType"
-                                                        handle-click-date="handleClickDate"
-                                                        handle-click-time="handleClickTime"
-                                                        handle-click-next="handleClickNext">
+                    <div class="profile-page__reservation-sheet">
+                        <lawtalk-next-reservation-sheet>
                             <div class="ReservationSheet-module_wrapper__0whZO">
                                 <div class="IconDropdown-module_iconDropdown__zgosj IconDropdown-module_isOpened__iilty">
                                     <div class="IconDropdown-module_iconDropdownHeader__URGu7">
                                         <div class="IconDropdown-module_iconDropdownIcon__heGYZ">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                 xmlns="http://www.w3.org/2000/svg">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M19.95 21C17.8 21 15.7043 20.5207 13.663 19.562C11.621 18.604 9.81267 17.3373 8.238 15.762C6.66267 14.1873 5.396 12.379 4.438 10.337C3.47933 8.29567 3 6.2 3 4.05C3 3.75 3.1 3.5 3.3 3.3C3.5 3.1 3.75 3 4.05 3H8.1C8.33333 3 8.54167 3.075 8.725 3.225C8.90833 3.375 9.01667 3.56667 9.05 3.8L9.7 7.3C9.73333 7.53333 9.72933 7.74567 9.688 7.937C9.646 8.129 9.55 8.3 9.4 8.45L7 10.9C7.7 12.1 8.575 13.225 9.625 14.275C10.675 15.325 11.8333 16.2333 13.1 17L15.45 14.65C15.6 14.5 15.796 14.3873 16.038 14.312C16.2793 14.2373 16.5167 14.2167 16.75 14.25L20.2 14.95C20.4333 15 20.625 15.1123 20.775 15.287C20.925 15.4623 21 15.6667 21 15.9V19.95C21 20.25 20.9 20.5 20.7 20.7C20.5 20.9 20.25 21 19.95 21Z"
                                                       fill="black"></path>
                                             </svg>
                                         </div>
                                         <p class="Typography-module_lt-text--size-18__AbfHy Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
                                            style="color: rgb(43, 45, 47);">상담 종류 선택</p>
-                                        <svg class="IconDropdown-module_iconDropdownArrow__ctRf-" width="24" height="24"
-                                             viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg class="IconDropdown-module_iconDropdownArrow__ctRf-" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M9.275 17.3C9.09167 17.1167 9 16.8834 9 16.6C9 16.3167 9.09167 16.0834 9.275 15.9L13.175 12L9.275 8.10005C9.09167 7.91672 9 7.68338 9 7.40005C9 7.11672 9.09167 6.88338 9.275 6.70005C9.45833 6.51672 9.69167 6.42505 9.975 6.42505C10.2583 6.42505 10.4917 6.51672 10.675 6.70005L15.275 11.3C15.375 11.4 15.446 11.5084 15.488 11.625C15.5293 11.7417 15.55 11.8667 15.55 12C15.55 12.1334 15.5293 12.2584 15.488 12.375C15.446 12.4917 15.375 12.6 15.275 12.7L10.675 17.3C10.4917 17.4834 10.2583 17.575 9.975 17.575C9.69167 17.575 9.45833 17.4834 9.275 17.3Z"
                                                   fill="black"></path>
                                         </svg>
@@ -463,12 +479,21 @@
                                     <div class="IconDropdown-module_iconDropdownBody__J02T8">
                                         <div class="IconDropdown-module_iconDropdownBodyInner__1Mztd">
                                             <div class="ReservationSheet-module_typeButtons__LB0n6">
-                                                <button class="ReservationSheet-module_typeButton__Yj3zD"><p
-                                                        class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                >15분 전화상담</p></button>
-                                                <button class="ReservationSheet-module_typeButton__Yj3zD"><p
-                                                        class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                >30분 방문상담</p></button>
+                                                <button class="ReservationSheet-module_typeButton__Yj3zD">
+                                                    <p class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK">
+                                                        15분 전화상담
+                                                    </p>
+                                                </button>
+                                                <button class="ReservationSheet-module_typeButton__Yj3zD">
+                                                    <p class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK">
+                                                        20분 영상상담
+                                                    </p>
+                                                </button>
+                                                <button class="ReservationSheet-module_typeButton__Yj3zD">
+                                                    <p class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK">
+                                                        30분 방문상담
+                                                    </p>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -476,16 +501,16 @@
                                 <div class="IconDropdown-module_iconDropdown__zgosj IconDropdown-module_isOpened__iilty">
                                     <div class="IconDropdown-module_iconDropdownHeader__URGu7">
                                         <div class="IconDropdown-module_iconDropdownIcon__heGYZ">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                 xmlns="http://www.w3.org/2000/svg">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M8 14C7.71667 14 7.479 13.904 7.287 13.712C7.09567 13.5207 7 13.2833 7 13C7 12.7167 7.09567 12.479 7.287 12.287C7.479 12.0957 7.71667 12 8 12C8.28333 12 8.521 12.0957 8.713 12.287C8.90433 12.479 9 12.7167 9 13C9 13.2833 8.90433 13.5207 8.713 13.712C8.521 13.904 8.28333 14 8 14ZM12 14C11.7167 14 11.4793 13.904 11.288 13.712C11.096 13.5207 11 13.2833 11 13C11 12.7167 11.096 12.479 11.288 12.287C11.4793 12.0957 11.7167 12 12 12C12.2833 12 12.521 12.0957 12.713 12.287C12.9043 12.479 13 12.7167 13 13C13 13.2833 12.9043 13.5207 12.713 13.712C12.521 13.904 12.2833 14 12 14ZM16 14C15.7167 14 15.4793 13.904 15.288 13.712C15.096 13.5207 15 13.2833 15 13C15 12.7167 15.096 12.479 15.288 12.287C15.4793 12.0957 15.7167 12 16 12C16.2833 12 16.5207 12.0957 16.712 12.287C16.904 12.479 17 12.7167 17 13C17 13.2833 16.904 13.5207 16.712 13.712C16.5207 13.904 16.2833 14 16 14ZM5 22C4.45 22 3.979 21.8043 3.587 21.413C3.19567 21.021 3 20.55 3 20V6C3 5.45 3.19567 4.97933 3.587 4.588C3.979 4.196 4.45 4 5 4H6V2.975C6 2.69167 6.09567 2.45833 6.287 2.275C6.479 2.09167 6.71667 2 7 2C7.28333 2 7.521 2.09567 7.713 2.287C7.90433 2.479 8 2.71667 8 3V4H16V2.975C16 2.69167 16.096 2.45833 16.288 2.275C16.4793 2.09167 16.7167 2 17 2C17.2833 2 17.5207 2.09567 17.712 2.287C17.904 2.479 18 2.71667 18 3V4H19C19.55 4 20.021 4.196 20.413 4.588C20.8043 4.97933 21 5.45 21 6V20C21 20.55 20.8043 21.021 20.413 21.413C20.021 21.8043 19.55 22 19 22H5ZM5 20H19V10H5V20ZM5 8H19V6H5V8Z"
                                                       fill="black"></path>
                                             </svg>
                                         </div>
                                         <p class="Typography-module_lt-text--size-18__AbfHy Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                           style="color: rgb(43, 45, 47);">날짜 선택</p>
-                                        <svg class="IconDropdown-module_iconDropdownArrow__ctRf-" width="24" height="24"
-                                             viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                           style="color: rgb(43, 45, 47);">
+                                            날짜 선택
+                                        </p>
+                                        <svg class="IconDropdown-module_iconDropdownArrow__ctRf-" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M9.275 17.3C9.09167 17.1167 9 16.8834 9 16.6C9 16.3167 9.09167 16.0834 9.275 15.9L13.175 12L9.275 8.10005C9.09167 7.91672 9 7.68338 9 7.40005C9 7.11672 9.09167 6.88338 9.275 6.70005C9.45833 6.51672 9.69167 6.42505 9.975 6.42505C10.2583 6.42505 10.4917 6.51672 10.675 6.70005L15.275 11.3C15.375 11.4 15.446 11.5084 15.488 11.625C15.5293 11.7417 15.55 11.8667 15.55 12C15.55 12.1334 15.5293 12.2584 15.488 12.375C15.446 12.4917 15.375 12.6 15.275 12.7L10.675 17.3C10.4917 17.4834 10.2583 17.575 9.975 17.575C9.69167 17.575 9.45833 17.4834 9.275 17.3Z"
                                                   fill="black"></path>
                                         </svg>
@@ -495,47 +520,79 @@
                                             <div class="ReservationSheet-module_dates__NTIvy">
                                                 <!--날짜 넣기-->
                                                 <div class="date">
-                                                    <button class="ReservationSheet-module_dateButton__4uTaz"><p
-                                                            class="Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                            style="color: rgb(0, 0, 0);">22</p></button>
-                                                    <p class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 ReservationSheet-module_dateButtonText__FeznC Typography-module_lt-text--inherit__uNmPK"
-                                                       style="color: #c50000;">오늘</p></div>
+                                                    <button class="ReservationSheet-module_dateButton__4uTaz">
+                                                        <p class="Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
+                                                           style="color: rgb(0, 0, 0);">
+                                                            22
+                                                        </p>
+                                                    </button>
+                                                    <p class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 ReservationSheet-module_dateButtonText__FeznC Typography-module_lt-text--inherit__uNmPK" style="color: #c50000;">
+                                                        오늘
+                                                    </p>
+                                                </div>
                                                 <div class="date">
-                                                    <button class="ReservationSheet-module_dateButton__4uTaz"><p
-                                                            class="Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                            style="color: rgb(0, 0, 0);">23</p></button>
-                                                    <p class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 ReservationSheet-module_dateButtonText__FeznC Typography-module_lt-text--inherit__uNmPK"
-                                                       style="color: rgb(0, 0, 0);">토</p></div>
+                                                    <button class="ReservationSheet-module_dateButton__4uTaz">
+                                                        <p class="Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK" style="color: rgb(0, 0, 0);">
+                                                            23
+                                                        </p>
+                                                    </button>
+                                                    <p class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 ReservationSheet-module_dateButtonText__FeznC Typography-module_lt-text--inherit__uNmPK" style="color: rgb(0, 0, 0);">
+                                                        토
+                                                    </p>
+                                                </div>
                                                 <div class="date">
-                                                    <button class="ReservationSheet-module_dateButton__4uTaz"><p
-                                                            class="Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                            style="color: rgb(0, 0, 0);">24</p></button>
+                                                    <button class="ReservationSheet-module_dateButton__4uTaz">
+                                                        <p class="Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK" style="color: rgb(0, 0, 0);">
+                                                            24
+                                                        </p>
+                                                    </button>
                                                     <p class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 ReservationSheet-module_dateButtonText__FeznC Typography-module_lt-text--inherit__uNmPK"
-                                                       style="color: rgb(0, 0, 0);">일</p></div>
+                                                       style="color: rgb(0, 0, 0);">
+                                                        일
+                                                    </p>
+                                                </div>
                                                 <div class="date">
-                                                    <button class="ReservationSheet-module_dateButton__4uTaz"><p
-                                                            class="Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                            style="color: rgb(0, 0, 0);">25</p></button>
-                                                    <p class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 ReservationSheet-module_dateButtonText__FeznC Typography-module_lt-text--inherit__uNmPK"
-                                                       style="color: rgb(0, 0, 0);">월</p></div>
+                                                    <button class="ReservationSheet-module_dateButton__4uTaz">
+                                                        <p class="Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK" style="color: rgb(0, 0, 0);">
+                                                            25
+                                                        </p>
+                                                    </button>
+                                                    <p class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 ReservationSheet-module_dateButtonText__FeznC Typography-module_lt-text--inherit__uNmPK" style="color: rgb(0, 0, 0);">
+                                                        월
+                                                    </p>
+                                                </div>
                                                 <div class="date">
-                                                    <button class="ReservationSheet-module_dateButton__4uTaz"><p
-                                                            class="Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                            style="color: rgb(0, 0, 0);">26</p></button>
-                                                    <p class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 ReservationSheet-module_dateButtonText__FeznC Typography-module_lt-text--inherit__uNmPK"
-                                                       style="color: rgb(0, 0, 0);">화</p></div>
+                                                    <button class="ReservationSheet-module_dateButton__4uTaz">
+                                                        <p class="Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK" style="color: rgb(0, 0, 0);">
+                                                            26
+                                                        </p>
+                                                    </button>
+                                                    <p class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 ReservationSheet-module_dateButtonText__FeznC Typography-module_lt-text--inherit__uNmPK" style="color: rgb(0, 0, 0);">
+                                                        화
+                                                    </p>
+                                                </div>
                                                 <div class="date">
-                                                    <button class="ReservationSheet-module_dateButton__4uTaz"><p
-                                                            class="Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                            style="color: rgb(0, 0, 0);">27</p></button>
+                                                    <button class="ReservationSheet-module_dateButton__4uTaz">
+                                                        <p class="Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK" style="color: rgb(0, 0, 0);">
+                                                            27
+                                                        </p>
+                                                    </button>
                                                     <p class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 ReservationSheet-module_dateButtonText__FeznC Typography-module_lt-text--inherit__uNmPK"
-                                                       style="color: rgb(0, 0, 0);">수</p></div>
+                                                       style="color: rgb(0, 0, 0);">
+                                                        수
+                                                    </p>
+                                                </div>
                                                 <div class="date">
-                                                    <button class="ReservationSheet-module_dateButton__4uTaz"><p
-                                                            class="Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                            style="color: rgb(0, 0, 0);">28</p></button>
+                                                    <button class="ReservationSheet-module_dateButton__4uTaz">
+                                                        <p class="Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK" style="color: rgb(0, 0, 0);">
+                                                            28
+                                                        </p>
+                                                    </button>
                                                     <p class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 ReservationSheet-module_dateButtonText__FeznC Typography-module_lt-text--inherit__uNmPK"
-                                                       style="color: rgb(0, 0, 0);">목</p></div>
+                                                       style="color: rgb(0, 0, 0);">
+                                                        목
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -543,26 +600,23 @@
                                 <div class="IconDropdown-module_iconDropdown__zgosj IconDropdown-module_isOpened__iilty">
                                     <div class="IconDropdown-module_iconDropdownHeader__URGu7">
                                         <div class="IconDropdown-module_iconDropdownIcon__heGYZ">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                 xmlns="http://www.w3.org/2000/svg">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M14.625 16.025C14.8083 16.2083 15.0333 16.3 15.3 16.3C15.5667 16.3 15.8 16.2 16 16C16.1833 15.8167 16.275 15.5833 16.275 15.3C16.275 15.0167 16.1833 14.7833 16 14.6L13 11.6V7.975C13 7.69167 12.9043 7.45833 12.713 7.275C12.521 7.09167 12.2833 7 12 7C11.7167 7 11.4793 7.09567 11.288 7.287C11.096 7.479 11 7.71667 11 8V11.975C11 12.1083 11.025 12.2373 11.075 12.362C11.125 12.4873 11.2 12.6 11.3 12.7L14.625 16.025ZM12 22C10.6167 22 9.31667 21.7373 8.1 21.212C6.88333 20.6873 5.825 19.975 4.925 19.075C4.025 18.175 3.31267 17.1167 2.788 15.9C2.26267 14.6833 2 13.3833 2 12C2 10.6167 2.26267 9.31667 2.788 8.1C3.31267 6.88333 4.025 5.825 4.925 4.925C5.825 4.025 6.88333 3.31233 8.1 2.787C9.31667 2.26233 10.6167 2 12 2C13.3833 2 14.6833 2.26233 15.9 2.787C17.1167 3.31233 18.175 4.025 19.075 4.925C19.975 5.825 20.6873 6.88333 21.212 8.1C21.7373 9.31667 22 10.6167 22 12C22 13.3833 21.7373 14.6833 21.212 15.9C20.6873 17.1167 19.975 18.175 19.075 19.075C18.175 19.975 17.1167 20.6873 15.9 21.212C14.6833 21.7373 13.3833 22 12 22ZM12 20C14.2167 20 16.1043 19.221 17.663 17.663C19.221 16.1043 20 14.2167 20 12C20 9.78333 19.221 7.89567 17.663 6.337C16.1043 4.779 14.2167 4 12 4C9.78333 4 7.896 4.779 6.338 6.337C4.77933 7.89567 4 9.78333 4 12C4 14.2167 4.77933 16.1043 6.338 17.663C7.896 19.221 9.78333 20 12 20Z"
                                                       fill="black"></path>
                                             </svg>
                                         </div>
                                         <p class="Typography-module_lt-text--size-18__AbfHy Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
                                            style="color: rgb(43, 45, 47);">시간 선택</p>
-                                        <svg class="IconDropdown-module_iconDropdownArrow__ctRf-" width="24" height="24"
-                                             viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg class="IconDropdown-module_iconDropdownArrow__ctRf-" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M9.275 17.3C9.09167 17.1167 9 16.8834 9 16.6C9 16.3167 9.09167 16.0834 9.275 15.9L13.175 12L9.275 8.10005C9.09167 7.91672 9 7.68338 9 7.40005C9 7.11672 9.09167 6.88338 9.275 6.70005C9.45833 6.51672 9.69167 6.42505 9.975 6.42505C10.2583 6.42505 10.4917 6.51672 10.675 6.70005L15.275 11.3C15.375 11.4 15.446 11.5084 15.488 11.625C15.5293 11.7417 15.55 11.8667 15.55 12C15.55 12.1334 15.5293 12.2584 15.488 12.375C15.446 12.4917 15.375 12.6 15.275 12.7L10.675 17.3C10.4917 17.4834 10.2583 17.575 9.975 17.575C9.69167 17.575 9.45833 17.4834 9.275 17.3Z"
                                                   fill="black"></path>
                                         </svg>
                                     </div>
                                     <div class="IconDropdown-module_iconDropdownBody__J02T8">
                                         <div class="IconDropdown-module_iconDropdownBodyInner__1Mztd">
-                                            <div class="ReservationSheet-module_timeSelector__f-P1w"
-                                                 style="max-height: 193px;">
-                                                <div class="timeGroup"><p
-                                                        class="ReservationSheet-module_timeGroupLabel__lUV8C am">오전</p>
+                                            <div class="ReservationSheet-module_timeSelector__f-P1w" style="max-height: 257px;">
+                                                <div class="timeGroup">
+                                                    <p class="ReservationSheet-module_timeGroupLabel__lUV8C am">오전</p>
                                                     <div class="ReservationSheet-module_timeIndexButtons__92KzU">
                                                         <button class="ReservationSheet-module_timeIndexButton__Dr2YA">
                                                             08:00
@@ -590,10 +644,11 @@
                                                         </button>
                                                     </div>
                                                 </div>
-
-                                                <div class="timeGroup"><p
-                                                        class="ReservationSheet-module_timeGroupLabel__lUV8C ReservationSheet-module_pm__zIIki">
-                                                    오후</p>
+                                                
+                                                <div class="timeGroup">
+                                                    <p class="ReservationSheet-module_timeGroupLabel__lUV8C ReservationSheet-module_pm__zIIki">
+                                                        오후
+                                                    </p>
                                                     <div class="ReservationSheet-module_timeIndexButtons__92KzU">
                                                         <button class="ReservationSheet-module_timeIndexButton__Dr2YA">
                                                             12:00
@@ -669,29 +724,33 @@
                                                         </button>
                                                     </div>
                                                 </div>
-
-
+                                            
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="ReservationSheet-module_buttons__6t3N4"><p
-                                        class="ReservationSheet-module_totalPriceWrap__7-CWC"><span
-                                        class="ReservationSheet-module_totalPriceText__cLaIG">총 결제금액</span><span
-                                        class="ReservationSheet-module_totalPriceValue__pVpLO">0원</span></p>
-                                    <button class="ReservationSheet-module_nextButton__-mYex-disabled"
-                                            >다음
+                                <div class="ReservationSheet-module_buttons__6t3N4">
+                                    <p class="ReservationSheet-module_totalPriceWrap__7-CWC">
+                                        <span class="ReservationSheet-module_totalPriceText__cLaIG">
+                                            총 결제금액
+                                        </span>
+                                        <span class="ReservationSheet-module_totalPriceValue__pVpLO">
+                                            0원
+                                        </span>
+                                    </p>
+                                    <button class="ReservationSheet-module_nextButton__-mYex-disabled">
+                                        다음
                                     </button>
                                 </div>
                             </div>
                         </lawtalk-next-reservation-sheet>
-                    </div><!---->
-                    <div ng-if="showReservationSheet" ng-click="onClickCloseReservation()"
-                         class="profile-page__reservation-sheet-close"><img class="closeWhite"
-                                                                            src="closeWhite.png"></div>
-                    <!----></div><!--상담 예약하기 누르면 뜨는 창-->
-                <!--여기까지!!!!!!!!-->
-            </div><!----></div>
+                    </div>
+                    <div class="profile-page__reservation-sheet-close">
+                        <img class="closeWhite" src="/image/lawyerHome/closeWhite.png">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 </body>

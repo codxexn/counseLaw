@@ -21,4 +21,15 @@
         ON R.MEMBER_ID = M.MEMBER_ID
         WHERE R.LAWYER_ID = #{lawyerId}
     </select>
+
+    <select id="selectPriceAverages" resultType="averagePriceDTO">
+        SELECT AVG(CALL_PRICE) callPriceAverage, AVG(VIDEO_PRICE) videoPriceAverage,
+               AVG(VISIT_PRICE) visitPriceAverage, COUNT(CALL_PRICE) callPriceCount,
+               COUNT(VIDEO_PRICE) videoPriceCount, COUNT(VISIT_PRICE) visitPriceCount,
+               MAX(CALL_PRICE) callPriceMax, MIN(CALL_PRICE) callPriceMin,
+               MAX(VIDEO_PRICE) videoPriceMax, MIN(VIDEO_PRICE) videoPriceMin,
+               MAX(VISIT_PRICE) visitPriceMax, MIN(VISIT_PRICE) visitPriceMin
+        FROM TBL_LAWYER
+        WHERE CALL_PRICE != 0 AND VIDEO_PRICE != 0 AND VISIT_PRICE != 0
+    </select>
 </mapper>

@@ -16,7 +16,9 @@
                 <ul class="profile-contents__nav-items">
                     <!--세줄 메뉴 없애고 로고 넣음-->
                     <div class="headerLogoIcon">
-                        <img class="logoImage" src="/image/lawyerHome/counseLawLogo.png" alt="로고 이미지">
+                        <a href="/">
+                            <img class="logoImage" src="/image/lawyerHome/counseLawLogo.png" alt="로고 이미지">
+                        </a>
                     </div>
                     <li class="profile-contents__item-wrap profile-contents__item-wrap--active">
                         <a th:href="|/lawyer-home/lawyer-home?lawyerId=${lawyerId}|" class="profile-contents__nav-item">변호사홈</a>
@@ -342,7 +344,14 @@
                                     </p>
                                 </div>
                             </div>
-                            <div th:if="${session.member == null}" style="color: #c50000; text-align: center; margin-top: 20px;">로그인이 필요합니다.</div>
+                            <div th:if="${session.member == null && session.lawyer == null}" style="color: #c50000; text-align: center; margin-top: 20px;">
+                                로그인이 필요합니다.&nbsp;
+                                <a href="/login/client-login" style="text-decoration: underline; color: #333;">로그인하러 가기</a>
+                            </div>
+                            <div th:if="${session.member == null && session.lawyer != null}" style="color: #c50000; text-align: center; margin-top: 20px;">
+                                의뢰인 계정으로 로그인해주세요.&nbsp;
+                                <a href="/login/logout-finally" style="text-decoration: underline; color: #333;">로그아웃하기</a>
+                            </div>
                             <button th:disabled="${session.member != null ? 'false' : 'true'}" type="button" class="ReservationPricePanel-module_reserveButtonBottom__iUPKk">
                                 <p class="Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
                                     style="color: rgb(255, 255, 255);">상담 예약하기

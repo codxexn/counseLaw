@@ -54,13 +54,15 @@ if (starImage != null){
 const reservationButton = document.querySelector('.ReservationPricePanel-module_reserveButtonBottom__iUPKk');
 const  module = document.querySelector('.profile-page__reservation-sheet');
 const closeButton = document.querySelector('.closeWhite');
-console.log(reservationButton);
+
 reservationButton.addEventListener('click', ()=> {
     module.className = module.className + '--visible';
+    closeButton.style.display = "inline";
 });
 
 closeButton.addEventListener('click', () => {
     module.className = 'profile-page__reservation-sheet';
+    closeButton.style.display = "none";
 });
 
 
