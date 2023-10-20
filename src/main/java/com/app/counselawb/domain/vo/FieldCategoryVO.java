@@ -8,16 +8,13 @@ import java.time.LocalDateTime;
 
 @Component
 @Data
-public class FieldVO {
-    // 분야 id
-    private Long fieldId;
-    // 분야명
-    private String fieldTitle;
-    // 분야 설명
-    private String fieldDescription;
+public class FieldCategoryVO {
     // 분야 카테고리 id
     private Long fieldCategoryId;
+    // 분야 카테고리 이름
+    private String fieldCategoryName;
     // 기본 세팅
     private LocalDateTime createDate;
-    private LocalDateTime updateDate;
+    private LocalDateTime updateTime;
+
 }

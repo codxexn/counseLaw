@@ -35,5 +35,6 @@
         <typeAlias type="com.app.counselawb.domain.dto.LawyerReplyDTO" alias="lawyerReplyDTO" />
         <typeAlias type="com.app.counselawb.domain.dto.LawyerReviewDTO" alias="lawyerReviewDTO" />
         <typeAlias type="com.app.counselawb.domain.dto.AveragePriceDTO" alias="averagePriceDTO" />
+        <typeAlias type="com.app.counselawb.domain.vo.FieldCategoryVO" alias="fieldCategoryVO" />
     </typeAliases>
 </configuration>
