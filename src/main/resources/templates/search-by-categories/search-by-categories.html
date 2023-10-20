@@ -1,143 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>카운슬로우 - 내 손 안의 법률상담사</title>
     <link rel="stylesheet" type="text/css"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"/>
-    <link rel="stylesheet" href="../defaultSetting.css">
-    <link rel="stylesheet" href="searchByCategories.css">
+    <link rel="stylesheet" href="/css/defaultSetting.css">
+    <link rel="stylesheet" href="/css/searchByCategories/searchByCategories.css">
 </head>
 <body>
 <div class="search-controller main-content-container">
-<div ui-view="" ng-style="{ 'visibility': inputFocused &amp;&amp; isMobile ? 'hidden' : 'visible' }"
-     class="search-content" style="visibility: visible;">
+<div class="search-content" style="visibility: visible;">
     <div class="lawyer-find">
         <div class="lawyer-find__toggle-wrap">
             <div class="wide-toggle-fixed-on-mobile">
                 <wide-toggle toggle-options="toggleOptions" on-toggle="onToggle($toggledTo)"
                              initial-selected-index="initialToggleIndex">
                     <div class="wide-toggle">
-                        <div ng-style="{ transform: 'translateX(' + (stepWidth * selectedIndex) + 'px)' }"
-                             class="wide-toggle__option-hovering" style="transform: translateX(0px);"></div><!---->
-                        <div ng-class="{ 'wide-toggle__option--active': selectedIndex === $index }"
-                             ng-repeat="option in toggleOptions track by $index"
-                             ng-click="onToggleInner(option, $index)" ng-mouseenter="onMouseEnter($index)"
-                             ng-mouseleave="onMouseLeave($index)"
-                             class="wide-toggle__option wide-toggle__option--active">분야로 찾기
-                        </div><!---->
-                        <div ng-class="{ 'wide-toggle__option--active': selectedIndex === $index }"
-                             ng-repeat="option in toggleOptions track by $index"
-                             ng-click="onToggleInner(option, $index)" ng-mouseenter="onMouseEnter($index)"
-                             ng-mouseleave="onMouseLeave($index)" class="wide-toggle__option">지역으로 찾기
-                        </div><!----></div>
+                        <div class="wide-toggle__option-hovering" style="transform: translateX(0px);"></div>
+                        <div class="wide-toggle__option wide-toggle__option--active">
+                            분야로 찾기
+                        </div>
+                        <div class="wide-toggle__option">
+                            지역으로 찾기
+                        </div>
+                    </div>
                 </wide-toggle>
             </div>
-        </div><!---->
-        <div ui-view="">
+        </div>
+        <div>
             <div class="category-search-container">
                 <div class="group-category-list-container">
-                    <div ng-show="visibleTopNav"
-                         class="group-category-list-container__fixed-blank lt-mobile ng-hide"></div>
-                    <div ng-class="{ 'fixed': visibleTopNav }" class="group-category-list-wrap">
+                    <div class="group-category-list-container__fixed-blank lt-mobile ng-hide"></div>
+                    <div class="group-category-list-wrap">
                         <group-category-list list-items="groupCategories" on-click-item="selectGroup($clickedItem)"
                                              active-item-index="currentGroup">
                             <div class="group-category-list" style="max-height: 583px; overflow-y: scroll;">
-                                <div class="group-category-list__inner"><!----><a ng-repeat="item in listItems"
-                                                                                  ng-class="{'active': 'group_' + $index === 'group_' + activeItemIndex }"
-                                                                                  ng-click="onClickItemInner($index)"
-                                                                                  ng-attr-id="{{'group_list_' + $index }}"
-                                                                                  analytics-if="item.gaEvent"
-                                                                                  analytics-on="click"
-                                                                                  analytics-category=""
-                                                                                  analytics-event="click_category"
-                                                                                  analytics-label="성범죄"
-                                                                                  class="group-category-list__item active"
-                                                                                  id="group_list_0">성범죄</a><!----><a
-                                        ng-repeat="item in listItems"
-                                        ng-class="{'active': 'group_' + $index === 'group_' + activeItemIndex }"
-                                        ng-click="onClickItemInner($index)" ng-attr-id="{{'group_list_' + $index }}"
-                                        analytics-if="item.gaEvent" analytics-on="click" analytics-category=""
-                                        analytics-event="click_category" analytics-label="재산범죄"
-                                        class="group-category-list__item" id="group_list_1">재산범죄</a><!----><a
-                                        ng-repeat="item in listItems"
-                                        ng-class="{'active': 'group_' + $index === 'group_' + activeItemIndex }"
-                                        ng-click="onClickItemInner($index)" ng-attr-id="{{'group_list_' + $index }}"
-                                        analytics-if="item.gaEvent" analytics-on="click" analytics-category=""
-                                        analytics-event="click_category" analytics-label="교통사고/범죄"
-                                        class="group-category-list__item" id="group_list_2">교통사고/범죄</a><!----><a
-                                        ng-repeat="item in listItems"
-                                        ng-class="{'active': 'group_' + $index === 'group_' + activeItemIndex }"
-                                        ng-click="onClickItemInner($index)" ng-attr-id="{{'group_list_' + $index }}"
-                                        analytics-if="item.gaEvent" analytics-on="click" analytics-category=""
-                                        analytics-event="click_category" analytics-label="형사절차"
-                                        class="group-category-list__item" id="group_list_3">형사절차</a><!----><a
-                                        ng-repeat="item in listItems"
-                                        ng-class="{'active': 'group_' + $index === 'group_' + activeItemIndex }"
-                                        ng-click="onClickItemInner($index)" ng-attr-id="{{'group_list_' + $index }}"
-                                        analytics-if="item.gaEvent" analytics-on="click" analytics-category=""
-                                        analytics-event="click_category" analytics-label="폭행/협박"
-                                        class="group-category-list__item" id="group_list_4">폭행/협박</a><!----><a
-                                        ng-repeat="item in listItems"
-                                        ng-class="{'active': 'group_' + $index === 'group_' + activeItemIndex }"
-                                        ng-click="onClickItemInner($index)" ng-attr-id="{{'group_list_' + $index }}"
-                                        analytics-if="item.gaEvent" analytics-on="click" analytics-category=""
-                                        analytics-event="click_category" analytics-label="명예훼손/모욕"
-                                        class="group-category-list__item" id="group_list_5">명예훼손/모욕</a><!----><a
-                                        ng-repeat="item in listItems"
-                                        ng-class="{'active': 'group_' + $index === 'group_' + activeItemIndex }"
-                                        ng-click="onClickItemInner($index)" ng-attr-id="{{'group_list_' + $index }}"
-                                        analytics-if="item.gaEvent" analytics-on="click" analytics-category=""
-                                        analytics-event="click_category" analytics-label="기타 형사범죄"
-                                        class="group-category-list__item" id="group_list_6">기타 형사범죄</a><!----><a
-                                        ng-repeat="item in listItems"
-                                        ng-class="{'active': 'group_' + $index === 'group_' + activeItemIndex }"
-                                        ng-click="onClickItemInner($index)" ng-attr-id="{{'group_list_' + $index }}"
-                                        analytics-if="item.gaEvent" analytics-on="click" analytics-category=""
-                                        analytics-event="click_category" analytics-label="부동산/임대차"
-                                        class="group-category-list__item" id="group_list_7">부동산/임대차</a><!----><a
-                                        ng-repeat="item in listItems"
-                                        ng-class="{'active': 'group_' + $index === 'group_' + activeItemIndex }"
-                                        ng-click="onClickItemInner($index)" ng-attr-id="{{'group_list_' + $index }}"
-                                        analytics-if="item.gaEvent" analytics-on="click" analytics-category=""
-                                        analytics-event="click_category" analytics-label="금전/계약 문제"
-                                        class="group-category-list__item" id="group_list_8">금전/계약 문제</a><!----><a
-                                        ng-repeat="item in listItems"
-                                        ng-class="{'active': 'group_' + $index === 'group_' + activeItemIndex }"
-                                        ng-click="onClickItemInner($index)" ng-attr-id="{{'group_list_' + $index }}"
-                                        analytics-if="item.gaEvent" analytics-on="click" analytics-category=""
-                                        analytics-event="click_category" analytics-label="민사절차"
-                                        class="group-category-list__item" id="group_list_9">민사절차</a><!----><a
-                                        ng-repeat="item in listItems"
-                                        ng-class="{'active': 'group_' + $index === 'group_' + activeItemIndex }"
-                                        ng-click="onClickItemInner($index)" ng-attr-id="{{'group_list_' + $index }}"
-                                        analytics-if="item.gaEvent" analytics-on="click" analytics-category=""
-                                        analytics-event="click_category" analytics-label="기타 민사문제"
-                                        class="group-category-list__item" id="group_list_10">기타 민사문제</a><!----><a
-                                        ng-repeat="item in listItems"
-                                        ng-class="{'active': 'group_' + $index === 'group_' + activeItemIndex }"
-                                        ng-click="onClickItemInner($index)" ng-attr-id="{{'group_list_' + $index }}"
-                                        analytics-if="item.gaEvent" analytics-on="click" analytics-category=""
-                                        analytics-event="click_category" analytics-label="가족"
-                                        class="group-category-list__item" id="group_list_11">가족</a><!----><a
-                                        ng-repeat="item in listItems"
-                                        ng-class="{'active': 'group_' + $index === 'group_' + activeItemIndex }"
-                                        ng-click="onClickItemInner($index)" ng-attr-id="{{'group_list_' + $index }}"
-                                        analytics-if="item.gaEvent" analytics-on="click" analytics-category=""
-                                        analytics-event="click_category" analytics-label="회사"
-                                        class="group-category-list__item" id="group_list_12">회사</a><!----><a
-                                        ng-repeat="item in listItems"
-                                        ng-class="{'active': 'group_' + $index === 'group_' + activeItemIndex }"
-                                        ng-click="onClickItemInner($index)" ng-attr-id="{{'group_list_' + $index }}"
-                                        analytics-if="item.gaEvent" analytics-on="click" analytics-category=""
-                                        analytics-event="click_category" analytics-label="의료/세금/행정"
-                                        class="group-category-list__item" id="group_list_13">의료/세금/행정</a><!----><a
-                                        ng-repeat="item in listItems"
-                                        ng-class="{'active': 'group_' + $index === 'group_' + activeItemIndex }"
-                                        ng-click="onClickItemInner($index)" ng-attr-id="{{'group_list_' + $index }}"
-                                        analytics-if="item.gaEvent" analytics-on="click" analytics-category=""
-                                        analytics-event="click_category" analytics-label="IT/지식재산/금융"
-                                        class="group-category-list__item" id="group_list_14">IT/지식재산/금융</a><!----></div>
+                                <div class="group-category-list__inner">
+                                    <a class="group-category-list__item active" id="group_list_0">성범죄</a>
+                                    <a class="group-category-list__item" id="group_list_1">재산범죄</a>
+                                    <a class="group-category-list__item" id="group_list_2">교통사고/범죄</a>
+                                    <a class="group-category-list__item" id="group_list_3">형사절차</a>
+                                    <a class="group-category-list__item" id="group_list_4">폭행/협박</a>
+                                </div>
                             </div>
                         </group-category-list>
                     </div>

@@ -472,7 +472,28 @@ button, input[type=button], input[type=file]::-webkit-file-upload-button, input[
 
 .profile-review section.review-pagination .lt-pagination__pages-button-wrap {
     text-align: center;
+    position: relative;
 }
+
+.pagination-next-five {
+    position: absolute;
+    right: 25px;
+    top: 19px;
+    text-align: right;
+}
+
+.pagination-next-five a {
+    text-decoration: none;
+    color: #333;
+}
+
+.pagination-arrow-button {
+    position: absolute;
+    text-align: right;
+    top: 19px;
+    right: 3px;
+}
+
 
 .lt-pagination .lt-pagination__pages-button {
     color: #555;
@@ -492,6 +513,13 @@ button, input[type=button], input[type=file]::-webkit-file-upload-button, input[
 .lt-pagination .lt-pagination__pages-button.on {
     border-bottom: 2px solid #c50000;
     color: #c50000;
+}
+
+.lt-pagination .lt-pagination__pages-button.off {
+    color: rgb(85, 85, 85);
+    font-weight: 700;
+    line-height: 59px;
+    text-decoration: none;
 }
 
 .profile-review section.review-pagination .lt-pagination__pages-button-wrap .lt-pagination__pages-button {
@@ -544,7 +572,9 @@ button, input[type=button], input[type=file]::-webkit-file-upload-button, input[
     font-size: 12px;
     font-weight: 400;
     line-height: 20px;
-    white-space: pre-wrap;
+    /*white-space: pre-wrap;*/
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .lawyer-profile-footer--copyright-wrap {
@@ -831,6 +861,15 @@ button, input[type=button], input[type=file]::-webkit-file-upload-button, input[
 
 .ReservationPricePanel-module_reserveButtonBottom__iUPKk:hover {
     background: #d20000;
+}
+
+.ReservationPricePanel-module_reserveButtonBottom__iUPKk:disabled {
+    cursor: not-allowed;
+    background: #757575;
+}
+.ReservationPricePanel-module_reserveButtonBottom__iUPKk:disabled:hover {
+    cursor: not-allowed;
+    background: #757575;
 }
 
 .Typography-module_lt-text--size-20__Coy4u {

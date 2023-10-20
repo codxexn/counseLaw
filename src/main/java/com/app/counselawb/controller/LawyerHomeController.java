@@ -5,10 +5,8 @@ import com.app.counselawb.domain.dto.AveragePriceDTO;
 import com.app.counselawb.domain.dto.LawyerFieldDTO;
 import com.app.counselawb.domain.dto.LawyerReplyDTO;
 import com.app.counselawb.domain.dto.LawyerReviewDTO;
-import com.app.counselawb.domain.vo.ExperienceVO;
-import com.app.counselawb.domain.vo.LawyerFieldVO;
-import com.app.counselawb.domain.vo.LawyerVO;
-import com.app.counselawb.domain.vo.MemberVO;
+import com.app.counselawb.domain.pagination.Pagination;
+import com.app.counselawb.domain.vo.*;
 import com.app.counselawb.service.ConsultingReviewService;
 import com.app.counselawb.service.LawyerHomeService;
 import com.app.counselawb.service.LawyerService;
@@ -39,6 +37,7 @@ public class LawyerHomeController {
 
     @GetMapping("lawyer-home")
     public void GoToLawyerHome(@RequestParam("lawyerId") Long lawyerId, Model model, LawyerVO lawyerVO, MemberVO memberVO){
+        // 변호사
         Optional<LawyerVO> foundLawyer = lawyerService.findByLawyerId(lawyerId);
         StringBuilder sb = new StringBuilder();
         if (foundLawyer.isPresent()){
@@ -53,11 +52,15 @@ public class LawyerHomeController {
         } else {
             model.addAttribute("selectedLawyer", null);
         }
+        // 변호사 id
         model.addAttribute("lawyerId", lawyerId);
+        // 의뢰인 후기 개수
         int reviewCount = consultingReviewService.findReviewCountsByLawyerId(lawyerId);
         model.addAttribute("reviewCount", reviewCount);
+        // 변호사 프사 경로
         String lawyerProfilePath = lawyerService.findProfileImage(lawyerId);
         model.addAttribute("profilePath", lawyerProfilePath);
+        // 변호사 분야
         List<LawyerFieldDTO> foundFields = lawyerService.findFieldsByLawyerId(lawyerId);
         sb = new StringBuilder();
         for (int i=0; i < foundFields.size(); i++){
@@ -65,11 +68,28 @@ public class LawyerHomeController {
             if (i < foundFields.size()-1) sb.append(", ");
         }
         model.addAttribute("fields", sb.toString());
+        // 변호사 경력
         List<ExperienceVO> foundExperiences = lawyerService.findCareersByLawyerId(lawyerId);
         model.addAttribute("careers", foundExperiences);
+        // 변호사 상담사례 답글 (3개)
         List<LawyerReplyDTO> foundCaseReplies = lawyerHomeService.findCasesAndRepliesByLawyerId(lawyerId);
-        foundCaseReplies = foundCaseReplies.stream().limit(3).collect(Collectors.toList());
         model.addAttribute("caseReplies", foundCaseReplies);
+        // 상담사례 답글 단 개수
+        int replyCount = lawyerService.findReplyCountByLawyerId(lawyerId);
+        model.addAttribute("replyCount", replyCount);
+        // 작성한 해결사례 (3개)
+        List<SolutionCaseVO> foundSC = lawyerHomeService.findSCByLawyerId(lawyerId);
+        model.addAttribute("scs", foundSC);
+        // 작성한 해결사례 개수
+        int scCount = lawyerService.findSCTotalByLawyerId(lawyerId);
+        model.addAttribute("scCount", scCount);
+        // 작성한 법률가이드 (3개)
+        List<LegalGuideVO> foundLG = lawyerHomeService.findLGByLawyerId(lawyerId);
+        model.addAttribute("lgs", foundLG);
+        // 작성한 법률가이드 개수
+        int lgCount = lawyerService.findLGTotalByLawyerId(lawyerId);
+        model.addAttribute("lgCount", lgCount);
+        // 의뢰인 후기
         List<LawyerReviewDTO> foundReviews = lawyerHomeService.findReviewsByLawyerId(lawyerId);
         foundReviews.forEach((review) -> {
            String consultingType = review.getConsultingType();
@@ -148,13 +168,48 @@ public class LawyerHomeController {
         return "/lawyer-info/lawyer-info";
     }
 
-    @GetMapping("lawyer-counsel-case")
-    public String GoToLawyerCounselCase(){
-        return "/lawyer-counsel-case/lawyer-counsel-case";
-    }
-
     @GetMapping("client-reviews")
-    public String GoToClientReviews(){
+    public String GoToClientReviews(@RequestParam("lawyerId") Long lawyerId, Pagination pagination, Model model, LawyerVO lawyerVO, MemberVO memberVO){
+        // 변호사
+        Optional<LawyerVO> foundLawyer = lawyerService.findByLawyerId(lawyerId);
+        if (foundLawyer.isPresent()){
+            LawyerVO lawyer = foundLawyer.get();
+            model.addAttribute("selectedLawyer", lawyer);
+        } else {
+            model.addAttribute("selectedLawyer", null);
+        }
+        // 변호사 id
+        model.addAttribute("lawyerId", lawyerId);
+        // 의뢰인 후기 개수
+        int reviewCount = consultingReviewService.findReviewCountsByLawyerId(lawyerId);
+        model.addAttribute("reviewCount", reviewCount);
+        // 의뢰인 후기
+        List<LawyerReviewDTO> foundReviews = lawyerHomeService.findReviewsByLawyerId(lawyerId);
+        foundReviews.forEach((review) -> {
+            String consultingType = review.getConsultingType();
+            if (consultingType.equals("PHONE")) consultingType = "전화상담";
+            else if (consultingType.equals("VIDEO")) consultingType = "영상상담";
+            else consultingType = "방문상담";
+            review.setConsultingType(consultingType);
+        });
+        model.addAttribute("reviews", foundReviews);
+        // 페이징 처리
+        pagination.setTotal(reviewCount);
+        pagination.progress();
+        model.addAttribute("pagination", pagination);
+        // 의뢰인 후기 + 페이징 처리
+        List<LawyerReviewDTO> foundReviewsWithPage = lawyerHomeService.findReviewsWithPageByLawyerId(pagination, lawyerId);
+        foundReviewsWithPage.forEach((review) -> {
+            String consultingType = review.getConsultingType();
+            if (consultingType.equals("PHONE")) consultingType = "전화상담";
+            else if (consultingType.equals("VIDEO")) consultingType = "영상상담";
+            else consultingType = "방문상담";
+            review.setConsultingType(consultingType);
+        });
+        model.addAttribute("reviewsWithPage", foundReviewsWithPage);
+        // 변호사 프사 경로
+        String lawyerProfilePath = lawyerService.findProfileImage(lawyerId);
+        model.addAttribute("profilePath", lawyerProfilePath);
         return "/client-reviews/client-reviews";
     }
 }
