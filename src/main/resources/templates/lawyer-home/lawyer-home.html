@@ -26,9 +26,6 @@
                     <li class="profile-contents__item-wrap">
                         <a th:href="|/lawyer-home/lawyer-info?lawyerId=${lawyerId}|" class="profile-contents__nav-item">변호사정보</a>
                     </li>
-                    <li class="profile-contents__item-wrap">
-                        <a th:href="|/lawyer-home/lawyer-counsel-case?lawyerId=${lawyerId}|" class="profile-contents__nav-item">법률사례</a>
-                    </li>
                     <li class="profile-contents__item-wrap review">
                         <a th:href="|/lawyer-home/client-reviews?lawyerId=${lawyerId}|" class="profile-contents__nav-item">
                             의뢰인후기
@@ -115,7 +112,7 @@
                         <section class="activity cases no-margin">
                             <div class="header">
                                 <div class="title">상담사례</div>
-                                <div th:text="${#lists.size(caseReplies)}" class="count"></div>
+                                <div th:text="${replyCount}" class="count"></div>
                                 <a class="goto">
                                     <img class="gotoArrow" src="/image/lawyerHome/arrow.png" alt="화살표">
                                 </a>
@@ -131,7 +128,54 @@
                         </section>
                         <a class="case basic-info-more profile-home__more-btn profile-home__more-btn--2">
                             <span class="profile-home__more-btn-text">
-                                법률사례 전체보기
+                                상담사례 전체보기
+                                <img class="gotoList" src="/image/lawyerHome/arrow.png" alt="화살표">
+                            </span>
+                        </a>
+                        <section class="activity cases no-margin">
+                            <div class="header">
+                                <div class="title">해결사례</div>
+                                <div th:text="${scCount}" class="count"></div>
+                                <a class="goto">
+                                    <img class="gotoArrow" src="/image/lawyerHome/arrow.png" alt="화살표">
+                                </a>
+                            </div>
+                            <div class="body">
+                                <a th:each="sc : ${scs}" class="card case" href="">
+                                    <div th:text="${sc.solutionCaseTitle}" class="q"></div>
+                                    <div th:utext="${sc.solutionCaseContent}" class="a"></div>
+                                    <div th:text="${#temporals.format(sc.createDate, 'yyyy년 MM월 dd일 HH:mm 작성됨')}" class="created-date"></div>
+                                    <div th:text="${sc.sentenceResult == null ? '판결 정보 없음' : sc.sentenceResult}" class="created-date"></div>
+                                </a>
+                                <span th:if="${#lists.isEmpty(scs)}">아직 작성하신 해결사례가 없습니다.</span>
+                            </div>
+                        </section>
+                        <a class="case basic-info-more profile-home__more-btn profile-home__more-btn--2">
+                            <span class="profile-home__more-btn-text">
+                                해결사례 전체보기
+                                <img class="gotoList" src="/image/lawyerHome/arrow.png" alt="화살표">
+                            </span>
+                        </a>
+                        <section class="activity cases no-margin">
+                            <div class="header">
+                                <div class="title">법률가이드</div>
+                                <div th:text="${lgCount}" class="count"></div>
+                                <a class="goto">
+                                    <img class="gotoArrow" src="/image/lawyerHome/arrow.png" alt="화살표">
+                                </a>
+                            </div>
+                            <div class="body">
+                                <a th:each="lg : ${lgs}" class="card case" href="">
+                                    <div th:text="${lg.legalGuideTitle}" class="q"></div>
+                                    <div th:utext="${lg.legalGuideContent}" class="a"></div>
+                                    <div th:text="${#temporals.format(lg.createDate, 'yyyy년 MM월 dd일 HH:mm 작성됨')}" class="created-date"></div>
+                                </a>
+                                <span th:if="${#lists.isEmpty(lgs)}">아직 작성하신 법률가이드가 없습니다.</span>
+                            </div>
+                        </section>
+                        <a class="case basic-info-more profile-home__more-btn profile-home__more-btn--2">
+                            <span class="profile-home__more-btn-text">
+                                법률가이드 전체보기
                                 <img class="gotoList" src="/image/lawyerHome/arrow.png" alt="화살표">
                             </span>
                         </a>
