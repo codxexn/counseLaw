@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.counselawb.mapper.LawyerAndMemberMapper">
+    <select id="selectAllLawyerAndMember" resultType="lawyerAndMemberDTO">
+    SELECT
+        am.allMember_type AS allMemberType,
+        am.allMember_id AS allMemberId,
+        am.allMember_name AS allMemberName,
+        am.allMember_state AS allMemberState,
+        am.allMember_phone AS allMemberPhone,
+        am.allMember_create_date AS allMemberCreateDate
+    FROM(
+            SELECT '일반 회원' AS allMember_type, M.MEMBER_ID AS allMember_id, M.MEMBER_NAME AS allMember_name, M.MEMBER_STATE AS allMember_state, M.MEMBER_PHONE AS allMember_phone, M.CREATE_DATE AS allMember_create_date
+            FROM TBL_MEMBER M
+            UNION ALL
+            SELECT '변호사 회원' AS allMember_type, L.LAWYER_ID AS allMember_id, L.LAWYER_NAME AS allMember_name, L.LAWYER_STATE AS allMember_state, L.LAWYER_PHONE AS allMember_phone, L.CREATE_DATE AS allMember_create_date
+            FROM TBL_LAWYER L
+        )am
+    ORDER BY am.allMember_create_date DESC
+    </select>
+
+    <select id="selectAllMember" resultType="memberVO">
+        SELECT MEMBER_ID, MEMBER_NAME, MEMBER_STATE, MEMBER_PHONE, CREATE_DATE
+        FROM TBL_MEMBER
+        ORDER BY CREATE_DATE DESC
+    </select>
+
+    <select id="selectAllLawyer" resultType="lawyerVO">
+        SELECT LAWYER_ID, LAWYER_NAME, LAWYER_STATE, LAWYER_PHONE, CREATE_DATE
+        FROM TBL_LAWYER
+        ORDER BY CREATE_DATE DESC
+    </select>
+</mapper>
