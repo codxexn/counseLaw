@@ -2,9 +2,12 @@
 
     import com.app.counselawb.domain.Search;
     import com.app.counselawb.domain.dto.ConsultingCaseReplyDTO;
+    import com.app.counselawb.domain.dto.LawyerAndMemberDTO;
     import com.app.counselawb.domain.dto.PostsDTO;
     import com.app.counselawb.domain.dto.SearchDTO;
     import com.app.counselawb.domain.pagination.Pagination;
+    import com.app.counselawb.domain.vo.LawyerVO;
+    import com.app.counselawb.domain.vo.MemberVO;
     import com.app.counselawb.domain.vo.NoticeVO;
     import com.app.counselawb.domain.vo.SolutionCaseImgVO;
     import com.app.counselawb.service.*;
@@ -32,6 +35,7 @@
         private final ConsultingCaseReplyService consultingCaseReplyService;
         private final SolutionCaseImgService solutionCaseImgService;
         private final NoticeService noticeService;
+        private final LawyerAndMemberService lawyerAndMemberService;
 
 
         @GetMapping("manager-mainpage")
@@ -182,6 +186,63 @@
 
         }
 
+        //회원 관리
+
         @GetMapping("manager-member")
-        public void goToManagerMemberPage(){;}
+        public String goToManagerMemberPage(@RequestParam(name = "selectedOption", defaultValue = "selectAll") String selectedOption, Model model){
+            model.addAttribute("selectedOption", selectedOption);
+
+            if("selectAll".equals(selectedOption)) {
+                List<LawyerAndMemberDTO> selectAllLawyerAndMember = lawyerAndMemberService.findAllLawyerAndMember();
+                model.addAttribute("selectAllLawyerAndMember", selectAllLawyerAndMember);
+            } else if("member".equals(selectedOption)) {
+                List<MemberVO> selectAllMembers = lawyerAndMemberService.findAllMember();
+                model.addAttribute("selectAllMembers", selectAllMembers);
+            } else if("lawyer".equals(selectedOption)) {
+                List<LawyerVO> selectAllLawyers = lawyerAndMemberService.findAllLawyer();
+                model.addAttribute("selectAllLawyers", selectAllLawyers);
+            }
+
+            return "/manager/manager-member";
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }

@@ -381,7 +381,7 @@ button, input, optgroup, select, textarea {
     justify-content: space-between;
     align-items: center;
     display: flex;
-    margin-top: -62px;
+    margin-top: -38px;
 }
 .member-countWrap {
     font-weight: 700;
@@ -398,6 +398,7 @@ button, input, optgroup, select, textarea {
     fill: #5b44ea;
 }
 .member-condition {
+    margin-top: -24px;
     column-gap: 12px;
 }
 .member-normal {
@@ -466,6 +467,24 @@ button, input, optgroup, select, textarea {
     justify-content: space-between;
     color: #555;
     margin-top: 50px;
+}
+.selectOption {
+    font-size: 14px;
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,.08);
+    overflow-y: scroll;
+    top: 148px;
+    width: 90px;
+}
+.selectButton {
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,.08);
+    top: 148px;
+    width: 50px;
 }
 
 i.bx {
@@ -607,7 +626,6 @@ ol, ul {
 }
 .member-topName {
     width: 183px;
-    margin-left: 41px;
     justify-content: flex-start;
     align-items: center;
     flex-shrink: 0;
