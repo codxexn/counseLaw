@@ -4,7 +4,8 @@ p {
 }
 
 .headerWrapper {
-    height: 100%;
+    position: fixed;
+    height: 124px;
     background: #fff;
     top: 0;
     transition: background .25s ease;
