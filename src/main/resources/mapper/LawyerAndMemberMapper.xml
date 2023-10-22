@@ -77,7 +77,7 @@
 
     <update id="updateLawyer">
         UPDATE TBL_LAWYER
-        SET LAWYER_STATE = 'SUSPEND'
+        SET LAWYER_STATE = 'SUSPENDED'
         WHERE LAWYER_ID = #{lawyerId}
     </update>
 

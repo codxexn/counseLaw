@@ -132,8 +132,7 @@
                                     <span class="member-count" th:text="${pagination.total}">0</span>
                                 </div>
 
-                                <div class="member-condition">
-                                    <div class="guides-Section-Search-Menu">
+
                                         <div class="select-Menu">
                                             <form th:action="@{/manager/manager-member}" method="get">
                                                 <select id="selectedOption" class="selectOption" name="selectedOption">
@@ -154,8 +153,7 @@
                                         <!--                                            <li class="sort-Options-Btn active">최신순</li>-->
                                         <!--                                            <li class="sort-Options-Btn">조회순</li>-->
                                         <!--                                        </ul>-->
-                                    </div>
-                                </div>
+
                             </div>
                             <div class="memberTop-bottom">
                                 <div style="width: 192px;" class="member-topName"><strong>이름</strong></div>
@@ -167,12 +165,16 @@
                             <div>
                                 <div class="memberTop-bottom" th:if="${selectedOption == 'selectAll'}"
                                      th:each="lawyerAndMember : ${selectAllLawyerAndMember}">
-                                    <div  style="width: 192px;" class="member-name" th:text="${lawyerAndMember.allMemberName}">박지민</div>
-                                    <div style="width: 164px;" class="member-name" th:text="${lawyerAndMember.allMemberType}">일반
+                                    <div style="width: 192px;" class="member-name"
+                                         th:text="${lawyerAndMember.allMemberName}">박지민
+                                    </div>
+                                    <div style="width: 164px;" class="member-name"
+                                         th:text="${lawyerAndMember.allMemberType}">일반
                                         회원
                                     </div>
                                     <div style="width: 172px;" class="member-name"
-                                         th:text="${#temporals.format(lawyerAndMember.allMemberCreateDate , 'yyyy-MM-dd HH:mm')}">2023-09-17
+                                         th:text="${#temporals.format(lawyerAndMember.allMemberCreateDate , 'yyyy-MM-dd HH:mm')}">
+                                        2023-09-17
                                     </div>
                                     <div style="width: 127px;" class="member-name"
                                          th:if="${lawyerAndMember.allMemberState == 'ACTIVE'}" th:text="|가입|">가입
@@ -183,54 +185,94 @@
                                     <div style="width: 127px;" class="member-name"
                                          th:if="${lawyerAndMember.allMemberState == 'SUSPENDED'}" th:text="|추방|">추방
                                     </div>
+                                    <div class="detailContent-Button" th:if="${lawyerAndMember.allMemberType == '일반 회원'}">
+                                            <button th:onclick="|suspendMember(${lawyerAndMember.allMemberId}, 'member')|"
+                                                    th:classappend="${lawyerAndMember.allMemberState == 'SUSPENDED' ? 'detailContent-SuspendButton disabled' : 'detailContent-SuspendButton'}"
+                                                    th:disabled="${lawyerAndMember.allMemberState == 'SUSPENDED'}">추방
+                                                <input type="hidden" th:value="${lawyerAndMember.allMemberId}" th:name="memberId">
+                                            </button>
+                                            <button th:onclick="|unSuspendMember(${lawyerAndMember.allMemberId}, 'member')|"
+                                                    th:classappend="${lawyerAndMember.allMemberState == 'ACTIVE' ? 'detailContent-UnsuspendButton disabled' : 'detailContent-UnsuspendButton'}"
+                                                    th:disabled="${lawyerAndMember.allMemberState == 'ACTIVE'}">추방 해제
+                                                <input type="hidden" th:value="${lawyerAndMember.allMemberId}" th:name="memberId">
+                                            </button>
+                                    </div>
+                                    <div class="detailContent-Button" th:if="${lawyerAndMember.allMemberType == '변호사 회원'}">
+                                            <button th:onclick="|suspendMember(${lawyerAndMember.allMemberId}, 'lawyer')|"
+                                                    th:classappend="${lawyerAndMember.allMemberState == 'SUSPENDED' ? 'detailContent-SuspendButton disabled' : 'detailContent-SuspendButton'}"
+                                                    th:disabled="${lawyerAndMember.allMemberState == 'SUSPENDED'}">추방
+                                                <input type="hidden" th:value="${lawyerAndMember.allMemberId}" th:name="memberId">
+                                            </button>
+                                            <button th:onclick="|unSuspendMember(${lawyerAndMember.allMemberId}, 'lawyer')|"
+                                                    th:classappend="${lawyerAndMember.allMemberState == 'ACTIVE' ? 'detailContent-UnsuspendButton disabled' : 'detailContent-UnsuspendButton'}"
+                                                    th:disabled="${lawyerAndMember.allMemberState == 'ACTIVE'}">추방 해제
+                                                <input type="hidden" th:value="${lawyerAndMember.allMemberId}" th:name="memberId">
+                                            </button>
+                                    </div>
                                 </div>
                                 <div class="memberTop-bottom" th:if="${selectedOption == 'member'}"
                                      th:each="member : ${selectAllMembers}">
-                                    <div style="width: 192px;" class="member-name" th:text="${member.memberName}">박지민</div>
-                                    <div style="width: 164px;" class="member-name" th:text="|일반 회원|">일반 회원</div>
-                                    <div style="width: 172px;" class="member-name" th:text="${#temporals.format(member.createDate , 'yyyy-MM-dd HH:mm')}">2023-09-17
+                                    <div style="width: 192px;" class="member-name" th:text="${member.memberName}">박지민
                                     </div>
-                                    <div style="width: 127px;" class="member-name" th:if="${member.memberState == 'ACTIVE'}"
+                                    <div style="width: 164px;" class="member-name" th:text="|일반 회원|">일반 회원</div>
+                                    <div style="width: 172px;" class="member-name"
+                                         th:text="${#temporals.format(member.createDate , 'yyyy-MM-dd HH:mm')}">
+                                        2023-09-17
+                                    </div>
+                                    <div style="width: 127px;" class="member-name"
+                                         th:if="${member.memberState == 'ACTIVE'}"
                                          th:text="|가입|">가입
                                     </div>
-                                    <div style="width: 127px;" class="member-name" th:if="${member.memberState == 'WITHDRAW'}"
+                                    <div style="width: 127px;" class="member-name"
+                                         th:if="${member.memberState == 'WITHDRAW'}"
                                          th:text="|탈퇴|">탈퇴
                                     </div>
-                                    <div style="width: 127px;" class="member-name" th:if="${member.memberState == 'SUSPENDED'}"
+                                    <div style="width: 127px;" class="member-name"
+                                         th:if="${member.memberState == 'SUSPENDED'}"
                                          th:text="|추방|">추방
                                     </div>
                                     <button th:onclick="|suspendMember(${member.memberId}, 'member')|"
-                                            class="detailContent-SuspendButton">추방
+                                            th:classappend="${member.memberState == 'SUSPENDED' ? 'detailContent-SuspendButton disabled' : 'detailContent-SuspendButton'}"
+                                            th:disabled="${member.memberState == 'SUSPENDED'}">추방
                                         <input type="hidden" th:value="${member.memberId}" th:name="memberId">
                                     </button>
                                     <button th:onclick="|unSuspendMember(${member.memberId}, 'member')|"
-                                            class="detailContent-UnsuspendButton">추방 해제
+                                            th:classappend="${member.memberState == 'ACTIVE' ? 'detailContent-UnsuspendButton disabled' : 'detailContent-UnsuspendButton'}"
+                                            th:disabled="${member.memberState == 'ACTIVE'}">추방 해제
                                         <input type="hidden" th:value="${member.memberId}" th:name="memberId">
                                     </button>
                                 </div>
                                 <div class="memberTop-bottom" th:if="${selectedOption == 'lawyer'}"
                                      th:each="lawyer : ${selectAllLawyers}">
-                                    <div style="width: 192px;" class="member-name" th:text="${lawyer.lawyerName}">박지민</div>
-                                    <div style="width: 164px;" class="member-name" th:text="|변호사 회원|">변호사 회원</div>
-                                    <div style="width: 172px;" class="member-name" th:text="${#temporals.format(lawyer.createDate , 'yyyy-MM-dd HH:mm')}">2023-09-17
+                                    <div style="width: 192px;" class="member-name" th:text="${lawyer.lawyerName}">박지민
                                     </div>
-                                    <div style="width: 127px;" class="member-name" th:if="${lawyer.lawyerState == 'ACTIVE'}"
+                                    <div style="width: 164px;" class="member-name" th:text="|변호사 회원|">변호사 회원</div>
+                                    <div style="width: 172px;" class="member-name"
+                                         th:text="${#temporals.format(lawyer.createDate , 'yyyy-MM-dd HH:mm')}">
+                                        2023-09-17
+                                    </div>
+                                    <div style="width: 127px;" class="member-name"
+                                         th:if="${lawyer.lawyerState == 'ACTIVE'}"
                                          th:text="|가입|">가입
                                     </div>
-                                    <div style="width: 127px;" class="member-name" th:if="${lawyer.lawyerState == 'WITHDRAW'}"
+                                    <div style="width: 127px;" class="member-name"
+                                         th:if="${lawyer.lawyerState == 'WITHDRAW'}"
                                          th:text="|탈퇴|">탈퇴
                                     </div>
-                                    <div style="width: 127px;" class="member-name" th:if="${lawyer.lawyerState == 'SUSPENDED'}"
+                                    <div style="width: 127px;" class="member-name"
+                                         th:if="${lawyer.lawyerState == 'SUSPENDED'}"
                                          th:text="|추방|">추방
                                     </div>
-<!--                                    <button th:onclick="|updatePost(${latestNotice.noticeId})|"-->
-<!--                                            class="detailContent-UpdateButton">추방-->
-<!--                                        <input type="hidden" th:value="${latestNotice.noticeId}" th:name="noticeId">-->
-<!--                                    </button>-->
-<!--                                    <button th:onclick="|deletePost(${latestNotice.noticeId})|"-->
-<!--                                            class="detailContent-DeleteButton">추방 해제-->
-<!--                                        <input type="hidden" th:value="${latestNotice.noticeId}" th:name="noticeId">-->
-<!--                                    </button>-->
+                                    <button th:onclick="|suspendMember(${lawyer.lawyerId}, 'lawyer')|"
+                                            th:classappend="${lawyer.lawyerState == 'SUSPENDED' ? 'detailContent-SuspendButton disabled' : 'detailContent-SuspendButton'}"
+                                            th:disabled="${lawyer.lawyerState == 'SUSPENDED'}">추방
+                                        <input type="hidden" th:value="${lawyer.lawyerId}" th:name="memberId">
+                                    </button>
+                                    <button th:onclick="|unSuspendMember(${lawyer.lawyerId}, 'lawyer')|"
+                                            th:classappend="${lawyer.lawyerState == 'ACTIVE' ? 'detailContent-UnsuspendButton disabled' : 'detailContent-UnsuspendButton'}"
+                                            th:disabled="${lawyer.lawyerState == 'ACTIVE'}">추방 해제
+                                        <input type="hidden" th:value="${lawyer.lawyerId}" th:name="memberId">
+                                    </button>
                                 </div>
                             </div>
 
@@ -250,7 +292,8 @@
                                 </svg>
                                 <p class="member-nolist">멤버가 없습니다</p>
                             </div>
-                            <footer class="Footer_Wrapper" th:with="start=${pagination.startPage}, last=(${pagination.endPage})">
+                            <footer class="Footer_Wrapper"
+                                    th:with="start=${pagination.startPage}, last=(${pagination.endPage})">
                                 <div class="PaginationButtonGroup_PrevButtonWrapper">
                                     <button th:if="${pagination.page != start}"
                                             th:onclick="'location.href=\'' + @{/manager/manager-member(selectedOption=${selectedOption}, keyword=${keyword}, page=${pagination.page - 1})} + '\''">
@@ -264,7 +307,8 @@
                                 <!-- 중간 페이지 버튼 (1부터 마지막 페이지까지) -->
                                 <button th:each="buttonpage: ${#numbers.sequence(start, last)}" class="footerButton"
                                         th:class="${buttonpage == pagination.page ? 'ButtonPage_StyledButtonOn' : 'ButtonPage_StyledButtonOff'}">
-                                    <a th:text="${buttonpage}" th:href="@{/manager/manager-member(selectedOption=${selectedOption}, keyword=${keyword}, page=${buttonpage})}">[[${buttonpage}]]</a>
+                                    <a th:text="${buttonpage}"
+                                       th:href="@{/manager/manager-member(selectedOption=${selectedOption}, keyword=${keyword}, page=${buttonpage})}">[[${buttonpage}]]</a>
                                 </button>
 
                                 <div class="PaginationButtonGroup_NextButtonWrapper">

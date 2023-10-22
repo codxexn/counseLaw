@@ -7,7 +7,9 @@ server:
   servlet:
     session:
       tracking-modes: cookie
-      persistent: true
+      persistent: false
+
+
 
 
 spring:
@@ -34,3 +36,5 @@ spring:
 mvc:
   pathmatch:
     matching-startegy: ant_math_matcher
+
+
