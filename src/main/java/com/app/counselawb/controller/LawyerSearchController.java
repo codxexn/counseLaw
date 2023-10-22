@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.*;
 
@@ -45,7 +46,12 @@ public class LawyerSearchController {
 
     // 분야로 변호사 검색한 결과
     @GetMapping("lawyer-list-by-categories")
-    public String showCategorySearchList(){
+    public String showCategorySearchList(@RequestParam("fieldId") Long fieldId, Model model){
+        // 모든 분야 리스트
+        List<FieldVO> allFields = lawyerService.findAllFields();
+        model.addAttribute("allFields", allFields);
+        // 해당 분야 id
+        model.addAttribute("fieldId", fieldId);
         return "/lawyer-list-by-categories/lawyer-list-by-categories";
     }
 
