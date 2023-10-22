@@ -59,7 +59,7 @@ public class LawyerAndMemberDTO {
     // 변호사 소개
     private String lawyerIntroduction;
     private String allMemberType;
-    private String allMemberId;
+    private Long allMemberId;
     private String allMemberName;
     private String allMemberState;
     private String allMemberPhone;

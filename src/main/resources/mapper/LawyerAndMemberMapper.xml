@@ -2,32 +2,94 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.counselawb.mapper.LawyerAndMemberMapper">
     <select id="selectAllLawyerAndMember" resultType="lawyerAndMemberDTO">
-    SELECT
-        am.allMember_type AS allMemberType,
-        am.allMember_id AS allMemberId,
-        am.allMember_name AS allMemberName,
-        am.allMember_state AS allMemberState,
-        am.allMember_phone AS allMemberPhone,
-        am.allMember_create_date AS allMemberCreateDate
-    FROM(
-            SELECT '일반 회원' AS allMember_type, M.MEMBER_ID AS allMember_id, M.MEMBER_NAME AS allMember_name, M.MEMBER_STATE AS allMember_state, M.MEMBER_PHONE AS allMember_phone, M.CREATE_DATE AS allMember_create_date
-            FROM TBL_MEMBER M
-            UNION ALL
-            SELECT '변호사 회원' AS allMember_type, L.LAWYER_ID AS allMember_id, L.LAWYER_NAME AS allMember_name, L.LAWYER_STATE AS allMember_state, L.LAWYER_PHONE AS allMember_phone, L.CREATE_DATE AS allMember_create_date
-            FROM TBL_LAWYER L
-        )am
-    ORDER BY am.allMember_create_date DESC
+    <![CDATA[
+        SELECT *
+        FROM (
+                 SELECT ROWNUM AS rnum, am.*
+                 FROM (
+                          SELECT
+                              am.allMember_type AS allMemberType,
+                              am.allMember_id AS allMemberId,
+                              am.allMember_name AS allMemberName,
+                              am.allMember_state AS allMemberState,
+                              am.allMember_phone AS allMemberPhone,
+                              am.allMember_create_date AS allMemberCreateDate
+                          FROM (
+                                   SELECT '일반 회원' AS allMember_type, M.MEMBER_ID AS allMember_id, M.MEMBER_NAME AS allMember_name, M.MEMBER_STATE AS allMember_state, M.MEMBER_PHONE AS allMember_phone, M.CREATE_DATE AS allMember_create_date
+                                   FROM TBL_MEMBER M
+                                   UNION ALL
+                                   SELECT '변호사 회원' AS allMember_type, L.LAWYER_ID AS allMember_id, L.LAWYER_NAME AS allMember_name, L.LAWYER_STATE AS allMember_state, L.LAWYER_PHONE AS allMember_phone, L.CREATE_DATE AS allMember_create_date
+                                   FROM TBL_LAWYER L
+                               ) am
+                          ORDER BY am.allMember_create_date DESC
+                      ) am
+                 WHERE ROWNUM <= #{endRow}
+             )
+        WHERE rnum >= #{startRow}
+        ]]>
+
     </select>
 
+    <select id="selectAllTotalCount" resultType="int">
+        SELECT COUNT(*) FROM (
+            SELECT M.MEMBER_ID FROM TBL_MEMBER M
+            UNION ALL
+            SELECT L.LAWYER_ID FROM TBL_LAWYER L
+                             )
+    </select>
+
+
     <select id="selectAllMember" resultType="memberVO">
+    <![CDATA[
         SELECT MEMBER_ID, MEMBER_NAME, MEMBER_STATE, MEMBER_PHONE, CREATE_DATE
-        FROM TBL_MEMBER
+        FROM (
+                 SELECT MEMBER_ID, MEMBER_NAME, MEMBER_STATE, MEMBER_PHONE, CREATE_DATE, ROWNUM AS rnum
+                 FROM TBL_MEMBER
+             )
+        WHERE rnum BETWEEN #{startRow} AND #{endRow}
         ORDER BY CREATE_DATE DESC
+        ]]>
+    </select>
+
+    <select id="selectAllMemberTotalCount" resultType="int">
+        SELECT COUNT(MEMBER_ID) FROM TBL_MEMBER
     </select>
 
     <select id="selectAllLawyer" resultType="lawyerVO">
         SELECT LAWYER_ID, LAWYER_NAME, LAWYER_STATE, LAWYER_PHONE, CREATE_DATE
-        FROM TBL_LAWYER
+        FROM(
+                SELECT LAWYER_ID, LAWYER_NAME, LAWYER_STATE, LAWYER_PHONE, CREATE_DATE, ROWNUM AS rnum
+                FROM TBL_LAWYER
+            )
+        WHERE rnum BETWEEN #{startRow} AND #{endRow}
         ORDER BY CREATE_DATE DESC
     </select>
+    
+    <select id="selectAllLawyerTotalCount" resultType="int">
+        SELECT COUNT(LAWYER_ID) FROM TBL_LAWYER
+    </select>
+    
+    <update id="updateMember">
+        UPDATE TBL_MEMBER
+        SET MEMBER_STATE = 'SUSPENDED'
+        WHERE MEMBER_ID = #{memberId}
+    </update>
+
+    <update id="updateLawyer">
+        UPDATE TBL_LAWYER
+        SET LAWYER_STATE = 'SUSPENDED'
+        WHERE LAWYER_ID = #{lawyerId}
+    </update>
+
+    <update id="updateUnsuspendMember">
+        UPDATE TBL_MEMBER
+        SET MEMBER_STATE = 'ACTIVE'
+        WHERE MEMBER_ID = #{memberId}
+    </update>
+    
+    <update id="updateUnsuspendLawyer">
+        UPDATE TBL_LAWYER
+        SET LAWYER_STATE = 'ACTIVE'
+        WHERE LAWYER_ID = #{lawyerId}
+    </update>
 </mapper>
