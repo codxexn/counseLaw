@@ -70,7 +70,7 @@
     </update>
 
     <select id="selectAllFields" resultType="fieldVO">
-        SELECT FIELD_ID, FIELD_TITLE, FIELD_DESCRIPTION
+        SELECT FIELD_ID, FIELD_TITLE, FIELD_DESCRIPTION, FIELD_CATEGORY_ID
         FROM TBL_FIELD
     </select>
 
