@@ -58,6 +58,12 @@
     position: relative;
 }
 
+.group-category-list-wrap.fixed {
+    padding-top: 60px;
+    top: 72px;
+    position: fixed;
+}
+
 /*모바일 display none*/
 .category-search-container .group-category-list-container__fixed-blank {
     height: 52px;
@@ -158,6 +164,11 @@
     }
 
 /*    사이드바 카테고리 리스트*/
+    .group-category-list.bottom-fix {
+        bottom: 120px;
+        position: absolute;
+    }
+
     .group-category-list {
         position: absolute;
         width: 196px;
@@ -228,7 +239,7 @@
         display: inline-block;
         padding-bottom: 24px;
         padding-left: 19px;
-        width: 50%;
+        width: 49%;
     }
 
     .category-search-container .category-search-list-container .find-group-categories-list-container .find-group-category__body .find-category {
