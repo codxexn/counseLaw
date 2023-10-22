@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.counselawb.mapper.LawyerSearchMapper">
+    <select id="selectAllFieldCategories" resultType="fieldCategoryVO">
+        SELECT FIELD_CATEGORY_ID, FIELD_CATEGORY_NAME
+        FROM TBL_FIELD_CATEGORY
+        ORDER BY FIELD_CATEGORY_ID
+    </select>
+</mapper>
