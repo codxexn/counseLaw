@@ -634,7 +634,7 @@ button, input[type=button], input[type=file]::-webkit-file-upload-button, input[
     }
 
     .lawyers-section .premium-lawyer-section {
-        height: 40px;
+        height: 60px;
     }
 
     .lawyers-section .lawyer-section-title.all {
@@ -967,4 +967,13 @@ button, input[type=button], input[type=file]::-webkit-file-upload-button, input[
 
 .each-category-link.active {
     color: #333;
+}
+
+.empty-lawyer-message {
+    color: #757575;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: 60px;
+    text-align: center;
 }

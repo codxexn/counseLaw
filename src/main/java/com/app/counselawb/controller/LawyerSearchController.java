@@ -1,6 +1,8 @@
 package com.app.counselawb.controller;
 
 
+import com.app.counselawb.domain.dto.LawyerFieldSearchDTO;
+import com.app.counselawb.domain.pagination.Pagination;
 import com.app.counselawb.domain.vo.FieldCategoryVO;
 import com.app.counselawb.domain.vo.FieldVO;
 import com.app.counselawb.service.LawyerSearchService;
@@ -46,12 +48,28 @@ public class LawyerSearchController {
 
     // 분야로 변호사 검색한 결과
     @GetMapping("lawyer-list-by-categories")
-    public String showCategorySearchList(@RequestParam("fieldId") Long fieldId, Model model){
+    public String showCategorySearchList(@RequestParam("fieldId") Long fieldId, Model model, Pagination pagination){
+        // 분야 id로 분야 정보 가져오기
+        Optional<FieldVO> fieldInfo = lawyerSearchService.findFieldInfo(fieldId);
+        if (fieldInfo.isPresent()){
+            FieldVO fieldVO = fieldInfo.get();
+            model.addAttribute("fieldInfo", fieldVO);
+        } else {
+            model.addAttribute("fieldInfo", null);
+        }
         // 모든 분야 리스트
         List<FieldVO> allFields = lawyerService.findAllFields();
         model.addAttribute("allFields", allFields);
         // 해당 분야 id
         model.addAttribute("fieldId", fieldId);
+        // 해당 분야 변호사 명수
+        int lawyerCount = lawyerSearchService.findLawyersCountByFieldId(fieldId);
+        model.addAttribute("resultCount", lawyerCount);
+        pagination.setTotal(lawyerCount);
+        pagination.progress();
+        // 페이징처리와 함께 해당 분야 변호사 정보 가져오기
+        List<LawyerFieldSearchDTO> foundLawyers = lawyerSearchService.findLawyersByFieldId(pagination, fieldId);
+        model.addAttribute("foundLawyers", foundLawyers);
         return "/lawyer-list-by-categories/lawyer-list-by-categories";
     }
 
