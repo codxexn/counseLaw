@@ -54,7 +54,8 @@
                                     </div>
                                     <div class="find-group-category__body">
                                         <div th:each="field: ${categoryMap.value}" class="find-category-wrap">
-                                            <a class="find-category bottom-padding-none">
+                                            <a th:href="'/lawyer-search/lawyer-list-by-categories?fieldId=' + ${field.fieldId}"
+                                                    class="find-category bottom-padding-none">
                                                 <div th:text="${field.fieldTitle}" class="find-category__title"></div>
                                                 <div th:text="${field.fieldDescription}" class="find-category__description"></div>
                                             </a>

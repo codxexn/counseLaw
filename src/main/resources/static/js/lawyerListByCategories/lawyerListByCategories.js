@@ -29,3 +29,28 @@ buttons.forEach((button)=> {
         }
     })
 })
+
+const loc = document.querySelector(".premium-lawyer-section--title").offsetTop;
+const aside = document.querySelector(".aside-section");
+const hidden = document.querySelector(".hidden-div").offsetTop;
+window.addEventListener("scroll", (e) => {
+    let cur = window.scrollY;
+    if (cur >= loc){
+        if (!aside.classList.contains("fixed")){
+            aside.classList.add("fixed");
+        }
+    } else {
+        if (aside.classList.contains("fixed")){
+            aside.classList.remove("fixed");
+        }
+    }
+    if (cur >= hidden - 800){
+        if (!aside.classList.contains("bottom-fix")){
+            aside.classList.add("bottom-fix");
+        }
+    } else {
+        if (aside.classList.contains("bottom-fix")){
+            aside.classList.remove("bottom-fix");
+        }
+    }
+})

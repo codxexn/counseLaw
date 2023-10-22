@@ -53,7 +53,7 @@ window.addEventListener("scroll", (e) => {
     let cur = window.scrollY;
     let targetScroll = 0;
     for (let i=0; i < scrollYs.length; i++){
-        if (cur > scrollYs[i]){
+        if (cur >= scrollYs[i]){
             targetScroll = i;
         } else break;
     }

@@ -27,4 +27,6 @@ public class LawyerFieldSearchDTO {
     private int visitPrice;
     // 의뢰인 후기 개수
     private int reviewCount;
+    // 변호사 소개
+    private String lawyerIntroduction;
 }

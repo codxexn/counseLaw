@@ -2,7 +2,8 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>변호사 분야로 검색결과</title>
+    <title th:if="${fieldInfo != null}" th:text="${fieldInfo.fieldTitle} + ' - 변호사 검색 결과 : 카운슬로우 (CounseLaw)'"></title>
+    <title th:if="${fieldInfo == null}">변호사 검색 결과 : 카운슬로우 (CounseLaw)</title>
     <link rel="stylesheet" type="text/css"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"/>
     <link rel="stylesheet" href="/css/defaultSetting.css">
@@ -27,63 +28,51 @@
                                         <div class="premium-lawyer-section--component" style="width: 742px; top: 0px;">
                                             <div class="premium-lawyer-section--title">ACTIVE LAWYERS</div>
                                         </div>
+                                        <div class="lawyer-name" th:text="'검색 결과 총 ' + ${resultCount} + '명'"></div>
                                     </premium-lawyer-section>
                                 </div>
                                 <div class="premium-lawyer-card-list">
-                                    <lawyer-card-v2 class="need-boundary">
+                                    <lawyer-card-v2 class="need-boundary" th:each="eachLawyer : ${foundLawyers}">
                                         <article class="lawyer-card-v2-premium no-timeslot-card hide-category has-badges">
                                             <div class="lawyer-profile-right">
                                                 <div class="picture">
                                                     <img width="256" height="256" class="lawyer-profile"
-                                                         >
+                                                         th:src="${eachLawyer.lawyerImage == null ? '/image/defaultLawyerProfile/defaultLawyerProfile.png' : eachLawyer.lawyerImage}">
                                                 </div>
                                             </div>
                                             <div class="lawyer-profile-left">
                                                 <div class="lawyer-profile-left-header">
-                                                    <a class="lawyer-name"
-                                                        data-gtm-vis-first-on-screen-10244850_155="634408"
-                                                        data-gtm-vis-total-visible-time-10244850_155="100"
-                                                        data-gtm-vis-has-fired-10244850_155="1">길기범 변호사
+                                                    <a class="lawyer-name" th:text="${eachLawyer.lawyerName} + ' 변호사'"
+                                                       th:href="'/lawyer-home/lawyer-home?lawyerId=' + ${eachLawyer.lawyerId}">
                                                     </a>
                                                 </div>
-                                                <div class="lawyer-card-v2-premium__company-name">법률사무소 로진</div>
-                                                <a class="lawyer-description"
-                                                   data-gtm-vis-first-on-screen-10244850_155="634415"
-                                                   data-gtm-vis-total-visible-time-10244850_155="100"
-                                                   data-gtm-vis-has-fired-10244850_155="1">
-                                                    [사시출신/성범죄 전문]
-                                                    치밀한전략/무혐의/기소유예
+                                                <div th:text="${eachLawyer.lawyerCompany}" class="lawyer-card-v2-premium__company-name"></div>
+                                                <a th:text="${eachLawyer.lawyerIntroduction == null ? '안녕하세요. ' + eachLawyer.lawyerName + ' 변호사입니다.' : eachLawyer.lawyerIntroduction}"
+                                                   class="lawyer-description" th:href="'/lawyer-home/lawyer-home?lawyerId=' + ${eachLawyer.lawyerId}">
                                                 </a>
                                                 <div class="lawyer-review-coupon-icon-wrap has-review">
                                                     <div class="lawyer-review">
                                                         <div class="lawyer-review-rate-block">
-                                                            <div class="lawyer-review-count">
-                                                                의뢰인 후기 6개
-                                                            </div>
+                                                            <a th:href="'/lawyer-home/client-reviews?lawyerId=' + ${eachLawyer.lawyerId}">
+                                                                <div th:text="'의뢰인 후기 ' + ${eachLawyer.reviewCount} + '개'" class="lawyer-review-count">
+                                                                </div>
+                                                            </a>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <div class="lawyer-card-v2-premium__highlighted-keywords">
-                                                    <div class="lawyer-card-v2-premium__highlighted-keyword">
-                                                        #성매매알선
-                                                    </div>
-                                                    <div class="lawyer-card-v2-premium__highlighted-keyword">
-                                                        #성매수
                                                     </div>
                                                 </div>
                                                 <div class="available-solutions-block">
                                                     <div class="available-solutions">
                                                         <div class="available-solution">
                                                             <div class="solution-text solution-title">15분 전화상담</div>
-                                                            <div class="solution-text solution-price">20,000원</div>
+                                                            <div th:text="${eachLawyer.callPrice == 0 ? '미입력' : #numbers.formatInteger(eachLawyer.callPrice, 1, 'COMMA') + '원'}" class="solution-text solution-price"></div>
                                                         </div>
                                                         <div class="available-solution">
                                                             <div class="solution-text solution-title">20분 영상상담</div>
-                                                            <div class="solution-text solution-price">20,000원</div>
+                                                            <div th:text="${eachLawyer.videoPrice == 0 ? '미입력' : #numbers.formatInteger(eachLawyer.videoPrice, 1, 'COMMA') + '원'}" class="solution-text solution-price"></div>
                                                         </div>
                                                         <div class="available-solution">
                                                             <div class="solution-text solution-title">30분 방문상담</div>
-                                                            <div class="solution-text solution-price">70,000원</div>
+                                                            <div th:text="${eachLawyer.visitPrice == 0 ? '미입력' : #numbers.formatInteger(eachLawyer.visitPrice, 1, 'COMMA') + '원'}" class="solution-text solution-price"></div>
                                                         </div>
                                                     </div>
                                                     <button class="reservation-button">
@@ -91,7 +80,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="lawyer-more-see-block">
-                                                    <a href="">
+                                                    <a th:href="'/lawyer-home/lawyer-home?lawyerId=' + ${eachLawyer.lawyerId}">
                                                         <div class="lawyer-more-see-text">더 알아보기</div>
                                                         <div class="lawyer-more-see-arrow"></div>
                                                     </a>
@@ -100,7 +89,8 @@
                                         </article>
                                     </lawyer-card-v2>
                                 </div>
-                                <div class="more-lawyers-block">
+                                <div th:if="${#lists.isEmpty(foundLawyers)}" class="empty-lawyer-message">해당 분야에 맞는 변호사가 없습니다.</div>
+                                <div th:if="${#lists.size(foundLawyers) >= 9}" class="more-lawyers-block">
                                     <a class="more-lawyers">
                                         <i class="more-text">더보기</i>
                                         <i class="more-plus">+</i>
@@ -109,7 +99,7 @@
                                 </div>
                             </section>
                         </td>
-                        <td ng-class="{'not-all': activeTab !== 'all'}" class="filter-column">
+                        <td class="filter-column">
                             <aside class="aside-section" style="top: 127px;">
                                 <div class="aside-title">다른 분야 검색하기</div>
                                 <div class="category-wrapper">
@@ -126,6 +116,7 @@
             </div>
         </section>
     </div>
+    <div class="hidden-div"></div>
     <footer th:replace="~{fix/footer :: my-footer}"></footer>
 </div>
 </body>
