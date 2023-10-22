@@ -189,22 +189,55 @@
         //회원 관리
 
         @GetMapping("manager-member")
-        public String goToManagerMemberPage(@RequestParam(name = "selectedOption", defaultValue = "selectAll") String selectedOption, Model model){
+        public String goToManagerMemberPage(@RequestParam(name = "selectedOption", defaultValue = "selectAll") String selectedOption, Model model, Pagination pagination){
             model.addAttribute("selectedOption", selectedOption);
 
             if("selectAll".equals(selectedOption)) {
-                List<LawyerAndMemberDTO> selectAllLawyerAndMember = lawyerAndMemberService.findAllLawyerAndMember();
+                pagination.setTotal(lawyerAndMemberService.findAllTotalCount());
+                pagination.progress();
+                model.addAttribute("pagination", pagination);
+                List<LawyerAndMemberDTO> selectAllLawyerAndMember = lawyerAndMemberService.findAllLawyerAndMember(pagination);
                 model.addAttribute("selectAllLawyerAndMember", selectAllLawyerAndMember);
             } else if("member".equals(selectedOption)) {
-                List<MemberVO> selectAllMembers = lawyerAndMemberService.findAllMember();
+                pagination.setTotal(lawyerAndMemberService.findAllMemberTotalCount());
+                pagination.progress();
+                model.addAttribute("pagination", pagination);
+                List<MemberVO> selectAllMembers = lawyerAndMemberService.findAllMember(pagination);
                 model.addAttribute("selectAllMembers", selectAllMembers);
             } else if("lawyer".equals(selectedOption)) {
-                List<LawyerVO> selectAllLawyers = lawyerAndMemberService.findAllLawyer();
+                pagination.setTotal(lawyerAndMemberService.findAllLawyerTotalCount());
+                pagination.progress();
+                model.addAttribute("pagination", pagination);
+                List<LawyerVO> selectAllLawyers = lawyerAndMemberService.findAllLawyer(pagination);
                 model.addAttribute("selectAllLawyers", selectAllLawyers);
             }
 
+
+
             return "/manager/manager-member";
         }
+
+        @PostMapping("member-suspend")
+        public RedirectView suspendMemberAndLawyerGoToMemberpage(@RequestParam(name = "memberId", required = false) Long memberId, @RequestParam(name = "lawyerId", required = false) Long lawyerId) {
+            if(memberId != null) {
+                lawyerAndMemberService.modifyMember(memberId);
+            } else if (lawyerId != null) {
+                lawyerAndMemberService.modifyLawyer(lawyerId);
+            }
+
+            return new RedirectView("/manager/manager-member");
+        }
+
+       @PostMapping("member-unsuspend")
+        public RedirectView unsuspendMemberAndLawyerGoToMemberPage(@RequestParam(name = "memberId", required = false) Long memberId, @RequestParam(name = "lawyerId", required = false) Long lawyerId) {
+            if(memberId != null) {
+                lawyerAndMemberService.modifyUnsuspendMember(memberId);
+            } else if (lawyerId != null) {
+                lawyerAndMemberService.modifyUnsuspendLawyer(lawyerId);
+            }
+
+            return new RedirectView("/manager/manager-member");
+       }
 
 
 

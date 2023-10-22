@@ -659,3 +659,119 @@ ol, ul {
     top: 2px;
     font-size: 12px;
 }
+
+
+footer.Footer_Wrapper{
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-flex: 0;
+    width: 100%;
+    padding: 30px 0px;
+    background-color: white;
+}
+
+div.PaginationButtonGroup_PrevButtonWrapper{
+    display: flex;
+    margin-right: 10px;
+}
+
+button.ButtonPage_Styled{
+    width: 40px;
+    height: 40px;
+    line-height: normal;
+    padding: 0px;
+    background-color: white;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 18px;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    outline: none;
+}
+
+.PaginationButtonGroup_Icon{
+    transform: rotate(180deg);
+}
+
+button.ButtonPage_StyledButtonOn{
+    width: 40px;
+    height: 40px;
+    line-height: normal;
+    padding: 0px;
+    background-color: white;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 50%;
+    color: rgb(51, 151, 255);
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    outline: none;
+}
+
+button.ButtonPage_StyledButtonOff{
+    width: 40px;
+    height: 40px;
+    line-height: normal;
+    padding: 0px;
+    background-color: white;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 18px;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    outline: none;
+}
+
+
+div.PaginationButtonGroup_NextButtonWrapper{
+    display: flex;
+    margin-left: 10px;
+}
+
+.detailContent-UnsuspendButton {
+    font-size: 14px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 11px;
+    padding-right: 11px;
+    border-width: 2px;
+    border-radius: 16px;
+    background-color: white;
+    border-color: #008CBA;
+}
+
+.detailContent-UnsuspendButton:hover {
+    background-color: #008CBA;
+    color: white;
+}
+
+.detailContent-SuspendButton {
+    font-size: 14px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 11px;
+    padding-right: 11px;
+    border-width: 2px;
+    border-radius: 16px;
+    background-color: white;
+    color: black;
+    border-color: #f44336;
+}
+
+.detailContent-SuspendButton:hover {
+    background-color: #f44336;
+    color: white;
+}
