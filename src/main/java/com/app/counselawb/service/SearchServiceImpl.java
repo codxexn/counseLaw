@@ -16,21 +16,18 @@ import org.springframework.transaction.annotation.Transactional;
 @Slf4j
 public class SearchServiceImpl implements SearchService {
 
-    private final SearchDAO searchAllPosts;
     private final SearchDAO searchConsultingCases;
     private final SearchDAO searchSolutionCases;
     private final SearchDAO searchLegalGuides;
 
     @Override
-    public SearchDTO getResult(Pagination pagination, Search search) {
+    public SearchDTO getResult(Search search) {
         SearchDTO searchDTO = new SearchDTO();
-        searchDTO.setAllPosts(searchAllPosts.findByAllPosts(pagination, search));
-        searchDTO.setTotalAllPosts(searchAllPosts.findAllPostsTotal(search));
-        searchDTO.setConsultingCases(searchConsultingCases.findConsultingCases(pagination, search));
+        searchDTO.setConsultingCases(searchConsultingCases.findConsultingCases(search));
         searchDTO.setTotalConsultingCases(searchConsultingCases.findTotalConsultingCases(search));
-        searchDTO.setSolutionCases(searchSolutionCases.findSolutionCases(pagination, search));
+        searchDTO.setSolutionCases(searchSolutionCases.findSolutionCases(search));
         searchDTO.setTotalSolutionCases(searchSolutionCases.findTotalSolutionCases(search));
-        searchDTO.setLegalGuides(searchLegalGuides.findLegalGuides(pagination, search));
+        searchDTO.setLegalGuides(searchLegalGuides.findLegalGuides(search));
         searchDTO.setTotalLegalGuides(searchLegalGuides.findTotalLegalGuides(search));
 
         return searchDTO;

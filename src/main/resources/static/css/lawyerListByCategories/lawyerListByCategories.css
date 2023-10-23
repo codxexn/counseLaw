@@ -634,7 +634,7 @@ button, input[type=button], input[type=file]::-webkit-file-upload-button, input[
     }
 
     .lawyers-section .premium-lawyer-section {
-        height: 40px;
+        height: 60px;
     }
 
     .lawyers-section .lawyer-section-title.all {
@@ -903,5 +903,77 @@ button, input[type=button], input[type=file]::-webkit-file-upload-button, input[
         margin-left: 10px;
     }
 
+}
 
+.aside-section {
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+}
+
+.aside-section.fixed {
+    position: fixed;
+    padding-top: 60px;
+    top: 72px;
+}
+
+.aside-section.bottom-fix {
+    bottom: 120px;
+    position: absolute;
+}
+
+.aside-title {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.category-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-y: scroll;
+    max-height: 583px;
+    width: 196px;
+}
+
+.category-wrapper::-webkit-scrollbar {
+    width: 7px;
+    background-color: #ffffff;
+
+}
+
+.category-wrapper::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+    border-radius: 13px;
+}
+
+.category-wrapper:hover::-webkit-scrollbar-thumb {
+    background-color: #e7e7e7;
+    border-radius: 13px;
+}
+
+.each-category-link {
+    text-decoration: none;
+    color: #cfcfcf;
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 30px;
+    margin-bottom: 14px;
+}
+
+.each-category-link:hover {
+    color: #333;
+}
+
+.each-category-link.active {
+    color: #333;
+}
+
+.empty-lawyer-message {
+    color: #757575;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: 60px;
+    text-align: center;
 }

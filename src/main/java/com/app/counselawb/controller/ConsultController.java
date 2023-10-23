@@ -29,6 +29,7 @@ public class ConsultController {
 
         ModelAndView modelAndView = new ModelAndView();
         List<ConsultingCaseVO> consultCase = consultingCaseService.selectAllCase(pagination);
+
         modelAndView.addObject("consultCase",consultCase);
         modelAndView.addObject("pagination",pagination);
 

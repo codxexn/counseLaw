@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.counselawb.mapper.NoticeMapper">
+    <insert id="insertNotice">
+        INSERT INTO TBL_NOTICE(NOTICE_ID, NOTICE_TITLE, NOTICE_CONTENT)
+        VALUES (SEQ_NOTICE.NEXTVAL, #{noticeTitle}, #{noticeContent})
+    </insert>
+    
+    <select id="selectByNoticeId" resultType="noticeVo">
+        SELECT NOTICE_ID, NOTICE_TITLE, NOTICE_CONTENT, CREATE_DATE
+        FROM TBL_NOTICE
+        WHERE NOTICE_ID = #{noticeId}
+    </select>
+
+    <select id="selectLatestNotice" resultType="noticeVO">
+    <![CDATA[
+    SELECT *
+    FROM (
+             SELECT ROWNUM AS rnum, TBL_NOTICE.*
+             FROM TBL_NOTICE
+             ORDER BY CREATE_DATE DESC
+         )
+    WHERE rnum BETWEEN #{startRow} AND #{endRow}
+    ]]>
+    </select>
+
+    <select id="selectTotalNotice" resultType="int">
+        SELECT COUNT(NOTICE_ID) FROM TBL_NOTICE
+    </select>
+
+    <select id="selectOldNotice" resultType="noticeVO">
+    <![CDATA[
+        SELECT *
+        FROM (
+                 SELECT ROWNUM AS rnum, TBL_NOTICE.*
+                 FROM TBL_NOTICE
+                 ORDER BY CREATE_DATE
+             )
+        WHERE rnum BETWEEN #{startRow} AND #{endRow}
+        ]]>
+    </select>
+
+    <update id="updateNotice">
+        UPDATE TBL_NOTICE
+        SET NOTICE_TITLE = #{noticeTitle}, NOTICE_CONTENT = #{noticeContent}, UPDATE_DATE = CURRENT_TIMESTAMP
+        WHERE NOTICE_ID = #{noticeId}
+    </update>
+
+    <delete id="deleteNotice">
+        DELETE FROM TBL_NOTICE
+        WHERE NOTICE_ID = #{noticeId}
+    </delete>
+</mapper>

@@ -17,25 +17,20 @@ import java.util.List;
 public class SearchDAO {
     private final PostsMapper postsMapper;
 
-    // 모든  포스트 검색
-    public List<PostsDTO> findByAllPosts(Pagination pagination, Search search) {return postsMapper.searchAllPosts(pagination, search);}
-
-    // 모든 포스트 검색 개수
-    public int findAllPostsTotal(Search search) { return  postsMapper.searchTotalAllPosts(search); }
 
 //        상담 사례 검색
-    public List<PostsDTO> findConsultingCases(Pagination pagination, Search search) {return postsMapper.searchConsultingCases(pagination, search); }
+    public List<PostsDTO> findConsultingCases(Search search) {return postsMapper.searchConsultingCases(search); }
 //    상담 사례 검색 개수
     public int findTotalConsultingCases(Search search) {return postsMapper.searchTotalConsultingCases(search);}
 
 //        해결 사례
-    public  List<PostsDTO> findSolutionCases(Pagination pagination, Search search) {return postsMapper.searchSolutionCases(pagination, search); }
+    public  List<PostsDTO> findSolutionCases(Search search) {return postsMapper.searchSolutionCases(search); }
 
 //    해결 사례 검색 개수
     public int findTotalSolutionCases(Search search) {return postsMapper.searchTotalSolutionCases(search);}
 
 //        법률 가이드 검색
-    public List<PostsDTO> findLegalGuides(Pagination pagination, Search search) {return postsMapper.searchLegalGuides(pagination, search);}
+    public List<PostsDTO> findLegalGuides(Search search) {return postsMapper.searchLegalGuides(search);}
 //    법률 가이드 검색 개수
     public int findTotalLegalGuides(Search search) {return postsMapper.searchTotalLegalGuides(search);}
 ;

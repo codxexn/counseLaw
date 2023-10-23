@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.counselawb.mapper.ConsultingCaseMapper">
+    <!--    상담 사례에 대한 답변, 정보들 불러오기-->
+    <select id="readDetailConsult" resultType="consultDetailDTO">
+        SELECT
+            c.CASE_TITLE AS faqTitle,
+            c.CASE_CONTENT AS faqContent,
+            c.CREATE_DATE AS createDate,
+            r.CONSULTING_CASE_REPLY_ID AS replyId,
+            r.CONSULTING_CASE_REPLY_CONTENT AS replyContent,
+            r.LAWYER_ID AS lawyerId,
+            r.CONSULTING_CASE_ID AS caseId,
+            c.MEMBER_ID AS memberId
+        FROM TBL_CONSULTING_CASE c
+                 LEFT JOIN TBL_CONSULTING_CASE_REPLY r ON c.CONSULTING_CASE_ID = r.CONSULTING_CASE_ID;
+    </select>
+
+</mapper>

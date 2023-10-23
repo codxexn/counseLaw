@@ -318,6 +318,7 @@ button[disabled], html input[disabled] {
     /*스크롤 없앴습니다.*/
     /*overflow-x: auto;*/
     /*overflow-y: hidden;*/
+    overflow: hidden;
 }
 
 .directory.controller .card {
@@ -339,6 +340,11 @@ button[disabled], html input[disabled] {
     color: #333;
     font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
     font-weight: 400;
+    max-height: 24px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 228px;
+    overflow: hidden;
 }
 
 .profile-home .activity-detail section.cases .body .case .a {
