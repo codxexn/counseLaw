@@ -1,5 +1,6 @@
 package com.app.counselawb.controller;
 
+import com.app.counselawb.domain.dto.ConsultingCaseDTO;
 import com.app.counselawb.domain.pagination.Pagination;
 import com.app.counselawb.domain.vo.ConsultingCaseVO;
 import com.app.counselawb.service.ConsultingCaseService;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -28,7 +30,9 @@ public class ConsultController {
         pagination.progress();
 
         ModelAndView modelAndView = new ModelAndView();
-        List<ConsultingCaseVO> consultCase = consultingCaseService.selectAllCase(pagination);
+        List<ConsultingCaseDTO> consultCase = consultingCaseService.selectAllCase(pagination);
+
+        System.out.println(consultCase.toString());
 
         modelAndView.addObject("consultCase",consultCase);
         modelAndView.addObject("pagination",pagination);
