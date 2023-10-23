@@ -1,6 +1,7 @@
 package com.app.counselawb.service;
 
 import com.app.counselawb.domain.dto.ConsultDetailDTO;
+import com.app.counselawb.domain.dto.ConsultingCaseDTO;
 import com.app.counselawb.domain.dto.ConsultingWriteDTO;
 import com.app.counselawb.domain.pagination.Pagination;
 import com.app.counselawb.domain.vo.ConsultingCaseVO;
@@ -18,7 +19,7 @@ public class ConsultingCaseServiceImpl implements ConsultingCaseService {
 
     //    상담사례 전체 목록 불러오기
     @Override
-    public List<ConsultingCaseVO> selectAllCase(Pagination pagination) {
+    public List<ConsultingCaseDTO> selectAllCase(Pagination pagination) {
         return consultingCaseDAO.selectAllCase(pagination);
     }
 
