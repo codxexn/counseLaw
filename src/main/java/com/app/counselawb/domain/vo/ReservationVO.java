@@ -19,6 +19,12 @@ public class ReservationVO {
     private LocalDate reservationDate;
     // 상담 유형
     private String consultingType;
+    // 상담예약 내용
+    private String reservationContent;
+    // 유저 이름(가명)
+    private String memberFakeName;
+    // 연락 가능한 유저 번호
+    private String memberDesiredPhone;
     // 기본 세팅
     private LocalDateTime createDate;
     private LocalDateTime updateDate;
