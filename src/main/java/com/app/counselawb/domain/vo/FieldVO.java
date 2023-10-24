@@ -15,6 +15,8 @@ public class FieldVO {
     private String fieldTitle;
     // 분야 설명
     private String fieldDescription;
+    // 분야 카테고리 id
+    private Long fieldCategoryId;
     // 기본 세팅
     private LocalDateTime createDate;
     private LocalDateTime updateDate;

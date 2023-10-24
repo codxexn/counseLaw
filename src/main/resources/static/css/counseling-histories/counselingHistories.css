@@ -1,0 +1,493 @@
+/* 전체 css */
+* {font-family: Pretendard,'Noto Sans KR', sans-serif;}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    line-height: 1;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f1f4f6;
+}
+
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+body {
+    background-color: #fff;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.42857143;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f1f4f6;
+}
+
+body {
+    margin: 0;
+}
+
+*, :after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    display: block;
+    /*margin: 8px;*/
+}
+
+a {
+    cursor: pointer;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a img {
+    border: none;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
+
+div {
+    display: block;
+}
+
+a:active, a:hover {
+    outline: 0;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+
+button, input[type=button], input[type=file]::-webkit-file-upload-button, input[type=reset], input[type=submit] {
+    border-radius: 0;
+}
+
+a, body, button, dd, div, dl, dt, h1, h2, h3, h4, h5, h6, html, label, li, p, span, table, td, tr, ul {
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+}
+
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+button, html input[type=button], input[type=reset], input[type=submit] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+button, select {
+    text-transform: none;
+}
+
+button {
+    overflow: visible;
+}
+
+button, input, optgroup, select, textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+
+/* 상담내역 css */
+
+.History-Wrapper {
+    background-color: #e6e6e6;
+    position: relative;
+    z-index: 0;
+    padding-bottom: 0;
+}
+
+.My-History-Wrapper {
+    background-color: #f4f7f9;
+    min-height: 100vh;
+}
+
+.My-History-Content {
+    margin: 48px auto;
+    width: 720px;
+    background-color: #fff;
+}
+
+.My-History-Content-Not-Empty {
+    margin: 48px auto;
+    width: 720px;
+}
+
+.My-History {
+    background-color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 960px;
+    text-align: center;
+}
+
+.My-History-Not-Empty {
+    display: inline;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 960px;
+    text-align: center;
+}
+
+.My-History-Card-Body {
+    padding: 48px 16px 60px;
+}
+
+.Exclamation-Icon-Wrapper {
+    color: #eee;
+    font-size: 140px;
+    text-rendering: auto;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    font-family: LawCompanyGlyphs;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: inherit;
+    transform: translate(0);
+    vertical-align: top;
+}
+
+.My-History-Empty-Title {
+    color: #222;
+    font-size: 21px;
+    line-height: 28px;
+    margin-top: 32px;
+    font-weight: 700;
+}
+
+.Bang {
+    font-style: italic;
+}
+
+.My-History-Empty-Body {
+    color: #555;
+    font-size: 14px;
+    line-height: 21px;
+    margin-top: 15px;
+}
+
+.My-History-Prev-Link {
+    border: 1px solid #bcbcbc;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+    color: #333;
+    display: inline-block;
+    font-size: 14px;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 30px;
+    text-decoration: none;
+    width: 132px;
+    cursor: pointer;
+}
+
+.My-History-Find-Link {
+    border: 1px solid #c50000;
+    color: #c50000;
+    margin-left: 10px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+    display: inline-block;
+    font-size: 14px;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 30px;
+    text-decoration: none;
+    width: 132px;
+    cursor: pointer;
+}
+
+.My-History-Card-Container {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 7px 8px 0 0;
+}
+
+.My-History-Card-Wrapper {
+    display: inline-block;
+    width: 100%;
+}
+
+.My-History-Card {
+    background: #fff;
+    position: relative;
+    padding: 24px;
+}
+
+
+.My-History-Cancel {
+    display: inline-block;
+    width: 462px;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.My-History-Check {
+    display: inline-block;
+    width: 462px;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.My-History-Cancel-Text-Wrapper {
+    margin-bottom: 14px;
+    font-size: 14px;
+    width: calc(100% - 84px);
+}
+
+.My-History-Check-Text-Wrapper {
+    margin-bottom: 14px;
+    font-size: 14px;
+    width: calc(100% - 84px);
+}
+
+.My-History-Cancel-Icon-Wrapper {
+    display: inline-block;
+    font-family: LawCompanyGlyphs;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: inherit;
+    transform: translate(0);
+    vertical-align: top;
+    margin-top: -2px;
+}
+
+.My-History-Cancel-Icon-Wrapper svg {
+    margin-top: 5px;
+}
+
+.My-History-Check-Icon-Wrapper {
+    display: inline-block;
+    font-family: LawCompanyGlyphs;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: inherit;
+    transform: translate(0);
+    vertical-align: top;
+    margin-top: -2px;
+}
+
+.My-History-Check-Icon-Wrapper svg {
+    color: #00a6ff;
+    margin-top: 5px;
+}
+
+.My-History-Cancel-Text {
+    color: #60666c;
+    font-weight: 800;
+}
+
+.My-History-Check-Text {
+    color: #00a6ff;
+    font-weight: 800;
+}
+
+.My-History-Description {
+    display: inline-block;
+    width: 462px;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.My-History-Name-Wrapper {
+    margin-bottom: 14px;
+    font-size: 16px;
+    width: calc(100% - 84px);
+}
+
+.My-History-Name {
+    color: #333;
+    font-weight: 700;
+}
+
+.My-History-Name-Bold {
+    color: #333;
+    font-weight: 900;
+}
+
+.My-History-Introduction {
+    color: #555;
+    font-size: 14px;
+    line-height: 20px;
+    width: calc(100% - 84px);
+    margin-bottom: 9px;
+}
+
+.My-History-Profile {
+    display: inline-block;
+    position: absolute;
+    right: 60px;
+    margin-top: -42px;
+    top: 40%;
+    width: 162px;
+}
+
+.My-History-Profile-Photo {
+    display: inline;
+    float: right;
+    -webkit-border-radius: 42px;
+    -moz-border-radius: 42px;
+    -ms-border-radius: 42px;
+    -o-border-radius: 42px;
+    border-radius: 42px;
+    height: 100px;
+    margin-right: 24px;
+    width: 100px;
+}
+
+.My-History-Right-Arrow-Icon-Wrapper {
+    color: #7a8287;
+    display: inline-block;
+    font-family: LawCompanyGlyphs;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: inherit;
+    transform: translate(0);
+    vertical-align: top;
+    margin-top: -2px;
+}
+
+.My-History-Right-Arrow-Icon-Wrapper svg {
+    margin-top: 6px;
+}
+
+.My-History-Detail-Table-Wrapper {
+    background: #fff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.My-History-Detail-Title {
+    text-align: left;
+    width: 462px;
+    color: #333;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px solid #c3c4c5;
+    text-align: center;
+    width: 462px;
+    margin: 0 auto;
+    font-size: 15px;
+    line-height: 25px;
+}
+
+th, td {
+    border: 1px solid #c3c4c5;
+    width: 33%;
+    vertical-align: middle;
+    padding: 10px
+}
+
+th {
+    font-weight: 600;
+}
+
+th:first-child, td:first-child {
+    border-right: none;
+}
+
+th:nth-child(2), td:nth-child(2) {
+    border-left: none;
+    border-right: none;
+}
+
+th:last-child, td:last-child {
+    border-left: none;
+}
+
+.My-History-Repeat-Wrapper {
+    background: #fff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.My-History-Repeat-Link-Wrapper {
+    width: 462px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.My-History-Review-Link {
+    background-color: #c50000;
+    color: #fff;
+    width: 150px;
+    height: 40px;
+    font-size: 16px;
+    padding: 9px;
+}
+
+.My-History-Repeat-Link {
+    background-color: #c50000;
+    color: #fff;
+    width: 150px;
+    height: 40px;
+    font-size: 16px;
+    padding: 9px;
+}
+
+
+

@@ -381,7 +381,7 @@ button, input, optgroup, select, textarea {
     justify-content: space-between;
     align-items: center;
     display: flex;
-    margin-top: -62px;
+    margin-top: -38px;
 }
 .member-countWrap {
     font-weight: 700;
@@ -398,6 +398,7 @@ button, input, optgroup, select, textarea {
     fill: #5b44ea;
 }
 .member-condition {
+    margin-top: -24px;
     column-gap: 12px;
 }
 .member-normal {
@@ -466,6 +467,24 @@ button, input, optgroup, select, textarea {
     justify-content: space-between;
     color: #555;
     margin-top: 50px;
+}
+.selectOption {
+    font-size: 14px;
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,.08);
+    overflow-y: scroll;
+    top: 148px;
+    width: 90px;
+}
+.selectButton {
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,.08);
+    top: 148px;
+    width: 50px;
 }
 
 i.bx {
@@ -607,7 +626,6 @@ ol, ul {
 }
 .member-topName {
     width: 183px;
-    margin-left: 41px;
     justify-content: flex-start;
     align-items: center;
     flex-shrink: 0;
@@ -640,4 +658,120 @@ ol, ul {
 .check-word {
     top: 2px;
     font-size: 12px;
+}
+
+
+footer.Footer_Wrapper{
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-flex: 0;
+    width: 100%;
+    padding: 30px 0px;
+    background-color: white;
+}
+
+div.PaginationButtonGroup_PrevButtonWrapper{
+    display: flex;
+    margin-right: 10px;
+}
+
+button.ButtonPage_Styled{
+    width: 40px;
+    height: 40px;
+    line-height: normal;
+    padding: 0px;
+    background-color: white;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 18px;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    outline: none;
+}
+
+.PaginationButtonGroup_Icon{
+    transform: rotate(180deg);
+}
+
+button.ButtonPage_StyledButtonOn{
+    width: 40px;
+    height: 40px;
+    line-height: normal;
+    padding: 0px;
+    background-color: white;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 50%;
+    color: rgb(51, 151, 255);
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    outline: none;
+}
+
+button.ButtonPage_StyledButtonOff{
+    width: 40px;
+    height: 40px;
+    line-height: normal;
+    padding: 0px;
+    background-color: white;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 18px;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    outline: none;
+}
+
+
+div.PaginationButtonGroup_NextButtonWrapper{
+    display: flex;
+    margin-left: 10px;
+}
+
+.detailContent-UnsuspendButton {
+    font-size: 14px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 11px;
+    padding-right: 11px;
+    border-width: 2px;
+    border-radius: 16px;
+    background-color: white;
+    border-color: #008CBA;
+}
+
+.detailContent-UnsuspendButton:hover {
+    background-color: #008CBA;
+    color: white;
+}
+
+.detailContent-SuspendButton {
+    font-size: 14px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 11px;
+    padding-right: 11px;
+    border-width: 2px;
+    border-radius: 16px;
+    background-color: white;
+    color: black;
+    border-color: #f44336;
+}
+
+.detailContent-SuspendButton:hover {
+    background-color: #f44336;
+    color: white;
 }

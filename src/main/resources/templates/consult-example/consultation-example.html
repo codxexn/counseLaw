@@ -215,17 +215,17 @@
                                 <!-- 1-->
                                 <lawyer-case-card th:each="consultCases:${consultCase}"
                                         ng-repeat="caseInCases" case="case" sort="sort" select-context-additional search-keyword="keyword" card-order="1" class="caseCard">
-                                    <a href="../consult-detail/consult-detail.html" class="caseCardLink">
+                                    <a href="/consult-detail/consult-detail" class="caseCardLink">
                                         <div class="caseCardWrap">
                                             <div class="caseCardLine Top">
                                                 <!-- 공란-->
                                             </div>
                                             <!-- 장르-->
-                                            <h5 class="caseKeywords">
-                                                <span class="caseKeyword">
-                                                    손해배상
-                                                </span>
-                                            </h5>
+<!--                                            <h5 class="caseKeywords">-->
+<!--                                                <span class="caseKeyword">-->
+<!--                                                    손해배상-->
+<!--                                                </span>-->
+<!--                                            </h5>-->
                                             <!-- 제목 -->
                                             <div style class="caseCardTitle" th:text="${consultCases.caseTitle}">유부남과의 관계에 대한 법적인 문제 상담
                                             </div>

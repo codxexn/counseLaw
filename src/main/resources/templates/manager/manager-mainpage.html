@@ -68,7 +68,7 @@
                 <ul class="left-list">
                     <li class="left-categories">
                         <!--                        링크 연결 안됨-->
-                        <a href="">
+                        <a href="/manager/manager-mainpage">
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="categories-post">
                                 <path d="M15.078 3.137H8.6a5.6 5.6 0 0 0-5.6 5.6v6.8a5.6 5.6 0 0 0 5.6 5.6h6.8a5.6 5.6 0 0 0 5.6-5.6V8.944l-1.6 1.6v4.993a4 4 0 0 1-4 4H8.6a4 4 0 0 1-4-4v-6.8a4 4 0 0 1 4-4h4.878l1.6-1.6Z"></path>
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -80,7 +80,7 @@
                     <!--                 두 번째 카테고리-->
                     <li class="left-categories">
                         <!--                        링크 연결 안됨-->
-                        <a href="">
+                        <a href=/manager/manager-announcement>
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="categories-announcement">
                                 <path d="M10.457 8.471a1.494 1.494 0 1 1 2.988 0 1.494 1.494 0 0 1-2.988 0ZM10.955 11.459c0-.275.223-.498.498-.498h.996c.275 0 .498.223.498.498v4.979a.498.498 0 0 1-.498.498h-.996a.498.498 0 0 1-.498-.498v-4.98Z"></path>
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -92,7 +92,7 @@
                     <!--                    세 번째 카테고리-->
                     <li class="left-categories">
                         <!--                        링크 연결 안됨-->
-                        <a href="">
+                        <a href="/manager/manager-member">
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="categories-managerment">
                                 <path d="M8.5 11.7h2a6.057 6.057 0 0 1 1.769.265 6.51 6.51 0 0 0-.888 1.335H8.5a4.4 4.4 0 0 0-4.4 4.4v1c0 .22.18.4.4.4h6.881c.295.59.677 1.129 1.129 1.6H4.5a2 2 0 0 1-2-2v-1a6 6 0 0 1 6-6Z"></path>
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -147,16 +147,19 @@
                                 <h1 class="Manager-topWord">작성글 관리</h1>
                                 <div>
                                     <div style="width: 240px; margin-left: 710px;">
-                                        <label class="member-search-label">
-                                            <input class="member-searchBar" type="search" placeholder="작성글 검색">
-                                            <button class="member-search">
-                                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                                                     class="search">
-                                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                                          d="M15.83 16.561a7.8 7.8 0 1 1 1.233-1.312l3.465 3.465a.9.9 0 1 1-1.272 1.273L15.83 16.56Zm1.13-5.961a6.16 6.16 0 1 1-12.32 0 6.16 6.16 0 0 1 12.32 0Z"></path>
-                                                </svg>
-                                            </button>
-                                        </label>
+                                        <form class="SearchForm" id="searchForm">
+                                            <label class="member-search-label">
+                                                <input class="member-searchBar" type="search" placeholder="작성글 검색"
+                                                       id="search_keyword" name="keyword">
+                                                <button class="member-search" type="submit">
+                                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                                         class="search">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                              d="M15.83 16.561a7.8 7.8 0 1 1 1.233-1.312l3.465 3.465a.9.9 0 1 1-1.272 1.273L15.83 16.56Zm1.13-5.961a6.16 6.16 0 1 1-12.32 0 6.16 6.16 0 0 1 12.32 0Z"></path>
+                                                    </svg>
+                                                </button>
+                                            </label>
+                                        </form>
                                     </div>
                                 </div>
                             </header>
@@ -165,49 +168,56 @@
                                 <div class="member-countWrap">
                                     <span class="count-word">전체</span>
                                     <!--이름이랑 후기는 그냥 selectOPtion에서 가져오는 것들 하고 전체일 경우 이름: 전체 count : 다 더하는거-->
-                                    <span class="member-count">0</span>
+                                    <span class="member-count" th:text="${pagination.total}">0</span>
                                 </div>
 
-                                <div class="member-condition">
-                                    <div class="guides-Section-Search-Menu">
-                                        <div class="select-Menu">
-                                            <!--                                            <div class="select-Btn">-->
-                                            <!--                                                <span class="sBtn-Text"><strong>전체</strong></span>-->
-                                            <!--                                                &lt;!&ndash;                                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="filter">&ndash;&gt;-->
-                                            <!--                                                &lt;!&ndash;                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.27 8.42a1.076 1.076 0 0 1 1.587-.13L12 14.832l7.143-6.544a1.076 1.076 0 0 1 1.586.13 1.26 1.26 0 0 1-.122 1.696L12 18l-8.607-7.885A1.26 1.26 0 0 1 3.27 8.42Z"></path>&ndash;&gt;-->
-                                            <!--                                                &lt;!&ndash;                                                </svg>&ndash;&gt;-->
-                                            <!--                                                <i class="bx bx-chevron-down"></i>-->
-                                            <!--                                            </div>-->
+                                <div class="select-Menu">
+                                    <!--                                            <div class="select-Btn">-->
+                                    <!--                                                <span class="sBtn-Text"><strong>전체</strong></span>-->
+                                    <!--                                                &lt;!&ndash;                                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="filter">&ndash;&gt;-->
+                                    <!--                                                &lt;!&ndash;                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.27 8.42a1.076 1.076 0 0 1 1.587-.13L12 14.832l7.143-6.544a1.076 1.076 0 0 1 1.586.13 1.26 1.26 0 0 1-.122 1.696L12 18l-8.607-7.885A1.26 1.26 0 0 1 3.27 8.42Z"></path>&ndash;&gt;-->
+                                    <!--                                                &lt;!&ndash;                                                </svg>&ndash;&gt;-->
+                                    <!--                                                <i class="bx bx-chevron-down"></i>-->
+                                    <!--                                            </div>-->
 
-                                            <form th:action="@{/manager/manager-mainpage}" method="get">
-                                                <select class="selectOption" name="selectedOption">
-                                                    <option value="selectAll" selected>전체</option>
-                                                    <option value="consultingCase">상담사례</option>
-                                                    <option value="solutionCase">해결사례</option>
-                                                    <option value="legalGuide">법률 가이드</option>
-                                                </select>
-                                                <button class="selectButton" type="submit">조회</button>
-                                            </form>
-                                            <!--                                            <ul class="options">-->
-                                            <!--                                                <li class="option">-->
-                                            <!--                                                    <span class="option-Text">전체</span>-->
-                                            <!--                                                </li>-->
-                                            <!--                                                <li class="option">-->
-                                            <!--                                                    <span class="option-Text">상담 사례</span>-->
-                                            <!--                                                </li>-->
-                                            <!--                                                <li class="option">-->
-                                            <!--                                                    <span class="option-Text">해결 사례</span>-->
-                                            <!--                                                </li>-->
-                                            <!--                                                <li class="option">-->
-                                            <!--                                                    <span class="option-Text">법률 가이드</span>-->
-                                            <!--                                                </li>-->
-                                            <!--                                            </ul>-->
-                                        </div>
-                                        <!--                                        <ul class="sort-Options">-->
-                                        <!--                                            <li class="sort-Options-Btn active">최신순</li>-->
-                                        <!--                                            <li class="sort-Options-Btn">조회순</li>-->
-                                        <!--                                        </ul>-->
-                                    </div>
+                                    <form th:action="@{/manager/manager-mainpage}" method="get">
+                                        <select id="selectedOption" class="selectOption" name="selectedOption">
+                                            <option value="selectAll" th:selected="${selectedOption == 'selectAll'}">
+                                                전체
+                                            </option>
+                                            <option value="consultingCase"
+                                                    th:selected="${selectedOption == 'consultingCase'}">상담사례
+                                            </option>
+                                            <option value="solutionCase"
+                                                    th:selected="${selectedOption == 'solutionCase'}">해결사례
+                                            </option>
+                                            <option value="legalGuide" th:selected="${selectedOption == 'legalGuide'}">
+                                                법률 가이드
+                                            </option>
+                                        </select>
+                                        <button class="selectButton" type="submit">조회</button>
+<!--                                        <input type="search" name="keyword" placeholder="검색어 입력">-->
+<!--                                        <button class="search" type="submit">검색</button>-->
+                                    </form>
+                                    <!--                                            <ul class="options">-->
+                                    <!--                                                <li class="option">-->
+                                    <!--                                                    <span class="option-Text">전체</span>-->
+                                    <!--                                                </li>-->
+                                    <!--                                                <li class="option">-->
+                                    <!--                                                    <span class="option-Text">상담 사례</span>-->
+                                    <!--                                                </li>-->
+                                    <!--                                                <li class="option">-->
+                                    <!--                                                    <span class="option-Text">해결 사례</span>-->
+                                    <!--                                                </li>-->
+                                    <!--                                                <li class="option">-->
+                                    <!--                                                    <span class="option-Text">법률 가이드</span>-->
+                                    <!--                                                </li>-->
+                                    <!--                                            </ul>-->
+
+                                    <!--                                        <ul class="sort-Options">-->
+                                    <!--                                            <li class="sort-Options-Btn active">최신순</li>-->
+                                    <!--                                            <li class="sort-Options-Btn">조회순</li>-->
+                                    <!--                                        </ul>-->
 
                                     <!--                                    <div class="member-normal">-->
                                     <!--                                        <div class="normal-Wrap">-->
@@ -230,7 +240,7 @@
                                 <div style="width: 200px;" class="member-name"><strong>제목</strong></div>
                             </div>
                             <div>
-                                <div class="memberTop-bottom" th:if="${#strings.equals(selectedOption, 'selectAll')}"
+                                <div class="memberTop-bottom" th:if="${selectedOption == 'selectAll'}"
                                      th:each="post : ${selectAllPosts}">
                                     <!--                                    <div th:if="${#strings.equals(selectedOption, 'legalGuide')}">-->
                                     <div style="width: 192px" class="posts" th:text="${post.postAuthorName}">한땡땡</div>
@@ -244,11 +254,63 @@
                                     <div style="width: 200px;" class="posts"
                                          th:text="${post.postTitle}">테스트제목1
                                     </div>
-                                    <button>삭제</button>
+                                    <div class="detailContent-Button" th:if="${post.postType == '해결 사례'}">
+                                        <button th:onclick="|deletePost(${post.postId}, 'solutionCase')|"
+                                                class="detailContent-DeleteButton">
+                                            <input type="hidden" th:value="${post.postId}" th:name="solutionCaseId">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                 fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="detailContent-Button" th:if="${post.postType == '법률 가이드'}">
+                                        <button th:onclick="|deletePost(${post.postId}, 'legalGuide')|"
+                                                class="detailContent-DeleteButton">
+                                            <input type="hidden" th:value="${post.postId}" th:name="legalGuideId">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                 fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="detailContent-Button" th:if="${post.postType == '상담 사례'}">
+                                        <button th:onclick="|deletePost(${post.postId}, 'consultingCase')|"
+                                                class="detailContent-DeleteButton">
+                                            <input type="hidden" th:value="${post.postId}" th:name="consultingCaseId">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                 fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
+                            <div th:if="${searchResults != null}">
+                                <h2>게시판별 조회 결과</h2>
+                                <ul>
+                                    <!--                                    <li th:each="post : ${searchResults.solutionCases}">-->
+                                    <!--                                        &lt;!&ndash; 해결 사례 게시판 조회 결과를 나타내는 HTML &ndash;&gt;-->
+                                    <!--                                    </li>-->
+                                    <!--                                    <li th:each="post : ${searchResults.consultingCases}">-->
+                                    <!--                                        &lt;!&ndash; 상담 사례 게시판 조회 결과를 나타내는 HTML &ndash;&gt;-->
+                                    <!--                                    </li>-->
+                                    <li th:each="post : ${searchResults.legalGuides}">
+                                        <div style="width: 192px" class="posts" th:text="${post.lawyerName}">한땡땡
+                                        </div>
+                                        <div style="width: 96px;" class="posts" th:text="|법률 가이드|">법률 가이드</div>
+                                        <div style="width: 127px;" class="posts"
+                                             th:text="${#temporals.format(post.createDate, 'yyyy-MM-dd HH:mm')}">
+                                            2023
+                                        </div>
+                                        <div style="width: 200px;" class="posts"
+                                             th:text="${post.legalGuideTitle}">테스트제목1
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
                             <div>
-                                <div class="memberTop-bottom" th:if="${#strings.equals(selectedOption, 'legalGuide')}"
+                                <div class="memberTop-bottom" th:if="${selectedOption == 'legalGuide'}"
                                      th:each="legalGuidePost : ${legalGuides}">
                                     <!--                                    <div th:if="${#strings.equals(selectedOption, 'legalGuide')}">-->
                                     <div style="width: 192px" class="posts" th:text="${legalGuidePost.lawyerName}">한땡땡
@@ -261,12 +323,47 @@
                                     <div style="width: 200px;" class="posts"
                                          th:text="${legalGuidePost.legalGuideTitle}">테스트제목1
                                     </div>
-                                    <button>삭제</button>
+                                    <div class="detailContent-Button">
+                                        <button th:onclick="|deletePost(${legalGuidePost.legalGuideId}, 'legalGuide')|"
+                                                class="detailContent-DeleteButton">
+                                            <input type="hidden" th:value="${legalGuidePost.legalGuideId}"
+                                                   th:name="legalGuideId">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                 fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
+                            <!--                            검색 때-->
+                            <!--                            <div>-->
+                            <!--                                <div class="memberTop-bottom" th:if="${selectedOption == 'solutionCase'}"-->
+                            <!--                                     th:each="solutionCaseResult : ${searchSolutionCaseResults}">-->
+                            <!--                                    &lt;!&ndash;                                    <div th:if="${#strings.equals(selectedOption, 'legalGuide')}">&ndash;&gt;-->
+                            <!--                                    <div style="width: 192px" class="posts"-->
+                            <!--                                         th:text="${solutionCaseResult.lawyerName}">한땡땡-->
+                            <!--                                    </div>-->
+                            <!--                                    <div style="width: 96px;" class="posts" th:text="|해결 사례|">해결 사례</div>-->
+                            <!--                                    <div style="width: 127px;" class="posts"-->
+                            <!--                                         th:text="${#temporals.format(solutionCaseResult.createDate, 'yyyy-MM-dd HH:mm')}">-->
+                            <!--                                        2023-->
+                            <!--                                    </div>-->
+                            <!--                                    <div style="width: 200px;" class="posts"-->
+                            <!--                                         th:text="${solutionCaseResult.solutionCaseTitle}">테스트제목1-->
+                            <!--                                    </div>-->
+                            <!--                                    <div class="detailContent-Button">-->
+                            <!--                                        <button onclick="deletePost()" class="detailContent-DeleteButton">-->
+                            <!--                                            <input type="hidden" th:value="${session.postId}" th:name="postId">-->
+                            <!--                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">-->
+                            <!--                                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>-->
+                            <!--                                            </svg>-->
+                            <!--                                        </button>-->
+                            <!--                                    </div>-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
                             <div>
-                                <div class="memberTop-bottom"
-                                     th:if="${#strings.equals(selectedOption, 'solutionCase')}"
+                                <div class="memberTop-bottom" th:if="${selectedOption == 'solutionCase'}"
                                      th:each="solutionCasePost : ${solutionCases}">
                                     <!--                                    <div th:if="${#strings.equals(selectedOption, 'legalGuide')}">-->
                                     <div style="width: 192px" class="posts"
@@ -280,12 +377,49 @@
                                     <div style="width: 200px;" class="posts"
                                          th:text="${solutionCasePost.solutionCaseTitle}">테스트제목1
                                     </div>
-                                    <button>삭제</button>
+                                    <div class="detailContent-Button">
+                                        <button th:onclick="|deletePost(${solutionCasePost.solutionCaseId}, 'solutionCase')|"
+                                                class="detailContent-DeleteButton">
+                                            <input type="hidden" th:value="${solutionCasePost.solutionCaseId}"
+                                                   th:name="solutionCaseId">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                 fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
+                            <!--                            검색 때-->
+                            <!--                            <div>-->
+                            <!--                                <div class="memberTop-bottom"-->
+                            <!--                                     th:if="${selectedOption == 'consultingCase'}"-->
+                            <!--                                     th:each="consultingCaseResult : ${searchConsultingCaseResults}">-->
+                            <!--                                    &lt;!&ndash;                                    <div th:if="${#strings.equals(selectedOption, 'legalGuide')}">&ndash;&gt;-->
+                            <!--                                    <div style="width: 192px" class="posts"-->
+                            <!--                                         th:text="${consultingCaseResult.memberName}">한땡땡-->
+                            <!--                                    </div>-->
+                            <!--                                    <div style="width: 96px;" class="posts" th:text="|상담 사례|">상담 사례</div>-->
+                            <!--                                    <div style="width: 127px;" class="posts"-->
+                            <!--                                         th:text="${#temporals.format(consultingCaseResult.createDate, 'yyyy-MM-dd HH:mm')}">-->
+                            <!--                                        2023-->
+                            <!--                                    </div>-->
+                            <!--                                    <div style="width: 200px;" class="posts"-->
+                            <!--                                         th:text="${consultingCaseResult.caseTitle}">테스트제목1-->
+                            <!--                                    </div>-->
+                            <!--                                    <div class="detailContent-Button">-->
+                            <!--                                        <button onclick="deletePost()" class="detailContent-DeleteButton">-->
+                            <!--                                            <input type="hidden" th:value="${session.postId}" th:name="postId">-->
+                            <!--                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">-->
+                            <!--                                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>-->
+                            <!--                                            </svg>-->
+                            <!--                                        </button>-->
+                            <!--                                    </div>-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
                             <div>
                                 <div class="memberTop-bottom"
-                                     th:if="${#strings.equals(selectedOption, 'consultingCase')}"
+                                     th:if="${selectedOption == 'consultingCase'}"
                                      th:each="consultingCasePost : ${consultingCases}">
                                     <!--                                    <div th:if="${#strings.equals(selectedOption, 'legalGuide')}">-->
                                     <div style="width: 192px" class="posts"
@@ -299,7 +433,17 @@
                                     <div style="width: 200px;" class="posts"
                                          th:text="${consultingCasePost.caseTitle}">테스트제목1
                                     </div>
-                                    <button>삭제</button>
+                                    <div class="detailContent-Button">
+                                        <button th:onclick="|deletePost(${consultingCasePost.consultingCaseId}, 'consultingCase')|"
+                                                class="detailContent-DeleteButton">
+                                            <input type="hidden" th:value="${consultingCasePost.consultingCaseId}"
+                                                   th:name="consultingCaseId">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                 fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                             <!--                                <div class="posts-wrapper" th:if="${#strings.equals(selectedOption, '상담사례')}">-->
@@ -311,7 +455,7 @@
                             <!--                                </div>-->
                             <!--                        멤버 목록-->
                             <div class="member-bottom"
-                                 th:if="${selectAllPosts == null &&   legalGuides == null && solutionCases == null && consultingCases == null}">
+                                 th:if="${pagination.total == 0}">
                                 <svg width="53" height="56" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M27.516 1.62c-6.654-4.436-21.823.626-21.821 10.475 0 5.567 1.956 10.31 3.889 14.205-1.403-.463-2.853-1.072-3.8-2.095-.466-.502-1.151-1.115-1.802-1.35-.993-.358-2.035.135-2.572.923-1.212 1.776-1.071 2.717-.403 4.643 4.364 5.647 8.167 5.53 11.275 5.435.286-.009.566-.017.84-.021.897 3.13 2.706 6.042 4.099 8.965 1.617 5.694 9.313 4.544 12.913 1.697 2.3-1.819 5.187-2.36 8.117-1.475 2.303.419 3.88-.68 5.236-1.624 1.031-.72 1.934-1.348 2.93-1.149 1.19.238 2.511.191 2.718-1.307.521-3.781-8.391-5.535-11.284-7.062 4.98-2.883 7.416-7.67 6.968-10.861-.31-2.2-2.168-2.967-4.076-1.773-2.206 1.38-2.758 3.32-5.42 4.348 1.822-6.821 3.386-14.515-7.807-21.975Z"
                                           fill="#9D8DFF"></path>
@@ -328,110 +472,111 @@
                                 <p class="member-nolist">작성글이 없습니다</p>
                             </div>
 
-<!--                            <footer class="Footer_Wrapper" th:with="start=${pagination.startPage},-->
-<!--                    last=(${pagination.endPage})">-->
+                            <!--                            <footer class="Footer_Wrapper" th:with="start=${pagination.startPage},-->
+                            <!--                    last=(${pagination.endPage})">-->
 
-<!--                                <div class="PaginationButtonGroup_PrevButtonWrapper">-->
-<!--                                    <button th:if="${pagination.page == start}" disabled width="40px" height="40px"-->
-<!--                                            font-size="18px"-->
-<!--                                            id="prevprev_button" class="ButtonPage_Styled">-->
-<!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath fill='%23FFF' fill-opacity='0' fill-rule='nonzero' d='M0 0h40v40H0z'/%3E %3Cpath stroke='%23DDD' stroke-width='1.5' d='M16 16l4 4-4 4M21 16l4 4-4 4'/%3E %3C/g%3E %3C/svg%3E"-->
-<!--                                             class="PaginationButtonGroup_Icon">-->
-<!--                                    </button>-->
-<!--                                    <button th:if="${pagination.page != start}"-->
-<!--                                            th:onclick="'location.href=\'/manager/manager-mainpage?selectedOption=' + ${selectedOption} + '&page=' + ${start}'"-->
-<!--                                            width="40px" height="40px" font-size="18px" id="prevprev_button"-->
-<!--                                            style="cursor: pointer;"-->
-<!--                                            class="ButtonPage_Styled">-->
-<!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Crect width='40' height='40' fill='%23FFF' fill-opacity='0' fill-rule='nonzero' rx='20'/%3E %3Cg stroke='%23000' stroke-width='1.5'%3E %3Cpath d='M16 16l4 4-4 4M21 16l4 4-4 4'/%3E %3C/g%3E %3C/g%3E %3C/svg%3E"-->
-<!--                                             class="PaginationButtonGroup_Icon">-->
-<!--                                    </button>-->
-<!--                                    <button th:if="${pagination.page == start}" disabled width="40px" height="40px"-->
-<!--                                            font-size="18px"-->
-<!--                                            class="ButtonPage_Styled" id="prev_button">-->
-<!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath fill='none' d='M0 0h40v40H0z'/%3E %3Cpath stroke='%23DDD' stroke-width='1.5' d='M18 16l4 4-4 4'/%3E %3C/g%3E %3C/svg%3E"-->
-<!--                                             class="PaginationButtonGroup_Icon">-->
-<!--                                    </button>-->
-<!--                                    <button th:if="${pagination.page != start}"-->
-<!--                                            th:onclick="'location.href=\'/manager/manager-mainpage?selectedOption=' + ${selectedOption} + '&page=' + ${pagination.page - 1}'"-->
-<!--                                            width="40px" height="40px" font-size="18px" class="ButtonPage_Styled"-->
-<!--                                            id="prev_button">-->
-<!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath d='M18 0H0v18h18z'/%3E %3Cpath stroke='%23000' stroke-width='1.5' d='M7 5l4 4-4 4'/%3E %3C/g%3E %3C/svg%3E"-->
-<!--                                             class="PaginationButtonGroup_Icon">-->
-<!--                                    </button>-->
-<!--                                </div>-->
+                            <!--                                <div class="PaginationButtonGroup_PrevButtonWrapper">-->
+                            <!--                                    <button th:if="${pagination.page == start}" disabled width="40px" height="40px"-->
+                            <!--                                            font-size="18px"-->
+                            <!--                                            id="prevprev_button" class="ButtonPage_Styled">-->
+                            <!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath fill='%23FFF' fill-opacity='0' fill-rule='nonzero' d='M0 0h40v40H0z'/%3E %3Cpath stroke='%23DDD' stroke-width='1.5' d='M16 16l4 4-4 4M21 16l4 4-4 4'/%3E %3C/g%3E %3C/svg%3E"-->
+                            <!--                                             class="PaginationButtonGroup_Icon">-->
+                            <!--                                    </button>-->
+                            <!--                                    <button th:if="${pagination.page != start}"-->
+                            <!--                                            th:onclick="'location.href=\'/manager/manager-mainpage?selectedOption=' + ${selectedOption} + '&page=' + ${start}'"-->
+                            <!--                                            width="40px" height="40px" font-size="18px" id="prevprev_button"-->
+                            <!--                                            style="cursor: pointer;"-->
+                            <!--                                            class="ButtonPage_Styled">-->
+                            <!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Crect width='40' height='40' fill='%23FFF' fill-opacity='0' fill-rule='nonzero' rx='20'/%3E %3Cg stroke='%23000' stroke-width='1.5'%3E %3Cpath d='M16 16l4 4-4 4M21 16l4 4-4 4'/%3E %3C/g%3E %3C/g%3E %3C/svg%3E"-->
+                            <!--                                             class="PaginationButtonGroup_Icon">-->
+                            <!--                                    </button>-->
+                            <!--                                    <button th:if="${pagination.page == start}" disabled width="40px" height="40px"-->
+                            <!--                                            font-size="18px"-->
+                            <!--                                            class="ButtonPage_Styled" id="prev_button">-->
+                            <!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath fill='none' d='M0 0h40v40H0z'/%3E %3Cpath stroke='%23DDD' stroke-width='1.5' d='M18 16l4 4-4 4'/%3E %3C/g%3E %3C/svg%3E"-->
+                            <!--                                             class="PaginationButtonGroup_Icon">-->
+                            <!--                                    </button>-->
+                            <!--                                    <button th:if="${pagination.page != start}"-->
+                            <!--                                            th:onclick="'location.href=\'/manager/manager-mainpage?selectedOption=' + ${selectedOption} + '&page=' + ${pagination.page - 1}'"-->
+                            <!--                                            width="40px" height="40px" font-size="18px" class="ButtonPage_Styled"-->
+                            <!--                                            id="prev_button">-->
+                            <!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath d='M18 0H0v18h18z'/%3E %3Cpath stroke='%23000' stroke-width='1.5' d='M7 5l4 4-4 4'/%3E %3C/g%3E %3C/svg%3E"-->
+                            <!--                                             class="PaginationButtonGroup_Icon">-->
+                            <!--                                    </button>-->
+                            <!--                                </div>-->
 
-<!--                                &lt;!&ndash; 중간 페이지 버튼 (1부터 마지막 페이지까지) &ndash;&gt;-->
-<!--                                <button th:each="buttonpage: ${#numbers.sequence(start, last)}" class="footerButton"-->
-<!--                                        th:class="${buttonpage == pagination.page ? 'ButtonPage_StyledButtonOn' : 'ButtonPage_StyledButtonOff'}">-->
-<!--                                    <a th:text="${buttonpage}"-->
-<!--                                       th:href="@{/manager/manager-mainpage(selectedOption=${selectedOption}, page=${buttonpage})}">Link-->
-<!--                                        Text</a>-->
-<!--                                </button>-->
+                            <!--                                &lt;!&ndash; 중간 페이지 버튼 (1부터 마지막 페이지까지) &ndash;&gt;-->
+                            <!--                                <button th:each="buttonpage: ${#numbers.sequence(start, last)}" class="footerButton"-->
+                            <!--                                        th:class="${buttonpage == pagination.page ? 'ButtonPage_StyledButtonOn' : 'ButtonPage_StyledButtonOff'}">-->
+                            <!--                                    <a th:text="${buttonpage}"-->
+                            <!--                                       th:href="@{/manager/manager-mainpage(selectedOption=${selectedOption}, page=${buttonpage})}">Link-->
+                            <!--                                        Text</a>-->
+                            <!--                                </button>-->
 
-<!--                                &lt;!&ndash; 다음 페이지 버튼 &ndash;&gt;-->
-<!--                                <div class="PaginationButtonGroup_NextButtonWrapper">-->
-<!--                                    <button th:if="${pagination.page == last}" disabled width="40px" height="40px"-->
-<!--                                            font-size="18px"-->
-<!--                                            class="ButtonPage_Styled" id="next_button">-->
-<!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath fill='none' d='M0 0h40v40H0z'/%3E %3Cpath stroke='%23DDD' stroke-width='1.5' d='M18 16l4 4-4 4'/%3E %3C/g%3E %3C/svg%3E"-->
-<!--                                             class="" id="next_button">-->
-<!--                                    </button>-->
-<!--                                    <button th:if="${pagination.page != last}"-->
-<!--                                            th:onclick="'location.href=\'/manager/manager-mainpage?selectedOption=' + ${selectedOption} + '&page=' + ${pagination.page + 1}'"-->
-<!--                                            width="40px" height="40px" font-size="18px" class="ButtonPage_Styled"-->
-<!--                                            id="next_button">-->
-<!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath d='M18 0H0v18h18z'/%3E %3Cpath stroke='%23000' stroke-width='1.5' d='M7 5l4 4-4 4'/%3E %3C/g%3E %3C/svg%3E"-->
-<!--                                             class="" id="next_button">-->
-<!--                                    </button>-->
-<!--                                    <button th:if="${pagination.page == last}" disabled width="40px" height="40px"-->
-<!--                                            font-size="18px"-->
-<!--                                            class="ButtonPage_Styled" id="nextnext_button">-->
-<!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath fill='%23FFF' fill-opacity='0' fill-rule='nonzero' d='M0 0h40v40H0z'/%3E %3Cpath stroke='%23DDD' stroke-width='1.5' d='M16 16l4 4-4 4M21 16l4 4-4 4'/%3E %3C/g%3E %3C/svg%3E"-->
-<!--                                             class="" id="nextnext_button">-->
-<!--                                    </button>-->
-<!--                                    <button th:if="${pagination.page != last}"-->
-<!--                                            th:onclick="'location.href=\'/manager/manager-mainpage?selectedOption=' + ${selectedOption} + '&page=' + ${pagination.realEnd}'"-->
-<!--                                            width="40px" height="40px" font-size="18px" class="ButtonPage_Styled"-->
-<!--                                            id="nextnext_button">-->
-<!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Crect width='40' height='40' fill='%23FFF' fill-opacity='0' fill-rule='nonzero' rx='20'/%3E %3Cg stroke='%23000' stroke-width='1.5'%3E %3Cpath d='M16 16l4 4-4 4M21 16l4 4-4 4'/%3E %3C/g%3E %3C/g%3E %3C/svg%3E"-->
-<!--                                             class="PaginationButtonGroup_Icon" id="nextnext_button">-->
-<!--                                    </button>-->
-<!--                                </div>-->
-<!--                            </footer>-->
-<!--                            <footer class="Footer_Wrapper">-->
-<!--                                <div class="PaginationButtonGroup_PrevButtonWrapper">-->
-<!--                                    <button th:disabled="${!pagination.prev}" class="ButtonPage_Styled" onclick="navigatePage('[[${selectedOption}]]', [[${pagination.startPage}]])">-->
-<!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath fill='%23FFF' fill-opacity='0' fill-rule='nonzero' d='M0 0h40v40H0z'/%3E %3Cpath stroke='%23DDD' stroke-width='1.5' d='M16 16l4 4-4 4M21 16l4 4-4 4'/%3E %3C/g%3E %3C/svg%3E" class="PaginationButtonGroup_Icon">-->
-<!--                                    </button>-->
-<!--                                    <button th:disabled="${!pagination.prev}" class="ButtonPage_Styled" onclick="navigatePage('[[${selectedOption}]]', [[${pagination.page - 1}]])">-->
-<!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath fill='none' d='M0 0h40v40H0z'/%3E %3Cpath stroke='%23DDD' stroke-width='1.5' d='M18 16l4 4-4 4'/%3E %3C/g%3E %3C/svg%3E" class="PaginationButtonGroup_Icon">-->
-<!--                                    </button>-->
-<!--                                </div>-->
+                            <!--                                &lt;!&ndash; 다음 페이지 버튼 &ndash;&gt;-->
+                            <!--                                <div class="PaginationButtonGroup_NextButtonWrapper">-->
+                            <!--                                    <button th:if="${pagination.page == last}" disabled width="40px" height="40px"-->
+                            <!--                                            font-size="18px"-->
+                            <!--                                            class="ButtonPage_Styled" id="next_button">-->
+                            <!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath fill='none' d='M0 0h40v40H0z'/%3E %3Cpath stroke='%23DDD' stroke-width='1.5' d='M18 16l4 4-4 4'/%3E %3C/g%3E %3C/svg%3E"-->
+                            <!--                                             class="" id="next_button">-->
+                            <!--                                    </button>-->
+                            <!--                                    <button th:if="${pagination.page != last}"-->
+                            <!--                                            th:onclick="'location.href=\'/manager/manager-mainpage?selectedOption=' + ${selectedOption} + '&page=' + ${pagination.page + 1}'"-->
+                            <!--                                            width="40px" height="40px" font-size="18px" class="ButtonPage_Styled"-->
+                            <!--                                            id="next_button">-->
+                            <!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath d='M18 0H0v18h18z'/%3E %3Cpath stroke='%23000' stroke-width='1.5' d='M7 5l4 4-4 4'/%3E %3C/g%3E %3C/svg%3E"-->
+                            <!--                                             class="" id="next_button">-->
+                            <!--                                    </button>-->
+                            <!--                                    <button th:if="${pagination.page == last}" disabled width="40px" height="40px"-->
+                            <!--                                            font-size="18px"-->
+                            <!--                                            class="ButtonPage_Styled" id="nextnext_button">-->
+                            <!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath fill='%23FFF' fill-opacity='0' fill-rule='nonzero' d='M0 0h40v40H0z'/%3E %3Cpath stroke='%23DDD' stroke-width='1.5' d='M16 16l4 4-4 4M21 16l4 4-4 4'/%3E %3C/g%3E %3C/svg%3E"-->
+                            <!--                                             class="" id="nextnext_button">-->
+                            <!--                                    </button>-->
+                            <!--                                    <button th:if="${pagination.page != last}"-->
+                            <!--                                            th:onclick="'location.href=\'/manager/manager-mainpage?selectedOption=' + ${selectedOption} + '&page=' + ${pagination.realEnd}'"-->
+                            <!--                                            width="40px" height="40px" font-size="18px" class="ButtonPage_Styled"-->
+                            <!--                                            id="nextnext_button">-->
+                            <!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Crect width='40' height='40' fill='%23FFF' fill-opacity='0' fill-rule='nonzero' rx='20'/%3E %3Cg stroke='%23000' stroke-width='1.5'%3E %3Cpath d='M16 16l4 4-4 4M21 16l4 4-4 4'/%3E %3C/g%3E %3C/g%3E %3C/svg%3E"-->
+                            <!--                                             class="PaginationButtonGroup_Icon" id="nextnext_button">-->
+                            <!--                                    </button>-->
+                            <!--                                </div>-->
+                            <!--                            </footer>-->
+                            <!--                            <footer class="Footer_Wrapper">-->
+                            <!--                                <div class="PaginationButtonGroup_PrevButtonWrapper">-->
+                            <!--                                    <button th:disabled="${!pagination.prev}" class="ButtonPage_Styled" onclick="navigatePage('[[${selectedOption}]]', [[${pagination.startPage}]])">-->
+                            <!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath fill='%23FFF' fill-opacity='0' fill-rule='nonzero' d='M0 0h40v40H0z'/%3E %3Cpath stroke='%23DDD' stroke-width='1.5' d='M16 16l4 4-4 4M21 16l4 4-4 4'/%3E %3C/g%3E %3C/svg%3E" class="PaginationButtonGroup_Icon">-->
+                            <!--                                    </button>-->
+                            <!--                                    <button th:disabled="${!pagination.prev}" class="ButtonPage_Styled" onclick="navigatePage('[[${selectedOption}]]', [[${pagination.page - 1}]])">-->
+                            <!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath fill='none' d='M0 0h40v40H0z'/%3E %3Cpath stroke='%23DDD' stroke-width='1.5' d='M18 16l4 4-4 4'/%3E %3C/g%3E %3C/svg%3E" class="PaginationButtonGroup_Icon">-->
+                            <!--                                    </button>-->
+                            <!--                                </div>-->
 
-<!--                                &lt;!&ndash; 중간 페이지 버튼 &ndash;&gt;-->
-<!--                                <button th:each="buttonpage: ${#numbers.sequence(pagination.startPage, pagination.endPage)}" class="footerButton"-->
-<!--                                        th:class="${buttonpage == pagination.page ? 'ButtonPage_StyledButtonOn' : 'ButtonPage_StyledButtonOff'}">-->
-<!--                                    <a th:text="${buttonpage}" th:href="@{/manager/manager-mainpage(selectedOption=${selectedOption}, page=${buttonpage})}">[[${buttonpage}]]</a>-->
-<!--                                </button>-->
+                            <!--                                &lt;!&ndash; 중간 페이지 버튼 &ndash;&gt;-->
+                            <!--                                <button th:each="buttonpage: ${#numbers.sequence(pagination.startPage, pagination.endPage)}" class="footerButton"-->
+                            <!--                                        th:class="${buttonpage == pagination.page ? 'ButtonPage_StyledButtonOn' : 'ButtonPage_StyledButtonOff'}">-->
+                            <!--                                    <a th:text="${buttonpage}" th:href="@{/manager/manager-mainpage(selectedOption=${selectedOption}, page=${buttonpage})}">[[${buttonpage}]]</a>-->
+                            <!--                                </button>-->
 
-<!--                                &lt;!&ndash; 다음 페이지 버튼 &ndash;&gt;-->
-<!--                                <div class="PaginationButtonGroup_NextButtonWrapper">-->
-<!--                                    <button th:disabled="${!pagination.next}" class="ButtonPage_Styled" onclick="navigatePage('[[${selectedOption}]]', [[${pagination.page + 1}]])">-->
-<!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath d='M18 0H0v18h18z'/%3E %3Cpath stroke='%23000' stroke-width='1.5' d='M7 5l4 4-4 4'/%3E %3C/g%3E %3C/svg%3E">-->
-<!--                                    </button>-->
-<!--                                    <button th:disabled="${!pagination.next}" class="ButtonPage_Styled" onclick="navigatePage('[[${selectedOption}]]', [[${pagination.realEnd}]])">-->
-<!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Crect width='40' height='40' fill='%23FFF' fill-opacity='0' fill-rule='nonzero' rx='20'/%3E %3Cg stroke='%23000' stroke-width='1.5'%3E %3Cpath d='M16 16l4 4-4 4M21 16l4 4-4 4'/%3E %3C/g%3E %3C/g%3E %3C/svg%3E">-->
-<!--                                    </button>-->
-<!--                                </div>-->
-<!--                            </footer>-->
-                            <footer class="Footer_Wrapper" th:with="start=${pagination.startPage}, last=(${pagination.endPage})">
+                            <!--                                &lt;!&ndash; 다음 페이지 버튼 &ndash;&gt;-->
+                            <!--                                <div class="PaginationButtonGroup_NextButtonWrapper">-->
+                            <!--                                    <button th:disabled="${!pagination.next}" class="ButtonPage_Styled" onclick="navigatePage('[[${selectedOption}]]', [[${pagination.page + 1}]])">-->
+                            <!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath d='M18 0H0v18h18z'/%3E %3Cpath stroke='%23000' stroke-width='1.5' d='M7 5l4 4-4 4'/%3E %3C/g%3E %3C/svg%3E">-->
+                            <!--                                    </button>-->
+                            <!--                                    <button th:disabled="${!pagination.next}" class="ButtonPage_Styled" onclick="navigatePage('[[${selectedOption}]]', [[${pagination.realEnd}]])">-->
+                            <!--                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Crect width='40' height='40' fill='%23FFF' fill-opacity='0' fill-rule='nonzero' rx='20'/%3E %3Cg stroke='%23000' stroke-width='1.5'%3E %3Cpath d='M16 16l4 4-4 4M21 16l4 4-4 4'/%3E %3C/g%3E %3C/g%3E %3C/svg%3E">-->
+                            <!--                                    </button>-->
+                            <!--                                </div>-->
+                            <!--                            </footer>-->
+                            <footer class="Footer_Wrapper"
+                                    th:with="start=${pagination.startPage}, last=(${pagination.endPage})">
                                 <div class="PaginationButtonGroup_PrevButtonWrapper">
                                     <button th:if="${pagination.page != start}"
-                                            th:onclick="'location.href=\'' + @{/manager/manager-mainpage(selectedOption=${selectedOption}, page=${pagination.page - 1})} + '\''">
+                                            th:onclick="'location.href=\'' + @{/manager/manager-mainpage(selectedOption=${selectedOption}, keyword=${keyword}, page=${pagination.page - 1})} + '\''">
                                         Previous
                                     </button>
-                                    <button th:if="${pagination.page == start}" disabled>
+                                    <button th:if="${pagination.page == start}" style="display: none" disabled>
                                         Previous
                                     </button>
                                 </div>
@@ -439,15 +584,16 @@
                                 <!-- 중간 페이지 버튼 (1부터 마지막 페이지까지) -->
                                 <button th:each="buttonpage: ${#numbers.sequence(start, last)}" class="footerButton"
                                         th:class="${buttonpage == pagination.page ? 'ButtonPage_StyledButtonOn' : 'ButtonPage_StyledButtonOff'}">
-                                    <a th:text="${buttonpage}" th:href="@{/manager/manager-mainpage(selectedOption=${selectedOption}, page=${buttonpage})}">[[${buttonpage}]]</a>
+                                    <a th:text="${buttonpage}"
+                                       th:href="@{/manager/manager-mainpage(selectedOption=${selectedOption}, keyword=${keyword}, page=${buttonpage})}">[[${buttonpage}]]</a>
                                 </button>
 
                                 <div class="PaginationButtonGroup_NextButtonWrapper">
                                     <button th:if="${pagination.page != last}"
-                                            th:onclick="'location.href=\'' + @{/manager/manager-mainpage(selectedOption=${selectedOption}, page=${pagination.page + 1})} + '\''">
+                                            th:onclick="'location.href=\'' + @{/manager/manager-mainpage(selectedOption=${selectedOption}, keyword=${keyword}, page=${pagination.page + 1})} + '\''">
                                         Next
                                     </button>
-                                    <button th:if="${pagination.page == last}" disabled>
+                                    <button th:if="${pagination.page == last}" style="display: none" disabled>
                                         Next
                                     </button>
                                 </div>
@@ -459,6 +605,7 @@
         </div>
     </div>
 </div>
-<script src="/js/Manager/Manager.js"></script>
 </body>
+<script src="/js/Manager/Manager.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </html>

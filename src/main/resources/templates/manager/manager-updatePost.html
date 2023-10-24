@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>공지사항 작성</title>
+    <link rel="stylesheet" href="/css/Manager-announcement/Manager-announcement.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css">
+</head>
+<body class="h-full">
+<div class="Web">
+    <div class="flex-h-screen">
+        <!-- 네비 -->
+        <nav class="header-nav">
+            <div>
+                <div class="nav-logo">
+                    <!-- 메인페이지로 연결되도록 링크 연결 필요 -->
+                    <a th:href="@{/}">
+                        <img class="counseLaw-logo" src="/image/Manager-announcement/counseLaw.png" alt="카운슬로우 로고 이미지">
+                    </a>
+                    <div class="logo-l">|</div>
+                    <div class="nav-PageName">
+                        <span>Manager Page</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!--        네비 끝-->
+        <!--        작성 페이지 시작-->
+        <header class="post-postWrap">
+            <div class="post-backWrap">
+                <div class="post-back">
+                    <a href="/manager/manager-announcement">
+                        <button class="back-button">
+                            <svg viewBox="0 0 17 16" xmlns="http://www.w3.org/2000/svg" class="back-SVG">
+                                <path d="M13.833 8a.667.667 0 0 0-.666-.667H5.72L8.973 4.08a.667.667 0 1 0-.943-.943L3.167 8l4.863 4.863a.665.665 0 0 0 .94-.94L5.72 8.667h7.447A.667.667 0 0 0 13.833 8Z"></path>
+                            </svg>
+                        </button>
+                    </a>
+                    <h1 class="h1-font">공지사항</h1>
+                </div>
+                <div class="post-saveWrap">
+                    <div>
+                        <button class="post-post" type="submit" form="post" disabled>수정</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="post-header-line"></div>
+        <!--        헤더 끝, 메인 시작-->
+        <main class="post-main">
+            <div class="post-writeWrap">
+                <section class="post-left">
+                    <!--                    제목 입력-->
+                    <form id="post" th:action="@{/manager/manager-updatePost}" method="post"
+                          enctype="multipart/form-data">
+                        <input type="hidden" name="noticeId" th:name="noticeId" th:value="${foundNotice.noticeId}">
+                        <div class="post-title">
+                            <div>
+                                <label class="title-blank">
+                                    <input type="text" class="title-text" th:name="noticeTitle"
+                                           th:value="${foundNotice.noticeTitle}"
+                                           placeholder="제목을 입력해주세요">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="title-underline"></div>
+                        <div>
+                            <div style="margin-bottom: 48px">
+                                <div class="post-detailWrap">
+                                    <textarea rows="20" cols="55" placeholder="본문 내용을 입력하세요"
+                                              class="post-mainPost" th:name="noticeContent"
+                                              th:value="${foundNotice.noticeContent}"
+                                              th:text="${foundNotice.noticeContent}"></textarea>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+                <section></section>
+            </div>
+        </main>
+        <!- 전체 div 2개-->
+    </div>
+</div>
+<script src="/js/Manager-announcement/Manager-post.js"></script>
+</body>
+</html>

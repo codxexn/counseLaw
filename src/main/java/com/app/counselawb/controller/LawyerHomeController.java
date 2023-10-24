@@ -1,13 +1,29 @@
 package com.app.counselawb.controller;
 
 
+import com.app.counselawb.domain.dto.AveragePriceDTO;
+import com.app.counselawb.domain.dto.LawyerFieldDTO;
+import com.app.counselawb.domain.dto.LawyerReplyDTO;
+import com.app.counselawb.domain.dto.LawyerReviewDTO;
+import com.app.counselawb.domain.pagination.Pagination;
+import com.app.counselawb.domain.vo.*;
+import com.app.counselawb.service.ConsultingReviewService;
+import com.app.counselawb.service.LawyerHomeService;
+import com.app.counselawb.service.LawyerService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+import java.lang.reflect.Member;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Controller
 @Slf4j
@@ -15,7 +31,185 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/lawyer-home/*")
 public class LawyerHomeController {
     private HttpSession session;
+    private final LawyerService lawyerService;
+    private final ConsultingReviewService consultingReviewService;
+    private final LawyerHomeService lawyerHomeService;
 
     @GetMapping("lawyer-home")
-    public void GoToLawyerHome(){;}
+    public void GoToLawyerHome(@RequestParam("lawyerId") Long lawyerId, Model model, LawyerVO lawyerVO, MemberVO memberVO){
+        // 변호사
+        Optional<LawyerVO> foundLawyer = lawyerService.findByLawyerId(lawyerId);
+        StringBuilder sb = new StringBuilder();
+        if (foundLawyer.isPresent()){
+            LawyerVO lawyer = foundLawyer.get();
+            String lawyerIntroduction = lawyer.getLawyerIntroduction();
+            if (lawyerIntroduction.charAt(lawyerIntroduction.length()-1) == '.'){
+                sb.append(lawyerIntroduction);
+                sb.deleteCharAt(sb.length()-1);
+                lawyer.setLawyerIntroduction(sb.toString());
+            }
+            model.addAttribute("selectedLawyer", lawyer);
+        } else {
+            model.addAttribute("selectedLawyer", null);
+        }
+        // 변호사 id
+        model.addAttribute("lawyerId", lawyerId);
+        // 의뢰인 후기 개수
+        int reviewCount = consultingReviewService.findReviewCountsByLawyerId(lawyerId);
+        model.addAttribute("reviewCount", reviewCount);
+        // 변호사 프사 경로
+        String lawyerProfilePath = lawyerService.findProfileImage(lawyerId);
+        model.addAttribute("profilePath", lawyerProfilePath);
+        // 변호사 분야
+        List<LawyerFieldDTO> foundFields = lawyerService.findFieldsByLawyerId(lawyerId);
+        sb = new StringBuilder();
+        for (int i=0; i < foundFields.size(); i++){
+            sb.append(foundFields.get(i).getFieldTitle());
+            if (i < foundFields.size()-1) sb.append(", ");
+        }
+        model.addAttribute("fields", sb.toString());
+        // 변호사 경력
+        List<ExperienceVO> foundExperiences = lawyerService.findCareersByLawyerId(lawyerId);
+        model.addAttribute("careers", foundExperiences);
+        // 변호사 상담사례 답글 (3개)
+        List<LawyerReplyDTO> foundCaseReplies = lawyerHomeService.findCasesAndRepliesByLawyerId(lawyerId);
+        model.addAttribute("caseReplies", foundCaseReplies);
+        // 상담사례 답글 단 개수
+        int replyCount = lawyerService.findReplyCountByLawyerId(lawyerId);
+        model.addAttribute("replyCount", replyCount);
+        // 작성한 해결사례 (3개)
+        List<SolutionCaseVO> foundSC = lawyerHomeService.findSCByLawyerId(lawyerId);
+        model.addAttribute("scs", foundSC);
+        // 작성한 해결사례 개수
+        int scCount = lawyerService.findSCTotalByLawyerId(lawyerId);
+        model.addAttribute("scCount", scCount);
+        // 작성한 법률가이드 (3개)
+        List<LegalGuideVO> foundLG = lawyerHomeService.findLGByLawyerId(lawyerId);
+        model.addAttribute("lgs", foundLG);
+        // 작성한 법률가이드 개수
+        int lgCount = lawyerService.findLGTotalByLawyerId(lawyerId);
+        model.addAttribute("lgCount", lgCount);
+        // 의뢰인 후기
+        List<LawyerReviewDTO> foundReviews = lawyerHomeService.findReviewsByLawyerId(lawyerId);
+        foundReviews.forEach((review) -> {
+           String consultingType = review.getConsultingType();
+           if (consultingType.equals("PHONE")) consultingType = "전화상담";
+           else if (consultingType.equals("VIDEO")) consultingType = "영상상담";
+           else consultingType = "방문상담";
+           review.setConsultingType(consultingType);
+        });
+        model.addAttribute("reviews", foundReviews);
+
+    }
+
+    public static double myCalc(int min, int max, double avg, int cur){
+        double result = 0;
+        if (cur == avg) result = 50;
+        else if (cur < avg){
+            result = (cur - min) / (avg - min) * 50;
+        } else {
+            result = 50 + (cur - avg) / (max - avg) * 50;
+        }
+        return result;
+    }
+
+    @GetMapping("lawyer-info")
+    public String GoToLawyerInfo(@RequestParam("lawyerId") Long lawyerId, Model model, LawyerVO lawyerVO, MemberVO memberVO){
+        Optional<LawyerVO> foundLawyer = lawyerService.findByLawyerId(lawyerId);
+        if (foundLawyer.isPresent()){
+            LawyerVO lawyer = foundLawyer.get();
+            model.addAttribute("selectedLawyer", lawyer);
+        } else {
+            model.addAttribute("selectedLawyer", null);
+        }
+        model.addAttribute("lawyerId", lawyerId);
+        int reviewCount = consultingReviewService.findReviewCountsByLawyerId(lawyerId);
+        model.addAttribute("reviewCount", reviewCount);
+        List<LawyerFieldDTO> foundFields = lawyerService.findFieldsByLawyerId(lawyerId);
+        model.addAttribute("fields", foundFields);
+        List<ExperienceVO> foundExperiences = lawyerService.findCareersByLawyerId(lawyerId);
+        model.addAttribute("careers", foundExperiences);
+        AveragePriceDTO averagePriceDTO = lawyerHomeService.findPriceAverages();
+        model.addAttribute("priceInfo", averagePriceDTO);
+        if (foundLawyer.isPresent()){
+            LawyerVO currentLawyer = foundLawyer.get();
+            int callPrice = currentLawyer.getCallPrice();
+            int videoPrice = currentLawyer.getVideoPrice();
+            int visitPrice = currentLawyer.getVisitPrice();
+            if (callPrice != 0 && videoPrice != 0 && visitPrice != 0){
+                double callPriceAvg = averagePriceDTO.getCallPriceAverage();
+                double videoPriceAvg = averagePriceDTO.getVideoPriceAverage();
+                double visitPriceAvg = averagePriceDTO.getVisitPriceAverage();
+                int callMax = averagePriceDTO.getCallPriceMax();
+                int callMin = averagePriceDTO.getCallPriceMin();
+                int videoMax = averagePriceDTO.getVideoPriceMax();
+                int videoMin = averagePriceDTO.getVideoPriceMin();
+                int visitMax = averagePriceDTO.getVisitPriceMax();
+                int visitMin = averagePriceDTO.getVisitPriceMin();
+                double callPercent = myCalc(callMin, callMax, callPriceAvg, callPrice);
+                double videoPercent = myCalc(videoMin, videoMax, videoPriceAvg, videoPrice);
+                double visitPercent = myCalc(visitMin, visitMax, visitPriceAvg, visitPrice);
+                model.addAttribute("callPercent", callPercent);
+                model.addAttribute("videoPercent", videoPercent);
+                model.addAttribute("visitPercent", visitPercent);
+            } else {
+                model.addAttribute("callPercent", null);
+                model.addAttribute("videoPercent", null);
+                model.addAttribute("visitPercent", null);
+            }
+        } else {
+            model.addAttribute("callPercent", null);
+            model.addAttribute("videoPercent", null);
+            model.addAttribute("visitPercent", null);
+        }
+        String lawyerProfilePath = lawyerService.findProfileImage(lawyerId);
+        model.addAttribute("profilePath", lawyerProfilePath);
+
+        return "/lawyer-info/lawyer-info";
+    }
+
+    @GetMapping("client-reviews")
+    public String GoToClientReviews(@RequestParam("lawyerId") Long lawyerId, Pagination pagination, Model model, LawyerVO lawyerVO, MemberVO memberVO){
+        // 변호사
+        Optional<LawyerVO> foundLawyer = lawyerService.findByLawyerId(lawyerId);
+        if (foundLawyer.isPresent()){
+            LawyerVO lawyer = foundLawyer.get();
+            model.addAttribute("selectedLawyer", lawyer);
+        } else {
+            model.addAttribute("selectedLawyer", null);
+        }
+        // 변호사 id
+        model.addAttribute("lawyerId", lawyerId);
+        // 의뢰인 후기 개수
+        int reviewCount = consultingReviewService.findReviewCountsByLawyerId(lawyerId);
+        model.addAttribute("reviewCount", reviewCount);
+        // 의뢰인 후기
+        List<LawyerReviewDTO> foundReviews = lawyerHomeService.findReviewsByLawyerId(lawyerId);
+        foundReviews.forEach((review) -> {
+            String consultingType = review.getConsultingType();
+            if (consultingType.equals("PHONE")) consultingType = "전화상담";
+            else if (consultingType.equals("VIDEO")) consultingType = "영상상담";
+            else consultingType = "방문상담";
+            review.setConsultingType(consultingType);
+        });
+        model.addAttribute("reviews", foundReviews);
+        // 페이징 처리
+        pagination.setTotal(reviewCount);
+        pagination.progress();
+        model.addAttribute("pagination", pagination);
+        // 의뢰인 후기 + 페이징 처리
+        List<LawyerReviewDTO> foundReviewsWithPage = lawyerHomeService.findReviewsWithPageByLawyerId(pagination, lawyerId);
+        foundReviewsWithPage.forEach((review) -> {
+            String consultingType = review.getConsultingType();
+            if (consultingType.equals("PHONE")) consultingType = "전화상담";
+            else if (consultingType.equals("VIDEO")) consultingType = "영상상담";
+            else consultingType = "방문상담";
+            review.setConsultingType(consultingType);
+        });
+        model.addAttribute("reviewsWithPage", foundReviewsWithPage);
+        // 변호사 프사 경로
+        String lawyerProfilePath = lawyerService.findProfileImage(lawyerId);
+        model.addAttribute("profilePath", lawyerProfilePath);
+        return "/client-reviews/client-reviews";
+    }
 }

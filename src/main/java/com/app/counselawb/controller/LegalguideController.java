@@ -1,10 +1,15 @@
 package com.app.counselawb.controller;
 
+import com.app.counselawb.domain.vo.LegalGuideVO;
+import com.app.counselawb.service.LegalGuideService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 @Slf4j
@@ -12,9 +17,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/legal-guide-page/*")
 public class LegalguideController {
 
+    private final LegalGuideService legalGuideService;
+
 //    법률가이드 페이지
     @GetMapping("legal-guide")
-    public void GoToLegalGuideList(){;}
+    public String GoToLegalGuideList(Model model){
+        List<LegalGuideVO> legalGuides =legalGuideService.findAllLegalGuide();
+        model.addAttribute("legalGuides", legalGuides);
+        return "legal-guide";
+    }
 
 //    법률가이드 상세보기 페이지
     @GetMapping("legal-guide2")
