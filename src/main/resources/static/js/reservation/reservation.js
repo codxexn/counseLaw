@@ -32,16 +32,16 @@ const arrow = document.querySelector('.coupon-arrow');
 couponWrap.addEventListener('click', (e) => {
     if (couponLists.style.display === 'none') {
         couponLists.style.display = 'block';
-        arrow.src = 'up.png';
+        arrow.src = '/image/reservation/up.png';
     } else {
         couponLists.style.display = 'none';
-        arrow.src = 'down.png';
+        arrow.src = '/image/reservation/down.png';
     }
 });
 
 couponLists.addEventListener('click', (e) => {
     couponLists.style.display = 'none';
-    arrow.src = 'down.png';
+    arrow.src = '/image/reservation/down.png';
     cancelButton.style.display = 'block';
 });
 
@@ -62,15 +62,26 @@ agreementButton.addEventListener('click', (e) => {
 })
 
 // 이름, 전화번호 입력시 flag true
-const nameField = document.querySelector('.input-advice-name');
-const phoneField = document.querySelector('.input-advice-phone');
-
-
+const nameField = document.querySelector('input[name="advice-name"]');
+const phoneField = document.querySelector('input[name="advice-phone"]');
 
 // 결제하기 버튼 활성화
 const paymentButton = document.querySelector('.PaymentMethod-module_paymentButton');
-
-if (textArea.value.length > 9 && nameField.value.length > 0 && phoneField.value.length === 11 && agreementButton.style.fill === 'black') {
-    paymentButton.classList.toggle('PaymentMethod-module_active');
+function validateBtn() {
+    if (textArea.value.length > 9 && nameField.value.length > 0 && phoneField.value.length === 11 && agreementButton.style.fill === 'black') {
+        if (!paymentButton.classList.contains("PaymentMethod-module_active")){
+            paymentButton.classList.add(("PaymentMethod-module_active"));
+        }
+    } else {
+        if (paymentButton.classList.contains("PaymentMethod-module_active")) {
+            paymentButton.classList.remove("PaymentMethod-module_active");
+        }
+    }
 }
+
+
+textArea.addEventListener("keyup", validateBtn);
+nameField.addEventListener("keyup", validateBtn);
+phoneField.addEventListener("keyup", validateBtn);
+agreementButton.addEventListener("click", validateBtn);
 

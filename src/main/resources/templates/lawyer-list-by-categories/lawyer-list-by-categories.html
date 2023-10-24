@@ -75,7 +75,7 @@
                                                             <div th:text="${eachLawyer.visitPrice == 0 ? '미입력' : #numbers.formatInteger(eachLawyer.visitPrice, 1, 'COMMA') + '원'}" class="solution-text solution-price"></div>
                                                         </div>
                                                     </div>
-                                                    <button class="reservation-button">
+                                                    <button th:onclick="'location.href=\'/lawyer-home/lawyer-home?lawyerId=' + ${eachLawyer.lawyerId} + '\''" class="reservation-button">
                                                         예약하기
                                                     </button>
                                                 </div>

@@ -578,7 +578,7 @@ li.coupon-books:last-child .coupon-wrap {
     line-height: 100%;
 }
 
-.PaymentMethod-module_active {
+.PaymentMethod-module_paymentButton.PaymentMethod-module_active {
     border-radius: 8px;
     background-color: #c50000;
     color: #fff;
