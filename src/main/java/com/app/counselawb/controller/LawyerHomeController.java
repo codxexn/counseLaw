@@ -15,12 +15,18 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import java.lang.reflect.Member;
+import java.sql.Timestamp;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -212,4 +218,38 @@ public class LawyerHomeController {
         model.addAttribute("profilePath", lawyerProfilePath);
         return "/client-reviews/client-reviews";
     }
+
+    @GetMapping("reservation")
+    public String goToReservation(@RequestParam("consultingType") String consultingType,
+                                  @RequestParam("reservationDate") String DATEreservationDate,
+                                  @RequestParam("totalPrice") int totalPrice,
+                                  @RequestParam("lawyerId") Long lawyerId, Model model){
+        LocalDateTime reservationDate = LocalDateTime.ofInstant(Instant.parse(DATEreservationDate), ZoneId.systemDefault());
+        model.addAttribute("consultingType", consultingType);
+        String consultingTypeToKorean = null;
+        if (consultingType.equals("PHONE")) {
+            consultingTypeToKorean = "15분 전화상담";
+        } else if (consultingType.equals("VIDEO")){
+            consultingTypeToKorean = "20분 영상상담";
+        } else {
+            consultingTypeToKorean = "30분 방문상담";
+        }
+        model.addAttribute("consultingTypeToKorean", consultingTypeToKorean);
+        model.addAttribute("reservationDate", reservationDate);
+        model.addAttribute("totalPrice", totalPrice);
+//        log.info("{}", consultingType);
+//        log.info("{}", reservationDate);
+//        log.info("{}", totalPrice);
+//        log.info("{}", lawyerId);
+        Optional<LawyerVO> foundLawyer = lawyerService.findByLawyerId(lawyerId);
+        if (foundLawyer.isPresent()){
+            LawyerVO reservedLawyer = foundLawyer.get();
+            model.addAttribute("reservedLawyer", reservedLawyer);
+        } else {
+            model.addAttribute("reservedLawyer", new LawyerVO());
+        }
+
+        return "/reservation/reservation";
+    }
+
 }
