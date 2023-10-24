@@ -2,9 +2,6 @@
 const emailContent = document.getElementById("sign-up-email");
 const emailError = document.getElementById('sign-up-email-valid-message');
 
-const signUpContent = document.getElementById("sign-up-username");
-const signUpError = document.getElementById('sign-up-username-validator-message');
-
 const passwordContent = document.getElementById("sign-up-password");
 const passwordError = document.getElementById('sign-up-password-validator-message');
 
@@ -24,7 +21,19 @@ const marketingAcceptCheckbox = document.getElementById('marketing-accept');
 const emailMarketingCheckbox = document.getElementById('email-marketing-accept');
 const smsMarketingCheckbox = document.getElementById('sms-marketing-accept');
 
+// 비밀번호 입력시 확인창과 다르면 에러 메세지
+passwordContent.addEventListener('input', function(){
+    const passwordValue = passwordContent.value;
+    const confirmPasswordValue = passwordConfirmContent.value;
 
+    if (passwordValue !== confirmPasswordValue) {
+        displayError(passwordConfirmError, passwordConfirmContent);
+    } else {
+        hideError(passwordConfirmError, passwordConfirmContent);
+    }
+})
+
+// 비밀번호 확인창 입력시 비밀번호 창과 다르면 에러 메세지
 passwordConfirmContent.addEventListener('input', function(){
     const passwordValue = passwordContent.value;
     const confirmPasswordValue = passwordConfirmContent.value;
@@ -37,7 +46,7 @@ passwordConfirmContent.addEventListener('input', function(){
 })
 
 
-
+// 만 14세 이상입니다.
 checking.addEventListener("click", function(){
     if(this.checked){
         hideError(ageError, checking);
@@ -47,7 +56,7 @@ checking.addEventListener("click", function(){
 })
 
 
-
+// 전화번호 입력
 phoneContent.addEventListener("keyup", function(){
     if(isEmpty(phoneContent.value)){
             phoneError.style.display = 'block';
@@ -58,17 +67,18 @@ phoneContent.addEventListener("keyup", function(){
         }
 })
 
-certificationButton.addEventListener("click", function(){
-     if(isEmpty(phoneContent.value)){
-                phoneError.style.display = 'block';
-                phoneContent.style = "border-bottom-color: #cb3725;";
-            } else{
-             phoneError.style.display = 'none';
-             phoneContent.style = "border-bottom-color: #e2e4e5;";
-            }
-})
+// 인증번호 전송
+// certificationButton.addEventListener("click", function(){
+//      if(isEmpty(phoneContent.value)){
+//                 phoneError.style.display = 'block';
+//                 phoneContent.style = "border-bottom-color: #cb3725;";
+//             } else{
+//              phoneError.style.display = 'none';
+//              phoneContent.style = "border-bottom-color: #e2e4e5;";
+//             }
+// })
 
-
+// 이메일 입력
 emailContent.addEventListener("keyup", function(){
     if(isEmpty(emailContent.value)){
         displayError(emailError, emailContent)
@@ -78,19 +88,9 @@ emailContent.addEventListener("keyup", function(){
 }
 )
 
-signUpContent.addEventListener("keyup", function(){
-    if(isEmpty(signUpContent.value)){
-        displayError(signUpError, signUpContent)
-    } else{
-     hideError(signUpError, signUpContent)
-    }
-}
-)
-
+// 비번 에러메세지
 passwordContent.addEventListener("keyup", function(){
     if(isEmpty(passwordContent.value)){
-//        passwordError.style.display = 'block';
-//        passwordContent.style = "border-bottom-color: #cb3725;";
             displayError(passwordError, passwordContent)
     } else{
     hideError(passwordError, passwordContent)
@@ -105,7 +105,7 @@ function isEmpty(target) {
 // 에러 부분
 function displayError(errorElement, contentElement) {
   errorElement.style.display = 'block';
-  contentElement.style.borderBottomColor = '#cb3725';
+  contentElement.style.borderBottomColor = '#c50000';
 }
 
 function hideError(errorElement, contentElement) {
@@ -113,27 +113,6 @@ function hideError(errorElement, contentElement) {
   contentElement.style.borderBottomColor = '#e2e4e5';
 }
 
-//document.addEventListener('DOMContentLoaded', function () {
-//
-//// 버튼과 드롭다운 메뉴를 선택합니다.
-//const dropdownButton = document.querySelectorAll("material-form-control");
-//const dropdownMenu = document.querySelector(".material-dropdown-menu");
-//console.log(dropdownButton)
-//dropdownButton.forEach((dropdownItem) => {
-//    console.log(dropdownItem)
-//    dropdownItem.addEventListener("click", function () {
-//                  // 드롭다운 메뉴의 상태를 토글합니다.
-//                  dropdownMenu.classList.toggle("active");
-//                })
-//
-//    document.addEventListener("click", function (event) {
-//         if (!event.target.matches("#dropdown-button")) {
-//       dropdownMenu.classList.remove("active");
-//     }
-//     })
-//});
-//
-//})
 
 
 
@@ -141,27 +120,37 @@ const switchContainer = document.getElementsByClassName('law-switch');
 const switchCheckbox = document.getElementById('sns-accept');
 
 
-switchContainer[0].addEventListener('click', function () {
-  // 클릭 시 체크 상태를 토글합니다.
-  switchCheckbox.checked = !switchCheckbox.checked;
+// switchContainer[0].addEventListener('click', function () {
+//   // 클릭 시 체크 상태를 토글합니다.
+//   switchCheckbox.checked = !switchCheckbox.checked;
+// });
+
+
+
+
+// 전체 동의시 동의 버튼 자동 활성화
+const agreeAllCheckbox = document.querySelector('.allAgree');
+const mustAgrees = document.querySelectorAll('.mustAgree');
+const checkedAgrees = document.querySelectorAll('.mustAgree:checked');
+
+agreeAllCheckbox.addEventListener('click', (e) => {
+    mustAgrees.forEach((agreeButton) => {
+        agreeButton.checked = agreeAllCheckbox.checked;
+    } )
 });
 
 
+mustAgrees.forEach((agreeButton)=> {
+    agreeButton.addEventListener('click', () => {
+        agreeAllCheckbox.checked = mustAgrees.length === checkedAgrees.length;
+    })
+})
 
 
 
-const agreeAllCheckbox = document.getElementById('sign-up-agree-all');
-const consentCheckboxes = document.querySelectorAll('.contract-consensus-checkbox');
 
-agreeAllCheckbox.addEventListener('change', function () {
-  const isChecked = agreeAllCheckbox.checked;
 
-  consentCheckboxes.forEach(function (checkbox) {
-    checkbox.checked = isChecked;
-      emailMarketingCheckbox.checked = isChecked;
-      smsMarketingCheckbox.checked = isChecked;
-  });
-});
+
 
 
 
@@ -184,36 +173,6 @@ marketingAcceptCheckbox.addEventListener('change', function () {
   emailMarketingCheckbox.checked = isChecked;
   smsMarketingCheckbox.checked = isChecked;
 });
-
-
-
-//document.addEventListener('DOMContentLoaded', function () {
-//  const dropdown = document.querySelector('.material-dropdown-menu');
-//  const dropdownContent = dropdown.querySelector('.material-dropdown-menu-content');
-//  const referSelect = document.getElementById('sign-up-refer');
-//  const dropdownButton = document.getElementById('dropdown-button');
-//
-//  // 모든 li 요소를 선택
-//  const dropdownItems = dropdownContent.querySelectorAll('li');
-//
-//  dropdownItems.forEach((item) => {
-//  item.addEventListener('mouseenter', function () {
-//        item.style.backgroundColor = '#e2e2e2'; // 배경색 변경
-//      });
-//
-//      item.addEventListener('mouseleave', function () {
-//        item.style.backgroundColor = ''; // 마우스가 벗어나면 원래 배경색으로 되돌림
-//      });
-//
-//    item.addEventListener('click', function () {
-//      const selectedOptionText = item.textContent; // 선택한 li의 텍스트
-//      referSelect.value = selectedOptionText; // select의 value를 선택한 li의 텍스트로 업데이트
-//      dropdownButton.textContent = selectedOptionText; // button의 텍스트를 선택한 li의 텍스트로 업데이트
-//    });
-//  });
-//});
-
-
 
 
 const dialog =  document.getElementById('dialog');
@@ -272,11 +231,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-const signupAgreement = document.getElementById('lawyer-sign-up-agreement');
-const privacyPolicy = document.getElementById('privacy-policy');
-const personalInfo = document.getElementById('personal-info');
-
-const buttonSubmit = document.querySelectorAll('law-auth-card-footer-button')
 
 
 

@@ -17,18 +17,48 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/member/*")
 public class MemberController {
 
-    // 변호사 가입안내 페이지로 이동
+    // 변호사스퀘어 가입안내 페이지로 이동
+    @GetMapping("lawyer-introduction")
+    public String goTolawyerMemberIntroductionPage(){
+        return "/introductions/general";
+    }
 
+    // 변호사스퀘어 솔루션 페이지로 이동
+    @GetMapping("lawyer-solution")
+    public String goTolawyerMemberSolutionPage(){
+        return "/introductions/solution";
+    }
+
+    // 변호사 가입안내 페이지로 이동
+    @GetMapping("lawyer-advertise")
+    public String goTolawyerMemberAdvertisePage(){
+        return "/introductions/advertise";
+    }
 
 
     // 회원가입 select 화면으로 이동
     @GetMapping("client-lawyer-select")
-    public String goToJoinPage(MemberVO memberVO, LawyerVO lawyerVO){
+    public String goToJoinPage(){
         return "/member/client-lawyer-select";
     }
 
+    // 일반회원 회원가입 페이지로 이동
+    @GetMapping("client-join")
+    public String goToClientJoinPage() {
+        return "/client/client-join-membership";
+    }
+
+    // 일반 회원가입
 
 
+
+
+
+    // 변호사회원 회원가입 페이지로 이동
+    @GetMapping("lawyer-join")
+    public String goToLawyerJoinPage() {
+        return "/lawyer/lawyer-join-membership";
+    }
 
     // 일반회원 마이페이지로
     @GetMapping("mypage-member")

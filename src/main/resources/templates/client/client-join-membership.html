@@ -7,7 +7,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>의뢰인 회원가입</title>
-    <link rel="stylesheet" href="/css/client/client_join_membership.css">
+    <link rel="stylesheet" href="/css/client/client-join-membership.css">
     <link rel="stylesheet" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.81.woff2">
     <link rel="stylesheet" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.82.woff2">
     <link rel="stylesheet" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.85.woff2">
@@ -28,7 +28,7 @@
         <div class="CourseLaw_auth">
             <div class="auth_box_header">
                 <div class="auth_bpx_header_logo">
-                    <img src="KakaoTalk_20230911_154146681.png" alt="">
+                    <img src="/image/client/counseLawLogo.png" alt="">
                 </div>
 
                 <div class="auth_box_header_title">의뢰인 회원가입</div>
@@ -55,16 +55,7 @@
                             </div>
                         </div>
 
-                        <div class="form_group">
-                            <input id="sign-up-username" type="text" class="material_form_control"
-                                   name="username" placeholder="6~16자, 영문, 숫자, _(밑줄)">
 
-                            <label class="label_color">아이디</label>
-
-                            <div id="sign-up-username-validator-message" style="display: none">
-                                <label class="control-label error">아이디는 반드시 입력하셔야 합니다.</label>
-                            </div>
-                        </div>
 
                         <div class="form_group">
                             <input id="sign-up-password" type="password" class="material_form_control"
@@ -84,253 +75,255 @@
                             <label class="label_color">비밀번호 재확인</label>
 
                             <div id="sign-up-passwordConfirm-validator-message" style="display: none">
-                                <label class="control-label error">비밀번호 재확인은 반드시 입력하셔야 합니다.</label>
+                                <label class="control-label error">비밀번호가 일치하지 않습니다.</label>
                             </div>
                         </div>
-                    </div>
-
-                    <h3 class="law_auth_card_header">인증정보</h3>
 
 
-                    <div class="law_auth_card_body">
                         <div class="form_group">
                             <input id="sign-up-phone" type="code" class="material_form_control"
-                                   name="passwordConfirm" placeholder="예) 01012345678">
+                                   name="passwordConfirm" placeholder="예) 01012345678" maxlength="11">
 
                             <label class="label_color">전화번호</label>
 
                             <div id="sign-up-phone-validator-message" style="display: none">
                                 <label class="control-label error">전화번호는 반드시 입력하셔야 합니다.</label>
                             </div>
-
-                            <button id="certify-phone-number-button" type="button" class="text-only inline-button">[ 인증번호 발송 ]</button>
-                        </div>
-
-                        <div class="form_group">
-                            <input type="tel" class="material_form_control"
-                                   name="passwordConfirm" placeholder="6자리 숫자">
-
-                            <label class="label_color">인증번호</label>
-
-                            <button type="button" class="text-only inline-button" disabled="disabled">[인증]</button>
-                        </div>
-
-                    </div>
-
-                    <div class="law_auth_card_body without-vertical-padding">
-                        <div class="law-auth-card-body-item">
-                            <div class="form-group-checkbox">
-                                <label class="pull-left">상담안내 문자수신</label>
-                                <div class="pull-right">
-                                    <div class="law-switch">
-                                        <input type="checkbox" id="sns-accept" name="sns-accept" checked>
-                                        <label></label>
-                                    </div>
-                            </div>
-
-                        </div>
-
                         </div>
                     </div>
-
-                    <h3 class="law_auth_card_header">기타정보</h3>
-
-                    <div class="law_auth_card_body">
-                        <div class="form_group">
-                            <div class="material-dropdown-menu">
-                                <div class="material-dropdown-original">
-                                    <select id="sign-up-refer" name="refer" required-error-message="방문경로는 반드시 선택하셔야 합니다.">
-                                        <option value selected="selected">방문경로 선택</option>
-
-                                        <option label="블로그">블로그</option>
-
-                                        <option label="네이버 지식인">네이버 지식인</option>
-
-                                        <option label="네이버 검색광고">네이버 검색광고</option>
-
-                                        <option label="구글 검색광고">구글 검색광고</option>
-
-                                        <option label="페이스북">페이스북</option>
-
-                                        <option label="지인소개">지인소개</option>
-                                    </select>
-
-                                    <label for="sign-up-refer">방문경로</label>
-
-                                    <div id="sign-up-refer-validator-message" style="display:none">
-                                        <label class="control-label">방문경로는 반드시 선택하셔야 합니다.</label>
-                                    </div>
-                                </div>
-
-                                <button id="dropdown-button" type="button" class="material-form-control waves-effect">
-                                    방문경로 선택
-                                </button>
-
-
-                                <div class="material-dropdown-menu-content">
-                                    <ul>
-                                        <li>
-                                            <a>블로그</a>
-                                        </li>
-
-                                        <li>
-                                            <a>네이버 지식인</a>
-                                        </li>
-
-                                        <li>
-                                            <a>네이버 검색광고</a>
-                                        </li>
-
-                                        <li>
-                                            <a>구글 검색광고</a>
-                                        </li>
-
-                                        <li>
-                                            <a>페이스북</a>
-                                        </li>
-
-                                        <li>
-                                            <a>지인소개</a>
-                                        </li>
-
-                                        <li>
-                                            <a>기타</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h3 class="law_auth_card_header">선택정보</h3>
-
-                    <div class="law_auth_card_body">
-                        <div class="form_group">
-                            <input id="sign-up-recommender" type="text" class="material_form_control"
-                                   name="recommender" placeholder="6~16자, 영문, 숫자, _(밑줄)">
-
-                            <label for="sign-up-recommender" class="label_color">추천인ID</label>
-                        </div>
-
-                        <div class="form_group">
-                            <div class="material-dropdown-menu">
-                                <div class="material-dropdown-original">
-                                    <select id="sign-up-sex" name="sex">
-                                        <option value selected="selected">성별 선택</option>
-
-                                        <option label="남">남</option>
-
-                                        <option label="여">여</option>
-                                    </select>
-
-                                    <label for="sign-up-refer">성별</label>
-
-                                </div>
-
-                                <button type="button" class="material-form-control waves-effect">
-                                    성별 선택
-                                </button>
-
-
-                                <div class="material-dropdown-menu-content">
-                                    <ul>
-                                        <li>
-                                            <a href="">남</a>
-                                        </li>
-
-                                        <li>
-                                            <a href="">여</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form_group">
-                            <div class="material-dropdown-menu">
-                                <div class="material-dropdown-original">
-                                    <select id="sign-up-birth-year" name="year">
-                                        <option value selected="selected">출생년도 선택</option>
-
-                                        <option label="1950" value="number:1951">1950</option>
-
-                                        <option label="1951" value="number:1951">1951</option>
-
-                                        <option label="1952" value="number:1952">1952</option>
-
-                                        <option label="1953" value="number:1953">1953</option>
-
-                                        <option label="1954" value="number:1954">1954</option>
-
-                                        <option label="1955" value="number:1955">1955</option>
-
-                                        <option label="1956" value="number:1956">1956</option>
-
-                                        <option label="1957" value="number:1957">1957</option>
-
-                                        <option label="1958" value="number:1958">1958</option>
-
-                                    </select>
-
-                                    <label for="sign-birth-year">출생년도</label>
-                                </div>
-
-                                <button type="button" class="material-form-control waves-effect">
-                                    출생년도
-                                </button>
-
-
-                                <div class="material-dropdown-menu-content">
-                                    <ul>
-                                        <li>
-                                            <a href="">1950</a>
-                                        </li>
-
-                                        <li>
-                                            <a href="">1951</a>
-                                        </li>
-
-                                        <li>
-                                            <a href="">1952</a>
-                                        </li>
-
-                                        <li>
-                                            <a href="">1953</a>
-                                        </li>
-
-                                        <li>
-                                            <a href="">1954</a>
-                                        </li>
-
-                                        <li>
-                                            <a href="">1955</a>
-                                        </li>
-
-                                        <li>
-                                            <a href="">1956</a>
-                                        </li>
-
-                                        <li>
-                                            <a href="">1957</a>
-                                        </li>
-
-                                        <li>
-                                            <a href="">1958</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-
                 </div>
+
+<!--                    <h3 class="law_auth_card_header">인증정보</h3>-->
+
+
+<!--                    <div class="law_auth_card_body">-->
+
+<!--                            <button id="certify-phone-number-button" type="button" class="text-only inline-button">[ 인증번호 발송 ]</button>-->
+
+
+<!--                        <div class="form_group">-->
+<!--                            <input type="tel" class="material_form_control"-->
+<!--                                   name="passwordConfirm" placeholder="6자리 숫자" maxlength="6">-->
+
+<!--                            <label class="label_color">인증번호</label>-->
+
+<!--                            <button type="button" class="text-only inline-button" disabled="disabled">[인증]</button>-->
+<!--                        </div>-->
+
+<!--                    </div>-->
+
+<!--                    <div class="law_auth_card_body without-vertical-padding">-->
+<!--                        <div class="law-auth-card-body-item">-->
+<!--                            <div class="form-group-checkbox">-->
+<!--                                <label class="pull-left">상담안내 문자수신</label>-->
+<!--                                <div class="pull-right">-->
+<!--                                    <div class="law-switch">-->
+<!--                                        <input type="checkbox" id="sns-accept" name="sns-accept" checked>-->
+<!--                                        <label></label>-->
+<!--                                    </div>-->
+<!--                            </div>-->
+
+<!--                        </div>-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <h3 class="law_auth_card_header">기타정보</h3>-->
+
+<!--                    <div class="law_auth_card_body">-->
+<!--                        <div class="form_group">-->
+<!--                            <div class="material-dropdown-menu">-->
+<!--                                <div class="material-dropdown-original">-->
+<!--                                    <select id="sign-up-refer" name="refer" required-error-message="방문경로는 반드시 선택하셔야 합니다.">-->
+<!--                                        <option value selected="selected">방문경로 선택</option>-->
+
+<!--                                        <option label="블로그">블로그</option>-->
+
+<!--                                        <option label="네이버 지식인">네이버 지식인</option>-->
+
+<!--                                        <option label="네이버 검색광고">네이버 검색광고</option>-->
+
+<!--                                        <option label="구글 검색광고">구글 검색광고</option>-->
+
+<!--                                        <option label="페이스북">페이스북</option>-->
+
+<!--                                        <option label="지인소개">지인소개</option>-->
+<!--                                    </select>-->
+
+<!--                                    <label for="sign-up-refer">방문경로</label>-->
+
+<!--                                    <div id="sign-up-refer-validator-message" style="display:none">-->
+<!--                                        <label class="control-label">방문경로는 반드시 선택하셔야 합니다.</label>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+
+<!--                                <button id="dropdown-button" type="button" class="material-form-control waves-effect">-->
+<!--                                    방문경로 선택-->
+<!--                                </button>-->
+
+
+<!--                                <div class="material-dropdown-menu-content">-->
+<!--                                    <ul>-->
+<!--                                        <li>-->
+<!--                                            <a>블로그</a>-->
+<!--                                        </li>-->
+
+<!--                                        <li>-->
+<!--                                            <a>네이버 지식인</a>-->
+<!--                                        </li>-->
+
+<!--                                        <li>-->
+<!--                                            <a>네이버 검색광고</a>-->
+<!--                                        </li>-->
+
+<!--                                        <li>-->
+<!--                                            <a>구글 검색광고</a>-->
+<!--                                        </li>-->
+
+<!--                                        <li>-->
+<!--                                            <a>페이스북</a>-->
+<!--                                        </li>-->
+
+<!--                                        <li>-->
+<!--                                            <a>지인소개</a>-->
+<!--                                        </li>-->
+
+<!--                                        <li>-->
+<!--                                            <a>기타</a>-->
+<!--                                        </li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <h3 class="law_auth_card_header">선택정보</h3>-->
+
+<!--                    <div class="law_auth_card_body">-->
+<!--                        <div class="form_group">-->
+<!--                            <input id="sign-up-recommender" type="text" class="material_form_control"-->
+<!--                                   name="recommender" placeholder="6~16자, 영문, 숫자, _(밑줄)">-->
+
+<!--                            <label for="sign-up-recommender" class="label_color">추천인ID</label>-->
+<!--                        </div>-->
+
+<!--                        <div class="form_group">-->
+<!--                            <div class="material-dropdown-menu">-->
+<!--                                <div class="material-dropdown-original">-->
+<!--                                    <select id="sign-up-sex" name="sex">-->
+<!--                                        <option value selected="selected">성별 선택</option>-->
+
+<!--                                        <option label="남">남</option>-->
+
+<!--                                        <option label="여">여</option>-->
+<!--                                    </select>-->
+
+<!--                                    <label for="sign-up-refer">성별</label>-->
+
+<!--                                </div>-->
+
+<!--                                <button type="button" class="material-form-control waves-effect">-->
+<!--                                    성별 선택-->
+<!--                                </button>-->
+
+
+<!--                                <div class="material-dropdown-menu-content">-->
+<!--                                    <ul>-->
+<!--                                        <li>-->
+<!--                                            <a href="">남</a>-->
+<!--                                        </li>-->
+
+<!--                                        <li>-->
+<!--                                            <a href="">여</a>-->
+<!--                                        </li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+<!--                        <div class="form_group">-->
+<!--                            <div class="material-dropdown-menu">-->
+<!--                                <div class="material-dropdown-original">-->
+<!--                                    <select id="sign-up-birth-year" name="year">-->
+<!--                                        <option value selected="selected">출생년도 선택</option>-->
+
+<!--                                        <option label="1950" value="number:1951">1950</option>-->
+
+<!--                                        <option label="1951" value="number:1951">1951</option>-->
+
+<!--                                        <option label="1952" value="number:1952">1952</option>-->
+
+<!--                                        <option label="1953" value="number:1953">1953</option>-->
+
+<!--                                        <option label="1954" value="number:1954">1954</option>-->
+
+<!--                                        <option label="1955" value="number:1955">1955</option>-->
+
+<!--                                        <option label="1956" value="number:1956">1956</option>-->
+
+<!--                                        <option label="1957" value="number:1957">1957</option>-->
+
+<!--                                        <option label="1958" value="number:1958">1958</option>-->
+
+<!--                                    </select>-->
+
+<!--                                    <label for="sign-birth-year">출생년도</label>-->
+<!--                                </div>-->
+
+<!--                                <button type="button" class="material-form-control waves-effect">-->
+<!--                                    출생년도-->
+<!--                                </button>-->
+
+
+<!--                                <div class="material-dropdown-menu-content">-->
+<!--                                    <ul>-->
+<!--                                        <li>-->
+<!--                                            <a href="">1950</a>-->
+<!--                                        </li>-->
+
+<!--                                        <li>-->
+<!--                                            <a href="">1951</a>-->
+<!--                                        </li>-->
+
+<!--                                        <li>-->
+<!--                                            <a href="">1952</a>-->
+<!--                                        </li>-->
+
+<!--                                        <li>-->
+<!--                                            <a href="">1953</a>-->
+<!--                                        </li>-->
+
+<!--                                        <li>-->
+<!--                                            <a href="">1954</a>-->
+<!--                                        </li>-->
+
+<!--                                        <li>-->
+<!--                                            <a href="">1955</a>-->
+<!--                                        </li>-->
+
+<!--                                        <li>-->
+<!--                                            <a href="">1956</a>-->
+<!--                                        </li>-->
+
+<!--                                        <li>-->
+<!--                                            <a href="">1957</a>-->
+<!--                                        </li>-->
+
+<!--                                        <li>-->
+<!--                                            <a href="">1958</a>-->
+<!--                                        </li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+                
                     <h3 class="law_auth_card_header">약관동의</h3>
 
                     <contract-consensus>
                         <div class="contract-consensus-container">
                             <div class="contract-consensus-all-wrap">
                                 <div class="contract-consensus-checkbox-wrap">
-                                    <input id="sign-up-agree-all" type="checkbox" class="contract-consensus-checkbox">
+                                    <input id="sign-up-agree-all" type="checkbox" class="contract-consensus-checkbox allAgree">
                                     <label for="sign-up-agree-all" class="contract-consensus-checkbox-label">
                                         <i class="contract-consensus-checkbox-text">
                                             다음에 모두 동의합니다.
@@ -346,7 +339,7 @@
 
                             <div class="contract-consensus-check-box-container">
                                 <div class="contract-consensus-checkbox-wrap">
-                                    <input id="lawyer-sign-up-agreement" type="checkbox" class="contract-consensus-checkbox">
+                                    <input id="lawyer-sign-up-agreement" type="checkbox" class="contract-consensus-checkbox mustAgree">
                                     <label for="lawyer-sign-up-agreement" class="contract-consensus-checkbox-label">
                                         <i class="contract-consensus-checkbox-text">
                                         서비스 이용약관 동의
@@ -355,13 +348,13 @@
                                             (필수)
                                         </i>
                                     </label>
-                                    <a target="_blank" class="contract-consensus-link">내용보기</a>
+                                    
                                 </div>
                             </div>
 
                             <div class="contract-consensus-check-box-container">
                                 <div class="contract-consensus-checkbox-wrap">
-                                    <input id="privacy-policy" type="checkbox" class="contract-consensus-checkbox">
+                                    <input id="privacy-policy" type="checkbox" class="contract-consensus-checkbox mustAgree">
                                     <label for="privacy-policy" class="contract-consensus-checkbox-label">
                                         <i class="contract-consensus-checkbox-text">
                                             개인정보 취급방침 동의
@@ -370,13 +363,13 @@
                                             (필수)
                                         </i>
                                     </label>
-                                    <a target="_blank" class="contract-consensus-link">내용보기</a>
+                                    
                                 </div>
                             </div>
 
                             <div class="contract-consensus-check-box-container">
                                 <div class="contract-consensus-checkbox-wrap">
-                                    <input id="personal-info" type="checkbox" class="contract-consensus-checkbox">
+                                    <input id="personal-info" type="checkbox" class="contract-consensus-checkbox mustAgree">
                                     <label for="personal-info" class="contract-consensus-checkbox-label">
                                         <i class="contract-consensus-checkbox-text">
                                             개인정보 이용/수집 동의
@@ -385,13 +378,13 @@
                                             (필수)
                                         </i>
                                     </label>
-                                    <a target="_blank" class="contract-consensus-link">내용보기</a>
+                                    
                                 </div>
                             </div>
 
                             <div class="contract-consensus-check-box-container">
                                 <div class="contract-consensus-checkbox-wrap">
-                                    <input id="marketing-accept" type="checkbox" class="contract-consensus-checkbox">
+                                    <input id="marketing-accept" type="checkbox" class="contract-consensus-checkbox choiceAgree">
                                     <label for="marketing-accept" class="contract-consensus-checkbox-label">
                                         <i class="contract-consensus-checkbox-text">
                                             혜택정보(마케팅) 수신 전체동의
@@ -461,7 +454,6 @@
                             가입신청
                         </button>
                     </div>
-                </div>
             </form>
 
         </div>
@@ -492,5 +484,5 @@
 </div>
 </body>
 
-<script src="client_join_membership.js"></script>
+<script src="/js/client/client-join-membership.js"></script>
 </html>
