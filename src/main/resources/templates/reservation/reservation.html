@@ -7,6 +7,7 @@
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"/>
     <link rel="stylesheet" href="/css/defaultSetting.css">
     <link rel="stylesheet" href="/css/reservation/reservation.css">
+    <script src="https://cdn.bootpay.co.kr/js/bootpay-3.3.1.min.js" type="application/javascript"></script>
 </head>
 <body>
 <div id="root-view">
@@ -28,6 +29,9 @@
                 <div class="reservation-body">
                     <div>
                         <form th:action="@{/lawyer-home/reservation}" id="reservation-form" name="adviceInputForm" method="post" class="reservation-form">
+                            <input type="hidden" th:name="memberId" th:value="${session.member.memberId}">
+                            <input type="hidden" th:name="lawyerId" th:value="${reservedLawyer.lawyerId}">
+                            <input type="hidden" th:name="consultingType" th:value="${consultingType}">
                             <div class="form-body">
                                 <div class="form-body_request-content">
                                     <div class="input-advice-body">
@@ -142,13 +146,14 @@
                                     th:src="${reservedLawyer.lawyerImage == null ? '/image/defaultLawyerImage/defaultLawyerImage.png' : reservedLawyer.lawyerImage}"
                                     alt="변호사 썸네일 이미지">
                             <div class="CompactLawyerCard-module_texts">
-                                <p class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
+                                <p class="reservation-title Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
                                         style="color: rgb(43, 45, 47);"
                                 th:text="${reservedLawyer.lawyerName} + ' 변호사와의 ' + ${consultingTypeToKorean}"></p>
                                 <p class="Typography-module_lt-text--size-17__8rBL9 Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
                                    style="color: rgb(43, 45, 47);"
                                 th:text="${#temporals.format(reservationDate, 'yyyy년 MM월 dd일 HH:mm')}"></p>
                             </div>
+                            <input class="consultingTypeToKorean" type="hidden" th:value="${consultingTypeToKorean}">
                         </div>
                     </div>
                     <div class="reservation-controller__payment-method">
@@ -163,24 +168,25 @@
                                                 <div class="coupon-select">
                                                     <div class="coupon-title">
                                                         적용 가능 쿠폰
-                                                        <span class="bold"> 1</span> 장
+                                                        <span th:text="${#lists.size(coupons)}" class="bold"></span> 장
                                                         <img src="/image/reservation/down.png" class="coupon-arrow">
                                                     </div>
                                                 </div>
                                                 <div class="coupon-content">
                                                     <div class="coupon-list">
                                                         <ul class="isFold">
-                                                            <li class="coupon-books">
+                                                            <li th:each="coupon : ${coupons}" class="coupon-books">
+                                                                <input type="hidden" th:name="couponIds" th:value="${coupon.couponId}">
                                                                 <div class="coupon-wrap">
                                                                     <div class="coupon-name-wrap">
-                                                                        <div class="coupon-name">
-                                                                            한동석 변호사 이벤트 쿠폰
+                                                                        <div th:text="${coupon.couponTitle}" class="coupon-name">
                                                                         </div>
                                                                     </div>
                                                                     <div class="coupon-info">
-                                                                        <div class="coupon-value">10,000원 할인</div>
-                                                                        <div class="coupon-endAt">2023년 10월 15일까지</div>
+                                                                        <div th:text="${coupon.couponDiscountRate} + '% 할인'" class="coupon-value"></div>
+                                                                        <div th:text="${coupon.couponExpireDate == null ? '무기한' : #temporals.format(coupon.couponExpireDate, 'yyyy년 MM월 dd일까지')}" class="coupon-endAt"></div>
                                                                     </div>
+                                                                    <span style="display: none;" class="discounted-price" th:text="${totalPrice * coupon.couponDiscountRate * 0.01}"></span>
                                                                 </div>
                                                             </li>
                                                         </ul>
@@ -200,14 +206,15 @@
                                                     <p class="Typography-module_lt-text--size-13__p73tB Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
                                                        style="color: rgb(159, 164, 169);">적용취소</p>
                                                 </button>
-                                                <p class="PaymentMethod-module_couponPriceValue Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                   style="color: #c50000;">-10,000원</p>
+                                                <p class="discount-price-won PaymentMethod-module_couponPriceValue Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
+                                                   style="color: #c50000;">0원</p>
                                             </div>
                                             <div class="PaymentMethod-module_totalPrice"><p
                                                     class="Typography-module_lt-text--size-18__AbfHy Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
                                                     style="color: rgb(76, 80, 85);">총 결제금액</p>
-                                                <p class="PaymentMethod-module_totalPriceValue Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                   style="color: rgb(43, 45, 47);">10,000원</p></div>
+                                                <input type="hidden" class="total-pay-price-value" th:value="${totalPrice}">
+                                                <p class="total-pay-price PaymentMethod-module_totalPriceValue Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
+                                                   style="color: rgb(43, 45, 47);" th:text="${#numbers.formatInteger(totalPrice, 1, 'COMMA')} + '원'"></p></div>
                                         </div>
                                         <div class="PaymentMethod-module_agreement">
                                             <p class="PaymentMethod-module_agreementText Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
@@ -246,7 +253,7 @@
                                         </div>
                                     </div>
                                     <div class="PaymentMethod-module_paymentButtonWrap">
-                                        <button class="PaymentMethod-module_paymentButton">결제하기</button>
+                                        <button type="button" onclick="pay()" disabled class="PaymentMethod-module_paymentButton">결제하기</button>
                                     </div>
                                 </div>
                             </div>
