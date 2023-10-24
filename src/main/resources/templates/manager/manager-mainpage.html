@@ -145,23 +145,23 @@
                         <div class="manager-top" style="margin-top: 50px">
                             <header class="manager-top-header">
                                 <h1 class="Manager-topWord">작성글 관리</h1>
-                                <div>
-                                    <div style="width: 240px; margin-left: 710px;">
-                                        <form class="SearchForm" id="searchForm">
-                                            <label class="member-search-label">
-                                                <input class="member-searchBar" type="search" placeholder="작성글 검색"
-                                                       id="search_keyword" name="keyword">
-                                                <button class="member-search" type="submit">
-                                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                                                         class="search">
-                                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                                              d="M15.83 16.561a7.8 7.8 0 1 1 1.233-1.312l3.465 3.465a.9.9 0 1 1-1.272 1.273L15.83 16.56Zm1.13-5.961a6.16 6.16 0 1 1-12.32 0 6.16 6.16 0 0 1 12.32 0Z"></path>
-                                                    </svg>
-                                                </button>
-                                            </label>
-                                        </form>
-                                    </div>
-                                </div>
+<!--                                <div>-->
+<!--                                    <div style="width: 240px; margin-left: 710px;">-->
+<!--                                        <form class="SearchForm" id="searchForm">-->
+<!--                                            <label class="member-search-label">-->
+<!--                                                <input class="member-searchBar" type="search" placeholder="작성글 검색"-->
+<!--                                                       id="search_keyword" name="keyword">-->
+<!--                                                <button class="member-search" type="submit">-->
+<!--                                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"-->
+<!--                                                         class="search">-->
+<!--                                                        <path fill-rule="evenodd" clip-rule="evenodd"-->
+<!--                                                              d="M15.83 16.561a7.8 7.8 0 1 1 1.233-1.312l3.465 3.465a.9.9 0 1 1-1.272 1.273L15.83 16.56Zm1.13-5.961a6.16 6.16 0 1 1-12.32 0 6.16 6.16 0 0 1 12.32 0Z"></path>-->
+<!--                                                    </svg>-->
+<!--                                                </button>-->
+<!--                                            </label>-->
+<!--                                        </form>-->
+<!--                                    </div>-->
+<!--                                </div>-->
                             </header>
                             <!--                            멤버 수-->
                             <div class="memberTop-mid">
@@ -196,8 +196,8 @@
                                             </option>
                                         </select>
                                         <button class="selectButton" type="submit">조회</button>
-<!--                                        <input type="search" name="keyword" placeholder="검색어 입력">-->
-<!--                                        <button class="search" type="submit">검색</button>-->
+                                        <input type="search" name="keyword" placeholder="검색어 입력">
+                                        <button class="search" type="submit">검색</button>
                                     </form>
                                     <!--                                            <ul class="options">-->
                                     <!--                                                <li class="option">-->
@@ -285,29 +285,6 @@
                                         </button>
                                     </div>
                                 </div>
-                            </div>
-                            <div th:if="${searchResults != null}">
-                                <h2>게시판별 조회 결과</h2>
-                                <ul>
-                                    <!--                                    <li th:each="post : ${searchResults.solutionCases}">-->
-                                    <!--                                        &lt;!&ndash; 해결 사례 게시판 조회 결과를 나타내는 HTML &ndash;&gt;-->
-                                    <!--                                    </li>-->
-                                    <!--                                    <li th:each="post : ${searchResults.consultingCases}">-->
-                                    <!--                                        &lt;!&ndash; 상담 사례 게시판 조회 결과를 나타내는 HTML &ndash;&gt;-->
-                                    <!--                                    </li>-->
-                                    <li th:each="post : ${searchResults.legalGuides}">
-                                        <div style="width: 192px" class="posts" th:text="${post.lawyerName}">한땡땡
-                                        </div>
-                                        <div style="width: 96px;" class="posts" th:text="|법률 가이드|">법률 가이드</div>
-                                        <div style="width: 127px;" class="posts"
-                                             th:text="${#temporals.format(post.createDate, 'yyyy-MM-dd HH:mm')}">
-                                            2023
-                                        </div>
-                                        <div style="width: 200px;" class="posts"
-                                             th:text="${post.legalGuideTitle}">테스트제목1
-                                        </div>
-                                    </li>
-                                </ul>
                             </div>
                             <div>
                                 <div class="memberTop-bottom" th:if="${selectedOption == 'legalGuide'}"
@@ -421,23 +398,22 @@
                                 <div class="memberTop-bottom"
                                      th:if="${selectedOption == 'consultingCase'}"
                                      th:each="consultingCasePost : ${consultingCases}">
-                                    <!--                                    <div th:if="${#strings.equals(selectedOption, 'legalGuide')}">-->
-                                    <div style="width: 192px" class="posts"
-                                         th:text="${consultingCasePost.memberName}">한땡땡
+                                    <div style="width: 192px" class="posts">
+                                        <span th:text="${consultingCasePost.memberName}">한땡땡</span>
                                     </div>
-                                    <div style="width: 96px;" class="posts" th:text="|상담 사례|">상담 사례</div>
-                                    <div style="width: 127px;" class="posts"
-                                         th:text="${#temporals.format(consultingCasePost.createDate, 'yyyy-MM-dd HH:mm')}">
-                                        2023
+                                    <div style="width: 96px;" class="posts">
+                                        <span th:text="|상담 사례|">상담 사례</span>
                                     </div>
-                                    <div style="width: 200px;" class="posts"
-                                         th:text="${consultingCasePost.caseTitle}">테스트제목1
+                                    <div style="width: 127px;" class="posts">
+                                        <span th:text="${#temporals.format(consultingCasePost.createDate, 'yyyy-MM-dd HH:mm')}">2023</span>
+                                    </div>
+                                    <div style="width: 200px;" class="posts">
+                                        <span th:text="${consultingCasePost.caseTitle}">테스트제목1</span>
                                     </div>
                                     <div class="detailContent-Button">
-                                        <button th:onclick="|deletePost(${consultingCasePost.consultingCaseId}, 'consultingCase')|"
+                                        <button th:onclick="'deletePost(' + ${consultingCasePost.consultingCaseId} + ', \'consultingCase\')'"
                                                 class="detailContent-DeleteButton">
-                                            <input type="hidden" th:value="${consultingCasePost.consultingCaseId}"
-                                                   th:name="consultingCaseId">
+                                            <input type="hidden" th:value="${consultingCasePost.consultingCaseId}" th:name="consultingCaseId">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                  fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
                                                 <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
@@ -454,23 +430,23 @@
                             <!--                                    <div class="member-name" th:text="${resolutionCase.category}">해결사례</div>-->
                             <!--                                </div>-->
                             <!--                        멤버 목록-->
-                            <div class="member-bottom"
-                                 th:if="${pagination.total == 0}">
-                                <svg width="53" height="56" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M27.516 1.62c-6.654-4.436-21.823.626-21.821 10.475 0 5.567 1.956 10.31 3.889 14.205-1.403-.463-2.853-1.072-3.8-2.095-.466-.502-1.151-1.115-1.802-1.35-.993-.358-2.035.135-2.572.923-1.212 1.776-1.071 2.717-.403 4.643 4.364 5.647 8.167 5.53 11.275 5.435.286-.009.566-.017.84-.021.897 3.13 2.706 6.042 4.099 8.965 1.617 5.694 9.313 4.544 12.913 1.697 2.3-1.819 5.187-2.36 8.117-1.475 2.303.419 3.88-.68 5.236-1.624 1.031-.72 1.934-1.348 2.93-1.149 1.19.238 2.511.191 2.718-1.307.521-3.781-8.391-5.535-11.284-7.062 4.98-2.883 7.416-7.67 6.968-10.861-.31-2.2-2.168-2.967-4.076-1.773-2.206 1.38-2.758 3.32-5.42 4.348 1.822-6.821 3.386-14.515-7.807-21.975Z"
-                                          fill="#9D8DFF"></path>
-                                    <path d="M15.33 17.017c.03.784-.382 1.385-.92 1.344-.54-.042-1.001-.71-1.032-1.494-.03-.784.382-1.385.921-1.343.54.041 1 .71 1.031 1.493ZM19.599 16.868c.03.784-.382 1.385-.921 1.344-.54-.042-1-.71-1.031-1.494-.03-.784.382-1.385.92-1.343.54.041 1.001.71 1.032 1.493Z"
-                                          fill="#060606"></path>
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                          d="M11.457 29.625a.7.7 0 0 1 .755.64c.036.44.242.87.57 1.304.322.428.721.81 1.107 1.178l.027.026a.7.7 0 1 1-.967 1.012l-.05-.048c-.37-.353-.842-.804-1.235-1.325-.414-.55-.782-1.23-.847-2.033a.7.7 0 0 1 .64-.754ZM35.844 23.41a.7.7 0 0 0-.968.205 25.97 25.97 0 0 1-.389.571c-.235.34-.487.704-.68 1.032-.33.559-.626 1.212-.626 1.941a.7.7 0 1 0 1.4 0c0-.354.145-.745.43-1.228.18-.303.368-.573.573-.868.146-.21.3-.431.465-.684a.7.7 0 0 0-.205-.969Z"
-                                          fill="#000"></path>
-                                    <path d="M17.917 19.838c-.158-.342-2.435-.62-2.138.915 1.156 3.742 2.834.598 2.138-.915Z"
-                                          fill="#030303"></path>
-                                    <path d="M51.901 52.983c0 1.223-7.433 2.214-16.602 2.214-9.17 0-16.603-.991-16.603-2.214 0-1.222 7.433-2.213 16.603-2.213 9.17 0 16.602.99 16.602 2.213Z"
-                                          fill="#E3E3E3"></path>
-                                </svg>
-                                <p class="member-nolist">작성글이 없습니다</p>
-                            </div>
+<!--                            <div class="member-bottom"-->
+<!--                                 th:if="${pagination.total == 0}">-->
+<!--                                <svg width="53" height="56" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--                                    <path d="M27.516 1.62c-6.654-4.436-21.823.626-21.821 10.475 0 5.567 1.956 10.31 3.889 14.205-1.403-.463-2.853-1.072-3.8-2.095-.466-.502-1.151-1.115-1.802-1.35-.993-.358-2.035.135-2.572.923-1.212 1.776-1.071 2.717-.403 4.643 4.364 5.647 8.167 5.53 11.275 5.435.286-.009.566-.017.84-.021.897 3.13 2.706 6.042 4.099 8.965 1.617 5.694 9.313 4.544 12.913 1.697 2.3-1.819 5.187-2.36 8.117-1.475 2.303.419 3.88-.68 5.236-1.624 1.031-.72 1.934-1.348 2.93-1.149 1.19.238 2.511.191 2.718-1.307.521-3.781-8.391-5.535-11.284-7.062 4.98-2.883 7.416-7.67 6.968-10.861-.31-2.2-2.168-2.967-4.076-1.773-2.206 1.38-2.758 3.32-5.42 4.348 1.822-6.821 3.386-14.515-7.807-21.975Z"-->
+<!--                                          fill="#9D8DFF"></path>-->
+<!--                                    <path d="M15.33 17.017c.03.784-.382 1.385-.92 1.344-.54-.042-1.001-.71-1.032-1.494-.03-.784.382-1.385.921-1.343.54.041 1 .71 1.031 1.493ZM19.599 16.868c.03.784-.382 1.385-.921 1.344-.54-.042-1-.71-1.031-1.494-.03-.784.382-1.385.92-1.343.54.041 1.001.71 1.032 1.493Z"-->
+<!--                                          fill="#060606"></path>-->
+<!--                                    <path fill-rule="evenodd" clip-rule="evenodd"-->
+<!--                                          d="M11.457 29.625a.7.7 0 0 1 .755.64c.036.44.242.87.57 1.304.322.428.721.81 1.107 1.178l.027.026a.7.7 0 1 1-.967 1.012l-.05-.048c-.37-.353-.842-.804-1.235-1.325-.414-.55-.782-1.23-.847-2.033a.7.7 0 0 1 .64-.754ZM35.844 23.41a.7.7 0 0 0-.968.205 25.97 25.97 0 0 1-.389.571c-.235.34-.487.704-.68 1.032-.33.559-.626 1.212-.626 1.941a.7.7 0 1 0 1.4 0c0-.354.145-.745.43-1.228.18-.303.368-.573.573-.868.146-.21.3-.431.465-.684a.7.7 0 0 0-.205-.969Z"-->
+<!--                                          fill="#000"></path>-->
+<!--                                    <path d="M17.917 19.838c-.158-.342-2.435-.62-2.138.915 1.156 3.742 2.834.598 2.138-.915Z"-->
+<!--                                          fill="#030303"></path>-->
+<!--                                    <path d="M51.901 52.983c0 1.223-7.433 2.214-16.602 2.214-9.17 0-16.603-.991-16.603-2.214 0-1.222 7.433-2.213 16.603-2.213 9.17 0 16.602.99 16.602 2.213Z"-->
+<!--                                          fill="#E3E3E3"></path>-->
+<!--                                </svg>-->
+<!--                                <p class="member-nolist">작성글이 없습니다</p>-->
+<!--                            </div>-->
 
                             <!--                            <footer class="Footer_Wrapper" th:with="start=${pagination.startPage},-->
                             <!--                    last=(${pagination.endPage})">-->

@@ -37,22 +37,22 @@ public interface PostsMapper {
 
 
     // 상담 사례 검색
-    public List<PostsDTO> searchConsultingCases(Search search);
+    public List<PostsDTO> searchConsultingCases(Pagination pagination, Search search);
 
     // 상담 사례 검색 개수
     public int searchTotalConsultingCases(Search search);
 
     // 해결 사례 검색
-    public List<PostsDTO> searchSolutionCases(Search search);
+//    public List<PostsDTO> searchSolutionCases(Search search);
 
     // 해결 사례 검색 개수
-    public int searchTotalSolutionCases(Search search);
+//    public int searchTotalSolutionCases(Search search);
 
     // 법률 가이드 검색
-    public List<PostsDTO> searchLegalGuides(Search search);
+//    public List<PostsDTO> searchLegalGuides(Search search);
 
     // 법률 가이드 검색 개수
-    public int searchTotalLegalGuides(Search search);
+//    public int searchTotalLegalGuides(Search search);
 
     // 해결 사례 게시글 삭제
     public void deleteSolutionCasePost(Long solutionCaseId);

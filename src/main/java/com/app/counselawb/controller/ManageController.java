@@ -4,7 +4,6 @@
     import com.app.counselawb.domain.dto.ConsultingCaseReplyDTO;
     import com.app.counselawb.domain.dto.LawyerAndMemberDTO;
     import com.app.counselawb.domain.dto.PostsDTO;
-    import com.app.counselawb.domain.dto.SearchDTO;
     import com.app.counselawb.domain.pagination.Pagination;
     import com.app.counselawb.domain.vo.LawyerVO;
     import com.app.counselawb.domain.vo.MemberVO;
@@ -31,7 +30,6 @@
     @RequestMapping("/manager/*")
     public class ManageController {
         private final PostsService postsService;
-        private final SearchService searchService;
         private final ConsultingCaseReplyService consultingCaseReplyService;
         private final SolutionCaseImgService solutionCaseImgService;
         private final NoticeService noticeService;
@@ -40,17 +38,54 @@
 
         @GetMapping("manager-mainpage")
     //    public void goTomanagePage() {;}
-        public String goToManageMain(@RequestParam(name="selectedOption", defaultValue = "selectAll") String selectedOption, @RequestParam(name = "keyword", required = false) String keyword,
+        public String goToManageMain(@RequestParam(name="selectedOption", defaultValue = "selectAll") String selectedOption, @RequestParam(name = "keyword", required = false, defaultValue = "") String keyword,
                                      Model model, Pagination pagination, HttpSession session) {
             model.addAttribute("selectedOption", selectedOption);
 
-            if (keyword != null && !keyword.isEmpty()) {
-                Search search = new Search();
-                search.setKeyword(keyword);
-                SearchDTO searchResults = searchService.getResult(search);
-                model.addAttribute("searchResults", searchResults);
-                log.info("Keyword received: " + keyword);
-            } else {
+//            if ((keyword == null || keyword.isEmpty()) && "selectAll".equals(selectedOption)) {
+//                pagination.setTotal(postsService.findTotalAllPosts());
+//                pagination.progress();
+//                model.addAttribute("pagination", pagination);
+//                List<PostsDTO> selectAllPosts = postsService.findByAllPosts(pagination);
+//                model.addAttribute("selectAllPosts", selectAllPosts);
+//            } else {
+//                if (keyword != null && !keyword.isEmpty()) {
+//                    Search search = new Search();
+//                    search.setKeyword(keyword);
+//                    pagination.setTotal(postsService.findSearchTotalConsultingCases(search));
+//                    pagination.progress();
+//                    SearchDTO searchResults = searchService.getResult(pagination, search);
+//                    model.addAttribute("searchResults", searchResults);
+//                    model.addAttribute("pagination", pagination);
+//
+//                    log.info("Keyword received: " + keyword);
+//                } else {
+//                    if ("solutionCase".equals(selectedOption)) {
+//                        pagination.setTotal(postsService.findTotalSolutionCasePosts());
+//                        pagination.progress();
+//                        model.addAttribute("pagination", pagination);
+//                        // 해결 사례 조회
+//                        List<PostsDTO> solutionCases = postsService.findBySolutionCasePosts(pagination);
+//                        model.addAttribute("solutionCases", solutionCases);
+//                    } else if ("consultingCase".equals(selectedOption)) {
+//                        pagination.setTotal(postsService.findTotalConsultingPosts());
+//                        pagination.progress();
+//                        model.addAttribute("pagination", pagination);
+//                        // 상담 사례 조회
+//                        List<PostsDTO> consultingCases = postsService.findByConsultingCasePosts(pagination);
+//                        model.addAttribute("consultingCases", consultingCases);
+//                    } else if ("legalGuide".equals(selectedOption)) {
+//                        pagination.setTotal(postsService.findTotalLegalGuidePosts());
+//                        pagination.progress();
+//                        model.addAttribute("pagination", pagination);
+//                        // 법률 가이드 정보 조회
+//                        List<PostsDTO> legalGuides = postsService.findByLegalGuidePosts(pagination);
+//                        model.addAttribute("legalGuides", legalGuides);
+//                    }
+//                }
+//            }
+//            model.addAttribute("keyword", keyword);
+
                 if ("selectAll".equals(selectedOption)) {
                     pagination.setTotal(postsService.findTotalAllPosts());
                     pagination.progress();
@@ -79,7 +114,7 @@
                     List<PostsDTO> legalGuides = postsService.findByLegalGuidePosts(pagination);
                     model.addAttribute("legalGuides", legalGuides);
                 }
-            }
+
 
 
 
