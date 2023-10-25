@@ -17,6 +17,8 @@ public class ConsultingCaseDTO {
     private String caseContent;
     // 멤버 id (fk)
     private Long memberId;
+    // 상담 등록 시간
+    private LocalDateTime consultCreateDate;
     // 변호사 id
     private Long lawyerId;
     // 변호사 이름
@@ -25,7 +27,9 @@ public class ConsultingCaseDTO {
     private Long replyId;
     // 답변 내용
     private String replyContent;
-    // 등록 시간
+    // caseId별 답변 개수
+    private String replyCount;
+    // 답변 등록 시간
     private LocalDateTime createDate;
 
 }
