@@ -14,7 +14,7 @@
 <body>
 <div class="search-controller main-content-container">
     <header th:replace="~{fix/header :: my-header}"></header>
-    <div class="search-content" style="visibility: visible; margin-top: 30px;">
+    <div class="search-content" style="visibility: visible; margin-top: 124px;">
 <!--       로톡에서 script 태그가 있었는데 삭제했습니다.-->
         <section class="content-section lawyers-section">
             <div class="lawyers-section-wrap section-wrap lawyers-tab-section">
@@ -35,7 +35,7 @@
                                     <lawyer-card-v2 class="need-boundary" th:each="eachLawyer : ${foundLawyers}">
                                         <article class="lawyer-card-v2-premium no-timeslot-card hide-category has-badges">
                                             <div class="lawyer-profile-right">
-                                                <div class="picture">
+                                                <div class="picture" th:onclick="'location.href=\'/lawyer-home/lawyer-home?lawyerId=' + ${eachLawyer.lawyerId} + '\''">
                                                     <img width="256" height="256" class="lawyer-profile"
                                                          th:src="${eachLawyer.lawyerImage == null ? '/image/defaultLawyerProfile/defaultLawyerProfile.png' : eachLawyer.lawyerImage}">
                                                 </div>
@@ -47,14 +47,14 @@
                                                     </a>
                                                 </div>
                                                 <div th:text="${eachLawyer.lawyerCompany}" class="lawyer-card-v2-premium__company-name"></div>
-                                                <a th:text="${eachLawyer.lawyerIntroduction == null ? '안녕하세요. ' + eachLawyer.lawyerName + ' 변호사입니다.' : eachLawyer.lawyerIntroduction}"
+                                                <a th:text="${#strings.equals(eachLawyer.lawyerIntroduction, '미입력') ? '안녕하세요. ' + eachLawyer.lawyerName + ' 변호사입니다' : eachLawyer.lawyerIntroduction}"
                                                    class="lawyer-description" th:href="'/lawyer-home/lawyer-home?lawyerId=' + ${eachLawyer.lawyerId}">
                                                 </a>
                                                 <div class="lawyer-review-coupon-icon-wrap has-review">
                                                     <div class="lawyer-review">
                                                         <div class="lawyer-review-rate-block">
                                                             <a th:href="'/lawyer-home/client-reviews?lawyerId=' + ${eachLawyer.lawyerId}">
-                                                                <div th:text="'의뢰인 후기 ' + ${eachLawyer.reviewCount} + '개'" class="lawyer-review-count">
+                                                                <div th:text="'의뢰인 후기 ' + ${eachLawyer.reviewCount == null ? 0 : eachLawyer.reviewCount} + '개'" class="lawyer-review-count">
                                                                 </div>
                                                             </a>
                                                         </div>
@@ -90,13 +90,28 @@
                                     </lawyer-card-v2>
                                 </div>
                                 <div th:if="${#lists.isEmpty(foundLawyers)}" class="empty-lawyer-message">해당 분야에 맞는 변호사가 없습니다.</div>
-                                <div th:if="${#lists.size(foundLawyers) >= 9}" class="more-lawyers-block">
-                                    <a class="more-lawyers">
-                                        <i class="more-text">더보기</i>
-                                        <i class="more-plus">+</i>
-                                    </a>
-                                    <div class="more-lawyers-button-boundary lt-mobile"></div>
-                                </div>
+                                <section class="review-pagination">
+                                    <lt-pagination th:with="start=${pagination.startPage}, last=${pagination.endPage}">
+                                        <div class="lt-pagination pagination-component">
+                                            <div class="lt-pagination__pages">
+                                                <div class="lt-pagination__pages-button-wrap">
+                                                    <a th:each="eachpage : ${#numbers.sequence(start, last)}" th:href="'/lawyer-search/lawyer-list-by-categories?fieldId=' + ${fieldId} + '&page=' + ${eachpage}"
+                                                       th:classappend="${eachpage == pagination.page ? 'on' : 'off'}"
+                                                       class="lt-pagination__pages-button" th:text="${eachpage}">
+                                                    </a>
+                                                </div>
+                                                <div class="pagination-next-five" th:if="${pagination.endPage >= 6}">
+                                                    <a th:href="'/lawyer-search/lawyer-list-by-categories?fieldId=' + ${fieldId} + '&page=' + ${start+5}">
+                                                        다음 5페이지
+                                                    </a>
+                                                </div>
+                                                <div class="pagination-arrow-button" th:if="${pagination.endPage >= 6}">
+                                                    <img width=20 height=20 src="/image/clientReviews/next.png" class="PaginationButtonGroup_Icon">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </lt-pagination>
+                                </section>
                             </section>
                         </td>
                         <td class="filter-column">

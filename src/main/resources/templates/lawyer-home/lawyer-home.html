@@ -37,7 +37,7 @@
             <div class="profile-page__tab">
                 <div class="profile-home">
                     <section class="profile-home__basic-info">
-                        <h1 th:with="default='안녕하세요. ' + ${selectedLawyer.lawyerName} + ' 변호사입니다'" th:text="${selectedLawyer.lawyerIntroduction == null ? default : selectedLawyer.lawyerIntroduction}" class="profile-home__introduce lt-desktop ad-lawyer"></h1>
+                        <h1 th:with="default='안녕하세요. ' + ${selectedLawyer.lawyerName} + ' 변호사입니다'" th:text="${#strings.equals(selectedLawyer.lawyerIntroduction, '미입력') ? default : selectedLawyer.lawyerIntroduction}" class="profile-home__introduce lt-desktop ad-lawyer"></h1>
                         <div class="basic-info-contents" style="display: flex;">
                             <div class="basic-info-content">
                                 <div class="left__name-rr">

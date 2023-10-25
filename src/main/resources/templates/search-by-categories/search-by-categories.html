@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>카운슬로우 - 내 손 안의 법률상담사</title>
+    <title>분야로 검색하기 : 카운슬로우 (CounseLaw)</title>
     <link rel="stylesheet" type="text/css"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"/>
     <link rel="stylesheet" href="/css/defaultSetting.css">
@@ -13,7 +13,7 @@
 <body>
     <div class="search-controller main-content-container">
         <header th:replace="~{fix/header :: my-header}"></header>
-        <div class="search-content" style="visibility: visible;">
+        <div class="search-content" style="visibility: visible; margin-top: 124px;">
             <div class="lawyer-find">
                 <div class="lawyer-find__toggle-wrap">
                     <div class="wide-toggle-fixed-on-mobile">
@@ -24,7 +24,7 @@
                                 <div class="wide-toggle__option wide-toggle__option--active">
                                     분야로 찾기
                                 </div>
-                                <div class="wide-toggle__option">
+                                <div class="wide-toggle__option" onclick="location.href='/lawyer-search/search-by-locations'">
                                     지역으로 찾기
                                 </div>
                             </div>

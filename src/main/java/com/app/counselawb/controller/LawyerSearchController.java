@@ -67,8 +67,9 @@ public class LawyerSearchController {
         model.addAttribute("resultCount", lawyerCount);
         pagination.setTotal(lawyerCount);
         pagination.progress();
+        model.addAttribute("pagination", pagination);
         // 페이징처리와 함께 해당 분야 변호사 정보 가져오기
-        List<LawyerFieldSearchDTO> foundLawyers = lawyerSearchService.findLawyersByFieldId(pagination, fieldId);
+        List<LawyerFieldSearchDTO> foundLawyers = lawyerSearchService.findLawyersByFieldId(pagination, fieldId);;
         model.addAttribute("foundLawyers", foundLawyers);
         return "/lawyer-list-by-categories/lawyer-list-by-categories";
     }
@@ -77,5 +78,11 @@ public class LawyerSearchController {
     @GetMapping("search-by-locations")
     public String goToLawyerLocations(){
         return "/search-by-locations/search-by-locations";
+    }
+
+    // 지역으로 변호사 검색한 결과
+    @GetMapping("lawyer-list-by-locations")
+    public String showLocationSearchList(Model model, Pagination pagination){
+        return "/lawyer-list-by-locations/lawyer-list-by-locations";
     }
 }
