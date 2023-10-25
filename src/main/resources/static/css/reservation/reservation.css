@@ -399,6 +399,7 @@ li.coupon-books {
     padding: 0 20px;
     position: relative;
     list-style: none;
+    cursor: pointer;
 }
 
 .coupon-wrap {
@@ -472,6 +473,7 @@ li.coupon-books:last-child .coupon-wrap {
     border: 0;
     background-color: #fff;
     cursor: pointer;
+    display: none;
 }
 
 .PaymentMethod-module_couponPriceValue {
@@ -578,7 +580,7 @@ li.coupon-books:last-child .coupon-wrap {
     line-height: 100%;
 }
 
-.PaymentMethod-module_active {
+.PaymentMethod-module_paymentButton.PaymentMethod-module_active {
     border-radius: 8px;
     background-color: #c50000;
     color: #fff;
