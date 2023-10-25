@@ -1,5 +1,6 @@
 package com.app.counselawb.controller;
 
+import com.app.counselawb.domain.dto.LegalGuideDTO;
 import com.app.counselawb.domain.vo.LegalGuideVO;
 import com.app.counselawb.service.LegalGuideService;
 import lombok.RequiredArgsConstructor;
@@ -22,9 +23,13 @@ public class LegalguideController {
 //    법률가이드 페이지
     @GetMapping("legal-guide")
     public String GoToLegalGuideList(Model model){
-        List<LegalGuideVO> legalGuides =legalGuideService.findAllLegalGuide();
-        model.addAttribute("legalGuides", legalGuides);
-        return "legal-guide";
+//        List<LegalGuideVO> legalGuides =legalGuideService.findAllLegalGuide();
+//        model.addAttribute("legalGuides", legalGuides);
+
+//       변호사,분야 정보 가져오기
+        List<LegalGuideDTO> legalGuideWithDetail = legalGuideService.findAllLegalGuideWithDetail();
+        model.addAttribute("legalGuideWithDetail", legalGuideWithDetail);
+        return "/legal-guide-page/legal-guide";
     }
 
 //    법률가이드 상세보기 페이지

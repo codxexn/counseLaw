@@ -8,24 +8,41 @@
 
     </select>
 
-<!--    상담사례의 변호사 이름, 작성자 이름, 답변 내용 개수등 다 불러오기-->
+<!--    상담사례 목록에 보일 변호사 이름, 작성자 이름, 답변 내용(가장 최근 날짜)등 다 불러오기-->
     <select id="readAllConsult" resultType="consultingCaseDTO">
         SELECT
             CC.CONSULTING_CASE_ID,
             CC.CASE_TITLE,
             CC.CASE_CONTENT,
             CC.MEMBER_ID,
+            CC.CREATE_DATE AS CONSULT_CREATE_DATE,
             CCR.LAWYER_ID,
             L.LAWYER_NAME,
-            CCR.CONSULTING_CASE_REPLY_ID,
-            CCR.CONSULTING_CASE_REPLY_CONTENT,
-            CCR.CREATE_DATE AS REPLY_CREATE_DATE
+            CCR.CONSULTING_CASE_REPLY_ID AS REPLY_ID,
+            CCR.CONSULTING_CASE_REPLY_CONTENT AS REPLY_CONTENT,
+            CCR.CREATE_DATE AS CREATE_DATE,
+            (
+                SELECT COUNT(*)
+                FROM TBL_CONSULTING_CASE_REPLY CCR1
+                WHERE CCR1.CONSULTING_CASE_ID = CC.CONSULTING_CASE_ID
+            ) AS REPLY_COUNT
         FROM
             TBL_CONSULTING_CASE CC
-                LEFT JOIN
-            TBL_CONSULTING_CASE_REPLY CCR ON CC.CONSULTING_CASE_ID = CCR.CONSULTING_CASE_ID
-                LEFT JOIN
-            TBL_LAWYER L ON CCR.LAWYER_ID = L.LAWYER_ID
+                LEFT JOIN (
+                SELECT
+                    CCR1.CONSULTING_CASE_ID,
+                    CCR1.CONSULTING_CASE_REPLY_ID,
+                    CCR1.CONSULTING_CASE_REPLY_CONTENT,
+                    CCR1.LAWYER_ID,
+                    CCR1.CREATE_DATE
+                FROM TBL_CONSULTING_CASE_REPLY CCR1
+                WHERE CCR1.CREATE_DATE = (
+                    SELECT MIN(CREATE_DATE)
+                    FROM TBL_CONSULTING_CASE_REPLY CCR2
+                    WHERE CCR2.CONSULTING_CASE_ID = CCR1.CONSULTING_CASE_ID
+                )
+            ) CCR ON CC.CONSULTING_CASE_ID = CCR.CONSULTING_CASE_ID
+                LEFT JOIN TBL_LAWYER L ON CCR.LAWYER_ID = L.LAWYER_ID
     </select>
 
 <!--    상담사례 총 개수 불러오기-->
@@ -34,6 +51,14 @@
         FROM TBL_CONSULTING_CASE
     </select>
 
+<!--    사이드바에 넣을 변호사 불러오기-->
+    <select id="readAllLawyers" resultType="lawyerSidebarDTO">
+    <![CDATA[
+        SELECT LAWYER_ID, LAWYER_NAME, LAWYER_INTRODUCTION, LAWYER_IMAGE
+        FROM TBL_LAWYER
+        WHERE ROWNUM <= 10
+        ]]>
+    </select>
 
 
 </mapper>

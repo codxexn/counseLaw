@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.counselawb.mapper.LegalGuideMapper">
-    <select id="selectAllLegalGuide" resultType="legalGuideVO">
-        SELECT LEGAL_GUIDE_ID, LEGAL_GUIDE_TITLE, LEGAL_GUIDE_CONTENT, LAWYER_ID
-        FROM TBL_LEGAL_GUIDE
+
+    <select id="selectAllLegalGuideWithDetail" resultType="legalGuideDTO">
+        SELECT LG.LEGAL_GUIDE_ID, LG.LEGAL_GUIDE_TITLE, LG.LEGAL_GUIDE_CONTENT, L.LAWYER_NAME, F.FIELD_TITLE
+        FROM TBL_LEGAL_GUIDE LG
+        LEFT JOIN TBL_LAWYER L ON L.LAWYER_ID = LG.LAWYER_ID
+        LEFT JOIN TBL_FIELD F ON F.FIELD_ID = LG.FIELD_ID
+        ORDER BY LG.CREATE_DATE DESC
     </select>
 </mapper>
