@@ -40,10 +40,10 @@
 
         @GetMapping("manager-mainpage")
     //    public void goTomanagePage() {;}
-        public String goToManageMain(@RequestParam(name="selectedOption", defaultValue = "selectAll") String selectedOption, @RequestParam(name = "keyword", required = false, defaultValue = "") String keyword,
+        public String goToManageMain(@RequestParam(value = "memberId", required = false) Long memberId, @RequestParam(name="selectedOption", defaultValue = "selectAll") String selectedOption, @RequestParam(name = "keyword", required = false, defaultValue = "") String keyword,
                                      Model model, Pagination pagination, HttpSession session) {
             model.addAttribute("selectedOption", selectedOption);
-
+            session.setAttribute("memberId", memberId);
             if ((keyword == null || keyword.isEmpty()) && "selectAll".equals(selectedOption)) {
                 pagination.setTotal(postsService.findTotalAllPosts());
                 pagination.progress();

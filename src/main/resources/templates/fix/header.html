@@ -13,9 +13,11 @@
     <div class="headerInnerWrapper">
         <header class="headerModule" th:if="${session.member == null && session.lawyer == null}">
             <div class="headerLeft">
+                <a th:href="@{/}">
                 <div class="headerLogoIcon">
                     <img class="logoImage" src="/image/header/counseLawLogo.png" alt="">
                 </div>
+                </a>
                 <div class="headerSearchBarWrapper">
                     <div class="searchInputWrapper searchBarBorder">
                         <img class="searchInputIcon searchBarBorder" src="/image/header/searchIcon.png">
@@ -29,14 +31,16 @@
                 </div>
             </div>
             <!--            로그인 회원가입-->
-            <a href="/login/client-login"><div class="headerRight">
+            <a class="login" href="/login/client-login"><div class="headerRight">
                 <p class="textSize14 textWeight400 textHeight100 accountButton textInherit" style="color: rgb(122, 130, 135);">로그인/가입</p></div></a>
         </header>
         <header class="headerModule" th:if="${session.member != null && session.lawyer == null && session.member.memberId != 1}">
             <div class="headerLeft">
-                <div class="headerLogoIcon">
-                    <img class="logoImage" src="/image/header/counseLawLogo.png" alt="">
-                </div>
+                <a th:href="@{/}">
+                    <div class="headerLogoIcon">
+                        <img class="logoImage" src="/image/header/counseLawLogo.png" alt="">
+                    </div>
+                </a>
                 <div class="headerSearchBarWrapper">
                     <div class="searchInputWrapper searchBarBorder">
                         <img class="searchInputIcon searchBarBorder" src="/image/header/searchIcon.png">
@@ -49,19 +53,22 @@
                     </div>
                 </div>
             </div>
-            <form th:action="@{login/logout-finally}">
-                <button type="submit" class="TopNavMenu-LogoutButton">로그아웃</button>
-            </form>
-            <a href="/member/mypage-member">
+            <a th:href="@{/login/logout-finally}">
+                <div class="headerRightOne"><p
+                        class="textSize14 textWeight400 textHeight100 accountButton textInherit"
+                        style="color: rgb(122, 130, 135);">로그아웃</p></div></a>
+            <a class="mypage" href="/member/mypage-member">
                 <div class="headerRight"><p
                         class="textSize14 textWeight400 textHeight100 accountButton textInherit"
                         style="color: rgb(122, 130, 135);">마이페이지</p></div></a>
         </header>
         <header class="headerModule" th:if="${session.member != null && session.lawyer == null && session.member.memberId == 1}">
             <div class="headerLeft">
-                <div class="headerLogoIcon">
-                    <img class="logoImage" src="/image/header/counseLawLogo.png" alt="">
-                </div>
+                <a th:href="@{/}">
+                    <div class="headerLogoIcon">
+                        <img class="logoImage" src="/image/header/counseLawLogo.png" alt="">
+                    </div>
+                </a>
                 <div class="headerSearchBarWrapper">
                     <div class="searchInputWrapper searchBarBorder">
                         <img class="searchInputIcon searchBarBorder" src="/image/header/searchIcon.png">
@@ -74,9 +81,10 @@
                     </div>
                 </div>
             </div>
-            <form th:action="@{login/logout-finally}">
-                <button type="submit" class="TopNavMenu-LogoutButton">로그아웃</button>
-            </form>
+            <a th:href="@{/login/logout-finally}">
+                <div class="headerRightOne"><p
+                        class="textSize14 textWeight400 textHeight100 accountButton textInherit"
+                        style="color: rgb(122, 130, 135);">로그아웃</p></div></a>
             <a href="/manager/manager-mainpage">
                 <div class="headerRight"><p
                         class="textSize14 textWeight400 textHeight100 accountButton textInherit"
@@ -84,9 +92,11 @@
         </header>
         <header class="headerModule" th:if="${session.lawyer != null && session.member == null}">
             <div class="headerLeft">
-                <div class="headerLogoIcon">
-                    <img class="logoImage" src="/image/header/counseLawLogo.png" alt="">
-                </div>
+                <a th:href="@{/}">
+                    <div class="headerLogoIcon">
+                        <img class="logoImage" src="/image/header/counseLawLogo.png" alt="">
+                    </div>
+                </a>
                 <div class="headerSearchBarWrapper">
                     <div class="searchInputWrapper searchBarBorder">
                         <img class="searchInputIcon searchBarBorder" src="/image/header/searchIcon.png">
@@ -100,9 +110,10 @@
                 </div>
             </div>
             <!--            로그아웃 및 마이페이지-->
-            <form th:action="@{login/logout-finally}">
-                <button type="submit" class="TopNavMenu-LogoutButton">로그아웃</button>
-            </form>
+            <a th:href="@{/login/logout-finally}">
+                <div class="headerRightOne"><p
+                        class="textSize14 textWeight400 textHeight100 accountButton textInherit"
+                        style="color: rgb(122, 130, 135);">로그아웃</p></div></a>
             <a href=""><div class="headerRight">
                 <p class="textSize14 textWeight400 textHeight100 accountButton textInherit" style="color: rgb(122, 130, 135);">마이페이지</p></div></a>
         </header>
@@ -111,21 +122,26 @@
     <div class="navBar lt-desktop">
         <div class="tabNavMenu">
             <div class="NavMenuList">
+                <a th:href="@{/}">
                 <button class="menuItemButtonActive"><p
                         class="realButton textSize20 textWeight700 textHeight100 textInherit"
-                >홈</p></button>
+                >홈</p></button></a>
+                <a th:href="@{/lawyer-search/search-by-categories}">
                 <button class="menuItemButton"><p
                         class="realButton textSize20 textWeight700 textHeight100 textInherit"
-                >변호사</p></button>
+                >변호사</p></button></a>
+                <a th:href="@{/consult-example/consultation-example}">
                 <button class="menuItemButton"><p
                         class="realButton textSize20 textWeight700 textHeight100 textInherit"
-                >상담사례</p></button>
+                >상담사례</p></button></a>
+                    <a th:href="@{/solution-case-page/solution-case}">
                 <button class="menuItemButton"><p
                         class="realButton textSize20 textWeight700 textHeight100 textInherit"
-                >해결사례</p></button>
+                >해결사례</p></button></a>
+                        <a th:href="@{/legal-guide-page/legal-guide}">
                 <button class="menuItemButton"><p
                         class="realButton textSize20 textWeight700 textHeight100 textInherit"
-                >법률가이드</p></button>
+                >법률가이드</p></button></a>
             </div>
             <div class="NavBarUnderLine"></div>
         </div>
