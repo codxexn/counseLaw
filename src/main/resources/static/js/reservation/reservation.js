@@ -32,22 +32,36 @@ const arrow = document.querySelector('.coupon-arrow');
 couponWrap.addEventListener('click', (e) => {
     if (couponLists.style.display === 'none') {
         couponLists.style.display = 'block';
-        arrow.src = 'up.png';
+        arrow.src = '/image/reservation/up.png';
     } else {
         couponLists.style.display = 'none';
-        arrow.src = 'down.png';
+        arrow.src = '/image/reservation/down.png';
     }
 });
 
-couponLists.addEventListener('click', (e) => {
-    couponLists.style.display = 'none';
-    arrow.src = 'down.png';
-    cancelButton.style.display = 'block';
-});
+const coupons = document.querySelectorAll(".coupon-books");
+const discounts = document.querySelectorAll(".discounted-price");
+const minusPrice = document.querySelector(".discount-price-won");
+const totalPayPrice = document.querySelector(".total-pay-price");
+const totalPrice = document.querySelector(".total-pay-price-value");
+const couponIds = document.querySelectorAll(".coupon-books input[name=couponIds]");
+let selectedCouponId = null;
+for (let i=0; i < coupons.length; i++){
+    coupons[i].addEventListener("click", (e) => {
+        couponLists.style.display = 'none';
+        arrow.src = '/image/reservation/down.png';
+        cancelButton.style.display = 'block';
+        minusPrice.innerText = `-${parseInt(discounts[i].innerText).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원`;
+        totalPayPrice.innerText = `${(parseInt(totalPrice.value) - parseInt(discounts[i].innerText)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원`;
+        selectedCouponId = couponIds[i].value;
+    })
+}
 
 cancelButton.addEventListener('click', (e) => {
     couponPriceValue.innerHTML = '0원';
+    totalPayPrice.innerText = `${parseInt(totalPrice.value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원`;
     cancelButton.style.display = 'none';
+    selectedCouponId = null;
 });
 
 // 동의 버튼 색깔변화
@@ -62,15 +76,87 @@ agreementButton.addEventListener('click', (e) => {
 })
 
 // 이름, 전화번호 입력시 flag true
-const nameField = document.querySelector('.input-advice-name');
-const phoneField = document.querySelector('.input-advice-phone');
-
-
+const nameField = document.querySelector('input[name="advice-name"]');
+const phoneField = document.querySelector('input[name="advice-phone"]');
 
 // 결제하기 버튼 활성화
 const paymentButton = document.querySelector('.PaymentMethod-module_paymentButton');
-
-if (textArea.value.length > 9 && nameField.value.length > 0 && phoneField.value.length === 11 && agreementButton.style.fill === 'black') {
-    paymentButton.classList.toggle('PaymentMethod-module_active');
+function validateBtn() {
+    if (textArea.value.length > 9 && nameField.value.length > 0 && phoneField.value.length === 11 && agreementButton.style.fill === 'black') {
+        if (!paymentButton.classList.contains("PaymentMethod-module_active")){
+            paymentButton.classList.add(("PaymentMethod-module_active"));
+            paymentButton.disabled = false;
+        }
+    } else {
+        if (paymentButton.classList.contains("PaymentMethod-module_active")) {
+            paymentButton.classList.remove("PaymentMethod-module_active");
+            paymentButton.disabled = true;
+        }
+    }
 }
 
+
+textArea.addEventListener("keyup", validateBtn);
+nameField.addEventListener("keyup", validateBtn);
+phoneField.addEventListener("keyup", validateBtn);
+agreementButton.addEventListener("click", validateBtn);
+
+
+/////////////////////// 결제 api 관련 /////////////////////////
+const reservationForm = document.getElementById("reservation-form");
+
+
+function pay() {
+    let payPrice = totalPayPrice.innerText.substring(0, totalPayPrice.innerText.length-1).split(",").join("");
+    let productName = document.querySelector(".reservation-title").innerText;
+    let itemName = document.querySelector(".consultingTypeToKorean").value;
+    let uniqueKey = new Date().toString();
+    BootPay.request({
+        price: payPrice,
+        application_id: '6537e05700be04001c8e27ba',
+        name: productName,
+        show_agree_window: 0,
+        items: [
+            {
+                item_name: itemName,
+                qty: 1,
+                unique: uniqueKey,
+                price: payPrice,
+                cat1: itemName
+            }
+        ],
+        order_id: uniqueKey,
+    }).error(function (data) {
+        alert("결제 오류가 발생했습니다. 다시 시도해주세요!");
+    }).cancel(function (data) {
+        alert("결제를 취소하셨습니다. 이전 페이지로 이동합니다.");
+    }).confirm(function (data) {
+        console.log(data);
+        BootPay.transactionConfirm(data);
+    }).done(function (data) {
+        alert("결제가 완료되었습니다. 마이페이지로 이동합니다.");
+        let obj;
+        obj = document.createElement("input");
+        obj.setAttribute("type", "hidden");
+        obj.setAttribute("name", "paymentPrice");
+        obj.setAttribute("value", payPrice);
+        reservationForm.appendChild(obj);
+
+        obj = document.createElement("input");
+        obj.setAttribute("type", "hidden");
+        obj.setAttribute("name", "paymentList");
+        obj.setAttribute("value", productName);
+        reservationForm.appendChild(obj);
+
+        if (selectedCouponId != null){
+            obj = document.createElement("input");
+            obj.setAttribute("type", "hidden");
+            obj.setAttribute("name", "couponId");
+            obj.setAttribute("value", selectedCouponId);
+            reservationForm.appendChild(obj);
+        }
+
+        reservationForm.submit();
+    });
+
+}

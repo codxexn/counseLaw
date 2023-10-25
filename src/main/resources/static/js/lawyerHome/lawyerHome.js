@@ -172,3 +172,158 @@ function clipCopy() {
         'success'
     );
 }
+
+// 상담예약 부분----------
+
+const phoneSelect = document.querySelector(".phone-select");
+const videoSelect = document.querySelector(".video-select");
+const visitSelect = document.querySelector(".visit-select");
+const totalPrice = document.querySelector(".total-price");
+const callPrice = document.querySelector("input[name='callPrice']");
+const videoPrice = document.querySelector("input[name='videoPrice']");
+const visitPrice = document.querySelector("input[name='visitPrice']");
+let consultingType = "";
+phoneSelect.addEventListener("click", () => {
+    totalPrice.innerText = callPrice.value + '원';
+    consultingType = "PHONE";
+})
+videoSelect.addEventListener("click", () => {
+    totalPrice.innerText = videoPrice.value + '원';
+    consultingType = "VIDEO";
+})
+visitSelect.addEventListener("click", () => {
+    totalPrice.innerText = visitPrice.value + '원';
+    consultingType = "VISIT";
+})
+
+// 오늘 날짜 기준으로 날짜 넣기
+const days = document.querySelectorAll(".days");
+const weekdays = document.querySelectorAll(".weekdays");
+let today = new Date();
+function getDateByMonth(month, day){
+    if ([1, 3, 5, 7, 8, 10, 12].includes(month)){
+        if (day > 31) {
+            day -= 31;
+        }
+    } else if (month === 2){
+        if (day > 28) {
+            day -= 28;
+        }
+    } else {
+        if (day > 30){
+            day -= 30;
+        }
+    }
+    return day;
+}
+
+function getWeekday(weekday){
+    if (weekday > 6){
+        weekday -= 7;
+    }
+    switch (weekday){
+        case 0:
+            return "일";
+        case 1:
+            return "월";
+        case 2:
+            return "화";
+        case 3:
+            return "수";
+        case 4:
+            return "목";
+        case 5:
+            return "금";
+        case 6:
+            return "토";
+    }
+}
+let month = today.getMonth() + 1;
+for (let i=0; i < 7; i++){
+    days[i].innerText = getDateByMonth(month, today.getDate() + i);
+    weekdays[i].innerText = getWeekday(today.getDay() + i);
+}
+weekdays[0].innerText = "오늘";
+
+// 선택 후 예약 페이지로 데이터 전송
+
+
+
+const lawyerId = document.querySelector("input[name=lawyerId]");
+const submitBtn = document.getElementById("final-submit-btn");
+submitBtn.addEventListener("click", (e) => {
+    Swal.fire({
+        title: '예약을 진행하시겠습니까?',
+        text: "예약 유형, 날짜와 시간을 다시 한 번 확인하십시오.",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: '예약하기',
+        cancelButtonText: '취소'
+    }).then((result) => {
+        if (result.value) {
+            let selectedMonth = 0;
+            let selectedDay = 0;
+            for (let i=0; i < dateButtons.length; i++){
+                if (dateButtons[i].className.includes('select')){
+                    selectedDay = days[i].innerText;
+                    break;
+                }
+            }
+            if (selectedDay < today.getDate()) {
+                selectedMonth = month + 1;
+            } else selectedMonth = month;
+
+            let selectedTime = "";
+            for (let timeButton of timeButtons){
+                if (timeButton.className.includes('select')){
+                    selectedTime = timeButton.innerText;
+                    break;
+                }
+            }
+            let timeSplit = selectedTime.split(":");
+
+            let reservationDate = new Date();
+            reservationDate.setMonth(selectedMonth-1);
+            reservationDate.setDate(selectedDay);
+            reservationDate.setHours(parseInt(timeSplit[0]));
+            reservationDate.setMinutes(parseInt(timeSplit[1]));
+
+            let price = totalPrice.innerText;
+            price = price.substring(0, price.length-1).split(",").join("");
+
+            let f = document.createElement('form');
+
+            let obj;
+            obj = document.createElement('input');
+            obj.setAttribute('type', 'hidden');
+            obj.setAttribute('name', 'consultingType');
+            obj.setAttribute('value', consultingType);
+            f.appendChild(obj);
+
+            obj = document.createElement('input');
+            obj.setAttribute('type', 'hidden');
+            obj.setAttribute('name', 'reservationDate');
+            obj.setAttribute('value', reservationDate.toISOString());
+            f.appendChild(obj);
+
+            obj = document.createElement('input');
+            obj.setAttribute('type', 'hidden');
+            obj.setAttribute('name', 'totalPrice');
+            obj.setAttribute('value', price);
+            f.appendChild(obj);
+
+            obj = document.createElement('input');
+            obj.setAttribute('type', 'hidden');
+            obj.setAttribute('name', 'lawyerId');
+            obj.setAttribute('value', lawyerId.value);
+            f.appendChild(obj);
+
+            f.setAttribute('method', 'get');
+            f.setAttribute('action', '/lawyer-home/reservation');
+            document.body.appendChild(f);
+            f.submit();
+
+        }
+})});

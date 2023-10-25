@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -23,16 +23,19 @@
                     <lawtalkHeader></lawtalkHeader>
                     <!-- 내용 -->
                     <div class="qnaArticle controller">
-                        <question question="question" expanded="true" get-qna-common-params="getQnaCommonParams()">
+                        <question question="question" expanded="true" get-qna-common-params="getQnaCommonParams()"
+                            th:each="consultDetail:${consultDetail}">
+                            <header th:replace="~{fix/header :: my-header}"></header>
+
                             <div class="question directive qnaDetailPage expanded">
                                 <h5 class="questionKeywords">
                                     <span class="questionKeyword" style="cursor:pointer;">손해배상</span>
                                 </h5>
-                                <h1 class="questionTitle daumWmTitle">유부남과의 관계에 대한 법적인 문제 상담</h1>
-                                <p class="questionBody daumWmContent">만난지는 1년이구요,  사귀는 사이는 아니에요. 상대방이 연애는 현타와서 안하고 싶지만 저를 진심으로 좋아하고 있다고 했고 앞으로 어떻게 될지 모르니 이대로 만나보자 해서 만나왔고 만나는 동안 저에게 진심이다 진심으로 좋아한다 해서 저도 상대방이 좋아져서 .. 1년을 만나고 있는데요. 여자친구인지 와이프인지 추정되는 sns 계정을 발견했고(커플사진 등등)  여자친구 인지 와이프 인지 확실하진 않아요. 그러나 여자분 계정에 결혼준비를 한 사진이나 신혼여행으로 추정되어 보이는 사진이 있어서 추측만 할뿐입니다. 당연히 저에게는 솔로라고 하고 다가 왔구요. 카톡에 저를 좋아한다. 진심이다 이런 내용들이 다 있고 저도 솔로인줄 알고 이 남자가 좋아졌고 그래서 성관계도 맺어 왔구요. 관계 정립만 안했을뿐 데이트도 하고 손도 잡고 다니고 할거 다 하는 사인데, 이런 경우도 성적자기결정권침해나  손해배상 청구 할수 있나요...?
+                                <h1 class="questionTitle daumWmTitle" th:text="${consultDetail.caseTitle}">유부남과의 관계에 대한 법적인 문제 상담</h1>
+                                <p class="questionBody daumWmContent" th:text="${consultDetail.caseContent}">
                                 </p>
                                 <div class="questionInfoWrap">
-                                    <span class="questionCreatedAt">1시간 전 작성됨</span>
+                                    <span class="questionCreatedAt" th:text="${#temporals.format(consultDetail.createDate,'yyyy년 MM월 dd일 HH시 mm분')} + '에 상담 작성'">1시간 전 작성됨</span>
                                     <span class="viewCount">
                                         조회수 76
                                     </span>
@@ -121,16 +124,16 @@
                         </question>
                         <!--상담글 작성하러가는 링크-->
                         <div class="qnaArticleBanner">
-                            <a href="../counseling/counseling-write.html">
+                            <a href="/counseling/counseling-write">
                                 <img src="https://d2nyk3ltml4doc.cloudfront.net/lawtalk/latest/images/cdeb4566aada08ba0d89.png" alt="" class="qnaArticleBannerCouponImage ltMobile">
                                 <img src="https://d2nyk3ltml4doc.cloudfront.net/lawtalk/latest/images/f6539abe0f8256c1d03e.png" alt="" class="qnaArticleBannerCouponImage ltDesktop">
                             </a>
                         </div>
                         <!--변호사 답변 개수 있는곳-->
-                        <div class="qnaArticleAnswerCount">
+                        <div class="qnaArticleAnswerCount" th:each="totalCount:${totalCount}">
                             <div class="qnaArticleAnswerCountText">
                                 변호사 답변 총&nbsp;
-                                <span class="qnaArticleAnswerCountTextOrange">10건</span>
+                                <span class="qnaArticleAnswerCountTextOrange" th:text="${totalCount} + ' 건'">10건</span>
                             </div>
                         </div>
                         <!--변호사 답변 개수랑 답변의 경계선-->
@@ -303,7 +306,7 @@
                                         </div>
                                         <!--변호사들의 나머지 답변-->
                                         <div class="qnaListNormal hasTopPadding">
-                                            <div class="qnaListItemWrap">
+                                            <div class="qnaListItemWrap" th:each="readLawyer:${readLawyer}">
                                                 <!--변호사들의 나머지 답변 반복 1-->
                                                 <!---->
                                                 <div class="qnaListItem">
@@ -322,10 +325,10 @@
                                                                             </a>
                                                                             <!-- 변호사 프로필 이름과 정보-->
                                                                             <div class="lawyerProfileInfo">
-                                                                                <div class="lawyerProfileInfoCompany">법률사무소 도약</div>
+                                                                                <div class="lawyerProfileInfoCompany" th:text="${readLawyer.lawyerCompany}">법률사무소 도약</div>
                                                                                 <div class="lawyerProfileInfoNameWrap">
                                                                                     <a href=""
-                                                                                       class="lawyerProfileInfoName">하선호 변호사</a>
+                                                                                       class="lawyerProfileInfoName" th:text="${readLawyer.lawyerName}">하선호 변호사</a>
                                                                                 </div>
                                                                             </div>
                                                                             <!-- 변호사 상담 예약-->
@@ -338,7 +341,7 @@
                                                                     </div>
                                                                 </new-layer-profile>
                                                             </div>
-                                                            <div class="answerBody">
+                                                            <div class="answerBody" th:text="${readLawyer.replyContent}">
                                                                 만약 상대가 결혼을 한 상태라면
 
                                                                 성적자기결정권 침해로인한 손해배상을 청구할 수
@@ -352,7 +355,7 @@
                                                                 알려드리도록 하겠습니다.
 
                                                                 <div class="answerMiddle">
-                                                                    <div class="answerMiddleCreatedAt">3일 전 작성됨</div>
+                                                                    <div class="answerMiddleCreatedAt" th:text="${#temporals.format(readLawyer.createDate,'yyyy년 MM월 dd일 HH시 mm분')} + ' 에 답변 작성'">3일 전 작성됨</div>
                                                                 </div>
                                                             </div>
                                                             <div class="answerBottom">

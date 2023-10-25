@@ -13,8 +13,10 @@ public class CouponVO {
     private Long couponId;
     // 쿠폰 이름(제목)
     private String couponTitle;
-    // 쿠폰 설명(내용)
-    private String couponDescription;
+    // 쿠폰 사용 가능 유형
+    private String couponAvailableType;
+    // 쿠폰 할인율
+    private int couponDiscountRate;
     // 쿠폰 생성일
     private LocalDateTime couponCreateDate;
     // 쿠폰 만료일
