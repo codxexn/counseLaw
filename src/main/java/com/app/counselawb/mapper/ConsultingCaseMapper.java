@@ -1,6 +1,7 @@
 package com.app.counselawb.mapper;
 
 import com.app.counselawb.domain.dto.ConsultDetailDTO;
+import com.app.counselawb.domain.dto.ConsultingCaseDTO;
 import com.app.counselawb.domain.dto.ConsultingWriteDTO;
 import com.app.counselawb.domain.pagination.Pagination;
 import com.app.counselawb.domain.vo.ConsultingCaseVO;
@@ -12,7 +13,7 @@ import java.util.List;
 public interface ConsultingCaseMapper {
 
 //    상담사례 전체 목록 불러오기
-    public List<ConsultingCaseVO> readAllConsult(Pagination pagination);
+    public List<ConsultingCaseDTO> readAllConsult(Pagination pagination);
 
 //    상담사례 전체 목록의 개수 불러오기
     public int selectAllCaseCounts();

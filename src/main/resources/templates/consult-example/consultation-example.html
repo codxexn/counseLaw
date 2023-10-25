@@ -215,7 +215,7 @@
                                 <!-- 1-->
                                 <lawyer-case-card th:each="consultCases:${consultCase}"
                                         ng-repeat="caseInCases" case="case" sort="sort" select-context-additional search-keyword="keyword" card-order="1" class="caseCard">
-                                    <a href="/consult-detail/consult-detail" class="caseCardLink">
+                                    <a th:href="@{/consult-detail/consult-detail/{consultId}(consultId=${consultCases.consultingCaseId})}" href="/consult-detail/consult-detail" class="caseCardLink">
                                         <div class="caseCardWrap">
                                             <div class="caseCardLine Top">
                                                 <!-- 공란-->
