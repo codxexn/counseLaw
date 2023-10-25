@@ -10,6 +10,7 @@ import com.app.counselawb.domain.vo.*;
 import com.app.counselawb.service.ConsultingReviewService;
 import com.app.counselawb.service.LawyerHomeService;
 import com.app.counselawb.service.LawyerService;
+import com.app.counselawb.service.ReservationService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -18,8 +19,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpSession;
+import javax.xml.ws.Service;
 import java.lang.reflect.Member;
 import java.sql.Timestamp;
 import java.time.Instant;
@@ -36,10 +39,10 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @RequestMapping("/lawyer-home/*")
 public class LawyerHomeController {
-    private HttpSession session;
     private final LawyerService lawyerService;
     private final ConsultingReviewService consultingReviewService;
     private final LawyerHomeService lawyerHomeService;
+    private final ReservationService reservationService;
 
     @GetMapping("lawyer-home")
     public void GoToLawyerHome(@RequestParam("lawyerId") Long lawyerId, Model model, LawyerVO lawyerVO, MemberVO memberVO){
@@ -108,7 +111,7 @@ public class LawyerHomeController {
 
     }
 
-    public static double myCalc(int min, int max, double avg, int cur){
+    public double myCalc(int min, int max, double avg, int cur){
         double result = 0;
         if (cur == avg) result = 50;
         else if (cur < avg){
@@ -223,7 +226,8 @@ public class LawyerHomeController {
     public String goToReservation(@RequestParam("consultingType") String consultingType,
                                   @RequestParam("reservationDate") String DATEreservationDate,
                                   @RequestParam("totalPrice") int totalPrice,
-                                  @RequestParam("lawyerId") Long lawyerId, Model model){
+                                  @RequestParam("lawyerId") Long lawyerId, Model model,
+                                  HttpSession session){
         LocalDateTime reservationDate = LocalDateTime.ofInstant(Instant.parse(DATEreservationDate), ZoneId.systemDefault());
         model.addAttribute("consultingType", consultingType);
         String consultingTypeToKorean = null;
@@ -248,8 +252,44 @@ public class LawyerHomeController {
         } else {
             model.addAttribute("reservedLawyer", new LawyerVO());
         }
-
+        MemberVO currentMember = (MemberVO) session.getAttribute("member");
+        Long memberId = currentMember.getMemberId();
+        List<CouponVO> userCoupons = reservationService.findMyCoupons(memberId);
+        List<CouponVO> availableCoupons = userCoupons.stream().filter((coupon) -> {
+           return coupon.getCouponAvailableType().equals("ALL") || coupon.getCouponAvailableType().equals(consultingType);
+        }).collect(Collectors.toList());
+        model.addAttribute("coupons", availableCoupons);
         return "/reservation/reservation";
     }
 
+    @PostMapping("reservation")
+    public RedirectView payAndGoToMyPage(HttpSession session, @RequestParam("adviceBody") String reservationContent,
+                                         @RequestParam("advice-name") String memberFakeName,
+                                         @RequestParam("advice-phone") String memberDesiredPhone,
+                                         @RequestParam("memberId") Long memberId,
+                                         @RequestParam("lawyerId") Long lawyerId,
+                                         @RequestParam("consultingType") String consultingType,
+                                         @RequestParam("paymentPrice") int paymentPrice,
+                                         @RequestParam("paymentList") String paymentList,
+                                         @RequestParam(required = false, value="couponId", defaultValue="0") Long couponId){
+        log.info("컨트롤러로 넘어옴.");
+        ReservationVO reservationVO = new ReservationVO();
+        reservationVO.setReservationContent(reservationContent);
+        reservationVO.setMemberFakeName(memberFakeName);
+        reservationVO.setMemberDesiredPhone(memberDesiredPhone);
+        reservationVO.setMemberId(memberId);
+        reservationVO.setLawyerId(lawyerId);
+        reservationVO.setConsultingType(consultingType);
+        reservationService.saveReservation(reservationVO);
+        Long reservationId = reservationService.findLatestResvIdByMemberId(memberId);
+        PaymentVO paymentVO = new PaymentVO();
+        paymentVO.setPaymentPrice(paymentPrice);
+        paymentVO.setPaymentList(paymentList);
+        paymentVO.setReservationId(reservationId);
+        reservationService.savePaymentInfo(paymentVO);
+        if (couponId != 0){
+            reservationService.reviseCouponToUsed(couponId);
+        }
+        return new RedirectView("/member/mypage-member");
+    }
 }
