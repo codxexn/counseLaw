@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.counselawb.mapper.ReservationMapper">
+    <select id="selectMyCoupons" resultType="couponVO">
+        SELECT C.COUPON_ID, C.COUPON_TITLE, C.COUPON_AVAILABLE_TYPE, C.COUPON_CREATE_DATE, C.COUPON_EXPIRE_DATE, C.COUPON_DISCOUNT_RATE
+        FROM TBL_COUPON C
+        JOIN TBL_MEMBER_COUPON MC
+        ON C.COUPON_ID = MC.COUPON_ID AND MC.COUPON_STATE = 'AVAILABLE'
+        JOIN TBL_MEMBER M
+        ON MC.MEMBER_ID = M.MEMBER_ID AND MC.MEMBER_ID = #{memberId}
+    </select>
+
+    <insert id="insertReservation">
+        INSERT INTO TBL_RESERVATION(RESERVATION_ID, MEMBER_ID, LAWYER_ID, CONSULTING_TYPE, RESERVATION_CONTENT, MEMBER_FAKE_NAME, MEMBER_DESIRED_PHONE)
+        VALUES(SEQ_RESERVATION.NEXTVAL, #{memberId}, #{lawyerId}, #{consultingType}, #{reservationContent}, #{memberFakeName}, #{memberDesiredPhone})
+    </insert>
+
+    <select id="selectLatestResvIdByMemberId" resultType="long">
+        SELECT P2.RESERVATION_ID
+        FROM
+            (SELECT ROWNUM R, P1.RESERVATION_ID
+            FROM
+                (SELECT RESERVATION_ID
+                FROM TBL_RESERVATION
+                WHERE MEMBER_ID = #{memberId}
+                ORDER BY RESERVATION_ID DESC) P1 ) P2
+        WHERE P2.R = 1
+    </select>
+
+    <insert id="insertPaymentInfo">
+        INSERT INTO TBL_PAYMENT(PAYMENT_ID, PAYMENT_LIST, RESERVATION_ID)
+        VALUES(SEQ_PAYMENT.NEXTVAL, #{paymentList}, #{reservationId})
+    </insert>
+
+    <update id="updateCouponToUsed">
+        UPDATE TBL_MEMBER_COUPON
+        SET COUPON_STATE = 'USED'
+        WHERE COUPON_ID = #{couponId}
+    </update>
+</mapper>
