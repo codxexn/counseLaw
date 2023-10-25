@@ -28,9 +28,6 @@ public class PostsDAO {
     // 상담 사례 개수
     public int findTotalConsultingPosts() { return  postsMapper.selectTotalConsultingPosts(); }
 
-    // 상담 사례 검색 개수
-    public int findSearchTotalConsultingCases(Search search) {return  postsMapper.searchTotalConsultingCases(search); }
-
     // 해결 사례 조회
     public List<PostsDTO> findBySolutionCasePosts(Pagination pagination) { return postsMapper.selectBySolutionCasePosts(pagination); }
 

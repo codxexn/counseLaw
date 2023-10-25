@@ -145,23 +145,23 @@
                         <div class="manager-top" style="margin-top: 50px">
                             <header class="manager-top-header">
                                 <h1 class="Manager-topWord">작성글 관리</h1>
-<!--                                <div>-->
-<!--                                    <div style="width: 240px; margin-left: 710px;">-->
-<!--                                        <form class="SearchForm" id="searchForm">-->
-<!--                                            <label class="member-search-label">-->
-<!--                                                <input class="member-searchBar" type="search" placeholder="작성글 검색"-->
-<!--                                                       id="search_keyword" name="keyword">-->
-<!--                                                <button class="member-search" type="submit">-->
-<!--                                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"-->
-<!--                                                         class="search">-->
-<!--                                                        <path fill-rule="evenodd" clip-rule="evenodd"-->
-<!--                                                              d="M15.83 16.561a7.8 7.8 0 1 1 1.233-1.312l3.465 3.465a.9.9 0 1 1-1.272 1.273L15.83 16.56Zm1.13-5.961a6.16 6.16 0 1 1-12.32 0 6.16 6.16 0 0 1 12.32 0Z"></path>-->
-<!--                                                    </svg>-->
-<!--                                                </button>-->
-<!--                                            </label>-->
-<!--                                        </form>-->
-<!--                                    </div>-->
-<!--                                </div>-->
+                                <div>
+                                    <div style="width: 240px; margin-left: 710px;">
+                                        <form class="SearchForm" id="searchForm">
+                                            <label class="member-search-label">
+                                                <input class="member-searchBar" type="search" placeholder="작성글 검색"
+                                                       id="search_keyword" name="keyword">
+                                                <button class="member-search" type="submit">
+                                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                                         class="search">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                              d="M15.83 16.561a7.8 7.8 0 1 1 1.233-1.312l3.465 3.465a.9.9 0 1 1-1.272 1.273L15.83 16.56Zm1.13-5.961a6.16 6.16 0 1 1-12.32 0 6.16 6.16 0 0 1 12.32 0Z"></path>
+                                                    </svg>
+                                                </button>
+                                            </label>
+                                        </form>
+                                    </div>
+                                </div>
                             </header>
                             <!--                            멤버 수-->
                             <div class="memberTop-mid">
@@ -196,8 +196,6 @@
                                             </option>
                                         </select>
                                         <button class="selectButton" type="submit">조회</button>
-                                        <input type="search" name="keyword" placeholder="검색어 입력">
-                                        <button class="search" type="submit">검색</button>
                                     </form>
                                     <!--                                            <ul class="options">-->
                                     <!--                                                <li class="option">-->
@@ -422,6 +420,35 @@
                                     </div>
                                 </div>
                             </div>
+
+<!--                            <div>-->
+<!--                                <div class="memberTop-bottom"-->
+<!--                                     th:if="${selectedOption == 'consultingCase'}"-->
+<!--                                     th:each="consultingCasePost : ${searchResults.searchConsultingCases}">-->
+<!--                                    <div style="width: 192px" class="posts">-->
+<!--                                        <span th:text="${consultingCasePost.memberName}">한땡땡</span>-->
+<!--                                    </div>-->
+<!--                                    <div style="width: 96px;" class="posts">-->
+<!--                                        <span th:text="|상담 사례|">상담 사례</span>-->
+<!--                                    </div>-->
+<!--                                    <div style="width: 127px;" class="posts">-->
+<!--                                        <span th:text="${#temporals.format(consultingCasePost.createDate, 'yyyy-MM-dd HH:mm')}">2023</span>-->
+<!--                                    </div>-->
+<!--                                    <div style="width: 200px;" class="posts">-->
+<!--                                        <span th:text="${consultingCasePost.caseTitle}">테스트제목1</span>-->
+<!--                                    </div>-->
+<!--&lt;!&ndash;                                    <div class="detailContent-Button">&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <button th:onclick="'deletePost(' + ${consultingCasePost.consultingCaseId} + ', \'consultingCase\')'"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                class="detailContent-DeleteButton">&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <input type="hidden" th:value="${consultingCasePost.consultingCaseId}" th:name="consultingCaseId">&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                 fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            </svg>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        </button>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
+<!--                                </div>-->
+<!--                            </div>-->
                             <!--                                <div class="posts-wrapper" th:if="${#strings.equals(selectedOption, '상담사례')}">-->
                             <!--                                    <div class="member-name" th:text="${consultingCase.category}">상담사례</div>-->
                             <!--                                </div>-->

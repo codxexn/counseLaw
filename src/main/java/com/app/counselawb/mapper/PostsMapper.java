@@ -37,7 +37,7 @@ public interface PostsMapper {
 
 
     // 상담 사례 검색
-    public List<PostsDTO> searchConsultingCases(Pagination pagination, Search search);
+    public List<PostsDTO> searchConsultingCases(Search search);
 
     // 상담 사례 검색 개수
     public int searchTotalConsultingCases(Search search);
