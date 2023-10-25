@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>상담사례 페이지</title>
     <link rel="stylesheet" href="/css/consultExample/consultationExample.css">
+    <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" rel="stylesheet">
     <th:block th:replace="~{fix/header :: my-header-head}"></th:block>
     <th:block th:replace="~{fix/footer :: my-footer-head}"></th:block>
 </head>
@@ -215,7 +216,7 @@
                                 <!-- 1-->
                                 <lawyer-case-card th:each="consultCases:${consultCase}"
                                         ng-repeat="caseInCases" case="case" sort="sort" select-context-additional search-keyword="keyword" card-order="1" class="caseCard">
-                                    <a th:href="@{/consult-detail/consult-detail/{consultId}(consultId=${consultCases.consultingCaseId})}" href="/consult-detail/consult-detail" class="caseCardLink">
+                                    <a th:href="@{/consult-detail/{consultId}(consultId=${consultCases.consultingCaseId})}" class="caseCardLink">
                                         <div class="caseCardWrap">
                                             <div class="caseCardLine Top">
                                                 <!-- 공란-->
@@ -227,19 +228,16 @@
 <!--                                                </span>-->
 <!--                                            </h5>-->
                                             <!-- 제목 -->
-                                            <div style class="caseCardTitle" th:text="${consultCases.caseTitle}">유부남과의 관계에 대한 법적인 문제 상담
+                                            <div style class="caseCardTitle" th:text="${consultCases.caseTitle}">
                                             </div>
                                             <!-- 답변한 변호사 -->
                                             <div class="caseAnswer">
                                                 답변
-                                                <span class="caseAnswerLawyer" th:text="${consultCases.lawyerName}">
-                                                    하선호 변호사
+                                                <span class="caseAnswerLawyer" th:text="${consultCases.lawyerName} + ' 변호사'">
                                                 </span>
                                             </div>
                                             <!-- 답변의 내용-->
                                             <div class="caseCardAnswer" th:utext="${consultCases.replyContent}">
-                                                만약 상대가 결혼을 한 상태라면 성적자기결정권 침해로인한 손해배상을 청구할 수 있습니다. 게시글만 가지고 원론적으로 답변드린거라서 전화주시면 어떻게 법적대응하셔야하는지
-                                                알려드리도록 하겠습니다.
                                             </div>
                                             <!-- 다른 변호사 답변 -->
                                             <div class="caseCardEtcAnswer">
@@ -248,7 +246,7 @@
                                                     <img src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/5df9cb3393bb4b00115aab10-thumb.jpg" alt="" class="photo">
                                                 </div>
                                                 <div class="etcLawyers">
-                                                    <div class="etcLawyersInner">다른 변호사 답변 2개
+                                                    <div class="etcLawyersInner" th:text="'다른 변호사 답변 ' + ${consultCases.replyCount} + '개'">
                                                     </div>
                                                 </div>
                                             </div>
@@ -263,545 +261,7 @@
                                                     </i>
                                                     <i class="number"></i>
                                                 </span>
-                                                <span class="answerDate">한 시간 전 답변 작성됨</span>
-                                            </div>
-                                            <div class="caseCardLine Bottom">
-                                            </div>
-                                        </div>
-                                    </a>
-                                </lawyer-case-card>
-                                <!-- 2-->
-                                <lawyer-case-card ng-repeat="caseInCases" case="case" sort="sort" select-context-additional search-keyword="keyword" card-order="1" class="caseCard">
-                                    <a href="" class="caseCardLink">
-                                        <div class="caseCardWrap">
-                                            <div class="caseCardLine Top"></div>
-                                            <!-- 장르-->
-                                            <h5 class="caseKeywords">
-                                                <span class="caseKeyword">
-                                                    성폭력/강재추행 등
-                                                </span>
-                                            </h5>
-                                            <!-- 제목 -->
-                                            <div style class="caseCardTitle">온라인으로 알게된 사람에게 성추행 당한 경우, 사건 진행은 어떻게 되는가?
-                                            </div>
-                                            <!-- 답변한 변호사 -->
-                                            <div class="caseAnswer">
-                                                답변
-                                                <span class="caseAnswerLawyer">
-                                                    조기현 변호사
-                                                </span>
-                                            </div>
-                                            <!-- 답변의 내용-->
-                                            <div class="caseCardAnswer">
-                                                1. 전후 세부적인 정황에 대한 확인이 필요하나 말씀하신 정황만으로는 유사강간이 성립하기 어려워 보입니다.
-                                                2. 불송치 내지 불기소처분 될 수 있고, 그럴 경우 상대방이 무고로 신고할 가능성이 있습니다.
-                                            </div>
-                                            <!-- 다른 변호사 답변 -->
-                                            <div class="caseCardEtcAnswer">
-                                                <div class="photos">
-                                                    <img src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/5ddb2d544eda6a0011debe8c-thumb.jpg" alt="" class="photo">
-                                                    <img src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/5df9cb3393bb4b00115aab10-thumb.jpg" alt="" class="photo">
-                                                </div>
-                                                <div class="etcLawyers">
-                                                    <div class="etcLawyersInner">다른 변호사 답변 2개
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="caseCardInfo">
-                                                <span class="viewCount">
-                                                    조회수
-                                                    <i class="number">11</i>
-                                                </span>
-                                                <span class="bookMarkCount">
-                                                    <i tooltip="즐겨찾기" tooltip-class="star-tooltip" tooltip-placement="bottom" class="lc lcStarSharpO">
-
-                                                    </i>
-                                                    <i class="number"></i>
-                                                </span>
-                                                <span class="answerDate">3 시간 전 답변 작성됨</span>
-                                            </div>
-                                            <div class="caseCardLine Bottom">
-                                            </div>
-                                        </div>
-                                    </a>
-                                </lawyer-case-card>
-                                <!-- 3-->
-                                <lawyer-case-card ng-repeat="caseInCases" case="case" sort="sort" select-context-additional search-keyword="keyword" card-order="1" class="caseCard">
-                                    <a href="" class="caseCardLink">
-                                        <div class="caseCardWrap">
-                                            <div class="caseCardLine Top">
-                                                <!-- 공란-->
-                                            </div>
-                                            <!-- 장르-->
-                                            <h5 class="caseKeywords">
-                                                <span class="caseKeyword">
-                                                    미성년 대상 성범죄
-                                                </span>
-                                                <span class="caseKeyword">
-                                                    디지털 성범죄
-                                                </span>
-                                                <span class="caseKeyword">
-                                                    세금/행정/헌법
-                                                </span>
-                                            </h5>
-                                            <!-- 제목 -->
-                                            <div style class="caseCardTitle">미성년자 성매매행위에 대한 상담
-                                            </div>
-                                            <!-- 답변한 변호사 -->
-                                            <div class="caseAnswer">
-                                                답변
-                                                <span class="caseAnswerLawyer">
-                                                    조기현 변호사
-                                                </span>
-                                            </div>
-                                            <!-- 답변의 내용-->
-                                            <div class="caseCardAnswer">
-                                                1. 상대방은 공갈범일 가능성이 더 높아보이며, 실제 미성년자도 아닐 가능성이 있습니다.
-                                                2. 다만 질문자님이 상대방이 미성년자인 점을 미필적으로나마 인식하였다면(카카오톡 미니 등을 통해), 상대방이 신고하거나 고소하면 사건화되겠습니다.
-                                                3. 사건화되면 형사사건 대응과 군 내 징계절차 대응이 필수적이며, 이 때는 반드시 변호사 조력이 필요합니다.
-
-                                                아직 사건화되지 않은만큼 너무 걱정하실 필요는 없을 것으로 판단되며, 만약 사건화되면 즉시 저에게 연락주시길 바랍니다.
-
-                                                군인 범죄 및 군인 징계 대응에 있어 강력한 전문성을 보유하고 있습니다.
-
-                                                [대한중앙 대표변호사 / 법무법인대한중앙TV]
-                                            </div>
-                                            <!-- 다른 변호사 답변 -->
-                                            <div class="caseCardEtcAnswer">
-                                                <div class="photos">
-                                                    <img src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/5ddb2d544eda6a0011debe8c-thumb.jpg" alt="" class="photo">
-                                                    <img src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/5df9cb3393bb4b00115aab10-thumb.jpg" alt="" class="photo">
-                                                </div>
-                                                <div class="etcLawyers">
-                                                    <div class="etcLawyersInner">다른 변호사 답변 2개
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="caseCardInfo">
-                                                <span class="viewCount">
-                                                    조회수
-                                                    <i class="number">12</i>
-                                                </span>
-                                                <span class="bookMarkCount">
-                                                    <i tooltip="즐겨찾기" tooltip-class="star-tooltip" tooltip-placement="bottom" class="lc lcStarSharpO">
-
-                                                    </i>
-                                                    <i class="number"></i>
-                                                </span>
-                                                <span class="answerDate">4 시간 전 답변 작성됨</span>
-                                            </div>
-                                            <div class="caseCardLine Bottom">
-                                            </div>
-                                        </div>
-                                    </a>
-                                </lawyer-case-card>
-                                <!-- 4-->
-                                <lawyer-case-card ng-repeat="caseInCases" case="case" sort="sort" select-context-additional search-keyword="keyword" card-order="1" class="caseCard">
-                                    <a href="" class="caseCardLink">
-                                        <div class="caseCardWrap">
-                                            <div class="caseCardLine Top"></div>
-                                            <!-- 장르-->
-                                            <h5 class="caseKeywords">
-                                                <span class="caseKeyword">
-                                                    사기/공갈
-                                                </span>
-                                            </h5>
-                                            <!-- 제목 -->
-                                            <div style class="caseCardTitle">체크카드 대여 사기 경험 및 대처 방안
-                                            </div>
-                                            <!-- 답변한 변호사 -->
-                                            <div class="caseAnswer">
-                                                답변
-                                                <span class="caseAnswerLawyer">
-                                                    백창협 변호사
-                                                </span>
-                                            </div>
-                                            <!-- 답변의 내용-->
-                                            <div class="caseCardAnswer">
-                                                1. 사기 공범 및 전자금융거래법 위반으로 조사를 받을 것입니다. 사기 공범에 대해서는 고의성을 부정하여 무혐의 처분을 받아야 하고, 전자금융거래법 위반에 대해서는 양형에 집중하여 처벌수위를 낮추는 노력을 하셔야 합니다.
-
-                                                2. 구체적인 상담을 거친 답변이 아니오니 참고만 하시고 대한변호사협회 등록 형사전문변호사이니 궁금하신 사항은 연락주세요.
-                                            </div>
-                                            <!-- 다른 변호사 답변 -->
-                                            <div class="caseCardEtcAnswer">
-                                                <div class="photos">
-                                                    <img src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/5ddb2d544eda6a0011debe8c-thumb.jpg" alt="" class="photo">
-                                                    <img src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/5df9cb3393bb4b00115aab10-thumb.jpg" alt="" class="photo">
-                                                </div>
-                                                <div class="etcLawyers">
-                                                    <div class="etcLawyersInner">다른 변호사 답변 2개
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="caseCardInfo">
-                                                <span class="viewCount">
-                                                    조회수
-                                                    <i class="number">10</i>
-                                                </span>
-                                                <span class="bookMarkCount">
-                                                    <i tooltip="즐겨찾기" tooltip-class="star-tooltip" tooltip-placement="bottom" class="lc lcStarSharpO">
-
-                                                    </i>
-                                                    <i class="number"></i>
-                                                </span>
-                                                <span class="answerDate">한 시간 전 답변 작성됨</span>
-                                            </div>
-                                            <div class="caseCardLine Bottom">
-                                            </div>
-                                        </div>
-                                    </a>
-                                </lawyer-case-card>
-                                <!-- 5-->
-                                <lawyer-case-card ng-repeat="caseInCases" case="case" sort="sort" select-context-additional search-keyword="keyword" card-order="1" class="caseCard">
-                                    <a href="" class="caseCardLink">
-                                        <div class="caseCardWrap">
-                                            <div class="caseCardLine Top"></div>
-                                            <!-- 장르-->
-                                            <h5 class="caseKeywords">
-                                                <span class="caseKeyword">
-                                                    이혼
-                                                </span>
-                                            </h5>
-                                            <!-- 제목 -->
-                                            <div style class="caseCardTitle">부부 간의 경제적 분쟁과 이혼 시 재산 분할에 대한 상담
-                                            </div>
-                                            <!-- 답변한 변호사 -->
-                                            <div class="caseAnswer">
-                                                답변
-                                                <span class="caseAnswerLawyer">
-                                                    백서준 변호사
-                                                </span>
-                                            </div>
-                                            <!-- 답변의 내용-->
-                                            <div class="caseCardAnswer">
-                                                안녕하세요 대한변호사협회 인증 가사전문변호사 오엔법률사무소 대표변호사입니다
-
-                                                아내분이 이혼을 염두에두고 돈을 옮긴것으로 보입니다
-                                                아내분이 그 돈을 쓰거나 다른 가족계좌로 옮기기 전에 해당 계좌 가압류해서 일단 막아야합니다
-                                                계좌를 가압류하면 지급이 막힙니다
-                                                그리고 이혼 소송 제기해서 위자료 재산분할 명확히 하고
-                                                작성자분에게 모든 면이 최대한으로 이익이 되게 해야합니다
-
-                                                관련하여 도움이 필요하시면 제 프로필 조회 후 사무실 연락처로 전화하여 상담요청 남겨주세요
-                                                저희는 상담시간에 제한이 없어 심층상담이 가능합니다
-                                            </div>
-                                            <!-- 다른 변호사 답변 -->
-                                            <div class="caseCardEtcAnswer">
-                                                <div class="photos">
-                                                    <img src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/5ddb2d544eda6a0011debe8c-thumb.jpg" alt="" class="photo">
-                                                    <img src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/5df9cb3393bb4b00115aab10-thumb.jpg" alt="" class="photo">
-                                                </div>
-                                                <div class="etcLawyers">
-                                                    <div class="etcLawyersInner">다른 변호사 답변 2개
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="caseCardInfo">
-                                                <span class="viewCount">
-                                                    조회수
-                                                    <i class="number">34</i>
-                                                </span>
-                                                <span class="bookMarkCount">
-                                                    <i tooltip="즐겨찾기" tooltip-class="star-tooltip" tooltip-placement="bottom" class="lc lcStarSharpO">
-
-                                                    </i>
-                                                    <i class="number"></i>
-                                                </span>
-                                                <span class="answerDate">4 시간 전 답변 작성됨</span>
-                                            </div>
-                                            <div class="caseCardLine Bottom">
-                                            </div>
-                                        </div>
-                                    </a>
-                                </lawyer-case-card>
-                                <!-- 6-->
-                                <lawyer-case-card ng-repeat="caseInCases" case="case" sort="sort" select-context-additional search-keyword="keyword" card-order="1" class="caseCard">
-                                    <a href="" class="caseCardLink">
-                                        <div class="caseCardWrap">
-                                            <div class="caseCardLine Top"></div>
-                                            <!-- 장르-->
-                                            <h5 class="caseKeywords">
-                                                <span class="caseKeyword">
-                                                    건축/부동산 일반
-                                                </span>
-                                                <span class="caseKeyword">
-                                                    소송/집행절차
-                                                </span>
-                                            </h5>
-                                            <!-- 제목 -->
-                                            <div style class="caseCardTitle">신용대출로 구입한 집, 부모님과의 문제 해결 방법
-                                            </div>
-                                            <!-- 답변한 변호사 -->
-                                            <div class="caseAnswer">
-                                                답변
-                                                <span class="caseAnswerLawyer">
-                                                    김태운 변호사
-                                                </span>
-                                            </div>
-                                            <!-- 답변의 내용-->
-                                            <div class="caseCardAnswer">
-                                                임의퇴거를 안하는 경우 부동산명도소송 및 퇴거소송을 제기할수 밖에 없습니다. 점유이전가처분도 신청하시고 본안의 소를 제기하는것이 좋을것 같습니다. 점유를 정당화할수 있는 임대차계약 사용대차 계약 등이 없다면 승소가 가능한 사안입니다. 부모자식간에 일어닌 일을 법정에 가져가는 것은 당사자나 변호사나 모두 부담스러운 일입니다. 가능하다면 협의를 잘 하셔서 가족안에서 해결하시기를 권해드립니다. 도움되셨으면 합니다
-                                                부동산 소송 등 관련 업무를 주관하는 사법보좌관 출신 변호사입니다 문의주세요
-                                            </div>
-                                            <!-- 다른 변호사 답변 -->
-                                            <div class="caseCardEtcAnswer">
-                                                <div class="photos">
-                                                    <img src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/5ddb2d544eda6a0011debe8c-thumb.jpg" alt="" class="photo">
-                                                    <img src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/5df9cb3393bb4b00115aab10-thumb.jpg" alt="" class="photo">
-                                                </div>
-                                                <div class="etcLawyers">
-                                                    <div class="etcLawyersInner">다른 변호사 답변 2개
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="caseCardInfo">
-                                                <span class="viewCount">
-                                                    조회수
-                                                    <i class="number">18</i>
-                                                </span>
-                                                <span class="bookMarkCount">
-                                                    <i tooltip="즐겨찾기" tooltip-class="star-tooltip" tooltip-placement="bottom" class="lc lcStarSharpO">
-
-                                                    </i>
-                                                    <i class="number"></i>
-                                                </span>
-                                                <span class="answerDate">5 시간 전 답변 작성됨</span>
-                                            </div>
-                                            <div class="caseCardLine Bottom">
-                                            </div>
-                                        </div>
-                                    </a>
-                                </lawyer-case-card>
-                                <!-- 7-->
-                                <lawyer-case-card ng-repeat="caseInCases" case="case" sort="sort" select-context-additional search-keyword="keyword" card-order="1" class="caseCard">
-                                    <a href="" class="caseCardLink">
-                                        <div class="caseCardWrap">
-                                            <div class="caseCardLine Top"></div>
-                                            <!-- 장르-->
-                                            <h5 class="caseKeywords">
-                                                <span class="caseKeyword">
-                                                    고소/소송절차
-                                                </span>
-                                            </h5>
-                                            <!-- 제목 -->
-                                            <div style class="caseCardTitle">통신비밀법보호 위반 관련 상담
-                                            </div>
-                                            <!-- 답변한 변호사 -->
-                                            <div class="caseAnswer">
-                                                답변
-                                                <span class="caseAnswerLawyer">
-                                                    백서준 변호사
-                                                </span>
-                                            </div>
-                                            <!-- 답변의 내용-->
-                                            <div class="caseCardAnswer">
-                                                안녕하세요 대한변호사협회 인증 형사전문변호사 오엔법률사무소 대표변호사입니다
-
-                                                사실관계를 좀 더 확인해봐야하나
-                                                해당 증거가 증거로 사용되지 않은 것은
-                                                위법하게 수집된 증거로 판단되었기 때문으로 보입니다
-                                                그렇다면 통비법 위반 소지가 있었다고 판단된 것으로 유추되는바 고소 가능할 것으로 보입니다
-                                                다만 무고죄로 역고소 당하는 것을 방지하기 위해 고소 전에 반드시 변호사와 상담을 받아보셔야 합니다
-
-                                                관련하여 도움이 필요하시면 제 프로필 조회 후 사무실 연락처로 전화하여 상담요청 남겨주세요
-                                                저희는 상담시간에 제한이 없어 심층상담이 가능합니다
-                                            </div>
-                                            <!-- 다른 변호사 답변 -->
-                                            <div class="caseCardEtcAnswer">
-                                                <div class="photos">
-                                                    <img src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/5ddb2d544eda6a0011debe8c-thumb.jpg" alt="" class="photo">
-                                                    <img src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/5df9cb3393bb4b00115aab10-thumb.jpg" alt="" class="photo">
-                                                </div>
-                                                <div class="etcLawyers">
-                                                    <div class="etcLawyersInner">다른 변호사 답변 2개
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="caseCardInfo">
-                                                <span class="viewCount">
-                                                    조회수
-                                                    <i class="number">28</i>
-                                                </span>
-                                                <span class="bookMarkCount">
-                                                    <i tooltip="즐겨찾기" tooltip-class="star-tooltip" tooltip-placement="bottom" class="lc lcStarSharpO">
-
-                                                    </i>
-                                                    <i class="number"></i>
-                                                </span>
-                                                <span class="answerDate">5 시간 전 답변 작성됨</span>
-                                            </div>
-                                            <div class="caseCardLine Bottom">
-                                            </div>
-                                        </div>
-                                    </a>
-                                </lawyer-case-card>
-                                <!-- 8 -->
-                                <lawyer-case-card ng-repeat="caseInCases" case="case" sort="sort" select-context-additional search-keyword="keyword" card-order="1" class="caseCard">
-                                    <a href="" class="caseCardLink">
-                                        <div class="caseCardWrap">
-                                            <div class="caseCardLine Top"></div>
-                                            <!-- 장르-->
-                                            <h5 class="caseKeywords">
-                                                <span class="caseKeyword">
-                                                    음주/무면허
-                                                </span>
-                                            </h5>
-                                            <!-- 제목 -->
-                                            <div style class="caseCardTitle">음주운전 초범, 면허취소 구제 가능성 탐색
-                                            </div>
-                                            <!-- 답변한 변호사 -->
-                                            <div class="caseAnswer">
-                                                답변
-                                                <span class="caseAnswerLawyer">
-                                                    백창협 변호사
-                                                </span>
-                                            </div>
-                                            <!-- 답변의 내용-->
-                                            <div class="caseCardAnswer">
-                                                1. 최근에는 생계형 운전자라고 하더라도 면허정지로 감경은 어렵습니다. 최근 음주초범의 벌금수치가 강화되는 추세이니 양형에 집중하여 처벌수위를 낮추는 노력을 하셔야 합니다.
-
-                                                2. 구체적인 상담을 거친 답변이 아니오니 참고만 하시고 대한변호사협회 등록 형사전문변호사이니 궁금하신 사항은 연락주세요.
-                                            </div>
-                                            <!-- 다른 변호사 답변 -->
-                                            <div class="caseCardEtcAnswer">
-                                                <div class="photos">
-                                                    <img src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/5ddb2d544eda6a0011debe8c-thumb.jpg" alt="" class="photo">
-                                                    <img src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/5df9cb3393bb4b00115aab10-thumb.jpg" alt="" class="photo">
-                                                </div>
-                                                <div class="etcLawyers">
-                                                    <div class="etcLawyersInner">다른 변호사 답변 2개
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="caseCardInfo">
-                                                <span class="viewCount">
-                                                    조회수
-                                                    <i class="number">33</i>
-                                                </span>
-                                                <span class="bookMarkCount">
-                                                    <i tooltip="즐겨찾기" tooltip-class="star-tooltip" tooltip-placement="bottom" class="lc lcStarSharpO">
-
-                                                    </i>
-                                                    <i class="number"></i>
-                                                </span>
-                                                <span class="answerDate">6 시간 전 답변 작성됨</span>
-                                            </div>
-                                            <div class="caseCardLine Bottom">
-                                            </div>
-                                        </div>
-                                    </a>
-                                </lawyer-case-card>
-                                <!-- 9-->
-                                <lawyer-case-card ng-repeat="caseInCases" case="case" sort="sort" select-context-additional search-keyword="keyword" card-order="1" class="caseCard">
-                                    <a href="" class="caseCardLink">
-                                        <div class="caseCardWrap">
-                                            <div class="caseCardLine Top"></div>
-                                            <!-- 장르-->
-                                            <h5 class="caseKeywords">
-                                                <span class="caseKeyword">
-                                                    형사일반/기타범죄
-                                                </span>
-                                            </h5>
-                                            <!-- 제목 -->
-                                            <div style class="caseCardTitle">지방에서 소액 소송을 위한 서울 변호사 의뢰 가능성과 비용 문제
-                                            </div>
-                                            <!-- 답변한 변호사 -->
-                                            <div class="caseAnswer">
-                                                답변
-                                                <span class="caseAnswerLawyer">
-                                                    백창협 변호사
-                                                </span>
-                                            </div>
-                                            <!-- 답변의 내용-->
-                                            <div class="caseCardAnswer">
-                                                1. 변호사는 어느 지역이던 상관없습니다. 거리가 멀다면 교통비 등을 추가로 납부해야 합니다. 사건 내용을 검토할 필요가 있습니다. 주거침입의 경우 초범이라면 약식기소가 될 것입니다.
-
-                                                2. 구체적인 상담을 거친 답변이 아니오니 참고만 하시고 대한변호사협회 등록 형사전문변호사이니 궁금하신 사항은 연락주세요.
-                                            </div>
-                                            <!-- 다른 변호사 답변 -->
-                                            <div class="caseCardEtcAnswer">
-                                                <div class="photos">
-                                                    <img src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/5ddb2d544eda6a0011debe8c-thumb.jpg" alt="" class="photo">
-                                                    <img src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/5df9cb3393bb4b00115aab10-thumb.jpg" alt="" class="photo">
-                                                </div>
-                                                <div class="etcLawyers">
-                                                    <div class="etcLawyersInner">다른 변호사 답변 2개
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="caseCardInfo">
-                                                <span class="viewCount">
-                                                    조회수
-                                                    <i class="number">11</i>
-                                                </span>
-                                                <span class="bookMarkCount">
-                                                    <i tooltip="즐겨찾기" tooltip-class="star-tooltip" tooltip-placement="bottom" class="lc lcStarSharpO">
-
-                                                    </i>
-                                                    <i class="number"></i>
-                                                </span>
-                                                <span class="answerDate">7 시간 전 답변 작성됨</span>
-                                            </div>
-                                            <div class="caseCardLine Bottom">
-                                            </div>
-                                        </div>
-                                    </a>
-                                </lawyer-case-card>
-                                <!-- 10-->
-                                <lawyer-case-card ng-repeat="caseInCases" case="case" sort="sort" select-context-additional search-keyword="keyword" card-order="1" class="caseCard">
-                                    <a href="" class="caseCardLink">
-                                        <div class="caseCardWrap">
-                                            <div class="caseCardLine Top"></div>
-                                            <!-- 장르-->
-                                            <h5 class="caseKeywords">
-                                                <span class="caseKeyword">
-                                                    이혼
-                                                </span>
-                                            </h5>
-                                            <!-- 제목 -->
-                                            <div style class="caseCardTitle">이혼 고민과 해결 방안에 대한 상담
-                                            </div>
-                                            <!-- 답변한 변호사 -->
-                                            <div class="caseAnswer">
-                                                답변
-                                                <span class="caseAnswerLawyer">
-                                                    백서준 변호사
-                                                </span>
-                                            </div>
-                                            <!-- 답변의 내용-->
-                                            <div class="caseCardAnswer">
-                                                안녕하세요 대한변호사협회 인증 가사전문변호사 오엔법률사무소 대표변호사입니다
-
-                                                남편을 상대로 이혼소송을 제기하시고
-                                                위자료 청구하시고
-                                                재산분할의 경우 작성자분의 기여도도 적지 않은 만큼 50프로는 충분히 주장할 수 있어보입니다
-
-                                                관련하여 도움이 필요하시면 제 프로필 조회 후 사무실 연락처로 전화하여 상담요청 남겨주세요
-                                                저희는 상담시간에 제한이 없어 심층상담이 가능합니다
-                                            </div>
-                                            <!-- 다른 변호사 답변 -->
-                                            <div class="caseCardEtcAnswer">
-                                                <div class="photos">
-                                                    <img src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/5ddb2d544eda6a0011debe8c-thumb.jpg" alt="" class="photo">
-                                                    <img src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/5df9cb3393bb4b00115aab10-thumb.jpg" alt="" class="photo">
-                                                </div>
-                                                <div class="etcLawyers">
-                                                    <div class="etcLawyersInner">다른 변호사 답변 2개
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="caseCardInfo">
-                                                <span class="viewCount">
-                                                    조회수
-                                                    <i class="number">12</i>
-                                                </span>
-                                                <span class="bookMarkCount">
-                                                    <i tooltip="즐겨찾기" tooltip-class="star-tooltip" tooltip-placement="bottom" class="lc lcStarSharpO">
-
-                                                    </i>
-                                                    <i class="number"></i>
-                                                </span>
-                                                <span class="answerDate">8 시간 전 답변 작성됨</span>
+                                                <span class="answerDate" th:text="${#temporals.format(consultCases.consultCreateDate,'yyyy.MM.dd HH:mm:ss')} + ' 에 상담 작성'">한 시간 전 답변 작성됨</span>
                                             </div>
                                             <div class="caseCardLine Bottom">
                                             </div>
@@ -810,37 +270,54 @@
                                 </lawyer-case-card>
                             </section>
                             <!-- 더보기 1~10-->
-                            <div class="paginationWrap">
-                                <div class="paginationMobileButton ltMobile">
-                                    <div class="beforePage off">
-                                        <i class="lc lcButtonClickRight"></i>
-                                        <span>이전 페이지</span>
-                                    </div>
-                                    <div class="nextPage">
-                                        <i class="lc lcButtonClickRight"></i>
-                                        <span>다음 페이지</span>
-                                    </div>
+                            <footer class="PaginationWrapper" th:with="start=${pagination.startPage}, last=(${pagination.endPage})">
+                                <div class="Pagination-PrevButtonWrapper">
+                                    <button th:if="${pagination.page==start}" disabled width="40px" height="40px" font-size="18px"
+                                            class="Pagination-PrevButton" id="prevprev_button">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Crect width='40' height='40' fill='%23FFF' fill-opacity='0' fill-rule='nonzero' rx='20'/%3E %3Cg stroke='%23000' stroke-width='1.5'%3E %3Cpath d='M16 16l4 4-4 4M21 16l4 4-4 4'/%3E %3C/g%3E %3C/g%3E %3C/svg%3E"
+                                             class="PrevButton-Image">
+                                    </button>
+                                    <button th:if="${pagination.page != start}" th:onclick="|location.href='@{/consult-example/consultation-example(page=${start})}'|"
+                                            class="Pagination-PrevButton" id="prevprev_button">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath fill='none' d='M0 0h40v40H0z'/%3E %3Cpath stroke='%23DDD' stroke-width='1.5' d='M18 16l4 4-4 4'/%3E %3C/g%3E %3C/svg%3E" class="PrevButton-Image">
+                                    </button>
+                                    <button th:if="${pagination.page == start}" disabled class="Pagination-PrevButton" id="prev_button">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath fill='none' d='M0 0h40v40H0z'/%3E %3Cpath stroke='%23DDD' stroke-width='1.5' d='M18 16l4 4-4 4'/%3E %3C/g%3E %3C/svg%3E"
+                                             class="PrevButton-Image">
+                                    </button>
+                                    <button th:if="${pagination.page != start}" th:onclick="|location.href='@{/consult-example/consultation-example(page=${pagination.page-1})}'|"
+                                            class="Pagination-PrevButton" id="prev_button">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath d='M18 0H0v18h18z'/%3E %3Cpath stroke='%23000' stroke-width='1.5' d='M7 5l4 4-4 4'/%3E %3C/g%3E %3C/svg%3E"
+                                             class="PrevButton-Image">
+                                    </button>
                                 </div>
-                                <!--1~10-->
-                                <div class="pagination">
-                                    <div class="paginationButtonWrap">
-                                        <a href="" class="paginationButton on">1</a>
-                                        <a href="" class="paginationButton">2</a>
-                                        <a href="" class="paginationButton">3</a>
-                                        <a href="" class="paginationButton">4</a>
-                                        <a href="" class="paginationButton">5</a>
-                                        <a href="" class="paginationButton">6</a>
-                                        <a href="" class="paginationButton">7</a>
-                                        <a href="" class="paginationButton">8</a>
-                                        <a href="" class="paginationButton">9</a>
-                                        <a href="" class="paginationButton">10</a>
-                                    </div>
-                                    <div class="next">
-                                        <span class="ltDesktop">다음 10페이지</span>
-                                        <i class="lc lcChevronRight"></i>
-                                    </div>
+
+                                <button th:each="buttonpage:${#numbers.sequence(start,last)}" class="Page-Selected"
+                                        th:class="${buttonpage == pagination.page ? 'Page-Selected' : 'Page-Unselected'}">
+                                    <a th:text="${buttonpage}" th:href="@{/consult-example/consultation-example(page=${buttonpage})}"></a>
+                                </button>
+
+                                <div class="Pagination-NextButtonWrapper">
+                                    <button th:if="${pagination.page == last}" disabled class="Pagination-NextButton" id="next_button">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath fill='none' d='M0 0h40v40H0z'/%3E %3Cpath stroke='%23DDD' stroke-width='1.5' d='M18 16l4 4-4 4'/%3E %3C/g%3E %3C/svg%3E"
+                                             class="">
+                                    </button>
+                                    <button th:if="${pagination.page != last}" th:onclick="|location.href='@{/consult-example/consultation-example(page=${pagination.page+1})}'|"
+                                            class="Pagination-NextButton" id="next_button">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath d='M18 0H0v18h18z'/%3E %3Cpath stroke='%23000' stroke-width='1.5' d='M7 5l4 4-4 4'/%3E %3C/g%3E %3C/svg%3E"
+                                             class="">
+                                    </button>
+                                    <button th:if="${pagination.page == last}" disabled class="Pagination-NextButton" id="nextnext_button">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath fill='%23FFF' fill-opacity='0' fill-rule='nonzero' d='M0 0h40v40H0z'/%3E %3Cpath stroke='%23DDD' stroke-width='1.5' d='M16 16l4 4-4 4M21 16l4 4-4 4'/%3E %3C/g%3E %3C/svg%3E"
+                                             class="" id="nextnext_button">
+                                    </button>
+                                    <button th:if="${pagination.page != last}" th:onclick="|location.href='@{/consult-example/consultation-example(page=${pagination.realEnd})}'|"
+                                            class="Pagination-NextButton" id="nextnext_button">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Crect width='40' height='40' fill='%23FFF' fill-opacity='0' fill-rule='nonzero' rx='20'/%3E %3Cg stroke='%23000' stroke-width='1.5'%3E %3Cpath d='M16 16l4 4-4 4M21 16l4 4-4 4'/%3E %3C/g%3E %3C/g%3E %3C/svg%3E"
+                                             class="" id="nextnext_button">
+                                    </button>
                                 </div>
-                            </div>
+                            </footer>
                             <div class="cgBusy cgBusyBackdrop cgBusyBackdropAnimation ngHide">
                                 <!--공란-->
                             </div>
@@ -854,170 +331,34 @@
                         </div>
                     </div>
                     <!--옆에 변호사 순위 부분 -->
-                    <aside class="asideSection caseAsideSection">
-                        <div class="rankWeekAnswer ltDesktop">
+                    <aside  class="asideSection caseAsideSection" >
+                        <div  class="rankWeekAnswer ltDesktop">
                             <div class="rankTitle">최근 답변이 활발한 변호사</div>
-                            <ul class="rankBody">
+                            <ul id="content" class="rankBody" >
                                 <!--1위-->
-                                <li class="lawyerRank">
-                                    <a href="">
+                                <li class="lawyerRank" th:each="getLawyers:${getLawyers}">
+                                    <a th:href="@{'/lawyer-home/lawyer-home?lawyerId=' + ${getLawyers.lawyerId}}" href="">
                                         <!--                                        <div class="ranking">-->
                                         <!--                                            <i class="lc lcCrown"></i>-->
                                         <!--                                            <span class="rk">1</span>-->
                                         <!--                                            <span>위</span>-->
                                         <!--                                        </div>-->
-                                        <img src="https://www.lawtalk.co.kr/uploads/thumb/63eb407a63bf810043e827c4-thumb-1677563515771.jpg" alt="" class="image">
+                                        <img th:src="${getLawyers.lawyerImage == null ? '/image/lawyerHome/basicLawyer.png' : getLawyers.lawyerImage}" src="https://www.lawtalk.co.kr/uploads/thumb/63eb407a63bf810043e827c4-thumb-1677563515771.jpg" alt="" class="image">
                                         <div class="body">
-                                            <div class="name">조기현 변호사</div>
-                                            <div class="desc">[사시출신] 언론도 인정한 조기현변호사를 로톡에서도</div>
+                                            <div class="name" th:text="${getLawyers.lawyerName}">조기현 변호사</div>
+                                            <div class="desc" th:text="${getLawyers.lawyerIntroduction}">[사시출신] 언론도 인정한 조기현변호사를 로톡에서도</div>
                                         </div>
                                     </a>
                                 </li>
-                                <!--2위-->
-                                <li class="lawyerRank">
-                                    <a href="">
-                                        <!--                                        <div class="ranking">-->
-                                        <!--                                            <i class="lc lcCrown"></i>-->
-                                        <!--                                            <span class="rk">2</span>-->
-                                        <!--                                            <span>위</span>-->
-                                        <!--                                        </div>-->
-                                        <img src="https://www.lawtalk.co.kr/uploads/thumb/63eb407a63bf810043e827c4-thumb-1677563515771.jpg" alt="" class="image">
-                                        <div class="body">
-                                            <div class="name">조기현 변호사</div>
-                                            <div class="desc">[사시출신] 언론도 인정한 조기현변호사를 로톡에서도</div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <!--3위-->
-                                <li class="lawyerRank">
-                                    <a href="">
-                                        <!--                                        <div class="ranking">-->
-                                        <!--                                            <i class="lc lcCrown"></i>-->
-                                        <!--                                            <span class="rk">1</span>-->
-                                        <!--                                            <span>위</span>-->
-                                        <!--                                        </div>-->
-                                        <img src="https://www.lawtalk.co.kr/uploads/thumb/63eb407a63bf810043e827c4-thumb-1677563515771.jpg" alt="" class="image">
-                                        <div class="body">
-                                            <div class="name">조기현 변호사</div>
-                                            <div class="desc">[사시출신] 언론도 인정한 조기현변호사를 로톡에서도</div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <!--4위-->
-                                <li class="lawyerRank">
-                                    <a href="">
-                                        <!--                                        <div class="ranking fourToTen">-->
-                                        <!--                                            <i class="lc lcCrown"></i>-->
-                                        <!--                                            <span class="rk">1</span>-->
-                                        <!--                                            <span>위</span>-->
-                                        <!--                                        </div>-->
-                                        <img src="https://www.lawtalk.co.kr/uploads/thumb/63eb407a63bf810043e827c4-thumb-1677563515771.jpg" alt="" class="image">
-                                        <div class="body">
-                                            <div class="name">조기현 변호사</div>
-                                            <div class="desc">[사시출신] 언론도 인정한 조기현변호사를 로톡에서도</div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <!--5위-->
-                                <li class="lawyerRank">
-                                    <a href="">
-                                        <!--                                        <div class="ranking fourToTen">-->
-                                        <!--                                            <i class="lc lcCrown"></i>-->
-                                        <!--                                            <span class="rk">1</span>-->
-                                        <!--                                            <span>위</span>-->
-                                        <!--                                        </div>-->
-                                        <img src="https://www.lawtalk.co.kr/uploads/thumb/63eb407a63bf810043e827c4-thumb-1677563515771.jpg" alt="" class="image">
-                                        <div class="body">
-                                            <div class="name">조기현 변호사</div>
-                                            <div class="desc">[사시출신] 언론도 인정한 조기현변호사를 로톡에서도</div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <!--6위-->
-                                <li class="lawyerRank">
-                                    <a href="">
-                                        <!--                                        <div class="ranking fourToTen">-->
-                                        <!--                                            <i class="lc lcCrown"></i>-->
-                                        <!--                                            <span class="rk">1</span>-->
-                                        <!--                                            <span>위</span>-->
-                                        <!--                                        </div>-->
-                                        <img src="https://www.lawtalk.co.kr/uploads/thumb/63eb407a63bf810043e827c4-thumb-1677563515771.jpg" alt="" class="image">
-                                        <div class="body">
-                                            <div class="name">조기현 변호사</div>
-                                            <div class="desc">[사시출신] 언론도 인정한 조기현변호사를 로톡에서도</div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <!--7위-->
-                                <li class="lawyerRank">
-                                    <a href="">
-                                        <!--                                        <div class="ranking fourToTen">-->
-                                        <!--                                            <i class="lc lcCrown"></i>-->
-                                        <!--                                            <span class="rk">1</span>-->
-                                        <!--                                            <span>위</span>-->
-                                        <!--                                        </div>-->
-                                        <img src="https://www.lawtalk.co.kr/uploads/thumb/63eb407a63bf810043e827c4-thumb-1677563515771.jpg" alt="" class="image">
-                                        <div class="body">
-                                            <div class="name">조기현 변호사</div>
-                                            <div class="desc">[사시출신] 언론도 인정한 조기현변호사를 로톡에서도</div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <!--8위-->
-                                <li class="lawyerRank">
-                                    <a href="">
-                                        <!--                                        <div class="ranking fourToTen">-->
-                                        <!--                                            <i class="lc lcCrown"></i>-->
-                                        <!--                                            <span class="rk">1</span>-->
-                                        <!--                                            <span>위</span>-->
-                                        <!--                                        </div>-->
-                                        <img src="https://www.lawtalk.co.kr/uploads/thumb/63eb407a63bf810043e827c4-thumb-1677563515771.jpg" alt="" class="image">
-                                        <div class="body">
-                                            <div class="name">조기현 변호사</div>
-                                            <div class="desc">[사시출신] 언론도 인정한 조기현변호사를 로톡에서도</div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <!--9위-->
-                                <li class="lawyerRank">
-                                    <a href="">
-                                        <!--                                        <div class="ranking fourToTen">-->
-                                        <!--                                            <i class="lc lcCrown"></i>-->
-                                        <!--                                            <span class="rk">1</span>-->
-                                        <!--                                            <span>위</span>-->
-                                        <!--                                        </div>-->
-                                        <img src="https://www.lawtalk.co.kr/uploads/thumb/63eb407a63bf810043e827c4-thumb-1677563515771.jpg" alt="" class="image">
-                                        <div class="body">
-                                            <div class="name">조기현 변호사</div>
-                                            <div class="desc">[사시출신] 언론도 인정한 조기현변호사를 로톡에서도</div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <!--10위-->
-                                <li class="lawyerRank">
-                                    <a href="">
-                                        <!--                                        <div class="ranking fourToTen">-->
-                                        <!--                                            <i class="lc lcCrown"></i>-->
-                                        <!--                                            <span class="rk">1</span>-->
-                                        <!--                                            <span>위</span>-->
-                                        <!--                                        </div>-->
-                                        <img src="https://www.lawtalk.co.kr/uploads/thumb/63eb407a63bf810043e827c4-thumb-1677563515771.jpg" alt="" class="image">
-                                        <div class="body">
-                                            <div class="name">조기현 변호사</div>
-                                            <div class="desc">[사시출신] 언론도 인정한 조기현변호사를 로톡에서도</div>
-                                        </div>
-                                    </a>
-                                </li>
+
                             </ul>
-<!--                            <div class="moreRank">-->
-<!--                                10위까지 보기-->
-<!--                                <i class="lc lcAngleDown"></i>-->
-<!--                            </div>-->
+                            <div id="expand" class="moreRank">
+                                10위까지 보기
+                            </div>
                         </div>
                     </aside>
                     <!--상담글 쓰기-->
                     <a href="/counseling/counseling-write" class="composeFloatingButton">
-                        <i class="lc lcPencilFill">
                         </i>
                         <div class="composeFloatingButtonText ltDesktop">상담글 쓰기</div>
                     </a>
@@ -1025,9 +366,8 @@
             </section>
         </div>
         <footer th:replace="~{fix/footer :: my-footer}"></footer>
-
-
     </div>
 </div>
 </body>
+<script src="/js/consultExample/consultExample.js"></script>
 </html>
