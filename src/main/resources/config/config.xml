@@ -16,6 +16,7 @@
         <typeAlias type="com.app.counselawb.domain.vo.LawyerLocationVO" alias="lawyerLocationVO"/>
         <typeAlias type="com.app.counselawb.domain.vo.LegalGuideImgVO" alias="legalGuideImgVO"/>
         <typeAlias type="com.app.counselawb.domain.vo.LegalGuideVO" alias="legalGuideVO"/>
+        <typeAlias type="com.app.counselawb.domain.dto.LegalGuideDTO" alias="legalGuideDTO"/>
         <typeAlias type="com.app.counselawb.domain.vo.LocationVO" alias="locationVO"/>
         <typeAlias type="com.app.counselawb.domain.vo.MemberCouponVO" alias="memberCouponVO"/>
         <typeAlias type="com.app.counselawb.domain.vo.NoticeVO" alias="noticeVO"/>
