@@ -1,22 +1,21 @@
 package com.app.counselawb.controller;
 
+import com.app.counselawb.domain.vo.CouponVO;
 import com.app.counselawb.domain.vo.LawyerVO;
 import com.app.counselawb.domain.vo.MemberVO;
+import com.app.counselawb.service.MemberMypageService;
 import com.app.counselawb.service.MemberService;
+import com.app.counselawb.service.ReservationService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
-
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -25,6 +24,8 @@ import javax.servlet.http.HttpSession;
 public class MemberController {
 
     private final MemberService memberService;
+    private final ReservationService reservationService;
+    private final MemberMypageService memberMypageService;
 
     // 변호사스퀘어 가입안내 페이지로 이동
     @GetMapping("lawyer-introduction")
@@ -94,8 +95,6 @@ public class MemberController {
         return "/client-login/client-login";
     }
 
-
-
     // 변호사회원 회원가입 페이지로 이동
     @GetMapping("lawyer-join")
     public String goToLawyerJoinPage() {
@@ -115,13 +114,20 @@ public class MemberController {
     }
 
 
+    // Member-Mypage
+
+
     // 일반회원 마이페이지로
     @GetMapping("mypage-member")
     public String goToMyPage(HttpSession session, Model model, MemberVO memberVO, LawyerVO lawyerVO) {
 
         if (session.getAttribute("member") != null) {
             MemberVO currentMember = (MemberVO)session.getAttribute("member");
+            List<CouponVO> myCoupons = reservationService.findMyCoupons(currentMember.getMemberId());
+            int numberOfFavoriteLawyers = memberMypageService.getCountMyFavoriteLawyers(currentMember.getMemberId());
             model.addAttribute("currentMember", currentMember);
+            model.addAttribute("myCouponList", myCoupons);
+            model.addAttribute("numberOfFavoriteLawyers", numberOfFavoriteLawyers);
             return "/mypage/mypage";
         } else {
             return "/client-login/client-login";
