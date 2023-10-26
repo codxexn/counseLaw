@@ -131,18 +131,25 @@ const switchCheckbox = document.getElementById('sns-accept');
 // 전체 동의시 동의 버튼 자동 활성화
 const agreeAllCheckbox = document.querySelector('.allAgree');
 const mustAgrees = document.querySelectorAll('.mustAgree');
-const checkedAgrees = document.querySelectorAll('.mustAgree:checked');
+const choiceAgree = document.querySelector('.choiceAgree');
+const agreements = document.querySelector('.agreement');
 
 agreeAllCheckbox.addEventListener('click', (e) => {
     mustAgrees.forEach((agreeButton) => {
         agreeButton.checked = agreeAllCheckbox.checked;
-    } )
+    })
+    choiceAgree.checked = agreeAllCheckbox.checked;
 });
 
 
-mustAgrees.forEach((agreeButton)=> {
-    agreeButton.addEventListener('click', () => {
-        agreeAllCheckbox.checked = mustAgrees.length === checkedAgrees.length;
+agreements.forEach((checkbox)=> {
+    checkbox.addEventListener('click', () => {
+        agreements.forEach((agreement) => {
+           if (agreement.checked === false) {
+               agreeAllCheckbox.checked = false;
+           }
+        })
+        agreeAllCheckbox.checked = true;
     })
 })
 

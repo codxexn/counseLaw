@@ -798,7 +798,7 @@ color: #333;
 }
 
 .law-auth-card-footer-button{
-    background-color: #cfcfcf;
+    background-color: #c50000;
     border: none;
     color: #fff;
     font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
@@ -806,6 +806,7 @@ color: #333;
     font-weight: 700;
     height: 48px;
     width: 100%;
+    cursor: pointer;
 }
 
 #sign-up-refer-validator-message .control-label{

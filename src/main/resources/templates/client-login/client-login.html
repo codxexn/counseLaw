@@ -209,6 +209,9 @@
 <script th:if="${errorMessage} != null">
     alert("아이디 혹은 비밀번호가 일치하지 않습니다.");
 </script>
+<script th:if="${joinSuccessMsg} != null">
+    alert("회원가입이 완료되었습니다. 로그인해주시기 바랍니다.");
+</script>
 <script src="/js/client-login/client-login.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </html>
