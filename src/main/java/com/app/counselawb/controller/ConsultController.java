@@ -33,10 +33,13 @@ public class ConsultController {
     public String goToConsultatiionExample(Pagination pagination, Model model){
         pagination.setTotal(consultingCaseService.selectAllCaseCounts());
         pagination.progress();
+        int total = pagination.getEndPage();
+
+        System.out.println("total = " + total);
         List<ConsultingCaseDTO> consultCase = consultingCaseService.selectAllCase(pagination);
         List<LawyerSidebarDTO> getLawyers = consultingCaseService.getLawyers();
 
-        //        log.info(consultCase.toString());
+//                log.info(consultCase.toString());
 //        log.info(getLawyers.toString());
         //        변호사 답변의 개수
 

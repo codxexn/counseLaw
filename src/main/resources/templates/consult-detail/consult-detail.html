@@ -29,9 +29,6 @@
                             th:each="consultDetail:${consultDetail}">
 
                             <div class="question directive qnaDetailPage expanded">
-                                <h5 class="questionKeywords">
-                                    <span class="questionKeyword" style="cursor:pointer;">손해배상</span>
-                                </h5>
                                 <h1 class="questionTitle daumWmTitle" th:text="${consultDetail.caseTitle}"></h1>
                                 <p class="questionBody daumWmContent" th:text="${consultDetail.caseContent}">
                                 </p>
