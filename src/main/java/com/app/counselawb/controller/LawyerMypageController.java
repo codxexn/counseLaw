@@ -3,7 +3,11 @@ package com.app.counselawb.controller;
 
 import com.app.counselawb.domain.dto.LawyerFieldDTO;
 import com.app.counselawb.domain.dto.LawyerLocationDTO;
+import com.app.counselawb.domain.dto.LegalGuideDTO;
+import com.app.counselawb.domain.dto.SolutionCaseDTO;
+import com.app.counselawb.domain.pagination.Pagination;
 import com.app.counselawb.domain.vo.*;
+import com.app.counselawb.service.LawyerMyPostsService;
 import com.app.counselawb.service.LawyerService;
 import com.app.counselawb.service.LocationService;
 import com.app.counselawb.service.MemberService;
@@ -28,6 +32,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @Slf4j
@@ -36,6 +41,7 @@ import java.util.List;
 public class LawyerMypageController {
     private final LawyerService lawyerService;
     private final LocationService locationService;
+    private final LawyerMyPostsService lawyerMyPostsService;
 
     // 변호사 마이페이지 가기
     @GetMapping("mypage-lawyer")
@@ -239,5 +245,61 @@ public class LawyerMypageController {
         return new RedirectView("/mypage-lawyer/info-update");
     }
 
+    // 내 법률가이드
+    @GetMapping("my-legal-guide")
+    public String myLegalGuide(@RequestParam("lawyerId") Long lawyerId, Model model, HttpSession session,
+                               Pagination pagination){
+        int lgCount = lawyerService.findLGTotalByLawyerId(lawyerId);
+        pagination.setTotal(lgCount);
+        pagination.progress();
+        model.addAttribute("pagination", pagination);
+        model.addAttribute("lawyerId", lawyerId);
+        List<LegalGuideDTO> legalGuideWithDetail = lawyerMyPostsService.findMyLegalGuideWithDetail(pagination, lawyerId);
+        String lawyerName = legalGuideWithDetail.get(0).getLawyerName();
+        model.addAttribute("lawyerName", lawyerName);
+        model.addAttribute("legalGuideWithDetail", legalGuideWithDetail);
+        String lawyerImage = lawyerService.findProfileImage(lawyerId);
+        model.addAttribute("lawyerImage", lawyerImage);
+        return "/lawyer-my-posts/my-legal-guide";
+    }
+
+    // 내 해결사례
+    @GetMapping("my-solution-case")
+    public String mySolutionCase(@RequestParam("lawyerId") Long lawyerId, Model model, HttpSession session,
+                                 Pagination pagination){
+        int scCount = lawyerService.findSCTotalByLawyerId(lawyerId);
+        pagination.setTotal(scCount);
+        pagination.progress();
+        model.addAttribute("pagination", pagination);
+        model.addAttribute("lawyerId", lawyerId);
+        List<SolutionCaseDTO> solutionCases = lawyerMyPostsService.findMySolutions(pagination, lawyerId);
+        String lawyerName = solutionCases.get(0).getLawyerName();
+        model.addAttribute("lawyerName", lawyerName);
+        model.addAttribute("solutionCases", solutionCases);
+        String lawyerImage = lawyerService.findProfileImage(lawyerId);
+        model.addAttribute("lawyerImage", lawyerImage);
+        return "/lawyer-my-posts/my-solution-case";
+    }
+
+    // 나를 즐겨찾기한 의뢰인
+    @GetMapping("liked-clients")
+    public String myFollowers(@RequestParam("lawyerId") Long lawyerId, Model model, HttpSession session,
+                              Pagination pagination){
+        int favCount = lawyerService.findFavTotalByLawyerId(lawyerId);
+        pagination.setTotal(favCount);
+        pagination.progress();
+        model.addAttribute("pagination", pagination);
+        model.addAttribute("lawyerId", lawyerId);
+        List<LawyerLikeVO> myLikes = lawyerMyPostsService.findMyFollowers(pagination, lawyerId);
+        List<MemberVO> myFollowers = new ArrayList<>();
+        myLikes.forEach((like) -> {
+            Optional<MemberVO> foundFollowerInfo = lawyerMyPostsService.findFollowerInfo(like.getMemberId());
+            if (foundFollowerInfo.isPresent()){
+                myFollowers.add(foundFollowerInfo.get());
+            }
+        });
+        model.addAttribute("followers", myFollowers);
+        return "/lawyer-my-posts/my-followers";
+    }
 
 }
