@@ -1,89 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>카운슬로우 - 내 손 안의 법률상담사</title>
+    <title>지역으로 검색하기 : 카운슬로우 (CounseLaw)</title>
     <link rel="stylesheet" type="text/css"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"/>
-    <link rel="stylesheet" href="../defaultSetting.css">
-    <link rel="stylesheet" href="searchByLocations.css">
+    <link rel="stylesheet" href="/css/defaultSetting.css">
+    <link rel="stylesheet" href="/css/searchByLocations/searchByLocations.css">
+    <th:block th:replace="~{fix/header :: my-header-head}"></th:block>
+    <th:block th:replace="~{fix/footer :: my-footer-head}"></th:block>
 </head>
 <body class="wholePage">
 <div class="search-controller main-content-container">
-    <div class="search-content" style="visibility: visible;">
+    <header th:replace="~{fix/header :: my-header}"></header>
+    <div class="search-content" style="visibility: visible; margin-top: 124px; margin-bottom: 100px;">
         <div class="lawyer-find">
             <div class="lawyer-find__toggle-wrap">
                 <div class="wide-toggle-fixed-on-mobile">
-                    <wide-toggle toggle-options="toggleOptions" on-toggle="onToggle($toggledTo)"
-                                 initial-selected-index="initialToggleIndex">
+                    <wide-toggle>
                         <div class="wide-toggle">
-                            <div ng-style="{ transform: 'translateX(' + (stepWidth * selectedIndex) + 'px)' }"
-                                 class="wide-toggle__option-hovering" style="transform: translateX(187px);"></div>
+                            <div class="wide-toggle__option-hovering" style="transform: translateX(187px);"></div>
                             <!---->
-                            <div ng-class="{ 'wide-toggle__option--active': selectedIndex === $index }"
-                                 ng-repeat="option in toggleOptions track by $index"
-                                 ng-click="onToggleInner(option, $index)" ng-mouseenter="onMouseEnter($index)"
-                                 ng-mouseleave="onMouseLeave($index)" class="wide-toggle__option">분야로 찾기
+                            <div class="wide-toggle__option" onclick="location.href='/lawyer-search/search-by-categories'">분야로 찾기
                             </div><!---->
-                            <div ng-class="{ 'wide-toggle__option--active': selectedIndex === $index }"
-                                 ng-repeat="option in toggleOptions track by $index"
-                                 ng-click="onToggleInner(option, $index)" ng-mouseenter="onMouseEnter($index)"
-                                 ng-mouseleave="onMouseLeave($index)"
-                                 class="wide-toggle__option wide-toggle__option--active">지역으로 찾기
-                            </div><!----></div>
+                            <div class="wide-toggle__option wide-toggle__option--active">지역으로 찾기
+                            </div><!---->
+                        </div>
                     </wide-toggle>
                 </div>
             </div><!---->
-            <div ui-view="">
-                <div ng-click="closeLocationList($event)" class="location-find__container-type-b">
-                    <div ng-class="{'select-seoul': activeItemIndex === 0, 'select-gyeonggi': activeItemIndex === 1}"
-                         class="location-find__locations-container">
+            <div>
+                <div class="location-find__container-type-b">
+                    <div class="location-find__locations-container">
                         <div class="location-find__title">지역을 선택하세요.</div>
-                        <div class="location-find__locations-map"><a
-                                ng-click="clickLocation(locations[2].adLocationGroups[0]._id, locations[2].adLocationGroups[0].name)"
-                                ui-sref="main.location-lawyers({ adLocationGroupId: locations[2].adLocationGroups[0]._id })"
-                                class="location-find__location gangwondo"
-                                href="/locations/5f60c15cbb3058103246a353/lawyers">춘천/강원</a><a
-                                ng-click="onClickLocationMap(1)" ng-class="{selected: activeItemIndex === 1}"
-                                class="location-find__location gyeonggi">경기</a><a ng-click="onClickLocationMap(0)"
-                                                                                  ng-class="{selected: activeItemIndex === 0}"
-                                                                                  class="location-find__location seoul">서울</a><a
-                                ng-click="clickLocation(locations[4].adLocationGroups[0]._id, locations[4].adLocationGroups[0].name)"
-                                ui-sref="main.location-lawyers({ adLocationGroupId: locations[4].adLocationGroups[0]._id })"
-                                class="location-find__location incheon"
-                                href="/locations/5f60c15cbb3058103246a345/lawyers">인천/부천</a><a
-                                ng-click="clickLocation(locations[6].adLocationGroups[0]._id, locations[6].adLocationGroups[0].name)"
-                                ui-sref="main.location-lawyers({ adLocationGroupId: locations[6].adLocationGroups[0]._id })"
-                                class="location-find__location chungbuk"
-                                href="/locations/5f60c15cbb3058103246a34e/lawyers">청주/충북</a><a
-                                ng-click="clickLocation(locations[5].adLocationGroups[0]._id, locations[5].adLocationGroups[0].name, locations[5].adLocationGroups[0].name)"
-                                ui-sref="main.location-lawyers({ adLocationGroupId: locations[5].adLocationGroups[0]._id })"
-                                class="location-find__location gyeongbuk"
-                                href="/locations/5f60c15cbb3058103246a350/lawyers">대구/경북</a><a
-                                ng-click="clickLocation(locations[7].adLocationGroups[0]._id, locations[7].adLocationGroups[0].name)"
-                                ui-sref="main.location-lawyers({ adLocationGroupId: locations[7].adLocationGroups[0]._id })"
-                                class="location-find__location chungnam"
-                                href="/locations/5f60c15cbb3058103246a34d/lawyers">대전/충남/세종</a><a
-                                ng-click="clickLocation(locations[8].adLocationGroups[0]._id, locations[8].adLocationGroups[0].name)"
-                                ui-sref="main.location-lawyers({ adLocationGroupId: locations[8].adLocationGroups[0]._id })"
-                                class="location-find__location jeonbuk"
-                                href="/locations/5f60c15cbb3058103246a352/lawyers">전주/전북</a><a
-                                ng-click="clickLocation(locations[9].adLocationGroups[0]._id, locations[9].adLocationGroups[0].name)"
-                                ui-sref="main.location-lawyers({ adLocationGroupId: locations[9].adLocationGroups[0]._id })"
-                                class="location-find__location gyeongnam"
-                                href="/locations/5f60c15cbb3058103246a34f/lawyers">부산/울산/경남</a><a
-                                ng-click="clickLocation(locations[10].adLocationGroups[0]._id, locations[10].adLocationGroups[0].name)"
-                                ui-sref="main.location-lawyers({ adLocationGroupId: locations[10].adLocationGroups[0]._id })"
-                                class="location-find__location jeonnam"
-                                href="/locations/5f60c15cbb3058103246a351/lawyers">광주/전남</a><a
-                                ng-click="clickLocation(locations[3].adLocationGroups[0]._id, locations[3].adLocationGroups[0].name)"
-                                ui-sref="main.location-lawyers({ adLocationGroupId: locations[3].adLocationGroups[0]._id })"
-                                class="location-find__location jeju" href="/locations/5f60c15cbb3058103246a354/lawyers">제주</a>
-                        </div><!----></div>
+                        <div class="location-find__locations-map">
+                            <a class="location-find__location gangwondo"
+                                href="/lawyer-search/lawyer-list-by-locations?locationId=1">춘천/강원</a>
+                            <a class="location-find__location gyeonggi"
+                                href="/lawyer-search/lawyer-list-by-locations?locationId=3">경기</a>
+                            <a class="location-find__location seoul"
+                                href="/lawyer-search/lawyer-list-by-locations?locationId=10">서울</a>
+                            <a class="location-find__location incheon"
+                                href="/lawyer-search/lawyer-list-by-locations?locationId=2">인천/부천</a>
+                            <a class="location-find__location chungbuk"
+                                href="/lawyer-search/lawyer-list-by-locations?locationId=4">청주/충북</a>
+                            <a class="location-find__location gyeongbuk"
+                                href="/lawyer-search/lawyer-list-by-locations?locationId=6">대구/경북</a>
+                            <a class="location-find__location chungnam"
+                                href="/lawyer-search/lawyer-list-by-locations?locationId=5">대전/충남/세종</a>
+                            <a class="location-find__location jeonbuk"
+                                href="/lawyer-search/lawyer-list-by-locations?locationId=7">전주/전북</a>
+                            <a class="location-find__location gyeongnam"
+                                href="/lawyer-search/lawyer-list-by-locations?locationId=8">부산/울산/경남</a>
+                            <a class="location-find__location jeonnam"
+                                href="/lawyer-search/lawyer-list-by-locations?locationId=9">광주/전남</a>
+                            <a class="location-find__location jeju"
+                                href="/lawyer-search/lawyer-list-by-locations?locationId=11">제주</a>
+                        </div><!---->
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <footer th:replace="~{fix/footer :: my-footer}"></footer>
 </div>
 </body>
 </html>
