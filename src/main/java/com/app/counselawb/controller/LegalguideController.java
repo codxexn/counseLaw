@@ -29,7 +29,7 @@ public class LegalguideController {
 //       변호사,분야 정보 가져오기
         List<LegalGuideDTO> legalGuideWithDetail = legalGuideService.findAllLegalGuideWithDetail();
         model.addAttribute("legalGuideWithDetail", legalGuideWithDetail);
-        return "/legal-guide-page/legal-guide";
+        return "legal-guide-page/legal-guide";
     }
 
 //    법률가이드 상세보기 페이지

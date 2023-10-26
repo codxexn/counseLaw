@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.counselawb.mapper.SolutionCaseMapper">
+
+    <select id="selectAllSolution" resultType="solutionCaseDTO">
+        SELECT SC.SOLUTION_CASE_ID, SC.SOLUTION_CASE_TITLE, SC.SOLUTION_CASE_CONTENT, SC.SENTENCE_RESULT, L.LAWYER_NAME
+        FROM TBL_SOLUTION_CASE SC
+        LEFT JOIN TBL_LAWYER L ON L.LAWYER_ID = SC.LAWYER_ID
+        ORDER BY SC.CREATE_DATE
+    </select>
+</mapper>
