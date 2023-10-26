@@ -25,6 +25,7 @@
         <typeAlias type="com.app.counselawb.domain.vo.ReservationVO" alias="reservationVO"/>
         <typeAlias type="com.app.counselawb.domain.vo.SolutionCaseImgVO" alias="solutionCaseImgVO"/>
         <typeAlias type="com.app.counselawb.domain.vo.SolutionCaseVO" alias="solutionCaseVO"/>
+        <typeAlias type="com.app.counselawb.domain.dto.SolutionCaseDTO" alias="solutionCaseDTO"/>
         <typeAlias type="com.app.counselawb.domain.vo.LawyerVO" alias="lawyerVO"/>
         <typeAlias type="com.app.counselawb.domain.dto.LawyerFieldDTO" alias="lawyerFieldDTO" />
         <typeAlias type="com.app.counselawb.domain.dto.PostsDTO" alias="postsDTO" />
