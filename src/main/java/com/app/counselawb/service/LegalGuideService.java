@@ -14,4 +14,8 @@ public interface LegalGuideService {
 
    public List<LegalGuideDTO> findAllLegalGuideWithDetail();
 
+//   상세 페이지
+
+   public List<LegalGuideDTO> findDetailLegal(Long legalGuideId);
+
 }

@@ -18,8 +18,14 @@ public class LegalGuideDAO {
 //    public List<LegalGuideVO> findAllLegalGuide() {
 //        return legalGuideMapper.selectAllLegalGuide();
 //    }
-
+//      게시글 목록 불러오기
     public List<LegalGuideDTO> findAllLegalGuideWithDetail() {
         return legalGuideMapper.selectAllLegalGuideWithDetail();
     }
+
+    public List<LegalGuideDTO> findDetailLegal() {
+        return legalGuideMapper.selectDetailLegal();
+    }
+
+
 }

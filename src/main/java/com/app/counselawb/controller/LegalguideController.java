@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -33,6 +34,10 @@ public class LegalguideController {
     }
 
 //    법률가이드 상세보기 페이지
-    @GetMapping("legal-guide2")
-    public void GoToLegalDetail(){;}
+    @GetMapping("legal-guide2/{legalGuideId}")
+    public String GoToLegalDetail(@PathVariable Long legalGuideId, Model model){
+    List<LegalGuideDTO> legalGuide = legalGuideService.findDetailLegal(legalGuideId);
+    model.addAttribute("legalGuide", legalGuide);
+    return "legal-guide-page/legal-guide2";
+    }
 }

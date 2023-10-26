@@ -10,5 +10,8 @@ import java.util.List;
 public interface LegalGuideMapper {
 //    public List<LegalGuideVO> selectAllLegalGuide();
 
+    //      게시글 목록 불러오기
     public List<LegalGuideDTO> selectAllLegalGuideWithDetail();
+
+    public List<LegalGuideDTO> selectDetailLegal();
 }

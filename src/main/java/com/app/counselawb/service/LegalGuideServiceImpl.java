@@ -27,4 +27,6 @@ public class LegalGuideServiceImpl implements LegalGuideService {
 
     @Override
     public List<LegalGuideDTO> findAllLegalGuideWithDetail() {return legalGuideDAO.findAllLegalGuideWithDetail();}
+
+    public List<LegalGuideDTO> findDetailLegal(Long legalGuideId) {return legalGuideDAO.findDetailLegal();}
 }
