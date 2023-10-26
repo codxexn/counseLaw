@@ -20,4 +20,27 @@ public class MemberDAO {
 
     // 변호사 회원 로그인
     public Optional<LawyerVO> findLawyerByLogin(LawyerVO lawyerVO) { return memberMapper.selectLawyerByLogin(lawyerVO);}
+
+    // 아이디 중복검사
+    public Optional<MemberVO> findMemberByEmail(MemberVO memberVO) {
+        return memberMapper.selectMemberByEmail(memberVO);
+    }
+
+    // 일반 회원 가입
+    public void saveMember(MemberVO memberVO) {
+        memberMapper.insertMember(memberVO);
+    }
+
+    // 변호사 아이디 중복검사
+    public Optional<LawyerVO> findLawyerByEmail(LawyerVO lawyerVO) {
+        return memberMapper.selectLawyerByEmail(lawyerVO);
+    }
+
+    // 일반 회원 가입
+    public void saveLawyer(LawyerVO lawyerVO) {
+        memberMapper.insertLawyer(lawyerVO);
+    }
+
+
+
 }

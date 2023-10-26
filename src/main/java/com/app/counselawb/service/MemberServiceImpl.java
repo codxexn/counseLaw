@@ -17,12 +17,39 @@ import java.util.Optional;
 public class MemberServiceImpl implements MemberService {
     private final MemberDAO memberDAO;
 
+    // 일반회원 로그인
     @Override
     public Optional<MemberVO> memberLogin(MemberVO memberVO) {
         return memberDAO.findByLogin(memberVO);
     }
 
+    // 변호사회원 로그인
     @Override
     public Optional<LawyerVO> lawyerLogin(LawyerVO lawyerVO) { return memberDAO.findLawyerByLogin(lawyerVO); }
+
+    // 아이디 중복검사
+    @Override
+    public Optional<MemberVO> duplicationMemberCheckByEmail(MemberVO memberVO) {
+        return memberDAO.findMemberByEmail(memberVO);
+    }
+
+    // 일반 회원 가입
+    @Override
+    public void joinMember(MemberVO memberVO) {
+        memberDAO.saveMember(memberVO);
+    }
+
+
+    // 변호사 아이디 중복검사
+    @Override
+    public Optional<LawyerVO> duplicationLawyerCheckByEmail(LawyerVO lawyerVO) {
+        return memberDAO.findLawyerByEmail(lawyerVO);
+    }
+
+    // 변호사 회원가입
+    @Override
+    public void joinLawyer(LawyerVO lawyerVO){
+        memberDAO.saveLawyer(lawyerVO);
+    }
 
 }
