@@ -10,8 +10,20 @@ import java.util.Optional;
 public interface MemberMapper {
 
     // 일반 회원 로그인
-    Optional<MemberVO> selectByLogin(MemberVO memberVO);
+    public Optional<MemberVO> selectByLogin(MemberVO memberVO);
 
     // 변호사 회원 로그인
-    Optional<LawyerVO> selectLawyerByLogin(LawyerVO lawyerVO);
+    public Optional<LawyerVO> selectLawyerByLogin(LawyerVO lawyerVO);
+
+    // 일반 아이디 중복검사
+    public Optional<MemberVO> selectMemberByEmail(MemberVO memberVO);
+
+    // 일반 회원 가입
+    public void insertMember(MemberVO memberVO);
+
+    // 변호사 아이디 중복검사
+    public Optional<LawyerVO> selectLawyerByEmail(LawyerVO lawyerVO);
+
+    // 변호사 회원 가입
+    public void insertLawyer(LawyerVO lawyerVO);
 }

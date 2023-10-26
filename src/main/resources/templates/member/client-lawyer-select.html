@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>의뢰인 변호사 회원가입 선택</title>
-    <link rel="stylesheet" href="cilent-lawyer-select.css">
-    <link rel="stylesheet" href="client_join_membership.css">
+    <link rel="stylesheet" href="/css/client-lawyer-select/client-lawyer-select.css">
+<!--    <link rel="stylesheet" href="/css/client/client-join-membership.css">-->
     <link rel="stylesheet" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.81.woff2">
     <link rel="stylesheet" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.82.woff2">
     <link rel="stylesheet" href="https://cdn.lawcompany.co.kr/fonts/PretendardVariable.subset.85.woff2">
@@ -30,7 +30,9 @@
                         <header class="header-module-header">
                             <div class="header-module-header-left">
                                 <div class="header-module-logoIconWrapper">
-                                    <img src="KakaoTalk_20230911_154146681.png" alt="">
+                                    <a href="/login/client-login">
+                                        <img src="/image/client/counseLawLogo.png" alt="">
+                                    </a>
                                 </div>
                             </div>
 
@@ -60,48 +62,43 @@
                         <div class="hline"></div>
 
                         <div class="are-you-client">
-                            <i class="bold">의뢰인</i>
-                            이신가요?
+                            <i class="bold">의뢰인</i>이신가요?
                         </div>
 
                         <div class="description">
-                            로톡 이천여 명 변호사님들 중
+                            카운슬로우 변호사님들 중
                             <br>
                             나에게 꼭 맞는 변호사를 찾아보세요.
                         </div>
-
-                        <button class="sign-up-button">
-                            의뢰인으로 가입하기
-                        </button>
+                        <a href="/member/client-join" style="text-decoration: none;">
+                            <button class="sign-up-button">의뢰인으로 가입하기</button>
+                        </a>
                     </div>
 
                     <div class="lawyer-side">
                         <div class="hline"></div>
 
                         <div class="are-lawyer">
-                            <i class="bold">변호사</i>
-                            이신가요?
+                            <i class="bold">변호사</i>이신가요?
                         </div>
 
                         <div class="description">
-                            로톡의 좋은 변호사가 되어
+                            카운슬로우의 좋은 변호사가 되어
                             <br>
                             자신있는 분야의 의뢰인들을 만나보세요.
                         </div>
-
-                        <button class="sign-up-button">
-                            변호사로 가입하기
-                        </button>
+                        <a href="/member/lawyer-join" style="text-decoration: none;">
+                            <button class="sign-up-button">변호사로 가입하기</button>
+                        </a>
                     </div>
                 </div>
 
                 <div class="law-auth-footer">
                     <div class="row">
-                        <a href="" class="bold">로그인</a>
-                        <a href="" class="bold">변호사 가입안내</a>
+                        <a href="/login/client-login" class="bold">로그인</a>
+                        <a href="/member/lawyer-introduction" class="bold">변호사 가입안내</a>
                     </div>
-
-                    <div class="row"></div>
+<!--                    <div class="row"></div>-->
                 </div>
             </div>
         </div>
