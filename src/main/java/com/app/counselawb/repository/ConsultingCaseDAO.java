@@ -54,4 +54,25 @@ public class ConsultingCaseDAO {
     public int readCountByConsultId(Long consultId){
         return consultingCaseMapper.countReplyByConsultId(consultId);
     }
+
+    //    조회수를 구하기 위해 caseId에 맞는 consultCase조회
+    public int readCount(Long consultId){
+        return consultingCaseMapper.readById(consultId);
+    }
+
+//    조회수 증가
+    public void updateViewCount(Long consultId){
+        consultingCaseMapper.updateViewCount(consultId);
+    }
+    //    상담사례 더보기를 위한 조회
+    public List<ConsultingCaseDTO> readMoreConsult(){
+        return consultingCaseMapper.readMoreConsult();
+    }
+
+//    해결사례 더보기를 위한 조회
+    public List<ConsultDetailDTO> readSolutionCase(){
+        return consultingCaseMapper.readSolutionCase();
+    }
+
+
 }

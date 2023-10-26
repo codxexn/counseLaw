@@ -35,7 +35,8 @@ public class ConsultController {
         pagination.progress();
         List<ConsultingCaseDTO> consultCase = consultingCaseService.selectAllCase(pagination);
         List<LawyerSidebarDTO> getLawyers = consultingCaseService.getLawyers();
-        log.info(consultCase.toString());
+
+        //        log.info(consultCase.toString());
 //        log.info(getLawyers.toString());
         //        변호사 답변의 개수
 
