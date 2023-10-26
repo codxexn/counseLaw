@@ -42,5 +42,6 @@
         <typeAlias type="com.app.counselawb.domain.vo.FieldCategoryVO" alias="fieldCategoryVO" />
         <typeAlias type="com.app.counselawb.domain.dto.LawyerAndMemberDTO" alias="lawyerAndMemberDTO" />
         <typeAlias type="com.app.counselawb.domain.dto.LawyerFieldSearchDTO" alias="lawyerFieldSearchDTO" />
+        <typeAlias type="com.app.counselawb.domain.dto.LawyerLocationSearchDTO" alias="lawyerLocationSearchDTO" />
     </typeAliases>
 </configuration>
