@@ -46,13 +46,17 @@
                     <div class="MypageButtonwrapper">
                         <a href="" class="MypageButton">
                             쿠폰함
-                            <span class="MypageButtonCount">0</span>
+                            <span th:text="${myCouponList.size()}" class="MypageButtonCount">0</span>
                         </a>
                         <a href="" class="MypageButton">
                             내 관심글
                             <span class="MypageButtonCount">0</span>
                         </a>
-                        <a href="" class="MypageButton">
+                        <a th:if="${numberOfFavoriteLawyers} != 0" href="/member-mypage/my-favorite-lawyers" class="MypageButton">
+                            변호사 즐겨찾기
+                            <span class="MypageButtonCount" th:text="${numberOfFavoriteLawyers}">0</span>
+                        </a>
+                        <a th:unless="${numberOfFavoriteLawyers} != 0" href="/member-mypage/no-favorite-lawyers" class="MypageButton">
                             변호사 즐겨찾기
                             <span class="MypageButtonCount">0</span>
                         </a>
