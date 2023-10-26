@@ -40,46 +40,82 @@
 
         @GetMapping("manager-mainpage")
     //    public void goTomanagePage() {;}
-        public String goToManageMain(@RequestParam(name="selectedOption", defaultValue = "selectAll") String selectedOption, @RequestParam(name = "keyword", required = false) String keyword,
+        public String goToManageMain(@RequestParam(value = "memberId", required = false) Long memberId, @RequestParam(name="selectedOption", defaultValue = "selectAll") String selectedOption, @RequestParam(name = "keyword", required = false, defaultValue = "") String keyword,
                                      Model model, Pagination pagination, HttpSession session) {
             model.addAttribute("selectedOption", selectedOption);
-
-            if (keyword != null && !keyword.isEmpty()) {
-                Search search = new Search();
-                search.setKeyword(keyword);
-                SearchDTO searchResults = searchService.getResult(search);
-                model.addAttribute("searchResults", searchResults);
-                log.info("Keyword received: " + keyword);
+            session.setAttribute("memberId", memberId);
+            if ((keyword == null || keyword.isEmpty()) && "selectAll".equals(selectedOption)) {
+                pagination.setTotal(postsService.findTotalAllPosts());
+                pagination.progress();
+                model.addAttribute("pagination", pagination);
+                List<PostsDTO> selectAllPosts = postsService.findByAllPosts(pagination);
+                model.addAttribute("selectAllPosts", selectAllPosts);
             } else {
-                if ("selectAll".equals(selectedOption)) {
-                    pagination.setTotal(postsService.findTotalAllPosts());
-                    pagination.progress();
+                if (keyword != null && !keyword.isEmpty()) {
+                    Search search = new Search();
+                    search.setKeyword(keyword);
+                    SearchDTO searchResults = searchService.getResult(search);
+                    model.addAttribute("searchResults", searchResults);
                     model.addAttribute("pagination", pagination);
-                    List<PostsDTO> selectAllPosts = postsService.findByAllPosts(pagination);
-                    model.addAttribute("selectAllPosts", selectAllPosts);
-                } else if ("solutionCase".equals(selectedOption)) {
-                    pagination.setTotal(postsService.findTotalSolutionCasePosts());
-                    pagination.progress();
-                    model.addAttribute("pagination", pagination);
-                    // 해결 사례 조회
-                    List<PostsDTO> solutionCases = postsService.findBySolutionCasePosts(pagination);
-                    model.addAttribute("solutionCases", solutionCases);
-                } else if ("consultingCase".equals(selectedOption)) {
-                    pagination.setTotal(postsService.findTotalConsultingPosts());
-                    pagination.progress();
-                    model.addAttribute("pagination", pagination);
-                    // 상담 사례 조회
-                    List<PostsDTO> consultingCases = postsService.findByConsultingCasePosts(pagination);
-                    model.addAttribute("consultingCases", consultingCases);
-                } else if ("legalGuide".equals(selectedOption)) {
-                    pagination.setTotal(postsService.findTotalLegalGuidePosts());
-                    pagination.progress();
-                    model.addAttribute("pagination", pagination);
-                    // 법률 가이드 정보 조회
-                    List<PostsDTO> legalGuides = postsService.findByLegalGuidePosts(pagination);
-                    model.addAttribute("legalGuides", legalGuides);
+
+                    log.info("Keyword received: " + keyword);
+                } else {
+                    if ("solutionCase".equals(selectedOption)) {
+                        pagination.setTotal(postsService.findTotalSolutionCasePosts());
+                        pagination.progress();
+                        model.addAttribute("pagination", pagination);
+                        // 해결 사례 조회
+                        List<PostsDTO> solutionCases = postsService.findBySolutionCasePosts(pagination);
+                        model.addAttribute("solutionCases", solutionCases);
+                    } else if ("consultingCase".equals(selectedOption)) {
+                        pagination.setTotal(postsService.findTotalConsultingPosts());
+                        pagination.progress();
+                        model.addAttribute("pagination", pagination);
+                        // 상담 사례 조회
+                        List<PostsDTO> consultingCases = postsService.findByConsultingCasePosts(pagination);
+                        model.addAttribute("consultingCases", consultingCases);
+                    } else if ("legalGuide".equals(selectedOption)) {
+                        pagination.setTotal(postsService.findTotalLegalGuidePosts());
+                        pagination.progress();
+                        model.addAttribute("pagination", pagination);
+                        // 법률 가이드 정보 조회
+                        List<PostsDTO> legalGuides = postsService.findByLegalGuidePosts(pagination);
+                        model.addAttribute("legalGuides", legalGuides);
+                    }
                 }
             }
+            model.addAttribute("keyword", keyword);
+
+
+//                if ("selectAll".equals(selectedOption)) {
+//                    pagination.setTotal(postsService.findTotalAllPosts());
+//                    pagination.progress();
+//                    model.addAttribute("pagination", pagination);
+//                    List<PostsDTO> selectAllPosts = postsService.findByAllPosts(pagination);
+//                    model.addAttribute("selectAllPosts", selectAllPosts);
+//                } else if ("solutionCase".equals(selectedOption)) {
+//                    pagination.setTotal(postsService.findTotalSolutionCasePosts());
+//                    pagination.progress();
+//                    model.addAttribute("pagination", pagination);
+//                    // 해결 사례 조회
+//                    List<PostsDTO> solutionCases = postsService.findBySolutionCasePosts(pagination);
+//                    model.addAttribute("solutionCases", solutionCases);
+//                } else if ("consultingCase".equals(selectedOption)) {
+//                    pagination.setTotal(postsService.findTotalConsultingPosts());
+//                    pagination.progress();
+//                    model.addAttribute("pagination", pagination);
+//                    // 상담 사례 조회
+//                    List<PostsDTO> consultingCases = postsService.findByConsultingCasePosts(pagination);
+//                    model.addAttribute("consultingCases", consultingCases);
+//                } else if ("legalGuide".equals(selectedOption)) {
+//                    pagination.setTotal(postsService.findTotalLegalGuidePosts());
+//                    pagination.progress();
+//                    model.addAttribute("pagination", pagination);
+//                    // 법률 가이드 정보 조회
+//                    List<PostsDTO> legalGuides = postsService.findByLegalGuidePosts(pagination);
+//                    model.addAttribute("legalGuides", legalGuides);
+//                }
+
 
 
 
