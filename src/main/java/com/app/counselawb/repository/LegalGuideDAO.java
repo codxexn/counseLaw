@@ -1,5 +1,6 @@
 package com.app.counselawb.repository;
 
+import com.app.counselawb.domain.dto.LegalGuideDTO;
 import com.app.counselawb.domain.vo.LegalGuideVO;
 import com.app.counselawb.mapper.LegalGuideMapper;
 import lombok.RequiredArgsConstructor;
@@ -14,5 +15,11 @@ import java.util.List;
 public class LegalGuideDAO {
     private final LegalGuideMapper legalGuideMapper;
 
-    public List<LegalGuideVO> findAllLegalGuide() {return legalGuideMapper.selectAllLegalGuide();}
+//    public List<LegalGuideVO> findAllLegalGuide() {
+//        return legalGuideMapper.selectAllLegalGuide();
+//    }
+
+    public List<LegalGuideDTO> findAllLegalGuideWithDetail() {
+        return legalGuideMapper.selectAllLegalGuideWithDetail();
+    }
 }

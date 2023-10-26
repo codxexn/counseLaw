@@ -2,11 +2,14 @@ package com.app.counselawb.controller;
 
 
 import com.app.counselawb.domain.dto.LawyerFieldSearchDTO;
+import com.app.counselawb.domain.dto.LawyerLocationSearchDTO;
 import com.app.counselawb.domain.pagination.Pagination;
 import com.app.counselawb.domain.vo.FieldCategoryVO;
 import com.app.counselawb.domain.vo.FieldVO;
+import com.app.counselawb.domain.vo.LocationVO;
 import com.app.counselawb.service.LawyerSearchService;
 import com.app.counselawb.service.LawyerService;
+import com.app.counselawb.service.LocationService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -24,6 +27,7 @@ import java.util.*;
 public class LawyerSearchController {
     private final LawyerService lawyerService;
     private final LawyerSearchService lawyerSearchService;
+    private final LocationService locationService;
 
 
     // 분야로 찾기
@@ -67,8 +71,9 @@ public class LawyerSearchController {
         model.addAttribute("resultCount", lawyerCount);
         pagination.setTotal(lawyerCount);
         pagination.progress();
+        model.addAttribute("pagination", pagination);
         // 페이징처리와 함께 해당 분야 변호사 정보 가져오기
-        List<LawyerFieldSearchDTO> foundLawyers = lawyerSearchService.findLawyersByFieldId(pagination, fieldId);
+        List<LawyerFieldSearchDTO> foundLawyers = lawyerSearchService.findLawyersByFieldId(pagination, fieldId);;
         model.addAttribute("foundLawyers", foundLawyers);
         return "/lawyer-list-by-categories/lawyer-list-by-categories";
     }
@@ -77,5 +82,33 @@ public class LawyerSearchController {
     @GetMapping("search-by-locations")
     public String goToLawyerLocations(){
         return "/search-by-locations/search-by-locations";
+    }
+
+    // 지역으로 변호사 검색한 결과
+    @GetMapping("lawyer-list-by-locations")
+    public String showLocationSearchList(@RequestParam("locationId") Long locationId, Model model, Pagination pagination){
+        // 지역 id로 지역 정보 가져오기
+        Optional<LocationVO> locationInfo = lawyerSearchService.findLocationInfo(locationId);
+        if (locationInfo.isPresent()){
+            LocationVO locationVO = locationInfo.get();
+            model.addAttribute("locationInfo", locationVO);
+        } else {
+            model.addAttribute("locationInfo", null);
+        }
+        // 모든 지역 리스트
+        List<LocationVO> allLocations = locationService.findAllLocations();
+        model.addAttribute("allLocations", allLocations);
+        // 해당 지역 id
+        model.addAttribute("locationId", locationId);
+        // 해당 지역 변호사 명수
+        int lawyerCount = lawyerSearchService.findLawyersCountByLocationId(locationId);
+        model.addAttribute("resultCount", lawyerCount);
+        pagination.setTotal(lawyerCount);
+        pagination.progress();
+        model.addAttribute("pagination", pagination);
+        // 페이징 처리와 함께 해당 지역 변호사 정보 가져오기
+        List<LawyerLocationSearchDTO> foundLawyers = lawyerSearchService.findLawyersByLocationId(pagination, locationId);
+        model.addAttribute("foundLawyers", foundLawyers);
+        return "/lawyer-list-by-locations/lawyer-list-by-locations";
     }
 }

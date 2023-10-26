@@ -16,19 +16,23 @@
         <typeAlias type="com.app.counselawb.domain.vo.LawyerLocationVO" alias="lawyerLocationVO"/>
         <typeAlias type="com.app.counselawb.domain.vo.LegalGuideImgVO" alias="legalGuideImgVO"/>
         <typeAlias type="com.app.counselawb.domain.vo.LegalGuideVO" alias="legalGuideVO"/>
+        <typeAlias type="com.app.counselawb.domain.dto.LegalGuideDTO" alias="legalGuideDTO"/>
         <typeAlias type="com.app.counselawb.domain.vo.LocationVO" alias="locationVO"/>
         <typeAlias type="com.app.counselawb.domain.vo.MemberCouponVO" alias="memberCouponVO"/>
+        <typeAlias type="com.app.counselawb.domain.dto.LawyerSidebarDTO" alias="lawyerSidebarDTO" />
         <typeAlias type="com.app.counselawb.domain.vo.NoticeVO" alias="noticeVO"/>
         <typeAlias type="com.app.counselawb.domain.vo.PaymentVO" alias="paymentVO"/>
         <typeAlias type="com.app.counselawb.domain.vo.ReservationVO" alias="reservationVO"/>
         <typeAlias type="com.app.counselawb.domain.vo.SolutionCaseImgVO" alias="solutionCaseImgVO"/>
         <typeAlias type="com.app.counselawb.domain.vo.SolutionCaseVO" alias="solutionCaseVO"/>
+        <typeAlias type="com.app.counselawb.domain.dto.SolutionCaseDTO" alias="solutionCaseDTO"/>
         <typeAlias type="com.app.counselawb.domain.vo.LawyerVO" alias="lawyerVO"/>
         <typeAlias type="com.app.counselawb.domain.dto.LawyerFieldDTO" alias="lawyerFieldDTO" />
         <typeAlias type="com.app.counselawb.domain.dto.PostsDTO" alias="postsDTO" />
-        <typeAlias type="com.app.counselawb.domain.dto.ConsultingCaseDTO" alias="consultingCaseDTO" />
-        <typeAlias type="com.app.counselawb.domain.dto.ConsultingWriteDTO" alias="consultingWriteDTO" />
-        <typeAlias type="com.app.counselawb.domain.dto.ConsultDetailDTO" alias="consultDetailDTO" />
+        <typeAlias type="com.app.counselawb.domain.dto.ConsultingCaseDTO" alias="consultingCaseDTO"/>
+        <typeAlias type="com.app.counselawb.domain.dto.ConsultingWriteDTO" alias="consultingWriteDTO"/>
+        <typeAlias type="com.app.counselawb.domain.dto.ConsultDetailDTO" alias="consultDetailDTO"/>
+        <typeAlias type="com.app.counselawb.domain.dto.ConsultToSolutionDTO" alias="consulttoSolutionDTO"/>
         <typeAlias type="com.app.counselawb.domain.dto.LawyerLocationDTO" alias="lawyerLocationDTO" />
         <typeAlias type="com.app.counselawb.domain.dto.SearchDTO" alias="searchDTO" />
         <typeAlias type="com.app.counselawb.domain.dto.ConsultingCaseReplyDTO" alias="consultingCaseReplyDTO" />
@@ -38,5 +42,6 @@
         <typeAlias type="com.app.counselawb.domain.vo.FieldCategoryVO" alias="fieldCategoryVO" />
         <typeAlias type="com.app.counselawb.domain.dto.LawyerAndMemberDTO" alias="lawyerAndMemberDTO" />
         <typeAlias type="com.app.counselawb.domain.dto.LawyerFieldSearchDTO" alias="lawyerFieldSearchDTO" />
+        <typeAlias type="com.app.counselawb.domain.dto.LawyerLocationSearchDTO" alias="lawyerLocationSearchDTO" />
     </typeAliases>
 </configuration>

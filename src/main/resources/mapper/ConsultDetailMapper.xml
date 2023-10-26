@@ -1,19 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.counselawb.mapper.ConsultingCaseMapper">
-    <!--    상담 사례에 대한 답변, 정보들 불러오기-->
-    <select id="readDetailConsult" resultType="consultDetailDTO">
-        SELECT
-            c.CASE_TITLE AS faqTitle,
-            c.CASE_CONTENT AS faqContent,
-            c.CREATE_DATE AS createDate,
-            r.CONSULTING_CASE_REPLY_ID AS replyId,
-            r.CONSULTING_CASE_REPLY_CONTENT AS replyContent,
-            r.LAWYER_ID AS lawyerId,
-            r.CONSULTING_CASE_ID AS caseId,
-            c.MEMBER_ID AS memberId
-        FROM TBL_CONSULTING_CASE c
-                 LEFT JOIN TBL_CONSULTING_CASE_REPLY r ON c.CONSULTING_CASE_ID = r.CONSULTING_CASE_ID;
+    <!--    상담 사례에 대한 제목, 시간, 내용 불러오기-->
+    <select id="readDetailConsult" resultType="consultingCaseVO">
+        SELECT CONSULTING_CASE_ID, CASE_TITLE, CASE_CONTENT, CREATE_DATE, UPDATE_DATE, MEMBER_ID
+        FROM TBL_CONSULTING_CASE
+        WHERE CONSULTING_CASE_ID = #{consultId}
     </select>
 
+<!--    consultId에 해당하는 변호사 정보, 이름, 답변 불러오기-->
+    <select id="readLawyerByConsultId" resultType="consultDetailDTO">
+        SELECT
+            r.CONSULTING_CASE_REPLY_ID AS replyId,
+            r.CONSULTING_CASE_REPLY_CONTENT AS replyContent,
+            l.LAWYER_ID,
+            l.LAWYER_NAME,
+            l.LAWYER_COMPANY,
+            l.LAWYER_IMAGE,
+            r.CONSULTING_CASE_ID,
+            r.CREATE_DATE
+        FROM TBL_CONSULTING_CASE c
+                 LEFT JOIN TBL_CONSULTING_CASE_REPLY r ON c.CONSULTING_CASE_ID = r.CONSULTING_CASE_ID
+                 LEFT JOIN TBL_LAWYER l ON r.LAWYER_ID = l.LAWYER_ID
+        WHERE c.CONSULTING_CASE_ID = #{consultId}
+    </select>
+
+<!--    consultId에 해당하는 답변의 개수-->
+    <select id="countReplyByConsultId" resultType="int">
+        SELECT COUNT(r.CONSULTING_CASE_REPLY_ID) AS replyCount
+        FROM TBL_CONSULTING_CASE c
+                 LEFT JOIN TBL_CONSULTING_CASE_REPLY r ON c.CONSULTING_CASE_ID = r.CONSULTING_CASE_ID
+        WHERE c.CONSULTING_CASE_ID = #{consultId}
+        GROUP BY c.CONSULTING_CASE_ID
+    </select>
+
+    <!--    조회수를 구하기 위해 caseId에 맞는 consultCase 호출-->
+    <select id="readById" resultType="int">
+        SELECT CASE_COUNT
+        FROM TBL_CONSULTING_CASE
+        WHERE CONSULTING_CASE_ID=#{consultId}
+    </select>
+
+<!--    상담사례 더보기에 들어갈 내용 호출-->
+    <select id="readMoreConsult" resultType="consultingCaseDTO">
+        SELECT *
+        FROM (
+                SELECT
+                    CC.CONSULTING_CASE_ID,
+                    CC.CASE_TITLE,
+                    CC.CASE_CONTENT,
+                    CC.MEMBER_ID,
+                    CC.CREATE_DATE AS CONSULT_CREATE_DATE,
+                    CCR.LAWYER_ID,
+                    L.LAWYER_NAME,
+                    L.LAWYER_IMAGE,
+                    CCR.CONSULTING_CASE_REPLY_ID AS REPLY_ID,
+                    CCR.CONSULTING_CASE_REPLY_CONTENT AS REPLY_CONTENT,
+                    CC.CASE_COUNT,
+                    CCR.CREATE_DATE AS CREATE_DATE,
+                    (
+                                SELECT COUNT(*)
+                                FROM TBL_CONSULTING_CASE_REPLY CCR1
+                                WHERE CCR1.CONSULTING_CASE_ID = CC.CONSULTING_CASE_ID
+                                ) AS REPLY_COUNT
+                FROM TBL_CONSULTING_CASE CC
+                    LEFT JOIN (
+                            SELECT
+                                CCR1.CONSULTING_CASE_ID,
+                                CCR1.CONSULTING_CASE_REPLY_ID,
+                                CCR1.CONSULTING_CASE_REPLY_CONTENT,
+                                CCR1.LAWYER_ID,
+                                CCR1.CREATE_DATE
+                            FROM TBL_CONSULTING_CASE_REPLY CCR1
+                            WHERE CCR1.CREATE_DATE = (
+                                    SELECT MIN(CREATE_DATE)
+                                    FROM TBL_CONSULTING_CASE_REPLY CCR2
+                                    WHERE CCR2.CONSULTING_CASE_ID = CCR1.CONSULTING_CASE_ID
+                                    )
+                            ) CCR ON CC.CONSULTING_CASE_ID = CCR.CONSULTING_CASE_ID
+                    LEFT JOIN TBL_LAWYER L ON CCR.LAWYER_ID = L.LAWYER_ID
+                ORDER BY CONSULT_CREATE_DATE DESC
+                )
+        <![CDATA[
+        WHERE ROWNUM<= 3
+]]>
+    </select>
+
+<!--    해결사례에 넣을 내용-->
+    <select id="readSolutionCase" resultType="consulttoSolutionDTO">
+        SELECT F.FIELD_TITLE, SC.SOLUTION_CASE_TITLE
+        FROM TBL_FIELD F
+                 LEFT JOIN TBL_SOLUTION_CASE SC ON F.FIELD_ID = SC.LAWYER_ID
+        <![CDATA[
+        WHERE ROWNUM <=3
+                  ]]>
+    </select>
 </mapper>

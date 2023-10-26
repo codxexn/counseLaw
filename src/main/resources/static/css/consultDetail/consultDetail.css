@@ -157,7 +157,7 @@ a img{
 
 @media (min-width: 769px){
     .qnaArticle.controller{
-        padding-top: 0;
+        padding-top: 125px;
     }
 }
 
@@ -1952,7 +1952,7 @@ slick[속성스타일]{
 }
 
 .qnaArticle.controller .qnaAsideContent related-post-case .relatedPostCase{
-    /*padding: 24px 20px;*/
+    padding: 24px 20px;
 }
 
 .relatedPostCase{
@@ -2065,12 +2065,18 @@ slick[속성스타일]{
     visibility: visible;
 }
 
+.hammer, .share, .empty, .full{
+    width: 15px;
+    height: 15px;
+}
 
+.full{
+    display: none;
+}
 
-
-
-
-
+.ButtonWish{
+    border: none;
+}
 
 
 

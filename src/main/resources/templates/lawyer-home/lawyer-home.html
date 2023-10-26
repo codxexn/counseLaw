@@ -37,7 +37,7 @@
             <div class="profile-page__tab">
                 <div class="profile-home">
                     <section class="profile-home__basic-info">
-                        <h1 th:with="default='안녕하세요. ' + ${selectedLawyer.lawyerName} + ' 변호사입니다'" th:text="${selectedLawyer.lawyerIntroduction == null ? default : selectedLawyer.lawyerIntroduction}" class="profile-home__introduce lt-desktop ad-lawyer"></h1>
+                        <h1 th:with="default='안녕하세요. ' + ${selectedLawyer.lawyerName} + ' 변호사입니다'" th:text="${#strings.equals(selectedLawyer.lawyerIntroduction, '미입력') ? default : selectedLawyer.lawyerIntroduction}" class="profile-home__introduce lt-desktop ad-lawyer"></h1>
                         <div class="basic-info-contents" style="display: flex;">
                             <div class="basic-info-content">
                                 <div class="left__name-rr">
@@ -187,7 +187,7 @@
                         <bestreview-cards class="bestreview-cards">
                             <div class="best-reviews">
                                 <input type="hidden" name="reviewCounts" th:value="${#lists.size(reviews)}">
-                                <div class="best-reviews__container" style="width: 7220px;">
+                                <div class="best-reviews__container" th:style="'width: ' + ${722 * #lists.size(reviews)} + 'px;'">
                                     <div th:if="${!#lists.isEmpty(reviews)}" th:each="review: ${reviews}" class="best-reviews__wrap" style="width: 722px;">
                                         <div th:text="${review.reviewTitle}" class="title"></div>
                                         <div class="body">
@@ -427,17 +427,17 @@
                                     <div class="IconDropdown-module_iconDropdownBody__J02T8">
                                         <div class="IconDropdown-module_iconDropdownBodyInner__1Mztd">
                                             <div class="ReservationSheet-module_typeButtons__LB0n6">
-                                                <button class="ReservationSheet-module_typeButton__Yj3zD">
+                                                <button class="phone-select ReservationSheet-module_typeButton__Yj3zD">
                                                     <p class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK">
                                                         15분 전화상담
                                                     </p>
                                                 </button>
-                                                <button class="ReservationSheet-module_typeButton__Yj3zD">
+                                                <button class="video-select ReservationSheet-module_typeButton__Yj3zD">
                                                     <p class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK">
                                                         20분 영상상담
                                                     </p>
                                                 </button>
-                                                <button class="ReservationSheet-module_typeButton__Yj3zD">
+                                                <button class="visit-select ReservationSheet-module_typeButton__Yj3zD">
                                                     <p class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK">
                                                         30분 방문상담
                                                     </p>
@@ -469,76 +469,62 @@
                                                 <!--날짜 넣기-->
                                                 <div class="date">
                                                     <button class="ReservationSheet-module_dateButton__4uTaz">
-                                                        <p class="Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
+                                                        <p class="days Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
                                                             style="color: rgb(0, 0, 0);">
-                                                            22
                                                         </p>
                                                     </button>
-                                                    <p class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 ReservationSheet-module_dateButtonText__FeznC Typography-module_lt-text--inherit__uNmPK" style="color: #c50000;">
-                                                        오늘
+                                                    <p class="weekdays Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 ReservationSheet-module_dateButtonText__FeznC Typography-module_lt-text--inherit__uNmPK" style="color: #c50000;">
                                                     </p>
                                                 </div>
                                                 <div class="date">
                                                     <button class="ReservationSheet-module_dateButton__4uTaz">
-                                                        <p class="Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK" style="color: rgb(0, 0, 0);">
-                                                            23
+                                                        <p class="days Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK" style="color: rgb(0, 0, 0);">
                                                         </p>
                                                     </button>
-                                                    <p class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 ReservationSheet-module_dateButtonText__FeznC Typography-module_lt-text--inherit__uNmPK" style="color: rgb(0, 0, 0);">
-                                                        토
+                                                    <p class="weekdays Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 ReservationSheet-module_dateButtonText__FeznC Typography-module_lt-text--inherit__uNmPK" style="color: rgb(0, 0, 0);">
                                                     </p>
                                                 </div>
                                                 <div class="date">
                                                     <button class="ReservationSheet-module_dateButton__4uTaz">
-                                                        <p class="Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK" style="color: rgb(0, 0, 0);">
-                                                            24
+                                                        <p class="days Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK" style="color: rgb(0, 0, 0);">
                                                         </p>
                                                     </button>
-                                                    <p class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 ReservationSheet-module_dateButtonText__FeznC Typography-module_lt-text--inherit__uNmPK"
+                                                    <p class="weekdays Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 ReservationSheet-module_dateButtonText__FeznC Typography-module_lt-text--inherit__uNmPK"
                                                        style="color: rgb(0, 0, 0);">
-                                                        일
                                                     </p>
                                                 </div>
                                                 <div class="date">
                                                     <button class="ReservationSheet-module_dateButton__4uTaz">
-                                                        <p class="Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK" style="color: rgb(0, 0, 0);">
-                                                            25
+                                                        <p class="days Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK" style="color: rgb(0, 0, 0);">
                                                         </p>
                                                     </button>
-                                                    <p class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 ReservationSheet-module_dateButtonText__FeznC Typography-module_lt-text--inherit__uNmPK" style="color: rgb(0, 0, 0);">
-                                                        월
+                                                    <p class="weekdays Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 ReservationSheet-module_dateButtonText__FeznC Typography-module_lt-text--inherit__uNmPK" style="color: rgb(0, 0, 0);">
                                                     </p>
                                                 </div>
                                                 <div class="date">
                                                     <button class="ReservationSheet-module_dateButton__4uTaz">
-                                                        <p class="Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK" style="color: rgb(0, 0, 0);">
-                                                            26
+                                                        <p class="days Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK" style="color: rgb(0, 0, 0);">
                                                         </p>
                                                     </button>
-                                                    <p class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 ReservationSheet-module_dateButtonText__FeznC Typography-module_lt-text--inherit__uNmPK" style="color: rgb(0, 0, 0);">
-                                                        화
+                                                    <p class="weekdays Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 ReservationSheet-module_dateButtonText__FeznC Typography-module_lt-text--inherit__uNmPK" style="color: rgb(0, 0, 0);">
                                                     </p>
                                                 </div>
                                                 <div class="date">
                                                     <button class="ReservationSheet-module_dateButton__4uTaz">
-                                                        <p class="Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK" style="color: rgb(0, 0, 0);">
-                                                            27
+                                                        <p class="days Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK" style="color: rgb(0, 0, 0);">
                                                         </p>
                                                     </button>
-                                                    <p class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 ReservationSheet-module_dateButtonText__FeznC Typography-module_lt-text--inherit__uNmPK"
+                                                    <p class="weekdays Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 ReservationSheet-module_dateButtonText__FeznC Typography-module_lt-text--inherit__uNmPK"
                                                        style="color: rgb(0, 0, 0);">
-                                                        수
                                                     </p>
                                                 </div>
                                                 <div class="date">
                                                     <button class="ReservationSheet-module_dateButton__4uTaz">
-                                                        <p class="Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK" style="color: rgb(0, 0, 0);">
-                                                            28
+                                                        <p class="days Typography-module_lt-text--size-20__Coy4u Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK" style="color: rgb(0, 0, 0);">
                                                         </p>
                                                     </button>
-                                                    <p class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 ReservationSheet-module_dateButtonText__FeznC Typography-module_lt-text--inherit__uNmPK"
+                                                    <p class="weekdays Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 ReservationSheet-module_dateButtonText__FeznC Typography-module_lt-text--inherit__uNmPK"
                                                        style="color: rgb(0, 0, 0);">
-                                                        목
                                                     </p>
                                                 </div>
                                             </div>
@@ -566,12 +552,6 @@
                                                 <div class="timeGroup">
                                                     <p class="ReservationSheet-module_timeGroupLabel__lUV8C am">오전</p>
                                                     <div class="ReservationSheet-module_timeIndexButtons__92KzU">
-                                                        <button class="ReservationSheet-module_timeIndexButton__Dr2YA">
-                                                            08:00
-                                                        </button>
-                                                        <button class="ReservationSheet-module_timeIndexButton__Dr2YA">
-                                                            08:30
-                                                        </button>
                                                         <button class="ReservationSheet-module_timeIndexButton__Dr2YA">
                                                             09:00
                                                         </button>
@@ -605,88 +585,76 @@
                                                             12:30
                                                         </button>
                                                         <button class="ReservationSheet-module_timeIndexButton__Dr2YA">
-                                                            01:00
+                                                            13:00
                                                         </button>
                                                         <button class="ReservationSheet-module_timeIndexButton__Dr2YA">
-                                                            01:30
+                                                            13:30
                                                         </button>
                                                         <button class="ReservationSheet-module_timeIndexButton__Dr2YA">
-                                                            02:00
+                                                            14:00
                                                         </button>
                                                         <button class="ReservationSheet-module_timeIndexButton__Dr2YA">
-                                                            02:30
+                                                            14:30
                                                         </button>
                                                         <button class="ReservationSheet-module_timeIndexButton__Dr2YA">
-                                                            03:00
+                                                            15:00
                                                         </button>
                                                         <button class="ReservationSheet-module_timeIndexButton__Dr2YA">
-                                                            03:30
+                                                            15:30
                                                         </button>
                                                         <button class="ReservationSheet-module_timeIndexButton__Dr2YA">
-                                                            04:00
+                                                            16:00
                                                         </button>
                                                         <button class="ReservationSheet-module_timeIndexButton__Dr2YA">
-                                                            04:30
+                                                            16:30
                                                         </button>
                                                         <button class="ReservationSheet-module_timeIndexButton__Dr2YA">
-                                                            05:00
+                                                            17:00
                                                         </button>
                                                         <button class="ReservationSheet-module_timeIndexButton__Dr2YA">
-                                                            05:30
+                                                            17:30
                                                         </button>
                                                         <button class="ReservationSheet-module_timeIndexButton__Dr2YA">
-                                                            06:00
+                                                            18:00
                                                         </button>
                                                         <button class="ReservationSheet-module_timeIndexButton__Dr2YA">
-                                                            06:30
+                                                            18:30
                                                         </button>
                                                         <button class="ReservationSheet-module_timeIndexButton__Dr2YA">
-                                                            07:00
+                                                            19:00
                                                         </button>
                                                         <button class="ReservationSheet-module_timeIndexButton__Dr2YA">
-                                                            07:30
+                                                            19:30
                                                         </button>
                                                         <button class="ReservationSheet-module_timeIndexButton__Dr2YA">
-                                                            08:00
+                                                            20:00
                                                         </button>
                                                         <button class="ReservationSheet-module_timeIndexButton__Dr2YA">
-                                                            08:30
+                                                            20:30
                                                         </button>
                                                         <button class="ReservationSheet-module_timeIndexButton__Dr2YA">
-                                                            09:00
-                                                        </button>
-                                                        <button class="ReservationSheet-module_timeIndexButton__Dr2YA">
-                                                            09:30
-                                                        </button>
-                                                        <button class="ReservationSheet-module_timeIndexButton__Dr2YA">
-                                                            10:00
-                                                        </button>
-                                                        <button class="ReservationSheet-module_timeIndexButton__Dr2YA">
-                                                            10:30
-                                                        </button>
-                                                        <button class="ReservationSheet-module_timeIndexButton__Dr2YA">
-                                                            11:00
-                                                        </button>
-                                                        <button class="ReservationSheet-module_timeIndexButton__Dr2YA">
-                                                            11:30
+                                                            21:00
                                                         </button>
                                                     </div>
                                                 </div>
-                                                
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="ReservationSheet-module_buttons__6t3N4">
+                                    <input type="hidden" th:value="${#numbers.formatInteger(selectedLawyer.callPrice, 1, 'COMMA')}" th:name="callPrice">
+                                    <input type="hidden" th:value="${#numbers.formatInteger(selectedLawyer.videoPrice, 1, 'COMMA')}" th:name="videoPrice">
+                                    <input type="hidden" th:value="${#numbers.formatInteger(selectedLawyer.visitPrice, 1, 'COMMA')}" th:name="visitPrice">
+                                    <input type="hidden" th:value="${lawyerId}" name="lawyerId">
                                     <p class="ReservationSheet-module_totalPriceWrap__7-CWC">
                                         <span class="ReservationSheet-module_totalPriceText__cLaIG">
                                             총 결제금액
                                         </span>
-                                        <span class="ReservationSheet-module_totalPriceValue__pVpLO">
+                                        <span class="total-price ReservationSheet-module_totalPriceValue__pVpLO">
                                             0원
                                         </span>
                                     </p>
-                                    <button class="ReservationSheet-module_nextButton__-mYex-disabled">
+                                    <button id="final-submit-btn" class="ReservationSheet-module_nextButton__-mYex-disabled">
                                         다음
                                     </button>
                                 </div>

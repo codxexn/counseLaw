@@ -518,16 +518,16 @@ button, input[type=button], input[type=file]::-webkit-file-upload-button, input[
     .location-lawyers__info-area {
         visibility: hidden;
         left: 50%;
-        top: 98px;
+        top: 0;
         transform: translateX(calc(100% - 30px)) scale(1);
     }
 
     .location-lawyers__info-button {
         font-family: Pretendard,'Noto Sans KR', sans-serif;
         font-size: 13px;
-        left: calc(50% + 438px);
+        left: calc(50% + 420px);
         padding: 0 0 4px;
-        top: 264px;
+        top: 160px;
     }
 
     /*마우스오버*/
@@ -826,4 +826,145 @@ button, input[type=button], input[type=file]::-webkit-file-upload-button, input[
     }
 
 
+}
+
+
+.aside-section {
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+}
+
+.aside-section.fixed {
+    position: fixed;
+    padding-top: 60px;
+    top: 80px !important;
+}
+
+.aside-section.bottom-fix {
+    bottom: 120px !important;
+    position: absolute;
+}
+
+.aside-title {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.category-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    max-height: 583px;
+    width: 196px;
+}
+
+.category-wrapper::-webkit-scrollbar {
+    width: 7px;
+    background-color: #ffffff;
+
+}
+
+.category-wrapper::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+    border-radius: 13px;
+}
+
+.category-wrapper:hover::-webkit-scrollbar-thumb {
+    background-color: #e7e7e7;
+    border-radius: 13px;
+}
+
+.each-category-link {
+    text-decoration: none;
+    color: #cfcfcf;
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 30px;
+    margin-bottom: 14px;
+}
+
+.each-category-link:hover {
+    color: #333;
+}
+
+.each-category-link.active {
+    color: #333;
+}
+
+.empty-lawyer-message {
+    color: #757575;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: 60px;
+    text-align: center;
+}
+
+.review-pagination {
+    width: 100%;
+    margin-top: 48px;
+}
+
+.lt-pagination .lt-pagination__pages {
+    background: #f7f7f7;
+    border-radius: 0;
+    display: block;
+    height: 60px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.review-pagination .lt-pagination__pages {
+    margin-bottom: 88px;
+}
+
+.review-pagination .lt-pagination__pages-button-wrap {
+    text-align: center;
+    position: relative;
+}
+
+.lt-pagination .lt-pagination__pages-button:not(:last-child) {
+    margin-right: 29px;
+}
+
+.review-pagination .lt-pagination__pages-button-wrap .lt-pagination__pages-button {
+    display: inline-block;
+    height: 39px;
+}
+
+.review-pagination .lt-pagination__pages-button-wrap .lt-pagination__pages-button {
+    font-size: 14px;
+}
+
+.review-pagination .lt-pagination__pages-button-wrap .lt-pagination__pages-button:not(:last-child) {
+    margin-right: 20px;
+}
+
+.lt-pagination .lt-pagination__pages-button {
+    color: #555;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 59px;
+    text-decoration: none;
+}
+
+.pagination-next-five {
+    position: absolute;
+    right: 25px;
+    top: 19px;
+    text-align: right;
+}
+
+.pagination-arrow-button {
+    position: absolute;
+    text-align: right;
+    top: 19px;
+    right: 3px;
+}
+
+.lt-pagination .lt-pagination__pages-button.on {
+    border-bottom: 2px solid #c50000;
+    color: #c50000;
 }

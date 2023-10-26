@@ -1,5 +1,6 @@
 package com.app.counselawb.service;
 
+import com.app.counselawb.domain.dto.LegalGuideDTO;
 import com.app.counselawb.domain.vo.LegalGuideVO;
 import com.app.counselawb.mapper.LegalGuideMapper;
 import com.app.counselawb.repository.LegalGuideDAO;
@@ -17,10 +18,13 @@ import java.util.List;
 @Transactional(rollbackFor = Exception.class)
 public class LegalGuideServiceImpl implements LegalGuideService {
 
-    @Autowired
-    private LegalGuideDAO legalGuideDAO;
+    private final LegalGuideDAO legalGuideDAO;
+
+//    @Override
+//    public List<LegalGuideVO> findAllLegalGuide() {
+//        return legalGuideDAO.findAllLegalGuide();
+//    }
+
     @Override
-    public List<LegalGuideVO> findAllLegalGuide() {
-        return legalGuideDAO.findAllLegalGuide();
-    }
+    public List<LegalGuideDTO> findAllLegalGuideWithDetail() {return legalGuideDAO.findAllLegalGuideWithDetail();}
 }

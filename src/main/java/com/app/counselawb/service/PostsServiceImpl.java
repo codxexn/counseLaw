@@ -1,5 +1,6 @@
 package com.app.counselawb.service;
 
+import com.app.counselawb.domain.Search;
 import com.app.counselawb.domain.dto.PostsDTO;
 import com.app.counselawb.domain.pagination.Pagination;
 import com.app.counselawb.mapper.PostsMapper;
@@ -41,6 +42,7 @@ public class PostsServiceImpl implements PostsService {
 
     // 해결 사례 전체 개수
     public int findTotalSolutionCasePosts() { return  postsDAO.findTotalSolutionCasePosts(); }
+
     @Override
     public List<PostsDTO> findByLegalGuidePosts(Pagination pagination) {
         return postsDAO.findByLegalGuidePosts(pagination);

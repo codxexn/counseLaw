@@ -21,4 +21,11 @@ public class ConsultingCaseVO {
     ///////////////
     // 멤버 id (fk)
     private Long memberId;
+//    조회수
+    private Long caseCount;
+//    FIELD 분야
+    private Long fieldId;
+//    FIELD 이름
+    private String fieldTitle;
+
 }
