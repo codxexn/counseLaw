@@ -59,15 +59,27 @@
             </div>
             <div class="MypageCard-lawyer">
                 <div class="MypageButtonwrapper">
-                    <a href="" class="MypageButton">
+                    <a th:if="${scCount > 0}" th:href="'/mypage-lawyer/my-solution-case?lawyerId=' + ${currentLawyer.lawyerId}" class="MypageButton">
                         내 해결사례
                         <span th:text="${scCount}" class="MypageButtonCount"></span>
                     </a>
-                    <a href="" class="MypageButton">
+                    <a th:if="${scCount == 0}" class="MypageButton">
+                        내 해결사례
+                        <span th:text="${scCount}" class="MypageButtonCount"></span>
+                    </a>
+                    <a th:if="${lgCount > 0}" th:href="'/mypage-lawyer/my-legal-guide?lawyerId=' + ${currentLawyer.lawyerId}" class="MypageButton">
                         내 법률가이드
                         <span th:text="${lgCount}" class="MypageButtonCount"></span>
                     </a>
-                    <a href="" class="MypageButton">
+                    <a th:if="${lgCount == 0}" class="MypageButton">
+                        내 법률가이드
+                        <span th:text="${lgCount}" class="MypageButtonCount"></span>
+                    </a>
+                    <a th:if="${favCount > 0}" th:href="'/mypage-lawyer/liked-clients?lawyerId=' + ${currentLawyer.lawyerId}" class="MypageButton">
+                        나를 즐겨찾기한 의뢰인
+                        <span th:text="${favCount}" class="MypageButtonCount"></span>
+                    </a>
+                    <a th:if="${favCount == 0}" class="MypageButton">
                         나를 즐겨찾기한 의뢰인
                         <span th:text="${favCount}" class="MypageButtonCount"></span>
                     </a>

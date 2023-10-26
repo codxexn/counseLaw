@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>내 법률가이드 - 카운슬로우 (CounseLaw)</title>
+    <link rel="stylesheet" href="/css/legalGuidePage/legalGuide.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/css/lawyer-my-posts/my-legal-guide.css">
+    <th:block th:replace="~{fix/header :: my-header-head}"></th:block>
+    <th:block th:replace="~{fix/footer :: my-footer-head}"></th:block>
+</head>
+<body class="footer-Color">
+<!-- 롤링배너 및 드롭다운 & 최신순 조회순 적용 및 상세 페이지 남음 -->
+<div class="root pc">
+    <header th:replace="~{fix/header :: my-header}"></header>
+    <div class="pc-View">
+        <div class="search-Controller">
+            <div class="search-Controller" style="visibility: visible">
+                <div>
+                    <section class="content-Section top-Line">
+                        <div class="upper-Guides-Section">
+                            <div class="upper-Guides-Section-Title">
+                                <h2 th:utext="${lawyerName} + ' 변호사님의 <br> 법률 가이드 목록입니다'" class="upper-Guides-Section-Mention">
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="guides-Section-Wrapper section-Wrapper">
+                            <div class="guides-Section">
+                                <div class="guides-Section-Body">
+                                    <div class="guides-Section-Load-Section"
+                                         style="position: relative; display: grid; grid-template-columns: repeat(2, 1fr);">
+                                        <section class="card-List-Section" th:each="legalGuide : ${legalGuideWithDetail}">
+                                            <div class="card-List-Section-Card-Wrapper">
+                                                <div>
+                                                    <!-- 변호사 상세정보  -->
+                                                    <a href="" class="guide-Card-Link">
+                                                        <div class="guide-Card-Wrapper">
+                                                            <h5 class="guide-Card-Keywords">
+                                                                <span class="guide-Card-Keyword" th:text="${legalGuide.fieldTitle}">
+                                    </span>
+                                                            </h5>
+                                                            <div class="guide-Card-Title" th:text="${legalGuide.legalGuideTitle}">
+                                                            </div>
+                                                            <div class="guide-Card-Content" th:text="${legalGuide.legalGuideContent}">
+                                                            </div>
+                                                            <div class="guide-Card-Lawyer-Info">
+                                                                <div class="guide-Card-Lawyer-Thumb">
+                                                                    <img
+                                                                            class="photo"
+                                                                            th:src="${lawyerImage == null ? '/image/defaultLawyerProfile/defaultLawyerProfile.png' : lawyerImage}"
+                                                                    />
+                                                                </div>
+                                                                <div class="guide-Card-Lawyer-Title-Name">
+                                      <span
+                                              class="guide-Card-Lawyer-Title-Name-Bold"
+                                      >
+                                        By
+                                      </span>
+                                                                    <span th:text="${legalGuide.lawyerName} + ' 변호사' ">
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="card-List-Section-Card-Line"></div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="review-pagination">
+                        <lt-pagination th:with="start=${pagination.startPage}, last=${pagination.endPage}">
+                            <div class="lt-pagination pagination-component">
+                                <div class="lt-pagination__pages">
+                                    <div class="lt-pagination__pages-button-wrap">
+                                        <a th:each="eachpage : ${#numbers.sequence(start, last)}" th:href="'/mypage-lawyer/my-legal-guide?lawyerId=' + ${lawyerId} + '&page=' + ${eachpage}"
+                                           th:classappend="${eachpage == pagination.page ? 'on' : 'off'}"
+                                           class="lt-pagination__pages-button" th:text="${eachpage}">
+                                        </a>
+                                    </div>
+                                    <div class="pagination-next-five" th:if="${pagination.endPage >= 6}">
+                                        <a th:href="'/mypage-lawyer/my-legal-guide?lawyerId=' + ${lawyerId} + '&page=' + ${start+5}">
+                                            다음 5페이지
+                                        </a>
+                                    </div>
+                                    <div class="pagination-arrow-button" th:if="${pagination.endPage >= 6}">
+                                        <img width=20 height=20 src="/image/clientReviews/next.png" class="PaginationButtonGroup_Icon">
+                                    </div>
+                                </div>
+                            </div>
+                        </lt-pagination>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="~{fix/footer :: my-footer}"></footer>
+</body>
+<script src="/js/legalGuidePage/legalGuide.js"></script>
+</html>
