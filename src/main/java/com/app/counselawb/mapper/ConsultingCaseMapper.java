@@ -35,4 +35,16 @@ public interface ConsultingCaseMapper {
 //    상담 사례 상세페이지용 consultId에 해당하는 답변의 개수
     public int countReplyByConsultId(Long consultId);
 
+//    조회수를 구하기 위해 caseId에 맞는 consultCase조회
+    public int readById(Long consultId);
+
+//    조회수 증가
+    public void updateViewCount(Long consultId);
+
+//    상담사례 더보기를 위한 조회
+    public List<ConsultingCaseDTO> readMoreConsult();
+
+//    해결사례를 위한 조회
+    public List<ConsultDetailDTO> readSolutionCase();
+
 }

@@ -13,9 +13,11 @@
 </head>
 <body class="FooterColor">
 <!-- body부분 전체 -->
+
 <!-- script는 제외하고 html, css만 작성-->
 <div id="root" >
     <header th:replace="~{fix/header :: my-header}"></header>
+
     <div class="searchController">
         <div ui-view class="searchContent" style="visibility: visible;">
             <section class="caseSection">
@@ -253,7 +255,7 @@
                                             <div class="caseCardInfo">
                                                 <span class="viewCount">
                                                     조회수
-                                                    <i class="number">11</i>
+                                                    <i class="number" th:text="${consultCases.caseCount}">11</i>
                                                 </span>
                                                 <span class="bookMarkCount">
                                                     <i tooltip="즐겨찾기" tooltip-class="star-tooltip" tooltip-placement="bottom" class="lc lcStarSharpO">
@@ -333,7 +335,7 @@
                     <!--옆에 변호사 순위 부분 -->
                     <aside  class="asideSection caseAsideSection" >
                         <div  class="rankWeekAnswer ltDesktop">
-                            <div class="rankTitle">최근 답변이 활발한 변호사</div>
+                            <div class="rankTitle">카운슬로에서 활동중인 변호사</div>
                             <ul id="content" class="rankBody" >
                                 <!--1위-->
                                 <li class="lawyerRank" th:each="getLawyers:${getLawyers}">

@@ -35,7 +35,7 @@ const aside = document.querySelector(".aside-section");
 const hidden = document.querySelector(".hidden-div").offsetTop;
 window.addEventListener("scroll", (e) => {
     let cur = window.scrollY;
-    if (cur >= loc){
+    if (cur >= loc && cur <= hidden-600){
         if (!aside.classList.contains("fixed")){
             aside.classList.add("fixed");
         }
@@ -44,9 +44,12 @@ window.addEventListener("scroll", (e) => {
             aside.classList.remove("fixed");
         }
     }
-    if (cur >= hidden - 800){
+    if (cur >= hidden - 600 && cur <= hidden){
         if (!aside.classList.contains("bottom-fix")){
             aside.classList.add("bottom-fix");
+            if (aside.classList.contains("fixed")){
+                aside.classList.remove("fixed");
+            }
         }
     } else {
         if (aside.classList.contains("bottom-fix")){

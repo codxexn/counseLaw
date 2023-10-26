@@ -2,9 +2,11 @@ package com.app.counselawb.repository;
 
 
 import com.app.counselawb.domain.dto.LawyerFieldSearchDTO;
+import com.app.counselawb.domain.dto.LawyerLocationSearchDTO;
 import com.app.counselawb.domain.pagination.Pagination;
 import com.app.counselawb.domain.vo.FieldCategoryVO;
 import com.app.counselawb.domain.vo.FieldVO;
+import com.app.counselawb.domain.vo.LocationVO;
 import com.app.counselawb.mapper.LawyerSearchMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -37,5 +39,20 @@ public class LawyerSearchDAO {
     // 분야 정보 가져오기
     public Optional<FieldVO> readFieldInfo(Long fieldId){
         return lawyerSearchMapper.selectFieldInfo(fieldId);
+    }
+
+    // 지역 정보 가져오기
+    public Optional<LocationVO> readLocationInfo(Long locationId){
+        return lawyerSearchMapper.selectLocationInfo(locationId);
+    }
+
+    // 지역 id로 변호사 명수 가져오기
+    public int readLawyersCountByLocationId(Long locationId){
+        return lawyerSearchMapper.selectLawyersCountByLocationId(locationId);
+    }
+
+    // 지역 id로 변호사 정보 등 가져오기
+    public List<LawyerLocationSearchDTO> readLawyersByLocationId(Pagination pagination, Long locationId){
+        return lawyerSearchMapper.selectLawyersByLocationId(pagination, locationId);
     }
 }

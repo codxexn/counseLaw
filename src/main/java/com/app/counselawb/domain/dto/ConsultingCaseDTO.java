@@ -23,6 +23,8 @@ public class ConsultingCaseDTO {
     private Long lawyerId;
     // 변호사 이름
     private String lawyerName;
+//    변호사 이미지
+    private String lawyerImage;
     // 답변 id
     private Long replyId;
     // 답변 내용
@@ -31,5 +33,11 @@ public class ConsultingCaseDTO {
     private String replyCount;
     // 답변 등록 시간
     private LocalDateTime createDate;
+//    상담사례 조회 수
+    private Long caseCount;
+
+    public void updateCount(Long caseCount){
+        this.caseCount=caseCount;
+    }
 
 }

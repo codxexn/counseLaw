@@ -19,9 +19,12 @@ public class ConsultDetailDTO {
     private Long lawyerId;
 //    변호사 이름
     private String lawyerName;
+//    변호사 이미지
+    private String lawyerImage;
 //    변호사 소속회사
     private String lawyerCompany;
     // 상담 사례 id (fk)
     private Long consultingCaseId;
+
 
 }

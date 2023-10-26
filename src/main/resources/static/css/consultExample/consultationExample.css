@@ -138,6 +138,7 @@ a img{
 }
 
 .searchController{
+    padding-top: 125px;
     background-color: #fff;
     height: 100%;
     overflow: visible;

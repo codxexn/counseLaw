@@ -20,6 +20,7 @@
             L.LAWYER_NAME,
             CCR.CONSULTING_CASE_REPLY_ID AS REPLY_ID,
             CCR.CONSULTING_CASE_REPLY_CONTENT AS REPLY_CONTENT,
+            CC.CASE_COUNT,
             CCR.CREATE_DATE AS CREATE_DATE,
             (
                 SELECT COUNT(*)
@@ -59,6 +60,15 @@
         WHERE ROWNUM <= 10
         ]]>
     </select>
+
+
+
+<!--    조회수 올리는 update문-->
+    <update id="updateViewCount">
+        UPDATE TBL_CONSULTING_CASE
+        SET CASE_COUNT = CASE_COUNT + 1
+        WHERE CONSULTING_CASE_ID = #{consultId}
+    </update>
 
 
 </mapper>

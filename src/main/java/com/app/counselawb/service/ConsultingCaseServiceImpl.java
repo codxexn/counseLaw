@@ -54,8 +54,32 @@ public class ConsultingCaseServiceImpl implements ConsultingCaseService {
         return consultingCaseDAO.readLawyerByConsultId(consultId);
     }
 
+    //    상담 사례 상세페이지용 consultId에 해당하는 답변의 개수
     @Override
     public int countTotalReply(Long consultId) {
         return consultingCaseDAO.readCountByConsultId(consultId);
     }
+
+    //    조회수를 구하기 위해 caseId에 맞는 consultCase 조회
+    @Override
+    public int readCountById(Long consultId) {
+        return consultingCaseDAO.readCount(consultId);
+    }
+
+    @Override
+    public void increaseViewCount(Long consultId) {
+        consultingCaseDAO.updateViewCount(consultId);
+    }
+
+    @Override
+    public List<ConsultingCaseDTO> readMoreConsult() {
+        return consultingCaseDAO.readMoreConsult();
+    }
+    //    해결사례 더보기를 위한 조회
+    @Override
+    public List<ConsultDetailDTO> selectSolutionCase() {
+        return consultingCaseDAO.readSolutionCase();
+    }
+
+
 }

@@ -45,7 +45,8 @@ public class LawyerHomeController {
     private final ReservationService reservationService;
 
     @GetMapping("lawyer-home")
-    public void GoToLawyerHome(@RequestParam("lawyerId") Long lawyerId, Model model, LawyerVO lawyerVO, MemberVO memberVO){
+    public void GoToLawyerHome(@RequestParam("lawyerId") Long lawyerId, Model model,
+                               LawyerVO lawyerVO, MemberVO memberVO, HttpSession session){
         // 변호사
         Optional<LawyerVO> foundLawyer = lawyerService.findByLawyerId(lawyerId);
         StringBuilder sb = new StringBuilder();
@@ -272,7 +273,6 @@ public class LawyerHomeController {
                                          @RequestParam("paymentPrice") int paymentPrice,
                                          @RequestParam("paymentList") String paymentList,
                                          @RequestParam(required = false, value="couponId", defaultValue="0") Long couponId){
-        log.info("컨트롤러로 넘어옴.");
         ReservationVO reservationVO = new ReservationVO();
         reservationVO.setReservationContent(reservationContent);
         reservationVO.setMemberFakeName(memberFakeName);
@@ -292,4 +292,6 @@ public class LawyerHomeController {
         }
         return new RedirectView("/member/mypage-member");
     }
+
+
 }
