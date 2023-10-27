@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -35,5 +36,15 @@ public class MemberMypageServiceImpl implements MemberMypageService {
     @Override
     public int getCountMyFavoriteLawyers(Long memberId){
         return memberMypageDAO.getCountMyFavoriteLawyers(memberId);
+    }
+
+    @Override
+    public Optional<LawyerLikeVO> findCheckMyFavoriteLawyer(Long memberId, Long lawyerId) {
+        return memberMypageDAO.readCheckMyFavoriteLawyer(memberId, lawyerId);
+    }
+
+    @Override
+    public void discardMyFavoriteLawyer(Long memberId, Long lawyerId) {
+        memberMypageDAO.removeMyFavoriteLawyer(memberId, lawyerId);
     }
 }

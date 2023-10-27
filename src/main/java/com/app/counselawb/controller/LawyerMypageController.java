@@ -1,16 +1,10 @@
 package com.app.counselawb.controller;
 
 
-import com.app.counselawb.domain.dto.LawyerFieldDTO;
-import com.app.counselawb.domain.dto.LawyerLocationDTO;
-import com.app.counselawb.domain.dto.LegalGuideDTO;
-import com.app.counselawb.domain.dto.SolutionCaseDTO;
+import com.app.counselawb.domain.dto.*;
 import com.app.counselawb.domain.pagination.Pagination;
 import com.app.counselawb.domain.vo.*;
-import com.app.counselawb.service.LawyerMyPostsService;
-import com.app.counselawb.service.LawyerService;
-import com.app.counselawb.service.LocationService;
-import com.app.counselawb.service.MemberService;
+import com.app.counselawb.service.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FilenameUtils;
@@ -42,6 +36,7 @@ public class LawyerMypageController {
     private final LawyerService lawyerService;
     private final LocationService locationService;
     private final LawyerMyPostsService lawyerMyPostsService;
+    private final ConsultingCaseService consultingCaseService;
 
     // 변호사 마이페이지 가기
     @GetMapping("mypage-lawyer")
@@ -300,6 +295,30 @@ public class LawyerMypageController {
         });
         model.addAttribute("followers", myFollowers);
         return "/lawyer-my-posts/my-followers";
+    }
+
+    // 내 상담사례 (내가 답글 남긴 상담사례)
+    @GetMapping("my-consultation")
+    public String myConsultation(@RequestParam("lawyerId") Long lawyerId, Model model, HttpSession session,
+                                 Pagination pagination){
+        int replyCount = lawyerService.findReplyCountByLawyerId(lawyerId);
+        pagination.setTotal(replyCount);
+        pagination.progress();
+        model.addAttribute("pagination", pagination);
+        model.addAttribute("lawyerId", lawyerId);
+        List<LawyerReplyDTO> myCRs = lawyerMyPostsService.findMyCasesAndReplies(pagination, lawyerId);
+        model.addAttribute("myCRs", myCRs);
+        Optional<LawyerVO> foundLawyer = lawyerService.findByLawyerId(lawyerId);
+        if (foundLawyer.isPresent()) {
+            LawyerVO lawyer = foundLawyer.get();
+            String lawyerName = lawyer.getLawyerName();
+            model.addAttribute("lawyerName", lawyerName);
+        } else {
+            model.addAttribute("lawyerName", null);
+        }
+        List<LawyerSidebarDTO> getLawyers = consultingCaseService.getLawyers();
+        model.addAttribute("getLawyers", getLawyers);
+        return "/lawyer-my-posts/my-consulting-case";
     }
 
 }

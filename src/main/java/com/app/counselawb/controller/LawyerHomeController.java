@@ -7,18 +7,13 @@ import com.app.counselawb.domain.dto.LawyerReplyDTO;
 import com.app.counselawb.domain.dto.LawyerReviewDTO;
 import com.app.counselawb.domain.pagination.Pagination;
 import com.app.counselawb.domain.vo.*;
-import com.app.counselawb.service.ConsultingReviewService;
-import com.app.counselawb.service.LawyerHomeService;
-import com.app.counselawb.service.LawyerService;
-import com.app.counselawb.service.ReservationService;
+import com.app.counselawb.service.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.configurationprocessor.json.JSONArray;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpSession;
@@ -43,6 +38,7 @@ public class LawyerHomeController {
     private final ConsultingReviewService consultingReviewService;
     private final LawyerHomeService lawyerHomeService;
     private final ReservationService reservationService;
+    private final MemberMypageService memberMypageService;
 
     @GetMapping("lawyer-home")
     public void GoToLawyerHome(@RequestParam("lawyerId") Long lawyerId, Model model,
@@ -109,6 +105,19 @@ public class LawyerHomeController {
            review.setConsultingType(consultingType);
         });
         model.addAttribute("reviews", foundReviews);
+        // 즐찾 여부
+        if (session.getAttribute("member") != null){
+            MemberVO currentMember = (MemberVO) session.getAttribute("member");
+            Long memberId = currentMember.getMemberId();
+            Optional<LawyerLikeVO> foundLike = memberMypageService.findCheckMyFavoriteLawyer(memberId, lawyerId);
+            if (foundLike.isPresent()){
+                model.addAttribute("checkLike", "true");
+            } else {
+                model.addAttribute("checkLike", "false");
+            }
+        } else {
+            model.addAttribute("checkLike", "false");
+        }
 
     }
 
@@ -124,7 +133,8 @@ public class LawyerHomeController {
     }
 
     @GetMapping("lawyer-info")
-    public String GoToLawyerInfo(@RequestParam("lawyerId") Long lawyerId, Model model, LawyerVO lawyerVO, MemberVO memberVO){
+    public String GoToLawyerInfo(@RequestParam("lawyerId") Long lawyerId, Model model, LawyerVO lawyerVO, MemberVO memberVO,
+                                 HttpSession session){
         Optional<LawyerVO> foundLawyer = lawyerService.findByLawyerId(lawyerId);
         if (foundLawyer.isPresent()){
             LawyerVO lawyer = foundLawyer.get();
@@ -174,12 +184,26 @@ public class LawyerHomeController {
         }
         String lawyerProfilePath = lawyerService.findProfileImage(lawyerId);
         model.addAttribute("profilePath", lawyerProfilePath);
+        // 즐찾 여부
+        if (session.getAttribute("member") != null){
+            MemberVO currentMember = (MemberVO) session.getAttribute("member");
+            Long memberId = currentMember.getMemberId();
+            Optional<LawyerLikeVO> foundLike = memberMypageService.findCheckMyFavoriteLawyer(memberId, lawyerId);
+            if (foundLike.isPresent()){
+                model.addAttribute("checkLike", "true");
+            } else {
+                model.addAttribute("checkLike", "false");
+            }
+        } else {
+            model.addAttribute("checkLike", "false");
+        }
 
         return "/lawyer-info/lawyer-info";
     }
 
     @GetMapping("client-reviews")
-    public String GoToClientReviews(@RequestParam("lawyerId") Long lawyerId, Pagination pagination, Model model, LawyerVO lawyerVO, MemberVO memberVO){
+    public String GoToClientReviews(@RequestParam("lawyerId") Long lawyerId, Pagination pagination, Model model, LawyerVO lawyerVO, MemberVO memberVO,
+                                    HttpSession session){
         // 변호사
         Optional<LawyerVO> foundLawyer = lawyerService.findByLawyerId(lawyerId);
         if (foundLawyer.isPresent()){
@@ -220,6 +244,19 @@ public class LawyerHomeController {
         // 변호사 프사 경로
         String lawyerProfilePath = lawyerService.findProfileImage(lawyerId);
         model.addAttribute("profilePath", lawyerProfilePath);
+        // 즐찾 여부
+        if (session.getAttribute("member") != null){
+            MemberVO currentMember = (MemberVO) session.getAttribute("member");
+            Long memberId = currentMember.getMemberId();
+            Optional<LawyerLikeVO> foundLike = memberMypageService.findCheckMyFavoriteLawyer(memberId, lawyerId);
+            if (foundLike.isPresent()){
+                model.addAttribute("checkLike", "true");
+            } else {
+                model.addAttribute("checkLike", "false");
+            }
+        } else {
+            model.addAttribute("checkLike", "false");
+        }
         return "/client-reviews/client-reviews";
     }
 
@@ -293,5 +330,28 @@ public class LawyerHomeController {
         return new RedirectView("/member/mypage-member");
     }
 
+    @GetMapping("like")
+    @ResponseBody
+    public String insertLike(@RequestParam("lawyerId") Long lawyerId, @RequestParam("memberId") Long memberId){
+        Optional<LawyerLikeVO> foundLike = memberMypageService.findCheckMyFavoriteLawyer(memberId, lawyerId);
+        if (foundLike.isPresent()){
+            return "fail";
+        }
+        LawyerLikeVO lawyerLikeVO = new LawyerLikeVO();
+        lawyerLikeVO.setMemberId(memberId);
+        lawyerLikeVO.setLawyerId(lawyerId);
+        memberMypageService.saveMyFavoriteLawyer(lawyerLikeVO);
+        return "success";
+    }
 
+    @GetMapping("like-delete")
+    @ResponseBody
+    public String deleteLike(@RequestParam("lawyerId") Long lawyerId, @RequestParam("memberId") Long memberId){
+        Optional<LawyerLikeVO> foundLike = memberMypageService.findCheckMyFavoriteLawyer(memberId, lawyerId);
+        if (foundLike.isPresent()){
+            memberMypageService.discardMyFavoriteLawyer(memberId, lawyerId);
+            return "success";
+        }
+        return "fail";
+    }
 }

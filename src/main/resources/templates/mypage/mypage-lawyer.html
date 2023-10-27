@@ -146,19 +146,23 @@
             <div class="MypageBox">
                 <div class="MypageBox-AdviceList">
                     <div class="MypageBox-Title">내 상담내역</div>
-                    <a href="" class="MypageBox-MenuItem">
+                    <div class="MypageBox-MenuItem">
                         <div class="MypageBox-MenuItemLabel">15분 전화상담</div>
                         <div th:text="${phoneCount}" class="MypageBox-MenuItemCount"></div>
-                    </a>
-                    <a href="" class="MypageBox-MenuItem">
+                    </div>
+                    <div class="MypageBox-MenuItem">
                         <div class="MypageBox-MenuItemLabel">20분 영상상담</div>
                         <div th:text="${videoCount}" class="MypageBox-MenuItemCount"></div>
-                    </a>
-                    <a href="" class="MypageBox-MenuItem">
+                    </div>
+                    <div class="MypageBox-MenuItem">
                         <div class="MypageBox-MenuItemLabel">30분 방문상담</div>
                         <div th:text="${visitCount}" class="MypageBox-MenuItemCount"></div>
+                    </div>
+                    <a th:if="${replyCount == 0}" style="cursor: auto;" class="MypageBox-MenuItem">
+                        <div class="MypageBox-MenuItemLabel">내 상담사례</div>
+                        <div th:text="${replyCount}" class="MypageBox-MenuItemCount"></div>
                     </a>
-                    <a href="" class="MypageBox-MenuItem">
+                    <a th:if="${replyCount > 0}" th:href="'/mypage-lawyer/my-consultation?lawyerId=' + ${currentLawyer.lawyerId}" class="MypageBox-MenuItem">
                         <div class="MypageBox-MenuItemLabel">내 상담사례</div>
                         <div th:text="${replyCount}" class="MypageBox-MenuItemCount"></div>
                     </a>

@@ -25,5 +25,16 @@
         WHERE MEMBER_ID = #{memberId}
     </select>
 
+    <select id="checkMyFavoriteLawyer" resultType="lawyerLikeVO">
+        SELECT LAWYER_LIKE_ID, MEMBER_ID, LAWYER_ID
+        FROM TBL_LAWYER_LIKE
+        WHERE MEMBER_ID = #{memberId} AND LAWYER_ID = #{lawyerId}
+    </select>
+
+    <delete id="deleteMyFavoriteLawyer">
+        DELETE FROM TBL_LAWYER_LIKE
+        WHERE MEMBER_ID = #{memberId} AND LAWYER_ID = #{lawyerId}
+    </delete>
+
 
 </mapper>

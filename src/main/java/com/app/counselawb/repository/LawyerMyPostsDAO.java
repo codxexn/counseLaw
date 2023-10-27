@@ -1,6 +1,7 @@
 package com.app.counselawb.repository;
 
 
+import com.app.counselawb.domain.dto.LawyerReplyDTO;
 import com.app.counselawb.domain.dto.LegalGuideDTO;
 import com.app.counselawb.domain.dto.SolutionCaseDTO;
 import com.app.counselawb.domain.pagination.Pagination;
@@ -39,5 +40,10 @@ public class LawyerMyPostsDAO {
     // 팔로워 정보 가져오기
     public Optional<MemberVO> readFollowerInfo(Long memberId){
         return lawyerMyPostsMapper.selectFollowerInfo(memberId);
+    }
+
+    // 내 상담사례 글/답글 가져오기
+    public List<LawyerReplyDTO> readMyCasesAndReplies(Pagination pagination, Long lawyerId){
+        return lawyerMyPostsMapper.selectMyCasesAndReplies(pagination, lawyerId);
     }
 }
