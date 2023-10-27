@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>내 상담사례 - 카운슬로우 (CounseLaw)</title>
+    <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/consultExample/consultationExample.css">
+    <link rel="stylesheet" href="/css/lawyer-my-posts/my-consulting-case.css">
+    <th:block th:replace="~{fix/header :: my-header-head}"></th:block>
+    <th:block th:replace="~{fix/footer :: my-footer-head}"></th:block>
+</head>
+<body class="FooterColor">
+<div id="root" >
+    <header th:replace="~{fix/header :: my-header}"></header>
+    <div class="searchController">
+        <div ui-view class="searchContent" style="visibility: visible;">
+            <section class="caseSection">
+                <div class="caseSectionWrap sectionWrap sectionWrapCases">
+                    <div class="caseSectionTitle ltDesktop">
+                        <h2 th:utext="${lawyerName} + ' 변호사님이 답글을 남긴 <br> 상담사례 목록입니다.'" class="encouragingMention">
+                        </h2>
+                    </div>
+                    <div class="caseSectionBody">
+                        <!--내용-->
+                        <div class="loadSection" style="position: relative">
+                            <!-- 사례모음들-->
+                            <section class="casesList">
+                                <!--10개-->
+                                <!-- 1-->
+                                <lawyer-case-card th:each="consultCases:${myCRs}"
+                                                  ng-repeat="caseInCases" case="case" sort="sort" select-context-additional search-keyword="keyword" card-order="1" class="caseCard">
+                                    <a th:href="@{/consult-detail/{consultId}(consultId=${consultCases.consultingCaseId})}" class="caseCardLink">
+                                        <div class="caseCardWrap">
+                                            <div class="caseCardLine Top">
+                                            </div>
+                                            <div style class="caseCardTitle" th:text="${consultCases.caseTitle}">
+                                            </div>
+                                            <div class="caseAnswer">
+                                                답변
+                                                <span class="caseAnswerLawyer" th:text="${lawyerName} + ' 변호사'">
+                                                </span>
+                                            </div>
+                                            <!-- 답변의 내용-->
+                                            <div class="caseCardAnswer" th:utext="${consultCases.consultingCaseReplyContent}">
+                                            </div>
+                                            <div class="caseCardInfo">
+                                                <span class="bookMarkCount">
+                                                    <i tooltip="즐겨찾기" tooltip-class="star-tooltip" tooltip-placement="bottom" class="lc lcStarSharpO">
+                                                    </i>
+                                                    <i class="number"></i>
+                                                </span>
+                                                <span class="answerDate" th:text="${#temporals.format(consultCases.createDate,'yyyy.MM.dd HH:mm:ss')} + ' 에 상담 작성'"></span>
+                                            </div>
+                                            <div class="caseCardLine Bottom">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </lawyer-case-card>
+                            </section>
+                            <!-- 더보기 1~10-->
+                            <section class="review-pagination">
+                                <lt-pagination th:with="start=${pagination.startPage}, last=${pagination.endPage}">
+                                    <div class="lt-pagination pagination-component">
+                                        <div class="lt-pagination__pages">
+                                            <div class="lt-pagination__pages-button-wrap">
+                                                <a th:each="eachpage : ${#numbers.sequence(start, last)}" th:href="'/mypage-lawyer/my-consultation?lawyerId=' + ${lawyerId} + '&page=' + ${eachpage}"
+                                                   th:classappend="${eachpage == pagination.page ? 'on' : 'off'}"
+                                                   class="lt-pagination__pages-button" th:text="${eachpage}">
+                                                </a>
+                                            </div>
+                                            <div class="pagination-next-five" th:if="${pagination.endPage >= 6}">
+                                                <a th:href="'/mypage-lawyer/my-consultation?lawyerId=' + ${lawyerId} + '&page=' + ${start+5}">
+                                                    다음 5페이지
+                                                </a>
+                                            </div>
+                                            <div class="pagination-arrow-button" th:if="${pagination.endPage >= 6}">
+                                                <img width=20 height=20 src="/image/clientReviews/next.png" class="PaginationButtonGroup_Icon">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </lt-pagination>
+                            </section>
+                            <div class="cgBusy cgBusyBackdrop cgBusyBackdropAnimation ngHide">
+                                <!--공란-->
+                            </div>
+                            <div class="cgBusy cgBusyAnimation ngHide">
+                                <div class="lawtalkLoader" style="position: absolute; inset:0px;">
+                                    <div class="lawtalkLoaderImages">
+                                        <img src="https://d2nyk3ltml4doc.cloudfront.net/lawtalk/latest/images/04737605c9f0492922b7.gif" alt="loader">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--옆에 변호사 순위 부분 -->
+                    <aside  class="asideSection caseAsideSection" >
+                        <div  class="rankWeekAnswer ltDesktop">
+                            <div class="rankTitle">카운슬로에서 활동중인 변호사</div>
+                            <ul id="content" class="rankBody" >
+                                <!--1위-->
+                                <li class="lawyerRank" th:each="getLawyers:${getLawyers}">
+                                    <a th:href="@{'/lawyer-home/lawyer-home?lawyerId=' + ${getLawyers.lawyerId}}" href="">
+                                        <!--                                        <div class="ranking">-->
+                                        <!--                                            <i class="lc lcCrown"></i>-->
+                                        <!--                                            <span class="rk">1</span>-->
+                                        <!--                                            <span>위</span>-->
+                                        <!--                                        </div>-->
+                                        <img th:src="${getLawyers.lawyerImage == null ? '/image/lawyerHome/basicLawyer.png' : getLawyers.lawyerImage}" src="https://www.lawtalk.co.kr/uploads/thumb/63eb407a63bf810043e827c4-thumb-1677563515771.jpg" alt="" class="image">
+                                        <div class="body">
+                                            <div class="name" th:text="${getLawyers.lawyerName}"></div>
+                                            <div class="desc" th:text="${getLawyers.lawyerIntroduction}"></div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div id="expand" class="moreRank">
+                                10위까지 보기
+                            </div>
+                            <div id="reduce" class="moreRank" style="display: none;">
+                                3위까지 보기
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </section>
+        </div>
+        <footer th:replace="~{fix/footer :: my-footer}"></footer>
+    </div>
+</div>
+</body>
+<script src="/js/lawyer-my-posts/my-consulting-case.js"></script>
+</html>

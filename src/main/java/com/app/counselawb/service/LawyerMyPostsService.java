@@ -1,5 +1,6 @@
 package com.app.counselawb.service;
 
+import com.app.counselawb.domain.dto.LawyerReplyDTO;
 import com.app.counselawb.domain.dto.LegalGuideDTO;
 import com.app.counselawb.domain.dto.SolutionCaseDTO;
 import com.app.counselawb.domain.pagination.Pagination;
@@ -22,4 +23,7 @@ public interface LawyerMyPostsService {
 
     // 팔로워 정보 가져오기
     public Optional<MemberVO> findFollowerInfo(Long memberId);
+
+    // 내 상담사례 글/답글 가져오기
+    public List<LawyerReplyDTO> findMyCasesAndReplies(Pagination pagination, Long lawyerId);
 }

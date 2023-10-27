@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @Slf4j
@@ -28,5 +29,15 @@ public class MemberMypageDAO {
     // 내가 즐겨찾기한 변호사 개수 카운트
     public int getCountMyFavoriteLawyers(Long memberId) {
         return memberMypageMapper.getCountMyFavoriteLawyers(memberId);
+    }
+
+    // 멤버 id와 변호사 id로 즐찾 정보 가져오기
+    public Optional<LawyerLikeVO> readCheckMyFavoriteLawyer(Long memberId, Long lawyerId){
+        return memberMypageMapper.checkMyFavoriteLawyer(memberId, lawyerId);
+    }
+
+    // 즐찾 해제하기
+    public void removeMyFavoriteLawyer(Long memberId, Long lawyerId){
+        memberMypageMapper.deleteMyFavoriteLawyer(memberId, lawyerId);
     }
 }

@@ -1,5 +1,6 @@
 package com.app.counselawb.service;
 
+import com.app.counselawb.domain.dto.LawyerReplyDTO;
 import com.app.counselawb.domain.dto.LegalGuideDTO;
 import com.app.counselawb.domain.dto.SolutionCaseDTO;
 import com.app.counselawb.domain.pagination.Pagination;
@@ -38,6 +39,11 @@ public class LawyerMyPostsServiceImpl implements LawyerMyPostsService {
     @Override
     public Optional<MemberVO> findFollowerInfo(Long memberId) {
         return lawyerMyPostsDAO.readFollowerInfo(memberId);
+    }
+
+    @Override
+    public List<LawyerReplyDTO> findMyCasesAndReplies(Pagination pagination, Long lawyerId) {
+        return lawyerMyPostsDAO.readMyCasesAndReplies(pagination, lawyerId);
     }
 
 }

@@ -347,7 +347,8 @@
                                style="color: rgb(241, 238, 236);" th:if="${selectedLawyer.lawyerCompany != null}" th:text="${selectedLawyer.lawyerCompany}">
                             </p>
                             <div class="LawyerPictureCard-module_buttons__IClTr">
-                                <img th:if="${session.member != null}" class="star" src="/image/lawyerHome/blankedStar.png" alt="검은별">
+                                <img th:if="${session.member != null}" class="star" th:src="${checkLike.equals('true') ? '/image/lawyerHome/yellowStar.png' : '/image/lawyerHome/blankedStar.png'}" alt="검은별">
+                                <input th:if="${session.member != null}" type="hidden" th:name="memberId" th:value="${session.member.memberId}">
                                 <svg onclick="clipCopy()" class="LawyerPictureCard-module_shareIcon__tvFUa" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                     <g clip-path="url(#clip0_315_9153)">
                                         <path d="M15.5 7.09091L14.2575 8.18818L12.8662 6.95955V15.5909H11.1337V6.95955L9.7425 8.18818L8.5 7.09091L12 4L15.5 7.09091ZM19 10.9545V19.4545C19 20.3045 18.2125 21 17.25 21H6.75C5.77875 21 5 20.3045 5 19.4545V10.9545C5 10.0968 5.77875 9.40909 6.75 9.40909H9.375V10.9545H6.75V19.4545H17.25V10.9545H14.625V9.40909H17.25C18.2125 9.40909 19 10.0968 19 10.9545Z" fill="black"></path>
