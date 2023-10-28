@@ -275,6 +275,10 @@
             return new RedirectView("/manager/manager-member");
        }
 
+       @GetMapping("manager-coupon")
+       public String goToManagerCouponPage(){
+            return "/manager/manager-coupon";
+       }
 
 
 
