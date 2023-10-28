@@ -1,27 +1,21 @@
     package com.app.counselawb.controller;
 
     import com.app.counselawb.domain.Search;
-    import com.app.counselawb.domain.dto.ConsultingCaseReplyDTO;
-    import com.app.counselawb.domain.dto.LawyerAndMemberDTO;
-    import com.app.counselawb.domain.dto.PostsDTO;
-    import com.app.counselawb.domain.dto.SearchDTO;
+    import com.app.counselawb.domain.dto.*;
     import com.app.counselawb.domain.pagination.Pagination;
-    import com.app.counselawb.domain.vo.LawyerVO;
-    import com.app.counselawb.domain.vo.MemberVO;
-    import com.app.counselawb.domain.vo.NoticeVO;
-    import com.app.counselawb.domain.vo.SolutionCaseImgVO;
+    import com.app.counselawb.domain.vo.*;
     import com.app.counselawb.service.*;
     import lombok.RequiredArgsConstructor;
     import lombok.extern.slf4j.Slf4j;
     import org.springframework.stereotype.Controller;
     import org.springframework.ui.Model;
-    import org.springframework.web.bind.annotation.GetMapping;
-    import org.springframework.web.bind.annotation.PostMapping;
-    import org.springframework.web.bind.annotation.RequestMapping;
-    import org.springframework.web.bind.annotation.RequestParam;
+    import org.springframework.web.bind.annotation.*;
     import org.springframework.web.servlet.view.RedirectView;
 
     import javax.servlet.http.HttpSession;
+    import java.time.LocalDate;
+    import java.time.LocalDateTime;
+    import java.time.format.DateTimeFormatter;
     import java.util.List;
     import java.util.Optional;
 
@@ -36,6 +30,7 @@
         private final SolutionCaseImgService solutionCaseImgService;
         private final NoticeService noticeService;
         private final LawyerAndMemberService lawyerAndMemberService;
+        private final CouponAdminService couponAdminService;
 
 
         @GetMapping("manager-mainpage")
@@ -276,9 +271,68 @@
        }
 
        @GetMapping("manager-coupon")
-       public String goToManagerCouponPage(){
+       public String goToManagerCouponPage(Pagination pagination, Model model){
+            int couponCount = couponAdminService.findCouponCount();
+            model.addAttribute("couponCount", couponCount);
+            pagination.setTotal(couponCount);
+            pagination.progress();
+            model.addAttribute("pagination", pagination);
+            List<CouponAdminDTO> coupons = couponAdminService.findAllCoupons(pagination);
+            model.addAttribute("coupons", coupons);
+
             return "/manager/manager-coupon";
        }
+
+        @PostMapping("coupon-insert")
+        @ResponseBody
+        public String insertCoupon(@RequestParam("couponTitle") String couponTitle,
+                                   @RequestParam("couponExpireDate") String couponExpireDate,
+                                   @RequestParam("couponAvailableType") String couponAvailableType,
+                                   @RequestParam("couponDiscountRate") int couponDiscountRate,
+                                   @RequestParam("couponNumber") String couponNumber,
+                                   @RequestParam("memberId") String memberId){
+            try {
+                CouponVO couponVO = new CouponVO();
+                couponVO.setCouponTitle(couponTitle);
+                if (!couponExpireDate.equals("false")){
+                    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                    LocalDateTime expireDate = LocalDate.parse(couponExpireDate, dtf).atStartOfDay();
+                    couponVO.setCouponExpireDate(expireDate);
+                } else {
+                    couponVO.setCouponExpireDate(null);
+                }
+                couponVO.setCouponAvailableType(couponAvailableType);
+                couponVO.setCouponDiscountRate(couponDiscountRate);
+                couponAdminService.saveCoupon(couponVO);
+                if (!couponNumber.equals("false") && !memberId.equals("false")) {
+                    CouponAdminVO couponAdminVO = new CouponAdminVO();
+                    couponAdminVO.setCouponId(couponAdminService.findLatestCoupon());
+                    couponAdminVO.setCouponNumber(couponNumber);
+                    couponAdminVO.setMemberId(Long.parseLong(memberId));
+                    couponAdminService.saveAdminCoupon(couponAdminVO);
+                }
+                return "success";
+            } catch (Exception e) {
+                log.info("{}", e.getMessage());
+                return "fail";
+            }
+        }
+
+
+        @PostMapping("coupon-delete")
+        @ResponseBody
+        public String deleteCoupon(@RequestParam("couponId") Long couponId){
+            try {
+                couponAdminService.discardAdminCoupon(couponId);
+                couponAdminService.discardMemberCoupon(couponId);
+                couponAdminService.discardCoupon(couponId);
+                return "success";
+            } catch (Exception e){
+                log.info("{}", e.getMessage());
+                return "fail";
+            }
+        }
+
 
 
 

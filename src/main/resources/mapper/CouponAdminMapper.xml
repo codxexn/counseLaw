@@ -1,5 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.counselawb.mapper.CouponAdminMapper">
+    <select id="selectAllCoupons" resultType="couponAdminDTO">
+    SELECT COUPON_ID, COUPON_CREATE_DATE, COUPON_EXPIRE_DATE, COUPON_DISCOUNT_RATE, COUPON_AVAILABLE_TYPE, COUPON_TITLE, COUPON_NUMBER, MEMBER_ID
+    FROM
+        (SELECT ROWNUM R, COUPON_ID, COUPON_CREATE_DATE, COUPON_EXPIRE_DATE, COUPON_DISCOUNT_RATE, COUPON_AVAILABLE_TYPE, COUPON_TITLE, COUPON_NUMBER, MEMBER_ID
+        FROM
+            (SELECT C.COUPON_ID, C.COUPON_CREATE_DATE, C.COUPON_EXPIRE_DATE, C.COUPON_DISCOUNT_RATE, C.COUPON_AVAILABLE_TYPE, C.COUPON_TITLE, CA.COUPON_NUMBER, CA.MEMBER_ID
+            FROM TBL_COUPON C
+            LEFT OUTER JOIN TBL_COUPON_ADMIN CA
+            ON C.COUPON_ID = CA.COUPON_ID
+            ORDER BY C.COUPON_ID DESC) P1 ) P2
+    WHERE P2.R BETWEEN #{startRow} AND #{endRow}
+    </select>
 
+    <select id="selectCouponCount" resultType="int">
+        SELECT COUNT(COUPON_ID)
+        FROM TBL_COUPON
+    </select>
+
+    <insert id="insertCoupon">
+        INSERT INTO TBL_COUPON(COUPON_ID, COUPON_TITLE, COUPON_EXPIRE_DATE, COUPON_DISCOUNT_RATE, COUPON_AVAILABLE_TYPE)
+        VALUES(SEQ_COUPON.NEXTVAL, #{couponTitle}, #{couponExpireDate, jdbcType=DATE}, #{couponDiscountRate}, #{couponAvailableType})
+    </insert>
+
+    <select id="selectLatestCoupon" resultType="long">
+        SELECT COUPON_ID
+        FROM
+            (SELECT ROWNUM, COUPON_ID
+            FROM
+            (SELECT COUPON_ID
+            FROM TBL_COUPON
+            ORDER BY COUPON_ID DESC)
+            WHERE ROWNUM = 1 )
+    </select>
+
+    <insert id="insertAdminCoupon">
+        INSERT INTO TBL_COUPON_ADMIN(COUPON_ID, COUPON_NUMBER, MEMBER_ID)
+        VALUES(#{couponId}, #{couponNumber}, #{memberId})
+    </insert>
+
+    <delete id="deleteAdminCoupon">
+        DELETE FROM TBL_COUPON_ADMIN
+        WHERE COUPON_ID = #{couponId}
+    </delete>
+
+    <delete id="deleteMemberCoupon">
+        DELETE FROM TBL_MEMBER_COUPON
+        WHERE COUPON_ID = #{couponId}
+    </delete>
+
+    <delete id="deleteCoupon">
+        DELETE FROM TBL_COUPON
+        WHERE COUPON_ID = #{couponId}
+    </delete>
 </mapper>
