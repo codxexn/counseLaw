@@ -17,4 +17,6 @@ public class CouponAdminVO {
     ///////////////
     // 쿠폰 id (fk이자 pk, 식별자)
     private Long couponId;
+    // 멤버 id (fk)
+    private Long memberId;
 }

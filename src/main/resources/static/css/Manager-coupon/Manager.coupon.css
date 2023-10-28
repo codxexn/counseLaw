@@ -480,7 +480,7 @@ audio, canvas, embed, iframe, img, object, svg, video {
     fill: #1d1d1e;
 }
 .coupon-info-stock {
-    width: 80px;
+    width: 120px;
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
