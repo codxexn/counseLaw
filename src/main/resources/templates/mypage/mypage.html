@@ -17,7 +17,9 @@
                     <header class="MypageHeader">
                         <div class="MypageHeaderLeft">
                             <div class="MypageHeader-LogoWrapper">
+                                <a href="/">
                                 <img src="/image/mypage/main_logo.png" alt="카운슬로우 로고" class="MypageHeader-MainLogo">
+                                </a>
                             </div>
                         </div>
                         <div class="MypageHeaderCenter">
@@ -25,8 +27,12 @@
                         </div>
                         <div class="MypageHeaderRight">
                             <div class="MypageHeaderRight-ButtonContainer">
-                                <p class="MypageHeaderRight-Button">내 정보 수정</p>
-                                <a href="/login/logout-finally" style="text-decoration: none;"><p class="MypageHeaderRight-Button" >로그아웃</p></a>
+                                <a href="/member/myInfo-update" style="text-decoration: none;">
+                                    <p class="MypageHeaderRight-Button">내 정보 수정</p>
+                                </a>
+                                <a href="/login/logout-finally" style="text-decoration: none;">
+                                    <p class="MypageHeaderRight-Button">로그아웃</p>
+                                </a>
                             </div>
                         </div>
                     </header>
@@ -40,13 +46,17 @@
                     <div class="MypageButtonwrapper">
                         <a href="" class="MypageButton">
                             쿠폰함
-                            <span class="MypageButtonCount">0</span>
+                            <span th:text="${myCouponList.size()}" class="MypageButtonCount">0</span>
                         </a>
                         <a href="" class="MypageButton">
                             내 관심글
                             <span class="MypageButtonCount">0</span>
                         </a>
-                        <a href="" class="MypageButton">
+                        <a th:if="${numberOfFavoriteLawyers} != 0" href="/member-mypage/my-favorite-lawyers" class="MypageButton">
+                            변호사 즐겨찾기
+                            <span class="MypageButtonCount" th:text="${numberOfFavoriteLawyers}">0</span>
+                        </a>
+                        <a th:unless="${numberOfFavoriteLawyers} != 0" href="/member-mypage/no-favorite-lawyers" class="MypageButton">
                             변호사 즐겨찾기
                             <span class="MypageButtonCount">0</span>
                         </a>
@@ -91,8 +101,12 @@
                                 </div>
                                 <div class="MypageHeaderRight">
                                     <div class="MypageHeaderRight-ButtonContainer">
-                                        <p class="MypageHeaderRight-Button">내 정보 수정</p>
+                                        <a href="/member/myInfo-update" style="text-decoration: none;">
+                                            <p class="MypageHeaderRight-Button">내 정보 수정</p>
+                                        </a>
+                                        <a href="/login/logout-finally" style="text-decoration: none;">
                                         <p class="MypageHeaderRight-Button">로그아웃</p>
+                                        </a>
                                     </div>
                                 </div>
                             </header>

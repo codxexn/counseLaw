@@ -133,18 +133,6 @@ const switchCheckbox = document.getElementById('sns-accept');
 
 
 
-const agreeAllCheckbox = document.getElementById('sign-up-agree-all');
-const consentCheckboxes = document.querySelectorAll('.contract-consensus-checkbox');
-
-agreeAllCheckbox.addEventListener('change', function () {
-  const isChecked = agreeAllCheckbox.checked;
-
-  consentCheckboxes.forEach(function (checkbox) {
-    checkbox.checked = isChecked;
-      emailMarketingCheckbox.checked = isChecked;
-      smsMarketingCheckbox.checked = isChecked;
-  });
-});
 
 
 
@@ -343,6 +331,30 @@ const dialogButton = document.querySelector('.yes');
 
 
 
+// 전체 동의시 동의 버튼 자동 활성화
+const agreeAllCheckbox = document.querySelector('.allAgree');
+const mustAgrees = document.querySelectorAll('.mustAgree');
+const choiceAgree = document.querySelector('.choiceAgree');
+const agreements = document.querySelector('.agreement');
+
+agreeAllCheckbox.addEventListener('click', (e) => {
+    mustAgrees.forEach((agreeButton) => {
+        agreeButton.checked = agreeAllCheckbox.checked;
+    })
+    choiceAgree.checked = agreeAllCheckbox.checked;
+});
+
+
+agreements.forEach((checkbox)=> {
+    checkbox.addEventListener('click', () => {
+        agreements.forEach((agreement) => {
+            if (agreement.checked === false) {
+                agreeAllCheckbox.checked = false;
+            }
+        })
+        agreeAllCheckbox.checked = true;
+    })
+})
 
 
 

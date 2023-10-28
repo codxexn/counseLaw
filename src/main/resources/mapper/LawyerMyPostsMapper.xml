@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.counselawb.mapper.LawyerMyPostsMapper">
+    <select id="selectMyLegalGuideWithDetail" resultType="legalGuideDTO">
+        SELECT P2.LEGAL_GUIDE_ID, P2.LEGAL_GUIDE_TITLE, P2.LEGAL_GUIDE_CONTENT, P2.LAWYER_NAME, P2.FIELD_TITLE
+        FROM
+            (SELECT ROWNUM R, P1.LEGAL_GUIDE_ID, P1.LEGAL_GUIDE_TITLE, P1.LEGAL_GUIDE_CONTENT, P1.LAWYER_NAME, P1.FIELD_TITLE
+            FROM
+                (
+                SELECT LG.LEGAL_GUIDE_ID, LG.LEGAL_GUIDE_TITLE, LG.LEGAL_GUIDE_CONTENT, L.LAWYER_NAME, F.FIELD_TITLE
+                FROM TBL_LEGAL_GUIDE LG
+                         LEFT JOIN TBL_LAWYER L ON L.LAWYER_ID = LG.LAWYER_ID
+                         LEFT JOIN TBL_FIELD F ON F.FIELD_ID = LG.FIELD_ID
+                WHERE LG.LAWYER_ID = #{lawyerId}
+                ORDER BY LG.LEGAL_GUIDE_ID DESC ) P1
+    <![CDATA[
+            WHERE ROWNUM <= #{pagination.endRow} ) P2
+        WHERE P2.R >= #{pagination.startRow}
+            ]]>
+    </select>
+
+    <select id="selectMySolutions" resultType="solutionCaseDTO">
+        SELECT P2.SOLUTION_CASE_ID, P2.SOLUTION_CASE_TITLE, P2.SOLUTION_CASE_CONTENT, P2.SENTENCE_RESULT, P2.LAWYER_NAME
+        FROM
+            (SELECT ROWNUM R, P1.SOLUTION_CASE_ID, P1.SOLUTION_CASE_TITLE, P1.SOLUTION_CASE_CONTENT, P1.SENTENCE_RESULT, P1.LAWYER_NAME
+            FROM
+                (SELECT SC.SOLUTION_CASE_ID, SC.SOLUTION_CASE_TITLE, SC.SOLUTION_CASE_CONTENT, SC.SENTENCE_RESULT, L.LAWYER_NAME
+                FROM TBL_SOLUTION_CASE SC
+                         LEFT JOIN TBL_LAWYER L ON L.LAWYER_ID = SC.LAWYER_ID
+                WHERE SC.LAWYER_ID = #{lawyerId}
+                ORDER BY SC.SOLUTION_CASE_ID DESC ) P1
+        <![CDATA[
+            WHERE ROWNUM <= #{pagination.endRow} ) P2
+        WHERE P2.R >= #{pagination.startRow}
+        ]]>
+    </select>
+
+    <select id="selectMyFollowers" resultType="lawyerLikeVO">
+        SELECT P2.LAWYER_LIKE_ID, P2.MEMBER_ID, P2.LAWYER_ID, P2.CREATE_DATE, P2.UPDATE_DATE
+        FROM
+            (SELECT ROWNUM R, P1.LAWYER_LIKE_ID, P1.MEMBER_ID, P1.LAWYER_ID, P1.CREATE_DATE, P1.UPDATE_DATE
+            FROM
+                (SELECT LAWYER_LIKE_ID, MEMBER_ID, LAWYER_ID, CREATE_DATE, UPDATE_DATE
+                FROM TBL_LAWYER_LIKE
+                WHERE LAWYER_ID = #{lawyerId}) P1
+        <![CDATA[
+            WHERE ROWNUM <= #{pagination.endRow} ) P2
+        WHERE P2.R >= #{pagination.startRow}
+        ]]>
+    </select>
+
+    <select id="selectFollowerInfo" resultType="memberVO">
+        SELECT MEMBER_ID, MEMBER_EMAIL, MEMBER_PASSWORD, MEMBER_NAME, MEMBER_STATE, MEMBER_PHONE, MEMBER_LOGIN_CODE, CREATE_DATE, UPDATE_DATE
+        FROM TBL_MEMBER
+        WHERE MEMBER_ID = #{memberId}
+    </select>
+
+    <select id="selectMyCasesAndReplies" resultType="lawyerReplyDTO">
+        SELECT P2.CONSULTING_CASE_ID, P2.MEMBER_ID, P2.CASE_TITLE, P2.CONSULTING_CASE_REPLY_ID, P2.LAWYER_ID, P2.CONSULTING_CASE_REPLY_CONTENT, P2.CREATE_DATE, P2.UPDATE_DATE
+        FROM
+            (SELECT ROWNUM R, P1.CONSULTING_CASE_ID, P1.MEMBER_ID, P1.CASE_TITLE, P1.CONSULTING_CASE_REPLY_ID, P1.LAWYER_ID, P1.CONSULTING_CASE_REPLY_CONTENT, P1.CREATE_DATE, P1.UPDATE_DATE
+             FROM
+                 (SELECT CC.CONSULTING_CASE_ID, CC.MEMBER_ID, CC.CASE_TITLE, CCR.CONSULTING_CASE_REPLY_ID, CCR.LAWYER_ID, CCR.CONSULTING_CASE_REPLY_CONTENT, CCR.CREATE_DATE, CCR.UPDATE_DATE
+                  FROM TBL_CONSULTING_CASE CC
+                           JOIN TBL_CONSULTING_CASE_REPLY CCR
+                                ON CC.CONSULTING_CASE_ID = CCR.CONSULTING_CASE_ID
+                  WHERE CCR.LAWYER_ID = #{lawyerId}
+                  ORDER BY CCR.CONSULTING_CASE_REPLY_ID DESC) P1
+        <![CDATA[
+             WHERE ROWNUM <= #{pagination.endRow} ) P2
+        WHERE P2.R >= #{pagination.startRow}
+        ]]>
+    </select>
+
+
+</mapper>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" style="--bg-vh: 7.07px;" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내 해결사례 - 카운슬로우 (CounseLaw)</title>
+    <link rel="stylesheet" href="/css/solutionCasePage/solutionCase.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/lawyer-my-posts/my-solution-case.css">
+    <th:block th:replace="~{fix/header :: my-header-head}"></th:block>
+    <th:block th:replace="~{fix/footer :: my-footer-head}"></th:block>
+</head>
+<body>
+<div class="root pc">
+    <header th:replace="~{fix/header :: my-header}"></header>
+    <div class="pc-View">
+        <div class="search-Controller">
+            <div class="search-Content" style="visibility: visible;">
+                <div>
+                    <section class="content-Section">
+                        <div class="upper-Posts-Section">
+                            <div class="upper-Posts-Section-Header">
+                                <div class="upper-Posts-Section-Header-Layer"></div>
+                                <!-- 상단 이미지 및 텍스트 -->
+                                <div class="upper-Posts-Section-Title">
+                                    <h2 class="upper-Posts-Section-tab-Desc-Title">의뢰인의 문제를 해결한 실제 사례</h2>
+                                    <div th:text="${lawyerName} + ' 변호사님의 해결사례 목록입니다.'" class="upper-Posts-Section-Mention"></div>
+                                    <div class="upper-Posts-Section-Title-Text-Img"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="posts-Section-Wrapper">
+                            <div class="posts-Section">
+                                <div class="posts-Section-Body">
+                                    <div class="posts-Selection-Load-Section" style="position: relative; display: grid; grid-template-columns: repeat(2, 1fr)">
+                                        <section class="card-List-Section" th:each="solutionCase : ${solutionCases}">
+                                            <div class="card-List-Section-Card-Wrapper">
+                                                <div>
+                                                    <a class="solution-Card-Link" href="">
+                                                        <div class="solution-Card-Wrapper">
+                                                            <div class="solution-Card-Lawyer-Info">
+                                                                <div class="solution-Card-Lawyer-Thumb">
+                                                                    <img th:src="${lawyerImage == null ? '/image/defaultLawyerProfile/defaultLawyerProfile.png' : lawyerImage}" class="photo">
+                                                                </div>
+                                                                <div class="solution-Card-Lawyer-Name" th:text="${solutionCase.lawyerName} + ' 변호사' ">
+                                                                </div>
+                                                            </div>
+                                                            <div class="solution-Card-Title" th:text="${solutionCase.solutionCaseTitle}">
+                                                            </div>
+                                                            <div class="solution-Card-Content" th:text="${solutionCase.solutionCaseContent}">
+                                                            </div>
+                                                            <div class="solution-Card-Sentence-Result">
+                                                                        <span class="solution-Card-Sentence-Result-Icon">
+                                                                            <i class="lc lc-Judge"></i>
+                                                                        </span>
+                                                                <span class="solution-Card-Sentence-Result-Text" th:text="${solutionCase.sentenceResult}"></span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="card-List-Section-Post-Card-Line"></div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                                <section class="review-pagination">
+                                    <lt-pagination th:with="start=${pagination.startPage}, last=${pagination.endPage}">
+                                        <div class="lt-pagination pagination-component">
+                                            <div class="lt-pagination__pages">
+                                                <div class="lt-pagination__pages-button-wrap">
+                                                    <a th:each="eachpage : ${#numbers.sequence(start, last)}" th:href="'/mypage-lawyer/my-solution-case?lawyerId=' + ${lawyerId} + '&page=' + ${eachpage}"
+                                                       th:classappend="${eachpage == pagination.page ? 'on' : 'off'}"
+                                                       class="lt-pagination__pages-button" th:text="${eachpage}">
+                                                    </a>
+                                                </div>
+                                                <div class="pagination-next-five" th:if="${pagination.endPage >= 6}">
+                                                    <a th:href="'/mypage-lawyer/my-solution-case?lawyerId=' + ${lawyerId} + '&page=' + ${start+5}">
+                                                        다음 5페이지
+                                                    </a>
+                                                </div>
+                                                <div class="pagination-arrow-button" th:if="${pagination.endPage >= 6}">
+                                                    <img width=20 height=20 src="/image/clientReviews/next.png" class="PaginationButtonGroup_Icon">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </lt-pagination>
+                                </section>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="~{fix/footer :: my-footer}"></footer>
+</body>
+<script src="/js/solutionCasePage/solutionCase.js"></script>
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.counselawb.mapper.MemberMypageMapper">
+    <insert id="insertMyFavoriteLawyer">
+        INSERT INTO TBL_LAWYER_LIKE (LAWYER_LIKE_ID, MEMBER_ID, LAWYER_ID)
+        VALUES (SEQ_LAWYER_LIKE.NEXTVAL, #{memberId}, #{lawyerId})
+    </insert>
+
+    <select id="selectMyFavoriteLawyers" resultType="lawyerLikeVO">
+        SELECT LL2.LAWYER_LIKE_ID, LL2.MEMBER_ID, LL2.LAWYER_ID, LL2.CREATE_DATE, LL2.UPDATE_DATE FROM
+            (SELECT ROWNUM R, LL1.LAWYER_LIKE_ID, LL1.MEMBER_ID, LL1.LAWYER_ID, LL1.CREATE_DATE, LL1.UPDATE_DATE FROM
+                (SELECT LAWYER_LIKE_ID, MEMBER_ID, LAWYER_ID, CREATE_DATE, UPDATE_DATE
+                 FROM TBL_LAWYER_LIKE
+                 WHERE MEMBER_ID = 41
+                 ORDER BY LAWYER_LIKE_ID DESC) LL1
+        <![CDATA[
+             WHERE ROWNUM <= #{pagination.endRow}) LL2
+        WHERE LL2.R >= #{pagination.startRow}
+        ]]>
+    </select>
+
+    <select id="getCountMyFavoriteLawyers" resultType="int">
+        SELECT COUNT(LAWYER_LIKE_ID)
+        FROM TBL_LAWYER_LIKE
+        WHERE MEMBER_ID = #{memberId}
+    </select>
+
+    <select id="checkMyFavoriteLawyer" resultType="lawyerLikeVO">
+        SELECT LAWYER_LIKE_ID, MEMBER_ID, LAWYER_ID
+        FROM TBL_LAWYER_LIKE
+        WHERE MEMBER_ID = #{memberId} AND LAWYER_ID = #{lawyerId}
+    </select>
+
+    <delete id="deleteMyFavoriteLawyer">
+        DELETE FROM TBL_LAWYER_LIKE
+        WHERE MEMBER_ID = #{memberId} AND LAWYER_ID = #{lawyerId}
+    </delete>
+
+
+</mapper>

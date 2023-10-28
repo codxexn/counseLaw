@@ -31,6 +31,7 @@ public class LoginController {
     public String GoToLogin(HttpSession session, MemberVO memberVO, LawyerVO lawyerVO, Model model){
         if (session.getAttribute("member") != null || session.getAttribute("lawyer") != null) {
             model.addAttribute("alertMsg", "로그인 상태입니다. 로그아웃 진행 후 로그인을 시도하세요.");
+            model.addAttribute("errorMessage", null);
             return "/mainpage/mainpage";
         }
         return "/client-login/client-login";
@@ -78,7 +79,12 @@ public class LoginController {
     }
 
     // 로그인 에러 페이지
-
+    @GetMapping("login-error")
+    public String GoToLoginAgain(MemberVO memberVO, LawyerVO lawyerVO, Model model){
+        String errorMessage = "이메일 또는 비밀번호가 잘못되었습니다.";
+        model.addAttribute("errorMessage", errorMessage);
+        return "/client-login/client-login";
+    }
 
 
 }

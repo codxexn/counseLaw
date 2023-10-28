@@ -113,12 +113,15 @@
                             <div class="header">
                                 <div class="title">상담사례</div>
                                 <div th:text="${replyCount}" class="count"></div>
-                                <a class="goto">
+                                <a th:if="${replyCount == 0}" style="cursor: auto;" class="goto">
+                                    <img class="gotoArrow" src="/image/lawyerHome/arrow.png" alt="화살표">
+                                </a>
+                                <a th:if="${replyCount > 0}" th:href="'/mypage-lawyer/my-consultation?lawyerId=' + ${selectedLawyer.lawyerId}" class="goto">
                                     <img class="gotoArrow" src="/image/lawyerHome/arrow.png" alt="화살표">
                                 </a>
                             </div>
                             <div class="body">
-                                <a th:each="caseReply : ${caseReplies}" class="card case" href="">
+                                <a th:each="caseReply : ${caseReplies}" class="card case" th:href="@{/consult-detail/{consultId}(consultId=${caseReply.consultingCaseId})}">
                                     <div th:text="${caseReply.caseTitle}" class="q"></div>
                                     <div th:utext="'<span>답변</span>' + ${caseReply.consultingCaseReplyContent}" class="a"></div>
                                     <div th:text="${#temporals.format(caseReply.createDate, 'yyyy년 MM월 dd일 HH:mm 작성됨')}" class="created-date"></div>
@@ -126,7 +129,13 @@
                                 <span th:if="${#lists.isEmpty(caseReplies)}">아직 답글을 남긴 상담사례가 없습니다.</span>
                             </div>
                         </section>
-                        <a class="case basic-info-more profile-home__more-btn profile-home__more-btn--2">
+                        <a th:if="${replyCount == 0}" style="cursor: auto;" class="case basic-info-more profile-home__more-btn profile-home__more-btn--2">
+                            <span class="profile-home__more-btn-text">
+                                상담사례 전체보기
+                                <img class="gotoList" src="/image/lawyerHome/arrow.png" alt="화살표">
+                            </span>
+                        </a>
+                        <a th:if="${replyCount > 0}" th:href="'/mypage-lawyer/my-consultation?lawyerId=' + ${selectedLawyer.lawyerId}" class="case basic-info-more profile-home__more-btn profile-home__more-btn--2">
                             <span class="profile-home__more-btn-text">
                                 상담사례 전체보기
                                 <img class="gotoList" src="/image/lawyerHome/arrow.png" alt="화살표">
@@ -136,7 +145,10 @@
                             <div class="header">
                                 <div class="title">해결사례</div>
                                 <div th:text="${scCount}" class="count"></div>
-                                <a class="goto">
+                                <a th:if="${scCount == 0}" style="cursor: auto;" class="goto">
+                                    <img class="gotoArrow" src="/image/lawyerHome/arrow.png" alt="화살표">
+                                </a>
+                                <a th:if="${scCount > 0}" th:href="'/mypage-lawyer/my-solution-case?lawyerId=' + ${selectedLawyer.lawyerId}" class="goto">
                                     <img class="gotoArrow" src="/image/lawyerHome/arrow.png" alt="화살표">
                                 </a>
                             </div>
@@ -150,7 +162,13 @@
                                 <span th:if="${#lists.isEmpty(scs)}">아직 작성하신 해결사례가 없습니다.</span>
                             </div>
                         </section>
-                        <a class="case basic-info-more profile-home__more-btn profile-home__more-btn--2">
+                        <a th:if="${scCount == 0}" style="cursor: auto;" class="case basic-info-more profile-home__more-btn profile-home__more-btn--2">
+                            <span class="profile-home__more-btn-text">
+                                해결사례 전체보기
+                                <img class="gotoList" src="/image/lawyerHome/arrow.png" alt="화살표">
+                            </span>
+                        </a>
+                        <a th:if="${scCount > 0}" th:href="'/mypage-lawyer/my-solution-case?lawyerId=' + ${selectedLawyer.lawyerId}" class="case basic-info-more profile-home__more-btn profile-home__more-btn--2">
                             <span class="profile-home__more-btn-text">
                                 해결사례 전체보기
                                 <img class="gotoList" src="/image/lawyerHome/arrow.png" alt="화살표">
@@ -160,7 +178,7 @@
                             <div class="header">
                                 <div class="title">법률가이드</div>
                                 <div th:text="${lgCount}" class="count"></div>
-                                <a class="goto">
+                                <a th:href="'/mypage-lawyer/my-legal-guide?lawyerId=' + ${selectedLawyer.lawyerId}" class="goto">
                                     <img class="gotoArrow" src="/image/lawyerHome/arrow.png" alt="화살표">
                                 </a>
                             </div>
@@ -173,7 +191,13 @@
                                 <span th:if="${#lists.isEmpty(lgs)}">아직 작성하신 법률가이드가 없습니다.</span>
                             </div>
                         </section>
-                        <a class="case basic-info-more profile-home__more-btn profile-home__more-btn--2">
+                        <a th:if="${lgCount == 0}" style="cursor: auto;" class="case basic-info-more profile-home__more-btn profile-home__more-btn--2">
+                            <span class="profile-home__more-btn-text">
+                                법률가이드 전체보기
+                                <img class="gotoList" src="/image/lawyerHome/arrow.png" alt="화살표">
+                            </span>
+                        </a>
+                        <a th:if="${lgCount > 0}" th:href="'/mypage-lawyer/my-legal-guide?lawyerId=' + ${selectedLawyer.lawyerId}" class="case basic-info-more profile-home__more-btn profile-home__more-btn--2">
                             <span class="profile-home__more-btn-text">
                                 법률가이드 전체보기
                                 <img class="gotoList" src="/image/lawyerHome/arrow.png" alt="화살표">
@@ -219,7 +243,13 @@
                                 </div>
                             </div>
                         </bestreview-cards>
-                        <a class="review-more profile-home__more-btn profile-home__more-btn--2">
+                        <a th:if="${#lists.isEmpty(reviews)}" style="cursor: auto;" class="review-more profile-home__more-btn profile-home__more-btn--2">
+                            <span class="profile-home__more-btn-text">
+                                후기 전체보기
+                                <img class="gotoList" src="/image/lawyerHome/arrow.png" alt="화살표">
+                            </span>
+                        </a>
+                        <a th:if="${!#lists.isEmpty(reviews)}" th:href="'/lawyer-home/client-reviews?lawyerId=' + ${selectedLawyer.lawyerId}" class="review-more profile-home__more-btn profile-home__more-btn--2">
                             <span class="profile-home__more-btn-text">
                                 후기 전체보기
                                 <img class="gotoList" src="/image/lawyerHome/arrow.png" alt="화살표">
@@ -298,7 +328,8 @@
                                style="color: rgb(241, 238, 236);" th:if="${selectedLawyer.lawyerCompany != null}" th:text="${selectedLawyer.lawyerCompany}">
                             </p>
                             <div class="LawyerPictureCard-module_buttons__IClTr">
-                                <img th:if="${session.member != null}" class="star" src="/image/lawyerHome/blankedStar.png" alt="검은별">
+                                <img th:if="${session.member != null}" class="star" th:src="${checkLike.equals('true') ? '/image/lawyerHome/yellowStar.png' : '/image/lawyerHome/blankedStar.png'}" alt="검은별">
+                                <input th:if="${session.member != null}" type="hidden" th:name="memberId" th:value="${session.member.memberId}">
                                 <svg onclick="clipCopy()" class="LawyerPictureCard-module_shareIcon__tvFUa" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                     <g clip-path="url(#clip0_315_9153)">
                                         <path d="M15.5 7.09091L14.2575 8.18818L12.8662 6.95955V15.5909H11.1337V6.95955L9.7425 8.18818L8.5 7.09091L12 4L15.5 7.09091ZM19 10.9545V19.4545C19 20.3045 18.2125 21 17.25 21H6.75C5.77875 21 5 20.3045 5 19.4545V10.9545C5 10.0968 5.77875 9.40909 6.75 9.40909H9.375V10.9545H6.75V19.4545H17.25V10.9545H14.625V9.40909H17.25C18.2125 9.40909 19 10.0968 19 10.9545Z" fill="black"></path>
