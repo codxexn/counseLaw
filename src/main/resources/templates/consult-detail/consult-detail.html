@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
 
     <link rel="stylesheet" type="text/css" href="/css/consultDetail/consultDetail.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <th:block th:replace="~{fix/header :: my-header-head}"></th:block>
     <th:block th:replace="~{fix/footer :: my-footer-head}"></th:block>
@@ -27,7 +28,7 @@
                     <div class="qnaArticle controller">
                         <question question="question" expanded="true" get-qna-common-params="getQnaCommonParams()"
                             th:each="consultDetail:${consultDetail}">
-
+                            <input type="hidden" th:value="${session.member.memberId}" th:name="memberId">
                             <div class="question directive qnaDetailPage expanded">
                                 <h1 class="questionTitle daumWmTitle" th:text="${consultDetail.caseTitle}"></h1>
                                 <p class="questionBody daumWmContent" th:text="${consultDetail.caseContent}">
@@ -42,11 +43,18 @@
                                     <div class="questionUtilsDivideLine ltMobile"></div>
                                     <!--관심글-->
                                     <div class="questionUtilsButton">
-                                        <button onclick="toggleImg()" class="ButtonWish" width="24px" height="24px">
+                                        <button  class="ButtonWish" width="24px" height="24px">
                                             <img class="empty" src="/image/consultDetail/emptyHeart.png" alt="관심x">
                                             <img class="full" src="/image/consultDetail/fullHeart.png" alt="관심o">
                                         </button>
-                                        <span class="questionUtilsButtonText">관심글</span>
+                                        <button id="favoriteButton" class="ButtonWish" onclick="toggleImg()"
+                                                th:attr="data-case-title=${consultDetail.caseTitle},
+                                        data-case-id=${consultDetail.consultingCaseId},
+                                        data-view-count=${viewCount},
+                                        data-lawyer-reply=${totalCount}">
+<!--                                            data-create-date=${consultDetail.createDate},-->
+                                            <span class="questionUtilsButtonText">관심글</span>
+                                        </button>
                                     </div>
                                     <!--공유하기-->
                                     <div class="questionUtilsButton" id="shareButton">
@@ -180,6 +188,7 @@
                                                                     <div class="relatedCaseBodyCaseGroup slickSlide slickActive" data-slick-index="0" aria-hidden="false" style="width: 320px;">
                                                                         <!-- 유사한 상담사례 내용 반복-->
                                                                         <div class="relatedCaseBodyCaseItem" th:each="consultCase:${consultCase}">
+                                                                            <a th:href="@{/consult-detail/{consultId}(consultId=${consultCase.consultingCaseId})}">
                                                                             <div class="relatedCaseBodyDiviedLine"></div>
                                                                             <div class="relatedCaseBodyItemContent">
                                                                                 <div class="relatedCaseBodyCaseTitle" th:text="${consultCase.caseTitle}"></div>
@@ -204,6 +213,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
+                                                                            </a>
                                                                         </div>
                                                                     </div>
                                                                 </div>

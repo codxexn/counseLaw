@@ -93,3 +93,44 @@ heartButtonContainer.forEach((container) => {
         firstImg.style.display = "block";
     });
 });
+
+// 관심 버튼을 누를시 서버로 관련 정보가 넘어가도록 하는 JS
+function toggleImg() {
+    const button = document.getElementById('favoriteButton');
+    const caseTitle = button.getAttribute('data-case-title');
+    // const createDate = button.getAttribute('data-create-date');
+    const viewCount = button.getAttribute('data-view-count');
+    const lawyerReplyCount = button.getAttribute('data-lawyer-reply');
+    const caseId = button.getAttribute('data-case-id');
+    const memberIdInput = document.querySelector('input[name="memberId"]');
+    const memberId = memberIdInput.value;
+    const consultId=button.getAttribute('data-case-id');
+    const url = `/consult-detail/consult-detail/${consultId}`;
+
+    console.log("caseTitle:", caseTitle);
+    // console.log("createDate:", createDate);
+    console.log("viewCount:", viewCount);
+    console.log("lawyerReplyCount:", lawyerReplyCount);
+    console.log("caseId:", caseId);
+    console.log("memberId:", memberId);
+
+    // Ajax 요청을 통해 데이터를 서버로 전송
+    $.ajax({
+        url: url, // 저장용 URL로 변경해야 함
+        type: 'POST',
+        data: { caseTitle: caseTitle,
+                viewCount:viewCount, lawyerReplyCount:lawyerReplyCount
+        , caseId:caseId, memberId:memberId},
+
+        success: function(response) {
+            // 요청이 성공하면 수행할 작업 추가
+            // 예: 버튼 이미지 업데이트, 알림 메시지 등
+            console.log("hey caseTitle:", caseTitle);
+            // console.log("createDate:", createDate);
+            console.log("hey viewCount:", viewCount);
+            console.log("hey lawyerReplyCount:", lawyerReplyCount);
+            console.log("hey caseId:", caseId);
+            console.log("hey memberId:", memberId);
+        }
+    });
+}

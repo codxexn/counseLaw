@@ -1,9 +1,6 @@
 package com.app.counselawb.mapper;
 
-import com.app.counselawb.domain.dto.ConsultDetailDTO;
-import com.app.counselawb.domain.dto.ConsultingCaseDTO;
-import com.app.counselawb.domain.dto.ConsultingWriteDTO;
-import com.app.counselawb.domain.dto.LawyerSidebarDTO;
+import com.app.counselawb.domain.dto.*;
 import com.app.counselawb.domain.pagination.Pagination;
 import com.app.counselawb.domain.vo.ConsultingCaseVO;
 import com.app.counselawb.domain.vo.LawyerVO;
@@ -46,5 +43,8 @@ public interface ConsultingCaseMapper {
 
 //    해결사례를 위한 조회
     public List<ConsultDetailDTO> readSolutionCase();
+
+//    관심글 저장
+    public void storeFavoritePosts(MyFavoriteConsultDTO myFavoriteConsultDTO);
 
 }

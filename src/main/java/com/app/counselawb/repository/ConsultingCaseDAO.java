@@ -1,9 +1,6 @@
 package com.app.counselawb.repository;
 
-import com.app.counselawb.domain.dto.ConsultDetailDTO;
-import com.app.counselawb.domain.dto.ConsultingCaseDTO;
-import com.app.counselawb.domain.dto.ConsultingWriteDTO;
-import com.app.counselawb.domain.dto.LawyerSidebarDTO;
+import com.app.counselawb.domain.dto.*;
 import com.app.counselawb.domain.pagination.Pagination;
 import com.app.counselawb.domain.vo.ConsultingCaseVO;
 import com.app.counselawb.domain.vo.LawyerVO;
@@ -74,5 +71,8 @@ public class ConsultingCaseDAO {
         return consultingCaseMapper.readSolutionCase();
     }
 
-
+//    관심글 저장
+    public void storeFavoriteCase(MyFavoriteConsultDTO myFavoriteConsultDTO){
+        consultingCaseMapper.storeFavoritePosts(myFavoriteConsultDTO);
+    }
 }
