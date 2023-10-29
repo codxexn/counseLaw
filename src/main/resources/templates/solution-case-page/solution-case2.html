@@ -22,30 +22,17 @@
                             <span>해결사례</span>
                         </div>
                         <div class="keywords">
-                                <span class="keyword" style="cursor:pointer">
+                                <span class="keyword" style="cursor:pointer" th:text="${solutionCaseDetail.fieldTitle}">
                                     건축/부동산 일반
-                                </span>
-                            <span class="keyword" style="cursor:pointer">
-                                    공증/내용증명/조합/국제문제 등
-                                </span>
-                            <span class="keyword" style="cursor:pointer">
-                                    재개발/재건축
                                 </span>
                         </div>
                         <h1 class="title">
-                            <span style="display: inline-block;">부산</span>
-                            <span style="display: inline-block;">소재</span>
-                            <span style="display: inline-block;">지역주택조합</span>
-                            <span style="display: inline-block;">추진위원회</span>
-                            <span style="display: inline-block;">상대</span>
-                            <span style="display: inline-block;">납입금</span>
-                            <span style="display: inline-block;">반환소송</span>
-                            <span style="display: inline-block;">성공!</span>
+                            <span style="display: inline-block;" th:text="${solutionCaseDetail.solutionCaseTitle}">부산</span>
                         </h1>
-                        <div class="lawyer">오인철 변호사</div>
+                        <div class="lawyer" th:text="${solutionCaseDetail.lawyerName} + ' 변호사' ">오인철 변호사</div>
                         <div class="case-Result">
-                            <div class="result">승소</div>
-                            <div class="number">부****</div>
+                            <div class="result" th:text="${solutionCaseDetail.sentenceResult}">승소</div>
+
                         </div>
                     </header>
                 </div>
@@ -64,9 +51,9 @@
                             <div class="profile-Left">
                                 <div class="profile-Row">
                                     <!-- 변호사 상세보기 -->
-                                    <a href="" class="lawyer-Name">오인철 변호사</a>
+                                    <a href="" class="lawyer-Name" th:text="${solutionCaseDetail.lawyerName} + ' 변호사' ">오인철 변호사</a>
                                 </div>
-                                <div class="lawyer-Company">
+                                <div class="lawyer-Company" th:text="${solutionCaseDetail.lawyerCompany}">
                                     법무법인 차원
                                 </div>
                             </div>
@@ -75,153 +62,24 @@
                     <div class="html-Content">
                         <p class="text-paragraph">
                                 <span>
-                                    <b>
+                                    <b th:text="${solutionCaseDetail.solutionCaseContent}">
                                         저를 찾아오신 의뢰인께서는 부산 일원을 사업 부지로 하여 주택법에 따른 아파트 건설·공급사업을 시행하는 지역주택조합을 설립하기 위하여 구성된 비법인사단인 피고 지역주택조합 추진위원회와 가입계약을 체결하시고, '사업 인·허가를 득하지 못하거나, 신축사업이 무산될 경우 / 사업승인 이후에 실시하는 동·호수 추첨결과에 대해 조합원의 변심이 생길 경우, 조합원이 납부한 계약금(업무추진비 포함) 전액을 환불할 것을 확약합니다.'라는 환불보장 내용이 기재된 안심보장확약서까지 교부하는 해당 지역주택조합사업이 순조롭게 진행될 거라고 믿은 채,
                                     </b>
                                 </span>
-                            <span>
-                                    <u>
-                                        <b>
-                                            조합원 분담금 등의 명목으로 55,000,000원의 금원을 피고에게 지급
-                                        </b>
-                                    </u>
-                                </span>
-                            <span>
-                                    <b>
-                                        하셨습니다.
-                                    </b>
-                                </span>
-                        </p>
-                        <p class="text-paragraph">
-                                <span>
-                                    <b>&ZeroWidthSpace;</b>
-                                </span>
-                            <b>&ZeroWidthSpace;</b>
-                        </p>
-                        <p class="text-paragraph">
-                                <span>
-                                    <b>
-                                        그러나, 가입 후 피고 지역주택조합 추진위원회의 사업이 계획대로 진행되지 않자, ​의뢰인은 정식 민사소송을 통하여 조합과 체결한 계약을 취소한 후 기 납입한 금원의 반환을 원하셨습니다.
-                                    </b>
-                                </span>
-                        </p>
-                        <p>
-                            <br>
-                        </p>
-                        <p>
-                            <br>
-                        </p>
-                        <p class="text-paragraph">
-                                <span>
-                                    <b>의뢰인의 사건을 수임한 저는,</b>
-                                </span>
-                        </p>
-                        <p class="text-paragraph">
-                                <span>
-                                    <b>&ZeroWidthSpace;</b>
-                                </span>
-                            <b>&ZeroWidthSpace;</b>
-                        </p>
-                        <p class="text-paragraph">
-                                <span>
-                                    <b>
-                                        피고 지역주택조합 추진위원회 측은, 이 사건 조합가입계약 체결 당시 의뢰인에게 안심보장확약서를 교부하면서 이 사건 사업의 인허가를 얻지 못하거나 신축사업이 무산될 경우 또는 조합원이 추첨이 된 동·호수에 불만을 가질 경우 이 사건 분담금을 환불하여 주는 내용의 약정을 하였는데, 이러한 약정은 총유물인 조합원 분담금의 처분행위에 해당함에도 이에 요구되는 총회 의결을 거치지 않아 무효에 불과하였습니다.
-                                    </b>
-                                </span>
-                        </p>
-                        <p class="text-paragraph">
-                                <span>
-                                    <b>&ZeroWidthSpace;</b>
-                                </span>
-                        </p>
-                        <p class="text-paragraph">
-                                <span>
-                                    <b>
-                                        그럼에도 불구하고 피고는 이 사건 안심보장증서를 의뢰인에게 교부하여, 의뢰인이 이를 유효하다고 믿고 이 사건 가입계약을 체결하도록 하였는데, 이는 조합원가입계약 체결과 관련된 착오에 해당하였습니다.
-                                    </b>
-                                </span>
-                        </p>
-                        <p class="text-paragraph">
-                                <span>
-                                    <b>&ZeroWidthSpace;</b>
-                                </span>
-                        </p>
-                        <p class="text-paragraph">
-                                <span>
-                                    <b>
-                                        일반적으로 지역주택조합사업은 그 특성상 장래의 진행 경과를 예측하기 어렵고 사업이 지연되거나 무산될 가능성도 높다는 점에서 의뢰인과 같이 지역주택조합에 가입하려는 사람들에게 조합 임의탈퇴 가부 및 납부한 조합원 분담금의 전액 회수 가능성은 가입 여부를 결정하는 데 매우 중요한 고려 요소가 되기에, 이 사건 조합원가입계약 체결 당시 의뢰인이 이 사건 안심보장확약서의 효력에 대한 착오가 없었더라면 이 사건 조합원가입계약을 체결하지 않거나 적어도 그와 같은 내용 또는 조건으로 계약을 체결하지 않았을 것이므로, 이러한 의뢰인의 착오는 이 사건 조합원가입계약의 중요 부분에 관한 착오라고 판단하였습니다.
-                                    </b>
-                                </span>
-                        </p>
-                        <p class="text-paragraph">
-                                <span>
-                                    <b>&ZeroWidthSpace;</b>
-                                </span>
-                            <b>&ZeroWidthSpace;&ZeroWidthSpace;</b>
-                        </p>
-                        <p class="text-paragraph">
-                                <span>
-                                    <b>
-                                        따라서 의뢰인은 착오를 원인으로 이 사건 조합원가입계약을 취소할 수 있음을 적극 주장하여,
-                                    </b>
-                                </span>
-                        </p>
-                        <p class="text-paragraph">
-                                <span>
-                                    <b>&ZeroWidthSpace;</b>
-                                </span>
-                        </p>
-                        <p class="text-paragraph">
-                                <span>
-                                    <b>
-                                        결국, 재판부는 이러한 저의 주장을 받아들였고, 피고는 의뢰인에게 기지급 받은 금원 및 이에 대한 지연손해금을 지급하라는 내용의 판결을 이끌어 내었습니다.
-                                    </b>
-                                </span>
-                        </p>
-                        <p>
-                            <br>
-                        </p>
-                        <p>
-                            <br>
-                        </p>
                         <div>
                             <!-- 이미지 -->
-                            <img src="/image/solutionCaseDetailPage/result.png">
+                            <img src="/image/solutionCaseDetailPage/result.png" th:src="${solutionIMG.imgPath}">
                         </div>
+
                         <div>
                             <!-- 이미지 -->
-                            <img src="/image/solutionCaseDetailPage/result.png">
+                            <img src="/image/solutionCaseDetailPage/result.png" th:src="${solutionIMG.imgPath}">
                         </div>
-                        <p>
-                            <br>
-                        </p>
-                        <p>
-                            <br>
-                        </p>
-                        <p>
-                                <span>
-                                    <b>지역주택조합 가입계약자들은 정식 민사소송을 제기하여&nbsp;</b>
-                                </span>
-                            <u><b>지역주택조합 가입계약의 취소 및 탈퇴</b></u>
-                            <b>를 주장할 수 있고, 이를 통해서&nbsp;</b>
-                            <b>기지급한 계약금 등 납입금을 반환&nbsp;</b>
-                            <b>받으실 수 있습니다.</b>
-                        </p>
-                        <p>
-                            <br>
-                        </p>
-                        <p>
-                                <span>
-                                    <b>지역주택조합 변호사의 도움이 필요하시다면 제게 연락주시기 바라며,</b>
-                                    <span>&nbsp;</span>
-                                </span>
-                        </p>
-                        <p>
-                                <span>
-                                    <b>언제든 문의주시면 분담금 반환을 도와드리겠습니다.</b>
-                                </span>
-                        </p>
+<!--                       추가-->
                     </div>
+
+
+
                     <div class="content-Copyright">
                         <div class="copyright-Title">
                             카운슬로우의 모든 콘텐츠는 저작권법의 보호를 받습니다.
@@ -244,42 +102,12 @@
                             <div class="profile-Left">
                                 <div class="profile-Row">
                                     <!-- 변호사 상세보기 -->
-                                    <a href="" class="lawyer-Name">오인철 변호사</a>
+                                    <a href="" class="lawyer-Name" th:text="${solutionCaseDetail.lawyerName} + ' 변호사' ">오인철 변호사</a>
                                 </div>
-                                <div class="lawyer-Company">
+                                <div class="lawyer-Company" th:text="${solutionCaseDetail.lawyerCompany}">
                                     법무법인 차원
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="post-List-Panel">
-                        <div class="panel-Heading">
-                            <span class="bold">오인철 변호사</span>
-                            <span>가 작성한 다른 포스트</span>
-                        </div>
-                        <div class="panel-Body">
-                            <ul>
-                                <li class="active">
-                                    <!--변호사가 쓴 post 경로 -->
-                                    <a href="">부산 소재 지역주택조합 추진위원회 상대 납입금 반환소송 성공!</a>
-                                </li>
-                                <li>
-                                    <!--변호사가 쓴 post 경로 -->
-                                    <a href="">신길5동지역주택조합 상대 분담금 반환소송 대법원 최종 승소!</a>
-                                </li>
-                                <li>
-                                    <!--변호사가 쓴 post 경로 -->
-                                    <a href="">서울 관악구 행운동 더퍼스트힐 지역주택조합 분담금 반환판결 사례</a>
-                                </li>
-                                <li>
-                                    <!--변호사가 쓴 post 경로 -->
-                                    <a href="">하남스타포레3차 지역주택조합 추진위원회 분담금 반환판결 성공!</a>
-                                </li>
-                                <li>
-                                    <!--변호사가 쓴 post 경로 -->
-                                    <a href="">서울 강서구 (가칭)화곡6동 지역주택조합 분담금 반환판결 성공!</a>
-                                </li>
-                            </ul>
                         </div>
                     </div>
                 </section>
@@ -287,9 +115,7 @@
             <div class="keyword-Container"></div>
             <div class="post-Control-Wrapper">
                 <div class="post-Control">
-                    <div class="left">
-                        <span class="count">조회수 7</span>
-                    </div>
+
                     <div class="right">
                         <button class="useful">
                             <i class='bx bx-heart' ></i>

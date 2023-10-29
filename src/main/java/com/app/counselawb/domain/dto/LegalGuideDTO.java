@@ -30,4 +30,7 @@ public class LegalGuideDTO {
     //    변호사명
     private String lawyerName;
 
+    // 변호사 소속 회사
+    private String lawyerCompany;
+
 }

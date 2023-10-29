@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -28,5 +29,5 @@ public class LegalGuideServiceImpl implements LegalGuideService {
     @Override
     public List<LegalGuideDTO> findAllLegalGuideWithDetail() {return legalGuideDAO.findAllLegalGuideWithDetail();}
 
-    public List<LegalGuideDTO> findDetailLegal(Long legalGuideId) {return legalGuideDAO.findDetailLegal();}
+    public Optional<LegalGuideDTO> findDetailLegal(Long legalGuideId) {return legalGuideDAO.findDetailLegal(legalGuideId);}
 }

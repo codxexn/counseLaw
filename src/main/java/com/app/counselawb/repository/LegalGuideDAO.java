@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -23,8 +24,8 @@ public class LegalGuideDAO {
         return legalGuideMapper.selectAllLegalGuideWithDetail();
     }
 
-    public List<LegalGuideDTO> findDetailLegal() {
-        return legalGuideMapper.selectDetailLegal();
+    public Optional<LegalGuideDTO> findDetailLegal(Long legalGuideId) {
+        return legalGuideMapper.selectDetailLegal(legalGuideId);
     }
 
 

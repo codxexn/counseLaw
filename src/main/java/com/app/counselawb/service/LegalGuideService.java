@@ -4,6 +4,7 @@ import com.app.counselawb.domain.dto.LegalGuideDTO;
 import com.app.counselawb.domain.vo.LegalGuideVO;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface LegalGuideService {
 
@@ -16,6 +17,6 @@ public interface LegalGuideService {
 
 //   상세 페이지
 
-   public List<LegalGuideDTO> findDetailLegal(Long legalGuideId);
+   public Optional<LegalGuideDTO> findDetailLegal(Long legalGuideId);
 
 }

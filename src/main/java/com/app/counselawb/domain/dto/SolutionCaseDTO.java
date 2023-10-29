@@ -28,4 +28,13 @@ public class SolutionCaseDTO {
 
 //    변호사 이름
     private String lawyerName;
+
+//    이미지 경로
+    private String imgPath;
+
+//    분야명
+    private String fieldTitle;
+
+    // 변호사 소속 회사
+    private String lawyerCompany;
 }

@@ -10,8 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @Slf4j
@@ -34,10 +36,16 @@ public class LegalguideController {
     }
 
 //    법률가이드 상세보기 페이지
-    @GetMapping("legal-guide2/{legalGuideId}")
-    public String GoToLegalDetail(@PathVariable Long legalGuideId, Model model){
-    List<LegalGuideDTO> legalGuide = legalGuideService.findDetailLegal(legalGuideId);
-    model.addAttribute("legalGuide", legalGuide);
-    return "legal-guide-page/legal-guide2";
+    @GetMapping("legal-guide2")
+    public String GoToLegalDetail(@RequestParam("legalGuideId") Long legalGuideId, Model model){
+    Optional<LegalGuideDTO> legalGuide = legalGuideService.findDetailLegal(legalGuideId);
+    if (legalGuide.isPresent()) {
+        LegalGuideDTO legalDetail = legalGuide.get();
+        model.addAttribute("legalGuide", legalDetail);
+    }
+    else {
+        model.addAttribute("legalGuide", null);
+    }
+        return "legal-guide-page/legal-guide2";
     }
 }

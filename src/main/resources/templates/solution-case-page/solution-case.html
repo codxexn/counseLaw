@@ -121,7 +121,7 @@
                                         <section class="card-List-Section" th:each="solutionCase : ${solutionCases}">
                                             <div class="card-List-Section-Card-Wrapper">
                                                 <div>
-                                                    <a class="solution-Card-Link" href="">
+                                                    <a class="solution-Card-Link" th:href="'/solution-case-page/solution-case2?solutionCaseId=' + ${solutionCase.solutionCaseId}">
                                                         <div class="solution-Card-Wrapper">
                                                             <div class="solution-Card-Lawyer-Info">
                                                                 <div class="solution-Card-Lawyer-Thumb">
@@ -150,7 +150,7 @@
                                             </div>
                                             <div class="card-List-Section-Card-Wrapper">
                                                 <div>
-                                                    <a class="solution-Card-Link" href="">
+                                                    <a class="solution-Card-Link" th:href="'/solution-case-page/solution-case2?solutionCaseId=' + ${solutionCase.solutionCaseId}">
                                                         <div class="solution-Card-Wrapper">
                                                             <div class="solution-Card-Lawyer-Info">
                                                                 <div class="solution-Card-Lawyer-Thumb">
