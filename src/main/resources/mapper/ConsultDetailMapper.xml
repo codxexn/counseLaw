@@ -95,4 +95,10 @@
         WHERE ROWNUM <=3
                   ]]>
     </select>
+
+    <!--    관심글로 저장하기 -->
+    <insert id="storeFavoritePosts">
+        INSERT INTO TBL_FAVORITE_POSTS(CONSULTING_CASE_ID, CONSULTING_CASE_TITLE, VIEW_COUNT, LAWYER_REPLY_COUNT, FAVORITE_POSTS_ID,MEMBER_ID)
+        VALUES (#{consultingCaseId},#{consultingCaseTitle},#{viewCount},#{lawyerReplyCount},SEQ_FAVORITE_POSTS.nextval,#{memberId})
+    </insert>
 </mapper>

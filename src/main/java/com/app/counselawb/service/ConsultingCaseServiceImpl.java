@@ -1,9 +1,6 @@
 package com.app.counselawb.service;
 
-import com.app.counselawb.domain.dto.ConsultDetailDTO;
-import com.app.counselawb.domain.dto.ConsultingCaseDTO;
-import com.app.counselawb.domain.dto.ConsultingWriteDTO;
-import com.app.counselawb.domain.dto.LawyerSidebarDTO;
+import com.app.counselawb.domain.dto.*;
 import com.app.counselawb.domain.pagination.Pagination;
 import com.app.counselawb.domain.vo.ConsultingCaseVO;
 import com.app.counselawb.domain.vo.LawyerVO;
@@ -79,6 +76,11 @@ public class ConsultingCaseServiceImpl implements ConsultingCaseService {
     @Override
     public List<ConsultDetailDTO> selectSolutionCase() {
         return consultingCaseDAO.readSolutionCase();
+    }
+
+    @Override
+    public void storeFavoriteCases(MyFavoriteConsultDTO myFavoriteConsultDTO) {
+        consultingCaseDAO.storeFavoriteCase(myFavoriteConsultDTO);
     }
 
 

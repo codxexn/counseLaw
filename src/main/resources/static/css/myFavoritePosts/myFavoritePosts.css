@@ -114,6 +114,7 @@ button, input, optgroup, select, textarea {
 
 /* 내 관심글 css */
 .MFP-Wrapper {
+    padding-top: 125px;
     width: 100%;
     background-color: #fff;
 }

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -7,10 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>내 관심글 - 마이페이지 | 카운슬로우</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-    <link rel="stylesheet" href="./myFavoritePosts.css">
+    <link rel="stylesheet" href="/css/myFavoritePosts/myFavoritePosts.css">
+    <th:block th:replace="~{fix/header :: my-header-head}"></th:block>
+    <th:block th:replace="~{fix/footer :: my-footer-head}"></th:block>
 </head>
 <body>
 <div class="root pc">
+    <header th:replace="~{fix/header :: my-header}"></header>
     <div style="height: 100%;">
         <div class="MFP-Wrapper">
             <div class="MFP-Contents">
@@ -21,7 +24,9 @@
                                 <div class="MFP-List">
                                     <section class="MFP-List-Contents">
                                         <div class="MFP-List-Feed">
+<!--                                            th:each 들어갈 곳-->
                                             <div class="MFP-List-Question-Wrapper">
+<!--                                                반복-->
                                                 <a href="">
                                                     <div>
                                                         <div class="MFP-List-Question">

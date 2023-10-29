@@ -1,9 +1,6 @@
 package com.app.counselawb.service;
 
-import com.app.counselawb.domain.dto.ConsultDetailDTO;
-import com.app.counselawb.domain.dto.ConsultingCaseDTO;
-import com.app.counselawb.domain.dto.ConsultingWriteDTO;
-import com.app.counselawb.domain.dto.LawyerSidebarDTO;
+import com.app.counselawb.domain.dto.*;
 import com.app.counselawb.domain.pagination.Pagination;
 import com.app.counselawb.domain.vo.ConsultingCaseVO;
 import com.app.counselawb.domain.vo.LawyerVO;
@@ -44,4 +41,7 @@ public interface ConsultingCaseService {
 
     //    해결사례 더보기를 위한 조회
     public List<ConsultDetailDTO> selectSolutionCase();
+
+//    관심글 저장
+    public void storeFavoriteCases(MyFavoriteConsultDTO myFavoriteConsultDTO);
 }
