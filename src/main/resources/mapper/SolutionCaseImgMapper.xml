@@ -6,4 +6,5 @@
         WHERE SOLUTION_CASE_ID = #{solutionCaseId}
         ORDER BY SOLUTION_CASE_IMG_ID
     </select>
+    
 </mapper>

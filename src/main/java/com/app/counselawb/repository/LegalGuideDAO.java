@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -18,8 +19,14 @@ public class LegalGuideDAO {
 //    public List<LegalGuideVO> findAllLegalGuide() {
 //        return legalGuideMapper.selectAllLegalGuide();
 //    }
-
+//      게시글 목록 불러오기
     public List<LegalGuideDTO> findAllLegalGuideWithDetail() {
         return legalGuideMapper.selectAllLegalGuideWithDetail();
     }
+
+    public Optional<LegalGuideDTO> findDetailLegal(Long legalGuideId) {
+        return legalGuideMapper.selectDetailLegal(legalGuideId);
+    }
+
+
 }

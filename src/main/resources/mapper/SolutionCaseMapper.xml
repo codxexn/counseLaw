@@ -8,4 +8,19 @@
         LEFT JOIN TBL_LAWYER L ON L.LAWYER_ID = SC.LAWYER_ID
         ORDER BY SC.CREATE_DATE
     </select>
+
+    <select id="selectDetailSolution" resultType="solutionCaseDTO">
+        SELECT SC.SOLUTION_CASE_ID, SC.SOLUTION_CASE_TITLE, SC.SOLUTION_CASE_CONTENT, SC.SENTENCE_RESULT, L.LAWYER_NAME, F.FIELD_TITLE, L.LAWYER_COMPANY
+        FROM TBL_SOLUTION_CASE SC
+        JOIN TBL_LAWYER L ON L.LAWYER_ID = SC.LAWYER_ID
+        JOIN TBL_FIELD F ON F.FIELD_ID = SC.FIELD_ID
+        WHERE SC.SOLUTION_CASE_ID = #{solutionCaseId}
+    </select>
+
+    <select id="selectSolutionImg" resultType="solutionCaseImgVO">
+        SELECT SOLUTION_CASE_IMG_ID, SOLUTION_CASE_ID, IMG_PATH
+        FROM TBL_SOLUTION_CASE_IMG
+        WHERE SOLUTION_CASE_ID = #{solutionCaseId}
+    </select>
+
 </mapper>
