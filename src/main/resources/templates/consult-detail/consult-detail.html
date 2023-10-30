@@ -95,7 +95,7 @@
                                         </div>
                                         <!--변호사들의 나머지 답변-->
                                         <div class="qnaListNormal hasTopPadding">
-                                            <div class="qnaListItemWrap" th:each="readLawyer:${readLawyer}">
+                                            <div class="qnaListItemWrap" th:if="${readLawyer != null}" th:each="readLawyer:${readLawyer}">
                                                 <!--변호사들의 나머지 답변 반복 1-->
                                                 <!---->
                                                 <div class="qnaListItem">
