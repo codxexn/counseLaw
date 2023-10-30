@@ -37,4 +37,7 @@ public class SolutionCaseDTO {
 
     // 변호사 소속 회사
     private String lawyerCompany;
+
+//    변호사 프사
+    private String lawyerImage;
 }
