@@ -3,7 +3,7 @@
 <mapper namespace="com.app.counselawb.mapper.ConsultingCaseMapper">
 <!--    상담글 제목과 내용을 저장하기-->
     <insert id="writeConsult">
-        INSERT INTO TBL_CONSULTING_CASE(CONSULTING_CASE_ID, MEMBER_ID, CASE_TITLE, CASE_CONTENT, CREATE_DATE, UPDATE_DATE, MEMBER_ID)
+        INSERT INTO TBL_CONSULTING_CASE(CONSULTING_CASE_ID, MEMBER_ID, CASE_TITLE, CASE_CONTENT, CREATE_DATE, UPDATE_DATE)
         VALUES(SEQ_CONSULTING_CASE.nextval, #{memberId},#{faqTitle},#{faqContent},LOCALTIMESTAMP,LOCALTIMESTAMP)
     </insert>
 </mapper>

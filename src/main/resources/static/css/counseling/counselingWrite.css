@@ -492,6 +492,7 @@ textarea:focus {
 }
 
 .Compose-Form-Button-Wrapper {
+    padding-top: 125px;
     right: calc(50vw - 550px);
     height: 72px;
     align-items: center;

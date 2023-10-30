@@ -10,4 +10,7 @@ public class ConsultToSolutionDTO {
     private String fieldTitle;
     //    해결사례 제목
     private String solutionCaseTitle;
+//    해결사례 id
+    private Long solutionCaseId;
+
 }
