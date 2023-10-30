@@ -54,8 +54,7 @@ public class LawyerWriteController {
         legalGuideVO.setLegalGuideContent(legalGuideContent);
         legalGuideVO.setFieldId(fieldId);
         lawyerWriteService.saveLegalGuide(legalGuideVO);
-        // 법률가이드 상세페이지 컨트롤러 완성 전까지는 메인페이지로 이동하도록 하겠습니다.
-        return new RedirectView("/");
+        return new RedirectView("/legal-guide-page/legal-guide");
     }
 
     @GetMapping("lawyer-write-sc")
@@ -113,7 +112,6 @@ public class LawyerWriteController {
                 lawyerWriteService.saveSolutionCaseImg(solutionCaseImgVO);
             }
         }
-        // 해결사례 상세페이지 컨트롤러 완성 전까지는 메인페이지로 이동하도록 하겠습니다.
-        return new RedirectView("/");
+        return new RedirectView("/solution-case-page/solution-case");
     }
 }

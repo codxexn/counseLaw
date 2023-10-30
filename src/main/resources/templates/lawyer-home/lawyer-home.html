@@ -178,7 +178,10 @@
                             <div class="header">
                                 <div class="title">법률가이드</div>
                                 <div th:text="${lgCount}" class="count"></div>
-                                <a th:href="'/mypage-lawyer/my-legal-guide?lawyerId=' + ${selectedLawyer.lawyerId}" class="goto">
+                                <a th:if="${lgCount == 0}" style="cursor: auto;" class="goto">
+                                    <img class="gotoArrow" src="/image/lawyerHome/arrow.png" alt="화살표">
+                                </a>
+                                <a th:if="${lgCount > 0}" th:href="'/mypage-lawyer/my-legal-guide?lawyerId=' + ${selectedLawyer.lawyerId}" class="goto">
                                     <img class="gotoArrow" src="/image/lawyerHome/arrow.png" alt="화살표">
                                 </a>
                             </div>
@@ -345,7 +348,7 @@
                         <div class="LawyerPictureCard-module_body__ovTxk">
                             <div class="LawyerPictureCard-module_carouselWrapper__JDfOy">
                                 <div class="LawyerPictureCard-module_carouselInner__jRoGT">
-                                    <img th:src="${profilePath == null ? '/image/lawyerHome/profile.png' : profilePath}" class="LawyerPictureCard-module_carouselImage__2MQfY LawyerPictureCard-module_visible__SGhfg" alt="1 번째 한동석 변호사 이미지">
+                                    <img th:src="${profilePath == null ? '/image/lawyerHome/profile.jpg' : profilePath}" class="LawyerPictureCard-module_carouselImage__2MQfY LawyerPictureCard-module_visible__SGhfg" alt="1 번째 한동석 변호사 이미지">
                                 </div>
                             </div>
                         </div>
