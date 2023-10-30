@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
@@ -74,5 +75,20 @@ public class ConsultingCaseDAO {
 //    관심글 저장
     public void storeFavoriteCase(MyFavoriteConsultDTO myFavoriteConsultDTO){
         consultingCaseMapper.storeFavoritePosts(myFavoriteConsultDTO);
+    }
+
+//    관심글 여부 확인
+    public Optional<MyFavoriteConsultDTO> readMyFavorite(Long memberId, Long consultingCaseId){
+        return consultingCaseMapper.checkMyFavoritePosts(memberId, consultingCaseId);
+    }
+
+//    관심글 해제
+    public void deleteFavoritePosts(Long memberId, Long ConsultingCaseId){
+        consultingCaseMapper.deleteMyFavoritePosts(memberId, ConsultingCaseId);
+    }
+
+    //  관심글에 넣을 내용 조회
+    public MyFavoriteConsultDTO readMyFavoriteCase(Long consultingCaseId){
+        return consultingCaseMapper.readFavoritePosts(consultingCaseId);
     }
 }

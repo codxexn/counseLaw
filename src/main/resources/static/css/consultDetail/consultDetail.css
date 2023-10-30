@@ -2065,7 +2065,7 @@ slick[속성스타일]{
     visibility: visible;
 }
 
-.hammer, .share, .empty, .full{
+.hammer, .share, .empty, .full, .heartImg{
     width: 15px;
     height: 15px;
 }

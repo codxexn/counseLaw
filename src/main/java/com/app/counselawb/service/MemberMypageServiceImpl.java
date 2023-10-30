@@ -47,4 +47,9 @@ public class MemberMypageServiceImpl implements MemberMypageService {
     public void discardMyFavoriteLawyer(Long memberId, Long lawyerId) {
         memberMypageDAO.removeMyFavoriteLawyer(memberId, lawyerId);
     }
+
+    @Override
+    public int getCountMyFavoritePosts(Long memberId) {
+        return memberMypageDAO.getCountMyPosts(memberId);
+    }
 }

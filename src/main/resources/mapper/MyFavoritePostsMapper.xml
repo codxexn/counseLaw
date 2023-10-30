@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.counselawb.mapper.MyFavoritePostsMapper">
+    <select id="readMyFavoritePosts" resultType="myFavoriteConsultDTO">
+        SELECT CONSULTING_CASE_ID, CONSULTING_CASE_TITLE, VIEW_COUNT, LAWYER_REPLY_COUNT, FAVORITE_POSTS_ID, MEMBER_ID
+        FROM TBL_FAVORITE_POSTS
+        WHERE MEMBER_ID = #{memberId}
+    </select>
+
+    <select id="selectAllLegalGuideWithDetail" resultType="legalGuideDTO">
+        SELECT *
+        FROM (
+        SELECT LG.LEGAL_GUIDE_ID, LG.LEGAL_GUIDE_TITLE, LG.LEGAL_GUIDE_CONTENT, L.LAWYER_NAME, L.LAWYER_IMAGE, F.FIELD_TITLE
+        FROM TBL_LEGAL_GUIDE LG
+        LEFT JOIN TBL_LAWYER L ON L.LAWYER_ID = LG.LAWYER_ID
+        LEFT JOIN TBL_FIELD F ON F.FIELD_ID = LG.FIELD_ID
+        ORDER BY LG.CREATE_DATE DESC
+        )
+        <![CDATA[
+        WHERE ROWNUM <= 3
+]]>
+    </select>
+</mapper>

@@ -36,5 +36,11 @@
         WHERE MEMBER_ID = #{memberId} AND LAWYER_ID = #{lawyerId}
     </delete>
 
+<!--    관심글 개수 가져오기-->
+    <select id="getCountMyFavoritePosts" resultType="int">
+        SELECT COUNT(FAVORITE_POSTS_ID)
+        FROM TBL_FAVORITE_POSTS
+        WHERE MEMBER_ID = #{memberId}
+    </select>
 
 </mapper>

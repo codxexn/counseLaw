@@ -40,4 +40,9 @@ public class MemberMypageDAO {
     public void removeMyFavoriteLawyer(Long memberId, Long lawyerId){
         memberMypageMapper.deleteMyFavoriteLawyer(memberId, lawyerId);
     }
+
+    //    내가 하트 누른 글 개수
+    public int getCountMyPosts(Long memberId){
+        return memberMypageMapper.getCountMyFavoritePosts(memberId);
+    }
 }

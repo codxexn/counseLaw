@@ -87,7 +87,7 @@
     </select>
 
 <!--    해결사례에 넣을 내용-->
-    <select id="readSolutionCase" resultType="consulttoSolutionDTO">
+    <select id="readSolutionCase" resultType="consultToSolutionDTO">
         SELECT F.FIELD_TITLE, SC.SOLUTION_CASE_TITLE
         FROM TBL_FIELD F
                  LEFT JOIN TBL_SOLUTION_CASE SC ON F.FIELD_ID = SC.LAWYER_ID
@@ -101,4 +101,39 @@
         INSERT INTO TBL_FAVORITE_POSTS(CONSULTING_CASE_ID, CONSULTING_CASE_TITLE, VIEW_COUNT, LAWYER_REPLY_COUNT, FAVORITE_POSTS_ID,MEMBER_ID)
         VALUES (#{consultingCaseId},#{consultingCaseTitle},#{viewCount},#{lawyerReplyCount},SEQ_FAVORITE_POSTS.nextval,#{memberId})
     </insert>
+
+    <!-- 관심글로 되어있는지 확인-->
+    <select id="checkMyFavoritePosts" resultType="myFavoriteConsultDTO">
+        SELECT CONSULTING_CASE_ID, CONSULTING_CASE_TITLE, VIEW_COUNT, LAWYER_REPLY_COUNT, FAVORITE_POSTS_ID, MEMBER_ID
+        FROM TBL_FAVORITE_POSTS
+        WHERE MEMBER_ID=#{memberId} AND CONSULTING_CASE_ID=#{consultingCaseId}
+    </select>
+
+<!--    관심글 해제-->
+    <delete id="deleteMyFavoritePosts">
+        DELETE FROM TBL_FAVORITE_POSTS
+        WHERE MEMBER_ID=#{memberId} AND CONSULTING_CASE_ID=#{consultingCaseId}
+    </delete>
+
+<!--    MyfavoriteConsultDTO에 넣을 내용 조회-->
+    <select id="readFavoritePosts" resultType="myFavoriteConsultDTO">
+        SELECT
+            CC.CONSULTING_CASE_ID,
+
+            CC.MEMBER_ID,
+            CC.CASE_TITLE AS CONSULTING_CASE_TITLE,
+            (
+                SELECT CASE_COUNT
+                FROM TBL_CONSULTING_CASE
+                WHERE CONSULTING_CASE_ID=#{consultingCaseId}
+            ) AS VIEW_COUNT,
+            (
+                SELECT COUNT(*)
+                FROM TBL_CONSULTING_CASE_REPLY CCR
+                         JOIN TBL_LAWYER L ON CCR.LAWYER_ID = L.LAWYER_ID
+                WHERE CCR.CONSULTING_CASE_ID = CC.CONSULTING_CASE_ID
+            ) AS LAWYER_REPLY_COUNT
+        FROM TBL_CONSULTING_CASE CC
+        WHERE CC.CONSULTING_CASE_ID = #{consultingCaseId}
+    </select>
 </mapper>
