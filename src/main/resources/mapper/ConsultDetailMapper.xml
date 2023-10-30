@@ -88,12 +88,13 @@
 
 <!--    해결사례에 넣을 내용-->
     <select id="readSolutionCase" resultType="consultToSolutionDTO">
-        SELECT F.FIELD_TITLE, SC.SOLUTION_CASE_TITLE
+        SELECT F.FIELD_TITLE, SC.SOLUTION_CASE_TITLE, SC.SOLUTION_CASE_ID
         FROM TBL_FIELD F
                  LEFT JOIN TBL_SOLUTION_CASE SC ON F.FIELD_ID = SC.LAWYER_ID
         <![CDATA[
         WHERE ROWNUM <=3
                   ]]>
+        ORDER BY F.FIELD_TITLE
     </select>
 
     <!--    관심글로 저장하기 -->
