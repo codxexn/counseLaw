@@ -6,6 +6,7 @@
     <title>해결사례 페이지</title>
     <link rel="stylesheet" href="/css/solutionCasePage/solutionCase.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/lawyer-my-posts/my-solution-case.css">
     <th:block th:replace="~{fix/header :: my-header-head}"></th:block>
     <th:block th:replace="~{fix/footer :: my-footer-head}"></th:block>
 </head>
@@ -33,91 +34,11 @@
                             <div class="posts-Section">
                                 <div class="posts-Section-Body">
                                     <div class="posts-Section-Menu">
-<!--                                        <div class="select-Menu">-->
-<!--                                            <div class="select-Btn">-->
-<!--                                                <span class="sBtn-Text">모든 분야</span>-->
-<!--                                                <i class="bx bx-chevron-down"></i>-->
-<!--                                            </div>-->
-
-<!--                                            <ul class="options">-->
-<!--                                                <li class="option">-->
-<!--                                                    <span class="option-Text">모든 분야</span>-->
-<!--                                                </li>-->
-<!--                                                <li class="option">-->
-<!--                                                    <span class="option-Text">성범죄</span>-->
-<!--                                                </li>-->
-<!--                                                <li class="option">-->
-<!--                                                    <span class="option-Text">재산범죄</span>-->
-<!--                                                </li>-->
-<!--                                                <li class="option">-->
-<!--                                                    <span class="option-Text">교통사고/범죄</span>-->
-<!--                                                </li>-->
-<!--                                                <li class="option">-->
-<!--                                                    <span class="option-Text">형사절차</span>-->
-<!--                                                </li>-->
-<!--                                                <li class="option">-->
-<!--                                                    <span class="option-Text">폭행/협박</span>-->
-<!--                                                </li>-->
-<!--                                                <li class="option">-->
-<!--                                                    <span class="option-Text">명예훼손/모욕</span>-->
-<!--                                                </li>-->
-<!--                                                <li class="option">-->
-<!--                                                    <span class="option-Text">기타 형사범죄</span>-->
-<!--                                                </li>-->
-<!--                                                <li class="option">-->
-<!--                                                    <span class="option-Text">부동산/임대차</span>-->
-<!--                                                </li>-->
-<!--                                                <li class="option">-->
-<!--                                                    <span class="option-Text">금전/계약 문제</span>-->
-<!--                                                </li>-->
-<!--                                                <li class="option">-->
-<!--                                                    <span class="option-Text">민사절차</span>-->
-<!--                                                </li>-->
-<!--                                                <li class="option">-->
-<!--                                                    <span class="option-Text">기타 민사문제</span>-->
-<!--                                                </li>-->
-<!--                                                <li class="option">-->
-<!--                                                    <span class="option-Text">가족</span>-->
-<!--                                                </li>-->
-<!--                                                <li class="option">-->
-<!--                                                    <span class="option-Text">회사</span>-->
-<!--                                                </li>-->
-<!--                                                <li class="option">-->
-<!--                                                    <span class="option-Text">의료/세금/행정</span>-->
-<!--                                                </li>-->
-<!--                                                <li class="option">-->
-<!--                                                    <span class="option-Text">IT/지식재산/금융</span>-->
-<!--                                                </li>-->
-<!--                                            </ul>-->
-<!--                                        </div>-->
-                                        <!-- <div class="select-Wrapper">
-                                            <div class="select-Menu">
-                                                <select id="name" class="down">
-                                                    <option value="모든 분야">모든 분야</option>
-                                                    <option value="성범죄">성범죄</option>
-                                                    <option value="재산범죄">재산범죄</option>
-                                                    <option value="교통사고/범죄">교통사고/범죄</option>
-                                                    <option value="형사절차">형사절차</option>
-                                                    <option value="폭행/협박">폭행/협박</option>
-                                                    <option value="명예훼손/모욕">명예훼손/모욕</option>
-                                                    <option value="기타 형사범죄">기타 형사범죄</option>
-                                                    <option value="부동산/임대차">부동산/임대차</option>
-                                                    <option value="금전/계약 문제">금전/계약 문제</option>
-                                                    <option value="민사절차">민사절차</option>
-                                                    <option value="기타 민사문제">기타 민사문제</option>
-                                                    <option value="가족">가족</option>
-                                                    <option value="회사">회사</option>
-                                                    <option value="의료/세금/행정">의료/세금/행정</option>
-                                                    <option value="IT/지식재산/금융">IT/지식재산/금융</option>
-                                                </select>
-                                            </div>
-                                        </div> -->
-
                                         <ul class="sort-Options">
                                             <li class="sort-Options-Btn active">최신순</li>
                                         </ul>
                                     </div>
-                                    <div class="posts-Selection-Load-Section" style="position: relative;">
+                                    <div class="posts-Selection-Load-Section" style="position: relative; display: grid; grid-template-columns: repeat(2, 1fr)">
                                         <section class="card-List-Section" th:each="solutionCase : ${solutionCases}">
                                             <div class="card-List-Section-Card-Wrapper">
                                                 <div>
@@ -142,35 +63,6 @@
                                                                             <i class="lc lc-Judge"></i>
                                                                         </span>
                                                                 <span class="solution-Card-Sentence-Result-Text" th:text="${solutionCase.sentenceResult}">상고기각</span>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="card-List-Section-Post-Card-Line"></div>
-                                            </div>
-                                            <div class="card-List-Section-Card-Wrapper">
-                                                <div>
-                                                    <a class="solution-Card-Link" th:href="'/solution-case-page/solution-case2?solutionCaseId=' + ${solutionCase.solutionCaseId}">
-                                                        <div class="solution-Card-Wrapper">
-                                                            <div class="solution-Card-Lawyer-Info">
-                                                                <div class="solution-Card-Lawyer-Thumb">
-                                                                    <img class="photo" th:src="${solutionCase.lawyerImage == null ? '/image/defaultLawyerProfile/defaultLawyerProfile.png' : solutionCase.lawyerImage}">
-                                                                </div>
-                                                                <div class="solution-Card-Lawyer-Name" th:text="${solutionCase.lawyerName} + ' 변호사' ">
-                                                                    오인철 변호사
-                                                                </div>
-                                                            </div>
-                                                            <div class="solution-Card-Title" th:text="${solutionCase.solutionCaseTitle}">
-                                                                부산 소재 지역주택조합 추진위원회 상대 납입금 반환소송 성공!
-                                                            </div>
-                                                            <div class="solution-Card-Content" th:text="${solutionCase.solutionCaseContent}">
-                                                                저를 찾아오신 의뢰인께서는 부산 일원을 사업 부지로 하여 주택법에 따른 아파트 건설·공급사업을 시행하는 지역주택조합을 설립하기 위하여 구성된 비법인사단인 피고 지역주택조합 추진위원회와 가입계약을 체결하시고, '사업 인·허가를 득하지 못하거나, 신축사업이 무산될 경우 / 사업승인 이후에 실시하는 동·호수 추첨결과에 대해 조합원의 변심이 생길 경우, 조합원이 납부한 계약금(업무추진비 포함) 전액을 환불할 것을 확약합니다.'라는 환불보장 내용이 기재된 안심보장확약서까지 교부하는 해당 지역주택조합사업이 순조롭게 진행될 거라고 믿은 채, 조합원 분담금 등의 명목으로 55,000,000원의 금원을 피고에게 지급하셨습니다.​​그러나, 가입 후 피고 지역주택조합 추진위원회의 사업이 계획대로 진행되지 않자, ​의뢰인은 정식 민사소송을 통하여 조합과 체결한 계약을 취소한 후 기 납입한 금원의 반환을 원하셨습니다.의뢰인의 사건을 수임한 저는,​​피고 지역주택조합 추진위원회 측은, 이 사건 조합가입계약 체결 당시 의뢰인에게 안심보장확약서를 교부하면서 이 사건 사업의 인허가를 얻지 못하거나 신축사업이 무산될 경우 또는 조합원이 추첨이 된 동·호수에 불만을 가질 경우 이 사건 분담금을 환불하여 주는 내용의 약정을 하였는데, 이러한 약정은 총유물인 조합원 분담금의 처분행위에 해당함에도 이에 요구되는 총회 의결을 거치지 않아 무효에 불과하였습니다.​그럼에도 불구하고 피고는 이 사건 안심보장증서를 의뢰인에게 교부하여, 의뢰인이 이를 유효하다고 믿고 이 사건 가입계약을 체결하도록 하였는데, 이는 조합원가입계약 체결과 관련된 착오에 해당하였습니다.​일반적으로 지역주택조합사업은 그 특성상 장래의 진행 경과를 예측하기 어렵고 사업이 지연되거나 무산될 가능성도 높다는 점에서 의뢰인과 같이 지역주택조합에 가입하려는 사람들에게 조합 임의탈퇴 가부 및 납부한 조합원 분담금의 전액 회수 가능성은 가입 여부를 결정하는 데 매우 중요한 고려 요소가 되기에, 이 사건 조합원가입계약 체결 당시 의뢰인이 이 사건 안심보장확약서의 효력에 대한 착오가 없었더라면 이 사건 조합원가입계약을 체결하지 않거나 적어도 그와 같은 내용 또는 조건으로 계약을 체결하지 않았을 것이므로, 이러한 의뢰인의 착오는 이 사건 조합원가입계약의 중요 부분에 관한 착오라고 판단하였습니다.​​​따라서 의뢰인은 착오를 원인으로 이 사건 조합원가입계약을 취소할 수 있음을 적극 주장하여,​결국, 재판부는 이러한 저의 주장을 받아들였고, 피고는 의뢰인에게 기지급 받은 금원 및 이에 대한 지연손해금을 지급하라는 내용의 판결을 이끌어 내었습니다.지역주택조합 가입계약자들은 정식 민사소송을 제기하여 지역주택조합 가입계약의 취소 및 탈퇴를 주장할 수 있고, 이를 통해서 기지급한 계약금 등 납입금을 반환 받으실 수 있습니다.지역주택조합 변호사의 도움이 필요하시다면 제게 연락주시기 바라며, 언제든 문의주시면 분담금 반환을 도와드리겠습니다.
-                                                            </div>
-                                                            <div class="solution-Card-Sentence-Result">
-                                                                        <span class="solution-Card-Sentence-Result-Icon">
-                                                                            <i class="lc lc-Judge"></i>
-                                                                        </span>
-                                                                <span class="solution-Card-Sentence-Result-Text" th:text="${solutionCase.sentenceResult}">승소</span>
                                                             </div>
                                                         </div>
                                                     </a>

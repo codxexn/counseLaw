@@ -102,59 +102,7 @@
                                         <div class="select-Menu">
                                             <div class="select-Btn">
                                                 <span class="sBtn-Text">모든 분야</span>
-                                                <i class="bx bx-chevron-down"></i>
                                             </div>
-
-                                            <ul class="options">
-                                                <li class="option">
-                                                    <span class="option-Text">모든 분야</span>
-                                                </li>
-                                                <li class="option">
-                                                    <span class="option-Text">성범죄</span>
-                                                </li>
-                                                <li class="option">
-                                                    <span class="option-Text">재산범죄</span>
-                                                </li>
-                                                <li class="option">
-                                                    <span class="option-Text">교통사고/범죄</span>
-                                                </li>
-                                                <li class="option">
-                                                    <span class="option-Text">형사절차</span>
-                                                </li>
-                                                <li class="option">
-                                                    <span class="option-Text">폭행/협박</span>
-                                                </li>
-                                                <li class="option">
-                                                    <span class="option-Text">명예훼손/모욕</span>
-                                                </li>
-                                                <li class="option">
-                                                    <span class="option-Text">기타 형사범죄</span>
-                                                </li>
-                                                <li class="option">
-                                                    <span class="option-Text">부동산/임대차</span>
-                                                </li>
-                                                <li class="option">
-                                                    <span class="option-Text">금전/계약 문제</span>
-                                                </li>
-                                                <li class="option">
-                                                    <span class="option-Text">민사절차</span>
-                                                </li>
-                                                <li class="option">
-                                                    <span class="option-Text">기타 민사문제</span>
-                                                </li>
-                                                <li class="option">
-                                                    <span class="option-Text">가족</span>
-                                                </li>
-                                                <li class="option">
-                                                    <span class="option-Text">회사</span>
-                                                </li>
-                                                <li class="option">
-                                                    <span class="option-Text">의료/세금/행정</span>
-                                                </li>
-                                                <li class="option">
-                                                    <span class="option-Text">IT/지식재산/금융</span>
-                                                </li>
-                                            </ul>
                                         </div>
                                         <ul class="sort-Options">
                                             <li class="sort-Options-Btn active">최신순</li>
@@ -162,7 +110,7 @@
                                     </div>
                                     <div
                                             class="guides-Section-Load-Section"
-                                            style="position: relative"
+                                            style="position: relative; display: grid; grid-template-columns: repeat(2, 1fr);"
                                     >
                                         <section class="card-List-Section" th:each="legalGuide : ${legalGuideWithDetail}">
                                             <div class="card-List-Section-Card-Wrapper">
@@ -207,48 +155,7 @@
                                                 </div>
                                                 <div class="card-List-Section-Card-Line"></div>
                                             </div>
-                                            <div class="card-List-Section-Card-Wrapper">
-                                                <div>
-                                                    <!-- 변호사 상세정보  -->
-                                                    <a th:href="'/legal-guide-page/legal-guide2?legalGuideId=' + ${legalGuide.legalGuideId}" class="guide-Card-Link">
-                                                    <div class="guide-Card-Wrapper">
-                                                            <h5 class="guide-Card-Keywords">
-                                    <span class="guide-Card-Keyword">
 
-                                    </span>
-                                                                <span class="guide-Card-Keyword" th:text="${legalGuide.fieldTitle}">
-                                      손해배상
-                                    </span>
-                                                            </h5>
-                                                            <div class="guide-Card-Title" th:text="${legalGuide.legalGuideTitle}">
-                                                                제목제목
-                                                            </div>
-                                                            <div class="guide-Card-Content" th:text="${legalGuide.legalGuideContent}">
-                                                                내용내용
-                                                            </div>
-                                                            <div class="guide-Card-Lawyer-Info">
-                                                                <div class="guide-Card-Lawyer-Thumb">
-                                                                    <img
-                                                                            class="photo"
-                                                                            th:src="${legalGuide.lawyerImage == null ? '/image/defaultLawyerProfile/defaultLawyerProfile.png' : legalGuide.lawyerImage}"
-                                                                    />
-                                                                </div>
-                                                                <div class="guide-Card-Lawyer-Title-Name">
-                                      <span
-                                              class="guide-Card-Lawyer-Title-Name-Bold"
-                                      >
-                                        By
-                                      </span>
-                                                                    <span th:text="${legalGuide.lawyerName} + ' 변호사' ">
-                                                                    정진권 변호사
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="card-List-Section-Card-Line"></div>
-                                            </div>
                                         </section>
                                     </div>
                                 </div>
