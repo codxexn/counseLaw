@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -83,5 +84,18 @@ public class ConsultingCaseServiceImpl implements ConsultingCaseService {
         consultingCaseDAO.storeFavoriteCase(myFavoriteConsultDTO);
     }
 
+    @Override
+    public Optional<MyFavoriteConsultDTO> readMyFavorite(Long memberId, Long consultingCaseId) {
+        return consultingCaseDAO.readMyFavorite(memberId, consultingCaseId);
+    }
 
+    @Override
+    public void deleteFavorite(Long memberId, Long consultingCaseId) {
+        consultingCaseDAO.deleteFavoritePosts(memberId, consultingCaseId);
+    }
+
+    @Override
+    public MyFavoriteConsultDTO readFavoriteCases(Long consultingCaseId) {
+        return consultingCaseDAO.readMyFavoriteCase(consultingCaseId);
+    }
 }

@@ -28,11 +28,10 @@
                     <div class="qnaArticle controller">
                         <question question="question" expanded="true" get-qna-common-params="getQnaCommonParams()"
                             th:each="consultDetail:${consultDetail}">
-                            <input type="hidden" th:value="${session.member.memberId}" th:name="memberId">
-                            <div class="question directive qnaDetailPage expanded">
-                                <h1 class="questionTitle daumWmTitle" th:text="${consultDetail.caseTitle}"></h1>
-                                <p class="questionBody daumWmContent" th:text="${consultDetail.caseContent}">
-                                </p>
+                                <div class="question directive qnaDetailPage expanded">
+                                    <h1 class="questionTitle daumWmTitle" th:text="${consultDetail.caseTitle}"></h1>
+                                    <p class="questionBody daumWmContent" th:text="${consultDetail.caseContent}">
+                                    </p>
                                 <div class="questionInfoWrap">
                                     <span class="questionCreatedAt" th:text="${#temporals.format(consultDetail.createDate,'yyyy년 MM월 dd일 HH시 mm분')} + '에 상담 작성'">1시간 전 작성됨</span>
                                     <span class="viewCount" th:text="'조회수 ' + ${viewCount}">
@@ -43,18 +42,13 @@
                                     <div class="questionUtilsDivideLine ltMobile"></div>
                                     <!--관심글-->
                                     <div class="questionUtilsButton">
-                                        <button  class="ButtonWish" width="24px" height="24px">
-                                            <img class="empty" src="/image/consultDetail/emptyHeart.png" alt="관심x">
-                                            <img class="full" src="/image/consultDetail/fullHeart.png" alt="관심o">
-                                        </button>
-                                        <button id="favoriteButton" class="ButtonWish" onclick="toggleImg()"
-                                                th:attr="data-case-title=${consultDetail.caseTitle},
-                                        data-case-id=${consultDetail.consultingCaseId},
-                                        data-view-count=${viewCount},
-                                        data-lawyer-reply=${totalCount}">
-<!--                                            data-create-date=${consultDetail.createDate},-->
-                                            <span class="questionUtilsButtonText">관심글</span>
-                                        </button>
+<!--                                        <button class="ButtonWish" width="24px" height="24px">-->
+<!--                                        </button>-->
+                                        <img th:if="${session != null}" class="heartImg" th:src="${ifChecked.equals('true') ? '/image/consultDetail/fullHeart.png' : '/image/consultDetail/emptyHeart.png'}"
+                                        alt="하트">
+                                        <input th:if="${session.member != null}" type="hidden" th:name="memberId" th:value="${session.member.memberId}">
+                                        <input type="hidden" th:name="consultId" th:value="${consultDetail.consultingCaseId}">
+                                        <span class="questionUtilsButtonText">관심글</span>
                                     </div>
                                     <!--공유하기-->
                                     <div class="questionUtilsButton" id="shareButton">

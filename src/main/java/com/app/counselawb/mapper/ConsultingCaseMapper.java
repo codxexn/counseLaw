@@ -7,6 +7,7 @@ import com.app.counselawb.domain.vo.LawyerVO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
+import java.util.Optional;
 
 @Mapper
 public interface ConsultingCaseMapper {
@@ -47,4 +48,12 @@ public interface ConsultingCaseMapper {
 //    관심글 저장
     public void storeFavoritePosts(MyFavoriteConsultDTO myFavoriteConsultDTO);
 
+//    관심글 여부 확인
+    public Optional<MyFavoriteConsultDTO> checkMyFavoritePosts(Long memberId, Long consultingCaseId);
+
+//    관심글 해제
+    public void deleteMyFavoritePosts(Long memberId, Long consultingCaseId);
+
+//  관심글에 넣을 내용 조회
+    public MyFavoriteConsultDTO readFavoritePosts(Long consultingCaseId);
 }

@@ -23,4 +23,7 @@ public interface MemberMypageService {
 
     // 즐찾 해제하기
     public void discardMyFavoriteLawyer(Long memberId, Long lawyerId);
+
+//    내가 하트 누른 글 개수
+    public int getCountMyFavoritePosts(Long memberId);
 }

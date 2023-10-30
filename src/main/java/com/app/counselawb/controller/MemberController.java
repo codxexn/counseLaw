@@ -125,8 +125,10 @@ public class MemberController {
             MemberVO currentMember = (MemberVO)session.getAttribute("member");
             List<CouponVO> myCoupons = reservationService.findMyCoupons(currentMember.getMemberId());
             int numberOfFavoriteLawyers = memberMypageService.getCountMyFavoriteLawyers(currentMember.getMemberId());
+            int numberOfFavoritePosts = memberMypageService.getCountMyFavoritePosts(currentMember.getMemberId());
             model.addAttribute("currentMember", currentMember);
             model.addAttribute("myCouponList", myCoupons);
+            model.addAttribute("numberOfFavoritePosts", numberOfFavoritePosts);
             model.addAttribute("numberOfFavoriteLawyers", numberOfFavoriteLawyers);
             return "/mypage/mypage";
         } else {

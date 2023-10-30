@@ -74,63 +74,96 @@ function copyToClipboard(index) {
     alert('링크가 복사되었습니다: ' + shareLinks[index].value);
 }
 
+//
+// // 관심 버튼을 누를시 서버로 관련 정보가 넘어가도록 하는 JS
+// function toggleImg() {
+//     const button = document.getElementById('favoriteButton');
+//     const caseTitle = button.getAttribute('data-case-title');
+//     // const createDate = button.getAttribute('data-create-date');
+//     const viewCount = button.getAttribute('data-view-count');
+//     const lawyerReplyCount = button.getAttribute('data-lawyer-reply');
+//     const caseId = button.getAttribute('data-case-id');
+//     const memberIdInput = document.querySelector('input[name="memberId"]');
+//     const memberId = memberIdInput.value;
+//     const consultId=button.getAttribute('data-case-id');
+//     const url = `/consult-detail/consult-detail/${consultId}`;
+//
+//     console.log("caseTitle:", caseTitle);
+//     // console.log("createDate:", createDate);
+//     console.log("viewCount:", viewCount);
+//     console.log("lawyerReplyCount:", lawyerReplyCount);
+//     console.log("caseId:", caseId);
+//     console.log("memberId:", memberId);
+//
+//     // Ajax 요청을 통해 데이터를 서버로 전송
+//     $.ajax({
+//         url: url, // 저장용 URL로 변경해야 함
+//         type: 'POST',
+//         data: { caseTitle: caseTitle,
+//                 viewCount:viewCount, lawyerReplyCount:lawyerReplyCount
+//         , caseId:caseId, memberId:memberId},
+//
+//         success: function(response) {
+//             // 요청이 성공하면 수행할 작업 추가
+//             // 예: 버튼 이미지 업데이트, 알림 메시지 등
+//             console.log("hey caseTitle:", caseTitle);
+//             // console.log("createDate:", createDate);
+//             console.log("hey viewCount:", viewCount);
+//             console.log("hey lawyerReplyCount:", lawyerReplyCount);
+//             console.log("hey caseId:", caseId);
+//             console.log("hey memberId:", memberId);
+//         }
+//     });
+// }
 
-const heartButtonContainer = document.querySelectorAll(".questionUtilsButton");
+const heartImage=document.querySelector('.heartImg');
+let memberId;
+let url;
+let consultId;
+if(heartImage != null){
+    heartImage.addEventListener("click",(e)=>{
+        memberId = document.querySelector("input[name=memberId]").value;
+        consultId = document.querySelector("input[name=consultId]").value;
+        console.log(memberId);
+        console.log(consultId);
+        if(e.target.src.includes("fullHeart.png")){
+            url="/consult-detail/delete?memberId="+memberId + "&consultingCaseId="+consultId;
+            fetch(url)
+                .then(response=>response.text())
+                .then(data => {
+                    if (data==="fail"){
+                        alert("서버 오류 발생");
+                        return;
+                    } else if(data==="success"){
+                        alert("관심목록에서 해제");}
+                    else {
+                        alert("알 수 없는 오류 발생");
+                        return;
+                    }
 
+                }).catch((error)=>{
+                    console.log("오류 발생 :" +error);
+            })
+            e.target.src="/image/consultDetail/emptyHeart.png";
+        }else {
+            url="/consult-detail/like?memberId="+memberId + "&consultingCaseId="+consultId;
+            fetch(url)
+                .then(response=>response.text())
+                .then(data => {
+                    if (data==="fail"){
+                        alert("이미 하트누른 관심글");
+                        return;
+                    } else if(data==="success"){
+                        alert("관심글로 설정 완료");}
+                    else {
+                        alert("알 수 없는 오류가 발생했습니다. 다시 시도해주세요.");
+                        return;
+                    }
 
-heartButtonContainer.forEach((container) => {
-    let firstImg = container.firstElementChild.children[0];
-    let secondImg = container.firstElementChild.children[1];
-
-    firstImg.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.target.style.display = "none";
-        secondImg.style.display = "block";
-    });
-    secondImg.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.target.style.display = "none";
-        firstImg.style.display = "block";
-    });
-});
-
-// 관심 버튼을 누를시 서버로 관련 정보가 넘어가도록 하는 JS
-function toggleImg() {
-    const button = document.getElementById('favoriteButton');
-    const caseTitle = button.getAttribute('data-case-title');
-    // const createDate = button.getAttribute('data-create-date');
-    const viewCount = button.getAttribute('data-view-count');
-    const lawyerReplyCount = button.getAttribute('data-lawyer-reply');
-    const caseId = button.getAttribute('data-case-id');
-    const memberIdInput = document.querySelector('input[name="memberId"]');
-    const memberId = memberIdInput.value;
-    const consultId=button.getAttribute('data-case-id');
-    const url = `/consult-detail/consult-detail/${consultId}`;
-
-    console.log("caseTitle:", caseTitle);
-    // console.log("createDate:", createDate);
-    console.log("viewCount:", viewCount);
-    console.log("lawyerReplyCount:", lawyerReplyCount);
-    console.log("caseId:", caseId);
-    console.log("memberId:", memberId);
-
-    // Ajax 요청을 통해 데이터를 서버로 전송
-    $.ajax({
-        url: url, // 저장용 URL로 변경해야 함
-        type: 'POST',
-        data: { caseTitle: caseTitle,
-                viewCount:viewCount, lawyerReplyCount:lawyerReplyCount
-        , caseId:caseId, memberId:memberId},
-
-        success: function(response) {
-            // 요청이 성공하면 수행할 작업 추가
-            // 예: 버튼 이미지 업데이트, 알림 메시지 등
-            console.log("hey caseTitle:", caseTitle);
-            // console.log("createDate:", createDate);
-            console.log("hey viewCount:", viewCount);
-            console.log("hey lawyerReplyCount:", lawyerReplyCount);
-            console.log("hey caseId:", caseId);
-            console.log("hey memberId:", memberId);
+                }).catch((error)=>{
+                console.log("오류 발생 :" +error);
+            })
+            e.target.src="/image/consultDetail/fullHeart.png";
         }
-    });
+    })
 }

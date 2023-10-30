@@ -6,6 +6,7 @@ import com.app.counselawb.domain.vo.ConsultingCaseVO;
 import com.app.counselawb.domain.vo.LawyerVO;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ConsultingCaseService {
 
@@ -44,4 +45,13 @@ public interface ConsultingCaseService {
 
 //    관심글 저장
     public void storeFavoriteCases(MyFavoriteConsultDTO myFavoriteConsultDTO);
+
+//    관심글 여부 확인
+    public Optional<MyFavoriteConsultDTO> readMyFavorite(Long memberId, Long consultingCaseId);
+
+//    관심글 해제
+    public void deleteFavorite(Long memberId, Long consultingCaseId);
+
+    //  관심글에 넣을 내용 조회
+    public MyFavoriteConsultDTO readFavoriteCases(Long consultingCaseId);
 }
