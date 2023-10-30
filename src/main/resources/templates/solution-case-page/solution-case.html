@@ -125,7 +125,7 @@
                                                         <div class="solution-Card-Wrapper">
                                                             <div class="solution-Card-Lawyer-Info">
                                                                 <div class="solution-Card-Lawyer-Thumb">
-                                                                    <img src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/63a29831f84e0d009e15dafe-thumb-1671606277090.jpg" class="photo">
+                                                                    <img class="photo" th:src="${solutionCase.lawyerImage == null ? '/image/defaultLawyerProfile/defaultLawyerProfile.png' : solutionCase.lawyerImage}">
                                                                 </div>
                                                                 <div class="solution-Card-Lawyer-Name" th:text="${solutionCase.lawyerName} + ' 변호사' ">
                                                                     김수민 변호사
@@ -154,7 +154,7 @@
                                                         <div class="solution-Card-Wrapper">
                                                             <div class="solution-Card-Lawyer-Info">
                                                                 <div class="solution-Card-Lawyer-Thumb">
-                                                                    <img class="photo" src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/57ce377f7cb5473887388ec4-thumb.jpg">
+                                                                    <img class="photo" th:src="${solutionCase.lawyerImage == null ? '/image/defaultLawyerProfile/defaultLawyerProfile.png' : solutionCase.lawyerImage}">
                                                                 </div>
                                                                 <div class="solution-Card-Lawyer-Name" th:text="${solutionCase.lawyerName} + ' 변호사' ">
                                                                     오인철 변호사

@@ -43,11 +43,12 @@
                 <section>
                     <div class="not-Counselaw">
                         <div class="lawyer-Profile directive">
-                            <a href="" class="lawyer-Thumb">
-                                <img alt="정진권 변호사" src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/643a5d1499469302f7f31c1d-thumb-1681698529610.jpg">
+                            <a class="lawyer-Thumb" th:href="'/lawyer-home/lawyer-home?lawyerId=' + ${legalGuide.lawyerId}">
+                                <img th:src="${legalGuide.lawyerImage == null ? '/image/defaultLawyerProfile/defaultLawyerProfile.png' : legalGuide.lawyerImage}">
                             </a>
                             <div class="profile-Right">
-                                <a href="" class="advice-Reserve-Btn">
+                                <a class="advice-Reserve-Btn" th:href="'/lawyer-home/lawyer-home?lawyerId=' + ${legalGuide.lawyerId}">
+
                                     <i class="reservation lt-Desktop">변호사 전화상담 예약</i>
                                 </a>
                             </div>
@@ -258,11 +259,11 @@
                     </div>
                     <div class="not-Counselaw">
                         <div class="lawyer-Profile directive">
-                            <a href="" class="lawyer-Thumb">
-                                <img alt="정진권 변호사" src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/643a5d1499469302f7f31c1d-thumb-1681698529610.jpg">
+                            <a class="lawyer-Thumb" th:href="'/lawyer-home/lawyer-home?lawyerId=' + ${legalGuide.lawyerId}">
+                                <img th:src="${legalGuide.lawyerImage == null ? '/image/defaultLawyerProfile/defaultLawyerProfile.png' : legalGuide.lawyerImage}">
                             </a>
                             <div class="profile-Right">
-                                <a href="" class="advice-Reserve-Btn">
+                                <a class="advice-Reserve-Btn" th:href="'/lawyer-home/lawyer-home?lawyerId=' + ${legalGuide.lawyerId}">
                                     <i class="reservation lt-Desktop">변호사 전화상담 예약</i>
                                 </a>
                             </div>

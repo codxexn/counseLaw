@@ -44,7 +44,7 @@
                                                             </div>
                                                             <div class="guide-Card-Title" th:text="${legalGuide.legalGuideTitle}">제목</div>
                                                             <div class="guide-Card-Lawyer-Info">
-                                                                <div class="guide-Card-Lawyer-Thumb"><img alt=" 썸네일" class="photo" src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/6499476e5fe3fe14ede78d8f-thumb-1687832306495.jpg"></div>
+                                                                <div class="guide-Card-Lawyer-Thumb"><img alt=" 썸네일" class="photo" th:src="${legalGuide.lawyerImage == null ? '/image/defaultLawyerProfile/defaultLawyerProfile.png' : legalGuide.lawyerImage}"></div>
                                                                 <div class="guide-Card-Lawyer-Title-Name">
                                                                     <span class="guide-Card-Lawyer-Title-Name-Bold">By</span>
                                                                     <span th:text="${legalGuide.lawyerName} + ' 변호사' ">김한솔 변호사</span>
@@ -68,7 +68,7 @@
                                                              </div>
                                                              <div class="guide-Card-Title" th:text="${legalGuide.legalGuideTitle}">[형사] 경찰 조사에서 이것만 기억하세요.</div>
                                                              <div class="guide-Card-Lawyer-Info">
-                                                                 <div class="guide-Card-Lawyer-Thumb"><img ng-if="!guide.showLtlogo" alt=" 썸네일" class="photo" src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/62d25a8d47776102e98613d3-thumb-1662534100341.jpg"></div>
+                                                                 <div class="guide-Card-Lawyer-Thumb"><img ng-if="!guide.showLtlogo" alt=" 썸네일" class="photo" th:src="${legalGuide.lawyerImage == null ? '/image/defaultLawyerProfile/defaultLawyerProfile.png' : legalGuide.lawyerImage}"></div>
                                                                  <div class="guide-Card-Lawyer-Title-Name">
                                                                      <span class="guide-Card-Lawyer-Title-Name-Bold">By</span>
                                                                      <span th:text="${legalGuide.lawyerName} + ' 변호사' ">김한솔 변호사</span>
@@ -187,7 +187,7 @@
                                                                 <div class="guide-Card-Lawyer-Thumb">
                                                                     <img
                                                                             class="photo"
-                                                                            src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/643a5d1499469302f7f31c1d-thumb-1681698529610.jpg"
+                                                                            th:src="${legalGuide.lawyerImage == null ? '/image/defaultLawyerProfile/defaultLawyerProfile.png' : legalGuide.lawyerImage}"
                                                                     />
                                                                 </div>
                                                                 <div class="guide-Card-Lawyer-Title-Name">
@@ -230,7 +230,7 @@
                                                                 <div class="guide-Card-Lawyer-Thumb">
                                                                     <img
                                                                             class="photo"
-                                                                            src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/643a5d1499469302f7f31c1d-thumb-1681698529610.jpg"
+                                                                            th:src="${legalGuide.lawyerImage == null ? '/image/defaultLawyerProfile/defaultLawyerProfile.png' : legalGuide.lawyerImage}"
                                                                     />
                                                                 </div>
                                                                 <div class="guide-Card-Lawyer-Title-Name">
