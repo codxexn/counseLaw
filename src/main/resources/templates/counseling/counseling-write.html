@@ -47,7 +47,9 @@
                                             </div>
                                             <div class="Compose-Textarea-Wrapper Title-Textarea">
                                                 <textarea th:field="*{faqTitle}"
-                                                        onclick="onTitleClickShowTip(); onTitleClickShowCount();"  onblur="onTitleBlurHideTip(); onTitleBlurHideCount();" name="title" rows="1" class="Compose-Title-Textarea" placeholder="1개의 질문을 구체적으로 입력해주세요." maxlength="50"></textarea>
+                                                        onclick="onTitleClickShowTip(); onTitleClickShowCount();"  onblur="onTitleBlurHideTip(); onTitleBlurHideCount();" name="title" rows="1" class="Compose-Title-Textarea" placeholder="1개의 질문을 구체적으로 입력해주세요." maxlength="50">
+
+                                                </textarea>
                                                 <div class="Compose-Title-Guide">
                                                     <div class="Compose-Title-Guide-Tipline">
                                                         <div class="Compose-Title-Guide-Tip-Image"></div>
@@ -139,7 +141,7 @@
                                         </div>
                                     </div>
                                     <div class="Compose-Form-Button-Wrapper">
-                                        <button class="Compose-Form-Button"  type="submit">등록하기</button>
+                                        <button class="Compose-Form-Button" type="submit" disabled>등록하기</button>
                                     </div>
                                 </form>
                             </div>
@@ -151,5 +153,5 @@
         <footer th:replace="~{fix/footer :: my-footer}"></footer>
     </div>
 </body>
-<script src="/static/js/counselingWrite.js"></script>
+<script src="/js/counseling/counselingWrite.js"></script>
 </html>

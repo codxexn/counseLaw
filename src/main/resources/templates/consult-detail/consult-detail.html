@@ -218,7 +218,7 @@
                                             </related-case>
                                             <!-- 관련 변호사 해결사례-->
                                             <related-post-case>
-                                                <div class="relatedPostCase" th:each="readSolution:${readSolution}">
+                                                <div class="relatedPostCase" >
                                                     <!-- 관련 변호사 해결사례 제목-->
                                                     <div class="relatedPostCaseHeader">
                                                         <h5 class="relatedPostCaseHeaderTitle">해결사례</h5>
@@ -229,17 +229,19 @@
                                                         </a>
                                                     </div>
                                                     <!-- 관련 변호사 해결사례 내용 반복-->
-                                                    <div class="relatedPostCaseBody">
+                                                    <div class="relatedPostCaseBody" th:each="readSolution:${readSolution}">
                                                         <!-- 관련 변호사 해결사례 내용 반복1-->
                                                         <div class="relatedPostCaseBodyPostItem">
-                                                            <div class="relatedPostCaseBodyPostDivideLine"></div>
-                                                            <div class="relatedPostCaseBodyItemContent">
-                                                                <div class="relatedPostCaseBodyCaseResult">
-                                                                    <img src="/image/consultDetail/hammer.jpg" class="hammer" alt="">
-                                                                    <span class="relatedPostCaseBodyCaseResultText" th:text="${readSolution.fieldTitle}"></span>
+                                                            <a th:href="@{/solution-case-page/solution-case2(solutionCaseId=${readSolution.solutionCaseId})}">
+                                                                <div class="relatedPostCaseBodyPostDivideLine"></div>
+                                                                <div class="relatedPostCaseBodyItemContent">
+                                                                    <div class="relatedPostCaseBodyCaseResult">
+                                                                        <img src="/image/consultDetail/hammer.jpg" class="hammer" alt="">
+                                                                        <span class="relatedPostCaseBodyCaseResultText" th:text="${readSolution.fieldTitle}"></span>
+                                                                    </div>
+                                                                    <div class="relatedPostCaseBodyPostTitle" th:text="${readSolution.solutionCaseTitle}"></div>
                                                                 </div>
-                                                                <div class="relatedPostCaseBodyPostTitle" th:text="${readSolution.solutionCaseTitle}"></div>
-                                                            </div>
+                                                            </a>
                                                         </div>
                                                     </div>
                                                 </div>
