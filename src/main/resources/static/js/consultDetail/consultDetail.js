@@ -132,12 +132,13 @@ if(heartImage != null){
                 .then(response=>response.text())
                 .then(data => {
                     if (data==="fail"){
-                        alert("서버 오류 발생");
+                        // alert("서버 오류 발생");
                         return;
                     } else if(data==="success"){
-                        alert("관심목록에서 해제");}
+                        // alert("관심목록에서 해제");
+                    }
                     else {
-                        alert("알 수 없는 오류 발생");
+                        // alert("알 수 없는 오류 발생");
                         return;
                     }
 
@@ -151,12 +152,13 @@ if(heartImage != null){
                 .then(response=>response.text())
                 .then(data => {
                     if (data==="fail"){
-                        alert("이미 하트누른 관심글");
+                        // alert("이미 하트누른 관심글");
                         return;
                     } else if(data==="success"){
-                        alert("관심글로 설정 완료");}
+                        // alert("관심글로 설정 완료");
+                        }
                     else {
-                        alert("알 수 없는 오류가 발생했습니다. 다시 시도해주세요.");
+                        // alert("알 수 없는 오류가 발생했습니다. 다시 시도해주세요.");
                         return;
                     }
 
