@@ -17,6 +17,6 @@ public interface SolutionCaseMapper {
     public Optional<SolutionCaseDTO> selectDetailSolution(Long solutionCaseId);
 
 //    이미지 가져오기
-    public Optional<SolutionCaseImgVO> selectSolutionImg(Long solutionCaseId);
+    public Optional<SolutionCaseDTO> selectSolutionImg(Long solutionCaseId);
 
 }

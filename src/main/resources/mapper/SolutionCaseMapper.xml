@@ -6,7 +6,7 @@
         SELECT SC.SOLUTION_CASE_ID, SC.SOLUTION_CASE_TITLE, SC.SOLUTION_CASE_CONTENT, SC.SENTENCE_RESULT, L.LAWYER_NAME, L.LAWYER_IMAGE
         FROM TBL_SOLUTION_CASE SC
         LEFT JOIN TBL_LAWYER L ON L.LAWYER_ID = SC.LAWYER_ID
-        ORDER BY SC.CREATE_DATE
+        ORDER BY SC.CREATE_DATE DESC
     </select>
 
     <select id="selectDetailSolution" resultType="solutionCaseDTO">
@@ -17,8 +17,8 @@
         WHERE SC.SOLUTION_CASE_ID = #{solutionCaseId}
     </select>
 
-    <select id="selectSolutionImg" resultType="solutionCaseImgVO">
-        SELECT SOLUTION_CASE_IMG_ID, SOLUTION_CASE_ID, IMG_PATH
+    <select id="selectSolutionImg" resultType="solutionCaseDTO">
+        SELECT SOLUTION_CASE_IMG_ID, SOLUTION_CASE_ID, IMG_PATH, STORED_FILE_NAME
         FROM TBL_SOLUTION_CASE_IMG
         WHERE SOLUTION_CASE_ID = #{solutionCaseId}
     </select>
