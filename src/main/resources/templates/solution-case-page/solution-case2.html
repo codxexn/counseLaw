@@ -60,21 +60,21 @@
                         </div>
                     </div>
                     <div class="html-Content">
-                        <p class="text-paragraph">
+                        <p class="text-paragraph"></p>
                                 <span>
                                     <b th:text="${solutionCaseDetail.solutionCaseContent}">
                                         저를 찾아오신 의뢰인께서는 부산 일원을 사업 부지로 하여 주택법에 따른 아파트 건설·공급사업을 시행하는 지역주택조합을 설립하기 위하여 구성된 비법인사단인 피고 지역주택조합 추진위원회와 가입계약을 체결하시고, '사업 인·허가를 득하지 못하거나, 신축사업이 무산될 경우 / 사업승인 이후에 실시하는 동·호수 추첨결과에 대해 조합원의 변심이 생길 경우, 조합원이 납부한 계약금(업무추진비 포함) 전액을 환불할 것을 확약합니다.'라는 환불보장 내용이 기재된 안심보장확약서까지 교부하는 해당 지역주택조합사업이 순조롭게 진행될 거라고 믿은 채,
                                     </b>
                                 </span>
-                        <div>
+                        <div th:if="${!#lists.isEmpty(solutionIMG)}" th:each="images:${solutionIMG}">
                             <!-- 이미지 -->
-                        <img th:src="${solutionCaseDetail.imgPath} + ${solutionCaseDetail.storedFileName}">
+                        <img th:src="${images.imgPath} + ${images.storedFileName}">
                         </div>
 
-                        <div>
+
                             <!-- 이미지 -->
 <!--                            <img>-->
-                        </div>
+
 <!--                       추가-->
                     </div>
 

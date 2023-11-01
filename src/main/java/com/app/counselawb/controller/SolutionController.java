@@ -36,13 +36,14 @@ public class SolutionController {
     @GetMapping("solution-case2")
     public String GoToSolutionDetail(@RequestParam("solutionCaseId") Long solutionCaseId, Model model) {
         Optional<SolutionCaseDTO> solutionCaseDetail = solutionCaseService.findSolutionDetail(solutionCaseId);
-        Optional<SolutionCaseDTO> solutionIMG = solutionCaseService.findSolutionIMG(solutionCaseId);
+        List<SolutionCaseDTO> solutionIMG = solutionCaseService.findSolutionIMG(solutionCaseId);
         if (solutionCaseDetail.isPresent()) {
             SolutionCaseDTO DetailSolution = solutionCaseDetail.get();
             model.addAttribute("solutionCaseDetail", DetailSolution);
             model.addAttribute("solutionIMG", solutionIMG);
         } else {
             model.addAttribute("solutionCaseDetail", null);
+            model.addAttribute("solutionIMG", null);
         }
         return "solution-case-page/solution-case2";
     }

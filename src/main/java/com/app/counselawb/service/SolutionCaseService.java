@@ -15,5 +15,5 @@ public interface SolutionCaseService {
     public Optional<SolutionCaseDTO> findSolutionDetail(Long solutionCaseId);
 
 //    이미지 가져오기
-    public Optional<SolutionCaseDTO> findSolutionIMG(Long solutionCaseId);
+    public List<SolutionCaseDTO> findSolutionIMG(Long solutionCaseId);
 }
