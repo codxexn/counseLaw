@@ -76,4 +76,27 @@ public interface LawyerMapper {
     // 변호사 프사 삭제
     public void deleteProfileImage(Long lawyerId);
 
+    // 변호사 해결사례 삭제
+    public void deleteSCByLawyerId(Long lawyerId);
+
+    // 변호사 법률가이드 삭제
+    public void deleteLGByLawyerId(Long lawyerId);
+
+    // 변호사 분야 삭제
+    public void deleteFieldByLawyerId(Long lawyerId);
+
+    // 변호사 지역 삭제
+    public void deleteLocationByLawyerId(Long lawyerId);
+
+    // 변호사 경력 삭제
+    public void deleteCareerByLawyerId(Long lawyerId);
+
+    // 변호사 답글 삭제
+    public void deleteReplyByLawyerId(Long lawyerId);
+
+    // 변호사 즐찾 삭제
+    public void deleteLawyerLikeByLawyerId(Long lawyerId);
+
+    // 변호사 탈퇴(삭제)
+    public void deleteLawyer(Long lawyerId);
 }

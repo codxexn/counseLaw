@@ -28,7 +28,7 @@ public class MemberMypageController {
 
     @GetMapping("no-favorite-lawyers")
     public String goToNoFavoriteLawyersPage() {
-        return "/my-favorite-lawyers/favorite-lawyer-empty";
+        return "my-favorite-lawyers/favorite-lawyer-empty";
     }
 
     @GetMapping("my-favorite-lawyers")
@@ -41,7 +41,7 @@ public class MemberMypageController {
         Optional<LawyerVO> foundLawyer = lawyerService.findByLawyerId(lawyerId);
         model.addAttribute("lawyerLikeVOS", lawyerLikeVOS);
         model.addAttribute("foundLawyer", foundLawyer);
-        return "/my-favorite-lawyers/favorite-lawyer";
+        return "my-favorite-lawyers/favorite-lawyer";
     }
 
 

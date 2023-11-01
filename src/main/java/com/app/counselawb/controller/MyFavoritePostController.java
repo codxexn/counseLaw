@@ -28,7 +28,7 @@ public class MyFavoritePostController {
     @GetMapping("my-favorite-posts")
     public String goToMyFavoritePosts(HttpSession session, MemberVO memberVO, LawyerVO lawyerVO, Model model){
         if(session.getAttribute("member")==null){
-            return "/client-login/client-login";
+            return "client-login/client-login";
         }
 
         MemberVO currentMember = (MemberVO) session.getAttribute("member");
@@ -42,7 +42,7 @@ public class MyFavoritePostController {
         List<LegalGuideDTO> legalGuideWithDetail = myFavoritePostsService.findAllLegalGuideWithDetail();
         model.addAttribute("legalGuideWithDetail", legalGuideWithDetail);
 
-        return "/my-favorite-posts/my-favorite-posts";
+        return "my-favorite-posts/my-favorite-posts";
     }
 
     @GetMapping("my-favorite-posts-empty")
