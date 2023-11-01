@@ -40,7 +40,7 @@ public class SolutionController {
         if (solutionCaseDetail.isPresent()) {
             SolutionCaseDTO DetailSolution = solutionCaseDetail.get();
             model.addAttribute("solutionCaseDetail", DetailSolution);
-            model.addAttribute("solutionIMG", DetailSolution);
+            model.addAttribute("solutionIMG", solutionIMG);
         } else {
             model.addAttribute("solutionCaseDetail", null);
         }

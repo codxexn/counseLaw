@@ -33,7 +33,7 @@ public class ConsultWriteController {
             return "/client-login/client-login";
         }
 
-        return "/counseling/counseling-write";
+        return "counseling/counseling-write";
     }
 
     @PostMapping("counseling-write")

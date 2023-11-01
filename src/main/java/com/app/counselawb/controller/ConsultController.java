@@ -51,6 +51,6 @@ public class ConsultController {
         model.addAttribute("consultCase",consultCase);
         model.addAttribute("pagination",pagination);
 
-        return "/consult-example/consultation-example";
+        return "consult-example/consultation-example";
     }
 }

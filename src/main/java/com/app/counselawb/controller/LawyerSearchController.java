@@ -47,7 +47,7 @@ public class LawyerSearchController {
             myMap.put(fieldCategory, selected);
         }
         model.addAttribute("fieldMap", myMap);
-        return "/search-by-categories/search-by-categories";
+        return "search-by-categories/search-by-categories";
     }
 
     // 분야로 변호사 검색한 결과
@@ -75,13 +75,13 @@ public class LawyerSearchController {
         // 페이징처리와 함께 해당 분야 변호사 정보 가져오기
         List<LawyerFieldSearchDTO> foundLawyers = lawyerSearchService.findLawyersByFieldId(pagination, fieldId);;
         model.addAttribute("foundLawyers", foundLawyers);
-        return "/lawyer-list-by-categories/lawyer-list-by-categories";
+        return "lawyer-list-by-categories/lawyer-list-by-categories";
     }
 
     // 지역으로 찾기
     @GetMapping("search-by-locations")
     public String goToLawyerLocations(){
-        return "/search-by-locations/search-by-locations";
+        return "search-by-locations/search-by-locations";
     }
 
     // 지역으로 변호사 검색한 결과
@@ -109,6 +109,6 @@ public class LawyerSearchController {
         // 페이징 처리와 함께 해당 지역 변호사 정보 가져오기
         List<LawyerLocationSearchDTO> foundLawyers = lawyerSearchService.findLawyersByLocationId(pagination, locationId);
         model.addAttribute("foundLawyers", foundLawyers);
-        return "/lawyer-list-by-locations/lawyer-list-by-locations";
+        return "lawyer-list-by-locations/lawyer-list-by-locations";
     }
 }

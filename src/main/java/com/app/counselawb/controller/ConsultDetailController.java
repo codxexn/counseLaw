@@ -34,7 +34,7 @@ public class ConsultDetailController {
     public String goToConsultationDetail(HttpSession session, @PathVariable Long consultId, Model model, Pagination pagination, MemberVO memberVO, LawyerVO lawyerVO){
 
         if (session.getAttribute("member") == null){
-            return "/client-login/client-login";
+            return "client-login/client-login";
         }
 //        상담 상세 페이지의 consultId, 제목 ,내용, 시간등
         List<ConsultingCaseVO> consultDetail = consultingCaseService.readDetails(consultId);
@@ -75,7 +75,7 @@ public class ConsultDetailController {
         else {
             model.addAttribute("ifChecked","false");
         }
-        return "/consult-detail/consult-detail";
+        return "consult-detail/consult-detail";
     }
 
     @GetMapping("like")

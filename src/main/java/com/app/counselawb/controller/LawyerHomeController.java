@@ -198,7 +198,7 @@ public class LawyerHomeController {
             model.addAttribute("checkLike", "false");
         }
 
-        return "/lawyer-info/lawyer-info";
+        return "lawyer-info/lawyer-info";
     }
 
     @GetMapping("client-reviews")
@@ -257,7 +257,7 @@ public class LawyerHomeController {
         } else {
             model.addAttribute("checkLike", "false");
         }
-        return "/client-reviews/client-reviews";
+        return "client-reviews/client-reviews";
     }
 
     @GetMapping("reservation")
@@ -297,7 +297,7 @@ public class LawyerHomeController {
            return coupon.getCouponAvailableType().equals("ALL") || coupon.getCouponAvailableType().equals(consultingType);
         }).collect(Collectors.toList());
         model.addAttribute("coupons", availableCoupons);
-        return "/reservation/reservation";
+        return "reservation/reservation";
     }
 
     @PostMapping("reservation")

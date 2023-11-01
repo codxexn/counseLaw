@@ -35,14 +35,14 @@ public class LawyerWriteController {
     public String GoToLegalGuideWrite(Model model, HttpSession session, LegalGuideVO legalGuideVO, MemberVO memberVO,
                                       LawyerVO lawyerVO){
         if (session.getAttribute("lawyer") == null){
-            return "/client-login/client-login";
+            return "client-login/client-login";
         }
         LawyerVO currentLawyer = (LawyerVO) session.getAttribute("lawyer");
         Long lawyerId = currentLawyer.getLawyerId();
         model.addAttribute("lawyerId", lawyerId);
         List<FieldVO> fieldList = lawyerService.findAllFields();
         model.addAttribute("fieldList", fieldList);
-        return "/lawyer-write/lawyer-write-lg";
+        return "lawyer-write/lawyer-write-lg";
     }
 
     @PostMapping("lawyer-write-lg")
@@ -61,14 +61,14 @@ public class LawyerWriteController {
     public String GoToSolutionCaseWrite(Model model, HttpSession session, LegalGuideVO legalGuideVO, MemberVO memberVO,
                                       LawyerVO lawyerVO){
         if (session.getAttribute("lawyer") == null){
-            return "/client-login/client-login";
+            return "client-login/client-login";
         }
         LawyerVO currentLawyer = (LawyerVO) session.getAttribute("lawyer");
         Long lawyerId = currentLawyer.getLawyerId();
         model.addAttribute("lawyerId", lawyerId);
         List<FieldVO> fieldList = lawyerService.findAllFields();
         model.addAttribute("fieldList", fieldList);
-        return "/lawyer-write/lawyer-write-sc";
+        return "lawyer-write/lawyer-write-sc";
     }
 
     @PostMapping("lawyer-write-sc")
