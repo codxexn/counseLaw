@@ -124,4 +124,44 @@ public class LawyerDAO {
     public void removeProfileImage(Long lawyerId){
         lawyerMapper.deleteProfileImage(lawyerId);
     }
+
+    // 변호사 해결사례 삭제
+    public void removeSCByLawyerId(Long lawyerId){
+        lawyerMapper.deleteSCByLawyerId(lawyerId);
+    }
+
+    // 변호사 법률가이드 삭제
+    public void removeLGByLawyerId(Long lawyerId){
+        lawyerMapper.deleteLGByLawyerId(lawyerId);
+    }
+
+    // 변호사 분야 삭제
+    public void removeFieldByLawyerId(Long lawyerId){
+        lawyerMapper.deleteFieldByLawyerId(lawyerId);
+    }
+
+    // 변호사 지역 삭제
+    public void removeLocationByLawyerId(Long lawyerId){
+        lawyerMapper.deleteLocationByLawyerId(lawyerId);
+    }
+
+    // 변호사 경력 삭제
+    public void removeCareerByLawyerId(Long lawyerId){
+        lawyerMapper.deleteCareerByLawyerId(lawyerId);
+    }
+
+    // 변호사 답글 삭제
+    public void removeReplyByLawyerId(Long lawyerId){
+        lawyerMapper.deleteReplyByLawyerId(lawyerId);
+    }
+
+    // 변호사 즐찾 삭제
+    public void removeLawyerLikeByLawyerId(Long lawyerId){
+        lawyerMapper.deleteLawyerLikeByLawyerId(lawyerId);
+    }
+
+    // 변호사 탈퇴 (삭제)
+    public void removeLawyer(Long lawyerId){
+        lawyerMapper.deleteLawyer(lawyerId);
+    }
 }

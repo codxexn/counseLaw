@@ -169,7 +169,7 @@
                             </div>
                         </div>
                         <div class="Account-Info-Card-Footer">
-                            <button type="submit" class="Account-Info-Card-Button">[ 저장 ]</button>
+                            <button disabled type="submit" class="lawyerInfo-submit Account-Info-Card-Button">[ 저장 ]</button>
                         </div>
                     </form>
                     <form th:action="@{/mypage-lawyer/info-update-career}" method="post" role="form" name="lawyerForm" class="Account-Info-Card">
@@ -211,7 +211,7 @@
                 </div>
                 <div class="Info-Update-Footer">
                     <div class="Info-Update-Footer-Row">
-                        <a href="">변호사 회원탈퇴</a>
+                        <a href="/mypage-lawyer/withdraw-lawyer">변호사 회원탈퇴</a>
                         <a th:href="@{/}">메인 페이지</a>
                     </div>
                     <div class="Info-Update-Footer-Row">

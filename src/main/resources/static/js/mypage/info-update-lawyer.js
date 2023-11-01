@@ -42,3 +42,4 @@ file.addEventListener("change", (e) => {
         defaultImg.src = "/image/defaultLawyerProfile/defaultLawyerProfile.png";
     }
 })
+
