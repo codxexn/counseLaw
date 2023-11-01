@@ -97,7 +97,7 @@ public class LawyerMypageController {
         List<LawyerLocationDTO> foundLocations = locationService.findLocationsByLawyerId(lawyerId);
         List<Long> foundLocationIds = new ArrayList<>();
         foundLocations.forEach((location) -> {
-           foundLocationIds.add(location.getLocationId());
+            foundLocationIds.add(location.getLocationId());
         });
         model.addAttribute("locations", foundLocationIds);
         List<ExperienceVO> foundCareers = lawyerService.findCareersByLawyerId(lawyerId);
@@ -161,7 +161,7 @@ public class LawyerMypageController {
     // 비밀번호 변경
     @PostMapping("info-update-pw")
     public RedirectView changePw(HttpSession session, @RequestParam("oldPassword") String oldPassword,
-                                              @RequestParam("newPassword") String newPassword){
+                                 @RequestParam("newPassword") String newPassword){
         LawyerVO currentLawyer = (LawyerVO) session.getAttribute("lawyer");
         if (!currentLawyer.getLawyerPassword().equals(oldPassword)){
             return new RedirectView("/mypage-lawyer/info-update-pw-error");
@@ -195,10 +195,10 @@ public class LawyerMypageController {
     // 변호사 정보 업데이트
     @PostMapping("info-update-info")
     public RedirectView changeInfo(HttpSession session, @RequestParam("company") String lawyerCompany,
-                                                @RequestParam("address") String lawyerAddress, @RequestParam("school") String lawyerEducation,
-                                                @RequestParam("callPrice") int callPrice, @RequestParam("videoPrice") int videoPrice, @RequestParam("visitPrice") int visitPrice,
-                                                @RequestParam("introduction") String lawyerIntroduction, @RequestParam("qualification") String lawyerQualification,
-                                                @RequestParam("eachField") List<Long> checkedFieldIds, @RequestParam("eachLocation") List<Long> checkedLocationIds){
+                                   @RequestParam("address") String lawyerAddress, @RequestParam("school") String lawyerEducation,
+                                   @RequestParam("callPrice") int callPrice, @RequestParam("videoPrice") int videoPrice, @RequestParam("visitPrice") int visitPrice,
+                                   @RequestParam("introduction") String lawyerIntroduction, @RequestParam("qualification") String lawyerQualification,
+                                   @RequestParam("eachField") List<Long> checkedFieldIds, @RequestParam("eachLocation") List<Long> checkedLocationIds){
         LawyerVO currentLawyer = (LawyerVO) session.getAttribute("lawyer");
         LawyerLocationVO lawyerLocationVO = new LawyerLocationVO();
         currentLawyer.setLawyerIntroduction(lawyerIntroduction);
@@ -325,8 +325,6 @@ public class LawyerMypageController {
         List<LawyerSidebarDTO> getLawyers = consultingCaseService.getLawyers();
         model.addAttribute("getLawyers", getLawyers);
         return "lawyer-my-posts/my-consulting-case";
-<<<<<<< HEAD
-=======
     }
 
     // 변호사 회원탈퇴
@@ -357,7 +355,6 @@ public class LawyerMypageController {
             return "fail";
         }
 
->>>>>>> 14c87a82909b3bfa64fafebfd359c2b2b68bdbfe
     }
 
 }
