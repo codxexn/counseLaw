@@ -29,7 +29,7 @@ public class SolutionCaseServiceImpl implements SolutionCaseService {
     }
 
     @Override
-    public Optional<SolutionCaseImgVO> findSolutionIMG(Long solutionCaseId){
+    public Optional<SolutionCaseDTO> findSolutionIMG(Long solutionCaseId){
         return solutionCaseDAO.findSolutionIMG(solutionCaseId);
     }
 }
