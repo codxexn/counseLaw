@@ -627,3 +627,8 @@ button, input, optgroup, select, textarea {
     left: 0;
     right: 0;
 }
+
+button:disabled {
+    cursor: not-allowed !important;
+    color: #757575 !important;
+}
