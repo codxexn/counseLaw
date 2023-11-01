@@ -107,6 +107,7 @@
                             <div class="main-top__shortcut--big">
                                 <main-shortcut type="상담 예약" is-big-button="true" is-mobile="isMobile"
                                                go-card-link="goCardLink('reserve_btn')">
+                                    <a th:href="'lawyer-search/search-by-categories'">
                                     <div class="MainShortcutButton-module_shortcutBigButton__d5eSQ"><p
                                             class="Typography-module_lt-text--size-18__AbfHy Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-125__MBy8t Typography-module_lt-text--inherit__uNmPK"
                                             style="color: rgb(43, 45, 47);">상담 예약</p>
@@ -196,9 +197,11 @@
                                             </defs>
                                         </svg>
                                     </div>
+                                    </a>
                                 </main-shortcut>
                                 <main-shortcut type="상담글 작성" is-big-button="true" is-mobile="isMobile"
                                                go-card-link="goCardLink('register_counsel')">
+                                    <a th:href="'counseling/counseling-write'">
                                     <div class="MainShortcutButton-module_shortcutBigButton__d5eSQ"><p
                                             class="Typography-module_lt-text--size-18__AbfHy Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-125__MBy8t Typography-module_lt-text--inherit__uNmPK"
                                             style="color: rgb(43, 45, 47);">상담글 작성</p>
@@ -280,11 +283,13 @@
                                             </defs>
                                         </svg>
                                     </div>
+                                    </a>
                                 </main-shortcut>
                             </div>
                             <div class="main-top__shortcut--small">
                                 <main-shortcut type="전화 상담" is-mobile="isMobile"
                                                go-card-link="goCardLink('reserve_15phone')">
+                                    <a th:href="'lawyer-search/search-by-categories'">
                                     <div class="MainShortcutButton-module_shortcutSmallButton__ZNZ3t">
                                         <svg width="25" height="25" viewBox="0 0 25 25" fill="none"
                                              xmlns="http://www.w3.org/2000/svg">
@@ -330,9 +335,11 @@
                                         </svg>
                                         <p class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
                                            style="color: rgb(43, 45, 47);">전화 상담</p></div>
+                                    </a>
                                 </main-shortcut>
                                 <main-shortcut type="영상 상담" is-mobile="isMobile"
                                                go-card-link="goCardLink('reserve_20video')">
+                                    <a th:href="'lawyer-search/search-by-categories'">
                                     <div class="MainShortcutButton-module_shortcutSmallButton__ZNZ3t">
                                         <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
                                              xmlns="http://www.w3.org/2000/svg">
@@ -407,9 +414,11 @@
                                         </svg>
                                         <p class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
                                            style="color: rgb(43, 45, 47);">영상 상담</p></div>
+                                    </a>
                                 </main-shortcut>
                                 <main-shortcut type="방문 상담" is-mobile="isMobile"
                                                go-card-link="goCardLink('reserve_30visiting')">
+                                    <a th:href="'lawyer-search/search-by-categories'">
                                     <div class="MainShortcutButton-module_shortcutSmallButton__ZNZ3t">
                                         <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
                                              xmlns="http://www.w3.org/2000/svg">
@@ -534,41 +543,42 @@
                                         </svg>
                                         <p class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
                                            style="color: rgb(43, 45, 47);">방문 상담</p></div>
+                                    </a>
                                 </main-shortcut>
                             </div>
-                            <div class="main-top__shortcut--qna">
-                                <main-rolling-qna popular-questions="popularQuestions" is-mobile="isMobile">
-                                    <div class="MainRollingQna-module_mainRollingQnaWrapper__XpEQG">
-                                        <div class="MainRollingQna-module_mainRollingQnaBox__-uNfk"
-                                             id="main-rolling-qna-box">
-                                            <svg class="MainRollingQna-module_hotIcon__0-7BZ" width="28" height="28"
-                                                 viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <rect x="0.803711" width="28" height="28" rx="14"
-                                                      fill="#c50000"></rect>
-                                                <path d="M6.44871 18V15.0684H9.51155V18H10.9825V10.9282H9.51155V13.8564H6.44871V10.9282H4.98116V18H6.44871ZM18.6494 14.4641C18.6494 12.1575 17.2199 10.8315 15.3449 10.8315C13.463 10.8315 12.0438 12.1575 12.0438 14.4641C12.0438 16.7638 13.463 18.0967 15.3449 18.0967C17.2199 18.0967 18.6494 16.7707 18.6494 14.4641ZM17.1612 14.4641C17.1612 15.9731 16.4395 16.7949 15.3449 16.7949C14.2537 16.7949 13.532 15.9731 13.532 14.4641C13.532 12.9551 14.2537 12.1333 15.3449 12.1333C16.4395 12.1333 17.1612 12.9551 17.1612 14.4641ZM21.2875 12.1436V18H22.7412V12.1436H24.9063V10.9282H19.1155V12.1436H21.2875Z"
-                                                      fill="white"></path>
-                                            </svg>
-                                            <div class="MainRollingQna-module_qnaItem__22lA1 MainRollingQna-module_desktop__DhDXC">
-                                                <p class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-140__6Q+3w MainRollingQna-module_qnaTitle__LHZ7b Typography-module_lt-text--inherit__uNmPK"
-                                                   style="color: rgb(43, 45, 47);">미성년자 성매매 출석 관련 상담</p></div>
-                                            <div class="MainRollingQna-module_qnaItem__22lA1 MainRollingQna-module_desktop__DhDXC MainRollingQna-module_prev__KnzFZ">
-                                                <p class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-140__6Q+3w MainRollingQna-module_qnaTitle__LHZ7b Typography-module_lt-text--inherit__uNmPK"
-                                                   style="color: rgb(43, 45, 47);">킥보드 약물운전 후 뺑소니 상담</p></div>
-                                            <div class="MainRollingQna-module_qnaItem__22lA1 MainRollingQna-module_desktop__DhDXC MainRollingQna-module_current__cOiq8">
-                                                <p class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-140__6Q+3w MainRollingQna-module_qnaTitle__LHZ7b Typography-module_lt-text--inherit__uNmPK"
-                                                   style="color: rgb(43, 45, 47);">채무관계 사기죄 성립가능여부에 대한 상담</p></div>
-                                            <div class="MainRollingQna-module_qnaItem__22lA1 MainRollingQna-module_desktop__DhDXC MainRollingQna-module_next__M188-">
-                                                <p class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-140__6Q+3w MainRollingQna-module_qnaTitle__LHZ7b Typography-module_lt-text--inherit__uNmPK"
-                                                   style="color: rgb(43, 45, 47);">사기사건 변호사 선임 및 민사소송 서류 작성 관련
-                                                    상담</p>
-                                            </div>
-                                            <div class="MainRollingQna-module_qnaItem__22lA1 MainRollingQna-module_desktop__DhDXC">
-                                                <p class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-140__6Q+3w MainRollingQna-module_qnaTitle__LHZ7b Typography-module_lt-text--inherit__uNmPK"
-                                                   style="color: rgb(43, 45, 47);">부업사기 경험과 대처방안</p></div>
-                                        </div>
-                                    </div>
-                                </main-rolling-qna>
-                            </div>
+<!--                            <div class="main-top__shortcut&#45;&#45;qna">-->
+<!--                                <main-rolling-qna popular-questions="popularQuestions" is-mobile="isMobile">-->
+<!--                                    <div class="MainRollingQna-module_mainRollingQnaWrapper__XpEQG">-->
+<!--                                        <div class="MainRollingQna-module_mainRollingQnaBox__-uNfk"-->
+<!--                                             id="main-rolling-qna-box">-->
+<!--                                            <svg class="MainRollingQna-module_hotIcon__0-7BZ" width="28" height="28"-->
+<!--                                                 viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--                                                <rect x="0.803711" width="28" height="28" rx="14"-->
+<!--                                                      fill="#c50000"></rect>-->
+<!--                                                <path d="M6.44871 18V15.0684H9.51155V18H10.9825V10.9282H9.51155V13.8564H6.44871V10.9282H4.98116V18H6.44871ZM18.6494 14.4641C18.6494 12.1575 17.2199 10.8315 15.3449 10.8315C13.463 10.8315 12.0438 12.1575 12.0438 14.4641C12.0438 16.7638 13.463 18.0967 15.3449 18.0967C17.2199 18.0967 18.6494 16.7707 18.6494 14.4641ZM17.1612 14.4641C17.1612 15.9731 16.4395 16.7949 15.3449 16.7949C14.2537 16.7949 13.532 15.9731 13.532 14.4641C13.532 12.9551 14.2537 12.1333 15.3449 12.1333C16.4395 12.1333 17.1612 12.9551 17.1612 14.4641ZM21.2875 12.1436V18H22.7412V12.1436H24.9063V10.9282H19.1155V12.1436H21.2875Z"-->
+<!--                                                      fill="white"></path>-->
+<!--                                            </svg>-->
+<!--                                            <div class="MainRollingQna-module_qnaItem__22lA1 MainRollingQna-module_desktop__DhDXC">-->
+<!--                                                <p class="Typography-module_lt-text&#45;&#45;size-15__bWqK4 Typography-module_lt-text&#45;&#45;weight-400__dz6jA Typography-module_lt-text&#45;&#45;height-140__6Q+3w MainRollingQna-module_qnaTitle__LHZ7b Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                   style="color: rgb(43, 45, 47);">미성년자 성매매 출석 관련 상담</p></div>-->
+<!--                                            <div class="MainRollingQna-module_qnaItem__22lA1 MainRollingQna-module_desktop__DhDXC MainRollingQna-module_prev__KnzFZ">-->
+<!--                                                <p class="Typography-module_lt-text&#45;&#45;size-15__bWqK4 Typography-module_lt-text&#45;&#45;weight-400__dz6jA Typography-module_lt-text&#45;&#45;height-140__6Q+3w MainRollingQna-module_qnaTitle__LHZ7b Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                   style="color: rgb(43, 45, 47);">킥보드 약물운전 후 뺑소니 상담</p></div>-->
+<!--                                            <div class="MainRollingQna-module_qnaItem__22lA1 MainRollingQna-module_desktop__DhDXC MainRollingQna-module_current__cOiq8">-->
+<!--                                                <p class="Typography-module_lt-text&#45;&#45;size-15__bWqK4 Typography-module_lt-text&#45;&#45;weight-400__dz6jA Typography-module_lt-text&#45;&#45;height-140__6Q+3w MainRollingQna-module_qnaTitle__LHZ7b Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                   style="color: rgb(43, 45, 47);">채무관계 사기죄 성립가능여부에 대한 상담</p></div>-->
+<!--                                            <div class="MainRollingQna-module_qnaItem__22lA1 MainRollingQna-module_desktop__DhDXC MainRollingQna-module_next__M188-">-->
+<!--                                                <p class="Typography-module_lt-text&#45;&#45;size-15__bWqK4 Typography-module_lt-text&#45;&#45;weight-400__dz6jA Typography-module_lt-text&#45;&#45;height-140__6Q+3w MainRollingQna-module_qnaTitle__LHZ7b Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                   style="color: rgb(43, 45, 47);">사기사건 변호사 선임 및 민사소송 서류 작성 관련-->
+<!--                                                    상담</p>-->
+<!--                                            </div>-->
+<!--                                            <div class="MainRollingQna-module_qnaItem__22lA1 MainRollingQna-module_desktop__DhDXC">-->
+<!--                                                <p class="Typography-module_lt-text&#45;&#45;size-15__bWqK4 Typography-module_lt-text&#45;&#45;weight-400__dz6jA Typography-module_lt-text&#45;&#45;height-140__6Q+3w MainRollingQna-module_qnaTitle__LHZ7b Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                   style="color: rgb(43, 45, 47);">부업사기 경험과 대처방안</p></div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </main-rolling-qna>-->
+<!--                            </div>-->
                         </div>
                     </div>
                     <div class="main-top__lower-wrap">
@@ -577,7 +587,9 @@
                                             image="data.imageTag" link="data.link" isshow="data.isShow"
                                             is-mobile="isMobile"
                                             send-click-event="sendClickEvent(data.title, $index + 1)">
+                                <a th:href="'/lawyer-search/lawyer-list-by-categories?fieldId=13'">
                                 <button class="MainTopField-module_buttonWrapper__DMA4p MainTopField-module_desktop__BC8X3">
+
                                     <div class="MainTopField-module_buttonIconWrap__IM6-B MainTopField-module_desktop__BC8X3">
                                         <img width="40"
                                              src="https://d2mk4o02xy6mtq.cloudfront.net/07925860-7aaf-4185-bbd9-d9e071e818c7"
@@ -587,11 +599,13 @@
                                                 class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-125__MBy8t MainTopField-module_name__hQMdF Typography-module_lt-text--inherit__uNmPK"
                                                 style="color: rgb(43, 45, 47);">명예훼손/모욕 일반</p></div>
                                 </button>
+                                </a>
                             </main-top-field><!---->
                             <main-top-field ng-repeat="data in topFieldShortcut" name="data.title"
                                             image="data.imageTag" link="data.link" isshow="data.isShow"
                                             is-mobile="isMobile"
                                             send-click-event="sendClickEvent(data.title, $index + 1)">
+                                <a th:href="'lawyer-search/lawyer-list-by-categories?fieldId=29'">
                                 <button class="MainTopField-module_buttonWrapper__DMA4p MainTopField-module_desktop__BC8X3">
                                     <div class="MainTopField-module_buttonIconWrap__IM6-B MainTopField-module_desktop__BC8X3">
                                         <img width="40"
@@ -602,11 +616,13 @@
                                                 class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-125__MBy8t MainTopField-module_name__hQMdF Typography-module_lt-text--inherit__uNmPK"
                                                 style="color: rgb(43, 45, 47);">이혼</p></div>
                                 </button>
+                                </a>
                             </main-top-field><!---->
                             <main-top-field ng-repeat="data in topFieldShortcut" name="data.title"
                                             image="data.imageTag" link="data.link" isshow="data.isShow"
                                             is-mobile="isMobile"
                                             send-click-event="sendClickEvent(data.title, $index + 1)">
+                                <a th:href="'lawyer-search/lawyer-list-by-categories?fieldId=21'">
                                 <button class="MainTopField-module_buttonWrapper__DMA4p MainTopField-module_desktop__BC8X3">
                                     <div class="MainTopField-module_buttonIconWrap__IM6-B MainTopField-module_desktop__BC8X3">
                                         <img width="40"
@@ -617,11 +633,13 @@
                                                 class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-125__MBy8t MainTopField-module_name__hQMdF Typography-module_lt-text--inherit__uNmPK"
                                                 style="color: rgb(43, 45, 47);">임대차</p></div>
                                 </button>
+                                </a>
                             </main-top-field><!---->
                             <main-top-field ng-repeat="data in topFieldShortcut" name="data.title"
                                             image="data.imageTag" link="data.link" isshow="data.isShow"
                                             is-mobile="isMobile"
                                             send-click-event="sendClickEvent(data.title, $index + 1)">
+                                <a th:href="'lawyer-search/lawyer-list-by-categories?fieldId=6'">
                                 <button class="MainTopField-module_buttonWrapper__DMA4p MainTopField-module_desktop__BC8X3">
                                     <div class="MainTopField-module_buttonIconWrap__IM6-B MainTopField-module_desktop__BC8X3">
                                         <img width="40"
@@ -632,11 +650,13 @@
                                                 class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-125__MBy8t MainTopField-module_name__hQMdF Typography-module_lt-text--inherit__uNmPK"
                                                 style="color: rgb(43, 45, 47);">사기/공갈</p></div>
                                 </button>
+                                </a>
                             </main-top-field><!---->
                             <main-top-field ng-repeat="data in topFieldShortcut" name="data.title"
                                             image="data.imageTag" link="data.link" isshow="data.isShow"
                                             is-mobile="isMobile"
                                             send-click-event="sendClickEvent(data.title, $index + 1)">
+                                <a th:href="'lawyer-search/lawyer-list-by-categories?fieldId=12'">
                                 <button class="MainTopField-module_buttonWrapper__DMA4p MainTopField-module_desktop__BC8X3">
                                     <div class="MainTopField-module_buttonIconWrap__IM6-B MainTopField-module_desktop__BC8X3">
                                         <img width="40"
@@ -647,11 +667,13 @@
                                                 class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-125__MBy8t MainTopField-module_name__hQMdF Typography-module_lt-text--inherit__uNmPK"
                                                 style="color: rgb(43, 45, 47);">폭행/협박/상해 일반</p></div>
                                 </button>
+                                </a>
                             </main-top-field><!---->
                             <main-top-field ng-repeat="data in topFieldShortcut" name="data.title"
                                             image="data.imageTag" link="data.link" isshow="data.isShow"
                                             is-mobile="isMobile"
                                             send-click-event="sendClickEvent(data.title, $index + 1)">
+                                <a th:href="'lawyer-search/lawyer-list-by-categories?fieldId=1'">
                                 <button class="MainTopField-module_buttonWrapper__DMA4p MainTopField-module_desktop__BC8X3">
                                     <div class="MainTopField-module_buttonIconWrap__IM6-B MainTopField-module_desktop__BC8X3">
                                         <img width="40"
@@ -662,11 +684,13 @@
                                                 class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-125__MBy8t MainTopField-module_name__hQMdF Typography-module_lt-text--inherit__uNmPK"
                                                 style="color: rgb(43, 45, 47);">성매매</p></div>
                                 </button>
+                                </a>
                             </main-top-field><!---->
                             <main-top-field ng-repeat="data in topFieldShortcut" name="data.title"
                                             image="data.imageTag" link="data.link" isshow="data.isShow"
                                             is-mobile="isMobile"
                                             send-click-event="sendClickEvent(data.title, $index + 1)">
+                                <a th:href="'lawyer-search/lawyer-list-by-categories?fieldId=2'">
                                 <button class="MainTopField-module_buttonWrapper__DMA4p MainTopField-module_desktop__BC8X3">
                                     <div class="MainTopField-module_buttonIconWrap__IM6-B MainTopField-module_desktop__BC8X3">
                                         <img width="40"
@@ -677,6 +701,7 @@
                                                 class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-125__MBy8t MainTopField-module_name__hQMdF Typography-module_lt-text--inherit__uNmPK"
                                                 style="color: rgb(43, 45, 47);">성폭력/강제추행 등</p></div>
                                 </button>
+                                </a>
                             </main-top-field><!----></div>
                     </div>
                     <div class="main-top__carousel-section--mobile lt-mobile">
@@ -1303,39 +1328,62 @@
                                     class="Typography-module_lt-text--size-24__YMtqz Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-125__MBy8t LocationLawyerSearch-module_title__hX8Fc Typography-module_lt-text--inherit__uNmPK"
                                     style="color: rgb(43, 45, 47);">어떤 지역의 변호사를 찾으시나요?</p>
                                 <div class="LocationLawyerSearch-module_locationList__cnV6c">
+                                    <a th:href="'lawyer-search/lawyer-list-by-locations?locationId=10'">
                                     <button class="LocationLawyerSearch-module_locationItem__p71fI"><p
                                             class="Typography-module_lt-text--size-17__8rBL9 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-135__ZJhNX Typography-module_lt-text--inherit__uNmPK"
                                             style="color: rgb(55, 56, 85);">서울</p></button>
+                                    </a>
+                                    <a th:href="'lawyer-search/lawyer-list-by-locations?locationId=3'">
                                     <button class="LocationLawyerSearch-module_locationItem__p71fI"><p
                                             class="Typography-module_lt-text--size-17__8rBL9 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-135__ZJhNX Typography-module_lt-text--inherit__uNmPK"
                                             style="color: rgb(55, 56, 85);">경기</p></button>
+                                    </a>
+                                    <a th:href="'lawyer-search/lawyer-list-by-locations?locationId=1'">
                                     <button class="LocationLawyerSearch-module_locationItem__p71fI"><p
                                             class="Typography-module_lt-text--size-17__8rBL9 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-135__ZJhNX Typography-module_lt-text--inherit__uNmPK"
                                             style="color: rgb(55, 56, 85);">춘천/강원</p></button>
+                                    </a>
+                                    <a th:href="'lawyer-search/lawyer-list-by-locations?locationId=11'">
                                     <button class="LocationLawyerSearch-module_locationItem__p71fI"><p
                                             class="Typography-module_lt-text--size-17__8rBL9 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-135__ZJhNX Typography-module_lt-text--inherit__uNmPK"
                                             style="color: rgb(55, 56, 85);">제주</p></button>
+                                    </a>
+                                    <a th:href="'lawyer-search/lawyer-list-by-locations?locationId=2'">
                                     <button class="LocationLawyerSearch-module_locationItem__p71fI"><p
                                             class="Typography-module_lt-text--size-17__8rBL9 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-135__ZJhNX Typography-module_lt-text--inherit__uNmPK"
                                             style="color: rgb(55, 56, 85);">인천/부천</p></button>
+                                    </a>
+                                    <a th:href="'lawyer-search/lawyer-list-by-locations?locationId=6'">
                                     <button class="LocationLawyerSearch-module_locationItem__p71fI"><p
                                             class="Typography-module_lt-text--size-17__8rBL9 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-135__ZJhNX Typography-module_lt-text--inherit__uNmPK"
                                             style="color: rgb(55, 56, 85);">대구/경북</p></button>
+                                    </a>
+                                    <a th:href="'lawyer-search/lawyer-list-by-locations?locationId=4'">
                                     <button class="LocationLawyerSearch-module_locationItem__p71fI"><p
                                             class="Typography-module_lt-text--size-17__8rBL9 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-135__ZJhNX Typography-module_lt-text--inherit__uNmPK"
                                             style="color: rgb(55, 56, 85);">청주/충북</p></button>
+                                    </a>
+                                    <a th:href="'lawyer-search/lawyer-list-by-locations?locationId=5'">
                                     <button class="LocationLawyerSearch-module_locationItem__p71fI"><p
                                             class="Typography-module_lt-text--size-17__8rBL9 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-135__ZJhNX Typography-module_lt-text--inherit__uNmPK"
                                             style="color: rgb(55, 56, 85);">대전/충남/세종</p></button>
+                                    </a>
+                                    <a th:href="'lawyer-search/lawyer-list-by-locations?locationId=7'">
                                     <button class="LocationLawyerSearch-module_locationItem__p71fI"><p
                                             class="Typography-module_lt-text--size-17__8rBL9 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-135__ZJhNX Typography-module_lt-text--inherit__uNmPK"
                                             style="color: rgb(55, 56, 85);">전주/전북</p></button>
+                                    </a>
+                                    <a th:href="'lawyer-search/lawyer-list-by-locations?locationId=8'">
                                     <button class="LocationLawyerSearch-module_locationItem__p71fI"><p
                                             class="Typography-module_lt-text--size-17__8rBL9 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-135__ZJhNX Typography-module_lt-text--inherit__uNmPK"
                                             style="color: rgb(55, 56, 85);">부산/울산/경남</p></button>
+                                    </a>
+                                    <a th:href="'lawyer-search/lawyer-list-by-locations?locationId=9'">
                                     <button class="LocationLawyerSearch-module_locationItem__p71fI"><p
                                             class="Typography-module_lt-text--size-17__8rBL9 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-135__ZJhNX Typography-module_lt-text--inherit__uNmPK"
                                             style="color: rgb(55, 56, 85);">광주/전남</p></button>
+                                    </a>
+                                    <a th:href="'lawyer-search/search-by-locations'">
                                     <button class="LocationLawyerSearch-module_locationItem__p71fI LocationLawyerSearch-module_totalViewButton__hHkrc">
                                         <svg class="LocationLawyerSearch-module_locationIcon__O-n0P" width="24"
                                              height="24"
@@ -1345,6 +1393,7 @@
                                         </svg>
                                         <p class="Typography-module_lt-text--size-17__8rBL9 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-135__ZJhNX Typography-module_lt-text--inherit__uNmPK"
                                            style="color: rgb(55, 56, 85);">전체보기</p></button>
+                                    </a>
                                 </div>
                             </div>
                         </lawyer-search-select>
@@ -1355,7 +1404,9 @@
                     <recent-question props-group="recentQuestionProps" is-mobile="isMobile"
                                      impression-event="impressionEvent('qna')">
                         <div class="RecentQuestion-module_desktopStyle__ARAHM">
-                            <div class="RecentQuestion-module_titleLine__vxHzt"><p
+                            <a th:href="'consult-example/consultation-example'">
+                            <div class="RecentQuestion-module_titleLine__vxHzt">
+                                <p
                                     class="Typography-module_lt-text--size-24__YMtqz Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-125__MBy8t RecentQuestion-module_title__Msamw Typography-module_lt-text--inherit__uNmPK"
                                     style="color: rgb(43, 45, 47);">최신 상담글</p>
                                 <svg width="32" height="32" class="RecentQuestion-module_chevronRightIcon__LEXkp"
@@ -1364,6 +1415,7 @@
                                           fill="black"></path>
                                 </svg>
                             </div>
+                            </a>
                             <div class="RecentQuestion-module_questionList__9TqWR">
                                 <div class="RecentQuestion-module_questionCardWrap__vS5CA">
                                     <div class="QuestionCard-module_desktopStyle__+jB6X">
@@ -1481,283 +1533,286 @@
                             </div>
                             <div class="RecentQuestion-module_buttonWrap__PO9yl">
                                 <button class="RecentQuestion-module_viewMoreButton__lnxSU">
+                                    <a th:href="'consult-example/consultation-example'">
                                     <div class="RecentQuestion-module_viewMoreInner__LIXkO">
                                         <p class="Typography-module_lt-text--size-17__8rBL9 Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-125__MBy8t RecentQuestion-module_buttonName__V2kVn Typography-module_lt-text--inherit__uNmPK"
                                            style="color: rgb(96, 102, 108);">최신 상담글 더 보기</p>
                                     </div>
+                                    </a>
                                 </button>
                             </div>
                         </div>
                     </recent-question>
                 </div>
                 <div class="setion-divide-line lt-mobile"></div>
-                <div class="fastest-advice-list-wrap">
-                    <fastest-advice-list category-advice-list="categoryAdviceList"
-                                         props-group="fastestAdviceListProps" is-mobile="isMobile"
-                                         impression-event="impressionEvent('quick_counsel')">
-                        <div class="FastestAdviceList-module_desktopStyle__56ncC">
-                            <div class="FastestAdviceList-module_titleLine__OHU0q"><p
-                                    class="Typography-module_lt-text--size-24__YMtqz Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-125__MBy8t FastestAdviceList-module_title__CWm0j Typography-module_lt-text--inherit__uNmPK"
-                                    style="color: rgb(43, 45, 47);">빠른 상담 가능한 변호사</p>
-                                <p class="Typography-module_lt-text--size-12__GYxFO Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-100__U8Og5 FastestAdviceList-module_betaBadge__EFsyH Typography-module_lt-text--inherit__uNmPK"
-                                   style="color: rgb(255, 255, 255);">Beta</p>
-                                <svg width="32" height="32" class="FastestAdviceList-module_chevronRightIcon__YU+sZ"
-                                     viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M9.275 17.3C9.09167 17.1167 9 16.8834 9 16.6C9 16.3167 9.09167 16.0834 9.275 15.9L13.175 12L9.275 8.10005C9.09167 7.91672 9 7.68338 9 7.40005C9 7.11672 9.09167 6.88338 9.275 6.70005C9.45833 6.51672 9.69167 6.42505 9.975 6.42505C10.2583 6.42505 10.4917 6.51672 10.675 6.70005L15.275 11.3C15.375 11.4 15.446 11.5084 15.488 11.625C15.5293 11.7417 15.55 11.8667 15.55 12C15.55 12.1334 15.5293 12.2584 15.488 12.375C15.446 12.4917 15.375 12.6 15.275 12.7L10.675 17.3C10.4917 17.4834 10.2583 17.575 9.975 17.575C9.69167 17.575 9.45833 17.4834 9.275 17.3Z"
-                                          fill="black"></path>
-                                </svg>
-                            </div>
-                            <div class="FastestAdviceList-module_categoryListWrap__kknEH">
-                                <div class="FastestAdviceList-module_categoryList__JeKq9">
-                                    <button class="FastestAdviceList-module_categoryItem__wQYjr FastestAdviceList-module_active__dzny0">
-                                        <p class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                           style="color: rgb(98, 102, 149);">부동산/임대차</p></button>
-                                    <button class="FastestAdviceList-module_categoryItem__wQYjr"><p
-                                            class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                            style="color: rgb(159, 164, 169);">성범죄</p></button>
-                                    <button class="FastestAdviceList-module_categoryItem__wQYjr"><p
-                                            class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                            style="color: rgb(159, 164, 169);">가족</p></button>
-                                    <button class="FastestAdviceList-module_categoryItem__wQYjr"><p
-                                            class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                            style="color: rgb(159, 164, 169);">금전/계약 문제</p></button>
-                                    <button class="FastestAdviceList-module_categoryItem__wQYjr"><p
-                                            class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                            style="color: rgb(159, 164, 169);">재산범죄</p></button>
-                                    <button class="FastestAdviceList-module_categoryItem__wQYjr"><p
-                                            class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                            style="color: rgb(159, 164, 169);">명예훼손/모욕</p></button>
-                                    <button class="FastestAdviceList-module_categoryItem__wQYjr"><p
-                                            class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                            style="color: rgb(159, 164, 169);">회사</p></button>
-                                    <button class="FastestAdviceList-module_categoryItem__wQYjr"><p
-                                            class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                            style="color: rgb(159, 164, 169);">기타 형사범죄</p></button>
-                                    <button class="FastestAdviceList-module_categoryItem__wQYjr"><p
-                                            class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                            style="color: rgb(159, 164, 169);">폭행/협박</p></button>
-                                    <button class="FastestAdviceList-module_categoryItem__wQYjr"><p
-                                            class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                            style="color: rgb(159, 164, 169);">IT/지식재산/금융</p></button>
-                                    <button class="FastestAdviceList-module_categoryItem__wQYjr"><p
-                                            class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                            style="color: rgb(159, 164, 169);">교통사고/범죄</p></button>
-                                    <button class="FastestAdviceList-module_categoryItem__wQYjr"><p
-                                            class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                            style="color: rgb(159, 164, 169);">의료/세금/행정</p></button>
-                                    <button class="FastestAdviceList-module_categoryItem__wQYjr"><p
-                                            class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                            style="color: rgb(159, 164, 169);">민사절차</p></button>
-                                    <button class="FastestAdviceList-module_categoryItem__wQYjr"><p
-                                            class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                            style="color: rgb(159, 164, 169);">형사절차</p></button>
-                                    <button class="FastestAdviceList-module_categoryItem__wQYjr"><p
-                                            class="Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                            style="color: rgb(159, 164, 169);">기타 민사문제</p></button>
-                                </div>
-                            </div>
-                            <div class="FastestAdviceList-module_fastestAdviceListWrap__2dlIw">
-                                <div class="FastestAdviceList-module_fastestAdviceList__CYnjn">
-                                    <div class="FastestAdviceList-module_recentLawyerSlotCardWrap__1luXC">
-                                        <div class="RecentLawyerSlotCard-module_cardWrap__AjOMQ RecentLawyerSlotCard-module_desktopStyle__rvFjt">
-                                            <div class="RecentLawyerSlotCard-module_thumnailWrap__LJ087">
-                                                <div class="RecentLawyerSlotCard-module_thumbnail__4l1Jv"><img
-                                                        class="RecentLawyerSlotCard-module_thumbnailImage__84yxm"
-                                                        src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/630b5af598788200cc03a3d9-thumb-1662115729676.jpg">
-                                                    <div class="RecentLawyerSlotCard-module_activeMark__+5hwb"></div>
-                                                </div>
-                                            </div>
-                                            <div class="RecentLawyerSlotCard-module_timeSlotListWrap__ebucF">
-                                                <div class="RecentLawyerSlotCard-module_descWrap__vOJJs">
-                                                    <div class="RecentLawyerSlotCard-module_titleLine__+PJpQ">
-                                                        <div class="RecentLawyerSlotCard-module_titleName__Rn-t+"><p
-                                                                class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                                style="color: rgb(43, 45, 47);">김양희 변호사</p></div>
-                                                        <div class="RecentLawyerSlotCard-module_lawyerCompany__Oe3x0">
-                                                            <p
-                                                                    class="Typography-module_lt-text--size-12__GYxFO Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                                    style="color: rgb(159, 164, 169);">
-                                                                법으로공동법률사무소</p></div>
-                                                    </div>
-                                                    <div class="RecentLawyerSlotCard-module_categories__mFo7M">
-                                                        <div class="RecentLawyerSlotCard-module_categoryItem__1A2vT">
-                                                            <p
-                                                                    class="Typography-module_lt-text--size-12__GYxFO Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                                    style="color: rgb(86, 109, 159);">임대차</p></div>
-                                                    </div>
-                                                </div>
-                                                <div class="RecentLawyerSlotCard-module_timeSlotList__IdeSY">
-                                                    <div class="RecentLawyerSlotCard-module_timeSlotItem__vZFg7 RecentLawyerSlotCard-module_active__KGEUD">
-                                                        <p class="Typography-module_lt-text--size-13__p73tB Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                           style="color: rgb(255, 255, 255);">오후 6:30</p></div>
-                                                    <div class="RecentLawyerSlotCard-module_timeSlotItem__vZFg7 RecentLawyerSlotCard-module_active__KGEUD">
-                                                        <p class="Typography-module_lt-text--size-13__p73tB Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                           style="color: rgb(255, 255, 255);">오후 7:00</p></div>
-                                                    <div class="RecentLawyerSlotCard-module_timeSlotItem__vZFg7 RecentLawyerSlotCard-module_active__KGEUD">
-                                                        <p class="Typography-module_lt-text--size-13__p73tB Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                           style="color: rgb(255, 255, 255);">오후 7:30</p></div>
-                                                    <div class="RecentLawyerSlotCard-module_timeSlotItem__vZFg7 RecentLawyerSlotCard-module_active__KGEUD">
-                                                        <p class="Typography-module_lt-text--size-13__p73tB Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                           style="color: rgb(255, 255, 255);">오후 8:00</p></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="FastestAdviceList-module_recentLawyerSlotCardWrap__1luXC">
-                                        <div class="RecentLawyerSlotCard-module_cardWrap__AjOMQ RecentLawyerSlotCard-module_desktopStyle__rvFjt">
-                                            <div class="RecentLawyerSlotCard-module_thumnailWrap__LJ087">
-                                                <div class="RecentLawyerSlotCard-module_thumbnail__4l1Jv"><img
-                                                        class="RecentLawyerSlotCard-module_thumbnailImage__84yxm"
-                                                        src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/5c3c78b7b0fe90d8f6150fd5-thumb.jpg">
-                                                    <div class="RecentLawyerSlotCard-module_activeMark__+5hwb"></div>
-                                                </div>
-                                            </div>
-                                            <div class="RecentLawyerSlotCard-module_timeSlotListWrap__ebucF">
-                                                <div class="RecentLawyerSlotCard-module_descWrap__vOJJs">
-                                                    <div class="RecentLawyerSlotCard-module_titleLine__+PJpQ">
-                                                        <div class="RecentLawyerSlotCard-module_titleName__Rn-t+"><p
-                                                                class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                                style="color: rgb(43, 45, 47);">엄진 변호사</p></div>
-                                                        <div class="RecentLawyerSlotCard-module_lawyerCompany__Oe3x0">
-                                                            <p
-                                                                    class="Typography-module_lt-text--size-12__GYxFO Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                                    style="color: rgb(159, 164, 169);">법무법인 새로</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="RecentLawyerSlotCard-module_categories__mFo7M">
-                                                        <div class="RecentLawyerSlotCard-module_categoryItem__1A2vT">
-                                                            <p
-                                                                    class="Typography-module_lt-text--size-12__GYxFO Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                                    style="color: rgb(86, 109, 159);">건축/부동산 일반</p>
-                                                        </div>
-                                                        <div class="RecentLawyerSlotCard-module_categoryItem__1A2vT">
-                                                            <p
-                                                                    class="Typography-module_lt-text--size-12__GYxFO Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                                    style="color: rgb(86, 109, 159);">매매/소유권 등</p>
-                                                        </div>
-                                                        <div class="RecentLawyerSlotCard-module_categoryItem__1A2vT">
-                                                            <p
-                                                                    class="Typography-module_lt-text--size-12__GYxFO Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                                    style="color: rgb(86, 109, 159);">임대차</p></div>
-                                                    </div>
-                                                </div>
-                                                <div class="RecentLawyerSlotCard-module_timeSlotList__IdeSY">
-                                                    <div class="RecentLawyerSlotCard-module_timeSlotItem__vZFg7 RecentLawyerSlotCard-module_active__KGEUD">
-                                                        <p class="Typography-module_lt-text--size-13__p73tB Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                           style="color: rgb(255, 255, 255);">오후 6:30</p></div>
-                                                    <div class="RecentLawyerSlotCard-module_timeSlotItem__vZFg7 RecentLawyerSlotCard-module_active__KGEUD">
-                                                        <p class="Typography-module_lt-text--size-13__p73tB Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                           style="color: rgb(255, 255, 255);">오후 7:00</p></div>
-                                                    <div class="RecentLawyerSlotCard-module_timeSlotItem__vZFg7 RecentLawyerSlotCard-module_active__KGEUD">
-                                                        <p class="Typography-module_lt-text--size-13__p73tB Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                           style="color: rgb(255, 255, 255);">오후 7:30</p></div>
-                                                    <div class="RecentLawyerSlotCard-module_timeSlotItem__vZFg7 RecentLawyerSlotCard-module_active__KGEUD">
-                                                        <p class="Typography-module_lt-text--size-13__p73tB Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                           style="color: rgb(255, 255, 255);">오후 8:00</p></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="FastestAdviceList-module_recentLawyerSlotCardWrap__1luXC">
-                                        <div class="RecentLawyerSlotCard-module_cardWrap__AjOMQ RecentLawyerSlotCard-module_desktopStyle__rvFjt">
-                                            <div class="RecentLawyerSlotCard-module_thumnailWrap__LJ087">
-                                                <div class="RecentLawyerSlotCard-module_thumbnail__4l1Jv"><img
-                                                        class="RecentLawyerSlotCard-module_thumbnailImage__84yxm"
-                                                        src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/622ff43586cbd40033b36448-thumb-1662368878807.jpg">
-                                                    <div class="RecentLawyerSlotCard-module_activeMark__+5hwb"></div>
-                                                </div>
-                                            </div>
-                                            <div class="RecentLawyerSlotCard-module_timeSlotListWrap__ebucF">
-                                                <div class="RecentLawyerSlotCard-module_descWrap__vOJJs">
-                                                    <div class="RecentLawyerSlotCard-module_titleLine__+PJpQ">
-                                                        <div class="RecentLawyerSlotCard-module_titleName__Rn-t+"><p
-                                                                class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                                style="color: rgb(43, 45, 47);">최보람 변호사</p></div>
-                                                        <div class="RecentLawyerSlotCard-module_lawyerCompany__Oe3x0">
-                                                            <p
-                                                                    class="Typography-module_lt-text--size-12__GYxFO Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                                    style="color: rgb(159, 164, 169);">법률사무소 보람</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="RecentLawyerSlotCard-module_categories__mFo7M">
-                                                        <div class="RecentLawyerSlotCard-module_categoryItem__1A2vT">
-                                                            <p
-                                                                    class="Typography-module_lt-text--size-12__GYxFO Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                                    style="color: rgb(86, 109, 159);">임대차</p></div>
-                                                    </div>
-                                                </div>
-                                                <div class="RecentLawyerSlotCard-module_timeSlotList__IdeSY">
-                                                    <div class="RecentLawyerSlotCard-module_timeSlotItem__vZFg7 RecentLawyerSlotCard-module_active__KGEUD">
-                                                        <p class="Typography-module_lt-text--size-13__p73tB Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                           style="color: rgb(255, 255, 255);">오후 6:30</p></div>
-                                                    <div class="RecentLawyerSlotCard-module_timeSlotItem__vZFg7 RecentLawyerSlotCard-module_active__KGEUD">
-                                                        <p class="Typography-module_lt-text--size-13__p73tB Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                           style="color: rgb(255, 255, 255);">오후 7:00</p></div>
-                                                    <div class="RecentLawyerSlotCard-module_timeSlotItem__vZFg7 RecentLawyerSlotCard-module_active__KGEUD">
-                                                        <p class="Typography-module_lt-text--size-13__p73tB Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                           style="color: rgb(255, 255, 255);">오후 7:30</p></div>
-                                                    <div class="RecentLawyerSlotCard-module_timeSlotItem__vZFg7 RecentLawyerSlotCard-module_active__KGEUD">
-                                                        <p class="Typography-module_lt-text--size-13__p73tB Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                           style="color: rgb(255, 255, 255);">오후 8:00</p></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="FastestAdviceList-module_recentLawyerSlotCardWrap__1luXC">
-                                        <div class="RecentLawyerSlotCard-module_cardWrap__AjOMQ RecentLawyerSlotCard-module_desktopStyle__rvFjt">
-                                            <div class="RecentLawyerSlotCard-module_thumnailWrap__LJ087">
-                                                <div class="RecentLawyerSlotCard-module_thumbnail__4l1Jv"><img
-                                                        class="RecentLawyerSlotCard-module_thumbnailImage__84yxm"
-                                                        src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/62abc8d5ca2bae003577640a-thumb-1656330570198.jpg">
-                                                    <div class="RecentLawyerSlotCard-module_activeMark__+5hwb"></div>
-                                                </div>
-                                            </div>
-                                            <div class="RecentLawyerSlotCard-module_timeSlotListWrap__ebucF">
-                                                <div class="RecentLawyerSlotCard-module_descWrap__vOJJs">
-                                                    <div class="RecentLawyerSlotCard-module_titleLine__+PJpQ">
-                                                        <div class="RecentLawyerSlotCard-module_titleName__Rn-t+"><p
-                                                                class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                                style="color: rgb(43, 45, 47);">김욱중 변호사</p></div>
-                                                        <div class="RecentLawyerSlotCard-module_lawyerCompany__Oe3x0">
-                                                            <p
-                                                                    class="Typography-module_lt-text--size-12__GYxFO Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                                    style="color: rgb(159, 164, 169);">법률사무소 서윤</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="RecentLawyerSlotCard-module_categories__mFo7M">
-                                                        <div class="RecentLawyerSlotCard-module_categoryItem__1A2vT">
-                                                            <p
-                                                                    class="Typography-module_lt-text--size-12__GYxFO Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                                    style="color: rgb(86, 109, 159);">임대차</p></div>
-                                                    </div>
-                                                </div>
-                                                <div class="RecentLawyerSlotCard-module_timeSlotList__IdeSY">
-                                                    <div class="RecentLawyerSlotCard-module_timeSlotItem__vZFg7 RecentLawyerSlotCard-module_active__KGEUD">
-                                                        <p class="Typography-module_lt-text--size-13__p73tB Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                           style="color: rgb(255, 255, 255);">오후 6:30</p></div>
-                                                    <div class="RecentLawyerSlotCard-module_timeSlotItem__vZFg7 RecentLawyerSlotCard-module_active__KGEUD">
-                                                        <p class="Typography-module_lt-text--size-13__p73tB Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                           style="color: rgb(255, 255, 255);">오후 7:00</p></div>
-                                                    <div class="RecentLawyerSlotCard-module_timeSlotItem__vZFg7 RecentLawyerSlotCard-module_active__KGEUD">
-                                                        <p class="Typography-module_lt-text--size-13__p73tB Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                           style="color: rgb(255, 255, 255);">오후 7:30</p></div>
-                                                    <div class="RecentLawyerSlotCard-module_timeSlotItem__vZFg7 RecentLawyerSlotCard-module_active__KGEUD">
-                                                        <p class="Typography-module_lt-text--size-13__p73tB Typography-module_lt-text--weight-500__K1Qvm Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
-                                                           style="color: rgb(255, 255, 255);">오후 8:00</p></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </fastest-advice-list>
-                </div>
+<!--                <div class="fastest-advice-list-wrap">-->
+<!--                    <fastest-advice-list category-advice-list="categoryAdviceList"-->
+<!--                                         props-group="fastestAdviceListProps" is-mobile="isMobile"-->
+<!--                                         impression-event="impressionEvent('quick_counsel')">-->
+<!--                        <div class="FastestAdviceList-module_desktopStyle__56ncC">-->
+<!--                            <div class="FastestAdviceList-module_titleLine__OHU0q"><p-->
+<!--                                    class="Typography-module_lt-text&#45;&#45;size-24__YMtqz Typography-module_lt-text&#45;&#45;weight-700__MTX72 Typography-module_lt-text&#45;&#45;height-125__MBy8t FastestAdviceList-module_title__CWm0j Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                    style="color: rgb(43, 45, 47);">빠른 상담 가능한 변호사</p>-->
+<!--                                <p class="Typography-module_lt-text&#45;&#45;size-12__GYxFO Typography-module_lt-text&#45;&#45;weight-700__MTX72 Typography-module_lt-text&#45;&#45;height-100__U8Og5 FastestAdviceList-module_betaBadge__EFsyH Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                   style="color: rgb(255, 255, 255);">Beta</p>-->
+<!--                                <svg width="32" height="32" class="FastestAdviceList-module_chevronRightIcon__YU+sZ"-->
+<!--                                     viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--                                    <path d="M9.275 17.3C9.09167 17.1167 9 16.8834 9 16.6C9 16.3167 9.09167 16.0834 9.275 15.9L13.175 12L9.275 8.10005C9.09167 7.91672 9 7.68338 9 7.40005C9 7.11672 9.09167 6.88338 9.275 6.70005C9.45833 6.51672 9.69167 6.42505 9.975 6.42505C10.2583 6.42505 10.4917 6.51672 10.675 6.70005L15.275 11.3C15.375 11.4 15.446 11.5084 15.488 11.625C15.5293 11.7417 15.55 11.8667 15.55 12C15.55 12.1334 15.5293 12.2584 15.488 12.375C15.446 12.4917 15.375 12.6 15.275 12.7L10.675 17.3C10.4917 17.4834 10.2583 17.575 9.975 17.575C9.69167 17.575 9.45833 17.4834 9.275 17.3Z"-->
+<!--                                          fill="black"></path>-->
+<!--                                </svg>-->
+<!--                            </div>-->
+<!--                            <div class="FastestAdviceList-module_categoryListWrap__kknEH">-->
+<!--                                <div class="FastestAdviceList-module_categoryList__JeKq9">-->
+<!--                                    <button class="FastestAdviceList-module_categoryItem__wQYjr FastestAdviceList-module_active__dzny0">-->
+<!--                                        <p class="Typography-module_lt-text&#45;&#45;size-16__m5oA0 Typography-module_lt-text&#45;&#45;weight-600__IvaQr Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                           style="color: rgb(98, 102, 149);">부동산/임대차</p></button>-->
+<!--                                    <button class="FastestAdviceList-module_categoryItem__wQYjr"><p-->
+<!--                                            class="Typography-module_lt-text&#45;&#45;size-16__m5oA0 Typography-module_lt-text&#45;&#45;weight-600__IvaQr Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                            style="color: rgb(159, 164, 169);">성범죄</p></button>-->
+<!--                                    <button class="FastestAdviceList-module_categoryItem__wQYjr"><p-->
+<!--                                            class="Typography-module_lt-text&#45;&#45;size-16__m5oA0 Typography-module_lt-text&#45;&#45;weight-600__IvaQr Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                            style="color: rgb(159, 164, 169);">가족</p></button>-->
+<!--                                    <button class="FastestAdviceList-module_categoryItem__wQYjr"><p-->
+<!--                                            class="Typography-module_lt-text&#45;&#45;size-16__m5oA0 Typography-module_lt-text&#45;&#45;weight-600__IvaQr Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                            style="color: rgb(159, 164, 169);">금전/계약 문제</p></button>-->
+<!--                                    <button class="FastestAdviceList-module_categoryItem__wQYjr"><p-->
+<!--                                            class="Typography-module_lt-text&#45;&#45;size-16__m5oA0 Typography-module_lt-text&#45;&#45;weight-600__IvaQr Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                            style="color: rgb(159, 164, 169);">재산범죄</p></button>-->
+<!--                                    <button class="FastestAdviceList-module_categoryItem__wQYjr"><p-->
+<!--                                            class="Typography-module_lt-text&#45;&#45;size-16__m5oA0 Typography-module_lt-text&#45;&#45;weight-600__IvaQr Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                            style="color: rgb(159, 164, 169);">명예훼손/모욕</p></button>-->
+<!--                                    <button class="FastestAdviceList-module_categoryItem__wQYjr"><p-->
+<!--                                            class="Typography-module_lt-text&#45;&#45;size-16__m5oA0 Typography-module_lt-text&#45;&#45;weight-600__IvaQr Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                            style="color: rgb(159, 164, 169);">회사</p></button>-->
+<!--                                    <button class="FastestAdviceList-module_categoryItem__wQYjr"><p-->
+<!--                                            class="Typography-module_lt-text&#45;&#45;size-16__m5oA0 Typography-module_lt-text&#45;&#45;weight-600__IvaQr Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                            style="color: rgb(159, 164, 169);">기타 형사범죄</p></button>-->
+<!--                                    <button class="FastestAdviceList-module_categoryItem__wQYjr"><p-->
+<!--                                            class="Typography-module_lt-text&#45;&#45;size-16__m5oA0 Typography-module_lt-text&#45;&#45;weight-600__IvaQr Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                            style="color: rgb(159, 164, 169);">폭행/협박</p></button>-->
+<!--                                    <button class="FastestAdviceList-module_categoryItem__wQYjr"><p-->
+<!--                                            class="Typography-module_lt-text&#45;&#45;size-16__m5oA0 Typography-module_lt-text&#45;&#45;weight-600__IvaQr Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                            style="color: rgb(159, 164, 169);">IT/지식재산/금융</p></button>-->
+<!--                                    <button class="FastestAdviceList-module_categoryItem__wQYjr"><p-->
+<!--                                            class="Typography-module_lt-text&#45;&#45;size-16__m5oA0 Typography-module_lt-text&#45;&#45;weight-600__IvaQr Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                            style="color: rgb(159, 164, 169);">교통사고/범죄</p></button>-->
+<!--                                    <button class="FastestAdviceList-module_categoryItem__wQYjr"><p-->
+<!--                                            class="Typography-module_lt-text&#45;&#45;size-16__m5oA0 Typography-module_lt-text&#45;&#45;weight-600__IvaQr Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                            style="color: rgb(159, 164, 169);">의료/세금/행정</p></button>-->
+<!--                                    <button class="FastestAdviceList-module_categoryItem__wQYjr"><p-->
+<!--                                            class="Typography-module_lt-text&#45;&#45;size-16__m5oA0 Typography-module_lt-text&#45;&#45;weight-600__IvaQr Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                            style="color: rgb(159, 164, 169);">민사절차</p></button>-->
+<!--                                    <button class="FastestAdviceList-module_categoryItem__wQYjr"><p-->
+<!--                                            class="Typography-module_lt-text&#45;&#45;size-16__m5oA0 Typography-module_lt-text&#45;&#45;weight-600__IvaQr Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                            style="color: rgb(159, 164, 169);">형사절차</p></button>-->
+<!--                                    <button class="FastestAdviceList-module_categoryItem__wQYjr"><p-->
+<!--                                            class="Typography-module_lt-text&#45;&#45;size-16__m5oA0 Typography-module_lt-text&#45;&#45;weight-600__IvaQr Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                            style="color: rgb(159, 164, 169);">기타 민사문제</p></button>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="FastestAdviceList-module_fastestAdviceListWrap__2dlIw">-->
+<!--                                <div class="FastestAdviceList-module_fastestAdviceList__CYnjn">-->
+<!--                                    <div class="FastestAdviceList-module_recentLawyerSlotCardWrap__1luXC">-->
+<!--                                        <div class="RecentLawyerSlotCard-module_cardWrap__AjOMQ RecentLawyerSlotCard-module_desktopStyle__rvFjt">-->
+<!--                                            <div class="RecentLawyerSlotCard-module_thumnailWrap__LJ087">-->
+<!--                                                <div class="RecentLawyerSlotCard-module_thumbnail__4l1Jv"><img-->
+<!--                                                        class="RecentLawyerSlotCard-module_thumbnailImage__84yxm"-->
+<!--                                                        src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/630b5af598788200cc03a3d9-thumb-1662115729676.jpg">-->
+<!--                                                    <div class="RecentLawyerSlotCard-module_activeMark__+5hwb"></div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                            <div class="RecentLawyerSlotCard-module_timeSlotListWrap__ebucF">-->
+<!--                                                <div class="RecentLawyerSlotCard-module_descWrap__vOJJs">-->
+<!--                                                    <div class="RecentLawyerSlotCard-module_titleLine__+PJpQ">-->
+<!--                                                        <div class="RecentLawyerSlotCard-module_titleName__Rn-t+"><p-->
+<!--                                                                class="Typography-module_lt-text&#45;&#45;size-15__bWqK4 Typography-module_lt-text&#45;&#45;weight-600__IvaQr Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                                style="color: rgb(43, 45, 47);">김양희 변호사</p></div>-->
+<!--                                                        <div class="RecentLawyerSlotCard-module_lawyerCompany__Oe3x0">-->
+<!--                                                            <p-->
+<!--                                                                    class="Typography-module_lt-text&#45;&#45;size-12__GYxFO Typography-module_lt-text&#45;&#45;weight-400__dz6jA Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                                    style="color: rgb(159, 164, 169);">-->
+<!--                                                                법으로공동법률사무소</p></div>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="RecentLawyerSlotCard-module_categories__mFo7M">-->
+<!--                                                        <div class="RecentLawyerSlotCard-module_categoryItem__1A2vT">-->
+<!--                                                            <p-->
+<!--                                                                    class="Typography-module_lt-text&#45;&#45;size-12__GYxFO Typography-module_lt-text&#45;&#45;weight-400__dz6jA Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                                    style="color: rgb(86, 109, 159);">임대차</p></div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="RecentLawyerSlotCard-module_timeSlotList__IdeSY">-->
+<!--                                                    <div class="RecentLawyerSlotCard-module_timeSlotItem__vZFg7 RecentLawyerSlotCard-module_active__KGEUD">-->
+<!--                                                        <p class="Typography-module_lt-text&#45;&#45;size-13__p73tB Typography-module_lt-text&#45;&#45;weight-500__K1Qvm Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                           style="color: rgb(255, 255, 255);">오후 6:30</p></div>-->
+<!--                                                    <div class="RecentLawyerSlotCard-module_timeSlotItem__vZFg7 RecentLawyerSlotCard-module_active__KGEUD">-->
+<!--                                                        <p class="Typography-module_lt-text&#45;&#45;size-13__p73tB Typography-module_lt-text&#45;&#45;weight-500__K1Qvm Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                           style="color: rgb(255, 255, 255);">오후 7:00</p></div>-->
+<!--                                                    <div class="RecentLawyerSlotCard-module_timeSlotItem__vZFg7 RecentLawyerSlotCard-module_active__KGEUD">-->
+<!--                                                        <p class="Typography-module_lt-text&#45;&#45;size-13__p73tB Typography-module_lt-text&#45;&#45;weight-500__K1Qvm Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                           style="color: rgb(255, 255, 255);">오후 7:30</p></div>-->
+<!--                                                    <div class="RecentLawyerSlotCard-module_timeSlotItem__vZFg7 RecentLawyerSlotCard-module_active__KGEUD">-->
+<!--                                                        <p class="Typography-module_lt-text&#45;&#45;size-13__p73tB Typography-module_lt-text&#45;&#45;weight-500__K1Qvm Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                           style="color: rgb(255, 255, 255);">오후 8:00</p></div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="FastestAdviceList-module_recentLawyerSlotCardWrap__1luXC">-->
+<!--                                        <div class="RecentLawyerSlotCard-module_cardWrap__AjOMQ RecentLawyerSlotCard-module_desktopStyle__rvFjt">-->
+<!--                                            <div class="RecentLawyerSlotCard-module_thumnailWrap__LJ087">-->
+<!--                                                <div class="RecentLawyerSlotCard-module_thumbnail__4l1Jv"><img-->
+<!--                                                        class="RecentLawyerSlotCard-module_thumbnailImage__84yxm"-->
+<!--                                                        src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/5c3c78b7b0fe90d8f6150fd5-thumb.jpg">-->
+<!--                                                    <div class="RecentLawyerSlotCard-module_activeMark__+5hwb"></div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                            <div class="RecentLawyerSlotCard-module_timeSlotListWrap__ebucF">-->
+<!--                                                <div class="RecentLawyerSlotCard-module_descWrap__vOJJs">-->
+<!--                                                    <div class="RecentLawyerSlotCard-module_titleLine__+PJpQ">-->
+<!--                                                        <div class="RecentLawyerSlotCard-module_titleName__Rn-t+"><p-->
+<!--                                                                class="Typography-module_lt-text&#45;&#45;size-15__bWqK4 Typography-module_lt-text&#45;&#45;weight-600__IvaQr Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                                style="color: rgb(43, 45, 47);">엄진 변호사</p></div>-->
+<!--                                                        <div class="RecentLawyerSlotCard-module_lawyerCompany__Oe3x0">-->
+<!--                                                            <p-->
+<!--                                                                    class="Typography-module_lt-text&#45;&#45;size-12__GYxFO Typography-module_lt-text&#45;&#45;weight-400__dz6jA Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                                    style="color: rgb(159, 164, 169);">법무법인 새로</p>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="RecentLawyerSlotCard-module_categories__mFo7M">-->
+<!--                                                        <div class="RecentLawyerSlotCard-module_categoryItem__1A2vT">-->
+<!--                                                            <p-->
+<!--                                                                    class="Typography-module_lt-text&#45;&#45;size-12__GYxFO Typography-module_lt-text&#45;&#45;weight-400__dz6jA Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                                    style="color: rgb(86, 109, 159);">건축/부동산 일반</p>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="RecentLawyerSlotCard-module_categoryItem__1A2vT">-->
+<!--                                                            <p-->
+<!--                                                                    class="Typography-module_lt-text&#45;&#45;size-12__GYxFO Typography-module_lt-text&#45;&#45;weight-400__dz6jA Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                                    style="color: rgb(86, 109, 159);">매매/소유권 등</p>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="RecentLawyerSlotCard-module_categoryItem__1A2vT">-->
+<!--                                                            <p-->
+<!--                                                                    class="Typography-module_lt-text&#45;&#45;size-12__GYxFO Typography-module_lt-text&#45;&#45;weight-400__dz6jA Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                                    style="color: rgb(86, 109, 159);">임대차</p></div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="RecentLawyerSlotCard-module_timeSlotList__IdeSY">-->
+<!--                                                    <div class="RecentLawyerSlotCard-module_timeSlotItem__vZFg7 RecentLawyerSlotCard-module_active__KGEUD">-->
+<!--                                                        <p class="Typography-module_lt-text&#45;&#45;size-13__p73tB Typography-module_lt-text&#45;&#45;weight-500__K1Qvm Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                           style="color: rgb(255, 255, 255);">오후 6:30</p></div>-->
+<!--                                                    <div class="RecentLawyerSlotCard-module_timeSlotItem__vZFg7 RecentLawyerSlotCard-module_active__KGEUD">-->
+<!--                                                        <p class="Typography-module_lt-text&#45;&#45;size-13__p73tB Typography-module_lt-text&#45;&#45;weight-500__K1Qvm Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                           style="color: rgb(255, 255, 255);">오후 7:00</p></div>-->
+<!--                                                    <div class="RecentLawyerSlotCard-module_timeSlotItem__vZFg7 RecentLawyerSlotCard-module_active__KGEUD">-->
+<!--                                                        <p class="Typography-module_lt-text&#45;&#45;size-13__p73tB Typography-module_lt-text&#45;&#45;weight-500__K1Qvm Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                           style="color: rgb(255, 255, 255);">오후 7:30</p></div>-->
+<!--                                                    <div class="RecentLawyerSlotCard-module_timeSlotItem__vZFg7 RecentLawyerSlotCard-module_active__KGEUD">-->
+<!--                                                        <p class="Typography-module_lt-text&#45;&#45;size-13__p73tB Typography-module_lt-text&#45;&#45;weight-500__K1Qvm Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                           style="color: rgb(255, 255, 255);">오후 8:00</p></div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="FastestAdviceList-module_recentLawyerSlotCardWrap__1luXC">-->
+<!--                                        <div class="RecentLawyerSlotCard-module_cardWrap__AjOMQ RecentLawyerSlotCard-module_desktopStyle__rvFjt">-->
+<!--                                            <div class="RecentLawyerSlotCard-module_thumnailWrap__LJ087">-->
+<!--                                                <div class="RecentLawyerSlotCard-module_thumbnail__4l1Jv"><img-->
+<!--                                                        class="RecentLawyerSlotCard-module_thumbnailImage__84yxm"-->
+<!--                                                        src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/622ff43586cbd40033b36448-thumb-1662368878807.jpg">-->
+<!--                                                    <div class="RecentLawyerSlotCard-module_activeMark__+5hwb"></div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                            <div class="RecentLawyerSlotCard-module_timeSlotListWrap__ebucF">-->
+<!--                                                <div class="RecentLawyerSlotCard-module_descWrap__vOJJs">-->
+<!--                                                    <div class="RecentLawyerSlotCard-module_titleLine__+PJpQ">-->
+<!--                                                        <div class="RecentLawyerSlotCard-module_titleName__Rn-t+"><p-->
+<!--                                                                class="Typography-module_lt-text&#45;&#45;size-15__bWqK4 Typography-module_lt-text&#45;&#45;weight-600__IvaQr Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                                style="color: rgb(43, 45, 47);">최보람 변호사</p></div>-->
+<!--                                                        <div class="RecentLawyerSlotCard-module_lawyerCompany__Oe3x0">-->
+<!--                                                            <p-->
+<!--                                                                    class="Typography-module_lt-text&#45;&#45;size-12__GYxFO Typography-module_lt-text&#45;&#45;weight-400__dz6jA Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                                    style="color: rgb(159, 164, 169);">법률사무소 보람</p>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="RecentLawyerSlotCard-module_categories__mFo7M">-->
+<!--                                                        <div class="RecentLawyerSlotCard-module_categoryItem__1A2vT">-->
+<!--                                                            <p-->
+<!--                                                                    class="Typography-module_lt-text&#45;&#45;size-12__GYxFO Typography-module_lt-text&#45;&#45;weight-400__dz6jA Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                                    style="color: rgb(86, 109, 159);">임대차</p></div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="RecentLawyerSlotCard-module_timeSlotList__IdeSY">-->
+<!--                                                    <div class="RecentLawyerSlotCard-module_timeSlotItem__vZFg7 RecentLawyerSlotCard-module_active__KGEUD">-->
+<!--                                                        <p class="Typography-module_lt-text&#45;&#45;size-13__p73tB Typography-module_lt-text&#45;&#45;weight-500__K1Qvm Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                           style="color: rgb(255, 255, 255);">오후 6:30</p></div>-->
+<!--                                                    <div class="RecentLawyerSlotCard-module_timeSlotItem__vZFg7 RecentLawyerSlotCard-module_active__KGEUD">-->
+<!--                                                        <p class="Typography-module_lt-text&#45;&#45;size-13__p73tB Typography-module_lt-text&#45;&#45;weight-500__K1Qvm Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                           style="color: rgb(255, 255, 255);">오후 7:00</p></div>-->
+<!--                                                    <div class="RecentLawyerSlotCard-module_timeSlotItem__vZFg7 RecentLawyerSlotCard-module_active__KGEUD">-->
+<!--                                                        <p class="Typography-module_lt-text&#45;&#45;size-13__p73tB Typography-module_lt-text&#45;&#45;weight-500__K1Qvm Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                           style="color: rgb(255, 255, 255);">오후 7:30</p></div>-->
+<!--                                                    <div class="RecentLawyerSlotCard-module_timeSlotItem__vZFg7 RecentLawyerSlotCard-module_active__KGEUD">-->
+<!--                                                        <p class="Typography-module_lt-text&#45;&#45;size-13__p73tB Typography-module_lt-text&#45;&#45;weight-500__K1Qvm Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                           style="color: rgb(255, 255, 255);">오후 8:00</p></div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="FastestAdviceList-module_recentLawyerSlotCardWrap__1luXC">-->
+<!--                                        <div class="RecentLawyerSlotCard-module_cardWrap__AjOMQ RecentLawyerSlotCard-module_desktopStyle__rvFjt">-->
+<!--                                            <div class="RecentLawyerSlotCard-module_thumnailWrap__LJ087">-->
+<!--                                                <div class="RecentLawyerSlotCard-module_thumbnail__4l1Jv"><img-->
+<!--                                                        class="RecentLawyerSlotCard-module_thumbnailImage__84yxm"-->
+<!--                                                        src="https://d2ai3ajp99ywjy.cloudfront.net/uploads/thumb/62abc8d5ca2bae003577640a-thumb-1656330570198.jpg">-->
+<!--                                                    <div class="RecentLawyerSlotCard-module_activeMark__+5hwb"></div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                            <div class="RecentLawyerSlotCard-module_timeSlotListWrap__ebucF">-->
+<!--                                                <div class="RecentLawyerSlotCard-module_descWrap__vOJJs">-->
+<!--                                                    <div class="RecentLawyerSlotCard-module_titleLine__+PJpQ">-->
+<!--                                                        <div class="RecentLawyerSlotCard-module_titleName__Rn-t+"><p-->
+<!--                                                                class="Typography-module_lt-text&#45;&#45;size-15__bWqK4 Typography-module_lt-text&#45;&#45;weight-600__IvaQr Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                                style="color: rgb(43, 45, 47);">김욱중 변호사</p></div>-->
+<!--                                                        <div class="RecentLawyerSlotCard-module_lawyerCompany__Oe3x0">-->
+<!--                                                            <p-->
+<!--                                                                    class="Typography-module_lt-text&#45;&#45;size-12__GYxFO Typography-module_lt-text&#45;&#45;weight-400__dz6jA Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                                    style="color: rgb(159, 164, 169);">법률사무소 서윤</p>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="RecentLawyerSlotCard-module_categories__mFo7M">-->
+<!--                                                        <div class="RecentLawyerSlotCard-module_categoryItem__1A2vT">-->
+<!--                                                            <p-->
+<!--                                                                    class="Typography-module_lt-text&#45;&#45;size-12__GYxFO Typography-module_lt-text&#45;&#45;weight-400__dz6jA Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                                    style="color: rgb(86, 109, 159);">임대차</p></div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="RecentLawyerSlotCard-module_timeSlotList__IdeSY">-->
+<!--                                                    <div class="RecentLawyerSlotCard-module_timeSlotItem__vZFg7 RecentLawyerSlotCard-module_active__KGEUD">-->
+<!--                                                        <p class="Typography-module_lt-text&#45;&#45;size-13__p73tB Typography-module_lt-text&#45;&#45;weight-500__K1Qvm Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                           style="color: rgb(255, 255, 255);">오후 6:30</p></div>-->
+<!--                                                    <div class="RecentLawyerSlotCard-module_timeSlotItem__vZFg7 RecentLawyerSlotCard-module_active__KGEUD">-->
+<!--                                                        <p class="Typography-module_lt-text&#45;&#45;size-13__p73tB Typography-module_lt-text&#45;&#45;weight-500__K1Qvm Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                           style="color: rgb(255, 255, 255);">오후 7:00</p></div>-->
+<!--                                                    <div class="RecentLawyerSlotCard-module_timeSlotItem__vZFg7 RecentLawyerSlotCard-module_active__KGEUD">-->
+<!--                                                        <p class="Typography-module_lt-text&#45;&#45;size-13__p73tB Typography-module_lt-text&#45;&#45;weight-500__K1Qvm Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                           style="color: rgb(255, 255, 255);">오후 7:30</p></div>-->
+<!--                                                    <div class="RecentLawyerSlotCard-module_timeSlotItem__vZFg7 RecentLawyerSlotCard-module_active__KGEUD">-->
+<!--                                                        <p class="Typography-module_lt-text&#45;&#45;size-13__p73tB Typography-module_lt-text&#45;&#45;weight-500__K1Qvm Typography-module_lt-text&#45;&#45;height-100__U8Og5 Typography-module_lt-text&#45;&#45;inherit__uNmPK"-->
+<!--                                                           style="color: rgb(255, 255, 255);">오후 8:00</p></div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </fastest-advice-list>-->
+<!--                </div>-->
                 <div class="setion-divide-line lt-mobile"></div>
                 <div class="solution-case-list-wrap">
                     <solution-case-list props-group="solutionCaseListProps" is-mobile="isMobile"
                                         impression-event="impressionEvent('post')">
                         <div class="SolutionCaseList-module_desktopStyle__YZD4P">
+                            <a th:href="'solution-case-page/solution-case'">
                             <div class="SolutionCaseList-module_titleLine__Xt2H3"><p
                                     class="Typography-module_lt-text--size-24__YMtqz Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-125__MBy8t SolutionCaseList-module_title__0-kFO Typography-module_lt-text--inherit__uNmPK"
                                     style="color: rgb(43, 45, 47);">변호사 해결사례</p>
@@ -1767,6 +1822,7 @@
                                           fill="black"></path>
                                 </svg>
                             </div>
+                            </a>
                             <div class="SolutionCaseList-module_solutionCaseList__kQChr">
                                 <div class="SolutionCaseList-module_solutionCaseCardWrap__DXdNf">
                                     <div class="SolutionCaseCard-module_desktopStyle__U+WOn">
@@ -1877,10 +1933,12 @@
                             </div>
                             <div class="SolutionCaseList-module_buttonWrap__6TIPe">
                                 <button class="SolutionCaseList-module_viewMoreButton__PFbgu">
+                                    <a th:href="'solution-case-page/solution-case'">
                                     <div class="SolutionCaseList-module_viewMoreInner__Ep9vp">
                                         <p class="Typography-module_lt-text--size-17__8rBL9 Typography-module_lt-text--weight-400__dz6jA Typography-module_lt-text--height-125__MBy8t SolutionCaseList-module_buttonName__6Mcxz Typography-module_lt-text--inherit__uNmPK"
                                            style="color: rgb(96, 102, 108);">해결사례 더 보기</p>
                                     </div>
+                                    </a>
                                 </button>
                             </div>
                         </div>
@@ -3260,6 +3318,7 @@
                                     class="Typography-module_lt-text--size-24__YMtqz Typography-module_lt-text--weight-700__MTX72 Typography-module_lt-text--height-125__MBy8t LegalityBanner-module_title__8XNQY Typography-module_lt-text--inherit__uNmPK"
                                     style="color: rgb(43, 45, 47);">카운슬로우는 법률 소비자와 변호사,&nbsp;<br>모두를 위한 서비스입니다.</p>
                             <div class="LegalityBanner-module_buttonWrap__dY+Bo">
+                                <a th:href="'member/lawyer-introduction'">
                                 <div class="LegalityBanner-module_introduceButton__qRFq0"><span
                                         class="Typography-module_lt-text--size-15__bWqK4 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-165__6m+1b Typography-module_lt-text--inherit__uNmPK"
                                         style="color: rgb(255, 255, 255);">서비스 소개</span>
@@ -3270,6 +3329,7 @@
                                               fill="black"></path>
                                     </svg>
                                 </div>
+                                </a>
                             </div>
                         </div>
                     </legality-banner>
