@@ -124,4 +124,44 @@ public class LawyerServiceImpl implements LawyerService {
     public void discardProfileImage(Long lawyerId) {
         lawyerDAO.removeProfileImage(lawyerId);
     }
+
+    @Override
+    public void discardSCByLawyerId(Long lawyerId) {
+        lawyerDAO.removeSCByLawyerId(lawyerId);
+    }
+
+    @Override
+    public void discardLGByLawyerId(Long lawyerId) {
+        lawyerDAO.removeLGByLawyerId(lawyerId);
+    }
+
+    @Override
+    public void discardFieldByLawyerId(Long lawyerId) {
+        lawyerDAO.removeFieldByLawyerId(lawyerId);
+    }
+
+    @Override
+    public void discardLocationByLawyerId(Long lawyerId) {
+        lawyerDAO.removeLocationByLawyerId(lawyerId);
+    }
+
+    @Override
+    public void discardCareerByLawyerId(Long lawyerId) {
+        lawyerDAO.removeCareerByLawyerId(lawyerId);
+    }
+
+    @Override
+    public void discardReplyByLawyerId(Long lawyerId) {
+        lawyerDAO.removeReplyByLawyerId(lawyerId);
+    }
+
+    @Override
+    public void discardLawyerLikeByLawyerId(Long lawyerId) {
+        lawyerDAO.removeLawyerLikeByLawyerId(lawyerId);
+    }
+
+    @Override
+    public void discardLawyer(Long lawyerId) {
+        lawyerDAO.removeLawyer(lawyerId);
+    }
 }

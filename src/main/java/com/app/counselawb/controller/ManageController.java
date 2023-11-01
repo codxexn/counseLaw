@@ -167,7 +167,7 @@
                 model.addAttribute("oldNotices", oldNotices);
             }
 
-            return "/manager/manager-announcement";
+            return "manager/manager-announcement";
         }
 
         // 공지사항 작성
@@ -192,7 +192,7 @@
                 model.addAttribute("foundNotice", null);
             }
 
-            return "/manager/manager-updatePost";
+            return "manager/manager-updatePost";
 
         }
 
@@ -245,7 +245,7 @@
 
 
 
-            return "/manager/manager-member";
+            return "manager/manager-member";
         }
 
         @PostMapping("member-suspend")
@@ -280,7 +280,7 @@
             List<CouponAdminDTO> coupons = couponAdminService.findAllCoupons(pagination);
             model.addAttribute("coupons", coupons);
 
-            return "/manager/manager-coupon";
+            return "manager/manager-coupon";
        }
 
         @PostMapping("coupon-insert")

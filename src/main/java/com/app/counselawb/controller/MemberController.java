@@ -30,32 +30,32 @@ public class MemberController {
     // 변호사스퀘어 가입안내 페이지로 이동
     @GetMapping("lawyer-introduction")
     public String goTolawyerMemberIntroductionPage(){
-        return "/introductions/general";
+        return "introductions/general";
     }
 
     // 변호사스퀘어 솔루션 페이지로 이동
     @GetMapping("lawyer-solution")
     public String goTolawyerMemberSolutionPage(){
-        return "/introductions/solution";
+        return "introductions/solution";
     }
 
     // 변호사 가입안내 페이지로 이동
     @GetMapping("lawyer-advertise")
     public String goTolawyerMemberAdvertisePage(){
-        return "/introductions/advertise";
+        return "introductions/advertise";
     }
 
 
     // 회원가입 select 화면으로 이동
     @GetMapping("client-lawyer-select")
     public String goToJoinPage(){
-        return "/member/client-lawyer-select";
+        return "member/client-lawyer-select";
     }
 
     // 일반회원 회원가입 페이지로 이동
     @GetMapping("client-join")
     public String goToClientJoinPage() {
-        return "/client/client-join-membership";
+        return "client/client-join-membership";
     }
 
     // 일반 회원가입
@@ -76,7 +76,7 @@ public class MemberController {
     public String goToMemberJoinAgain(MemberVO memberVO, Model model){
         String emailErrorMsg = "중복된 이메일입니다.";
         model.addAttribute("emailErrorMsg", emailErrorMsg);
-        return "/client/client-join-membership";
+        return "client/client-join-membership";
     }
 
     //변호사 회원가입 에러
@@ -84,7 +84,7 @@ public class MemberController {
     public String goToLawyerJoinAgain(LawyerVO lawyerVO, Model model){
         String emailErrorMsg = "중복된 이메일입니다.";
         model.addAttribute("emailErrorMsg", emailErrorMsg);
-        return "/lawyer/lawyer-join-membership";
+        return "lawyer/lawyer-join-membership";
     }
 
     //회원가입 성공
@@ -92,13 +92,13 @@ public class MemberController {
     public String joinSuccessMsg(MemberVO memberVO, LawyerVO lawyerVO, Model model){
         String joinSuccessMsg = "회원가입이 완료되었습니다. 로그인해주시기 바랍니다.";
         model.addAttribute("joinSuccessMsg", joinSuccessMsg);
-        return "/client-login/client-login";
+        return "client-login/client-login";
     }
 
     // 변호사회원 회원가입 페이지로 이동
     @GetMapping("lawyer-join")
     public String goToLawyerJoinPage() {
-        return "/lawyer/lawyer-join-membership";
+        return "lawyer/lawyer-join-membership";
     }
 
     // 변호사회원 회원가입
@@ -130,9 +130,9 @@ public class MemberController {
             model.addAttribute("myCouponList", myCoupons);
             model.addAttribute("numberOfFavoritePosts", numberOfFavoritePosts);
             model.addAttribute("numberOfFavoriteLawyers", numberOfFavoriteLawyers);
-            return "/mypage/mypage";
+            return "mypage/mypage";
         } else {
-            return "/client-login/client-login";
+            return "client-login/client-login";
         }
     }
 
@@ -141,6 +141,6 @@ public class MemberController {
     public String goToMyInfoUpdatePage(HttpSession session, Model model, MemberVO memberVO, LawyerVO lawyerVO) {
         MemberVO currentMember = (MemberVO)session.getAttribute("member");
         model.addAttribute("currentMember", currentMember);
-        return "/mypage/info-update";
+        return "mypage/info-update";
     }
 }

@@ -42,7 +42,7 @@ public class LawyerMypageController {
     @GetMapping("mypage-lawyer")
     public String GoToMypageLawyer(HttpSession session, Model model, MemberVO memberVO, LawyerVO lawyerVO) {
         if (session.getAttribute("lawyer") == null) {
-            return "/client-login/client-login";
+            return "client-login/client-login";
         }
         StringBuilder sb = new StringBuilder();
         LawyerVO currentLawyer = (LawyerVO) session.getAttribute("lawyer");
@@ -77,14 +77,14 @@ public class LawyerMypageController {
         model.addAttribute("visitCount", visitCount);
         int replyCount = lawyerService.findReplyCountByLawyerId(lawyerId);
         model.addAttribute("replyCount", replyCount);
-        return "/mypage/mypage-lawyer";
+        return "mypage/mypage-lawyer";
     }
 
     // 변호사 정보 변경 페이지 가기
     @GetMapping("info-update")
     public String GoToInfoUpdate(HttpSession session, Model model, MemberVO memberVO, LawyerVO lawyerVO){
         if (session.getAttribute("lawyer") == null){
-            return "/client-login/client-login";
+            return "client-login/client-login";
         }
         LawyerVO lawyer = (LawyerVO) session.getAttribute("lawyer");
         Long lawyerId = lawyer.getLawyerId();
@@ -109,20 +109,21 @@ public class LawyerMypageController {
         model.addAttribute("passwordErrorMsg", null);
         String lawyerProfile = lawyerService.findProfileImage(lawyerId);
         model.addAttribute("lawyerImage", lawyerProfile);
-        return "/mypage/info-update-lawyer";
+        return "mypage/info-update-lawyer";
     }
 
     // 프사 변경
     @PostMapping("info-update-profile")
-    public RedirectView uploadProfileImage(@RequestParam("lawyerId") Long lawyerId, MultipartHttpServletRequest mhsr) throws Exception{
+    public RedirectView uploadProfileImage(@RequestParam("lawyerId") Long lawyerId,
+                                           MultipartHttpServletRequest mhsr, HttpSession session) throws Exception{
         MultipartFile image = mhsr.getFile("file");
         if (image != null){
             LawyerVO lawyerVO = new LawyerVO();
             lawyerVO.setLawyerId(lawyerId);
             String originFileName = image.getOriginalFilename();
             String fileNameExtension = FilenameUtils.getExtension(originFileName).toLowerCase();
-            String absolutePath = new File("").getAbsolutePath() + "\\src\\main\\resources\\static";
-            String fileUrl = "/image/lawyer-profile-images/";
+            String absolutePath = "/usr/upload";
+            String fileUrl = "/lawyer-profile-images/";
             File destinationFile;
             String destinationFileName;
             do {
@@ -133,8 +134,13 @@ public class LawyerMypageController {
             destinationFile.getParentFile().mkdirs();
             image.transferTo(destinationFile);
 
-            lawyerVO.setLawyerImage(fileUrl + destinationFileName);
+            lawyerVO.setLawyerImage("/image/res" + fileUrl + destinationFileName);
             lawyerService.reviseProfileImage(lawyerVO);
+            Optional<LawyerVO> newLawyer = lawyerService.findByLawyerId(lawyerId);
+            if (newLawyer.isPresent()){
+                session.removeAttribute("lawyer");
+                session.setAttribute("lawyer", newLawyer.get());
+            }
         }
         return new RedirectView("/mypage-lawyer/info-update");
     }
@@ -172,7 +178,7 @@ public class LawyerMypageController {
     public String oldPwError(HttpSession session, LawyerVO lawyerVO, Model model){
         String passwordErrorMsg = "기존 비밀번호와 일치하지 않습니다.";
         model.addAttribute("passwordErrorMsg", passwordErrorMsg);
-        return "/mypage/info-update-lawyer";
+        return "mypage/info-update-lawyer";
     }
 
     // 전화번호 변경
@@ -255,7 +261,7 @@ public class LawyerMypageController {
         model.addAttribute("legalGuideWithDetail", legalGuideWithDetail);
         String lawyerImage = lawyerService.findProfileImage(lawyerId);
         model.addAttribute("lawyerImage", lawyerImage);
-        return "/lawyer-my-posts/my-legal-guide";
+        return "lawyer-my-posts/my-legal-guide";
     }
 
     // 내 해결사례
@@ -273,7 +279,7 @@ public class LawyerMypageController {
         model.addAttribute("solutionCases", solutionCases);
         String lawyerImage = lawyerService.findProfileImage(lawyerId);
         model.addAttribute("lawyerImage", lawyerImage);
-        return "/lawyer-my-posts/my-solution-case";
+        return "lawyer-my-posts/my-solution-case";
     }
 
     // 나를 즐겨찾기한 의뢰인
@@ -294,7 +300,7 @@ public class LawyerMypageController {
             }
         });
         model.addAttribute("followers", myFollowers);
-        return "/lawyer-my-posts/my-followers";
+        return "lawyer-my-posts/my-followers";
     }
 
     // 내 상담사례 (내가 답글 남긴 상담사례)
@@ -318,7 +324,37 @@ public class LawyerMypageController {
         }
         List<LawyerSidebarDTO> getLawyers = consultingCaseService.getLawyers();
         model.addAttribute("getLawyers", getLawyers);
-        return "/lawyer-my-posts/my-consulting-case";
+        return "lawyer-my-posts/my-consulting-case";
+    }
+
+    // 변호사 회원탈퇴
+    @GetMapping("withdraw-lawyer")
+    public String goToWithdraw(HttpSession session){
+        if (session.getAttribute("lawyer") == null) {
+            return "client-login/client-login";
+        }
+        return "mypage/withdraw-lawyer";
+    }
+
+    // 실제 회원탈퇴
+    @GetMapping("withdraw")
+    @ResponseBody
+    public String withdraw(@RequestParam("lawyerId") Long lawyerId){
+        try {
+            lawyerService.discardSCByLawyerId(lawyerId);
+            lawyerService.discardLGByLawyerId(lawyerId);
+            lawyerService.discardCareerByLawyerId(lawyerId);
+            lawyerService.discardFieldByLawyerId(lawyerId);
+            lawyerService.discardLocationByLawyerId(lawyerId);
+            lawyerService.discardLawyerLikeByLawyerId(lawyerId);
+            lawyerService.discardReplyByLawyerId(lawyerId);
+            lawyerService.discardLawyer(lawyerId);
+            return "success";
+        } catch (Exception e){
+            log.info("{}", e.getMessage());
+            return "fail";
+        }
+
     }
 
 }
