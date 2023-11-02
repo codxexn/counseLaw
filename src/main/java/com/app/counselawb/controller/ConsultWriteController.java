@@ -30,10 +30,10 @@ public class ConsultWriteController {
     @GetMapping("counseling-write")
     public String goToCounselingWrite(HttpSession session, Model model, ConsultingWriteDTO consultingWriteDTO, MemberVO memberVO, LawyerVO lawyerVO){
         if (session.getAttribute("member") == null){
-            return "/client-login/client-login";
+            return "client-login/client-login";
         }
 
-        return "/counseling/counseling-write";
+        return "counseling/counseling-write";
     }
 
     @PostMapping("counseling-write")

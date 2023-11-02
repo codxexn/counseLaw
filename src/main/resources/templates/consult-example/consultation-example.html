@@ -214,7 +214,7 @@
                                             <!-- 답변한 변호사 -->
                                             <div class="caseAnswer">
                                                 답변
-                                                <span class="caseAnswerLawyer" th:text="${consultCases.lawyerName} + ' 변호사'">
+                                                <span class="caseAnswerLawyer" th:text="${consultCases.lawyerName == null ? '아직 변호사 답변 없음' : consultCases.lawyerName + ' 변호사'} ">
                                                 </span>
                                             </div>
                                             <!-- 답변의 내용-->

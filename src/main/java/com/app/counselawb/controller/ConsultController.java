@@ -34,9 +34,12 @@ public class ConsultController {
         pagination.setTotal(consultingCaseService.selectAllCaseCounts());
         pagination.progress();
         int total = pagination.getEndPage();
+        log.info("pagination ={}",pagination.getEndRow());
+        log.info("pagination ={}",pagination.getStartRow());
 
-        System.out.println("total = " + total);
+        System.out.println("페이지 개수= " + total);
         List<ConsultingCaseDTO> consultCase = consultingCaseService.selectAllCase(pagination);
+        log.info("date={}",consultCase);
         List<LawyerSidebarDTO> getLawyers = consultingCaseService.getLawyers();
 
 //                log.info(consultCase.toString());
@@ -51,6 +54,6 @@ public class ConsultController {
         model.addAttribute("consultCase",consultCase);
         model.addAttribute("pagination",pagination);
 
-        return "/consult-example/consultation-example";
+        return "consult-example/consultation-example";
     }
 }

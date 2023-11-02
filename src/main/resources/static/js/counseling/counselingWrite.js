@@ -59,7 +59,7 @@ titleTextarea.addEventListener("keyup", (e) => {
     titleCount.innerText = `${titleContent}자`;
     let bodyContent = bodyTextarea.value.length;
     let check = agreeCheck.checked;
-    if (titleContent >= 10 && bodyContent >= 200 && check) {
+    if (titleContent >= 10 && bodyContent >= 50 && check) {
         validateButton();
     } else {
         invalidateButton();
@@ -71,7 +71,7 @@ bodyTextarea.addEventListener("keyup", (e) => {
     let bodyContent = bodyTextarea.value.length;
     bodyCount.innerText = `${bodyContent}자`;
     let check = agreeCheck.checked;
-    if (titleContent >= 10 && bodyContent >= 200 && check) {
+    if (titleContent >= 10 && bodyContent >= 50 && check) {
         validateButton();
     } else {
         invalidateButton();
@@ -82,7 +82,7 @@ agreeCheck.addEventListener("click", (e) => {
     let titleContent = titleTextarea.value.length;
     let bodyContent = bodyTextarea.value.length;
     let check = agreeCheck.checked;
-    if (titleContent >= 10 && bodyContent >= 200 && check) {
+    if (titleContent >= 10 && bodyContent >= 50 && check) {
         validateButton();
     } else {
         invalidateButton();
