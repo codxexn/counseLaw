@@ -1,3 +1,61 @@
+const accountInfoBtn = document.querySelector(".accountInfoBtn");
+const oldPw = document.getElementById("old-password");
+const newPw = document.getElementById("new-password");
+const newPwRepeat2 = document.getElementById("new-password-re");
+function validateAccountInfoBtn(){
+    if (!oldPw.value || !newPw.value || !newPwRepeat2.value){
+        accountInfoBtn.disabled = true;
+    } else {
+        accountInfoBtn.disabled = false;
+    }
+}
+
+const phoneBtn = document.querySelector(".phoneBtn");
+const myPhone = document.getElementById("my-phone");
+function validatePhoneBtn(){
+    if (!myPhone.value){
+        phoneBtn.disabled = true;
+    } else {
+        phoneBtn.disabled = false;
+    }
+}
+
+const lawyerInfoSubmit = document.querySelector(".lawyerInfo-submit");
+const fieldInputs = document.querySelectorAll("input[name=eachField]");
+const locationInputs = document.querySelectorAll("input[name=eachLocation]");
+function validateLawyerInfoSubmit(){
+    let flag = new Array([false, false]);
+    for (let check of fieldInputs){
+        if (check.checked){
+            flag[0] = true;
+        }
+    }
+    for (let check of locationInputs){
+        if (check.checked){
+            flag[1] = true;
+        }
+    }
+    if (flag[0] && flag[1]){
+        lawyerInfoSubmit.disabled = false;
+    } else {
+        lawyerInfoSubmit.disabled = true;
+    }
+}
+
+const startYear = document.querySelector("input[name=startYear]");
+const endYear = document.querySelector("input[name=endYear]");
+const experienceContent = document.querySelector("input[name=experienceContent]");
+const careerSubmitBtn = document.querySelector(".careerSubmitBtn");
+function validateCareerSubmit(){
+    if (!startYear.value || !endYear.value || !experienceContent.value){
+        careerSubmitBtn.disabled = true;
+    } else {
+        careerSubmitBtn.disabled = false;
+    }
+}
+
+
+
 function deleteCareer(experienceId){
     Swal.fire({
         title: '해당 경력을 삭제하시겠습니까?',
@@ -42,3 +100,4 @@ file.addEventListener("change", (e) => {
         defaultImg.src = "/image/defaultLawyerProfile/defaultLawyerProfile.png";
     }
 })
+

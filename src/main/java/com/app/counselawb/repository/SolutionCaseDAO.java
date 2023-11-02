@@ -26,7 +26,7 @@ public class SolutionCaseDAO {
 
 //    이미지 가져오기
 
-    public Optional<SolutionCaseImgVO> findSolutionIMG(Long solutionCaseId) {
+    public List<SolutionCaseDTO> findSolutionIMG(Long solutionCaseId) {
         return solutionCaseMapper.selectSolutionImg(solutionCaseId);
     }
 

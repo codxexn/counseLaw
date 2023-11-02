@@ -73,4 +73,28 @@ public interface LawyerService {
 
     // 변호사 프사 삭제
     public void discardProfileImage(Long lawyerId);
+
+    // 변호사 해결사례 삭제
+    public void discardSCByLawyerId(Long lawyerId);
+
+    // 변호사 법률가이드 삭제
+    public void discardLGByLawyerId(Long lawyerId);
+
+    // 변호사 분야 삭제
+    public void discardFieldByLawyerId(Long lawyerId);
+
+    // 변호사 지역 삭제
+    public void discardLocationByLawyerId(Long lawyerId);
+
+    // 변호사 경력 삭제
+    public void discardCareerByLawyerId(Long lawyerId);
+
+    // 변호사 답글 삭제
+    public void discardReplyByLawyerId(Long lawyerId);
+
+    // 변호사 즐찾 삭제
+    public void discardLawyerLikeByLawyerId(Long lawyerId);
+
+    // 변호사 탈퇴(삭제)
+    public void discardLawyer(Long lawyerId);
 }

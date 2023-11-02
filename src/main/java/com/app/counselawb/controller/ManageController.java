@@ -243,6 +243,7 @@
                 model.addAttribute("selectAllLawyers", selectAllLawyers);
             }
 
+
             return "manager/manager-member";
         }
 

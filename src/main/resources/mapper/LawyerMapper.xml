@@ -125,5 +125,44 @@
         WHERE LAWYER_ID = #{lawyerId}
     </update>
 
+    <delete id="deleteSCByLawyerId">
+        DELETE FROM TBL_SOLUTION_CASE
+        WHERE LAWYER_ID = #{lawyerId}
+    </delete>
+
+    <delete id="deleteLGByLawyerId">
+        DELETE FROM TBL_LEGAL_GUIDE
+        WHERE LAWYER_ID = #{lawyerId}
+    </delete>
+
+    <delete id="deleteFieldByLawyerId">
+        DELETE FROM TBL_LAWYER_FIELD
+        WHERE LAWYER_ID = #{lawyerId}
+    </delete>
+
+    <delete id="deleteLocationByLawyerId">
+        DELETE FROM TBL_LAWYER_LOCATION
+        WHERE LAWYER_ID = #{lawyerId}
+    </delete>
+
+    <delete id="deleteCareerByLawyerId">
+        DELETE FROM TBL_EXPERIENCE
+        WHERE LAWYER_ID = #{lawyerId}
+    </delete>
+
+    <delete id="deleteReplyByLawyerId">
+        DELETE FROM TBL_CONSULTING_CASE_REPLY
+        WHERE LAWYER_ID = #{lawyerId}
+    </delete>
+
+    <delete id="deleteLawyerLikeByLawyerId">
+        DELETE FROM TBL_LAWYER_LIKE
+        WHERE LAWYER_ID = #{lawyerId}
+    </delete>
+
+    <delete id="deleteLawyer">
+        DELETE FROM TBL_LAWYER
+        WHERE LAWYER_ID = #{lawyerId}
+    </delete>
 
 </mapper>

@@ -93,8 +93,8 @@ public class LawyerWriteController {
                 solutionCaseImgVO.setSolutionCaseId(solutionCaseId);
                 String originFileName = file.getOriginalFilename();
                 String fileNameExtension = FilenameUtils.getExtension(originFileName).toLowerCase();
-                String absolutePath = new File("").getAbsolutePath() + "\\src\\main\\resources\\static";
-                String fileUrl = "/image/solution-case-images/";
+                String absolutePath = "/usr/upload";
+                String fileUrl = "/solution-case-images/";
                 File destinationFile;
                 String destinationFileName;
                 do {
@@ -108,7 +108,7 @@ public class LawyerWriteController {
                 solutionCaseImgVO.setImgSize(file.getSize());
                 solutionCaseImgVO.setStoredFileName(destinationFileName);
                 solutionCaseImgVO.setOriginFileName(originFileName);
-                solutionCaseImgVO.setImgPath(fileUrl);
+                solutionCaseImgVO.setImgPath("/image/res" + fileUrl);
                 lawyerWriteService.saveSolutionCaseImg(solutionCaseImgVO);
             }
         }

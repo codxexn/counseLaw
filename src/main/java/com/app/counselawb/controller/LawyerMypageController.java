@@ -97,7 +97,7 @@ public class LawyerMypageController {
         List<LawyerLocationDTO> foundLocations = locationService.findLocationsByLawyerId(lawyerId);
         List<Long> foundLocationIds = new ArrayList<>();
         foundLocations.forEach((location) -> {
-           foundLocationIds.add(location.getLocationId());
+            foundLocationIds.add(location.getLocationId());
         });
         model.addAttribute("locations", foundLocationIds);
         List<ExperienceVO> foundCareers = lawyerService.findCareersByLawyerId(lawyerId);
@@ -114,15 +114,16 @@ public class LawyerMypageController {
 
     // 프사 변경
     @PostMapping("info-update-profile")
-    public RedirectView uploadProfileImage(@RequestParam("lawyerId") Long lawyerId, MultipartHttpServletRequest mhsr) throws Exception{
+    public RedirectView uploadProfileImage(@RequestParam("lawyerId") Long lawyerId,
+                                           MultipartHttpServletRequest mhsr, HttpSession session) throws Exception{
         MultipartFile image = mhsr.getFile("file");
         if (image != null){
             LawyerVO lawyerVO = new LawyerVO();
             lawyerVO.setLawyerId(lawyerId);
             String originFileName = image.getOriginalFilename();
             String fileNameExtension = FilenameUtils.getExtension(originFileName).toLowerCase();
-            String absolutePath = new File("").getAbsolutePath() + "\\src\\main\\resources\\static";
-            String fileUrl = "/image/lawyer-profile-images/";
+            String absolutePath = "/usr/upload";
+            String fileUrl = "/lawyer-profile-images/";
             File destinationFile;
             String destinationFileName;
             do {
@@ -133,8 +134,13 @@ public class LawyerMypageController {
             destinationFile.getParentFile().mkdirs();
             image.transferTo(destinationFile);
 
-            lawyerVO.setLawyerImage(fileUrl + destinationFileName);
+            lawyerVO.setLawyerImage("/image/res" + fileUrl + destinationFileName);
             lawyerService.reviseProfileImage(lawyerVO);
+            Optional<LawyerVO> newLawyer = lawyerService.findByLawyerId(lawyerId);
+            if (newLawyer.isPresent()){
+                session.removeAttribute("lawyer");
+                session.setAttribute("lawyer", newLawyer.get());
+            }
         }
         return new RedirectView("/mypage-lawyer/info-update");
     }
@@ -155,7 +161,7 @@ public class LawyerMypageController {
     // 비밀번호 변경
     @PostMapping("info-update-pw")
     public RedirectView changePw(HttpSession session, @RequestParam("oldPassword") String oldPassword,
-                                              @RequestParam("newPassword") String newPassword){
+                                 @RequestParam("newPassword") String newPassword){
         LawyerVO currentLawyer = (LawyerVO) session.getAttribute("lawyer");
         if (!currentLawyer.getLawyerPassword().equals(oldPassword)){
             return new RedirectView("/mypage-lawyer/info-update-pw-error");
@@ -189,10 +195,10 @@ public class LawyerMypageController {
     // 변호사 정보 업데이트
     @PostMapping("info-update-info")
     public RedirectView changeInfo(HttpSession session, @RequestParam("company") String lawyerCompany,
-                                                @RequestParam("address") String lawyerAddress, @RequestParam("school") String lawyerEducation,
-                                                @RequestParam("callPrice") int callPrice, @RequestParam("videoPrice") int videoPrice, @RequestParam("visitPrice") int visitPrice,
-                                                @RequestParam("introduction") String lawyerIntroduction, @RequestParam("qualification") String lawyerQualification,
-                                                @RequestParam("eachField") List<Long> checkedFieldIds, @RequestParam("eachLocation") List<Long> checkedLocationIds){
+                                   @RequestParam("address") String lawyerAddress, @RequestParam("school") String lawyerEducation,
+                                   @RequestParam("callPrice") int callPrice, @RequestParam("videoPrice") int videoPrice, @RequestParam("visitPrice") int visitPrice,
+                                   @RequestParam("introduction") String lawyerIntroduction, @RequestParam("qualification") String lawyerQualification,
+                                   @RequestParam("eachField") List<Long> checkedFieldIds, @RequestParam("eachLocation") List<Long> checkedLocationIds){
         LawyerVO currentLawyer = (LawyerVO) session.getAttribute("lawyer");
         LawyerLocationVO lawyerLocationVO = new LawyerLocationVO();
         currentLawyer.setLawyerIntroduction(lawyerIntroduction);
@@ -319,6 +325,36 @@ public class LawyerMypageController {
         List<LawyerSidebarDTO> getLawyers = consultingCaseService.getLawyers();
         model.addAttribute("getLawyers", getLawyers);
         return "lawyer-my-posts/my-consulting-case";
+    }
+
+    // 변호사 회원탈퇴
+    @GetMapping("withdraw-lawyer")
+    public String goToWithdraw(HttpSession session){
+        if (session.getAttribute("lawyer") == null) {
+            return "client-login/client-login";
+        }
+        return "mypage/withdraw-lawyer";
+    }
+
+    // 실제 회원탈퇴
+    @GetMapping("withdraw")
+    @ResponseBody
+    public String withdraw(@RequestParam("lawyerId") Long lawyerId){
+        try {
+            lawyerService.discardSCByLawyerId(lawyerId);
+            lawyerService.discardLGByLawyerId(lawyerId);
+            lawyerService.discardCareerByLawyerId(lawyerId);
+            lawyerService.discardFieldByLawyerId(lawyerId);
+            lawyerService.discardLocationByLawyerId(lawyerId);
+            lawyerService.discardLawyerLikeByLawyerId(lawyerId);
+            lawyerService.discardReplyByLawyerId(lawyerId);
+            lawyerService.discardLawyer(lawyerId);
+            return "success";
+        } catch (Exception e){
+            log.info("{}", e.getMessage());
+            return "fail";
+        }
+
     }
 
 }

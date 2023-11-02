@@ -69,31 +69,35 @@
                                 </div>
                             </div>
                             <div class="Account-Info-Card-Group">
-                                <input id="old-password" th:name="oldPassword" type="password" maxlength="255" name="oldPassword" class="Account-Info-Card-Group-Input">
+                                <input onkeyup="validateAccountInfoBtn()"
+                                       id="old-password" th:name="oldPassword" type="password" maxlength="255" name="oldPassword" class="Account-Info-Card-Group-Input">
                                 <label for="old-password">기존 비밀번호</label>
                                 <p th:if="${passwordErrorMsg != null}" th:text="${passwordErrorMsg}" class="Update-Error Old-Password-Error">기존 비밀번호와 일치하지 않습니다.</p>
                             </div>
                             <div class="Account-Info-Card-Group">
-                                <input id="new-password" th:name="newPassword" type="password" maxlength="255" name="newPassword" class="Account-Info-Card-Group-Input">
+                                <input onkeyup="validateAccountInfoBtn()"
+                                        id="new-password" th:name="newPassword" type="password" maxlength="255" name="newPassword" class="Account-Info-Card-Group-Input">
                                 <label for="new-password">새로운 비밀번호</label>
                                 <p class="Update-Error New-Password-Error">올바르지 않은 형식입니다.</p>
                             </div>
                             <div class="Account-Info-Card-Group">
-                                <input id="new-password-re" type="password" maxlength="255" name="newPasswordRepeat" class="Account-Info-Card-Group-Input">
+                                <input onkeyup="validateAccountInfoBtn()"
+                                        id="new-password-re" type="password" maxlength="255" name="newPasswordRepeat" class="Account-Info-Card-Group-Input">
                                 <label for="new-password-re">비밀번호 확인</label>
                                 <p class="Update-Error New-Password-Different">비밀번호가 일치하지 않습니다.</p>
                                 <p class="Update-No-Problem New-Password-Same">새로운 비밀번호가 일치합니다.</p>
                             </div>
                         </div>
                         <div class="Account-Info-Card-Footer">
-                            <button type="submit" class="Account-Info-Card-Button">[ 저장 ]</button>
+                            <button disabled type="submit" class="accountInfoBtn Account-Info-Card-Button">[ 저장 ]</button>
                         </div>
                     </form>
                     <form th:action="@{/mypage-lawyer/info-update-phone}" method="post" role="form" name="phoneForm" class="Account-Info-Card">
                         <h3 class="Account-Info-Card-Header">전화번호</h3>
                         <div class="Account-Info-Card-Body">
                             <div class="Account-Info-Card-Group">
-                                <input th:value="${session.lawyer.lawyerPhone}" th:name="phone" id="my-phone" type="text" placeholder="예) 01012345678" maxlength="11" name="phone" class="Account-Info-Card-Group-Input">
+                                <input onkeyup="validatePhoneBtn()"
+                                        th:value="${session.lawyer.lawyerPhone}" th:name="phone" id="my-phone" type="text" placeholder="예) 01012345678" maxlength="11" name="phone" class="Account-Info-Card-Group-Input">
                                 <label for="my-phone">전화번호</label>
                                 <div class="Missing-Phone-Message">
                                     <label>전화번호는 반드시 입력하셔야 합니다.</label>
@@ -109,7 +113,7 @@
                             </div>
                         </div>
                         <div class="Account-Info-Card-Footer">
-                            <button type="submit" class="Account-Info-Card-Button">[ 저장 ]</button>
+                            <button disabled type="submit" class="phoneBtn Account-Info-Card-Button">[ 저장 ]</button>
                         </div>
                     </form>
                     <form th:action="@{/mypage-lawyer/info-update-info}" method="post" role="form" name="lawyerForm" class="Account-Info-Card">
@@ -151,9 +155,10 @@
                                 <span class="label-for-fields">분야</span>
                                 <div class="field-checkboxes">
                                     <div th:each="field : ${fieldList}" class="field-checkbox">
-                                        <input th:id="|type${field.fieldId}|" th:name="eachField" th:value="${field.fieldId}" type="checkbox"
+                                        <input onchange="validateLawyerInfoSubmit()"
+                                                th:id="|fieldType${field.fieldId}|" th:name="eachField" th:value="${field.fieldId}" type="checkbox"
                                         th:checked="${#lists.contains(fields, field.fieldId) ? 'true' : 'false'}">
-                                        <label th:for="|type${field.fieldId}|" th:text="${field.fieldTitle}"></label>
+                                        <label th:for="|fieldType${field.fieldId}|" th:text="${field.fieldTitle}"></label>
                                     </div>
                                 </div>
                             </div>
@@ -161,15 +166,16 @@
                                 <span class="label-for-fields">활동지역</span>
                                 <div class="field-checkboxes">
                                     <div th:each="location : ${locationList}" class="field-checkbox">
-                                        <input th:id="|type${location.locationId}|" th:name="eachLocation" th:value="${location.locationId}" type="checkbox"
+                                        <input onchange="validateLawyerInfoSubmit()"
+                                                th:id="|locType${location.locationId}|" th:name="eachLocation" th:value="${location.locationId}" type="checkbox"
                                                th:checked="${#lists.contains(locations, location.locationId) ? 'true' : 'false'}">
-                                        <label th:for="|type${location.locationId}|" th:text="${location.locationName}"></label>
+                                        <label th:for="|locType${location.locationId}|" th:text="${location.locationName}"></label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="Account-Info-Card-Footer">
-                            <button type="submit" class="Account-Info-Card-Button">[ 저장 ]</button>
+                            <button disabled type="submit" class="lawyerInfo-submit Account-Info-Card-Button">[ 저장 ]</button>
                         </div>
                     </form>
                     <form th:action="@{/mypage-lawyer/info-update-career}" method="post" role="form" name="lawyerForm" class="Account-Info-Card">
@@ -177,15 +183,18 @@
                         <input type="hidden" th:value="${session.lawyer.lawyerId}" th:name="lawyerId">
                         <div class="Account-Info-Card-Body">
                             <div class="Account-Info-Card-Group">
-                                <input th:name="startYear" id="startYear" type="text" placeholder="시작 연도를 4자리 숫자로 입력해주세요. (ex. 2015)" maxlength="5" name="startYear" class="Account-Info-Card-Group-Input">
+                                <input onkeyup="validateCareerSubmit()"
+                                       th:name="startYear" id="startYear" type="text" placeholder="시작 연도를 4자리 숫자로 입력해주세요. (ex. 2015)" maxlength="5" name="startYear" class="Account-Info-Card-Group-Input">
                                 <label for="startYear">시작 연도</label>
                             </div>
                             <div class="Account-Info-Card-Group">
-                                <input th:name="endYear" id="endYear" type="text" placeholder="종료 연도를 4자리 숫자로 입력해주세요. 진행 중이라면 0을 입력해주세요." maxlength="5" name="endYear" class="Account-Info-Card-Group-Input">
+                                <input onkeyup="validateCareerSubmit()"
+                                        th:name="endYear" id="endYear" type="text" placeholder="종료 연도를 4자리 숫자로 입력해주세요. 진행 중이라면 0을 입력해주세요." maxlength="5" name="endYear" class="Account-Info-Card-Group-Input">
                                 <label for="endYear">종료 연도</label>
                             </div>
                             <div class="Account-Info-Card-Group">
-                                <input th:name="experienceContent" id="experienceContent" type="text" placeholder="경력 내용을 입력해주세요. (ex. 김앤장 법률사무소 대표)" maxlength="250" name="experienceContent" class="Account-Info-Card-Group-Input">
+                                <input onkeyup="validateCareerSubmit()"
+                                        th:name="experienceContent" id="experienceContent" type="text" placeholder="경력 내용을 입력해주세요. (ex. 김앤장 법률사무소 대표)" maxlength="250" name="experienceContent" class="Account-Info-Card-Group-Input">
                                 <label for="experienceContent">경력 내용</label>
                             </div>
                             <div th:each="career: ${careerList}" class="MypageBox-MenuItem-Info">
@@ -205,13 +214,13 @@
                             </div>
                         </div>
                         <div class="Account-Info-Card-Footer">
-                            <button type="submit" class="Account-Info-Card-Button">[ 저장 ]</button>
+                            <button disabled type="submit" class="careerSubmitBtn Account-Info-Card-Button">[ 저장 ]</button>
                         </div>
                     </form>
                 </div>
                 <div class="Info-Update-Footer">
                     <div class="Info-Update-Footer-Row">
-                        <a href="">변호사 회원탈퇴</a>
+                        <a href="/mypage-lawyer/withdraw-lawyer">변호사 회원탈퇴</a>
                         <a th:href="@{/}">메인 페이지</a>
                     </div>
                     <div class="Info-Update-Footer-Row">

@@ -13,6 +13,7 @@ server:
 
 
 
+
 spring:
   datasource:
     hikari:
@@ -20,6 +21,7 @@ spring:
       jdbc-url: jdbc:oracle:thin:@//13.124.114.166/XE
       username: hr
       password: hr
+
 
   mail:
     host: smtp.gmail.com
@@ -34,13 +36,13 @@ spring:
           starttls:
             enable: true
 
-mvc:
-  pathmatch:
-    matching-startegy: ant_math_matcher
 
 
 
 
 
+custom:
+  path:
+    upload-images: '/usr/upload/'
 
 

@@ -40,4 +40,7 @@ public class SolutionCaseDTO {
 
 //    변호사 프사
     private String lawyerImage;
+
+    // (프로젝트에 랜덤으로) 저장된(될) 파일명
+    private String storedFileName;
 }
