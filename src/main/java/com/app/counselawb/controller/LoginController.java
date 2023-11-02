@@ -60,11 +60,11 @@ public class LoginController {
         if (foundLawyer.isPresent()) {
             LawyerVO lawyer = foundLawyer.get();
             if (lawyer.getLawyerState().matches("WITHDRAW|SUSPENDED")) {
-                return new RedirectView("/login/login-error");
+                return new RedirectView("login/login-error");
             }
             session.setAttribute("lawyer", foundLawyer.get());
             log.info((session.getAttribute("lawyer")).toString());
-            return new RedirectView("/");
+            return new RedirectView("");
         }
         return new RedirectView("/login/login-error");
     }

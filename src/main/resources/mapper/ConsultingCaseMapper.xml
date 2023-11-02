@@ -10,41 +10,33 @@
 
 <!--    상담사례 목록에 보일 변호사 이름, 작성자 이름, 답변 내용(가장 최근 날짜)등 다 불러오기-->
     <select id="readAllConsult" resultType="consultingCaseDTO">
-        SELECT CCC.CONSULTING_CASE_ID, CCC.CASE_TITLE, CCC.CASE_CONTENT, CCC.MEMBER_ID, CCC.CONSULT_CREATE_DATE,
-               CCC.LAWYER_ID, CCC.LAWYER_NAME, CCC.REPLY_ID, CCC.REPLY_CONTENT, CCC.CASE_COUNT, CCC.CREATE_DATE,
-               CCC.REPLY_COUNT
-            FROM
-            (SELECT ROWNUM R,
-                    CC.CONSULTING_CASE_ID,
-                    CC.CASE_TITLE,
-                    CC.CASE_CONTENT,
-                    CC.MEMBER_ID,
-                    CC.CREATE_DATE AS CONSULT_CREATE_DATE,
-                    CCR.LAWYER_ID,
-                    L.LAWYER_NAME,
-                    CCR.CONSULTING_CASE_REPLY_ID AS REPLY_ID,
-                    CCR.CONSULTING_CASE_REPLY_CONTENT AS REPLY_CONTENT,
-                    CC.CASE_COUNT,
-                    CCR.CREATE_DATE AS CREATE_DATE,
-                    (SELECT COUNT(*)
-                     FROM TBL_CONSULTING_CASE_REPLY CCR1
-                     WHERE CCR1.CONSULTING_CASE_ID = CC.CONSULTING_CASE_ID) AS REPLY_COUNT
-             FROM TBL_CONSULTING_CASE CC
-                      LEFT JOIN (SELECT CCR1.CONSULTING_CASE_ID,
-                                        CCR1.CONSULTING_CASE_REPLY_ID,
-                                        CCR1.CONSULTING_CASE_REPLY_CONTENT,
-                                        CCR1.LAWYER_ID,
-                                        CCR1.CREATE_DATE
-                                 FROM TBL_CONSULTING_CASE_REPLY CCR1
-                                 WHERE CCR1.CREATE_DATE = (SELECT MIN(CREATE_DATE)
-                                                           FROM TBL_CONSULTING_CASE_REPLY CCR2
-                                                           WHERE CCR2.CONSULTING_CASE_ID = CCR1.CONSULTING_CASE_ID)) CCR
-                                ON CC.CONSULTING_CASE_ID = CCR.CONSULTING_CASE_ID
-                      LEFT JOIN TBL_LAWYER L ON CCR.LAWYER_ID = L.LAWYER_ID
-<![CDATA[
-             WHERE ROWNUM <= #{endRow}
-             ) CCC
-        WHERE CCC.R >= #{startRow}
+        SELECT *
+        FROM (
+                SELECT ROWNUM R, CCC.CONSULTING_CASE_ID, CASE_TITLE, CASE_CONTENT, MEMBER_ID, CCC.CONSULT_CREATE_DATE,
+                       LAWYER_ID, LAWYER_NAME, CCC.REPLY_ID, CCC.REPLY_CONTENT, CASE_COUNT, CCC.CREATE_DATE, CCC.REPLY_COUNT
+                FROM (
+                        SELECT CC.CONSULTING_CASE_ID, CC.CASE_TITLE, CC.CASE_CONTENT, CC.MEMBER_ID, CC.CREATE_DATE AS CONSULT_CREATE_DATE,
+                                       CCR.LAWYER_ID, L.LAWYER_NAME, CCR.CONSULTING_CASE_REPLY_ID AS REPLY_ID, CCR.CONSULTING_CASE_REPLY_CONTENT AS REPLY_CONTENT,
+                                               CC.CASE_COUNT, CCR.CREATE_DATE AS CREATE_DATE,
+                                               (SELECT COUNT(*)
+                                                FROM TBL_CONSULTING_CASE_REPLY CCR1
+                                                        WHERE CCR1.CONSULTING_CASE_ID = CC.CONSULTING_CASE_ID) AS REPLY_COUNT
+                                FROM TBL_CONSULTING_CASE CC
+                                    LEFT JOIN (
+                                            SELECT CCR1.CONSULTING_CASE_ID, CCR1.CONSULTING_CASE_REPLY_ID, CCR1.CONSULTING_CASE_REPLY_CONTENT, CCR1.LAWYER_ID, CCR1.CREATE_DATE
+                                                    FROM TBL_CONSULTING_CASE_REPLY CCR1
+                                                    WHERE CCR1.CREATE_DATE = (
+                                                            SELECT MIN(CREATE_DATE)
+                                                            FROM TBL_CONSULTING_CASE_REPLY CCR2
+                                                            WHERE CCR2.CONSULTING_CASE_ID = CCR1.CONSULTING_CASE_ID
+                                                            )
+                                                    ) CCR ON CC.CONSULTING_CASE_ID = CCR.CONSULTING_CASE_ID
+                                    LEFT JOIN TBL_LAWYER L ON CCR.LAWYER_ID = L.LAWYER_ID
+                                ORDER BY CC.CONSULTING_CASE_ID DESC -- CONSULTING_CASE_ID를 내림차순으로 정렬
+                    ) CCC
+                )
+        <![CDATA[
+        WHERE R >= #{startRow} AND R <= #{endRow}
         ]]>
     </select>
 
