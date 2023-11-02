@@ -253,7 +253,7 @@
                             <!-- 더보기 1~10-->
                             <footer class="PaginationWrapper" th:with="start=${pagination.startPage}, last=(${pagination.endPage})">
                                 <div class="Pagination-PrevButtonWrapper">
-                                    <button th:if="${pagination.page==start}" disabled width="40px" height="40px" font-size="18px"
+                                    <button th:if="${pagination.page == start}" disabled width="40px" height="40px" font-size="18px"
                                             class="Pagination-PrevButton" id="prevprev_button">
                                         <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Crect width='40' height='40' fill='%23FFF' fill-opacity='0' fill-rule='nonzero' rx='20'/%3E %3Cg stroke='%23000' stroke-width='1.5'%3E %3Cpath d='M16 16l4 4-4 4M21 16l4 4-4 4'/%3E %3C/g%3E %3C/g%3E %3C/svg%3E"
                                              class="PrevButton-Image">
