@@ -54,7 +54,7 @@ public class LawyerWriteController {
         legalGuideVO.setLegalGuideContent(legalGuideContent);
         legalGuideVO.setFieldId(fieldId);
         lawyerWriteService.saveLegalGuide(legalGuideVO);
-        return new RedirectView("legal-guide-page/legal-guide");
+        return new RedirectView("/legal-guide-page/legal-guide");
     }
 
     @GetMapping("lawyer-write-sc")
@@ -112,6 +112,6 @@ public class LawyerWriteController {
                 lawyerWriteService.saveSolutionCaseImg(solutionCaseImgVO);
             }
         }
-        return new RedirectView("solution-case-page/solution-case");
+        return new RedirectView("/solution-case-page/solution-case");
     }
 }
