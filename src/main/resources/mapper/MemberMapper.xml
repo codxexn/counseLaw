@@ -36,4 +36,10 @@
         VALUES (SEQ_LAWYER.NEXTVAL, #{lawyerEmail}, #{lawyerPassword}, #{lawyerName}, #{lawyerPhone}, #{lawyerCompany})
     </insert>
 
+    <update id="updatePassword">
+        UPDATE TBL_MEMBER
+        SET MEMBER_PASSWORD = #{memberPassword}
+        WHERE MEMBER_ID = #{memberId}
+    </update>
+
 </mapper>

@@ -36,11 +36,13 @@ public class MemberDAO {
         return memberMapper.selectLawyerByEmail(lawyerVO);
     }
 
-    // 일반 회원 가입
+    // 변호사 회원 가입
     public void saveLawyer(LawyerVO lawyerVO) {
         memberMapper.insertLawyer(lawyerVO);
     }
 
+    // 비밀번호 변경
+    public void changePassword(MemberVO memberVO) { memberMapper.updatePassword(memberVO); }
 
 
 }

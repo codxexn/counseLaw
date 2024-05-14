@@ -26,4 +26,7 @@ public interface MemberMapper {
 
     // 변호사 회원 가입
     public void insertLawyer(LawyerVO lawyerVO);
+
+    // 비밀번호 변경
+    public void updatePassword(MemberVO memberVO);
 }
