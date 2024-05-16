@@ -55,4 +55,9 @@ public class MemberServiceImpl implements MemberService {
     // 비밀번호 변경
     @Override
     public void changePassword(long memberId, String memberPassword) { memberDAO.changePassword(memberId, memberPassword); }
+
+
+    // 전화번호 변경
+    @Override
+    public void changePhone(long memberId, String memberPhone) { memberDAO.changePhone(memberId, memberPhone); }
 }

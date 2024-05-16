@@ -52,6 +52,7 @@ public class LoginController {
                 return new RedirectView("/login/login-error");
             }
             session.setAttribute("member", foundMember.get());
+            session.setAttribute("memberId", foundMember.get().getMemberId());
             log.info((session.getAttribute("member")).toString());
             return new RedirectView("/");
         }

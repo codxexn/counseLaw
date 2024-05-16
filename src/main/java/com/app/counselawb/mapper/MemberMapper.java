@@ -29,4 +29,7 @@ public interface MemberMapper {
 
     // 비밀번호 변경
     public void updatePassword(long memberId, String memberPassword);
+
+    // 전화번호 변경
+    public void updatePhone(long memberId, String memberPhone);
 }

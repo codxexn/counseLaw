@@ -8,10 +8,7 @@ server:
   servlet:
     session:
       tracking-modes: cookie
-      persistent: false
-
-
-
+      persistent: true
 
 
 spring:
@@ -23,22 +20,18 @@ spring:
       password: 1234
 
 
-  mail:
-    host: smtp.gmail.com
-    port: 587
-    username: ptever.help
-    password: sakvckakbwfxsjbl
-    properties:
-      mail:
-        smtp:
-          auth: true
-          timeout: 5000
-          starttls:
-            enable: true
-
-
-
-
+#  mail:
+#    host: smtp.gmail.com
+#    port: 587
+#    username: ptever.help
+#    password: sakvckakbwfxsjbl
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#          timeout: 5000
+#          starttls:
+#            enable: true
 
 
 custom:

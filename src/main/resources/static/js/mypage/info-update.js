@@ -6,7 +6,7 @@ const newPwRepeat = document.querySelector("input[name=newPasswordRepeat]");
 const newPwRepeatNoProblemMsg = document.querySelector(".New-Password-Same");
 const newPwRepeatErrorMsg = document.querySelector(".New-Password-Different");
 // const emailInput = document.querySelector("input[name=email]");
-const phoneInput = document.querySelector("input[name=phone]");
+const phoneInput = document.querySelector("input[name=newPhone]");
 const phoneErrorMsg = document.querySelector(".Missing-Phone-Message");
 const phoneValidateButton = document.querySelector(".Authenticate-Phone-Button");
 const phoneAuthNoProblemMsg = document.querySelector(".Phone-Auth-Code-Same");

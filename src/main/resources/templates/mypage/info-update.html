@@ -52,27 +52,29 @@
                                 <button type="submit" class="Account-Info-Card-Button">[ 저장 ]</button>
                             </div>
                         </form>
-                        <form role="form" name="phoneForm" class="Account-Info-Card">
+                        <form method="post" role="form" name="phoneForm" class="Account-Info-Card" th:action="@{/member/change-phone}">
                             <h3 class="Account-Info-Card-Header">전화번호</h3>
                             <div class="Account-Info-Card-Body">
                                 <div class="Account-Info-Card-Group">
-                                    <input value="01012345678" id="my-phone" type="text" placeholder="예) 01012345678" maxlength="11" name="phone" class="Account-Info-Card-Group-Input">
-                                    <label for="my-phone">전화번호</label>
-                                    <div class="Missing-Phone-Message">
-                                        <label>전화번호는 반드시 입력하셔야 합니다.</label>
-                                    </div>
-                                    <button type="button" class="Authenticate-Phone-Button">[ 인증번호 발송 ]</button>
+                                    <input th:value="${currentMember.getMemberPhone()}" id="newPhone" type="text" placeholder="예) 01012345678" maxlength="11" th:name="newPhone" class="Account-Info-Card-Group-Input">
+                                    <label for="newPhone">전화번호</label>
                                 </div>
-                                <div class="Account-Info-Card-Group Phone-Auth-Code-Wrapper">
-                                    <input id="phone-auth-code" type="text" maxlength="6" name="phoneAuthCode" class="Account-Info-Card-Group-Input">
-                                    <label for="phone-auth-code">인증번호</label>
-                                    <button type="button" class="Authenticate-Phone-Check-Button">[ 인증번호 확인 ]</button>
-                                    <p class="Update-Error Phone-Auth-Code-Error">인증번호가 일치하지 않습니다.</p>
-                                    <p class="Update-No-Problem Phone-Auth-Code-Same">인증번호가 일치합니다.</p>
-                                </div>
-                            </div>
+<!--                                    <div class="Missing-Phone-Message">-->
+<!--                                        <label>전화번호는 반드시 입력하셔야 합니다.</label>-->
+<!--                                    </div>-->
+<!--                                    <button type="button" class="Authenticate-Phone-Button">[ 인증번호 발송 ]</button>-->
+<!--                                </div>-->
+<!--                                <div class="Account-Info-Card-Group Phone-Auth-Code-Wrapper">-->
+<!--                                    <input id="phone-auth-code" type="text" maxlength="6" name="phoneAuthCode" class="Account-Info-Card-Group-Input">-->
+<!--                                    <label for="phone-auth-code">인증번호</label>-->
+<!--                                    <button type="button" class="Authenticate-Phone-Check-Button">[ 인증번호 확인 ]</button>-->
+<!--                                    <p class="Update-Error Phone-Auth-Code-Error">인증번호가 일치하지 않습니다.</p>-->
+<!--                                    <p class="Update-No-Problem Phone-Auth-Code-Same">인증번호가 일치합니다.</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
                             <div class="Account-Info-Card-Footer">
                                 <button type="submit" class="Account-Info-Card-Button">[ 저장 ]</button>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -96,11 +98,14 @@
     const lawyer = [[${session.lawyer}]];
     const member = [[${session.member}]];
 </script>
-<script th:if="${failMsg} != null">
+<script th:if="${failMsg}">
     alert("기존 비밀번호가 일치하지 않습니다.");
 </script>
-<script th:if="${successMsg} != null">
+<script th:if="${successMsg}">
     alert("비밀번호를 성공적으로 변경하였습니다.");
+</script>
+<script th:if="${isSuccessful}">
+    alert("전화번호를 성공적으로 변경하였습니다.");
 </script>
 <script src="/js/mypage/info-update.js"></script>
 </html>

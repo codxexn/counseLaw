@@ -26,6 +26,10 @@ public interface MemberService {
     public void joinLawyer(LawyerVO lawyerVO);
 
     // 비밀번호 변경
-        public void changePassword(long memberId, String memberPassword);
+    public void changePassword(long memberId, String memberPassword);
+
+    // 전화번호 변경
+    public void changePhone(long memberId, String memberPhone);
+
 
 }

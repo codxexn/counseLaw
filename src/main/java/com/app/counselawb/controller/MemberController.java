@@ -168,25 +168,45 @@ public class MemberController {
         return new RedirectView("/member/successful-change-password");
     }
 
+    // 비밀번호 변경 성공 후 내 정보 수정 화면으로
     @GetMapping("successful-change-password")
     public String successfulChangePassword (HttpSession session, Model model, MemberVO memberVO, LawyerVO lawyerVO) {
         MemberVO currentMember = (MemberVO)session.getAttribute("member");
         model.addAttribute("currentMember", currentMember);
-        String successMsg = "비밀번호를 성공적으로 변경하였습니다.";
+        boolean successMsg = true;
         model.addAttribute("successMsg", successMsg);
         return "mypage/info-update";
     }
 
+    // 비밀번호 변경 실패 후 내 정보 수정 화면으로
     @GetMapping("failed-change-password")
     public String failedChangePassword (HttpSession session, Model model, MemberVO memberVO, LawyerVO lawyerVO) {
         MemberVO currentMember = (MemberVO)session.getAttribute("member");
         model.addAttribute("currentMember", currentMember);
-        String failMsg = "기존 비밀번호가 일치하지 않습니다.";
+        boolean failMsg = true;
         model.addAttribute("failMsg", failMsg);
         return "mypage/info-update";
     }
 
+    // 전화번호 변경
+    @PostMapping("change-phone")
+    public RedirectView changePhone(HttpSession session, Model model, @RequestParam("newPhone") String memberPhone) {
+        MemberVO currentMember = (MemberVO) session.getAttribute("member");
+        memberService.changePhone(currentMember.getMemberId(), memberPhone);
+        currentMember.setMemberPhone(memberPhone);
+        session.setAttribute("member", currentMember);
+        return new RedirectView ("/member/successful-change-phone");
+    }
 
+    // 전화번호 변경 성공 후 내 정보 수정으로
+    @GetMapping("successful-change-phone")
+    public String successfulChangePhone(HttpSession session, Model model) {
+        MemberVO currentMember = (MemberVO)session.getAttribute("member");
+        model.addAttribute("currentMember", currentMember);
+        boolean isSuccessful = true;
+        model.addAttribute("isSuccessful", isSuccessful);
+        return "mypage/info-update";
+    }
 
 
 }

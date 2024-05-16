@@ -42,4 +42,10 @@
         WHERE MEMBER_ID = #{memberId}
     </update>
 
+    <update id="updatePhone">
+        UPDATE TBL_MEMBER
+        SET MEMBER_PHONE = #{memberPhone}
+        WHERE MEMBER_ID = #{memberId}
+    </update>
+
 </mapper>

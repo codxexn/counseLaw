@@ -44,5 +44,7 @@ public class MemberDAO {
     // 비밀번호 변경
     public void changePassword(long memberId, String memberPassword) { memberMapper.updatePassword(memberId, memberPassword); }
 
+    // 전화번호 변경
+    public void changePhone(long memberId, String memberPhone) { memberMapper.updatePhone(memberId, memberPhone); }
 
 }
