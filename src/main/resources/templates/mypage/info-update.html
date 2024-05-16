@@ -33,7 +33,8 @@
                                 <div class="Account-Info-Card-Group">
                                     <input id="oldPassword" type="password" maxlength="255" th:name="oldPassword" class="Account-Info-Card-Group-Input">
                                     <label for="oldPassword">기존 비밀번호</label>
-                                    <p class="Update-Error Old-Password-Error">기존 비밀번호와 일치하지 않습니다.</p>
+<!--                                    <p th:if="${changePwErrorMsg}" th:text="${changePwErrorMsg}" class="Old-Password-Error">기존 비밀번호와 일치하지 않습니다.</p>-->
+<!--                                    <p th:unless="${changePwSuccessMsg}" th:text="${changePwSuccessMsg}" class="Update-Error">비밀번호가 성공적으로 변경되었습니다.</p>-->
                                 </div>
                                 <div class="Account-Info-Card-Group">
                                     <input id="newPassword" type="password" maxlength="255" th:name="newPassword" class="Account-Info-Card-Group-Input">
@@ -95,11 +96,11 @@
     const lawyer = [[${session.lawyer}]];
     const member = [[${session.member}]];
 </script>
-<script th:if="${changePwSuccessMsg}">
-    alert("비밀번호가 성공적으로 변경되었습니다.");
-</script>
-<script th:if="!${changePwSuccessMsg}">
+<script th:if="${failMsg} != null">
     alert("기존 비밀번호가 일치하지 않습니다.");
 </script>
-<script src="info-update.js"></script>
+<script th:if="${successMsg} != null">
+    alert("비밀번호를 성공적으로 변경하였습니다.");
+</script>
+<script src="/js/mypage/info-update.js"></script>
 </html>

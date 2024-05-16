@@ -1,11 +1,11 @@
 // 에러 메시지 출력 (화면에서 하는 유효성 검사)
 
-const emailErrorMsg = document.querySelector(".Missing-Email-Message");
+// const emailErrorMsg = document.querySelector(".Missing-Email-Message");
 const newPwInput = document.querySelector("input[name=newPassword]");
 const newPwRepeat = document.querySelector("input[name=newPasswordRepeat]");
 const newPwRepeatNoProblemMsg = document.querySelector(".New-Password-Same");
 const newPwRepeatErrorMsg = document.querySelector(".New-Password-Different");
-const emailInput = document.querySelector("input[name=email]");
+// const emailInput = document.querySelector("input[name=email]");
 const phoneInput = document.querySelector("input[name=phone]");
 const phoneErrorMsg = document.querySelector(".Missing-Phone-Message");
 const phoneValidateButton = document.querySelector(".Authenticate-Phone-Button");
@@ -15,17 +15,17 @@ const phoneAuthCodeInputWrapper = document.querySelector(".Phone-Auth-Code-Wrapp
 const phoneAuthCodeInput = document.querySelector("input[name=phoneAuthCode]");
 const phoneAuthCodeCheckButton = document.querySelector(".Authenticate-Phone-Check-Button");
 
-emailInput.addEventListener("blur", (e) => {
-    if (!emailInput.value) {
-        emailErrorMsg.style.display = "block";
-    }
-})
-
-emailInput.addEventListener("keyup", (e) => {
-    if (emailInput.value){
-        emailErrorMsg.style.display = "none";
-    }
-})
+// emailInput.addEventListener("blur", (e) => {
+//     if (!emailInput.value) {
+//         emailErrorMsg.style.display = "block";
+//     }
+// })
+//
+// emailInput.addEventListener("keyup", (e) => {
+//     if (emailInput.value){
+//         emailErrorMsg.style.display = "none";
+//     }
+// })
 
 phoneInput.addEventListener("blur", (e) => {
     if (!phoneInput.value) {

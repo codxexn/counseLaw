@@ -8,6 +8,7 @@ import com.app.counselawb.service.MemberService;
 import com.app.counselawb.service.ReservationService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,12 +18,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
 @Slf4j
 @RequestMapping("/member/*")
 public class MemberController {
+
+    @Autowired
+    HttpSession session;
 
     private final MemberService memberService;
     private final ReservationService reservationService;
@@ -149,19 +154,39 @@ public class MemberController {
     @PostMapping("change-password")
     public RedirectView changePassword(HttpSession session, Model model, @RequestParam("oldPassword") String oldPassword, @RequestParam("newPassword") String newPassword) {
         MemberVO currentMember = (MemberVO) session.getAttribute("member");
-        model.addAttribute("currentMember", currentMember);
 
-        if (currentMember.getMemberPassword().equals(oldPassword)) {
-            memberService.changePassword(currentMember.getMemberId(), newPassword);
-            log.info("비밀번호 변경 완료");
-            boolean changePwSuccessMsg = true;
-            model.addAttribute("changePwSuccessMsg", changePwSuccessMsg);
-        } else {
+        if (!currentMember.getMemberPassword().equals(oldPassword)) {
             log.info("비밀번호 변경 실패");
-            boolean changePwSuccessMsg = false;
-            model.addAttribute("changePwSuccessMsg", changePwSuccessMsg);
+            model.addAttribute("currentMember", currentMember);
+            return new RedirectView("/member/failed-change-password");
         }
-        return new RedirectView("/member/myInfo-update");
+
+        memberService.changePassword(currentMember.getMemberId(), newPassword);
+        log.info("비밀번호 변경 완료");
+        currentMember.setMemberPassword(newPassword);
+        session.setAttribute("member", currentMember);
+        return new RedirectView("/member/successful-change-password");
     }
+
+    @GetMapping("successful-change-password")
+    public String successfulChangePassword (HttpSession session, Model model, MemberVO memberVO, LawyerVO lawyerVO) {
+        MemberVO currentMember = (MemberVO)session.getAttribute("member");
+        model.addAttribute("currentMember", currentMember);
+        String successMsg = "비밀번호를 성공적으로 변경하였습니다.";
+        model.addAttribute("successMsg", successMsg);
+        return "mypage/info-update";
+    }
+
+    @GetMapping("failed-change-password")
+    public String failedChangePassword (HttpSession session, Model model, MemberVO memberVO, LawyerVO lawyerVO) {
+        MemberVO currentMember = (MemberVO)session.getAttribute("member");
+        model.addAttribute("currentMember", currentMember);
+        String failMsg = "기존 비밀번호가 일치하지 않습니다.";
+        model.addAttribute("failMsg", failMsg);
+        return "mypage/info-update";
+    }
+
+
+
 
 }
