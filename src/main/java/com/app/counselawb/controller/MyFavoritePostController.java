@@ -37,12 +37,16 @@ public class MyFavoritePostController {
         List<MyFavoriteConsultDTO> myFavoriteConsultDTO = myFavoritePostsService.readMyFavoritePosts(currentMember.getMemberId());
         log.info("myFavoriteConsultDTO={}",myFavoriteConsultDTO);
 
-        model.addAttribute("myFavoritePosts", myFavoriteConsultDTO);
+        if(myFavoriteConsultDTO.size() == 0) {
+            return "my-favorite-posts/my-favorite-posts-empty";
+        } else {
+            model.addAttribute("myFavoritePosts", myFavoriteConsultDTO);
 
-        List<LegalGuideDTO> legalGuideWithDetail = myFavoritePostsService.findAllLegalGuideWithDetail();
-        model.addAttribute("legalGuideWithDetail", legalGuideWithDetail);
+            List<LegalGuideDTO> legalGuideWithDetail = myFavoritePostsService.findAllLegalGuideWithDetail();
+            model.addAttribute("legalGuideWithDetail", legalGuideWithDetail);
 
-        return "my-favorite-posts/my-favorite-posts";
+            return "my-favorite-posts/my-favorite-posts";
+        }
     }
 
     @GetMapping("my-favorite-posts-empty")

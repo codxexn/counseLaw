@@ -15,12 +15,12 @@
             <div class="Info-Update-Wrapper">
                 <div class="Info-Update">
                     <div class="Info-Update-Body">
-                        <form role="form" name="accountForm" class="Account-Info-Card">
+                        <form role="form" name="accountForm" method="post" th:action="@{/member/change-password}" class="Account-Info-Card">
                             <h3 class="Account-Info-Card-Header">계정정보</h3>
                             <div class="Account-Info-Card-Body">
                                 <div class="Account-Info-Card-Group">
-                                    <input value="hds1234@gmail.com" id="my-email" type="email" placeholder="예) name@example.com" maxlength="255" name="email" class="Account-Info-Card-Group-Input">
-                                    <label for="my-email">이메일</label>
+                                    <p class="email-label">이메일</p>
+                                    <span th:text="${currentMember.getMemberEmail()}" class="Account-Info-Card-Group-Input"></span>
                                     <div class="Missing-Email-Message">
                                         <label>이메일은 반드시 입력하셔야 합니다.</label>
                                     </div>
@@ -31,13 +31,13 @@
 <!--                                    <p class="Account-Social-Help-Block">소셜 로그인한 경우, 임의의 아이디가 부여됩니다.</p>-->
 <!--                                </div>-->
                                 <div class="Account-Info-Card-Group">
-                                    <input id="old-password" type="password" maxlength="255" name="oldPassword" class="Account-Info-Card-Group-Input">
-                                    <label for="old-password">기존 비밀번호</label>
+                                    <input id="oldPassword" type="password" maxlength="255" th:name="oldPassword" class="Account-Info-Card-Group-Input">
+                                    <label for="oldPassword">기존 비밀번호</label>
                                     <p class="Update-Error Old-Password-Error">기존 비밀번호와 일치하지 않습니다.</p>
                                 </div>
                                 <div class="Account-Info-Card-Group">
-                                    <input id="new-password" type="password" maxlength="255" name="newPassword" class="Account-Info-Card-Group-Input">
-                                    <label for="new-password">새로운 비밀번호</label>
+                                    <input id="newPassword" type="password" maxlength="255" th:name="newPassword" class="Account-Info-Card-Group-Input">
+                                    <label for="newPassword">새로운 비밀번호</label>
                                     <p class="Update-Error New-Password-Error">올바르지 않은 형식입니다.</p>
                                 </div>
                                 <div class="Account-Info-Card-Group">
@@ -91,5 +91,15 @@
         </div>
     </div>
 </body>
+<script th:inline="javascript">
+    const lawyer = [[${session.lawyer}]];
+    const member = [[${session.member}]];
+</script>
+<script th:if="${changePwSuccessMsg}">
+    alert("비밀번호가 성공적으로 변경되었습니다.");
+</script>
+<script th:if="!${changePwSuccessMsg}">
+    alert("기존 비밀번호가 일치하지 않습니다.");
+</script>
 <script src="info-update.js"></script>
 </html>

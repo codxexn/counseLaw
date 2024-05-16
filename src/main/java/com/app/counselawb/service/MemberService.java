@@ -25,4 +25,7 @@ public interface MemberService {
     // 변호사 회원가입
     public void joinLawyer(LawyerVO lawyerVO);
 
+    // 비밀번호 변경
+        public void changePassword(long memberId, String memberPassword);
+
 }

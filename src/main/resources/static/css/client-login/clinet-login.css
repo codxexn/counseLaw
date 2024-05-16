@@ -261,8 +261,8 @@ font: inherit;
 
 
 .sign-in-section-form-button{
-margin-top: 27px;
-background-color: #f50;
+    margin-top: 27px;
+    background-color: #c50000;
     border: none;
     color: #fff;
     font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
@@ -340,7 +340,7 @@ hr{
 
 
 .sign-in-section-auth-buttons-button{
-    background-color: #fff;
+    background-color: #FFCD00;
     border: 1px solid #e2e4e5;
     color: #7a8287;
     font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
@@ -441,7 +441,7 @@ color: #7a8287;
     font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
     font-size: 14px;
     text-decoration: none;
-    color: #f50;
+    color: #c50000;
         display: inline-block;
         font-weight: 700;
         margin-left: 8px;
@@ -471,7 +471,7 @@ html {
 }
 
 .box.active .check-circle::before{
-background-color: #ff5e00;
+background-color: #c50000;
     content: "";
     display: inline-block;
     height: 16px;
@@ -517,7 +517,7 @@ height: 200px;
 }
 
 .title{
-background-color: #ff4e00;
+background-color: #c50000;
     color: #fff;
     padding: 16px 12px;
     text-align: center;
@@ -786,7 +786,7 @@ font: inherit;
 
 .sign-in-section-form-button{
 margin-top: 27px;
-background-color: #f50;
+background-color: #c50000;
     border: none;
     color: #fff;
     font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
@@ -864,7 +864,7 @@ hr{
 
 
 .sign-in-section-auth-buttons-button{
-    background-color: #fff;
+    background-color: #FFCD00;
     border: 1px solid #e2e4e5;
     color: #7a8287;
     font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
@@ -965,7 +965,7 @@ color: #7a8287;
     font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
     font-size: 14px;
     text-decoration: none;
-    color: #f50;
+    color: #c50000;
         display: inline-block;
         font-weight: 700;
         margin-left: 8px;
@@ -995,7 +995,7 @@ html {
 }
 
 .box.active .check-circle::before{
-background-color: #ff5e00;
+background-color: #c50000;
     content: "";
     display: inline-block;
     height: 16px;
@@ -1041,7 +1041,7 @@ height: 200px;
 }
 
 .title{
-background-color: #ff4e00;
+background-color: #c50000;
     color: #fff;
     padding: 16px 12px;
     text-align: center;
@@ -1162,7 +1162,7 @@ color: #7a8287;
 
 .law-lading-sign-up-link{
 border: 1px solid #e2e4e5;
-    color: #f50;
+    color: #c50000;
     display: block;
     font-size: 15px;
     font-weight: 700;

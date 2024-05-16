@@ -52,4 +52,7 @@ public class MemberServiceImpl implements MemberService {
         memberDAO.saveLawyer(lawyerVO);
     }
 
+    // 비밀번호 변경
+    @Override
+    public void changePassword(long memberId, String memberPassword) { memberDAO.changePassword(memberId, memberPassword); }
 }

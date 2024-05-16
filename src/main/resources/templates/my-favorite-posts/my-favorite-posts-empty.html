@@ -8,9 +8,12 @@
     <title>내 관심글 - 마이페이지 | 카운슬로우</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
     <link rel="stylesheet" href="/css/myFavoritePosts/myFavoritePosts.css">
+    <th:block th:replace="~{fix/header :: my-header-head}"></th:block>
+    <th:block th:replace="~{fix/footer :: my-footer-head}"></th:block>
 </head>
 <body>
     <div class="root pc">
+        <header th:replace="~{fix/header :: my-header}"></header>
         <div style="height: 100%;">
             <div class="MFP-Wrapper">
                 <div class="MFP-Contents">

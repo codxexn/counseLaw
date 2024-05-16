@@ -28,5 +28,5 @@ public interface MemberMapper {
     public void insertLawyer(LawyerVO lawyerVO);
 
     // 비밀번호 변경
-    public void updatePassword(MemberVO memberVO);
+    public void updatePassword(long memberId, String memberPassword);
 }

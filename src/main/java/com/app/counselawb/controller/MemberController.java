@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -143,4 +144,24 @@ public class MemberController {
         model.addAttribute("currentMember", currentMember);
         return "mypage/info-update";
     }
+
+    // 비밀번호 변경
+    @PostMapping("change-password")
+    public RedirectView changePassword(HttpSession session, Model model, @RequestParam("oldPassword") String oldPassword, @RequestParam("newPassword") String newPassword) {
+        MemberVO currentMember = (MemberVO) session.getAttribute("member");
+        model.addAttribute("currentMember", currentMember);
+
+        if (currentMember.getMemberPassword().equals(oldPassword)) {
+            memberService.changePassword(currentMember.getMemberId(), newPassword);
+            log.info("비밀번호 변경 완료");
+            boolean changePwSuccessMsg = true;
+            model.addAttribute("changePwSuccessMsg", changePwSuccessMsg);
+        } else {
+            log.info("비밀번호 변경 실패");
+            boolean changePwSuccessMsg = false;
+            model.addAttribute("changePwSuccessMsg", changePwSuccessMsg);
+        }
+        return new RedirectView("/member/myInfo-update");
+    }
+
 }

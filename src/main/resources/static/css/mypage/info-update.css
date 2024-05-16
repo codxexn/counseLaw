@@ -412,6 +412,22 @@ button, input, optgroup, select, textarea {
     width: 100%;
 }
 
+.Account-Info-Card-Group .email-label {
+    transform: translateY(-30px);
+    font-size: 14px!important;
+    font-weight: 400!important;
+    line-height: 28px!important;
+    top: 10px;
+    color: #757575!important;
+    background-color: #fff;
+    left: 0;
+    margin: 0;
+    pointer-events: none;
+    position: absolute;
+    transition: all .3s ease-out;
+    width: 100%;
+}
+
 .Missing-Email-Message {
     display: none;
 }

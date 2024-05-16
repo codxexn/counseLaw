@@ -42,7 +42,7 @@ public class MemberDAO {
     }
 
     // 비밀번호 변경
-    public void changePassword(MemberVO memberVO) { memberMapper.updatePassword(memberVO); }
+    public void changePassword(long memberId, String memberPassword) { memberMapper.updatePassword(memberId, memberPassword); }
 
 
 }
