@@ -1378,9 +1378,9 @@ a.carousel-guide-card__link {
         width: 1100px;
     }
 
-    .MainCarousel-module_carousel__xLt7b {
-        border-radius: 5px;
-    }
+    /*.MainCarousel-module_carousel__xLt7b {*/
+    /*    border-radius: 5px;*/
+    /*}*/
 
     .main-top__lower-wrap {
         display: flex;
