@@ -49,6 +49,11 @@ display: inline-flex;
 cursor: pointer;
 }
 
+img.logo {
+    width: 145px;
+    height: 33px;
+}
+
 
 .Typography-module-it-text{
 cursor: inherit;
@@ -1176,7 +1181,7 @@ border: 1px solid #e2e4e5;
 * {font-family: Pretendard,'Noto Sans KR', sans-serif;}
 
 img {
-    width: 120px;
+    width: 145px;
 }
 
 
