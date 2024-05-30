@@ -95,8 +95,8 @@ cursor: pointer;
 }
 
 
-img {
-    width: 125px;
+.header-module-logoIconWrapper img {
+    width: 145px;
     height: 33px;
 }
 
