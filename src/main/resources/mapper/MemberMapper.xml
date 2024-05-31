@@ -48,4 +48,21 @@
         WHERE MEMBER_ID = #{memberId}
     </update>
 
+    <select id="countCallType">
+        SELECT COUNT(RESERVATION_ID)
+        FROM TBL_RESERVATION
+        WHERE MEMBER_ID = #{memberId} AND CONSULTING_TYPE = 'CALL';
+    </select>
+
+    <select id="countVideoType">
+        SELECT COUNT(RESERVATION_ID)
+        FROM TBL_RESERVATION
+        WHERE MEMBER_ID = #{memberId} AND CONSULTING_TYPE = 'VIDEO';
+    </select>
+
+    <select id="countVisitType">
+        SELECT COUNT(RESERVATION_ID)
+        FROM TBL_RESERVATION
+        WHERE MEMBER_ID = #{memberId} AND CONSULTING_TYPE = 'VISIT';
+    </select>
 </mapper>
