@@ -60,4 +60,21 @@ public class MemberServiceImpl implements MemberService {
     // 전화번호 변경
     @Override
     public void changePhone(long memberId, String memberPhone) { memberDAO.changePhone(memberId, memberPhone); }
+
+    @Override
+    // 내 전화상담내역 카운트
+    public int countCallType(long memberId) { return memberDAO.countCallType(memberId); }
+
+    @Override
+    // 내 영상상담내역 카운트
+    public int countVideoType(long memberId) { return memberDAO.countVideoType(memberId); }
+
+    @Override
+    // 내 방문상담내역 카운트
+    public int countVisitType(long memberId) { return memberDAO.countVisitType(memberId); }
+
+    @Override
+    // 내가 작성한 온라인 상담글 카운트
+    public int countMyConsulting(long memberId) { return memberDAO.countMyConsulting(memberId); }
+
 }

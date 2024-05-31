@@ -1,5 +1,6 @@
 package com.app.counselawb.repository;
 
+import com.app.counselawb.domain.dto.LawyerLikeDTO;
 import com.app.counselawb.domain.pagination.Pagination;
 import com.app.counselawb.domain.vo.LawyerLikeVO;
 import com.app.counselawb.mapper.MemberMypageMapper;
@@ -22,7 +23,7 @@ public class MemberMypageDAO {
     }
 
     // 내가 즐겨찾기한 변호사
-    public List<LawyerLikeVO> findMyFavoriteLawyers(Long memberId, Pagination pagination) {
+    public List<LawyerLikeDTO> findMyFavoriteLawyers(Long memberId, Pagination pagination) {
         return memberMypageMapper.selectMyFavoriteLawyers(memberId, pagination);
     }
 

@@ -48,21 +48,29 @@
         WHERE MEMBER_ID = #{memberId}
     </update>
 
-    <select id="countCallType">
+    <select id="countCallType" resultType="int">
         SELECT COUNT(RESERVATION_ID)
         FROM TBL_RESERVATION
-        WHERE MEMBER_ID = #{memberId} AND CONSULTING_TYPE = 'CALL';
+        WHERE MEMBER_ID = #{memberId} AND CONSULTING_TYPE = 'CALL'
     </select>
 
-    <select id="countVideoType">
+    <select id="countVideoType" resultType="int">
         SELECT COUNT(RESERVATION_ID)
         FROM TBL_RESERVATION
-        WHERE MEMBER_ID = #{memberId} AND CONSULTING_TYPE = 'VIDEO';
+        WHERE MEMBER_ID = #{memberId} AND CONSULTING_TYPE = 'VIDEO'
     </select>
 
-    <select id="countVisitType">
+    <select id="countVisitType" resultType="int">
         SELECT COUNT(RESERVATION_ID)
         FROM TBL_RESERVATION
-        WHERE MEMBER_ID = #{memberId} AND CONSULTING_TYPE = 'VISIT';
+        WHERE MEMBER_ID = #{memberId} AND CONSULTING_TYPE = 'VISIT'
     </select>
+
+    <select id="countMyConsulting" resultType="int">
+        SELECT COUNT(CONSULTING_CASE_ID)
+        FROM TBL_CONSULTING_CASE
+        WHERE MEMBER_ID = #{memberId}
+    </select>
+
+
 </mapper>

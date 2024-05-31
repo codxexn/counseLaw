@@ -10,6 +10,10 @@ server:
       tracking-modes: cookie
       persistent: true
 
+logging:
+  level:
+    org.thymeleaf: DEBUG
+    org.thymeleaf.templatemode: TRACE
 
 spring:
   datasource:

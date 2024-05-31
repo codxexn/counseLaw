@@ -1,5 +1,6 @@
 package com.app.counselawb.service;
 
+import com.app.counselawb.domain.dto.LawyerLikeDTO;
 import com.app.counselawb.domain.pagination.Pagination;
 import com.app.counselawb.domain.vo.LawyerLikeVO;
 
@@ -13,7 +14,7 @@ public interface MemberMypageService {
     public void saveMyFavoriteLawyer(LawyerLikeVO lawyerLikeVO);
 
     // 내가 즐겨찾기한 변호사
-    public List<LawyerLikeVO> findMyFavoriteLawyers(Long memberId, Pagination pagination);
+    public List<LawyerLikeDTO> findMyFavoriteLawyers(Long memberId, Pagination pagination);
 
     // 내가 즐겨찾기한 변호사 개수 카운트
     public int getCountMyFavoriteLawyers(Long memberId);

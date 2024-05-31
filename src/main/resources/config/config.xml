@@ -45,5 +45,6 @@
         <typeAlias type="com.app.counselawb.domain.dto.LawyerFieldSearchDTO" alias="lawyerFieldSearchDTO" />
         <typeAlias type="com.app.counselawb.domain.dto.LawyerLocationSearchDTO" alias="lawyerLocationSearchDTO" />
         <typeAlias type="com.app.counselawb.domain.dto.CouponAdminDTO" alias="couponAdminDTO" />
+        <typeAlias type="com.app.counselawb.domain.dto.LawyerLikeDTO" alias="lawyerLikeDTO" />
     </typeAliases>
 </configuration>

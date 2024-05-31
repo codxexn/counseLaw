@@ -1,5 +1,6 @@
 package com.app.counselawb.service;
 
+import com.app.counselawb.domain.dto.LawyerLikeDTO;
 import com.app.counselawb.domain.pagination.Pagination;
 import com.app.counselawb.domain.vo.LawyerLikeVO;
 import com.app.counselawb.repository.MemberMypageDAO;
@@ -28,7 +29,7 @@ public class MemberMypageServiceImpl implements MemberMypageService {
 
     // 내가 즐겨찾기한 변호사
     @Override
-    public List<LawyerLikeVO> findMyFavoriteLawyers(Long memberId, Pagination pagination){
+    public List<LawyerLikeDTO> findMyFavoriteLawyers(Long memberId, Pagination pagination){
         return memberMypageDAO.findMyFavoriteLawyers(memberId, pagination);
     }
 

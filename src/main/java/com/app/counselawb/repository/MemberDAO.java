@@ -47,4 +47,15 @@ public class MemberDAO {
     // 전화번호 변경
     public void changePhone(long memberId, String memberPhone) { memberMapper.updatePhone(memberId, memberPhone); }
 
+    // 내 전화상담내역 카운트
+    public int countCallType(long memberId) { return memberMapper.countCallType(memberId); }
+
+    // 내 영상상담내역 카운트
+    public int countVideoType(long memberId) { return memberMapper.countVideoType(memberId); }
+
+    // 내 방문상담내역 카운트
+    public int countVisitType(long memberId) { return memberMapper.countVisitType(memberId); }
+
+    // 내가 작성한 온라인 상담글 카운트
+    public int countMyConsulting(long memberId) { return memberMapper.countMyConsulting(memberId); }
 }

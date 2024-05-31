@@ -132,10 +132,18 @@ public class MemberController {
             List<CouponVO> myCoupons = reservationService.findMyCoupons(currentMember.getMemberId());
             int numberOfFavoriteLawyers = memberMypageService.getCountMyFavoriteLawyers(currentMember.getMemberId());
             int numberOfFavoritePosts = memberMypageService.getCountMyFavoritePosts(currentMember.getMemberId());
+            int numberOfCallType = memberService.countCallType(currentMember.getMemberId());
+            int numberOfVideoType = memberService.countVideoType(currentMember.getMemberId());
+            int numberOfVisitType = memberService.countVisitType(currentMember.getMemberId());
+            int numberOfMyConsulting = memberService.countMyConsulting(currentMember.getMemberId());
             model.addAttribute("currentMember", currentMember);
             model.addAttribute("myCouponList", myCoupons);
             model.addAttribute("numberOfFavoritePosts", numberOfFavoritePosts);
             model.addAttribute("numberOfFavoriteLawyers", numberOfFavoriteLawyers);
+            model.addAttribute("numberOfCallType", numberOfCallType);
+            model.addAttribute("numberOfVideoType", numberOfVideoType);
+            model.addAttribute("numberOfVisitType", numberOfVisitType);
+            model.addAttribute("numberOfMyConsulting", numberOfMyConsulting);
             return "mypage/mypage";
         } else {
             return "client-login/client-login";
@@ -207,6 +215,8 @@ public class MemberController {
         model.addAttribute("isSuccessful", isSuccessful);
         return "mypage/info-update";
     }
+
+
 
 
 }
