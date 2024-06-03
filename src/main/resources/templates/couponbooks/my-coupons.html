@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>내 쿠폰함 | 카운슬로우</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-    <link rel="stylesheet" href="./myCoupons.css">
+    <link rel="stylesheet" href="/css/couponbooks/myCoupons.css">
     <link href="https://db.onlinewebfonts.com/c/cfacbd01431cbe68ac87ba5af5c3b444?family=Amplitude-Medium" rel="stylesheet">
 </head>
 <body>
@@ -24,12 +24,16 @@
                             </div>
                         </div>
                         <div class="Couponbook-Tab-Nav">
-                            <div class="Couponbooks-Tab event">
-                                <i class="Couponbooks-Tab-Text">쿠폰 이벤트</i>
-                            </div>
-                            <div class="Couponbooks-Tab My Active">
-                                <i class="Couponbooks-Tab-Text">마이쿠폰</i>
-                            </div>
+                                <div class="Couponbooks-Tab event">
+                                    <a href="/coupon/coupon-event" style="text-decoration: none">
+                                        <i class="Couponbooks-Tab-Text">쿠폰 이벤트</i>
+                                    </a>
+                                </div>
+                                <div class="Couponbooks-Tab My Active">
+                                    <a href="/member-mypage/my-coupons" style="text-decoration: none">
+                                        <i class="Couponbooks-Tab-Text">마이쿠폰</i>
+                                    </a>
+                                </div>
                         </div>
                         <div class="CouponRegisterWrapper">
                             <button class="CouponRegister-Button">
@@ -98,7 +102,9 @@
                         </div>
                         <div class="ReservationWrapper">
                             <div class="ReservationButton">
+                                <a href="/lawyer-search/search-by-categories" style="text-decoration: none; color: white">
                                 상담 예약하러 가기
+                                </a>
                             </div>
                         </div>
                     </div>

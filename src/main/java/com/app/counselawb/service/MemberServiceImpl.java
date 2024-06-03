@@ -77,4 +77,7 @@ public class MemberServiceImpl implements MemberService {
     // 내가 작성한 온라인 상담글 카운트
     public int countMyConsulting(long memberId) { return memberDAO.countMyConsulting(memberId); }
 
+    @Override
+    // 회원가입시 웰컴쿠폰 인서트
+    public void offerWelcomeCoupon(long memberId) { memberDAO.offerWelcomeCoupon(memberId); }
 }

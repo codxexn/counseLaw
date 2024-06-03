@@ -56,13 +56,13 @@ public class MemberMypageController {
         return mv;
     }
 
-//    @PostMapping("my-favorite-lawyers")
-//    public RedirectView getMyfavoriteLawyers(@RequestParam("memberId") long memberId, HttpSession session) {
-//
-//    }
 
-
-
+    // 마이페이지에서 내 쿠폰함으로 (내 쿠폰함에서부터는 coupon Controller)
+@GetMapping("my-coupons")
+    public String goToMyCouponPage(HttpSession session) {
+        MemberVO currentMember = (MemberVO)session.getAttribute("member");
+        return "couponbooks/my-coupons";
+    }
 
 
 //    @GetMapping("my-online-consulting-histories")

@@ -58,4 +58,7 @@ public class MemberDAO {
 
     // 내가 작성한 온라인 상담글 카운트
     public int countMyConsulting(long memberId) { return memberMapper.countMyConsulting(memberId); }
+
+    // 회원가입시 웰컴쿠폰 인서트
+    public void offerWelcomeCoupon(long memberId) { memberMapper.insertWelcomeCoupon(memberId); }
 }

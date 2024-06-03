@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.counselawb.mapper.ReservationMapper">
     <select id="selectMyCoupons" resultType="couponVO">
-        SELECT C.COUPON_ID, C.COUPON_TITLE, C.COUPON_AVAILABLE_TYPE, C.COUPON_CREATE_DATE, C.COUPON_EXPIRE_DATE, C.COUPON_DISCOUNT_RATE
+        SELECT C.COUPON_ID, C.COUPON_TITLE, C.COUPON_AVAILABLE_TYPE, C.COUPON_DISCOUNT_RATE
         FROM TBL_COUPON C
         JOIN TBL_MEMBER_COUPON MC
         ON C.COUPON_ID = MC.COUPON_ID AND MC.COUPON_STATE = 'AVAILABLE'

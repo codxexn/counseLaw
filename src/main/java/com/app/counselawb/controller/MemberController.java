@@ -72,6 +72,8 @@ public class MemberController {
                 return new RedirectView("/member/member-join-error");
             } else {
                 memberService.joinMember(memberVO);
+                Optional<MemberVO> foundMember = memberService.memberLogin(memberVO);
+                memberService.offerWelcomeCoupon(foundMember.get().getMemberId());
                 return new RedirectView("/member/join-success");
             }
     }
