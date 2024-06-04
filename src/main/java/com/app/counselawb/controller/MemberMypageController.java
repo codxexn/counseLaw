@@ -1,12 +1,16 @@
 package com.app.counselawb.controller;
 
+import com.app.counselawb.domain.dto.CouponMemberDTO;
 import com.app.counselawb.domain.dto.LawyerLikeDTO;
 import com.app.counselawb.domain.pagination.Pagination;
+import com.app.counselawb.domain.vo.CouponVO;
 import com.app.counselawb.domain.vo.LawyerLikeVO;
 import com.app.counselawb.domain.vo.LawyerVO;
 import com.app.counselawb.domain.vo.MemberVO;
+import com.app.counselawb.service.CouponMemberService;
 import com.app.counselawb.service.LawyerService;
 import com.app.counselawb.service.MemberMypageService;
+import com.app.counselawb.service.ReservationService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -28,8 +32,10 @@ import java.util.Optional;
 @RequestMapping("member-mypage")
 public class MemberMypageController {
 
-    public final LawyerService lawyerService;
-    public final MemberMypageService memberMypageService;
+    private final LawyerService lawyerService;
+    private final MemberMypageService memberMypageService;
+    private final CouponMemberService couponMemberService;
+    private final ReservationService reservationService;
 
     @GetMapping("no-favorite-lawyers")
     public String goToNoFavoriteLawyersPage() {
@@ -59,9 +65,15 @@ public class MemberMypageController {
 
     // 마이페이지에서 내 쿠폰함으로 (내 쿠폰함에서부터는 coupon Controller)
 @GetMapping("my-coupons")
-    public String goToMyCouponPage(HttpSession session) {
+    public String goToMyCouponPage(HttpSession session, Model model) {
         MemberVO currentMember = (MemberVO)session.getAttribute("member");
-        return "couponbooks/my-coupons";
+        List<CouponVO> myCoupons = reservationService.findMyCoupons(currentMember.getMemberId());
+            if (myCoupons.size() == 0) {
+                return "couponbooks/my-coupons-empty";
+            } else {
+                model.addAttribute("myCoupons", myCoupons);
+                return "couponbooks/my-coupons";
+            }
     }
 
 

@@ -60,11 +60,11 @@
                             <div class="CouponInfo">
                                 <div class="MyCouponCount">
                                     보유쿠폰
-                                    <i class="CouponCountNumber">&nbsp;1</i>
+                                    <i class="CouponCountNumber" th:text="${myCoupons.size()}">&nbsp;1</i>
                                     장
                                 </div>
                             </div>
-                            <div class="CouponContent">
+                            <div class="CouponContent" th:each="myCouponList:${myCoupons}">
                                 <div class="Coupons">
                                     <div class="CouponCard-Wrapper">
                                         <div class="CouponCard-Orange">
@@ -81,18 +81,19 @@
                                                 </div>
                                             </div>
                                             <div class="CouponEventCard-Content">
-                                                <div class="CouponEventCard-ContentInner">
-                                                    <div class="CouponEventCard-Phrase">첫 15분 전화상담</div>
+                                                <div class="CouponEventCard-ContentInner" >
+                                                    <div class="CouponEventCard-Phrase" th:text="${myCouponList.getCouponTitle()}">첫 15분 전화상담</div>
                                                     <div class="CouponEventCard-CouponValue">
-                                                        <i class="CouponDiscountRate">10</i>
+                                                        <i class="CouponDiscountRate" th:text="${myCouponList.getCouponDiscountRate()}">10</i>
                                                         <i class="CouponUnit">% 할인</i>
                                                     </div>
-                                                    <div class="CouponEventCard-EndDate">
+                                                    <div class="CouponEventCard-EndDate" th:text="${myCouponList.getCouponExpireDate()}">
                                                         2023년 12월 31일까지 사용가능
                                                     </div>
-                                                    <div class="CouponEventCard-DiscountLimit">
-                                                        최대 15,000원 한도
-                                                    </div>
+                                                    <div class="CouponEventCard-DiscountLimit" th:if="${myCouponList.getCouponAvailableType().equals('CALL')}"> 전화 상담시 사용가능합니다.</div>
+                                                    <div class="CouponEventCard-DiscountLimit" th:if="${myCouponList.getCouponAvailableType().equals('VIDEO')}"> 영상 상담시 사용가능합니다.</div>
+                                                    <div class="CouponEventCard-DiscountLimit" th:if="${myCouponList.getCouponAvailableType().equals('VISIT')}"> 방문 상담시 사용가능합니다.</div>
+                                                    <div class="CouponEventCard-DiscountLimit" th:if="${myCouponList.getCouponAvailableType().equals('ALL')}"> 모든 상담에 사용가능합니다.</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -239,5 +240,5 @@
     </div>
 </div>
 </body>
-<script src="./myCoupons.js"></script>
+<script src="/js/couponbooks/myCoupons.js"></script>
 </html>
