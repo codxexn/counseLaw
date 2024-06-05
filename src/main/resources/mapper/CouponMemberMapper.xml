@@ -9,4 +9,8 @@
         WHERE MEMBER_ID = #{memberId};
     </select>
 
+    <insert id="insertMemberCoupon">
+        INSERT INTO TBL_MEMBER_COUPON (MEMBER_COUPON_ID, MEMBER_ID, COUPON_ID)
+        VALUES (SEQ_MEMBER_COUPON.NEXTVAL, #{memberId}, #{couponId})
+    </insert>
 </mapper>

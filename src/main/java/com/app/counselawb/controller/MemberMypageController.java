@@ -65,16 +65,33 @@ public class MemberMypageController {
 
     // 마이페이지에서 내 쿠폰함으로 (내 쿠폰함에서부터는 coupon Controller)
 @GetMapping("my-coupons")
-    public String goToMyCouponPage(HttpSession session, Model model) {
+    public ModelAndView goToMyCouponPage(HttpSession session) {
+        ModelAndView mv = new ModelAndView();
         MemberVO currentMember = (MemberVO)session.getAttribute("member");
-        List<CouponVO> myCoupons = reservationService.findMyCoupons(currentMember.getMemberId());
+        if (currentMember != null) {
+
+            List<CouponVO> myCoupons = reservationService.findMyCoupons(currentMember.getMemberId());
+
             if (myCoupons.size() == 0) {
-                return "couponbooks/my-coupons-empty";
+                mv.setViewName("couponbooks/my-coupons-empty");
+                return mv;
             } else {
-                model.addAttribute("myCoupons", myCoupons);
-                return "couponbooks/my-coupons";
+                mv.addObject("myCoupons", myCoupons);
+                mv.setViewName("couponbooks/my-coupons");
+                return mv;
             }
+        } else {
+                mv.setViewName("mainpage/mainpage");
+                return mv;
+        }
     }
+
+
+//    @PostMapping("my-coupons")
+//    public ModelAndView beforeGoToMyCouponPage(HttpSession session) {
+//
+//        }
+//    }
 
 
 //    @GetMapping("my-online-consulting-histories")

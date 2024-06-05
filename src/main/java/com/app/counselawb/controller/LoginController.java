@@ -38,8 +38,9 @@ public class LoginController {
             model.addAttribute("alertMsg", "로그인 상태입니다. 로그아웃 진행 후 로그인을 시도하세요.");
             model.addAttribute("errorMessage", null);
             return "mainpage/mainpage";
+        } else {
+            return "client-login/client-login";
         }
-        return "client-login/client-login";
     }
 
     // 일반 회원 로그인

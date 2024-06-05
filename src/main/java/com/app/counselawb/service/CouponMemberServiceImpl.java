@@ -14,4 +14,7 @@ public class CouponMemberServiceImpl implements CouponMemberService {
     private final CouponMemberDAO couponMemberDAO;
     @Override
     public CouponMemberDTO readMyCoupons(long memberId) { return couponMemberDAO.readMyCoupons(memberId); }
+
+    @Override
+    public void saveMemberCoupon(long memberId, long couponId) { couponMemberDAO.saveMemberCoupon(memberId, couponId); }
 }
