@@ -123,11 +123,14 @@
                                         <div class="modal_label">만료 날짜(선택)</div>
                                         <input type="date" onchange="validateBtn()" class="input_box couponExpireDate"/>
 
-                                        <div class="modal_label">사용가능 상담유형(ALL, PHONE, VIDEO, VISIT 중 1개 필수)</div>
+                                        <div class="modal_label">사용가능 상담유형(ALL, CALL, VIDEO, VISIT 중 1개 필수)</div>
                                         <input type="text" onkeyup="validateBtn()" class="input_box couponAvailableType"/>
 
                                         <div class="modal_label">할인율(% 단위, 필수)</div>
                                         <input type="number" onkeyup="validateBtn()" class="input_box couponDiscountRate" />
+
+                                        <div class="modal_label">쿠폰 이벤트 여부(이벤트일 경우 EVENT 입력, 선택)</div>
+                                        <input type="text" onkeyup="validateBtn()" class="input_box couponEvent" />
 
                                         <div class="modal_label">쿠폰 번호(보상 쿠폰일 경우, 선택)</div>
                                         <input type="text" onkeyup="validateBtn()" class="input_box couponNumber" />
@@ -170,6 +173,7 @@
                             <div class="coupon-info-date"><strong>만료 날짜</strong></div>
                             <div class="coupon-info-stock"><strong>사용가능 상담유형</strong></div>
                             <div class="coupon-info-period"><strong>할인율</strong></div>
+                            <div class="coupon-info-event"><strong>이벤트</strong></div>
                             <div class="coupon-id" ><strong>쿠폰 번호</strong></div>
                             <div class="coupon-id"><strong>보상 대상 멤버id</strong></div>
                         </div>
@@ -181,6 +185,7 @@
                             <div th:text="${coupon.couponExpireDate == null ? '무기한' : #temporals.format(coupon.couponExpireDate, 'yyyy-MM-dd')}" class="coupon-info-date"></div>
                             <div th:text="${coupon.couponAvailableType}" class="coupon-info-stock"></div>
                             <div th:text="${coupon.couponDiscountRate} + '%'" class="coupon-info-period"></div>
+                            <div th:text="${coupon.couponEvent == null ? '해당 없음' : coupon.couponEvent}" class="coupon-info-event"></div>
                             <div th:text="${coupon.couponNumber == null ? '해당 없음' : coupon.couponNumber}" class="coupon-id" ></div>
                             <div th:text="${coupon.memberId == null ? '해당 없음' : coupon.memberId}" class="coupon-id"></div>
                             <button th:onclick="|deleteCoupon(${coupon.couponId})|"

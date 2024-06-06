@@ -17,6 +17,8 @@ public class CouponVO {
     private String couponAvailableType;
     // 쿠폰 할인율
     private int couponDiscountRate;
+    // 쿠폰 이벤트 여부 (이벤트 페이지에 띄울 거면 event)
+    private String couponEvent;
     // 쿠폰 생성일
     private LocalDateTime couponCreateDate;
     // 쿠폰 만료일

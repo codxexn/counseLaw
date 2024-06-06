@@ -503,6 +503,18 @@ audio, canvas, embed, iframe, img, object, svg, video {
     color: #1d1d1e;
     fill: #1d1d1e;
 }
+.coupon-info-event {
+    width: 58px;
+    justify-content: flex-start;
+    align-items: center;
+    flex-shrink: 0;
+    display: flex;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 18px;
+    color: #1d1d1e;
+    fill: #1d1d1e;
+}
 .coupon-id {
     width: 108px;
     justify-content: flex-start;

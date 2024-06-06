@@ -20,6 +20,8 @@ public class CouponAdminDTO {
     private int couponDiscountRate;
     // 사용가능 상담유형
     private String couponAvailableType;
+    // 쿠폰 이벤트 여부
+    private String couponEvent;
     // 쿠폰 번호
     private String couponNumber;
     // 발급 대상 멤버 id

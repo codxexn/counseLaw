@@ -289,6 +289,7 @@
                                    @RequestParam("couponAvailableType") String couponAvailableType,
                                    @RequestParam("couponDiscountRate") int couponDiscountRate,
                                    @RequestParam("couponNumber") String couponNumber,
+                                   @RequestParam("couponEvent") String couponEvent,
                                    @RequestParam("memberId") String memberId){
             try {
                 CouponVO couponVO = new CouponVO();

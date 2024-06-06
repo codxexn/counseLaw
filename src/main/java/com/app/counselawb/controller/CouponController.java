@@ -25,6 +25,6 @@ public String goToCouponEventPage() {
 //public ModelAndView saveCoupon(HttpSession session, )
 //
 //    // 쿠폰번호 가지고 올 수 있는 방법
-//
+
     
 }
