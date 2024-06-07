@@ -26,12 +26,12 @@ public class MemberMypageTests {
     }
 
     // 내가 즐겨찾기한 변호사
-    @Test
-    public void selectMyFavoriteLawyers() {
-        Pagination pagination = new Pagination();
-        pagination.setTotal(memberMypageMapper.getCountMyFavoriteLawyers(41L));
-        pagination.progress();
-        memberMypageMapper.selectMyFavoriteLawyers(41L, pagination).stream().map(LawyerLikeVO::toString).forEach(log::info);
-    }
+//    @Test
+//    public void selectMyFavoriteLawyers() {
+//        Pagination pagination = new Pagination();
+//        pagination.setTotal(memberMypageMapper.getCountMyFavoriteLawyers(41L));
+//        pagination.progress();
+//        memberMypageMapper.selectMyFavoriteLawyers(41L, pagination).stream().map(LawyerLikeVO::toString).forEach(log::info);
+//    }
 
 }

@@ -2,6 +2,7 @@ package com.app.counselawb.repository;
 
 
 import com.app.counselawb.domain.dto.CouponAdminDTO;
+import com.app.counselawb.domain.dto.CouponMemberDTO;
 import com.app.counselawb.domain.pagination.Pagination;
 import com.app.counselawb.domain.vo.CouponAdminVO;
 import com.app.counselawb.domain.vo.CouponVO;
@@ -57,4 +58,7 @@ public class CouponAdminDAO {
     public void removeCoupon(Long couponId){
         couponAdminMapper.deleteCoupon(couponId);
     }
+
+    // 이벤트 쿠폰 가지고 오기
+    public List<CouponVO> readEventCoupon() { return couponAdminMapper.selectEventCoupon(); }
 }

@@ -1,14 +1,18 @@
 package com.app.counselawb;
 
+import com.app.counselawb.domain.vo.CouponVO;
 import com.app.counselawb.domain.vo.LawyerVO;
 import com.app.counselawb.domain.vo.MemberVO;
 import com.app.counselawb.mapper.MemberMapper;
 import com.app.counselawb.repository.MemberDAO;
+import com.app.counselawb.service.CouponAdminService;
 import com.app.counselawb.service.MemberService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 @SpringBootTest
 @Slf4j
@@ -20,6 +24,20 @@ public class MemberTests {
     private MemberDAO memberDAO;
     @Autowired
     private MemberService memberService;
+    @Autowired
+    private CouponAdminService couponAdminService;
+
+    // 이벤트 쿠폰 가져오기
+    @Test
+    public void selectByCouponAdminMapperTest() {
+        List<CouponVO> foundEventCoupon = couponAdminService.readEventCoupon();
+        if (foundEventCoupon == null) {
+            log.info("fail");
+        } else {
+            log.info("success");
+        }
+    }
+
 
     // 일반 회원 로그인 테스트
     @Test

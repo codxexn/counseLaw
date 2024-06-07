@@ -1,6 +1,7 @@
 package com.app.counselawb.mapper;
 
 import com.app.counselawb.domain.dto.CouponAdminDTO;
+import com.app.counselawb.domain.dto.CouponMemberDTO;
 import com.app.counselawb.domain.pagination.Pagination;
 import com.app.counselawb.domain.vo.CouponAdminVO;
 import com.app.counselawb.domain.vo.CouponVO;
@@ -33,4 +34,7 @@ public interface CouponAdminMapper {
 
     // 쿠폰 삭제하기
     public void deleteCoupon(Long couponId);
+
+    // 이벤트 쿠폰 가지고 오기
+    public List<CouponVO> selectEventCoupon();
 }

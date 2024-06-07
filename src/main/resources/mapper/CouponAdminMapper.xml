@@ -54,4 +54,10 @@
         DELETE FROM TBL_COUPON
         WHERE COUPON_ID = #{couponId}
     </delete>
+
+    <select id="selectEventCoupon" resultType="couponVO">
+        SELECT COUPON_ID, COUPON_TITLE, COUPON_DESCRIPTION, COUPON_DISCOUNT_RATE, COUPON_AVAILABLE_TYPE, COUPON_EVENT
+        FROM TBL_COUPON
+        WHERE COUPON_EVENT = 'EVENT'
+    </select>
 </mapper>

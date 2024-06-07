@@ -1,6 +1,7 @@
 package com.app.counselawb.service;
 
 import com.app.counselawb.domain.dto.CouponAdminDTO;
+import com.app.counselawb.domain.dto.CouponMemberDTO;
 import com.app.counselawb.domain.pagination.Pagination;
 import com.app.counselawb.domain.vo.CouponAdminVO;
 import com.app.counselawb.domain.vo.CouponVO;
@@ -58,4 +59,7 @@ public class CouponAdminServiceImpl implements CouponAdminService {
     public void discardCoupon(Long couponId) {
         couponAdminDAO.removeCoupon(couponId);
     }
+
+    @Override
+    public List<CouponVO> readEventCoupon() { return couponAdminDAO.readEventCoupon(); }
 }

@@ -3,6 +3,7 @@ package com.app.counselawb.domain.dto;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Component
@@ -25,5 +26,8 @@ public class CouponMemberDTO {
     private long memberId;
 
     // 쿠폰 만료 날짜
-    private Date couponExpireDate;
+    private LocalDateTime couponExpireDate;
+
+    // 이벤트 여부
+    private String couponEvent;
 }
