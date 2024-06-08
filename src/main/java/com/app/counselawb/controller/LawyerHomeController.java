@@ -99,7 +99,7 @@ public class LawyerHomeController {
         List<LawyerReviewDTO> foundReviews = lawyerHomeService.findReviewsByLawyerId(lawyerId);
         foundReviews.forEach((review) -> {
            String consultingType = review.getConsultingType();
-           if (consultingType.equals("PHONE")) consultingType = "전화상담";
+           if (consultingType.equals("CALL")) consultingType = "전화상담";
            else if (consultingType.equals("VIDEO")) consultingType = "영상상담";
            else consultingType = "방문상담";
            review.setConsultingType(consultingType);
@@ -221,7 +221,7 @@ public class LawyerHomeController {
         List<LawyerReviewDTO> foundReviews = lawyerHomeService.findReviewsByLawyerId(lawyerId);
         foundReviews.forEach((review) -> {
             String consultingType = review.getConsultingType();
-            if (consultingType.equals("PHONE")) consultingType = "전화상담";
+            if (consultingType.equals("CALL")) consultingType = "전화상담";
             else if (consultingType.equals("VIDEO")) consultingType = "영상상담";
             else consultingType = "방문상담";
             review.setConsultingType(consultingType);
@@ -235,7 +235,7 @@ public class LawyerHomeController {
         List<LawyerReviewDTO> foundReviewsWithPage = lawyerHomeService.findReviewsWithPageByLawyerId(pagination, lawyerId);
         foundReviewsWithPage.forEach((review) -> {
             String consultingType = review.getConsultingType();
-            if (consultingType.equals("PHONE")) consultingType = "전화상담";
+            if (consultingType.equals("CALL")) consultingType = "전화상담";
             else if (consultingType.equals("VIDEO")) consultingType = "영상상담";
             else consultingType = "방문상담";
             review.setConsultingType(consultingType);
@@ -269,7 +269,7 @@ public class LawyerHomeController {
         LocalDateTime reservationDate = LocalDateTime.ofInstant(Instant.parse(DATEreservationDate), ZoneId.systemDefault());
         model.addAttribute("consultingType", consultingType);
         String consultingTypeToKorean = null;
-        if (consultingType.equals("PHONE")) {
+        if (consultingType.equals("CALL")) {
             consultingTypeToKorean = "15분 전화상담";
         } else if (consultingType.equals("VIDEO")){
             consultingTypeToKorean = "20분 영상상담";
@@ -291,12 +291,20 @@ public class LawyerHomeController {
             model.addAttribute("reservedLawyer", new LawyerVO());
         }
         MemberVO currentMember = (MemberVO) session.getAttribute("member");
-        Long memberId = currentMember.getMemberId();
-        List<CouponVO> userCoupons = reservationService.findMyCoupons(memberId);
-        List<CouponVO> availableCoupons = userCoupons.stream().filter((coupon) -> {
-           return coupon.getCouponAvailableType().equals("ALL") || coupon.getCouponAvailableType().equals(consultingType);
-        }).collect(Collectors.toList());
+
+        List<CouponVO> myCoupons = reservationService.findMyCoupons(currentMember.getMemberId());
+        log.info(myCoupons.toString());
+        List<CouponVO> availableCoupons = new ArrayList<>();
+        for (CouponVO coupon : myCoupons) {
+            if (coupon.getCouponAvailableType().equals("ALL") || coupon.getCouponAvailableType().equals(consultingType)) {
+                availableCoupons.add(coupon);
+            }
+        }
+
+        log.info(availableCoupons.toString());
         model.addAttribute("coupons", availableCoupons);
+
+
         return "reservation/reservation";
     }
 

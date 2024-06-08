@@ -36,26 +36,30 @@
                                     </div>
                             </div>
                             <div class="CouponEvent-Description">
-                                <div class="CouponEvent-FirstRow">
+                                <div class="CouponEvent-FirstRow" th:if="${couponCounts} != 0">
                                     현재 다운가능한 쿠폰이 <span th:text="${couponCounts}"></span>개 있습니다
                                 </div>
-                                <div class="CouponEvent-SecondRow">
+                                <div class="CouponEvent-SecondRow" th:if="${couponCounts} != 0">
                                     쿠폰을 다운받아 마이쿠폰에 저장하세요.
+                                </div>
+                                <!--   다운 가능한 쿠폰이 없을 때   -->
+                                <div class="CouponEvent-FirstRow" th:unless="${couponCounts} != 0">
+                                    현재 다운가능한 쿠폰이 없습니다
                                 </div>
                             </div>
                             <div class="CouponEvent-Content">
                                 <div class="Coupons">
-                                    <div class="CouponWrapper" th:each="eventCoupons:${eventCoupons}">
+                                    <div class="CouponWrapper" th:if="${couponCounts} != 0" th:each="availableCoupons:${availableCoupons}">
                                         <form action="/coupon/save-coupon" method="post">
                                             <div class="CouponEventCard-Orange">
                                                 <div class="CouponEventCard-LeftIcon-Wrapper">
-                                                    <img th:if="${eventCoupons.getCouponAvailableType().equals('CALL')}" src="/image/coupon/CALL.png" style="width: 50px; height: 50px; margin-top: 50px" class="bi bi-telephone">
-                                                    <img th:if="${eventCoupons.getCouponAvailableType().equals('VIDEO')}" src="/image/coupon/VIDEO.png" style="width: 50px; height: 50px; margin-top: 50px" class="bi bi-telephone">
-                                                    <img th:if="${eventCoupons.getCouponAvailableType().equals('VISIT')}" src="/image/coupon/VISIT.png" style="width: 55px; height: 55px; margin-top: 50px"  class="bi bi-telephone">
+                                                    <img th:if="${availableCoupons.getCouponAvailableType().equals('CALL')}" src="/image/coupon/CALL.png" style="width: 50px; height: 50px; margin-top: 50px" class="bi bi-telephone">
+                                                    <img th:if="${availableCoupons.getCouponAvailableType().equals('VIDEO')}" src="/image/coupon/VIDEO.png" style="width: 50px; height: 50px; margin-top: 50px" class="bi bi-telephone">
+                                                    <img th:if="${availableCoupons.getCouponAvailableType().equals('VISIT')}" src="/image/coupon/VISIT.png" style="width: 55px; height: 55px; margin-top: 50px"  class="bi bi-telephone">
                                                 </div>
                                                 <div class="CouponEventCard-RightDownload">
                                                     <div class="CouponEventCard-DownloadCoupon">
-                                                            <button type="submit" style="border: none; background: none; outline:0">
+                                                            <button type="submit" style="border: none; background: none; outline:0" id="downloadButton">
                                                                 <div class="DownloadCoupon-Text">쿠폰받기</div>
                                                                 <div class="DownloadCoupon-IconWrapper">
                                                                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
@@ -68,16 +72,16 @@
                                                 </div>
                                                 <div class="CouponEventCard-Content">
                                                     <div class="CouponEventCard-ContentInner">
-                                                        <input type="hidden" th:value="${eventCoupons.couponId}" th:name="couponId">
-                                                        <div class="CouponEventCard-Phrase" th:text="${eventCoupons.getCouponTitle()}">첫 방문 상담</div>
+                                                        <input type="hidden" th:value="${availableCoupons.couponId}" th:name="couponId">
+                                                        <div class="CouponEventCard-Phrase" th:text="${availableCoupons.getCouponTitle()}">첫 방문 상담</div>
                                                         <div class="CouponEventCard-CouponValue">
-                                                            <i class="CouponDiscountRate" th:text="${eventCoupons.getCouponDiscountRate()}">5</i>
+                                                            <i class="CouponDiscountRate" th:text="${availableCoupons.getCouponDiscountRate()}">5</i>
                                                             <i class="CouponUnit">% 할인</i>
                                                         </div>
                                                         <div class="CouponEventCard-EndDate">
                                                             발급일로부터 30일 이내 사용 가능
                                                         </div>
-                                                        <div class="CouponEventCard-DiscountLimit" th:text="${eventCoupons.getCouponDescription()}">
+                                                        <div class="CouponEventCard-DiscountLimit" th:text="${availableCoupons.getCouponDescription()}">
                                                             최대 15,000원 한도
                                                         </div>
                                                     </div>
@@ -216,5 +220,5 @@
         </div>
     </div>
 </body>
-<script src="./couponEvent.js"></script>
+<script src="/js/couponbooks/couponEvent.js"></script>
 </html>

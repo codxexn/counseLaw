@@ -66,7 +66,8 @@ public class MemberMypageController {
     // 마이페이지에서 내 쿠폰함으로 (내 쿠폰함에서부터는 coupon Controller)
 @GetMapping("my-coupons")
     public ModelAndView goToMyCouponPage(HttpSession session) {
-        ModelAndView mv = new ModelAndView();
+
+    ModelAndView mv = new ModelAndView();
         MemberVO currentMember = (MemberVO)session.getAttribute("member");
         if (currentMember != null) {
 
@@ -87,11 +88,7 @@ public class MemberMypageController {
     }
 
 
-//    @PostMapping("my-coupons")
-//    public ModelAndView beforeGoToMyCouponPage(HttpSession session) {
-//
-//        }
-//    }
+
 
 
 //    @GetMapping("my-online-consulting-histories")

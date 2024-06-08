@@ -221,7 +221,7 @@ const visitPrice = document.querySelector("input[name='visitPrice']");
 let consultingType = "";
 phoneSelect.addEventListener("click", () => {
     totalPrice.innerText = callPrice.value + '원';
-    consultingType = "PHONE";
+    consultingType = "CALL";
 })
 videoSelect.addEventListener("click", () => {
     totalPrice.innerText = videoPrice.value + '원';

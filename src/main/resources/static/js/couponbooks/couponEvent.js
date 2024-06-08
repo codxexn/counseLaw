@@ -17,3 +17,11 @@ openFooterButton.addEventListener("click", (e) => {
         }
     });
 });
+
+
+// 다운로드 버튼 클릭시 alert
+
+const downloadButton = document.getElementById("downloadButton");
+downloadButton.addEventListener("click", () => {
+    alert("이벤트 쿠폰이 다운로드 되었습니다. 마이 쿠폰에서 확인해보세요!")
+})

@@ -5,6 +5,7 @@ import com.app.counselawb.domain.vo.CouponVO;
 import com.app.counselawb.domain.vo.MemberVO;
 import com.app.counselawb.service.CouponAdminService;
 import com.app.counselawb.service.CouponMemberService;
+import com.app.counselawb.service.ReservationService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -27,13 +29,38 @@ public class CouponController {
 
     private final CouponAdminService couponAdminService;
     private final CouponMemberService couponMemberService;
+    private final ReservationService reservationService;
 
 @GetMapping("coupon-event")
-public String goToCouponEventPage(Model model) {
+public String goToCouponEventPage(HttpSession session, Model model) {
+
+    MemberVO currentMember = (MemberVO)session.getAttribute("member");
 
     List<CouponVO> foundEventCoupons = couponAdminService.readEventCoupon();
-    int couponCounts = foundEventCoupons.size();
-    model.addAttribute("eventCoupons", foundEventCoupons);
+    log.info(String.valueOf(foundEventCoupons.toString()));
+    List<CouponVO> myCoupons = reservationService.findMyCoupons(currentMember.getMemberId());
+    log.info(String.valueOf(myCoupons.toString()));
+    List<CouponVO> availableCoupons = new ArrayList<>();
+
+    for (CouponVO eventCoupon : foundEventCoupons) {
+        boolean alreadyOwned = false;
+
+        // Check if the user already has this coupon
+        for (CouponVO myCoupon : myCoupons) {
+            if (eventCoupon.getCouponId().equals(myCoupon.getCouponId())) {
+                alreadyOwned = true;
+                break;
+            }
+        }
+
+        // If the coupon is not already owned, add it to availableCoupons
+        if (!alreadyOwned) {
+            availableCoupons.add(eventCoupon);
+        }
+    }
+
+    int couponCounts = availableCoupons.size();
+    model.addAttribute("availableCoupons", availableCoupons);
     model.addAttribute("couponCounts", couponCounts);
 
     return "couponbooks/coupon-event";
@@ -44,11 +71,9 @@ public RedirectView saveCoupon(HttpSession session, @RequestParam("couponId") lo
 
         MemberVO currentMember = (MemberVO) session.getAttribute("member");
         couponMemberService.saveMemberCoupon(currentMember.getMemberId(), couponId);
-        return new RedirectView("/member-mypage/my-coupons");
+        model.addAttribute("successMsg", "success");
 
-        // 같은 쿠폰 있으면 쿠폰 이벤트에 안 뜨게 하는 것
-        // 쿠폰 받고나서 alert 띄우기
-        // 만 하면 쿠폰은 끝!
+        return new RedirectView("/member-mypage/my-coupons");
 
     }
 }
