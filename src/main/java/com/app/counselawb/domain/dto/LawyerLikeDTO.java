@@ -20,8 +20,8 @@ public class LawyerLikeDTO {
     private String lawyerImage;
     // 즐겨찾기된 변호사 분야 id
     private long fieldId;
-    // 즐겨찾기된 변호사 분야 설명
-    private String fieldDescription;
+    // 즐겨찾기된 변호사 분야 제목
+    private String fieldTitle;
     // 즐겨찾기된 변호사 지역 id
     private long locationId;
     // 즐겨찾기된 변호사 지역명

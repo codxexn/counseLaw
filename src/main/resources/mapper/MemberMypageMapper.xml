@@ -10,23 +10,29 @@
         SELECT * FROM
             (SELECT ROWNUM R, LL1.* FROM
                 (SELECT L02.*, LO3.LOCATION_NAME
-                     FROM (SELECT F3.*, LO1.LOCATION_ID
-                           FROM (SELECT F1.*, F2.FIELD_DESCRIPTION
-                                 FROM (SELECT L1.*, LF.FIELD_ID
-                                       FROM ( SELECT LL.LAWYER_LIKE_ID, LL.LAWYER_ID, LL.MEMBER_ID, L.LAWYER_NAME, L.LAWYER_INTRODUCTION, L.LAWYER_ADDRESS, LAWYER_IMAGE
-                                              FROM TBL_LAWYER_LIKE LL
-                                                       JOIN TBL_LAWYER L
-                                                            ON L.LAWYER_ID = LL.LAWYER_ID
-                                              WHERE LL.MEMBER_ID = #{memberId}
-                                              ORDER BY LL.LAWYER_LIKE_ID DESC) L1
-                                                JOIN TBL_LAWYER_FIELD LF
-                                                     ON L1.LAWYER_ID = LF.LAWYER_ID) F1
-                                          JOIN TBL_FIELD F2
-                                               ON F2.FIELD_ID = F1.FIELD_ID) F3
-                                    JOIN TBL_LAWYER_LOCATION LO1
-                                         ON LO1.LAWYER_ID = F3.LAWYER_ID) L02
-                                JOIN TBL_LOCATION LO3
-                                     ON LO3.LOCATION_ID = L02.LOCATION_ID) LL1
+                 FROM (
+                          SELECT F3.*, LO1.LOCATION_ID
+                          FROM (
+                                   SELECT F1.LAWYER_LIKE_ID, F1.LAWYER_ID, F1.MEMBER_ID, F1.LAWYER_NAME, F1.LAWYER_INTRODUCTION, F1.LAWYER_IMAGE,
+                                          LISTAGG(F2.FIELD_TITLE, ', ') WITHIN GROUP (ORDER BY F2.FIELD_TITLE) AS FIELD_TITLE
+                                   FROM (
+                                       SELECT L1.LAWYER_LIKE_ID, L1.LAWYER_ID, L1.MEMBER_ID, L1.LAWYER_NAME, L1.LAWYER_INTRODUCTION, L1.LAWYER_IMAGE,
+                                       LF.FIELD_ID
+                                       FROM (
+                                       SELECT LL.LAWYER_LIKE_ID, LL.LAWYER_ID, LL.MEMBER_ID, L.LAWYER_NAME, L.LAWYER_INTRODUCTION, L.LAWYER_IMAGE
+                                       FROM TBL_LAWYER_LIKE LL
+                                       JOIN TBL_LAWYER L ON L.LAWYER_ID = LL.LAWYER_ID
+                                       WHERE LL.MEMBER_ID = 2
+                                       ORDER BY LL.LAWYER_LIKE_ID DESC
+                                       ) L1
+                                       JOIN TBL_LAWYER_FIELD LF ON L1.LAWYER_ID = LF.LAWYER_ID
+                                       ) F1
+                                       JOIN TBL_FIELD F2 ON F1.FIELD_ID = F2.FIELD_ID
+                                   GROUP BY F1.LAWYER_LIKE_ID, F1.LAWYER_ID, F1.MEMBER_ID, F1.LAWYER_NAME, F1.LAWYER_INTRODUCTION, F1.LAWYER_IMAGE
+                               ) F3
+                                   JOIN TBL_LAWYER_LOCATION LO1 ON LO1.LAWYER_ID = F3.LAWYER_ID
+                      ) L02
+                          JOIN TBL_LOCATION LO3 ON LO3.LOCATION_ID = L02.LOCATION_ID) LL1
         <![CDATA[
              WHERE ROWNUM <= #{pagination.endRow}) LL2
         WHERE LL2.R >= #{pagination.startRow}

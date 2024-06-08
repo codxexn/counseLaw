@@ -23,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -54,6 +55,7 @@ public class MemberMypageController {
         pagination.progress();
 
         List<LawyerLikeDTO> lawyerLikeDTOS = memberMypageService.findMyFavoriteLawyers(currentMember.getMemberId(), pagination);
+        List<String> favoritesLawyerList = new ArrayList<>();
 
         mv.addObject("lawyerLikeDTOS", lawyerLikeDTOS);
         mv.addObject("pagination", pagination);
