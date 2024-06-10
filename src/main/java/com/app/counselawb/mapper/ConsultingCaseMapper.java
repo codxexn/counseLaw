@@ -34,7 +34,7 @@ public interface ConsultingCaseMapper {
     public int countReplyByConsultId(Long consultId);
 
 //    조회수를 구하기 위해 caseId에 맞는 consultCase조회
-    public int readById(Long consultId);
+    public int selectCountById(Long consultId);
 
 //    조회수 증가
     public void updateViewCount(Long consultId);
@@ -56,4 +56,7 @@ public interface ConsultingCaseMapper {
 
 //  관심글에 넣을 내용 조회
     public MyFavoriteConsultDTO readFavoritePosts(Long consultingCaseId);
+
+//  내가 작성한 온라인 상담글 조회
+    public List<ConsultingCaseVO> selectMyConsult(Long memberId);
 }

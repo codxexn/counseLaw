@@ -54,8 +54,8 @@ public class ConsultingCaseDAO {
     }
 
     //    조회수를 구하기 위해 caseId에 맞는 consultCase조회
-    public int readCount(Long consultId){
-        return consultingCaseMapper.readById(consultId);
+    public int readCountById(Long consultId){
+        return consultingCaseMapper.selectCountById(consultId);
     }
 
 //    조회수 증가
@@ -91,4 +91,7 @@ public class ConsultingCaseDAO {
     public MyFavoriteConsultDTO readMyFavoriteCase(Long consultingCaseId){
         return consultingCaseMapper.readFavoritePosts(consultingCaseId);
     }
+
+    //  내가 작성한 온라인 상담글 조회
+    public List<ConsultingCaseVO> readMyConsult(Long memberId) { return consultingCaseMapper.selectMyConsult(memberId); }
 }

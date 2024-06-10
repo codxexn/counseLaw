@@ -61,7 +61,7 @@ public class ConsultingCaseServiceImpl implements ConsultingCaseService {
     //    조회수를 구하기 위해 caseId에 맞는 consultCase 조회
     @Override
     public int readCountById(Long consultId) {
-        return consultingCaseDAO.readCount(consultId);
+        return consultingCaseDAO.readCountById(consultId);
     }
 
     @Override
@@ -98,4 +98,7 @@ public class ConsultingCaseServiceImpl implements ConsultingCaseService {
     public MyFavoriteConsultDTO readFavoriteCases(Long consultingCaseId) {
         return consultingCaseDAO.readMyFavoriteCase(consultingCaseId);
     }
+
+    @Override
+    public List<ConsultingCaseVO> readMyConsult(Long memberId) { return consultingCaseDAO.readMyConsult(memberId); }
 }

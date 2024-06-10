@@ -43,10 +43,10 @@ public class ConsultDetailController {
 //        caseId별로 조회수 받아온다.
         int viewCount = consultingCaseService.readCountById(consultId);
 //        변호사 답변의 개수
-        int totalCount = consultingCaseService.countTotalReply(consultId);
+        Integer totalCount = consultingCaseService.countTotalReply(consultId);
 //        다른 상담사례 보기에 넣을 상담사례
         List<ConsultingCaseDTO> consultCase = consultingCaseService.readMoreConsult();
-        //    해결사례 더보기를 위한 조회
+//        해결사례 더보기를 위한 조회
         List<ConsultDetailDTO> readSolution = consultingCaseService.selectSolutionCase();
 
 //        log.info(readLawyer.toString());

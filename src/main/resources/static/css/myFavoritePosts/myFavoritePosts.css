@@ -201,6 +201,7 @@ button, input, optgroup, select, textarea {
 }
 
 .MFP-List-Question-Title {
+    margin-top: 15px;
     margin-bottom: 8px;
     font-size: 22px;
     line-height: 32px;

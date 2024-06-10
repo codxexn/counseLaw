@@ -54,4 +54,7 @@ public interface ConsultingCaseService {
 
     //  관심글에 넣을 내용 조회
     public MyFavoriteConsultDTO readFavoriteCases(Long consultingCaseId);
+
+    //  내가 작성한 온라인 상담글 조회
+    public List<ConsultingCaseVO> readMyConsult(Long memberId);
 }

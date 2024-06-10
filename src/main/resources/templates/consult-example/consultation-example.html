@@ -314,20 +314,15 @@
                     <!--옆에 변호사 순위 부분 -->
                     <aside  class="asideSection caseAsideSection" >
                         <div  class="rankWeekAnswer ltDesktop">
-                            <div class="rankTitle">카운슬로에서 활동중인 변호사</div>
+                            <div class="rankTitle">카운슬로우에서 활동중인 변호사</div>
                             <ul id="content" class="rankBody" >
                                 <!--1위-->
                                 <li class="lawyerRank" th:each="getLawyers:${getLawyers}">
                                     <a th:href="@{'/lawyer-home/lawyer-home?lawyerId=' + ${getLawyers.lawyerId}}" href="">
-                                        <!--                                        <div class="ranking">-->
-                                        <!--                                            <i class="lc lcCrown"></i>-->
-                                        <!--                                            <span class="rk">1</span>-->
-                                        <!--                                            <span>위</span>-->
-                                        <!--                                        </div>-->
                                         <img th:src="${getLawyers.lawyerImage == null ? '/image/lawyerHome/profile.jpg' : getLawyers.lawyerImage}" src="https://www.lawtalk.co.kr/uploads/thumb/63eb407a63bf810043e827c4-thumb-1677563515771.jpg" alt="" class="image">
                                         <div class="body">
-                                            <div class="name" th:text="${getLawyers.lawyerName}">조기현 변호사</div>
-                                            <div class="desc" th:text="${getLawyers.lawyerIntroduction}">[사시출신] 언론도 인정한 조기현변호사를 로톡에서도</div>
+                                            <div class="name" th:text="${getLawyers.lawyerName}"></div>
+                                            <div class="desc" th:text="${getLawyers.lawyerIntroduction}"></div>
                                         </div>
                                     </a>
                                 </li>

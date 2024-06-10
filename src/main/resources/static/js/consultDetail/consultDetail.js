@@ -117,11 +117,12 @@ function copyToClipboard(index) {
 // }
 
 const heartImage=document.querySelector('.heartImg');
+const heartButton = document.querySelector('.questionUtilsButton');
 let memberId;
 let url;
 let consultId;
 if(heartImage != null){
-    heartImage.addEventListener("click",(e)=>{
+    heartButton.addEventListener("click",(e)=>{
         memberId = document.querySelector("input[name=memberId]").value;
         consultId = document.querySelector("input[name=consultId]").value;
         console.log(memberId);
@@ -132,10 +133,10 @@ if(heartImage != null){
                 .then(response=>response.text())
                 .then(data => {
                     if (data==="fail"){
-                        // alert("서버 오류 발생");
+                        alert("서버 오류 발생");
                         return;
                     } else if(data==="success"){
-                        // alert("관심목록에서 해제");
+                        alert("내 관심글에서 해제되었습니다!");
                     }
                     else {
                         // alert("알 수 없는 오류 발생");
@@ -152,13 +153,13 @@ if(heartImage != null){
                 .then(response=>response.text())
                 .then(data => {
                     if (data==="fail"){
-                        // alert("이미 하트누른 관심글");
+                        alert("이미 관심글로 등록되어 있습니다.");
                         return;
                     } else if(data==="success"){
-                        // alert("관심글로 설정 완료");
+                        alert("내 관심글로 등록되었습니다!");
                         }
                     else {
-                        // alert("알 수 없는 오류가 발생했습니다. 다시 시도해주세요.");
+                        alert("알 수 없는 오류가 발생했습니다. 다시 시도해주세요.");
                         return;
                     }
 

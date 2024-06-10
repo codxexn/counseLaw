@@ -35,7 +35,7 @@
     </select>
 
     <!--    조회수를 구하기 위해 caseId에 맞는 consultCase 호출-->
-    <select id="readById" resultType="int">
+    <select id="selectCountById" resultType="int">
         SELECT CASE_COUNT
         FROM TBL_CONSULTING_CASE
         WHERE CONSULTING_CASE_ID=#{consultId}

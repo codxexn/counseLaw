@@ -6,4 +6,11 @@
         INSERT INTO TBL_CONSULTING_CASE(CONSULTING_CASE_ID, MEMBER_ID, CASE_TITLE, CASE_CONTENT, CREATE_DATE, UPDATE_DATE)
         VALUES(SEQ_CONSULTING_CASE.nextval, #{memberId},#{faqTitle},#{faqContent},LOCALTIMESTAMP,LOCALTIMESTAMP)
     </insert>
+
+<!--    내가 작성한 온라인 상담글 조회-->
+    <select id="selectMyConsult" resultType="consultingCaseVO">
+        SELECT CASE_TITLE, CASE_COUNT, UPDATE_DATE
+        FROM TBL_CONSULTING_CASE
+        WHERE MEMBER_ID = #{memberId}
+    </select>
 </mapper>

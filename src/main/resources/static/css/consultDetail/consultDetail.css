@@ -176,7 +176,7 @@ a img{
 }
 
 .question.directive.qnaDetailPage.expanded{
-    padding-top: 22px;
+    padding-top: 50px;
 }
 
 @media (min-width: 769px){
@@ -417,6 +417,8 @@ a img{
 @media (min-width: 960px){
     .question.directive.qnaDetailPage .questionUtils{
         gap:24px;
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
 }
 
@@ -546,7 +548,7 @@ a img{
 
 @media (min-width: 769px) {
     .qnaArticle.controller .qnaArticleBannerCouponImage{
-        height: 80px;
+        height: 88px;
         width: 1032px;
     }
 }
