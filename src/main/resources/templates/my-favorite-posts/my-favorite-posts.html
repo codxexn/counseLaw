@@ -30,9 +30,6 @@
                                                 <a th:href="@{/consult-detail/{consultId}(consultId=${myFavoritePosts.consultingCaseId})}">
                                                     <div>
                                                         <div class="MFP-List-Question">
-<!--                                                            <h5 class="MFP-List-Question-Keywords">-->
-<!--                                                                <span class="MFP-List-Question-Keyword">음주/무면허</span>-->
-<!--                                                            </h5>-->
                                                             <h1 class="MFP-List-Question-Title"
                                                                 th:text="${myFavoritePosts.consultingCaseTitle}"></h1>
                                                             <div class="MFP-List-Question-Viewcount" th:text="'조회수 ' + ${myFavoritePosts.viewCount}"></div>
@@ -48,15 +45,8 @@
                                                         </div>
                                                     </div>
                                                 </a>
-                                                <hr>
                                             </div>
                                             <div class="MFP-List-Contents-Trigger-Load"></div>
-<!--                                            찜한 글이 없는경우 아래와 같이 나와야하는데 왜 아래 문구가 안뜨는지 모르겠다-->
-                                            <div th:if="${myFavoritePosts == null}" class="MFP-List-Question-Wrapper">
-                                                <h2>
-                                                    즐겨찾기한 상담글이 없습니다.
-                                                </h2>
-                                            </div>
                                         </div>
                                         <aside class="MFP-List-Aside">
                                             <div class="MFP-Write-Banner">
@@ -82,9 +72,9 @@
                                             </div>
                                             <div class="MFP-List-Aside-Content-Wrapper">
                                                 <div class="MFP-List-Aside-Content">
-                                                    <div class="MFP-List-Aside-Content-Tip">
-                                                        <div class="MFP-List-Aside-Content-Heading">꼭 알아두세요!</div>
-                                                    </div>
+<!--                                                    <div class="MFP-List-Aside-Content-Tip">-->
+<!--                                                        <div class="MFP-List-Aside-Content-Heading">꼭 알아두세요!</div>-->
+<!--                                                    </div>-->
                                                     <div class="MFP-List-Aside-Lawguides" th:each="legalGuideWithDetail:${legalGuideWithDetail}">
                                                         <a th:href="'/legal-guide-page/legal-guide2?legalGuideId=' + ${legalGuideWithDetail.legalGuideId}" class="MFP-Lawguide-Each-Link">
                                                             <h3 class="MFP-Lawguide-Title" th:text="${legalGuideWithDetail.legalGuideTitle}"></h3>
