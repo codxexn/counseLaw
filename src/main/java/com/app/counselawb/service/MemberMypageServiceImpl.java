@@ -1,6 +1,7 @@
 package com.app.counselawb.service;
 
 import com.app.counselawb.domain.dto.LawyerLikeDTO;
+import com.app.counselawb.domain.dto.ReservationDTO;
 import com.app.counselawb.domain.pagination.Pagination;
 import com.app.counselawb.domain.vo.LawyerLikeVO;
 import com.app.counselawb.repository.MemberMypageDAO;
@@ -53,4 +54,7 @@ public class MemberMypageServiceImpl implements MemberMypageService {
     public int getCountMyFavoritePosts(Long memberId) {
         return memberMypageDAO.getCountMyPosts(memberId);
     }
+
+    @Override
+    public List<ReservationDTO> getMyConsulting(Long memberId, String consultingType) { return memberMypageDAO.getMyConsulting(memberId, consultingType); }
 }

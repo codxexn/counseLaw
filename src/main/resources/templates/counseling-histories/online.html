@@ -8,7 +8,7 @@
     <title>온라인 상담 - 마이페이지 | 카운슬로우</title>
     <link rel="stylesheet" type="text/css"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"/>
-    <link rel="stylesheet" href="./online.css">
+    <link rel="stylesheet" href="/css/counseling-histories/online.css">
 </head>
 <body>
 <div class="root pc">
@@ -39,15 +39,15 @@
                                         <div class="Online-List-Header-Count-Wrapper">
                                             <div class="Online-List-Header-Count-Description">
                                                 총&nbsp;
-                                                <span class="Online-List-Header-Count">1</span>
+                                                <span class="Online-List-Header-Count" th:text="${myConsults.size()}">1</span>
                                                 개
                                             </div>
                                         </div>
                                     </header>
                                     <section class="Online-List-Contents">
                                         <div class="Online-List-Feed">
-                                            <div class="Online-List-Cards-Wrapper">
-                                                <a href="" style="text-decoration: none;">
+                                            <div class="Online-List-Cards-Wrapper" th:each="myConsults:${myConsults}">
+                                                <a th:href="@{/consult-detail/{consultId}(consultId=${myConsults.getConsultingCaseId()})}" style="text-decoration: none;">
                                                     <div>
                                                         <div class="Online-List-Card-Wrapper">
                                                             <h5 class="Online-List-Card-Keyword">

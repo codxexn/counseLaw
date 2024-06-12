@@ -2,6 +2,7 @@ package com.app.counselawb.controller;
 
 import com.app.counselawb.domain.dto.CouponMemberDTO;
 import com.app.counselawb.domain.dto.LawyerLikeDTO;
+import com.app.counselawb.domain.dto.ReservationDTO;
 import com.app.counselawb.domain.pagination.Pagination;
 import com.app.counselawb.domain.vo.CouponVO;
 import com.app.counselawb.domain.vo.LawyerLikeVO;
@@ -23,9 +24,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.time.LocalDateTime;
+import java.util.*;
 
 @Controller
 @Slf4j
@@ -89,21 +89,87 @@ public class MemberMypageController {
         }
     }
 
+// 전화 상담 내역으로 이동
+@GetMapping("my-consulting-call")
+    public ModelAndView goToMyCallHistories(HttpSession session) {
+    ModelAndView mv = new ModelAndView();
+    MemberVO currentMember = (MemberVO)session.getAttribute("member");
+
+        String consultingType = "CALL";
+
+        List<ReservationDTO> myReservations = memberMypageService.getMyConsulting(currentMember.getMemberId(), consultingType);
+
+        mv.addObject("myReservations", myReservations);
+
+            if (myReservations.size() == 0) {
+                mv.setViewName("counseling-histories/phone-empty");
+            } else {
+                mv.setViewName("counseling-histories/phone");
+            }
+
+        return mv;
+    }
+
+    // 영상 상담 내역으로 이동
+    @GetMapping("my-consulting-video")
+    public ModelAndView goToMyVideoHistories(HttpSession session) {
+        ModelAndView mv = new ModelAndView();
+        MemberVO currentMember = (MemberVO)session.getAttribute("member");
+
+            String consultingType = "VIDEO";
+
+            List<ReservationDTO> myReservations = memberMypageService.getMyConsulting(currentMember.getMemberId(), consultingType);
+
+            mv.addObject("myReservations", myReservations);
+
+            if (myReservations.size() == 0) {
+                mv.setViewName("counseling-histories/video-empty");
+            } else {
+                mv.setViewName("counseling-histories/video");
+            }
+
+        return mv;
+    }
+
+    // 방문 상담 내역으로 이동
+    @GetMapping("my-consulting-visit")
+    public ModelAndView goToMyVisitHistories(HttpSession session) {
+        ModelAndView mv = new ModelAndView();
+        MemberVO currentMember = (MemberVO)session.getAttribute("member");
+        Calendar cal = Calendar.getInstance();
+        Date today = new Date(cal.getTimeInMillis());
+
+            String consultingType = "VISIT";
+
+            List<ReservationDTO> myReservations = memberMypageService.getMyConsulting(currentMember.getMemberId(), consultingType);
+
+            List<ReservationDTO> passedReservations = new ArrayList<>();
+            List<ReservationDTO> reservations = new ArrayList<>();
 
 
+            for (ReservationDTO reservationDTO : myReservations) {
+                if (today.after(reservationDTO.getReservationTime())) {
+                    passedReservations.add(reservationDTO);
+                } else {
+                    reservations.add(reservationDTO);
+                }
+            }
 
 
-//    @GetMapping("my-online-consulting-histories")
-//    public String goToMyOnlineConsultingPage(HttpSession session, Model model, Pagination pagination) {
-//        MemberVO currentMember = (MemberVO)session.getAttribute("member");
-//
-//
-//
-//
-//    }
+            mv.addObject("passedReservations", passedReservations);
+            mv.addObject("reservations", reservations);
 
+            reservations.forEach(reservationDTO -> log.info(String.valueOf(reservationDTO)));
+            passedReservations.forEach(reservationDTO -> log.info(String.valueOf(reservationDTO)));
 
+            if (reservations.size() == 0 && passedReservations.size() == 0) {
+                mv.setViewName("counseling-histories/visit-empty");
+            } else {
+                mv.setViewName("counseling-histories/visit");
+            }
 
+        return mv;
+    }
 
 
 }

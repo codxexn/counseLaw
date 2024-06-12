@@ -1,6 +1,7 @@
 package com.app.counselawb.repository;
 
 import com.app.counselawb.domain.dto.LawyerLikeDTO;
+import com.app.counselawb.domain.dto.ReservationDTO;
 import com.app.counselawb.domain.pagination.Pagination;
 import com.app.counselawb.domain.vo.LawyerLikeVO;
 import com.app.counselawb.mapper.MemberMypageMapper;
@@ -46,4 +47,7 @@ public class MemberMypageDAO {
     public int getCountMyPosts(Long memberId){
         return memberMypageMapper.getCountMyFavoritePosts(memberId);
     }
+
+    // 내 상담 조회
+    public List<ReservationDTO> getMyConsulting(Long memberId, String consultingType) { return memberMypageMapper.selectMyConsulting(memberId, consultingType); }
 }

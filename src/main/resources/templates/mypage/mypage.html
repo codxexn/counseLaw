@@ -65,16 +65,18 @@
                 <div class="MypageBox">
                     <div class="MypageBox-AdviceList">
                         <div class="MypageBox-Title">내 상담내역</div>
-                        <a href="" class="MypageBox-MenuItem">
+                        <a href="/member-mypage/my-consulting-call" class="MypageBox-MenuItem">
                             <div class="MypageBox-MenuItemLabel">15분 전화상담</div>
                             <div class="MypageBox-MenuItemCount" th:text="${numberOfCallType}">0</div>
                         </a>
-                        <a href="" class="MypageBox-MenuItem">
+                        <a href="/member-mypage/my-consulting-video" class="MypageBox-MenuItem">
+                            <input type="hidden" name="consultingType" value="VIDEO">
                             <div class="MypageBox-MenuItemLabel">20분 영상상담</div>
                             <div class="MypageBox-MenuItemCount" th:text="${numberOfVideoType}">0</div>
                         </a>
-                        <a href="" class="MypageBox-MenuItem">
+                        <a href="/member-mypage/my-consulting-visit" class="MypageBox-MenuItem">
                             <div class="MypageBox-MenuItemLabel">30분 방문상담</div>
+                            <input type="hidden" name="consultingType" value="VISIT">
                             <div class="MypageBox-MenuItemCount" th:text="${numberOfVisitType}">0</div>
                         </a>
                         <a class="MypageBox-MenuItem" href="/counseling/my-counselings" style="text-decoration: none">
@@ -120,17 +122,21 @@
             <div class="MypageWrapper-Mobile">
                 <div class="MypageCard-Mobile">
                     <div class="MypageButtonwrapper-Mobile">
-                        <a href="" class="MypageButton-Mobile">
+                        <a href="/member-mypage/my-coupons" class="MypageButton-Mobile">
                             쿠폰함
-                            <span class="MypageButtonCount-Mobile">0</span>
+                            <span class="MypageButtonCount-Mobile" th:text="${myCouponList.size()}">0</span>
                         </a>
-                        <a href="" class="MypageButton-Mobile">
+                        <a href="/my-favorite-posts/my-favorite-posts" class="MypageButton-Mobile">
                             내 관심글
-                            <span class="MypageButtonCount-Mobile">0</span>
+                            <span class="MypageButtonCount-Mobile" th:text="${numberOfFavoritePosts}">0</span>
                         </a>
-                        <a href="" class="MypageButton-Mobile">
+                        <a th:if="${numberOfFavoriteLawyers} != 0" href="/member-mypage/my-favorite-lawyers" class="MypageButton-Mobile">
                             변호사 즐겨찾기
-                            <span class="MypageButtonCount-Mobile">0</span>
+                            <span class="MypageButtonCount-Mobile" th:text="${numberOfFavoriteLawyers}">0</span>
+                        </a>
+                        <a th:unless="${numberOfFavoriteLawyers} != 0" href="/member-mypage/no-favorite-lawyers" class="MypageButton-Mobile">
+                            변호사 즐겨찾기
+                            <span class="MypageButtonCount">0</span>
                         </a>
                     </div>
                 </div>
