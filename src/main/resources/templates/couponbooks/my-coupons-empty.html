@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>내 쿠폰함 | 카운슬로우</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-    <link rel="stylesheet" href="./myCoupons.css">
+    <link rel="stylesheet" href="/css/couponbooks/myCoupons.css">
     <link rel="stylesheet" href="/css/mypage/mypage-header.css">
 </head>
 <body>
@@ -51,10 +51,14 @@
                             </div>
                             <div class="Couponbook-Tab-Nav">
                                 <div class="Couponbooks-Tab event">
-                                    <i class="Couponbooks-Tab-Text">쿠폰 이벤트</i>
+                                    <a href="/coupon/coupon-event" style="text-decoration: none">
+                                        <i class="Couponbooks-Tab-Text">쿠폰 이벤트</i>
+                                    </a>
                                 </div>
                                 <div class="Couponbooks-Tab My Active">
-                                    <i class="Couponbooks-Tab-Text">마이쿠폰</i>
+                                    <a href="/member-mypage/my-coupons" style="text-decoration: none">
+                                        <i class="Couponbooks-Tab-Text">마이쿠폰</i>
+                                    </a>
                                 </div>
                             </div>
                             <div class="CouponRegisterWrapper">
@@ -95,7 +99,7 @@
                                             쿠폰 이벤트 함에 나에게 필요한 쿠폰이 있는지 확인해 보세요.
                                         </div>
                                         <div class="Goto-CouponEvent">
-                                            <div class="Goto-Text">쿠폰 이벤트 보러가기</div>
+                                            <div class="Goto-Text"> <a href="/coupon/coupon-event" style="text-decoration: none">쿠폰 이벤트 보러가기</a></div>
                                             <div class="Goto-Button">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
                                                     <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z"/>

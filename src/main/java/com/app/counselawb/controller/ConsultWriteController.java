@@ -59,9 +59,9 @@ public class ConsultWriteController {
         model.addAttribute("myConsults", myConsults);
 
         if (myConsults.size() == 0) {
-            return "counseling/my-counseling";
-        } else {
             return "counseling/my-counseling-empty";
+        } else {
+            return "counseling/my-counseling";
         }
 
     }

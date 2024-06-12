@@ -9,9 +9,34 @@
     <link rel="stylesheet" type="text/css"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"/>
     <link rel="stylesheet" href="/css/counseling-histories/counselingHistories.css">
+    <link rel="stylesheet" href="/css/mypage/mypage-header.css">
 </head>
 <body>
 <div class="root pc">
+    <div class="MypageHeaderWrapper">
+        <header class="MypageHeader">
+            <div class="MypageHeaderLeft">
+                <div class="MypageHeader-LogoWrapper">
+                    <a href="/">
+                        <img src="/image/mypage/main_logo.png" alt="카운슬로우 로고" class="MypageHeader-MainLogo">
+                    </a>
+                </div>
+            </div>
+            <div class="MypageHeaderCenter">
+                <p class="MypageHeaderText">내 30분 방문 상담 내역</p>
+            </div>
+            <div class="MypageHeaderRight">
+                <div class="MypageHeaderRight-ButtonContainer">
+                    <a href="/member/mypage-member" style="text-decoration: none;">
+                        <p class="MypageHeaderRight-Button">마이페이지로</p>
+                    </a>
+                    <a href="/login/logout-finally" style="text-decoration: none;">
+                        <p class="MypageHeaderRight-Button">로그아웃</p>
+                    </a>
+                </div>
+            </div>
+        </header>
+    </div>
     <div style="height: 100%;">
         <div class="History-Wrapper">
             <div class="History-Contents">
@@ -127,81 +152,15 @@
 <!--                                    </div>-->
                                     <div class="My-History-Repeat-Wrapper">
                                         <div class="My-History-Repeat-Link-Wrapper">
-                                            <a href="" class="My-History-Review-Link">
+                                            <a href="/member-mypage/write-review" class="My-History-Review-Link">
                                                 후기 작성하기
                                             </a>
-                                            <a href="" class="My-History-Repeat-Link">
+                                            <a th:href="|/lawyer-home/lawyer-home?lawyerId=${passedReservation.getLawyerId()}|" class="My-History-Repeat-Link">
                                                 재상담 예약하기
                                             </a>
                                         </div>
                                     </div>
                                 </div>
-<!--                                <div class="My-History-Card-Wrapper">-->
-<!--                                    <div class="My-History-Card">-->
-<!--                                        <a href="" class="My-History-Check">-->
-<!--                                            <h4 class="My-History-Check-Text-Wrapper">-->
-<!--                                                <i class="My-History-Check-Icon-Wrapper">-->
-<!--                                                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13"-->
-<!--                                                         fill="currentColor" class="bi bi-check-circle"-->
-<!--                                                         viewBox="0 0 16 16">-->
-<!--                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
-<!--                                                        <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>-->
-<!--                                                    </svg>-->
-<!--                                                </i>-->
-<!--                                                <span class="My-History-Check-Text">상담완료</span>-->
-<!--                                            </h4>-->
-<!--                                        </a>-->
-<!--                                        <a href="" class="My-History-Description">-->
-<!--                                            <h4 class="My-History-Name-Wrapper">-->
-<!--                                                    <span class="My-History-Name">-->
-<!--                                                        한동석 변호사와-->
-<!--                                                        <br>-->
-<!--                                                    </span>-->
-<!--                                                <span class="My-History-Name-Bold">-->
-<!--                                                        30분 방문상담-->
-<!--                                                    </span>-->
-<!--                                                <i class="My-History-Right-Arrow-Icon-Wrapper">-->
-<!--                                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"-->
-<!--                                                         fill="currentColor" class="bi bi-chevron-right"-->
-<!--                                                         viewBox="0 0 16 16">-->
-<!--                                                        <path fill-rule="evenodd"-->
-<!--                                                              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>-->
-<!--                                                    </svg>-->
-<!--                                                </i>-->
-<!--                                            </h4>-->
-<!--                                            <p class="My-History-Introduction">2023년 5월 31일 (수) 오후 02:30</p>-->
-<!--                                        </a>-->
-<!--                                        <a href="" class="My-History-Profile">-->
-<!--                                            <img src="./counselingLawyerImages/counselingLawyerImage1.png" alt="변호사 사진1"-->
-<!--                                                 class="My-History-Profile-Photo">-->
-<!--                                        </a>-->
-<!--                                    </div>-->
-<!--                                    <div class="My-History-Detail-Table-Wrapper">-->
-<!--                                        <p class="My-History-Detail-Title">상담결과 요약</p>-->
-<!--                                        <table class="My-History-Detail-Table">-->
-<!--                                            <tr>-->
-<!--                                                <th>법적 해결 필요성</th>-->
-<!--                                                <th>승소 가능성</th>-->
-<!--                                                <th>변호사 도움 필요성</th>-->
-<!--                                            </tr>-->
-<!--                                            <tr>-->
-<!--                                                <td>법적으로 해결해야 하는 문제</td>-->
-<!--                                                <td>매우 높음</td>-->
-<!--                                                <td>변호사 도움 필요없이 직접 해결 가능함</td>-->
-<!--                                            </tr>-->
-<!--                                        </table>-->
-<!--                                    </div>-->
-<!--                                    <div class="My-History-Repeat-Wrapper">-->
-<!--                                        <div class="My-History-Repeat-Link-Wrapper">-->
-<!--                                            <a href="" class="My-History-Review-Link">-->
-<!--                                                후기 작성하기-->
-<!--                                            </a>-->
-<!--                                            <a href="" class="My-History-Repeat-Link">-->
-<!--                                                재상담 예약하기-->
-<!--                                            </a>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
                             </div>
                         </div>
                     </div>

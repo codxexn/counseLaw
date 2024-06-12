@@ -73,7 +73,8 @@
 <!--                                                </i>-->
                                             </p>
                                         <a href="" class="My-Lawyer-Profile">
-                                            <img th:src="${favorites.lawyerImage}" alt="변호사 사진1" class="My-Lawyer-Profile-Photo">
+                                            <img th:if="${favorites.getLawyerImage() != null}" th:src="${favorites.lawyerImage}" alt="변호사 사진1" class="My-Lawyer-Profile-Photo">
+                                            <img th:unless="${favorites.getLawyerImage() != null}" src="/image/defaultLawyerProfile/defaultLawyerProfile.png" alt="변호사 사진1" class="My-Lawyer-Profile-Photo">
                                         </a>
                                     </div>
                                 </div>

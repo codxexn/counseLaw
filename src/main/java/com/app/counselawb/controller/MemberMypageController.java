@@ -94,20 +94,37 @@ public class MemberMypageController {
     public ModelAndView goToMyCallHistories(HttpSession session) {
     ModelAndView mv = new ModelAndView();
     MemberVO currentMember = (MemberVO)session.getAttribute("member");
+    Calendar cal = Calendar.getInstance();
+    Date today = new Date(cal.getTimeInMillis());
 
-        String consultingType = "CALL";
+    String consultingType = "CALL";
 
-        List<ReservationDTO> myReservations = memberMypageService.getMyConsulting(currentMember.getMemberId(), consultingType);
+    List<ReservationDTO> myReservations = memberMypageService.getMyConsulting(currentMember.getMemberId(), consultingType);
 
-        mv.addObject("myReservations", myReservations);
+    List<ReservationDTO> passedReservations = new ArrayList<>();
+    List<ReservationDTO> reservations = new ArrayList<>();
 
-            if (myReservations.size() == 0) {
-                mv.setViewName("counseling-histories/phone-empty");
-            } else {
-                mv.setViewName("counseling-histories/phone");
-            }
 
-        return mv;
+    for (ReservationDTO reservationDTO : myReservations) {
+        if (today.after(reservationDTO.getReservationTime())) {
+            passedReservations.add(reservationDTO);
+        } else {
+            reservations.add(reservationDTO);
+        }
+    }
+
+
+    mv.addObject("passedReservations", passedReservations);
+    mv.addObject("reservations", reservations);
+
+
+    if (reservations.size() == 0 && passedReservations.size() == 0) {
+        mv.setViewName("counseling-histories/phone-empty");
+    } else {
+        mv.setViewName("counseling-histories/phone");
+    }
+
+    return mv;
     }
 
     // 영상 상담 내역으로 이동
@@ -115,18 +132,35 @@ public class MemberMypageController {
     public ModelAndView goToMyVideoHistories(HttpSession session) {
         ModelAndView mv = new ModelAndView();
         MemberVO currentMember = (MemberVO)session.getAttribute("member");
+        Calendar cal = Calendar.getInstance();
+        Date today = new Date(cal.getTimeInMillis());
 
-            String consultingType = "VIDEO";
+        String consultingType = "VIDEO";
 
-            List<ReservationDTO> myReservations = memberMypageService.getMyConsulting(currentMember.getMemberId(), consultingType);
+        List<ReservationDTO> myReservations = memberMypageService.getMyConsulting(currentMember.getMemberId(), consultingType);
 
-            mv.addObject("myReservations", myReservations);
+        List<ReservationDTO> passedReservations = new ArrayList<>();
+        List<ReservationDTO> reservations = new ArrayList<>();
 
-            if (myReservations.size() == 0) {
-                mv.setViewName("counseling-histories/video-empty");
+
+        for (ReservationDTO reservationDTO : myReservations) {
+            if (today.after(reservationDTO.getReservationTime())) {
+                passedReservations.add(reservationDTO);
             } else {
-                mv.setViewName("counseling-histories/video");
+                reservations.add(reservationDTO);
             }
+        }
+
+
+        mv.addObject("passedReservations", passedReservations);
+        mv.addObject("reservations", reservations);
+
+
+        if (reservations.size() == 0 && passedReservations.size() == 0) {
+            mv.setViewName("counseling-histories/video-empty");
+        } else {
+            mv.setViewName("counseling-histories/video");
+        }
 
         return mv;
     }
@@ -159,8 +193,6 @@ public class MemberMypageController {
             mv.addObject("passedReservations", passedReservations);
             mv.addObject("reservations", reservations);
 
-            reservations.forEach(reservationDTO -> log.info(String.valueOf(reservationDTO)));
-            passedReservations.forEach(reservationDTO -> log.info(String.valueOf(reservationDTO)));
 
             if (reservations.size() == 0 && passedReservations.size() == 0) {
                 mv.setViewName("counseling-histories/visit-empty");
@@ -171,5 +203,16 @@ public class MemberMypageController {
         return mv;
     }
 
+    // 후기 작성하기 페이지로 이동
+    @GetMapping("write-review")
+    public String goToReviewWritePage(HttpSession session) {
+        return "reviews/review-write";
+    }
+
+    // 내 후기 페이지로 이동
+    @GetMapping("my-reviews")
+    public String goToMyReviewPage(HttpSession session) {
+        return "reviews/my-reviews";
+    }
 
 }
