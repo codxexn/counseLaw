@@ -152,8 +152,12 @@
                                     <!--                                    </div>-->
                                     <div class="My-History-Repeat-Wrapper">
                                         <div class="My-History-Repeat-Link-Wrapper">
-                                            <a href="/member-mypage/write-review" class="My-History-Review-Link">
+                                            <a th:if="${passedReservation.getReviewOrNot() == 0}" th:href="'/member-mypage/write-review/' + ${passedReservation.getReservationId()}" class="My-History-Review-Link" methods="get">
+                                                <input type="hidden" name="reservationId" id="reservationId" th:value="${passedReservation.getReservationId()}">
                                                 후기 작성하기
+                                            </a>
+                                            <a th:unless="${passedReservation.getReviewOrNot() == 0}" href="/member-mypage/my-reviews" class="My-History-Review-Link">
+                                                작성한 후기 보기
                                             </a>
                                             <a th:href="|/lawyer-home/lawyer-home?lawyerId=${passedReservation.getLawyerId()}|" class="My-History-Repeat-Link">
                                                 재상담 예약하기

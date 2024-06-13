@@ -52,8 +52,6 @@ public class MemberMypageDAO {
     // 내 상담 조회
     public List<ReservationDTO> getMyConsulting(Long memberId, String consultingType) { return memberMypageMapper.selectMyConsulting(memberId, consultingType); }
 
-    // 상담 리뷰 추가
-    public void saveConsultingReview(ConsultingReviewVO consultingReviewVO) { memberMypageMapper.insertConsultingReview(consultingReviewVO); }
 
 
 }

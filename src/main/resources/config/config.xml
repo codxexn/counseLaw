@@ -48,5 +48,6 @@
         <typeAlias type="com.app.counselawb.domain.dto.LawyerLikeDTO" alias="lawyerLikeDTO" />
         <typeAlias type="com.app.counselawb.domain.dto.CouponMemberDTO" alias="couponMemberDTO" />
         <typeAlias type="com.app.counselawb.domain.dto.ReservationDTO" alias="reservationDTO" />
+        <typeAlias type="com.app.counselawb.domain.dto.MemberReviewDTO" alias="memberReviewDTO" />
     </typeAliases>
 </configuration>

@@ -24,7 +24,7 @@
                                         <p class="Review-Question-Compose-Description">후기를 작성하시면 5,000원 할인 쿠폰을 드립니다.</p>
                                     </div>
                                 </div>
-                                <form role="form" name="composeForm" class="Review-Question-Compose-Form">
+                                <form role="form" th:action="@{/member-mypage/write-review}" name="composeForm" class="Review-Question-Compose-Form" method="post">
                                     <div>
                                         <div class="Compose-Input-Case-Title-Wrapper">
                                             <div class="Compose-Input-Case-Title">
@@ -108,7 +108,7 @@
                                                         <span class="Compose-Title-Guide-Content-Bold">
                                                             모두가 볼 수 있는 제목임을 명심해주세요.&nbsp;
                                                         </span>
-                                                        <span class="Compose-Title-Guide-Content-Example">ex.&nbsp;</span>
+                                                        <span class="Compose-Title-Guide-Content-Example">ex.</span>
                                                         <span class="Compose-Title-Guide-Content-Question">
                                                             어려운 상황에 적절한 도움 받았습니다.
                                                         </span>
@@ -132,7 +132,7 @@
                                                 </div>
                                             </div>
                                             <div class="Compose-Textarea-Wrapper Body-Textarea">
-                                                <textarea onfocus="onBodyClickShowTip(); onBodyClickShowCount();" onblur="onBodyBlurHideTip(); onBodyBlurHideCount();" name="body" class="Compose-Body-Textarea" maxlength="1000" placeholder="내용을 입력해주세요."></textarea>
+                                                <textarea onfocus="onBodyClickShowTip(); onBodyClickShowCount();" onblur="onBodyBlurHideTip(); onBodyBlurHideCount();" name="reviewBody" class="Compose-Body-Textarea" maxlength="1000" placeholder="내용을 입력해주세요."></textarea>
                                                 <div class="Compose-Title-Guide">
                                                     <div class="Compose-Title-Guide-Tipline">
                                                         <div class="Compose-Title-Guide-Tip-Image"></div>
@@ -181,6 +181,7 @@
                                         </div>
                                     </div>
                                     <input type="hidden" name="rating" id="rating-input" value="0">
+                                    <input type="hidden" name="reservationId" th:value="${reservation.getReservationId()}">
                                     <div class="Compose-Form-Button-Wrapper">
                                         <button class="Compose-Form-Button" disabled type="submit">등록하기</button>
                                     </div>

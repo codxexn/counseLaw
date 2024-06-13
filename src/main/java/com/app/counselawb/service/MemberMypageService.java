@@ -33,6 +33,5 @@ public interface MemberMypageService {
     // 내 상담 조회
     public List<ReservationDTO> getMyConsulting(Long memberId, String consultingType);
 
-    // 상담 리뷰 추가
-    public void saveConsultingReview(ConsultingReviewVO consultingReviewVO);
+
 }

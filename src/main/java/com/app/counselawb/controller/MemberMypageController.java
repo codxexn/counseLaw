@@ -2,16 +2,11 @@ package com.app.counselawb.controller;
 
 import com.app.counselawb.domain.dto.CouponMemberDTO;
 import com.app.counselawb.domain.dto.LawyerLikeDTO;
+import com.app.counselawb.domain.dto.MemberReviewDTO;
 import com.app.counselawb.domain.dto.ReservationDTO;
 import com.app.counselawb.domain.pagination.Pagination;
-import com.app.counselawb.domain.vo.CouponVO;
-import com.app.counselawb.domain.vo.LawyerLikeVO;
-import com.app.counselawb.domain.vo.LawyerVO;
-import com.app.counselawb.domain.vo.MemberVO;
-import com.app.counselawb.service.CouponMemberService;
-import com.app.counselawb.service.LawyerService;
-import com.app.counselawb.service.MemberMypageService;
-import com.app.counselawb.service.ReservationService;
+import com.app.counselawb.domain.vo.*;
+import com.app.counselawb.service.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -30,10 +25,9 @@ import java.util.*;
 @RequestMapping("member-mypage")
 public class MemberMypageController {
 
-    private final LawyerService lawyerService;
     private final MemberMypageService memberMypageService;
-    private final CouponMemberService couponMemberService;
     private final ReservationService reservationService;
+    private final ConsultingReviewService consultingReviewService;
 
     // 즐겨찾는 변호사 없을 때
     @GetMapping("no-favorite-lawyers")
@@ -106,12 +100,22 @@ public class MemberMypageController {
 
         for (ReservationDTO reservationDTO : myReservations) {
             if (today.after(reservationDTO.getReservationTime())) {
+                // 만약 해당 예약 id에 대한 리뷰 개수가 0이면
+                if (consultingReviewService.checkReviewOrNot(reservationDTO.getReservationId()) == 0) {
+                    // 리뷰여부 매개변수에 0
+                    reservationDTO.setReviewOrNot(0);
+                } else {
+                    // 아니면 1
+                    reservationDTO.setReviewOrNot(1);
+                }
+                // 까지 set 해준 DTO를 passReservation에 넣어준다.
                 passedReservations.add(reservationDTO);
+
             } else {
+                // 아직 예정인 예약에는 후기 카운트가 없다.
                 reservations.add(reservationDTO);
             }
         }
-
 
         mv.addObject("passedReservations", passedReservations);
         mv.addObject("reservations", reservations);
@@ -144,8 +148,19 @@ public class MemberMypageController {
 
         for (ReservationDTO reservationDTO : myReservations) {
             if (today.after(reservationDTO.getReservationTime())) {
+                // 만약 해당 예약 id에 대한 리뷰 개수가 0이면
+                if (consultingReviewService.checkReviewOrNot(reservationDTO.getReservationId()) == 0) {
+                    // 리뷰여부 매개변수에 0
+                    reservationDTO.setReviewOrNot(0);
+                } else {
+                    // 아니면 1
+                    reservationDTO.setReviewOrNot(1);
+                }
+                // 까지 set 해준 DTO를 passReservation에 넣어준다.
                 passedReservations.add(reservationDTO);
+
             } else {
+                // 아직 예정인 예약에는 후기 카운트가 없다.
                 reservations.add(reservationDTO);
             }
         }
@@ -180,13 +195,24 @@ public class MemberMypageController {
             List<ReservationDTO> reservations = new ArrayList<>();
 
 
-            for (ReservationDTO reservationDTO : myReservations) {
-                if (today.after(reservationDTO.getReservationTime())) {
-                    passedReservations.add(reservationDTO);
+        for (ReservationDTO reservationDTO : myReservations) {
+            if (today.after(reservationDTO.getReservationTime())) {
+                // 만약 해당 예약 id에 대한 리뷰 개수가 0이면
+                if (consultingReviewService.checkReviewOrNot(reservationDTO.getReservationId()) == 0) {
+                    // 리뷰여부 매개변수에 0
+                    reservationDTO.setReviewOrNot(0);
                 } else {
-                    reservations.add(reservationDTO);
+                    // 아니면 1
+                    reservationDTO.setReviewOrNot(1);
                 }
+                // 까지 set 해준 DTO를 passReservation에 넣어준다.
+                passedReservations.add(reservationDTO);
+
+            } else {
+                // 아직 예정인 예약에는 후기 카운트가 없다.
+                reservations.add(reservationDTO);
             }
+        }
 
 
             mv.addObject("passedReservations", passedReservations);
@@ -210,10 +236,43 @@ public class MemberMypageController {
         return "reviews/review-write";
     }
 
+    // 후기 작성 insert
+    @PostMapping("write-review")
+    public RedirectView saveReservationReview(HttpSession session,
+                                              @RequestParam("title") String title,
+                                              @RequestParam("reviewBody") String body,
+                                              @RequestParam("rating") int starCount,
+                                              @RequestParam("reservationId") Long bookingId, Model model) {
+
+        ConsultingReviewVO consultingReviewVO = new ConsultingReviewVO();
+
+        consultingReviewVO.setReservationId(bookingId);
+        consultingReviewVO.setReviewTitle(title);
+        consultingReviewVO.setReviewContent(body);
+        consultingReviewVO.setReviewStar(starCount);
+
+        consultingReviewService.saveConsultingReview(consultingReviewVO);
+
+        model.addAttribute("consultingReview", consultingReviewVO);
+
+        return new RedirectView("/member-mypage/my-reviews");
+    }
+
+
     // 내 후기 페이지로 이동
     @GetMapping("my-reviews")
-    public String goToMyReviewPage(HttpSession session) {
-        return "reviews/my-reviews";
+    public String goToMyReviewPage(HttpSession session, Model model) {
+
+        MemberVO currentMember = (MemberVO)session.getAttribute("member");
+        List<MemberReviewDTO> myReviewList = consultingReviewService.readMyReviews(currentMember.getMemberId());
+        model.addAttribute("myReviews", myReviewList);
+
+        if (myReviewList.size() == 0) {
+            return "reviews/my-reviews-empty";
+        } else {
+            return "reviews/my-reviews";
+        }
+
     }
 
 }

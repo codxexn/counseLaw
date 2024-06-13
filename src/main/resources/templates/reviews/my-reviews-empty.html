@@ -9,9 +9,34 @@
     <link rel="stylesheet" type="text/css"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"/>
     <link rel="stylesheet" href="/css/reviews/my-reviews.css">
+    <link rel="stylesheet" href="/css/mypage/mypage-header.css">
 </head>
 <body>
 <div class="root pc">
+    <div class="MypageHeaderWrapper">
+        <header class="MypageHeader">
+            <div class="MypageHeaderLeft">
+                <div class="MypageHeader-LogoWrapper">
+                    <a href="/">
+                        <img src="/image/mypage/main_logo.png" alt="카운슬로우 로고" class="MypageHeader-MainLogo">
+                    </a>
+                </div>
+            </div>
+            <div class="MypageHeaderCenter">
+                <p class="MypageHeaderText">내가 작성한 후기</p>
+            </div>
+            <div class="MypageHeaderRight">
+                <div class="MypageHeaderRight-ButtonContainer">
+                    <a href="/member/mypage-member" style="text-decoration: none;">
+                        <p class="MypageHeaderRight-Button">마이페이지로</p>
+                    </a>
+                    <a href="/login/logout-finally" style="text-decoration: none;">
+                        <p class="MypageHeaderRight-Button">로그아웃</p>
+                    </a>
+                </div>
+            </div>
+        </header>
+    </div>
     <div style="height: 100%;">
         <div class="My-Review-Wrapper">
             <div class="My-Review-Contents">
@@ -62,7 +87,7 @@
                                                         <br>
                                                         15분간 전화로 상담하는
                                                     </p>
-                                                    <a href="" class="My-Review-List-To-Advice">
+                                                    <a href="/lawyer-search/search-by-categories" class="My-Review-List-To-Advice">
                                                         15분 전화상담
                                                         <div class="My-Review-List-To-Advice-Icon-Wrapper">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
@@ -78,7 +103,7 @@
                                                         <br>
                                                         직접 만나서 30분간 상담하는
                                                     </p>
-                                                    <a href="" class="My-Review-List-To-Advice">
+                                                    <a href="/lawyer-search/search-by-categories" class="My-Review-List-To-Advice">
                                                         30분 방문상담
                                                         <div class="My-Review-List-To-Advice-Icon-Wrapper">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
@@ -89,58 +114,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <aside class="My-Review-List-Aside">
-                                            <div class="My-Review-Write-Banner">
-                                                <div class="My-Review-Write-Icon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
-                                                         fill="currentColor" class="bi bi-pencil-square"
-                                                         viewBox="0 0 16 16">
-                                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                                        <path fill-rule="evenodd"
-                                                              d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                                                    </svg>
-                                                </div>
-                                                <div class="My-Review-Write-Description">
-                                                    지금 첫 후기를 작성하고
-                                                    <br>
-                                                    5,000원 상당의 쿠폰을 받으세요.
-                                                </div>
-                                                <a href="" class="Link-To-Write">
-                                                    <!-- 상담내역으로 연결됩니다. -->
-                                                    후기 쓰러가기
-                                                    <i class="My-Review-Right-Arrow-Icon">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                                             fill="currentColor" class="bi bi-chevron-compact-right"
-                                                             viewBox="0 0 16 16">
-                                                            <path fill-rule="evenodd"
-                                                                  d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z"/>
-                                                        </svg>
-                                                    </i>
-                                                </a>
-                                            </div>
-                                            <div class="My-Review-List-Aside-Content-Wrapper">
-                                                <div class="My-Review-List-Aside-Content">
-                                                    <div class="My-Review-List-Aside-Content-Tip">
-                                                        <div class="My-Review-List-Aside-Content-Heading">꼭 알아두세요!</div>
-                                                    </div>
-                                                    <div class="My-Review-List-Aside-Lawguides">
-                                                        <a href="" class="My-Review-Lawguide-Each-Link">
-                                                            <h3 class="My-Review-Lawguide-Title">스토킹과 협박 관련 고소 상담</h3>
-                                                            <h5 class="My-Review-Lawguide-Lawyername">한동석 변호사</h5>
-                                                        </a>
-                                                        <a href="" class="My-Review-Lawguide-Each-Link">
-                                                            <h3 class="My-Review-Lawguide-Title">직장에서 사직서가 사라진 경우, 어떻게
-                                                                해야할까요?</h3>
-                                                            <h5 class="My-Review-Lawguide-Lawyername">한동석 변호사</h5>
-                                                        </a>
-                                                        <a href="" class="My-Review-Lawguide-Each-Link">
-                                                            <h3 class="My-Review-Lawguide-Title">회사 내 명예훼손 소송 상담</h3>
-                                                            <h5 class="My-Review-Lawguide-Lawyername">한동석 변호사</h5>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </aside>
                                     </section>
                                 </div>
                             </div>

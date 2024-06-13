@@ -3,6 +3,7 @@ package com.app.counselawb.controller;
 import com.app.counselawb.domain.vo.CouponVO;
 import com.app.counselawb.domain.vo.LawyerVO;
 import com.app.counselawb.domain.vo.MemberVO;
+import com.app.counselawb.service.ConsultingReviewService;
 import com.app.counselawb.service.MemberMypageService;
 import com.app.counselawb.service.MemberService;
 import com.app.counselawb.service.ReservationService;
@@ -32,6 +33,7 @@ public class MemberController {
     private final MemberService memberService;
     private final ReservationService reservationService;
     private final MemberMypageService memberMypageService;
+    private final ConsultingReviewService consultingReviewService;
 
     // 변호사스퀘어 가입안내 페이지로 이동
     @GetMapping("lawyer-introduction")
@@ -138,6 +140,7 @@ public class MemberController {
             int numberOfVideoType = memberService.countVideoType(currentMember.getMemberId());
             int numberOfVisitType = memberService.countVisitType(currentMember.getMemberId());
             int numberOfMyConsulting = memberService.countMyConsulting(currentMember.getMemberId());
+            int numberOfMyReviews = consultingReviewService.readMyReviews(currentMember.getMemberId()).size();
             model.addAttribute("currentMember", currentMember);
             model.addAttribute("myCouponList", myCoupons);
             model.addAttribute("numberOfFavoritePosts", numberOfFavoritePosts);
@@ -146,6 +149,7 @@ public class MemberController {
             model.addAttribute("numberOfVideoType", numberOfVideoType);
             model.addAttribute("numberOfVisitType", numberOfVisitType);
             model.addAttribute("numberOfMyConsulting", numberOfMyConsulting);
+            model.addAttribute("numberOfMyReviews", numberOfMyReviews);
             return "mypage/mypage";
         } else {
             return "client-login/client-login";

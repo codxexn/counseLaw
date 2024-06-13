@@ -35,7 +35,6 @@ public interface MemberMypageMapper {
     // 내 상담 조회
     public List<ReservationDTO> selectMyConsulting(Long memberId, String consultingType);
 
-    // 상담 리뷰 추가
-    public void insertConsultingReview(ConsultingReviewVO consultingReviewVO);
+
 
 }

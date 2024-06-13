@@ -116,6 +116,7 @@ button, input, optgroup, select, textarea {
 .My-Review-Wrapper {
     width: 100%;
     background-color: #fff;
+    margin-top: 72px;
 }
 
 .My-Review-My-Favorites {
@@ -258,7 +259,7 @@ button, input, optgroup, select, textarea {
     -webkit-line-clamp: 2;
     color: #333;
     display: -webkit-box;
-    overflow: hidden;
+    overflow: visible;
     font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
     font-weight: 500;
 }
@@ -287,8 +288,8 @@ button, input, optgroup, select, textarea {
     display: -webkit-box;
     font-size: 15px;
     line-height: 1.6em;
-    max-height: 3.2em;
-    overflow: hidden;
+    max-height: 200px;
+    overflow: visible;
     text-overflow: ellipsis;
 }
 
@@ -328,7 +329,7 @@ button, input, optgroup, select, textarea {
 .My-Review-List-Card-Info {
     color: #999;
     font-size: 12px;
-    margin-top: 29px;
+    margin-top: 70px;
 }
 
 .My-Review-List-Card-Viewcount {
@@ -513,7 +514,7 @@ button, input, optgroup, select, textarea {
     -webkit-line-clamp: 2;
     color: #333;
     display: -webkit-box;
-    overflow: hidden;
+    overflow: visible;
     font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
     font-weight: 700;
 }
@@ -533,7 +534,7 @@ button, input, optgroup, select, textarea {
     -webkit-line-clamp: 2;
     color: #333;
     display: -webkit-box;
-    overflow: hidden;
+    overflow: visible;
     font-size: 16px;
     margin-bottom: 15px;
 }
@@ -565,7 +566,7 @@ button, input, optgroup, select, textarea {
     display: -webkit-box;
     font-size: 14px;
     margin-bottom: 20px;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .My-Review-List-Question-Answer-Others-Message {

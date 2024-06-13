@@ -9,4 +9,27 @@
         WHERE R.LAWYER_ID = #{lawyerId}
     </select>
 
+    <!--    후기 저장하기-->
+    <insert id="insertConsultingReview">
+        INSERT INTO TBL_CONSULTING_REVIEW (CONSULTING_REVIEW_ID, RESERVATION_ID, REVIEW_STAR, REVIEW_TITLE, REVIEW_CONTENT)
+        VALUES(SEQ_CONSULTING_REVIEW.NEXTVAL, #{reservationId}, #{reviewStar}, #{reviewTitle}, #{reviewContent})
+    </insert>
+
+    <select id="selectMyReviews" resultType="memberReviewDTO">
+        SELECT R1.*, L.LAWYER_NAME
+        FROM (SELECT CR.CONSULTING_REVIEW_ID, CR.REVIEW_TITLE, CR.REVIEW_CONTENT, CR.REVIEW_STAR, R.CONSULTING_TYPE, CR.CREATE_DATE, R.LAWYER_ID
+              FROM TBL_CONSULTING_REVIEW CR
+                       JOIN TBL_RESERVATION R
+                            ON R.RESERVATION_ID = CR.RESERVATION_ID
+              WHERE R.MEMBER_ID = #{memberId}) R1
+                 JOIN TBL_LAWYER L
+                      ON L.LAWYER_ID = R1.LAWYER_ID
+    </select>
+    
+    <select id="checkReviewOrNot" resultType="int">
+        SELECT COUNT(CONSULTING_REVIEW_ID) AS COUNT_REVIEW
+        FROM TBL_CONSULTING_REVIEW
+        WHERE RESERVATION_ID = #{reservationId}
+    </select>
+
 </mapper>

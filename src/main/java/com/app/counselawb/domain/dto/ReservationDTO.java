@@ -26,5 +26,7 @@ public class ReservationDTO {
     private String consultingType;
     // 예약한 일시
     private Date createDate;
+    // 후기 여부
+    private int reviewOrNot;
 
 }

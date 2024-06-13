@@ -59,6 +59,4 @@ public class MemberMypageServiceImpl implements MemberMypageService {
     @Override
     public List<ReservationDTO> getMyConsulting(Long memberId, String consultingType) { return memberMypageDAO.getMyConsulting(memberId, consultingType); }
 
-    @Override
-    public void saveConsultingReview(ConsultingReviewVO consultingReviewVO) { memberMypageDAO.saveConsultingReview(consultingReviewVO); }
 }
