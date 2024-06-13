@@ -1,5 +1,6 @@
 package com.app.counselawb.service;
 
+import com.app.counselawb.domain.dto.ReservationDTO;
 import com.app.counselawb.domain.vo.CouponVO;
 import com.app.counselawb.domain.vo.PaymentVO;
 import com.app.counselawb.domain.vo.ReservationVO;
@@ -42,4 +43,6 @@ public class ReservationServiceImpl implements ReservationService {
         reservationDAO.modifyCouponToUsed(couponId);
     }
 
+    @Override
+    public ReservationDTO readReservation(Long reservationId) { return reservationDAO.readReservation(reservationId); }
 }

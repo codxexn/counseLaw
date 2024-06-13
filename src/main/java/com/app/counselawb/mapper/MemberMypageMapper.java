@@ -3,6 +3,7 @@ package com.app.counselawb.mapper;
 import com.app.counselawb.domain.dto.LawyerLikeDTO;
 import com.app.counselawb.domain.dto.ReservationDTO;
 import com.app.counselawb.domain.pagination.Pagination;
+import com.app.counselawb.domain.vo.ConsultingReviewVO;
 import com.app.counselawb.domain.vo.LawyerLikeVO;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -28,9 +29,13 @@ public interface MemberMypageMapper {
     // 즐찾 해제하기
     public void deleteMyFavoriteLawyer(Long memberId, Long lawyerId);
 
-    //    내가 하트 누른 글 개수
+    // 내가 하트 누른 글 개수
     public int getCountMyFavoritePosts(Long memberId);
 
     // 내 상담 조회
     public List<ReservationDTO> selectMyConsulting(Long memberId, String consultingType);
+
+    // 상담 리뷰 추가
+    public void insertConsultingReview(ConsultingReviewVO consultingReviewVO);
+
 }

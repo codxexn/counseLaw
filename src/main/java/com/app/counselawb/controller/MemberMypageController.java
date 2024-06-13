@@ -16,10 +16,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -38,11 +35,13 @@ public class MemberMypageController {
     private final CouponMemberService couponMemberService;
     private final ReservationService reservationService;
 
+    // 즐겨찾는 변호사 없을 때
     @GetMapping("no-favorite-lawyers")
     public String goToNoFavoriteLawyersPage() {
         return "my-favorite-lawyers/favorite-lawyer-empty";
     }
 
+    // 즐겨찾는 변호사 있을 때
     @GetMapping("my-favorite-lawyers")
     public ModelAndView goToFavoriteLawyersPage(HttpSession session, Pagination pagination) {
         MemberVO currentMember = (MemberVO)session.getAttribute("member");
@@ -66,66 +65,66 @@ public class MemberMypageController {
 
 
     // 마이페이지에서 내 쿠폰함으로 (내 쿠폰함에서부터는 coupon Controller)
-@GetMapping("my-coupons")
-    public ModelAndView goToMyCouponPage(HttpSession session) {
+    @GetMapping("my-coupons")
+        public ModelAndView goToMyCouponPage(HttpSession session) {
 
-    ModelAndView mv = new ModelAndView();
-        MemberVO currentMember = (MemberVO)session.getAttribute("member");
-        if (currentMember != null) {
+        ModelAndView mv = new ModelAndView();
+            MemberVO currentMember = (MemberVO)session.getAttribute("member");
+            if (currentMember != null) {
 
-            List<CouponVO> myCoupons = reservationService.findMyCoupons(currentMember.getMemberId());
+                List<CouponVO> myCoupons = reservationService.findMyCoupons(currentMember.getMemberId());
 
-            if (myCoupons.size() == 0) {
-                mv.setViewName("couponbooks/my-coupons-empty");
-                return mv;
+                if (myCoupons.size() == 0) {
+                    mv.setViewName("couponbooks/my-coupons-empty");
+                    return mv;
+                } else {
+                    mv.addObject("myCoupons", myCoupons);
+                    mv.setViewName("couponbooks/my-coupons");
+                    return mv;
+                }
             } else {
-                mv.addObject("myCoupons", myCoupons);
-                mv.setViewName("couponbooks/my-coupons");
-                return mv;
+                    mv.setViewName("mainpage/mainpage");
+                    return mv;
             }
-        } else {
-                mv.setViewName("mainpage/mainpage");
-                return mv;
         }
-    }
 
-// 전화 상담 내역으로 이동
-@GetMapping("my-consulting-call")
-    public ModelAndView goToMyCallHistories(HttpSession session) {
-    ModelAndView mv = new ModelAndView();
-    MemberVO currentMember = (MemberVO)session.getAttribute("member");
-    Calendar cal = Calendar.getInstance();
-    Date today = new Date(cal.getTimeInMillis());
+    // 전화 상담 내역으로 이동
+    @GetMapping("my-consulting-call")
+        public ModelAndView goToMyCallHistories(HttpSession session) {
+        ModelAndView mv = new ModelAndView();
+        MemberVO currentMember = (MemberVO)session.getAttribute("member");
+        Calendar cal = Calendar.getInstance();
+        Date today = new Date(cal.getTimeInMillis());
 
-    String consultingType = "CALL";
+        String consultingType = "CALL";
 
-    List<ReservationDTO> myReservations = memberMypageService.getMyConsulting(currentMember.getMemberId(), consultingType);
+        List<ReservationDTO> myReservations = memberMypageService.getMyConsulting(currentMember.getMemberId(), consultingType);
 
-    List<ReservationDTO> passedReservations = new ArrayList<>();
-    List<ReservationDTO> reservations = new ArrayList<>();
+        List<ReservationDTO> passedReservations = new ArrayList<>();
+        List<ReservationDTO> reservations = new ArrayList<>();
 
 
-    for (ReservationDTO reservationDTO : myReservations) {
-        if (today.after(reservationDTO.getReservationTime())) {
-            passedReservations.add(reservationDTO);
-        } else {
-            reservations.add(reservationDTO);
+        for (ReservationDTO reservationDTO : myReservations) {
+            if (today.after(reservationDTO.getReservationTime())) {
+                passedReservations.add(reservationDTO);
+            } else {
+                reservations.add(reservationDTO);
+            }
         }
-    }
 
 
-    mv.addObject("passedReservations", passedReservations);
-    mv.addObject("reservations", reservations);
+        mv.addObject("passedReservations", passedReservations);
+        mv.addObject("reservations", reservations);
 
 
-    if (reservations.size() == 0 && passedReservations.size() == 0) {
-        mv.setViewName("counseling-histories/phone-empty");
-    } else {
-        mv.setViewName("counseling-histories/phone");
-    }
+            if (reservations.size() == 0 && passedReservations.size() == 0) {
+                mv.setViewName("counseling-histories/phone-empty");
+            } else {
+                mv.setViewName("counseling-histories/phone");
+            }
 
-    return mv;
-    }
+            return mv;
+        }
 
     // 영상 상담 내역으로 이동
     @GetMapping("my-consulting-video")
@@ -204,8 +203,10 @@ public class MemberMypageController {
     }
 
     // 후기 작성하기 페이지로 이동
-    @GetMapping("write-review")
-    public String goToReviewWritePage(HttpSession session) {
+    @GetMapping("write-review/{reservationId}")
+    public String goToReviewWritePage(HttpSession session, Model model, @PathVariable Long reservationId) {
+        ReservationDTO reservationDTO = reservationService.readReservation(reservationId);
+        model.addAttribute("reservation", reservationDTO);
         return "reviews/review-write";
     }
 

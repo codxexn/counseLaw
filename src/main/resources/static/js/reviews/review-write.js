@@ -4,6 +4,7 @@ NodeList.prototype.indexOf = Array.prototype.indexOf;
 const stars = document.querySelectorAll(".Compose-Input-Stars");
 const starImages = document.querySelectorAll(".bi-star");
 const filledStarImages = document.querySelectorAll(".bi-star-fill");
+const ratingInput = document.getElementById("rating-input");
 globalThis.flag = new Array([false, false, false, false, false]);
 
 function checkStars() {
@@ -34,8 +35,15 @@ stars.forEach((star) => {
             filledStarImages[j].style.display = "none";
             globalThis.flag[j] = false;
         }
+
+        let value = star.getAttribute("data-value");
+        ratingInput.value = value;
     })
 })
+
+
+
+
 
 // 제목 및 내용 textarea 클릭 시 팁 내용 및 글자수 보이게 하는 js
 // + 제목, 내용, 동의사항 다 만족 시에만 등록하기 버튼 색상 변경

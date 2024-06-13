@@ -37,4 +37,12 @@
         SET COUPON_STATE = 'USED'
         WHERE COUPON_ID = #{couponId}
     </update>
+
+    <select id="selectReservation" resultType="reservationDTO">
+        SELECT R.RESERVATION_ID, L.LAWYER_NAME, L.LAWYER_IMAGE, R.RESERVATION_TIME, R.RESERVATION_DATE, R.CONSULTING_TYPE, R.CREATE_DATE
+        FROM TBL_RESERVATION R
+                 JOIN TBL_LAWYER L
+                      ON L.LAWYER_ID = R.LAWYER_ID
+        WHERE RESERVATION_ID = ${reservationId}
+    </select>
 </mapper>

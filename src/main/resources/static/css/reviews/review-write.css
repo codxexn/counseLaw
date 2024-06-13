@@ -217,6 +217,13 @@ button, input, optgroup, select, textarea {
     color: #c50000;
 }
 
+/*.Compose-Input-Stars svg {*/
+/*    fill: #d3d3d3; !* Default color *!*/
+/*}*/
+/*.Compose-Input-Stars.selected svg {*/
+/*    fill: #c50000; !* Highlight color for selected stars *!*/
+/*}*/
+
 .Compose-Input-Upperline {
     align-items: flex-end;
     display: flex;

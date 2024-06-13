@@ -1,6 +1,7 @@
 package com.app.counselawb.mapper;
 
 
+import com.app.counselawb.domain.dto.ReservationDTO;
 import com.app.counselawb.domain.vo.CouponVO;
 import com.app.counselawb.domain.vo.PaymentVO;
 import com.app.counselawb.domain.vo.ReservationVO;
@@ -24,4 +25,7 @@ public interface ReservationMapper {
 
     // 쿠폰 사용 시 used로 변경
     public void updateCouponToUsed(Long couponId);
+
+    // 예약 id로 예약 정보 조회
+    public ReservationDTO selectReservation(Long reservationId);
 }

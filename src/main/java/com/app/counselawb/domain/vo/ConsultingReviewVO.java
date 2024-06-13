@@ -11,6 +11,8 @@ import java.time.LocalDateTime;
 public class ConsultingReviewVO {
     // 상담 후기 id
     private Long consultingReviewId;
+    // 별점
+    private int reviewStar;
     // 후기 제목
     private String reviewTitle;
     // 후기 내용

@@ -1,6 +1,7 @@
 package com.app.counselawb.repository;
 
 
+import com.app.counselawb.domain.dto.ReservationDTO;
 import com.app.counselawb.domain.vo.CouponVO;
 import com.app.counselawb.domain.vo.PaymentVO;
 import com.app.counselawb.domain.vo.ReservationVO;
@@ -41,4 +42,7 @@ public class ReservationDAO {
     public void modifyCouponToUsed(Long couponId){
         reservationMapper.updateCouponToUsed(couponId);
     }
+
+    // 예약 id로 예약 정보 조회
+    public ReservationDTO readReservation(Long reservationId) { return reservationMapper.selectReservation(reservationId); }
 }

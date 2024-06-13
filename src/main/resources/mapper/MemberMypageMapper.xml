@@ -72,5 +72,10 @@
         WHERE MEMBER_ID = #{memberId} AND CONSULTING_TYPE = #{consultingType}
     </select>
 
+<!--    후기 저장하기-->
+    <insert id="insertConsultingReview">
+        INSERT INTO TBL_CONSULTING_REVIEW (CONSULTING_REVIEW_ID, RESERVATION_ID, REVIEW_STAR, REVIEW_TITLE, REVIEW_CONTENT)
+        VALUES(SEQ_CONSULTING_REVIEW.NEXTVAL, #{reservationId}, #{reviewStar}, #{reviewTitle}, #{reviewContent})
+    </insert>
 
 </mapper>

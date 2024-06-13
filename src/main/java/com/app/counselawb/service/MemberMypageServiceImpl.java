@@ -3,6 +3,7 @@ package com.app.counselawb.service;
 import com.app.counselawb.domain.dto.LawyerLikeDTO;
 import com.app.counselawb.domain.dto.ReservationDTO;
 import com.app.counselawb.domain.pagination.Pagination;
+import com.app.counselawb.domain.vo.ConsultingReviewVO;
 import com.app.counselawb.domain.vo.LawyerLikeVO;
 import com.app.counselawb.repository.MemberMypageDAO;
 import lombok.RequiredArgsConstructor;
@@ -57,4 +58,7 @@ public class MemberMypageServiceImpl implements MemberMypageService {
 
     @Override
     public List<ReservationDTO> getMyConsulting(Long memberId, String consultingType) { return memberMypageDAO.getMyConsulting(memberId, consultingType); }
+
+    @Override
+    public void saveConsultingReview(ConsultingReviewVO consultingReviewVO) { memberMypageDAO.saveConsultingReview(consultingReviewVO); }
 }

@@ -3,6 +3,7 @@ package com.app.counselawb.service;
 import com.app.counselawb.domain.dto.LawyerLikeDTO;
 import com.app.counselawb.domain.dto.ReservationDTO;
 import com.app.counselawb.domain.pagination.Pagination;
+import com.app.counselawb.domain.vo.ConsultingReviewVO;
 import com.app.counselawb.domain.vo.LawyerLikeVO;
 
 import java.util.List;
@@ -31,4 +32,7 @@ public interface MemberMypageService {
 
     // 내 상담 조회
     public List<ReservationDTO> getMyConsulting(Long memberId, String consultingType);
+
+    // 상담 리뷰 추가
+    public void saveConsultingReview(ConsultingReviewVO consultingReviewVO);
 }
