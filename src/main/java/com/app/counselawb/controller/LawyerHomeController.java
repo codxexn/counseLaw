@@ -219,6 +219,7 @@ public class LawyerHomeController {
         model.addAttribute("reviewCount", reviewCount);
         // 의뢰인 후기
         List<LawyerReviewDTO> foundReviews = lawyerHomeService.findReviewsByLawyerId(lawyerId);
+
         foundReviews.forEach((review) -> {
             String consultingType = review.getConsultingType();
             if (consultingType.equals("CALL")) consultingType = "전화상담";
@@ -226,11 +227,16 @@ public class LawyerHomeController {
             else consultingType = "방문상담";
             review.setConsultingType(consultingType);
         });
+
         model.addAttribute("reviews", foundReviews);
+
+        foundReviews.forEach(r -> log.info(r.toString()));
+
         // 페이징 처리
         pagination.setTotal(reviewCount);
         pagination.progress();
         model.addAttribute("pagination", pagination);
+
         // 의뢰인 후기 + 페이징 처리
         List<LawyerReviewDTO> foundReviewsWithPage = lawyerHomeService.findReviewsWithPageByLawyerId(pagination, lawyerId);
         foundReviewsWithPage.forEach((review) -> {
@@ -241,9 +247,11 @@ public class LawyerHomeController {
             review.setConsultingType(consultingType);
         });
         model.addAttribute("reviewsWithPage", foundReviewsWithPage);
+
         // 변호사 프사 경로
         String lawyerProfilePath = lawyerService.findProfileImage(lawyerId);
         model.addAttribute("profilePath", lawyerProfilePath);
+
         // 즐찾 여부
         if (session.getAttribute("member") != null){
             MemberVO currentMember = (MemberVO) session.getAttribute("member");

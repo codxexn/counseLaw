@@ -56,7 +56,7 @@
                                             <div th:text="${review.reviewContent}" class="content"></div>
                                         </div>
                                         <div class="best-review-footer">
-                                            <span th:text="${review.fieldTitle} + '분야'" class="category"></span>
+<!--                                            <span th:text="${review.fieldTitle} + '분야'" class="category"></span>-->
                                             <span th:text="'의뢰인 ' + ${#strings.substring(review.memberName, 0, 2)} + '**'" class="user"></span>
                                             <span th:text="${#temporals.format(review.createDate, 'yyyy년 MM월')}" class="date"></span>
                                             <span th:text="${review.consultingType} + ' 후기'" class="type"></span>
@@ -97,7 +97,7 @@
                                         <p th:text="${review.reviewContent}" class="body"></p>
                                         <div class="detail-info">
                                             <div class="detail-info-left">
-                                                <span th:text="${review.fieldTitle}" class="category"></span>
+<!--                                                <span th:text="${review.fieldTitle}" class="category"></span>-->
                                                 <div class="divide"></div>
                                                 <span th:text="'의뢰인 ' + ${#strings.substring(review.memberName, 0, 2)} + '**'" class="user"></span>
                                                 <span th:text="${#temporals.format(review.createDate, 'yyyy년 MM월')}" class="day"></span>
