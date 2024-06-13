@@ -26,7 +26,11 @@ public class ReservationDTO {
     private String consultingType;
     // 예약한 일시
     private Date createDate;
+    // 취소된 일시
+    private Date updateDate;
     // 후기 여부
     private int reviewOrNot;
+    // 예약 현황
+    private String reservationStatus;
 
 }

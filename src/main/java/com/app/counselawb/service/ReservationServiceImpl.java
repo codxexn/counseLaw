@@ -45,4 +45,7 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Override
     public ReservationDTO readReservation(Long reservationId) { return reservationDAO.readReservation(reservationId); }
+
+    @Override
+    public void cancelReservation(Long reservationId) { reservationDAO.cancelReservation(reservationId); }
 }

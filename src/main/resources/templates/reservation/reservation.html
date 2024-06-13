@@ -141,10 +141,10 @@
                 <div class="reservation-controller__payment-method-panel">
                     <div class="reservation-controller__compact-lawyer-card">
                         <div class="CompactLawyerCard-module_wrapper">
-                            <img
-                                    class="CompactLawyerCard-module_thumbnailImage"
-                                    th:src="${reservedLawyer.lawyerImage == null ? '/image/defaultLawyerImage/defaultLawyerImage.png' : reservedLawyer.lawyerImage}"
-                                    alt="변호사 썸네일 이미지">
+                            <img th:if="${reservedLawyer.lawyerImage == null}" src="/image/defaultLawyerProfile/defaultLawyerProfile.png"
+                                    class="CompactLawyerCard-module_thumbnailImage" alt="변호사 썸네일 이미지">
+                            <img th:unless="${reservedLawyer.lawyerImage == null}" th:src="${reservedLawyer.lawyerImage}"
+                                 class="CompactLawyerCard-module_thumbnailImage" alt="변호사 썸네일 이미지">
                             <div class="CompactLawyerCard-module_texts">
                                 <p class="reservation-title Typography-module_lt-text--size-16__m5oA0 Typography-module_lt-text--weight-600__IvaQr Typography-module_lt-text--height-100__U8Og5 Typography-module_lt-text--inherit__uNmPK"
                                    style="color: rgb(43, 45, 47);"

@@ -28,4 +28,7 @@ public interface ReservationMapper {
 
     // 예약 id로 예약 정보 조회
     public ReservationDTO selectReservation(Long reservationId);
+
+    // 예약 취소시 status 수정
+    public void updateReservation(Long reservationId);
 }

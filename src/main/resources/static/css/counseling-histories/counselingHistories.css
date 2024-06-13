@@ -354,7 +354,7 @@ button, input, optgroup, select, textarea {
 .My-History-Introduction {
     color: #555;
     font-size: 14px;
-    line-height: 20px;
+    line-height: 14px;
     width: calc(100% - 84px);
     margin-bottom: 9px;
 }

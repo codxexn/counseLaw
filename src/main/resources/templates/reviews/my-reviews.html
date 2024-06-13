@@ -70,7 +70,7 @@
                                     <section class="My-Review-List-Contents">
                                         <div class="My-Review-List-Feed">
                                             <div class="My-Review-List-Cards-Wrapper" th:each="myReview : ${myReviews}">
-                                                <a href="" style="text-decoration: none;">
+                                                <a th:href="@{'/lawyer-home/lawyer-home?lawyerId=' + ${myReview.getLawyerId()}}" style="text-decoration: none;">
                                                     <div>
                                                         <div class="My-Review-List-Card-Wrapper">
 <!--                                                            <h5 class="My-Review-List-Card-Keyword">-->

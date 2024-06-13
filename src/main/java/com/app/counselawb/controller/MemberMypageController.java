@@ -96,27 +96,34 @@ public class MemberMypageController {
 
         List<ReservationDTO> passedReservations = new ArrayList<>();
         List<ReservationDTO> reservations = new ArrayList<>();
+        List<ReservationDTO> canceledReservations = new ArrayList<>();
 
 
         for (ReservationDTO reservationDTO : myReservations) {
-            if (today.after(reservationDTO.getReservationTime())) {
-                // 만약 해당 예약 id에 대한 리뷰 개수가 0이면
-                if (consultingReviewService.checkReviewOrNot(reservationDTO.getReservationId()) == 0) {
-                    // 리뷰여부 매개변수에 0
-                    reservationDTO.setReviewOrNot(0);
-                } else {
-                    // 아니면 1
-                    reservationDTO.setReviewOrNot(1);
-                }
-                // 까지 set 해준 DTO를 passReservation에 넣어준다.
-                passedReservations.add(reservationDTO);
-
+            // 만약 예약 상태가 취소면, 취소 객체에 add
+            if (reservationDTO.getReservationStatus().equals("CANCELED")) {
+                canceledReservations.add(reservationDTO);
             } else {
-                // 아직 예정인 예약에는 후기 카운트가 없다.
-                reservations.add(reservationDTO);
+                if (today.after(reservationDTO.getReservationTime())) {
+                    // 만약 해당 예약 id에 대한 리뷰 개수가 0이면
+                    if (consultingReviewService.checkReviewOrNot(reservationDTO.getReservationId()) == 0) {
+                        // 리뷰여부 매개변수에 0
+                        reservationDTO.setReviewOrNot(0);
+                    } else {
+                        // 아니면 1
+                        reservationDTO.setReviewOrNot(1);
+                    }
+                    // 까지 set 해준 DTO를 passReservation에 넣어준다.
+                    passedReservations.add(reservationDTO);
+
+                } else {
+                    // 아직 예정인 예약에는 후기 카운트가 없다.
+                    reservations.add(reservationDTO);
+                }
             }
         }
 
+        mv.addObject("canceledReservations", canceledReservations);
         mv.addObject("passedReservations", passedReservations);
         mv.addObject("reservations", reservations);
 
@@ -144,28 +151,34 @@ public class MemberMypageController {
 
         List<ReservationDTO> passedReservations = new ArrayList<>();
         List<ReservationDTO> reservations = new ArrayList<>();
+        List<ReservationDTO> canceledReservations = new ArrayList<>();
 
 
         for (ReservationDTO reservationDTO : myReservations) {
-            if (today.after(reservationDTO.getReservationTime())) {
-                // 만약 해당 예약 id에 대한 리뷰 개수가 0이면
-                if (consultingReviewService.checkReviewOrNot(reservationDTO.getReservationId()) == 0) {
-                    // 리뷰여부 매개변수에 0
-                    reservationDTO.setReviewOrNot(0);
-                } else {
-                    // 아니면 1
-                    reservationDTO.setReviewOrNot(1);
-                }
-                // 까지 set 해준 DTO를 passReservation에 넣어준다.
-                passedReservations.add(reservationDTO);
-
+            // 만약 예약 상태가 취소면, 취소 객체에 add
+            if (reservationDTO.getReservationStatus().equals("CANCELED")) {
+                canceledReservations.add(reservationDTO);
             } else {
-                // 아직 예정인 예약에는 후기 카운트가 없다.
-                reservations.add(reservationDTO);
+                if (today.after(reservationDTO.getReservationTime())) {
+                    // 만약 해당 예약 id에 대한 리뷰 개수가 0이면
+                    if (consultingReviewService.checkReviewOrNot(reservationDTO.getReservationId()) == 0) {
+                        // 리뷰여부 매개변수에 0
+                        reservationDTO.setReviewOrNot(0);
+                    } else {
+                        // 아니면 1
+                        reservationDTO.setReviewOrNot(1);
+                    }
+                    // 까지 set 해준 DTO를 passReservation에 넣어준다.
+                    passedReservations.add(reservationDTO);
+
+                } else {
+                    // 아직 예정인 예약에는 후기 카운트가 없다.
+                    reservations.add(reservationDTO);
+                }
             }
         }
 
-
+        mv.addObject("canceledReservations", canceledReservations);
         mv.addObject("passedReservations", passedReservations);
         mv.addObject("reservations", reservations);
 
@@ -193,28 +206,34 @@ public class MemberMypageController {
 
             List<ReservationDTO> passedReservations = new ArrayList<>();
             List<ReservationDTO> reservations = new ArrayList<>();
+            List<ReservationDTO> canceledReservations = new ArrayList<>();
 
 
         for (ReservationDTO reservationDTO : myReservations) {
-            if (today.after(reservationDTO.getReservationTime())) {
-                // 만약 해당 예약 id에 대한 리뷰 개수가 0이면
-                if (consultingReviewService.checkReviewOrNot(reservationDTO.getReservationId()) == 0) {
-                    // 리뷰여부 매개변수에 0
-                    reservationDTO.setReviewOrNot(0);
-                } else {
-                    // 아니면 1
-                    reservationDTO.setReviewOrNot(1);
-                }
-                // 까지 set 해준 DTO를 passReservation에 넣어준다.
-                passedReservations.add(reservationDTO);
-
+            // 만약 예약 상태가 취소면, 취소 객체에 add
+            if (reservationDTO.getReservationStatus().equals("CANCELED")) {
+                canceledReservations.add(reservationDTO);
             } else {
-                // 아직 예정인 예약에는 후기 카운트가 없다.
-                reservations.add(reservationDTO);
+                if (today.after(reservationDTO.getReservationTime())) {
+                    // 만약 해당 예약 id에 대한 리뷰 개수가 0이면
+                    if (consultingReviewService.checkReviewOrNot(reservationDTO.getReservationId()) == 0) {
+                        // 리뷰여부 매개변수에 0
+                        reservationDTO.setReviewOrNot(0);
+                    } else {
+                        // 아니면 1
+                        reservationDTO.setReviewOrNot(1);
+                    }
+                    // 까지 set 해준 DTO를 passReservation에 넣어준다.
+                    passedReservations.add(reservationDTO);
+
+                } else {
+                    // 아직 예정인 예약에는 후기 카운트가 없다.
+                    reservations.add(reservationDTO);
+                }
             }
         }
 
-
+            mv.addObject("canceledReservations", canceledReservations);
             mv.addObject("passedReservations", passedReservations);
             mv.addObject("reservations", reservations);
 
@@ -272,6 +291,16 @@ public class MemberMypageController {
         } else {
             return "reviews/my-reviews";
         }
+
+    }
+
+    // 예약 취소
+    @PostMapping("reservation-cancel")
+    public RedirectView reservationCancel(HttpSession session, @RequestParam("cancelReservationId") Long cancelBookingId) {
+
+        reservationService.cancelReservation(cancelBookingId);
+
+        return new RedirectView("/member/mypage-member");
 
     }
 

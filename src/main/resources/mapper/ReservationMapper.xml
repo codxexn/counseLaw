@@ -45,4 +45,10 @@
                       ON L.LAWYER_ID = R.LAWYER_ID
         WHERE RESERVATION_ID = ${reservationId}
     </select>
+
+    <update id="updateReservation">
+        UPDATE TBL_RESERVATION
+        SET RESERVATION_STATUS = 'CANCELED', UPDATE_DATE = CURRENT_TIMESTAMP
+        WHERE RESERVATION_ID = ${reservationId}
+    </update>
 </mapper>
