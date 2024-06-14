@@ -35,6 +35,8 @@ public class MainController {
 //        model.addAttribute("solutionCases", solutionCases);
 //        model.addAttribute("legalGuideWithDetail", legalGuideWithDetail);
 //        model.addAttribute("consultCase",consultCase);
+
+
         return "mainpage/mainpage";
     }
 }

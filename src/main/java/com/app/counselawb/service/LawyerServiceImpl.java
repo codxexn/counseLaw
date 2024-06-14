@@ -164,4 +164,7 @@ public class LawyerServiceImpl implements LawyerService {
     public void discardLawyer(Long lawyerId) {
         lawyerDAO.removeLawyer(lawyerId);
     }
+
+    @Override
+    public void deleteLawyerReservation(Long lawyerId) { lawyerDAO.deleteLawyerReservation(lawyerId); }
 }

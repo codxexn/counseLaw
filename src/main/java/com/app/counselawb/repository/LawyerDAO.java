@@ -164,4 +164,7 @@ public class LawyerDAO {
     public void removeLawyer(Long lawyerId){
         lawyerMapper.deleteLawyer(lawyerId);
     }
+
+    // 변호사 탈퇴시 예약 상태 취소로 변경
+    public void deleteLawyerReservation(Long lawyerId) { lawyerMapper.deleteLawyerReservation(lawyerId); }
 }

@@ -1,6 +1,6 @@
 package com.app.counselawb.service;
 
-public interface MemberWithdrawService {
+public interface WithdrawService {
 
 
     // 멤버 state 탈퇴로 update

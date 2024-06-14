@@ -3,7 +3,7 @@ package com.app.counselawb.mapper;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface MemberWithdrawMapper {
+public interface WithdrawMapper {
 
     // 멤버 state 탈퇴로 update
     public void memberWithdraw(Long memberId);

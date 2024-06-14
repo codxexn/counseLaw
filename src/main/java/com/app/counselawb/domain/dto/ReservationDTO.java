@@ -32,5 +32,7 @@ public class ReservationDTO {
     private int reviewOrNot;
     // 예약 현황
     private String reservationStatus;
+    // 변호사 탈퇴 여부
+    private String lawyerState;
 
 }

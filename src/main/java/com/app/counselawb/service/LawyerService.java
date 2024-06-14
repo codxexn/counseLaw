@@ -97,4 +97,7 @@ public interface LawyerService {
 
     // 변호사 탈퇴(삭제)
     public void discardLawyer(Long lawyerId);
+
+    // 변호사 탈퇴시 예약 상태 취소로 변경
+    public void deleteLawyerReservation(Long lawyerId);
 }

@@ -37,6 +37,7 @@ public class LawyerMypageController {
     private final LocationService locationService;
     private final LawyerMyPostsService lawyerMyPostsService;
     private final ConsultingCaseService consultingCaseService;
+    private final ReservationService reservationService;
 
     // 변호사 마이페이지 가기
     @GetMapping("mypage-lawyer")
@@ -348,6 +349,7 @@ public class LawyerMypageController {
             lawyerService.discardLocationByLawyerId(lawyerId);
             lawyerService.discardLawyerLikeByLawyerId(lawyerId);
             lawyerService.discardReplyByLawyerId(lawyerId);
+            lawyerService.deleteLawyerReservation(lawyerId);
             lawyerService.discardLawyer(lawyerId);
             return "success";
         } catch (Exception e){

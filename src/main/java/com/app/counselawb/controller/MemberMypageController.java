@@ -107,7 +107,7 @@ public class MemberMypageController {
                 if (today.after(reservationDTO.getReservationTime())) {
                     // 만약 해당 예약 id에 대한 리뷰 개수가 0이면
                     if (consultingReviewService.checkReviewOrNot(reservationDTO.getReservationId()) == 0) {
-                        // 리뷰여부 매개변수에 0
+                        // 리뷰여부에 0
                         reservationDTO.setReviewOrNot(0);
                     } else {
                         // 아니면 1
@@ -118,7 +118,13 @@ public class MemberMypageController {
 
                 } else {
                     // 아직 예정인 예약에는 후기 카운트가 없다.
-                    reservations.add(reservationDTO);
+                    // 그리고 예정인 예약 중 변호사 상태가 탈퇴면 취소된 예약에 넣어준다.
+                    if (reservationDTO.getLawyerState().equals("WITHDRAW")) {
+                        canceledReservations.add(reservationDTO);
+                    } else {
+                        // 나머지는 예정된 예약 객체에 넣어준다.
+                        reservations.add(reservationDTO);
+                    }
                 }
             }
         }
@@ -128,7 +134,7 @@ public class MemberMypageController {
         mv.addObject("reservations", reservations);
 
 
-            if (reservations.size() == 0 && passedReservations.size() == 0) {
+            if (reservations.size() == 0 && passedReservations.size() == 0 && canceledReservations.size() == 0) {
                 mv.setViewName("counseling-histories/phone-empty");
             } else {
                 mv.setViewName("counseling-histories/phone");
@@ -173,7 +179,13 @@ public class MemberMypageController {
 
                 } else {
                     // 아직 예정인 예약에는 후기 카운트가 없다.
-                    reservations.add(reservationDTO);
+                    // 그리고 예정인 예약 중 변호사 상태가 탈퇴면 취소된 예약에 넣어준다.
+                    if (reservationDTO.getLawyerState().equals("WITHDRAW")) {
+                        canceledReservations.add(reservationDTO);
+                    } else {
+                        // 나머지는 예정된 예약 객체에 넣어준다.
+                        reservations.add(reservationDTO);
+                    }
                 }
             }
         }
@@ -228,7 +240,13 @@ public class MemberMypageController {
 
                 } else {
                     // 아직 예정인 예약에는 후기 카운트가 없다.
-                    reservations.add(reservationDTO);
+                    // 그리고 예정인 예약 중 변호사 상태가 탈퇴면 취소된 예약에 넣어준다.
+                    if (reservationDTO.getLawyerState().equals("WITHDRAW")) {
+                        canceledReservations.add(reservationDTO);
+                    } else {
+                        // 나머지는 예정된 예약 객체에 넣어준다.
+                        reservations.add(reservationDTO);
+                    }
                 }
             }
         }

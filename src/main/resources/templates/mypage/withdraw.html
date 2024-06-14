@@ -36,21 +36,29 @@
                                             <p>2. 불량 이용자의 재가입 방지, 명예훼손 등 권리침해 분쟁 및 수사협조 등을 위한 한시적인 개인정보 보존 조치는 개인정보 취급방침을 따릅니다.</p>
                                         </li>
                                         <li>
-                                            <p>3. 회원이 작성한 상담글 등의 콘텐츠는 의뢰인회원과 변호사회원 상호간의 기록이자 이용약관에 따라 회사가 이용권을 취득하고 있어 삭제 대상에 포함하지 않습니다.</p>
+                                            <p>3. 회원이 작성한 상담글, 후기 등의 콘텐츠는 의뢰인 회원과 변호사 회원 상호간의 기록이자 이용약관에 따라 회사가 이용권을 취득하고 있어 삭제 대상에 포함하지 않습니다.</p>
                                         </li>
                                         <li>
                                             <p>4. 탈퇴 후에는 기존의 아이디로 다시 가입할 수 없습니다.</p>
+                                        </li>
+                                        <li>
+                                            <p>5.  [ 회원탈퇴 ] 를 누르는 것은 위 안내사항을 모두 확인하였으며, 이에 동의함을 의미합니다.</p>
                                         </li>
                                     </ol>
                                 </div>
                             </div>
                             <div class="Withdraw-Body-Card-Footer">
                                 <div class="Withdraw-Body-Card-Footer-Description">
-                                    [ 회원탈퇴 ] 를 누르는 것은 위 안내사항을
+                                    [ 회원탈퇴 ] 를 누르시면 바로 탈퇴가 진행되며,
                                     <br>
-                                    모두 확인하였으며, 이에 동의함을 의미합니다.
+                                    같은 아이디로 재가입 할 수 없으니
+                                    <br>
+                                    신중하게 선택해주시기 바랍니다.
+
                                 </div>
-                                <button type="button" class="Withdraw-Button">[ 회원탈퇴 ]</button>
+                                <form action="/withdraw/member-withdraw" method="post">
+                                <button type="submit" class="Withdraw-Button">[ 회원탈퇴 ]</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -66,4 +74,6 @@
         </div>
     </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script src="/js/mypage/withdraw-member.js"></script>
 </html>

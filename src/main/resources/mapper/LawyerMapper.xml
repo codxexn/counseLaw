@@ -160,9 +160,16 @@
         WHERE LAWYER_ID = #{lawyerId}
     </delete>
 
-    <delete id="deleteLawyer">
-        DELETE FROM TBL_LAWYER
+    <update id="deleteLawyer">
+        UPDATE TBL_LAWYER
+        SET LAWYER_STATE = 'WITHDRAW'
         WHERE LAWYER_ID = #{lawyerId}
-    </delete>
+    </update>
+
+    <update id="deleteLawyerReservation">
+        UPDATE TBL_RESERVATION
+        SET RESERVATION_STATUS = 'CANCELED'
+        WHERE LAWYER_ID = #{lawyerId}
+    </update>
 
 </mapper>
