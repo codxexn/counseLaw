@@ -29,17 +29,18 @@
                                     <section class="MFP-List-Contents">
                                         <div class="MFP-List-Feed">
                                             <!--                                            th:each 들어갈 곳-->
-                                            <div class="MFP-List-Question-Wrapper" th:each="myConsults:${myConsults}">
+                                            <div class="MFP-List-Question-Wrapper" th:each="myConsult:${myConsults}">
                                                 <!--                                                반복-->
-                                                <a th:href="@{/consult-detail/{consultId}(consultId=${myConsults.getConsultingCaseId()})}">
+                                                <a th:href="@{/consult-detail/{consultId}(consultId=${myConsult.getConsultingCaseId()})}">
+                                                    <input type="hidden" name="consultId" th:value="${myConsult.getConsultingCaseId()}">
                                                     <div>
                                                         <div class="MFP-List-Question">
                                                             <!--                                                            <h5 class="MFP-List-Question-Keywords">-->
                                                             <!--                                                                <span class="MFP-List-Question-Keyword">음주/무면허</span>-->
                                                             <!--                                                            </h5>-->
                                                             <h1 class="MFP-List-Question-Title"
-                                                                th:text="${myConsults.getCaseTitle()}"></h1>
-                                                            <div class="MFP-List-Question-Viewcount" th:text="'조회수 ' + ${myConsults.getCaseCount()}"></div>
+                                                                th:text="${myConsult.getCaseTitle()}"></h1>
+                                                            <div class="MFP-List-Question-Viewcount" th:text="'조회수 ' + ${myConsult.getCaseCount()}"></div>
 <!--                                                            <div class="MFP-List-Question-Inner">-->
 <!--                                                                <div class="MFP-List-Question-Answer">-->
 <!--                                                                    <strong class="MFP-List-Question-Answer-Author"-->
@@ -81,10 +82,10 @@
                                                     <div class="MFP-List-Aside-Content-Tip">
                                                         <div class="MFP-List-Aside-Content-Heading">꼭 알아두세요!</div>
                                                     </div>
-                                                    <div class="MFP-List-Aside-Lawguides" th:each="legalGuideWithDetail:${legalGuideWithDetail}">
-                                                        <a th:href="'/legal-guide-page/legal-guide2?legalGuideId=' + ${legalGuideWithDetail.legalGuideId}" class="MFP-Lawguide-Each-Link">
-                                                            <h3 class="MFP-Lawguide-Title" th:text="${legalGuideWithDetail.legalGuideTitle}"></h3>
-                                                            <h5 class="MFP-Lawguide-Lawyername" th:text="${legalGuideWithDetail.lawyerName} + ' 변호사' "></h5>
+                                                    <div class="MFP-List-Aside-Lawguides" th:each="legalGuide:${legalGuideWithDetail}">
+                                                        <a th:href="'/legal-guide-page/legal-guide2?legalGuideId=' + ${legalGuide.legalGuideId}" class="MFP-Lawguide-Each-Link">
+                                                            <h3 class="MFP-Lawguide-Title" th:text="${legalGuide.legalGuideTitle}"></h3>
+                                                            <h5 class="MFP-Lawguide-Lawyername" th:text="${legalGuide.lawyerName} + ' 변호사' "></h5>
                                                         </a>
                                                     </div>
                                                 </div>
