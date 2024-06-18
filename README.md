@@ -1,7 +1,7 @@
 
 ![counseLaw](https://github.com/codxexn/counseLaw/assets/142518198/42181ea0-9331-4f73-aed6-6dcf85144f3b)
 
-# 법률 자문 커뮤니💪
+# 법률 자문 커뮤니티👩‍⚖️
 
 <br>
 
