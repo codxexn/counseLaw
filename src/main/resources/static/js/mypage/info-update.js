@@ -3,6 +3,7 @@
 // const emailErrorMsg = document.querySelector(".Missing-Email-Message");
 const newPwInput = document.querySelector("input[name=newPassword]");
 const newPwRepeat = document.querySelector("input[name=newPasswordRepeat]");
+const infoChangeButton = document.querySelector(".Account-Info-Card-Button");
 const newPwRepeatNoProblemMsg = document.querySelector(".New-Password-Same");
 const newPwRepeatErrorMsg = document.querySelector(".New-Password-Different");
 // const emailInput = document.querySelector("input[name=email]");
@@ -40,7 +41,7 @@ phoneInput.addEventListener("keyup", (e) => {
 })
 
 newPwInput.addEventListener("keyup", (e) => {
-    if (newPwInput.value !== newPwRepeat.value) {
+    if (!newPwInput.value.equals(newPwRepeat.value)) {
         newPwRepeatErrorMsg.style.display = "block";
         newPwRepeatNoProblemMsg.style.display = "none";
     } else {
@@ -50,12 +51,18 @@ newPwInput.addEventListener("keyup", (e) => {
 })
 
 newPwRepeat.addEventListener("keyup", (e) => {
-    if (newPwInput.value !== newPwRepeat.value) {
+    if (!newPwInput.value.equals(newPwRepeat.value)) {
         newPwRepeatErrorMsg.style.display = "block";
         newPwRepeatNoProblemMsg.style.display = "none";
     } else {
         newPwRepeatErrorMsg.style.display = "none";
         newPwRepeatNoProblemMsg.style.display = "block";
+    }
+
+    if(newPwInput.value.length != 0 && newPwRepeat.value.length != 0 && newPwInput.value.equals(newPwRepeat.value)) {
+        infoChangeButton.disabled = false;
+    } else {
+        infoChangeButton.disabled = true;
     }
 })
 
@@ -76,3 +83,14 @@ phoneAuthCodeCheckButton.addEventListener("click", () => {
 phoneAuthCodeInput.addEventListener("keyup", () => {
     phoneAuthCodeCheckButton.style.display = "block";
 })
+
+
+// function saveButtonChange() {
+//     // 저장버튼 활성화
+//     if(newPwInput.value.length != 0 && newPwRepeat.value.length != 0 && newPwInput.value.equals(newPwRepeat.value)) {
+//         infoChangeButton.disabled = false;
+//     } else {
+//         infoChangeButton.disabled = true;
+//     }
+// }
+
