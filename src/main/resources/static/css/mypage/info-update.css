@@ -540,6 +540,15 @@ button, input, optgroup, select, textarea {
     border-radius: 0;
 }
 
+.Account-Call-Card-Button {
+    color: #c50000;
+    font-size: 18px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+}
+
 .Missing-Phone-Message {
     display: none;
 }
