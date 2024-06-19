@@ -55,8 +55,6 @@
         ]]>
     </select>
 
-
-
 <!--    조회수 올리는 update문-->
     <update id="updateViewCount">
         UPDATE TBL_CONSULTING_CASE
@@ -64,6 +62,11 @@
         WHERE CONSULTING_CASE_ID = #{consultId}
     </update>
 
-
+    <!--    내가 작성한 온라인 상담글 조회-->
+    <select id="selectMyConsult" resultType="consultingCaseVO">
+        SELECT CONSULTING_CASE_ID, MEMBER_ID, CASE_TITLE, CASE_CONTENT, CASE_COUNT, CREATE_DATE, UPDATE_DATE
+        FROM TBL_CONSULTING_CASE
+        WHERE MEMBER_ID = #{memberId}
+    </select>
 
 </mapper>

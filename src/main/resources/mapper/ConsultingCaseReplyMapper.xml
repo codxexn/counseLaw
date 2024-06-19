@@ -12,8 +12,6 @@
         FROM TBL_CONSULTING_CASE_REPLY
         WHERE CONSULTING_CASE_ID = #{consultingCaseId}
         ORDER BY CONSULTING_CASE_REPLY_ID DESC
-
-
     </select>
 
 </mapper>

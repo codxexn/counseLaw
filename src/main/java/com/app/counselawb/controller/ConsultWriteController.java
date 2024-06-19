@@ -57,6 +57,7 @@ public class ConsultWriteController {
 
         List<ConsultingCaseVO> myConsults = consultingCaseService.readMyConsult(currentMember.getMemberId());
         model.addAttribute("myConsults", myConsults);
+        myConsults.forEach(c -> log.info(String.valueOf(c)));
 
         if (myConsults.size() == 0) {
             return "counseling/my-counseling-empty";

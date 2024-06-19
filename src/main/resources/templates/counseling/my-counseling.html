@@ -32,28 +32,15 @@
                                             <div class="MFP-List-Question-Wrapper" th:each="myConsult:${myConsults}">
                                                 <!--                                                반복-->
                                                 <a th:href="@{/consult-detail/{consultId}(consultId=${myConsult.getConsultingCaseId()})}">
-                                                    <input type="hidden" name="consultId" th:value="${myConsult.getConsultingCaseId()}">
                                                     <div>
                                                         <div class="MFP-List-Question">
-                                                            <!--                                                            <h5 class="MFP-List-Question-Keywords">-->
-                                                            <!--                                                                <span class="MFP-List-Question-Keyword">음주/무면허</span>-->
-                                                            <!--                                                            </h5>-->
                                                             <h1 class="MFP-List-Question-Title"
                                                                 th:text="${myConsult.getCaseTitle()}"></h1>
                                                             <div class="MFP-List-Question-Viewcount" th:text="'조회수 ' + ${myConsult.getCaseCount()}"></div>
-<!--                                                            <div class="MFP-List-Question-Inner">-->
-<!--                                                                <div class="MFP-List-Question-Answer">-->
-<!--                                                                    <strong class="MFP-List-Question-Answer-Author"-->
-<!--                                                                            th:text="${myFavoritePosts.lawyerReplyCount} + '개의 변호사 답변'">-->
-<!--                                                                    </strong>-->
-<!--                                                                </div>-->
-<!--                                                            </div>-->
                                                         </div>
                                                     </div>
                                                 </a>
-<!--                                                <hr>-->
                                             </div>
-                                            <div class="MFP-List-Contents-Trigger-Load"></div>
                                         </div>
                                         <aside class="MFP-List-Aside">
                                             <div class="MFP-Write-Banner">
@@ -101,10 +88,5 @@
         </div>
     </div>
 </div>
-</body>
-</html></title>
-</head>
-<body>
-
 </body>
 </html>
