@@ -6,6 +6,7 @@ const newPwRepeat = document.querySelector("input[name=newPasswordRepeat]");
 const infoChangeButton = document.querySelector(".Account-Info-Card-Button");
 const newPwRepeatNoProblemMsg = document.querySelector(".New-Password-Same");
 const newPwRepeatErrorMsg = document.querySelector(".New-Password-Different");
+
 // const emailInput = document.querySelector("input[name=email]");
 const phoneInput = document.querySelector("input[name=newPhone]");
 const phoneErrorMsg = document.querySelector(".Missing-Phone-Message");
@@ -41,28 +42,26 @@ phoneInput.addEventListener("keyup", (e) => {
 })
 
 newPwInput.addEventListener("keyup", (e) => {
-    if (!newPwInput.value.equals(newPwRepeat.value)) {
+    if (newPwInput.value !== newPwRepeat.value) {
         newPwRepeatErrorMsg.style.display = "block";
         newPwRepeatNoProblemMsg.style.display = "none";
+        infoChangeButton.disabled = true;
     } else {
         newPwRepeatErrorMsg.style.display = "none";
         newPwRepeatNoProblemMsg.style.display = "block";
+        infoChangeButton.disabled = false;
     }
 })
 
 newPwRepeat.addEventListener("keyup", (e) => {
-    if (!newPwInput.value.equals(newPwRepeat.value)) {
+    if (newPwInput.value !== newPwRepeat.value) {
         newPwRepeatErrorMsg.style.display = "block";
         newPwRepeatNoProblemMsg.style.display = "none";
+        infoChangeButton.disabled = true;
     } else {
         newPwRepeatErrorMsg.style.display = "none";
         newPwRepeatNoProblemMsg.style.display = "block";
-    }
-
-    if(newPwInput.value.length != 0 && newPwRepeat.value.length != 0 && newPwInput.value.equals(newPwRepeat.value)) {
         infoChangeButton.disabled = false;
-    } else {
-        infoChangeButton.disabled = true;
     }
 })
 
@@ -84,13 +83,30 @@ phoneAuthCodeInput.addEventListener("keyup", () => {
     phoneAuthCodeCheckButton.style.display = "block";
 })
 
-
-// function saveButtonChange() {
-//     // 저장버튼 활성화
-//     if(newPwInput.value.length != 0 && newPwRepeat.value.length != 0 && newPwInput.value.equals(newPwRepeat.value)) {
-//         infoChangeButton.disabled = false;
-//     } else {
+//
+// function validatePasswords() {
+//     const newPassword = newPwInput.value;
+//     const newPasswordRepeat = newPwRepeat.value;
+//
+//     if (newPassword.length < 8) {
+//         newPasswordError.style.display = 'block';
+//         newPasswordDifferent.style.display = 'none';
+//         newPasswordSame.style.display = 'none';
 //         infoChangeButton.disabled = true;
+//     } else {
+//         newPasswordError.style.display = 'none';
+//         if (newPassword === newPasswordRepeat) {
+//             newPasswordDifferent.style.display = 'none';
+//             newPasswordSame.style.display = 'block';
+//             infoChangeButton.disabled = false;
+//         } else {
+//             newPasswordDifferent.style.display = 'block';
+//             newPasswordSame.style.display = 'none';
+//             infoChangeButton.disabled = true;
+//         }
 //     }
 // }
+//
+// newPwInput.addEventListener("input", validatePasswords);
+// newPwRepeat.addEventListener("input", validatePasswords);
 
