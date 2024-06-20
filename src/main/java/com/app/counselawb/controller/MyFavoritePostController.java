@@ -49,6 +49,6 @@ public class MyFavoritePostController {
         }
     }
 
-    @GetMapping("my-favorite-posts-empty")
-    public void goToMyEmptyFavoritePosts(){;}
+//    @GetMapping("my-favorite-posts-empty")
+//    public void goToMyEmptyFavoritePosts(){;}
 }

@@ -24,10 +24,10 @@ public interface MemberMypageService {
     // 멤버 id와 변호사 id로 즐찾 정보 가져오기
     public Optional<LawyerLikeVO> findCheckMyFavoriteLawyer(Long memberId, Long lawyerId);
 
-    // 즐찾 해제하기
+    // 즐겨찾은 변호사 해제하기
     public void discardMyFavoriteLawyer(Long memberId, Long lawyerId);
 
-    // 내가 하트 누른 글 개수
+    // 내 관심글 개수
     public int getCountMyFavoritePosts(Long memberId);
 
     // 내 상담 조회
