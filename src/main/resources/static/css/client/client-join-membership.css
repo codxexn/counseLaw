@@ -747,11 +747,11 @@ display: none;
 }
 
 .user-age-check-checkbox:checked+label::before{
-border-color: #f50;
+border-color: #c50000;
 }
 
 .user-age-check-checkbox:checked+label::after{
-border-color: #f50;
+border-color: #c50000;
 }
 
 .user-age-check-label{
@@ -833,21 +833,21 @@ margin-top: -35px;
 .control-label{
     display: block;
     height: 25px;
-    color: #cb3725!important;
-    border-bottom-color: #cb3725;
+    color: #c50000!important;
+    border-bottom-color: #c50000;
 }
 
 .contract-consensus-checkbox:checked+label::before{
-background: #f50;
-    border-color: #f50;
+background: #c50000;
+    border-color: #c50000;
 }
 
 .contract-consensus-marketing-accept-checkbox-text:checked+label>i{
-color: #f50;
+color: #c50000;
 }
 
 label.control-label{
-    color: #cb3725;
+    color: #c50000;
     display: block;
     font-size: 13px;
     height: 25px;
@@ -890,11 +890,11 @@ background-color: #fff;
 }
 
 .marketing-checkbox:checked +label > i{
-color: #f50;
+color: #c50000;
 }
 
 .marketing-checkbox:checked+label:after{
-border-color: #f50;
+border-color: #c50000;
 }
 
 .material-dropdown-menu.active .material-dropdown-menu-content{
@@ -988,7 +988,7 @@ height: 200px;
 }
 
 .title{
-background-color: #ff4e00;
+background-color: #c50000;
     color: #fff;
     padding: 16px 12px;
     text-align: center;
