@@ -49,6 +49,24 @@ function checkFormValidity() {
     }
 }
 
+// function checkCheckboxes() {
+//     const allChecked = checkboxes.every(checkbox => checkbox.checked);
+//     joinButton.disabled = !allChecked;
+// }
+
+// checkboxes.forEach(checkbox => checkbox.addEventListener('click', checkCheckboxes));
+checkboxes.forEach(checkbox => checkbox.addEventListener('click', () => {
+    const allChecked = checkboxes.every(checkbox => checkbox.checked);
+
+    if (!checkbox.checked) {
+        joinButton.disabled = true;
+    } else if (allChecked) {
+        joinButton.disabled = false;
+    }
+}) )
+
+
+
 emailContent.addEventListener('input', checkFormValidity);
 passwordContent.addEventListener('input', checkFormValidity);
 passwordConfirmContent.addEventListener('input', checkFormValidity);
@@ -151,11 +169,18 @@ document.addEventListener('DOMContentLoaded', function () {
         checkboxes.forEach(checkbox => {
             checkbox.checked = allAgree.checked;
         });
+        joinButton.disabled = false;
     });
 
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('change', function () {
             allAgree.checked = checkboxes.every(cb => cb.checked);
+
+            if (!checkbox.checked) {
+                allAgree.checked = false;
+                joinButton.disabled = true;
+            }
+
         });
     });
 

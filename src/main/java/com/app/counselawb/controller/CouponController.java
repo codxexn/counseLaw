@@ -2,6 +2,7 @@ package com.app.counselawb.controller;
 
 import com.app.counselawb.domain.dto.CouponMemberDTO;
 import com.app.counselawb.domain.vo.CouponVO;
+import com.app.counselawb.domain.vo.LawyerVO;
 import com.app.counselawb.domain.vo.MemberVO;
 import com.app.counselawb.service.CouponAdminService;
 import com.app.counselawb.service.CouponMemberService;
@@ -32,38 +33,42 @@ public class CouponController {
     private final ReservationService reservationService;
 
 @GetMapping("coupon-event")
-public String goToCouponEventPage(HttpSession session, Model model) {
+public String goToCouponEventPage(HttpSession session, Model model, MemberVO memberVO, LawyerVO lawyerVO) {
 
-    MemberVO currentMember = (MemberVO)session.getAttribute("member");
+    if (session.getAttribute("member") == null){
+        return "client-login/client-login";
+    } else {
 
-    List<CouponVO> foundEventCoupons = couponAdminService.readEventCoupon();
-    log.info(String.valueOf(foundEventCoupons.toString()));
-    List<CouponVO> myCoupons = reservationService.findMyCoupons(currentMember.getMemberId());
-    log.info(String.valueOf(myCoupons.toString()));
-    List<CouponVO> availableCoupons = new ArrayList<>();
+        MemberVO currentMember = (MemberVO)session.getAttribute("member");
+        List<CouponVO> foundEventCoupons = couponAdminService.readEventCoupon();
+        log.info(String.valueOf(foundEventCoupons.toString()));
+        List<CouponVO> myCoupons = reservationService.findMyCoupons(currentMember.getMemberId());
+        log.info(String.valueOf(myCoupons.toString()));
+        List<CouponVO> availableCoupons = new ArrayList<>();
 
-    for (CouponVO eventCoupon : foundEventCoupons) {
-        boolean alreadyOwned = false;
+        for (CouponVO eventCoupon : foundEventCoupons) {
+            boolean alreadyOwned = false;
 
-        // Check if the user already has this coupon
-        for (CouponVO myCoupon : myCoupons) {
-            if (eventCoupon.getCouponId().equals(myCoupon.getCouponId())) {
-                alreadyOwned = true;
-                break;
+            // Check if the user already has this coupon
+            for (CouponVO myCoupon : myCoupons) {
+                if (eventCoupon.getCouponId().equals(myCoupon.getCouponId())) {
+                    alreadyOwned = true;
+                    break;
+                }
+            }
+
+            // If the coupon is not already owned, add it to availableCoupons
+            if (!alreadyOwned) {
+                availableCoupons.add(eventCoupon);
             }
         }
 
-        // If the coupon is not already owned, add it to availableCoupons
-        if (!alreadyOwned) {
-            availableCoupons.add(eventCoupon);
-        }
+        int couponCounts = availableCoupons.size();
+        model.addAttribute("availableCoupons", availableCoupons);
+        model.addAttribute("couponCounts", couponCounts);
+
+        return "couponbooks/coupon-event";
     }
-
-    int couponCounts = availableCoupons.size();
-    model.addAttribute("availableCoupons", availableCoupons);
-    model.addAttribute("couponCounts", couponCounts);
-
-    return "couponbooks/coupon-event";
 }
 
 @PostMapping("save-coupon")

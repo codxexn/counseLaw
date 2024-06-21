@@ -32,7 +32,7 @@
             <nav class="left-FadeWrap">
                 <div class="left-Profile">
                     <div class="left-ProfilePage">
-                        <h2 class="Manager-name"  th:text="|관리자: ${session.member.memberName}|">관리자: 박지민</h2>
+                        <h2 class="Manager-name"  th:text="|관리자: ${session.member.memberName}|">관리자: 이도은</h2>
                         <a target="_blank" href="/member/mypage-member">
                             <button class="Manager-PageLink">
                                 <!--                                이동될 페이지 수정 필요-->
@@ -166,7 +166,7 @@
                                 <div class="memberTop-bottom" th:if="${selectedOption == 'selectAll'}"
                                      th:each="lawyerAndMember : ${selectAllLawyerAndMember}">
                                     <div style="width: 192px;" class="member-name"
-                                         th:text="${lawyerAndMember.allMemberName}">박지민
+                                         th:text="${lawyerAndMember.allMemberName}">이도은
                                     </div>
                                     <div style="width: 164px;" class="member-name"
                                          th:text="${lawyerAndMember.allMemberType}">일반
@@ -212,7 +212,7 @@
                                 </div>
                                 <div class="memberTop-bottom" th:if="${selectedOption == 'member'}"
                                      th:each="member : ${selectAllMembers}">
-                                    <div style="width: 192px;" class="member-name" th:text="${member.memberName}">박지민
+                                    <div style="width: 192px;" class="member-name" th:text="${member.memberName}">이도은
                                     </div>
                                     <div style="width: 164px;" class="member-name" th:text="|일반 회원|">일반 회원</div>
                                     <div style="width: 172px;" class="member-name"
@@ -244,7 +244,7 @@
                                 </div>
                                 <div class="memberTop-bottom" th:if="${selectedOption == 'lawyer'}"
                                      th:each="lawyer : ${selectAllLawyers}">
-                                    <div style="width: 192px;" class="member-name" th:text="${lawyer.lawyerName}">박지민
+                                    <div style="width: 192px;" class="member-name" th:text="${lawyer.lawyerName}">이도은
                                     </div>
                                     <div style="width: 164px;" class="member-name" th:text="|변호사 회원|">변호사 회원</div>
                                     <div style="width: 172px;" class="member-name"
