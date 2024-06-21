@@ -8,12 +8,34 @@
     <title>내 관심글 - 마이페이지 | 카운슬로우</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
     <link rel="stylesheet" href="/css/myFavoritePosts/myFavoritePosts.css">
-    <th:block th:replace="~{fix/header :: my-header-head}"></th:block>
-    <th:block th:replace="~{fix/footer :: my-footer-head}"></th:block>
+    <link rel="stylesheet" href="/css/mypage/mypage-header.css">
 </head>
 <body>
-    <div class="root pc">
-        <header th:replace="~{fix/header :: my-header}"></header>
+    <div class="root pc" style="height: 100%; background-color: white">
+        <div class="MypageHeaderWrapper">
+            <header class="MypageHeader">
+                <div class="MypageHeaderLeft">
+                    <div class="MypageHeader-LogoWrapper">
+                        <a href="/">
+                            <img src="/image/mypage/main_logo.png" alt="카운슬로우 로고" class="MypageHeader-MainLogo">
+                        </a>
+                    </div>
+                </div>
+                <div class="MypageHeaderCenter">
+                    <p class="MypageHeaderText">내 관심글</p>
+                </div>
+                <div class="MypageHeaderRight">
+                    <div class="MypageHeaderRight-ButtonContainer">
+                        <a href="/member/mypage-member" style="text-decoration: none;">
+                            <p class="MypageHeaderRight-Button">마이페이지로</p>
+                        </a>
+                        <a href="/login/logout-finally" style="text-decoration: none;">
+                            <p class="MypageHeaderRight-Button">로그아웃</p>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
         <div style="height: 100%;">
             <div class="MFP-Wrapper">
                 <div class="MFP-Contents">
@@ -28,7 +50,7 @@
                                                 <div class="MFP-List-Empty-Wrapper">
                                                     <div class="MFP-List-Empty">
                                                         <h2 class="MFP-List-Empty-Title">
-                                                            즐겨찾기한 상담글이 없습니다.
+                                                            내 관심글이 없습니다.
                                                         </h2>
                                                     </div>
                                                 </div>
@@ -55,27 +77,6 @@
                                                             </svg>
                                                         </i>
                                                     </a>
-                                                </div>
-                                                <div class="MFP-List-Aside-Content-Wrapper">
-                                                    <div class="MFP-List-Aside-Content">
-                                                        <div class="MFP-List-Aside-Content-Tip">
-                                                            <div class="MFP-List-Aside-Content-Heading">꼭 알아두세요!</div>
-                                                        </div>
-                                                        <div class="MFP-List-Aside-Lawguides">
-                                                            <a href="" class="MFP-Lawguide-Each-Link">
-                                                                <h3 class="MFP-Lawguide-Title">스토킹과 협박 관련 고소 상담</h3>
-                                                                <h5 class="MFP-Lawguide-Lawyername">한동석 변호사</h5>
-                                                            </a>
-                                                            <a href="" class="MFP-Lawguide-Each-Link">
-                                                                <h3 class="MFP-Lawguide-Title">직장에서 사직서가 사라진 경우, 어떻게 해야할까요?</h3>
-                                                                <h5 class="MFP-Lawguide-Lawyername">한동석 변호사</h5>
-                                                            </a>
-                                                            <a href="" class="MFP-Lawguide-Each-Link">
-                                                                <h3 class="MFP-Lawguide-Title">회사 내 명예훼손 소송 상담</h3>
-                                                                <h5 class="MFP-Lawguide-Lawyername">한동석 변호사</h5>
-                                                            </a>
-                                                        </div>
-                                                    </div>
                                                 </div>
                                             </aside>
                                         </section>

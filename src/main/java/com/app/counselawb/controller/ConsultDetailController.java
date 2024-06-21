@@ -33,7 +33,7 @@ public class ConsultDetailController {
     @GetMapping("/{consultId}")
     public String goToConsultationDetail(HttpSession session, @PathVariable Long consultId, Model model, Pagination pagination, MemberVO memberVO, LawyerVO lawyerVO){
 
-        if (session.getAttribute("member") == null){
+        if (session.getAttribute("member") == null && session.getAttribute("lawyer") == null){
             return "client-login/client-login";
         }
 //        상담 상세 페이지의 consultId, 제목 ,내용, 시간등
