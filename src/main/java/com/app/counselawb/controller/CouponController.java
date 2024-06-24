@@ -41,15 +41,13 @@ public String goToCouponEventPage(HttpSession session, Model model, MemberVO mem
 
         MemberVO currentMember = (MemberVO)session.getAttribute("member");
         List<CouponVO> foundEventCoupons = couponAdminService.readEventCoupon();
-        log.info(String.valueOf(foundEventCoupons.toString()));
         List<CouponVO> myCoupons = reservationService.findMyCoupons(currentMember.getMemberId());
-        log.info(String.valueOf(myCoupons.toString()));
         List<CouponVO> availableCoupons = new ArrayList<>();
 
         for (CouponVO eventCoupon : foundEventCoupons) {
             boolean alreadyOwned = false;
 
-            // Check if the user already has this coupon
+            // 이미 이 쿠폰을 가지고 있는지 확인
             for (CouponVO myCoupon : myCoupons) {
                 if (eventCoupon.getCouponId().equals(myCoupon.getCouponId())) {
                     alreadyOwned = true;
@@ -57,7 +55,7 @@ public String goToCouponEventPage(HttpSession session, Model model, MemberVO mem
                 }
             }
 
-            // If the coupon is not already owned, add it to availableCoupons
+            // 만약 가지고 있지 않다면 가능한 쿠폰 리스트 객체에 add
             if (!alreadyOwned) {
                 availableCoupons.add(eventCoupon);
             }
