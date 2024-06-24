@@ -48,7 +48,6 @@ public class MemberMypageController {
         pagination.progress();
 
         List<LawyerLikeDTO> lawyerLikeDTOS = memberMypageService.findMyFavoriteLawyers(currentMember.getMemberId(), pagination);
-        List<String> favoritesLawyerList = new ArrayList<>();
 
         mv.addObject("lawyerLikeDTOS", lawyerLikeDTOS);
         mv.addObject("pagination", pagination);
